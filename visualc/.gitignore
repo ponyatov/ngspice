@@ -16,3 +16,10 @@
 !/*.sln
 !/*.vcproj
 !/*.vcxproj
+
+!/parse-bison.c
+!/parse-bison.h
+!/inpptree-parser.c
+!/inpptree-parser.h
+
+!/generate-parser

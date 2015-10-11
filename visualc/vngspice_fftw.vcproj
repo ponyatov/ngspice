@@ -2152,7 +2152,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\spicelib\parser\inpptree-parser.h"
+				RelativePath="..\visualc\inpptree-parser.h"
 				>
 			</File>
 			<File
@@ -6240,7 +6240,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\spicelib\parser\inpptree-parser.c"
+				RelativePath="..\visualc\inpptree-parser.c"
 				>
 			</File>
 			<File
@@ -7836,7 +7836,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\frontend\parse-bison.c"
+				RelativePath="..\visualc\parse-bison.c"
 				>
 			</File>
 			<File

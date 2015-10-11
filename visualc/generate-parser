@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# (compile "./generate-parser")
+#
+# (compile "bison -yd -o parse-bison.c ../src/frontend/parse-bison.y")
+# (compile "bison -yd -o inpptree-parser.c ../src/spicelib/parser/inpptree-parser.y")
+#
+# (grep "cd .. && git --no-pager grep -nHi -e 'parse-bison\\|inpptree-parser'")
+
+bison -yd -o parse-bison.c ../src/frontend/parse-bison.y
+bison -yd -o inpptree-parser.c ../src/spicelib/parser/inpptree-parser.y
