@@ -2145,7 +2145,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\par
 				>
 			</File>
 			<File
-				RelativePath="..\src\spicelib\parser\inpptree-parser.h"
+				RelativePath="..\visualc\inpptree-parser.h"
 				>
 			</File>
 			<File
@@ -6233,7 +6233,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\par
 				>
 			</File>
 			<File
-				RelativePath="..\src\spicelib\parser\inpptree-parser.c"
+				RelativePath="..\visualc\inpptree-parser.c"
 				>
 			</File>
 			<File
@@ -7829,7 +7829,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\par
 				>
 			</File>
 			<File
-				RelativePath="..\src\frontend\parse-bison.c"
+				RelativePath="..\visualc\parse-bison.c"
 				>
 			</File>
 			<File
