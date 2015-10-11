@@ -1,5 +1,6 @@
 %{
     /*
+     * (compile "cd ../../visualc && ./generate-parser")
      * (compile (concat "bison -ydo parse-bison.c " (file-relative-name buffer-file-name)))
      */
 
