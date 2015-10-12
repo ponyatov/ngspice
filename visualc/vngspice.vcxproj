@@ -199,7 +199,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -247,7 +250,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <PreBuildEvent>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)64\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -340,7 +346,10 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -396,7 +405,10 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)64\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
@@ -404,7 +416,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">
     <PreBuildEvent>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -449,7 +464,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">
     <PreBuildEvent>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)64\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -541,7 +559,10 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -594,7 +615,10 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)64\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
@@ -646,7 +670,10 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -703,7 +730,10 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)64\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
@@ -756,7 +786,10 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -810,7 +843,10 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PreBuildEvent>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
+      <Command>del $(Configuration)64\$(Platform)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
+</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
