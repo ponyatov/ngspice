@@ -33,7 +33,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -121,7 +123,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -209,7 +213,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -302,7 +308,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -395,7 +403,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -482,7 +492,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -570,7 +582,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -662,7 +676,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -755,7 +771,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -848,7 +866,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -942,7 +962,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -1035,7 +1057,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Custom defined Build: Recompile conf.c with actual date"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
+start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y""
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
