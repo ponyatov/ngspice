@@ -205,7 +205,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -254,7 +254,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
 </Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -304,7 +304,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -357,7 +357,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -415,7 +415,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -462,7 +462,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -512,7 +512,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -564,7 +564,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -619,7 +619,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -672,7 +672,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -731,7 +731,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
@@ -784,7 +784,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"

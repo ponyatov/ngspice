@@ -26,7 +26,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\spicelib\parser\inpptree-parser.c&quot; --defines=&quot;..\src\spicelib\parser\inpptree-parser.h&quot;  &quot;..\src\spicelib\parser\inpptree-parser.y&quot;
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\parse-bison.c&quot; --defines=&quot;..\src\frontend\parse-bison.h&quot;  &quot;..\src\frontend\parse-bison.y&quot;"
@@ -118,7 +118,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\par
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\spicelib\parser\inpptree-parser.c&quot; --defines=&quot;..\src\spicelib\parser\inpptree-parser.h&quot;  &quot;..\src\spicelib\parser\inpptree-parser.y&quot;
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\parse-bison.c&quot; --defines=&quot;..\src\frontend\parse-bison.h&quot;  &quot;..\src\frontend\parse-bison.y&quot;"
@@ -210,7 +210,7 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\par
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\conf.obj
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\spicelib\parser\inpptree-parser.c&quot; --defines=&quot;..\src\spicelib\parser\inpptree-parser.h&quot;  &quot;..\src\spicelib\parser\inpptree-parser.y&quot;
 start /B /WAIT ..\..\flex-bison\win_bison.exe --output=&quot;..\src\frontend\parse-bison.c&quot; --defines=&quot;..\src\frontend\parse-bison.h&quot;  &quot;..\src\frontend\parse-bison.y&quot;"
