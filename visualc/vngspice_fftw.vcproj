@@ -32,7 +32,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
@@ -120,7 +120,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
@@ -208,7 +208,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
@@ -301,7 +301,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
@@ -394,7 +394,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
@@ -481,7 +481,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
@@ -569,7 +569,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
@@ -661,7 +661,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
@@ -754,7 +754,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
@@ -847,7 +847,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
@@ -941,7 +941,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
@@ -1034,7 +1034,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>

@@ -26,7 +26,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\conf.obj"
 				Outputs="$(ConfigurationName)\conf.obj"
 			/>
@@ -116,7 +116,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\conf.obj"
 				Outputs="$(ConfigurationName)\conf.obj"
 			/>
@@ -206,7 +206,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				Description="Custom defined Build: Recompile conf.c with actual date"
+				Description="Recompile conf.c with actual date, invoke win_bison"
 				CommandLine="del $(ConfigurationName)\conf.obj"
 				Outputs="$(ConfigurationName)\conf.obj"
 			/>

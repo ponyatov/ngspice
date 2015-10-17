@@ -205,7 +205,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -251,7 +251,7 @@
 </Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -298,7 +298,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -348,7 +348,7 @@
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -403,7 +403,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -447,7 +447,7 @@
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -494,7 +494,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -543,7 +543,7 @@
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -595,7 +595,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -645,7 +645,7 @@
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -701,7 +701,7 @@
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -751,7 +751,7 @@
       <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
