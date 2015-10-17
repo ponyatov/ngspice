@@ -1214,6 +1214,7 @@
     <ClInclude Include="..\src\frontend\outitf.h" />
     <ClInclude Include="..\src\include\ngspice\outpdefs.h" />
     <ClInclude Include="..\src\frontend\parse.h" />
+    <ClInclude Include="..\src\frontend\parse-bison.h" />
     <ClInclude Include="..\src\include\ngspice\plot.h" />
     <ClInclude Include="..\src\frontend\plotting\plot5.h" />
     <ClInclude Include="..\src\frontend\plotting\plotcurv.h" />

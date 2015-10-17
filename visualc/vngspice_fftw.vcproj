@@ -2668,6 +2668,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\frontend\parse-bison.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\include\ngspice\plot.h"
 				>
 			</File>
