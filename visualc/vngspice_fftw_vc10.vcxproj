@@ -207,9 +207,8 @@
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
@@ -256,9 +255,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
@@ -306,9 +304,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
@@ -359,9 +356,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
@@ -417,9 +413,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
@@ -464,9 +459,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
@@ -514,9 +508,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
@@ -566,9 +559,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
@@ -621,9 +613,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
@@ -674,9 +665,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
@@ -733,9 +723,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
@@ -786,9 +775,8 @@ start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bi
     <CustomBuildStep>
       <Message>Recompile conf.c with actual date, invoke win_bison</Message>
       <Command>del $(Configuration)64\$(Platform)\conf.obj
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\spicelib\parser\inpptree-parser.c" --defines="..\src\spicelib\parser\inpptree-parser.h"  "..\src\spicelib\parser\inpptree-parser.y"
-start /B /WAIT ..\..\flex-bison\win_bison.exe --output="..\src\frontend\parse-bison.c" --defines="..\src\frontend\parse-bison.h"  "..\src\frontend\parse-bison.y"
-</Command>
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1</Command>
       <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
