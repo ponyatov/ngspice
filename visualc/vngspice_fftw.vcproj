@@ -33,7 +33,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -45,7 +47,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;XSPICE;HAVE_LIBFFTW3"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -121,7 +123,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -134,7 +138,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONFIG64;HAVE_LIBFFTW3"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -209,7 +213,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -224,7 +230,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -302,7 +308,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -318,7 +326,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONFIG64;RELBUILD64;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="0"
@@ -395,7 +403,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -407,7 +417,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONSOLE;XSPICE;HAVE_LIBFFTW3"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -482,7 +492,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -495,7 +507,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONSOLE;CONFIG64;HAVE_LIBFFTW3"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -570,7 +582,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -585,7 +599,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -662,7 +676,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -678,7 +694,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;CONFIG64;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -755,7 +771,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -770,7 +788,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;USE_OMP;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -848,7 +866,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -864,7 +884,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;USE_OMP;CONFIG64;RELBUILD64;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="0"
@@ -942,7 +962,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -957,7 +979,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll32&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;USE_OMP;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -1035,7 +1057,9 @@
 			<Tool
 				Name="VCCustomBuildTool"
 				Description="Recompile conf.c with actual date, invoke win_bison"
-				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj"
+				CommandLine="del $(ConfigurationName)64\$(PlatformName)\conf.obj
+..\..\flex-bison\win_bison.exe --output=inpptree-parser.c --defines=inpptree-parser.h ..\src\spicelib\parser\inpptree-parser.y || exit 1
+..\..\flex-bison\win_bison.exe --output=parse-bison.c --defines=parse-bison.h ..\src\frontend\parse-bison.y || exit 1"
 				Outputs="$(ConfigurationName)64\$(PlatformName)\conf.obj"
 			/>
 			<Tool
@@ -1051,7 +1075,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\src\maths\poly&quot;;&quot;$(ProjectDir)..\src\frontend&quot;;&quot;$(ProjectDir)..\src\spicelib\devices&quot;;&quot;$(ProjectDir)..\src\include&quot;;&quot;$(ProjectDir)include&quot;;&quot;$(ProjectDir)..\src\spicelib\parser&quot;;&quot;$(ProjectDir).&quot;;&quot;$(ProjectDir)fftw3\fftw-3.3.3-dll64&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;CONFIG64;RELBUILD64;USE_OMP;HAVE_LIBFFTW3"
 				MinimalRebuild="false"
 				ExceptionHandling="0"
