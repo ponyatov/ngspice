@@ -1017,6 +1017,8 @@
     <ClInclude Include="..\src\include\ngspice\grid.h" />
     <ClInclude Include="..\src\include\ngspice\hash.h" />
     <ClInclude Include="..\src\frontend\hcomp.h" />
+    <ClInclude Include="..\src\include\ngspice\hlpdefs.h" />
+    <ClInclude Include="..\src\frontend\hpgl.h" />
     <ClInclude Include="..\src\spicelib\devices\hfet2\hfet2defs.h" />
     <ClInclude Include="..\src\spicelib\devices\hfet2\hfet2ext.h" />
     <ClInclude Include="..\src\spicelib\devices\hfet2\hfet2init.h" />
@@ -1026,15 +1028,12 @@
     <ClInclude Include="..\src\spicelib\devices\hfet1\hfetinit.h" />
     <ClInclude Include="..\src\spicelib\devices\hfet1\hfetitf.h" />
     <ClInclude Include="..\src\spicelib\devices\hisim2\hisim.h" />
-    <ClInclude Include="..\src\spicelib\devices\hisimhv1\hisimhv.h" />
-    <ClInclude Include="..\src\spicelib\devices\hisimhv2\hisimhv2.h" />
-    <ClInclude Include="..\src\include\ngspice\hlpdefs.h" />
-    <ClInclude Include="..\src\frontend\hpgl.h" />
     <ClInclude Include="..\src\spicelib\devices\hisim2\hsm2def.h" />
     <ClInclude Include="..\src\spicelib\devices\hisim2\hsm2evalenv.h" />
     <ClInclude Include="..\src\spicelib\devices\hisim2\hsm2ext.h" />
     <ClInclude Include="..\src\spicelib\devices\hisim2\hsm2init.h" />
     <ClInclude Include="..\src\spicelib\devices\hisim2\hsm2itf.h" />
+    <ClInclude Include="..\src\spicelib\devices\hisimhv1\hisimhv.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv1\hsmhvdef.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv1\hsmhveval_qover.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv1\hsmhvevalenv.h" />
@@ -1043,6 +1042,7 @@
     <ClInclude Include="..\src\spicelib\devices\hisimhv1\hsmhvitf.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv1\hsmhvld_info_eval.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv1\hsmhvtemp_eval.h" />
+    <ClInclude Include="..\src\spicelib\devices\hisimhv2\hisimhv2.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv2\hsmhv2def.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv2\hsmhv2eval_dep.h" />
     <ClInclude Include="..\src\spicelib\devices\hisimhv2\hsmhv2eval_qover.h" />
@@ -1069,7 +1069,7 @@
     <ClInclude Include="..\src\spicelib\parser\inppas1.h" />
     <ClInclude Include="..\src\spicelib\parser\inppas2.h" />
     <ClInclude Include="..\src\spicelib\parser\inppas3.h" />
-    <ClInclude Include="..\visualc\inpptree-parser.h" />
+    <ClInclude Include="inpptree-parser.h" />
     <ClInclude Include="..\src\include\ngspice\inpptree.h" />
     <ClInclude Include="..\src\frontend\parser\input.h" />
     <ClInclude Include="..\src\frontend\interp.h" />
