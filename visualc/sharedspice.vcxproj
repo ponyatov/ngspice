@@ -61,7 +61,7 @@
     </CustomBuildStep>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;SHARED_MODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
@@ -104,7 +104,7 @@
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;D:\software\tcl8.6b2\generic;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;D:\software\tk8.6b2\generic;D:\software\blt2.4z_new\2012\blt2.4z\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;D:\software\tcl8.6b2\generic;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;USE_INTERP_RESULT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
@@ -119,9 +119,9 @@
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>psapi.lib;blt24.lib;tcl86t.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)bin\spice.dll</OutputFile>
-      <AdditionalLibraryDirectories>D:\software\tcl8.6b2\win\Release_VC9;D:\software\tk8.6b1\win\Release_VC9;D:\software\blt2.4z\blt2008_86\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -146,7 +146,7 @@
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
@@ -450,7 +450,7 @@
     <ClInclude Include="..\src\spicelib\parser\inppas1.h" />
     <ClInclude Include="..\src\spicelib\parser\inppas2.h" />
     <ClInclude Include="..\src\spicelib\parser\inppas3.h" />
-    <ClInclude Include="..\src\spicelib\parser\inpptree-parser.h" />
+    <ClInclude Include="..\visualc\inpptree-parser.h" />
     <ClInclude Include="..\src\include\ngspice\inpptree.h" />
     <ClInclude Include="..\src\frontend\parser\input.h" />
     <ClInclude Include="..\src\frontend\interp.h" />
@@ -1234,6 +1234,7 @@
     <ClCompile Include="..\src\spicelib\analysis\dcoaskq.c" />
     <ClCompile Include="..\src\spicelib\analysis\dcop.c" />
     <ClCompile Include="..\src\spicelib\analysis\dcosetp.c" />
+    <ClCompile Include="..\src\spicelib\analysis\dcpss.c" />
     <ClCompile Include="..\src\spicelib\analysis\dctaskq.c" />
     <ClCompile Include="..\src\spicelib\analysis\dctran.c" />
     <ClCompile Include="..\src\spicelib\analysis\dctrcurv.c" />
@@ -1914,6 +1915,9 @@
     <ClCompile Include="..\src\misc\printnum.c" />
     <ClCompile Include="..\src\frontend\help\provide.c" />
     <ClCompile Include="..\src\spicelib\devices\jfet2\psmodel.c" />
+    <ClCompile Include="..\src\spicelib\analysis\pssaskq.c" />
+    <ClCompile Include="..\src\spicelib\analysis\pssinit.c" />
+    <ClCompile Include="..\src\spicelib\analysis\psssetp.c" />
     <ClCompile Include="..\src\spicelib\parser\ptfuncs.c" />
     <ClCompile Include="..\src\frontend\plotting\pvec.c" />
     <ClCompile Include="..\src\spicelib\analysis\pzan.c" />
