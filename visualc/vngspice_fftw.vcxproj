@@ -1074,7 +1074,7 @@
     <ClInclude Include="..\src\frontend\parser\input.h" />
     <ClInclude Include="..\src\frontend\interp.h" />
     <ClInclude Include="..\src\maths\poly\interpolate.h" />
-    <ClInclude Include="include\inttypes.h" />
+    <ClInclude Include="..\visualc\include\inttypes.h" />
     <ClInclude Include="..\src\include\ngspice\ipc.h" />
     <ClInclude Include="..\src\include\ngspice\ipcproto.h" />
     <ClInclude Include="..\src\include\ngspice\ipctiein.h" />
