@@ -543,10 +543,6 @@
     <ClInclude Include="..\src\spicelib\devices\nbjt2\nbt2init.h" />
     <ClInclude Include="..\src\frontend\newcoms.h" />
     <ClInclude Include="..\src\include\ngspice\ngspice.h" />
-    <ClInclude Include="..\src\maths\ni\nipred.h" />
-    <ClInclude Include="..\src\maths\ni\nipzmeth.h" />
-    <ClInclude Include="..\src\maths\ni\nireinit.h" />
-    <ClInclude Include="..\src\maths\ni\nisenre.h" />
     <ClInclude Include="..\src\include\ngspice\noisedef.h" />
     <ClInclude Include="..\src\maths\misc\norm.h" />
     <ClInclude Include="..\src\include\ngspice\numcards.h" />
