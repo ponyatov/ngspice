@@ -81,7 +81,7 @@
 				HeapCommitSize="0"
 				StackReserveSize="0"
 				StackCommitSize="0"
-				LinkTimeCodeGeneration="1"
+				LinkTimeCodeGeneration="0"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="1"
