@@ -52,18 +52,10 @@
 /* #undef HAS_SHWIN */
 #endif
 
-/* Tcl Windows */
-/* #undef HAS_TCLWIN */
-
-/* define to specify MS Windows executable with simple GUI */
-#if defined (SHARED_MODULE)
-/* #undef HAS_WINGUI */
-#else
 /* CONSOLE flag set in configurations console_debug and console_release */
-#ifndef CONSOLE
+#if !defined(CONSOLE) && !defined(SHARED_MODULE)
 /* define to specify MS Windows GUI executable */
 #define HAS_WINGUI 1
-#endif
 #endif
 
 /* Define to 1 if you have the `access' function. */
@@ -217,7 +209,6 @@
 
 /* Define to 1 if you have the `logb' function. */
 #define HAVE_LOGB 1
-#define logb _logb /* needed in spsmp.c */
 
 /* Define to 1 if your system has a GNU libc compatible `malloc' function, and
    to 0 otherwise. */
