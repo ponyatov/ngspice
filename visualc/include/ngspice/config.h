@@ -474,6 +474,9 @@
 /* Compile with debug info */
 /* #undef NGDEBUG */
 
+/* Define the build date */
+#define NGSPICEBUILDDATE "Thu Oct 22 07:25:27 CEST 2015"
+
 #ifdef CONFIG64
 /* Define the directory for executables */
 #define NGSPICEBINDIR "C:/Spice64/bin"
@@ -485,12 +488,6 @@
 /* Define the directory for architecture independent data files */
 #define NGSPICEDATADIR "C:/Spice/share/ngspice"
 #endif
-
-/* Define the build date */
-#define NGSPICEBUILDDATE "Thu Oct 22 07:25:27 CEST 2015"
-
-/* Define the directory for architecture independent data files */
-#define NGSPICEDATADIR "C:/Spice/share/ngspice"
 
 /* Define if we want NOBYPASS */
 /* #undef NOBYPASS */
