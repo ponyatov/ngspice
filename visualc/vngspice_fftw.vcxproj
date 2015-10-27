@@ -160,44 +160,44 @@
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)64\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)64\$(Platform)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\$(Platform)\</IntDir>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PreBuildEventUseInBuild>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)64\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)64\$(Platform)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">$(Configuration)\$(Platform)\</IntDir>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">true</PreBuildEventUseInBuild>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">false</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">$(Configuration)64\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">$(Configuration)64\$(Platform)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">$(Configuration)\$(Platform)\</IntDir>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">true</PreBuildEventUseInBuild>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">false</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='console_release|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='console_release|Win32'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='console_release|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">$(Configuration)64\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">$(Configuration)64\$(Platform)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">$(Configuration)64\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">$(Configuration)64\$(Platform)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='console_release_omp|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='console_release_omp|Win32'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='console_release_omp|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">$(Configuration)64\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">$(Configuration)64\$(Platform)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -252,8 +252,8 @@
     </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -349,8 +349,8 @@
     </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -448,8 +448,8 @@
     </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -544,8 +544,8 @@
     </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -646,8 +646,8 @@
     </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -752,8 +752,8 @@
     </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)64\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)64\$(Platform)\conf.obj;%(Outputs)</Outputs>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
