@@ -245,54 +245,6 @@
       <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib
-</Command>
-    </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <Midl>
-      <TargetEnvironment>X64</TargetEnvironment>
-    </Midl>
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)fftw3\fftw-3.3.3-dll64;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
-      <ExceptionHandling>
-      </ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAs>CompileAsC</CompileAs>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>psapi.lib;libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <HeapReserveSize>0</HeapReserveSize>
-      <HeapCommitSize>0</HeapCommitSize>
-      <StackReserveSize>4194304</StackReserveSize>
-      <StackCommitSize>16384</StackCommitSize>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Link>
-    <PostBuildEvent>
-      <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
@@ -341,6 +293,54 @@
     </Link>
     <PostBuildEvent>
       <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)fftw3\fftw-3.3.3-dll64;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>psapi.lib;libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <HeapReserveSize>0</HeapReserveSize>
+      <HeapCommitSize>0</HeapCommitSize>
+      <StackReserveSize>4194304</StackReserveSize>
+      <StackCommitSize>16384</StackCommitSize>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -442,53 +442,6 @@
       <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">
-    <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
-    </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <Midl>
-      <TargetEnvironment>X64</TargetEnvironment>
-    </Midl>
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONSOLE;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
-      <ExceptionHandling>
-      </ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAs>CompileAsC</CompileAs>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>psapi.lib;libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <HeapReserveSize>0</HeapReserveSize>
-      <HeapCommitSize>0</HeapCommitSize>
-      <StackReserveSize>0</StackReserveSize>
-      <StackCommitSize>0</StackCommitSize>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Link>
-    <PostBuildEvent>
-      <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release|Win32'">
     <PreBuildEvent>
       <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
@@ -536,6 +489,53 @@
     </Link>
     <PostBuildEvent>
       <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">
+    <PreBuildEvent>
+      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
+      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
+      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONSOLE;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>psapi.lib;libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <HeapReserveSize>0</HeapReserveSize>
+      <HeapCommitSize>0</HeapCommitSize>
+      <StackReserveSize>0</StackReserveSize>
+      <StackCommitSize>0</StackCommitSize>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y "$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.dll" "$(OutDir)libfftw3-3.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">
