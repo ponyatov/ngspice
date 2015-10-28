@@ -61,7 +61,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\conf.obj</Command>
+      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
     </PreBuildEvent>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -102,7 +102,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\conf.obj</Command>
+      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
     </PreBuildEvent>
     <ClCompile>
       <Optimization>Full</Optimization>
@@ -144,7 +144,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
     <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\conf.obj</Command>
+      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
     </PreBuildEvent>
     <ClCompile>
       <Optimization>Full</Optimization>
