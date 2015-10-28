@@ -67,7 +67,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;SHARED_MODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;SHARED_MODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <MinimalRebuild>false</MinimalRebuild>
@@ -111,7 +111,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;D:\software\tcl8.6b2\generic;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;SHARED_MODULE;USE_INTERP_RESULT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;SHARED_MODULE;USE_INTERP_RESULT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -154,7 +154,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;SHARED_MODULE;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;SHARED_MODULE;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>

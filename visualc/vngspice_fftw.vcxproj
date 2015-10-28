@@ -220,7 +220,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)include;$(ProjectDir)..\src\include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;NGDEBUG;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -269,7 +269,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -321,7 +321,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)fftw3\fftw-3.3.3-dll64;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;NGDEBUG;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -372,7 +372,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONFIG64;RELBUILD64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONFIG64;RELBUILD64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -422,7 +422,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONSOLE;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;NGDEBUG;CONSOLE;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -470,7 +470,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONSOLE;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -521,7 +521,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;NGDEBUG;CONSOLE;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;NGDEBUG;CONSOLE;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -572,7 +572,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONSOLE;CONFIG64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -623,7 +623,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;USE_OMP;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;USE_OMP;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -678,7 +678,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;USE_OMP;CONFIG64;RELBUILD64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;USE_OMP;CONFIG64;RELBUILD64;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -732,7 +732,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;USE_OMP;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONSOLE;USE_OMP;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -787,7 +787,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;CONSOLE;CONFIG64;RELBUILD64;USE_OMP;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONSOLE;CONFIG64;RELBUILD64;USE_OMP;HAVE_LIBFFTW3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
