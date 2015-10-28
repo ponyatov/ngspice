@@ -205,10 +205,6 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">$(ProjectName)64_omp_c</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
@@ -291,10 +287,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
@@ -385,10 +377,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
@@ -471,10 +459,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <CustomBuildStep>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
