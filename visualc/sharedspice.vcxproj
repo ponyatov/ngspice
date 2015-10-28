@@ -59,11 +59,10 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <CustomBuildStep>
+    <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\conf.obj</Command>
-      <Outputs>$(Configuration)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
+    </PreBuildEvent>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -101,11 +100,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <CustomBuildStep>
+    <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\conf.obj</Command>
-      <Outputs>$(Configuration)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
+    </PreBuildEvent>
     <ClCompile>
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -144,11 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
-    <CustomBuildStep>
+    <PreBuildEvent>
       <Message>Custom defined Build: Recompile conf.c with actual date</Message>
       <Command>del $(Configuration)\conf.obj</Command>
-      <Outputs>$(Configuration)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
+    </PreBuildEvent>
     <ClCompile>
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
