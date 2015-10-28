@@ -354,7 +354,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONFIG64;RELBUILD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONFIG64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -626,7 +626,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;USE_OMP;CONFIG64;RELBUILD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;USE_OMP;CONFIG64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -721,7 +721,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONSOLE;CONFIG64;RELBUILD64;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;CONSOLE;CONFIG64;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ExceptionHandling>
       </ExceptionHandling>
