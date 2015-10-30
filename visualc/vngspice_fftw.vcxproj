@@ -206,13 +206,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
-      <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)include;$(ProjectDir)..\src\include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -251,13 +248,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
-      <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -302,13 +296,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -350,13 +341,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -406,13 +394,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">
     <PreBuildEvent>
-      <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir);$(ProjectDir)fftw3\fftw-3.3.3-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -451,13 +436,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release|Win32'">
     <PreBuildEvent>
-      <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -502,13 +484,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">
     <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -550,13 +529,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">
     <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -604,13 +580,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
     <PreBuildEvent>
-      <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -656,13 +629,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">
     <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -713,13 +683,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release_omp|Win32'">
     <PreBuildEvent>
-      <Command>lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -765,13 +732,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">
     <PreBuildEvent>
-      <Command>lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\$(Platform)\conf.obj del $(Configuration)\$(Platform)\conf.obj
+lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\$(Platform)\conf.obj</Command>
-      <Outputs>$(Configuration)\$(Platform)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -788,13 +752,13 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>true</OpenMPSupport>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>CompileAsC</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -1320,10 +1284,11 @@
     <ClInclude Include="..\src\spicelib\parser\inppas3.h" />
     <ClInclude Include="..\src\spicelib\parser\inpxx.h" />
     <ClInclude Include="..\src\winmain.h" />
-    <ClInclude Include="..\visualc\include\inttypes.h" />
-    <ClInclude Include="..\visualc\inpptree-parser.h" />
+    <ClInclude Include="include\inttypes.h" />
     <ClInclude Include="include\ngspice\config.h" />
     <ClInclude Include="include\stdint.h" />
+    <ClInclude Include="inpptree-parser.h" />
+    <ClInclude Include="parse-bison.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\xspice\icm\objects.inc" />
@@ -2785,9 +2750,9 @@
     <ClCompile Include="..\src\xspice\mif\miftrunc.c" />
     <ClCompile Include="..\src\xspice\mif\mifutil.c" />
     <ClCompile Include="..\src\xspice\mif\mif_inp2.c" />
-    <ClCompile Include="..\visualc\inpptree-parser.c" />
-    <ClCompile Include="..\visualc\parse-bison.c" />
+    <ClCompile Include="inpptree-parser.c" />
     <ClCompile Include="msvc-compat.c" />
+    <ClCompile Include="parse-bison.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

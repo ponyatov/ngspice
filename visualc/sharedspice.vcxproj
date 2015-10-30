@@ -59,11 +59,10 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\conf.obj</Command>
-      <Outputs>$(Configuration)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
+    <PreBuildEvent>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
+    </PreBuildEvent>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -101,11 +100,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\conf.obj</Command>
-      <Outputs>$(Configuration)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
+    <PreBuildEvent>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
+    </PreBuildEvent>
     <ClCompile>
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -144,11 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
-    <CustomBuildStep>
-      <Message>Custom defined Build: Recompile conf.c with actual date</Message>
-      <Command>del $(Configuration)\conf.obj</Command>
-      <Outputs>$(Configuration)\conf.obj;%(Outputs)</Outputs>
-    </CustomBuildStep>
+    <PreBuildEvent>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
+    </PreBuildEvent>
     <ClCompile>
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -690,10 +687,11 @@
     <ClInclude Include="..\src\spicelib\parser\inppas2.h" />
     <ClInclude Include="..\src\spicelib\parser\inppas3.h" />
     <ClInclude Include="..\src\spicelib\parser\inpxx.h" />
-    <ClInclude Include="..\visualc\include\inttypes.h" />
-    <ClInclude Include="..\visualc\inpptree-parser.h" />
+    <ClInclude Include="include\inttypes.h" />
     <ClInclude Include="include\ngspice\config.h" />
     <ClInclude Include="include\stdint.h" />
+    <ClInclude Include="inpptree-parser.h" />
+    <ClInclude Include="parse-bison.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\xspice\icm\objects.inc" />
@@ -2154,9 +2152,9 @@
     <ClCompile Include="..\src\xspice\mif\miftrunc.c" />
     <ClCompile Include="..\src\xspice\mif\mifutil.c" />
     <ClCompile Include="..\src\xspice\mif\mif_inp2.c" />
-    <ClCompile Include="..\visualc\inpptree-parser.c" />
-    <ClCompile Include="..\visualc\parse-bison.c" />
+    <ClCompile Include="inpptree-parser.c" />
     <ClCompile Include="msvc-compat.c" />
+    <ClCompile Include="parse-bison.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
