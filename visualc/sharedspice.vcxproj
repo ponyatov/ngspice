@@ -63,8 +63,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj</Command>
     </PreBuildEvent>
+    <CustomBuildStep>
+      <Message />
+      <Command />
+    </CustomBuildStep>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -72,13 +76,11 @@
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling />
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader />
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAs>CompileAsC</CompileAs>
@@ -86,8 +88,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <GenerateMapFile>false</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -95,17 +95,21 @@
       <HeapCommitSize>0</HeapCommitSize>
       <StackReserveSize>0</StackReserveSize>
       <StackCommitSize>0</StackCommitSize>
+      <LinkTimeCodeGeneration />
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
+      <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj</Command>
     </PreBuildEvent>
+    <CustomBuildStep>
+      <Message />
+      <Command />
+    </CustomBuildStep>
     <ClCompile>
       <Optimization>Full</Optimization>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -113,65 +117,17 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;D:\software\tcl8.6b2\generic;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;SHARED_MODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling />
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader />
       <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
+      <DebugInformationFormat />
       <CompileAs>CompileAsC</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <HeapReserveSize>0</HeapReserveSize>
-      <HeapCommitSize>0</HeapCommitSize>
-      <StackReserveSize>0</StackReserveSize>
-      <StackCommitSize>0</StackCommitSize>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
-    <PreBuildEvent>
-      <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(Configuration)\conf.obj del $(Configuration)\conf.obj</Command>
-    </PreBuildEvent>
-    <ClCompile>
-      <Optimization>Full</Optimization>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;SHARED_MODULE;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>
-      </ExceptionHandling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <OpenMPSupport>true</OpenMPSupport>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
-      <CompileAs>CompileAsC</CompileAs>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -182,8 +138,49 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
+    <PreBuildEvent>
+      <Message>Recompile conf.c with actual date</Message>
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message />
+      <Command />
+    </CustomBuildStep>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\maths\poly;$(ProjectDir)..\src\frontend;$(ProjectDir)..\src\spicelib\parser;$(ProjectDir)..\src\spicelib\devices;$(ProjectDir)..\src\include;$(ProjectDir)include;$(ProjectDir)..\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;SIMULATOR;XSPICE;SHARED_MODULE;USE_OMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OpenMPSupport>true</OpenMPSupport>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat />
+      <CompileAs>CompileAsC</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <HeapReserveSize>0</HeapReserveSize>
+      <HeapCommitSize>0</HeapCommitSize>
+      <StackReserveSize>0</StackReserveSize>
+      <StackCommitSize>0</StackCommitSize>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
