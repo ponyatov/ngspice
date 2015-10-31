@@ -232,7 +232,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_d.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -272,7 +271,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -315,7 +313,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)64_d.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -358,7 +355,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)64.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -400,7 +396,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_cd.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -440,7 +435,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_c.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -483,7 +477,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)64_cd.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -526,7 +519,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)64_c.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -570,7 +562,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_omp.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -617,7 +608,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)64_omp.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -663,7 +653,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_omp_c.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
@@ -710,7 +699,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)64_omp_c.exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <HeapReserveSize>0</HeapReserveSize>
