@@ -211,7 +211,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <ClCompile>
@@ -253,7 +253,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <ClCompile>
@@ -301,7 +301,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <Midl>
@@ -346,7 +346,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <Midl>
@@ -399,7 +399,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <ClCompile>
@@ -441,7 +441,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <ClCompile>
@@ -489,7 +489,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_debug|x64'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <Midl>
@@ -534,7 +534,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release|x64'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <Midl>
@@ -585,7 +585,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <ClCompile>
@@ -634,7 +634,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <Midl>
@@ -688,7 +688,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release_omp|Win32'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x86 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll32\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <ClCompile>
@@ -737,7 +737,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='console_release_omp|x64'">
     <PreBuildEvent>
       <Message>Recompile conf.c with actual date</Message>
-      <Command>if exist $(IntDir)\conf.obj del $(IntDir)\conf.obj
+      <Command>if exist $(IntDir)conf.obj del $(IntDir)conf.obj
         lib /machine:x64 /def:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.def /out:$(ProjectDir)fftw3\fftw-3.3.3-dll64\libfftw3-3.lib</Command>
     </PreBuildEvent>
     <Midl>
