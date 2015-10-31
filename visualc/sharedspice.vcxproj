@@ -95,6 +95,7 @@
       <HeapCommitSize>0</HeapCommitSize>
       <StackReserveSize>0</StackReserveSize>
       <StackCommitSize>0</StackCommitSize>
+      <LinkTimeCodeGeneration />
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
@@ -135,6 +136,7 @@
       <StackCommitSize>0</StackCommitSize>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
