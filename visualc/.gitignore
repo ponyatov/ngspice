@@ -13,8 +13,7 @@
 !/visualc/fftw3/fftw-*/README-ngspice.txt
 
 !/*.c
-!/*.sln
-!/*.vcproj
+!/*.h
 !/*.vcxproj
 
 !/parse-bison.c
