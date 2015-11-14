@@ -177,7 +177,7 @@ extern double x_atanh(double);
 #define fileno _fileno
 #define getcwd _getcwd
 #define chdir _chdir
-#if (_MSC_VER < 1900)
+#if (_MSC_VER < 1800)
 #define isnan _isnan
 #endif
 #define finite _finite
