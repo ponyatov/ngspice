@@ -56,7 +56,7 @@ sf_eno3 sf_eno3_init (int order              /* interpolation order */,
     pnt->n3 = n3;
     pnt->ng = 2*order-2;
     if (pnt->ng > n2 || pnt->ng > n3) {
-        //	sf_error("%s: ng=%d is too big",__FILE__,pnt->ng);
+        //      sf_error("%s: ng=%d is too big",__FILE__,pnt->ng);
         char msg[512];
         snprintf(msg, sizeof(msg), "%s: ng=%d is too big", __FILE__, pnt->ng);
         cm_message_send(msg);
@@ -169,4 +169,4 @@ void sf_eno3_apply (sf_eno3 pnt,
     }
 }
 
-/* 	$Id: eno3.c 4148 2009-02-09 03:55:32Z sfomel $	 */
+/*      $Id: eno3.c 4148 2009-02-09 03:55:32Z sfomel $   */

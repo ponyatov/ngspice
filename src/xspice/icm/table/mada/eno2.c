@@ -153,4 +153,4 @@ void sf_eno2_apply (sf_eno2 pnt,
     }
 }
 
-/* 	$Id: eno2.c 9044 2012-08-13 19:35:59Z vovizmus $	 */
+/*      $Id: eno2.c 9044 2012-08-13 19:35:59Z vovizmus $         */

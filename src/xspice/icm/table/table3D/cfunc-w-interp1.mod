@@ -110,7 +110,7 @@ typedef struct {
 
     struct filesource_state  *state;   /* the storage array for the
                                           filesource status.    */
-	
+
     int init_err;
 
     sf_eno3 newtable;         /* the table, code borrowed from madagascar project */
@@ -131,9 +131,9 @@ typedef struct {
 /*********************/
 
 #ifdef trili1
-typedef struct Point3Struct {	/* 3d point */
-	double x, y, z;
-	} Point3;
+typedef struct Point3Struct {   /* 3d point */
+        double x, y, z;
+        } Point3;
 typedef Point3 Vector3;
 #endif
 
@@ -382,7 +382,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     double xval, yval, zval, xoff, yoff, zoff, xdiff, ydiff, zdiff;
     double derivval[3], outval;
 #ifdef trili1
-	Point3 *p;                    /* Data for trilinear interp. */
+        Point3 *p;                    /* Data for trilinear interp. */
 #endif
     Local_Data_t *loc;        /* Pointer to local static data, not to be included
                                        in the state vector */
@@ -422,7 +422,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         /* Allocate storage for internal state */
         loc->state = (struct filesource_state*)malloc(sizeof(struct filesource_state));
         loc->ix = loc->iy = loc->iz = 0;
-		loc->init_err = 0;
+                loc->init_err = 0;
 
         /* open file */
         loc->state->fp = fopen_with_path(PARAM(file), "r");
@@ -517,8 +517,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     if (i == ix) {
                         snprintf(msg, sizeof(msg), "Too many numbers in x row.");
                         cm_message_send(msg);
-						loc->init_err = 1;
-		                return;
+                                                loc->init_err = 1;
+                                return;
                     }
                     cnv_get_spice_value(token, &loc->xcol[i++]);
                     free(token);
@@ -527,8 +527,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < ix) {
                     snprintf(msg, sizeof(msg), "Not enough numbers in x row.");
                     cm_message_send(msg);
-					loc->init_err = 1;
-		            return;
+                                        loc->init_err = 1;
+                            return;
                 }
             } else if (lLineCount == 5) {
                 char *token = CNVgettok(&cThisLinePtr);
@@ -537,8 +537,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     if (i == iy) {
                         snprintf(msg, sizeof(msg), "Too many numbers in y row.");
                         cm_message_send(msg);
-						loc->init_err = 1;
-		                return;
+                                                loc->init_err = 1;
+                                return;
                     }
                     cnv_get_spice_value(token, &loc->ycol[i++]);
                     free(token);
@@ -547,8 +547,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < iy) {
                     snprintf(msg, sizeof(msg), "Not enough numbers in y row.");
                     cm_message_send(msg);
-					loc->init_err = 1;
-		            return;
+                                        loc->init_err = 1;
+                            return;
                 }
             } else if (lLineCount == 6) {
                 char *token = CNVgettok(&cThisLinePtr);
@@ -557,8 +557,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     if (i == iz) {
                         snprintf(msg, sizeof(msg), "Too many numbers in z row.");
                         cm_message_send(msg);
-						loc->init_err = 1;
-		                return;
+                                                loc->init_err = 1;
+                                return;
                     }
                     cnv_get_spice_value(token, &loc->zcol[i++]);
                     free(token);
@@ -567,8 +567,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < iz) {
                     snprintf(msg, sizeof(msg), "Not enough numbers in z row.");
                     cm_message_send(msg);
-					loc->init_err = 1;
-		            return;
+                                        loc->init_err = 1;
+                            return;
                 }
                 /* jump out of while loop to read in the table */
                 break;
@@ -601,8 +601,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
         /* continue reading from cFile */
         for (lTableCount = 0; lTableCount < iz; lTableCount++) {
-			lLineCount = 0;            
-            while (lLineCount < iy) { 
+                        lLineCount = 0;
+            while (lLineCount < iy) {
                 char *token;
 
                 lIndex    = 0L;                 /* Reset counters and flags */
@@ -610,7 +610,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 lStartPos = lTotalChars;
 
                 /* read a line */
-				while (*cThisPtr){             /* Read until reaching null char */
+                                while (*cThisPtr){             /* Read until reaching null char */
                     if (!isNewline) {             /* Haven't read a CR or LF yet */
                         if (*cThisPtr == CR || *cThisPtr == LF) /* This char IS a CR or LF */
                             isNewline = 1;                        /* Set flag */
@@ -635,24 +635,24 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 while(token) {
                     double tmpval;
 #ifdef trili1
-					long int tmpind;
+                                        long int tmpind;
 #endif
                     if (i == ix) {
                         snprintf(msg, sizeof(msg), "Too many numbers in y row no. %d of table %d.", lLineCount, lTableCount);
                         cm_message_send(msg);
-						loc->init_err = 1;
-		                return;
+                                                loc->init_err = 1;
+                                return;
                     }
 
                     /* read table core from cFile, fill local static table structure table_data */
                     cnv_get_spice_value(token, &tmpval);
 #ifdef trili1
-					/* d[(X)+XSIZE*((Y)+YSIZE*(Z))] */
-					tmpind = (i++) + ix * (lLineCount + iy * lTableCount);
+                                        /* d[(X)+XSIZE*((Y)+YSIZE*(Z))] */
+                                        tmpind = (i++) + ix * (lLineCount + iy * lTableCount);
                     table_data[tmpind] = tmpval;
 #endif
 #ifdef trili
-                    table_data[lTableCount][lLineCount][i++] = tmpval; 
+                    table_data[lTableCount][lLineCount][i++] = tmpval;
 #endif
                     free(token);
                     token = CNVgettok(&cThisLinePtr);
@@ -660,10 +660,10 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < ix) {
                     snprintf(msg, sizeof(msg), "Not enough numbers in y row no. %d of table %d.", lLineCount, lTableCount);
                     cm_message_send(msg);
-					loc->init_err = 1;
-		            return;
+                                        loc->init_err = 1;
+                            return;
                 }
-				lLineCount++;
+                                lLineCount++;
             } /* end for loop y */
         } /* end for loop z */
 
@@ -687,8 +687,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
     loc = STATIC_VAR (locdata);
 
-	if (loc->init_err == 1)
-	    return;
+        if (loc->init_err == 1)
+            return;
 
     /* get input x, y, z;
     find corresponding indices;
@@ -699,46 +699,46 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     yval = INPUT(iny);
     zval = INPUT(inz);
 
-	/* check table ranges */
+        /* check table ranges */
     if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]) {
-	    if (PARAM(verbose) > 0) {
+            if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "x value %g exceeds table limits, \nplease enlarge range of your table", xval);
             cm_message_send(msg);
-		}
-		return;
+                }
+                return;
     }
     if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]) {
-	    if (PARAM(verbose) > 0) {
+            if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "y value %g exceeds table limits, \nplease enlarge range of your table", yval);
             cm_message_send(msg);
-		}
-		return;
+                }
+                return;
     }
     if (zval < loc->zcol[0] || zval > loc->zcol[loc->iz-1]) {
-	    if (PARAM(verbose) > 0) {
+            if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "z value %g exceeds table limits, \nplease enlarge range of your table", zval);
             cm_message_send(msg);
-		}
-		return;
+                }
+                return;
     }
 
     /*find index*/
     /* something like binary search to get the index */
     xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
 
-    /* find index with minimum distance between xval and row value 
+    /* find index with minimum distance between xval and row value
     if (fabs(loc->xcol[xind+1]-xval) < fabs(xval - loc->xcol[xind]))
         xind++;
 */
     xoff = xval - loc->xcol[xind];
     yind = findCrossOver(loc->ycol, 0, loc->iy-1, yval);
-    /* find index with minimum distance between yval and column value 
+    /* find index with minimum distance between yval and column value
     if (fabs(loc->ycol[yind+1]-yval) < fabs(yval - loc->ycol[yind]))
         yind++;
 */
     yoff = yval - loc->ycol[yind];
     zind = findCrossOver(loc->zcol, 0, loc->iz-1, zval);
-    /* find index with minimum distance between zval and table value 
+    /* find index with minimum distance between zval and table value
     if (fabs(loc->zcol[zind+1]-zval) < fabs(zval - loc->zcol[zind]))
         zind++;
 */
@@ -778,21 +778,21 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 #ifdef trili1
     /* trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def) */
     p = calloc(1, sizeof(Point3));
-	p->x = xval;
+        p->x = xval;
     p->y = yval;
     p->z = zval;
 
-	outval = trilinear(p, loc->table, loc->ix, loc->iy, loc->iz, 0.);
+        outval = trilinear(p, loc->table, loc->ix, loc->iy, loc->iz, 0.);
 
-	free(p);
+        free(p);
 #endif
 #ifdef trili
-    outval = TrilinearInterpolation(xoff/(loc->xcol[xind+1] - loc->xcol[xind]), 
-	                                yoff/(loc->ycol[yind+1] - loc->ycol[yind]), 
-	                                zoff/(loc->zcol[zind+1] - loc->zcol[zind]), 
-	                                xind, yind, zind, loc->table);
-#endif	
-	if(ANALYSIS != MIF_AC) {
+    outval = TrilinearInterpolation(xoff/(loc->xcol[xind+1] - loc->xcol[xind]),
+                                        yoff/(loc->ycol[yind+1] - loc->ycol[yind]),
+                                        zoff/(loc->zcol[zind+1] - loc->zcol[zind]),
+                                        xind, yind, zind, loc->table);
+#endif
+        if(ANALYSIS != MIF_AC) {
         double xderiv, yderiv, zderiv, outv;
         outv = PARAM(offset) + PARAM(gain) * outval;
         OUTPUT(out) = outv;
@@ -802,11 +802,11 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         PARTIAL(out,iny) = yderiv;
         zderiv = PARAM(gain) * derivval[2] / zdiff;
         PARTIAL(out,inz) = zderiv;
-        
-		if (PARAM(verbose) > 1) {
+
+                if (PARAM(verbose) > 1) {
             snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, zval: %g, xderiv: %g, yderiv: %g, zderiv: %g", outv, xval, yval, zval, xderiv, yderiv, zderiv);
             cm_message_send(msg);
-		}
+                }
     } else {
         ac_gain.real = PARAM(gain) * derivval[0] / xdiff;
         ac_gain.imag= 0.0;
@@ -816,4 +816,3 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         AC_GAIN(out,iny) = ac_gain;
     }
 }
-

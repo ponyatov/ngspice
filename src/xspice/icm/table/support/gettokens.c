@@ -62,8 +62,8 @@ char  *CNVgettok(char **s)
     switch(**s) {
 
     case '\0':           /* End of string found */
-        if(buf) 
-		    free(buf);
+        if(buf)
+                    free(buf);
         return(NULL);
 
 
@@ -133,4 +133,3 @@ char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
     }
     return(ret_str);
 }
-
