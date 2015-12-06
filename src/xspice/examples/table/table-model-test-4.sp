@@ -30,7 +30,7 @@ vdinv vdd 0 1.5
 .subckt inv vd vs in out
 *mp2 out in vd vd p1 l=0.13u w=10u ad=5p pd=6u as=5p ps=6u
 xmospt out in vd tbmosp
-*mn2 out in vs vs n1 l=0.13u w=5u ad=5p pd=6u as=5p ps=6u 
+*mn2 out in vs vs n1 l=0.13u w=5u ad=5p pd=6u as=5p ps=6u
 xmosnt out in vs tbmosn
 .ends
 
@@ -40,7 +40,7 @@ xmosinv1 vdd vss in1 out1 inv
 *** table model of mos transistor ***
 cdg d g 0.01p
 csg s g 0.014p
-amos1 %vd(d s) %vd(g s) %id(d s) mostable1 
+amos1 %vd(d s) %vd(g s) %id(d s) mostable1
 .model mostable1 table2d (offset=0.0 gain=0.5 order=2 file="table-2D-bsim4n_3.txt")
 * NMOS L=0.13u W=10.0u rgeoMod=1
 * BSIM 4.7
@@ -52,7 +52,7 @@ amos1 %vd(d s) %vd(g s) %id(d s) mostable1
 *** table model of pmos transistor ***
 cdg d g 0.01p
 csg s g 0.014p
-amos2 %vd(d s) %vd(g s) %id(d s) mostable2 
+amos2 %vd(d s) %vd(g s) %id(d s) mostable2
 .model mostable2 table2d (offset=0.0 gain=1 order=3 file="table-2D-bsim4p_3.txt")
 * PMOS L=0.13u W=10.0u rgeoMod=1
 * BSIM 4.7
@@ -64,9 +64,3 @@ amos2 %vd(d s) %vd(g s) %id(d s) mostable2
 .include ./Modelcards/modelcard.pmos
 
 .end
-
-
-
-
-
-

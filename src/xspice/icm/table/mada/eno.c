@@ -155,5 +155,4 @@ void sf_eno_apply (sf_eno ent,
     if (what != FUNC) *f1 = g1/n;
 }
 
-/* 	$Id: eno.c 8699 2012-07-03 22:10:38Z vovizmus $	 */
-
+/*      $Id: eno.c 8699 2012-07-03 22:10:38Z vovizmus $  */

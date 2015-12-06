@@ -11,8 +11,8 @@ typedef struct Eno3 *sf_eno3;
 /* abstract data type */
 
 
-sf_eno3 sf_eno3_init (int order              /* interpolation order */, 
-		      int n1, int n2, int n3 /* data dimensions */);
+sf_eno3 sf_eno3_init (int order              /* interpolation order */,
+                      int n1, int n2, int n3 /* data dimensions */);
 /*< Initialize interpolation object >*/
 
 
@@ -28,12 +28,12 @@ void sf_eno3_close (sf_eno3 pnt);
 /*< Free internal storage. >*/
 
 
-void sf_eno3_apply (sf_eno3 pnt, 
-		    int i, int j, int k       /* grid location */, 
-		    double x, double y, double z /* offsets from grid */,
-		    double* f                  /* output data */, 
-		    double* f1                 /* output derivative [3] */, 
-		    der what                  /* to compute [FUNC|DER|BOTH] */);
+void sf_eno3_apply (sf_eno3 pnt,
+                    int i, int j, int k       /* grid location */,
+                    double x, double y, double z /* offsets from grid */,
+                    double* f                  /* output data */,
+                    double* f1                 /* output derivative [3] */,
+                    der what                  /* to compute [FUNC|DER|BOTH] */);
 /*< Apply interpolation. >*/
 
 #endif

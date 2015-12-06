@@ -1,4 +1,4 @@
-* table source 
+* table source
 * number of columns (x)
 8
 * number of rows (y)
