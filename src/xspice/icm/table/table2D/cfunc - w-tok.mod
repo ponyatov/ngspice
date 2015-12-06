@@ -68,7 +68,7 @@ NON-STANDARD FEATURES
 #include <string.h>
 #include <math.h>
 
-#include "mada\eno2.h"
+#include "mada/eno2.h"
 
 /*=== CONSTANTS ========================*/
 
