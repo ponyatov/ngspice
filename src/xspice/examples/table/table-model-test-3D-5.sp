@@ -46,7 +46,7 @@ xmosinv5 vdd vss out4 out4 in1 nand
 *** table model of nmos transistor ***
 cdg d g 0.01p
 csg s g 0.014p
-amos1 %vd(d s) %vd(g s) %vd(b s) %id(d s) mostable1 
+amos1 %vd(d s) %vd(g s) %vd(b s) %id(d s) mostable1
 .model mostable1 table3d (offset=0.0 gain=0.5 order=3 file="table-3D-bsim4n.txt")
 * NMOS L=0.13u W=10.0u rgeoMod=1
 * BSIM 4.7
@@ -58,7 +58,7 @@ amos1 %vd(d s) %vd(g s) %vd(b s) %id(d s) mostable1
 *** table model of pmos transistor ***
 cdg d g 0.01p
 csg s g 0.014p
-amos2 %vd(d s) %vd(g s) %vd(b s) %id(d s) mostable2 
+amos2 %vd(d s) %vd(g s) %vd(b s) %id(d s) mostable2
 .model mostable2 table3d (offset=0.0 gain=1 order=3 file="table-3D-bsim4p.txt")
 * PMOS L=0.13u W=10.0u rgeoMod=1
 * BSIM 4.7
@@ -70,9 +70,3 @@ amos2 %vd(d s) %vd(g s) %vd(b s) %id(d s) mostable2
 .include ./Modelcards/modelcard.pmos
 
 .end
-
-
-
-
-
-

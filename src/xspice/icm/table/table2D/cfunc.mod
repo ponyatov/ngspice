@@ -411,7 +411,7 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 snprintf(msg, sizeof(msg), "cannot open file %s", PARAM(file));
                 cm_message_send(msg);
                 loc->state->atend = 1;
-				loc->init_err = 1;
+                                loc->init_err = 1;
                 return;
             }
         }
@@ -429,7 +429,7 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             snprintf(msg, sizeof(msg), "Insufficient memory to read file %s", PARAM(file));
             cm_message_send(msg);
             loc->state->atend = 1;
-			loc->init_err = 1;
+                        loc->init_err = 1;
             return;
         }
         /* read whole file into memory */
@@ -489,10 +489,10 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 while(token) {
                     if (i == ix)
                     {
-					    snprintf(msg, sizeof(msg), "Too many numbers in x row.");
+                                            snprintf(msg, sizeof(msg), "Too many numbers in x row.");
                         cm_message_send(msg);
-						loc->init_err = 1;
-		                return;
+                                                loc->init_err = 1;
+                                return;
                     }
                     cnv_get_spice_value(token, &loc->xcol[i++]);
                     free(token);
@@ -501,9 +501,9 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < ix){
                     snprintf(msg, sizeof(msg), "Not enough numbers in x row.");
                     cm_message_send(msg);
-					loc->init_err = 1;
-		            return;
-				}
+                                        loc->init_err = 1;
+                            return;
+                                }
             }
             else if (lLineCount == 4) {
                 char *token = CNVgettok(&cThisLinePtr);
@@ -513,8 +513,8 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     {
                         snprintf(msg, sizeof(msg), "Too many numbers in y row.");
                         cm_message_send(msg);
-						loc->init_err = 1;
-		                return;
+                                                loc->init_err = 1;
+                                return;
                     }
                     cnv_get_spice_value(token, &loc->ycol[i++]);
                     free(token);
@@ -523,9 +523,9 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < iy){
                     snprintf(msg, sizeof(msg), "Not enough numbers in y row.");
                     cm_message_send(msg);
-					loc->init_err = 1;
-		            return;
-				}
+                                        loc->init_err = 1;
+                            return;
+                                }
                 /* jump out of while loop to read in the table */
                 break;
             }
@@ -585,11 +585,11 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             while(token) {
                 double tmpval;
                 if (i == ix)
-                { 
+                {
                     snprintf(msg, sizeof(msg), "Too many numbers in y row no. %d.", lLineCount);
                     cm_message_send(msg);
-			        loc->init_err = 1;
-		            return;
+                                loc->init_err = 1;
+                            return;
                 }
 
                 /* read table core from cFile, fill local static table structure table_data */
@@ -601,9 +601,9 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             if (i < ix){
                 snprintf(msg, sizeof(msg), "Not enough numbers in y row no. %d.", lLineCount);
                 cm_message_send(msg);
-			    loc->init_err = 1;
-		        return;
-			}
+                            loc->init_err = 1;
+                        return;
+                        }
         } /* end while (cThisPtr <= cEndPtr) */
 
         /* fill table data into eno2 structure */
@@ -622,9 +622,9 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
     loc = STATIC_VAR (locdata);
 
-	/* return immediately if there was an initialization error */
-	if (loc->init_err == 1)
-	    return;
+        /* return immediately if there was an initialization error */
+        if (loc->init_err == 1)
+            return;
 
     /* get input x, y,
     find corresponding indices,
@@ -635,19 +635,19 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
     /*find index*/
     if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]){
-	    if (PARAM(verbose) > 0) {
+            if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "x value %g exceeds table limits, \nplease enlarge range of your table", xval);
             cm_message_send(msg);
-		}
-		return;
-	}
+                }
+                return;
+        }
     if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]){
-	    if (PARAM(verbose) > 0) {
+            if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "y value %g exceeds table limits, \nplease enlarge range of your table", yval);
             cm_message_send(msg);
-		}
-		return;
-	}
+                }
+                return;
+        }
 
     /* something like binary search to get the index */
     xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
@@ -707,10 +707,10 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         yderiv = PARAM(gain) * derivval[1] / ydiff;
         PARTIAL(out,iny) = yderiv;
 
-		if (PARAM(verbose) > 1) {
+                if (PARAM(verbose) > 1) {
             snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, xderiv: %g, yderiv: %g", outv, xval, yval, xderiv, yderiv);
             cm_message_send(msg);
-		}
+                }
     }
     else {
         ac_gain.real = PARAM(gain) * derivval[0] / xdiff;

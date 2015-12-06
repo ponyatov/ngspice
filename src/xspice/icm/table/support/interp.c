@@ -10,9 +10,9 @@
 /* 3d geometry types */
 /*********************/
 
-typedef struct Point3Struct {	/* 3d point */
-	double x, y, z;
-	} Point3;
+typedef struct Point3Struct {   /* 3d point */
+        double x, y, z;
+        } Point3;
 typedef Point3 Vector3;
 
 
@@ -79,7 +79,7 @@ trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def)
 {
 #   define DENS(X, Y, Z) d[(X)+xsize*((Y)+ysize*(Z))]
 
-    int	       x0, y0, z0,
+    int        x0, y0, z0,
                x1, y1, z1;
     double     *dp,
                fx, fy, fz,
@@ -115,10 +115,10 @@ trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def)
         d001 = dp[0];
         d101 = dp[1];
     } else {
-#	define INRANGE(X, Y, Z) \
-		  ((X) >= 0 && (X) < xsize && \
-		   (Y) >= 0 && (Y) < ysize && \
-		   (Z) >= 0 && (Z) < zsize)
+#       define INRANGE(X, Y, Z) \
+                  ((X) >= 0 && (X) < xsize && \
+                   (Y) >= 0 && (Y) < ysize && \
+                   (Z) >= 0 && (Z) < zsize)
 
         d000 = INRANGE(x0, y0, z0) ? DENS(x0, y0, z0) : def;
         d001 = INRANGE(x0, y0, z1) ? DENS(x0, y0, z1) : def;
@@ -132,7 +132,7 @@ trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def)
     }
 /* linear interpolation from l (when a=0) to h (when a=1)*/
 /* (equal to (a*h)+((1-a)*l) */
-#define LERP(a,l,h)	((l)+(((h)-(l))*(a)))
+#define LERP(a,l,h)     ((l)+(((h)-(l))*(a)))
 
     dx00 = LERP(fx, d000, d100);
     dx01 = LERP(fx, d001, d101);

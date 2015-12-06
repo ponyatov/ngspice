@@ -123,9 +123,9 @@ typedef struct {
 /* 3d geometry types */
 /*********************/
 
-typedef struct Point3Struct {	/* 3d point */
-	double x, y, z;
-	} Point3;
+typedef struct Point3Struct {   /* 3d point */
+        double x, y, z;
+        } Point3;
 typedef Point3 Vector3;
 
 /* Type definition for each possible token returned. */
@@ -173,8 +173,8 @@ static char  *CNVgettok(char **s)
     switch(**s) {
 
     case '\0':           /* End of string found */
-        if(buf) 
-		    free(buf);
+        if(buf)
+                    free(buf);
         return(NULL);
 
 
@@ -474,7 +474,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     int size, xind, yind, zind;
     double xval, yval, zval, xoff, yoff, zoff, xdiff, ydiff, zdiff;
     double derivval[3], outval;
-	Point3 *p;                    /* Data for trilinear interp. */
+        Point3 *p;                    /* Data for trilinear interp. */
 
     Local_Data_t *loc;        /* Pointer to local static data, not to be included
                                        in the state vector */
@@ -657,8 +657,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
         /* continue reading from cFile */
         for (lTableCount = 0; lTableCount < iz; lTableCount++) {
-			lLineCount = 0;            
-            while (lLineCount < iy) { 
+                        lLineCount = 0;
+            while (lLineCount < iy) {
                 char *token;
 
                 lIndex    = 0L;                 /* Reset counters and flags */
@@ -666,7 +666,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 lStartPos = lTotalChars;
 
                 /* read a line */
-				while (*cThisPtr){             /* Read until reaching null char */
+                                while (*cThisPtr){             /* Read until reaching null char */
                     if (!isNewline) {             /* Haven't read a CR or LF yet */
                         if (*cThisPtr == CR || *cThisPtr == LF) /* This char IS a CR or LF */
                             isNewline = 1;                        /* Set flag */
@@ -690,7 +690,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 i = 0;
                 while(token) {
                     double tmpval;
-					long int tmpind;
+                                        long int tmpind;
 
                     if (i == ix) {
                         /* error */
@@ -698,8 +698,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
                     /* read table core from cFile, fill local static table structure table_data */
                     cnv_get_spice_value(token, &tmpval);
-					/* d[(X)+XSIZE*((Y)+YSIZE*(Z))] */
-					tmpind = (i++) + ix * (lLineCount + iy * lTableCount);
+                                        /* d[(X)+XSIZE*((Y)+YSIZE*(Z))] */
+                                        tmpind = (i++) + ix * (lLineCount + iy * lTableCount);
                     table_data[tmpind] = tmpval;
                     free(token);
                     token = CNVgettok(&cThisLinePtr);
@@ -707,7 +707,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < ix) {
                     /* error */
                 }
-				lLineCount++;
+                                lLineCount++;
             } /* end for loop y */
         } /* end for loop z */
         /* fill table data into eno3 structure */
@@ -792,15 +792,15 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
     /* trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def) */
     p = calloc(1, sizeof(Point3));
-	p->x = xval;
+        p->x = xval;
     p->y = yval;
     p->z = zval;
 
-//	outval = trilinear(p, loc->table, loc->ix, loc->iy, loc->iz, 0.);
+//      outval = trilinear(p, loc->table, loc->ix, loc->iy, loc->iz, 0.);
 
-	free(p);
-	
-	if(ANALYSIS != MIF_AC) {
+        free(p);
+
+        if(ANALYSIS != MIF_AC) {
         double xderiv, yderiv, zderiv, outv;
         outv = PARAM(offset) + PARAM(gain) * outval;
         OUTPUT(out) = outv;
@@ -822,4 +822,3 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         AC_GAIN(out,iny) = ac_gain;
     }
 }
-

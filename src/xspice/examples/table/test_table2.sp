@@ -16,7 +16,7 @@ v2 2 0 DC 1.5
 v3 3 0 DC 1.5
 
 **** table model ***
-a1 1 2 3 %id(10 11) table1 
+a1 1 2 3 %id(10 11) table1
 .model table1 table3d (offset=0.0 gain=1.0 order=2 file="table-3D-test.txt")
 *
 *
@@ -31,9 +31,3 @@ r10 10 0 1k
 *
 *
 .end
-
-
-
-
-
-

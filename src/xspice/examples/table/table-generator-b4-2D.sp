@@ -1,25 +1,25 @@
 ** NMOSFET: table generator with BSIM4 2D (Vdrain, Vgate)
 *NMOS
-*.csparam vdstart=-0.1 
-*.csparam vdstop=1.8 
+*.csparam vdstart=-0.1
+*.csparam vdstop=1.8
 *.csparam vdstep=0.05
-*.csparam vgstart=-0.1 
-*.csparam vgstop=1.8 
+*.csparam vgstart=-0.1
+*.csparam vgstop=1.8
 *.csparam vgstep=0.05
 
 *PMOS
-.csparam vdstart=-1.8 
-.csparam vdstop=0.1 
+.csparam vdstart=-1.8
+.csparam vdstop=0.1
 .csparam vdstep=0.01
-.csparam vgstart=-1.8  
+.csparam vgstart=-1.8
 .csparam vgstop=0.1
 .csparam vgstep=0.01
 
 ** Circuit Description **
 *m1 2 1 3 0 n1 L=0.13u W=10.0u rgeoMod=1
 m1 2 1 3 0 p1 L=0.13u W=10.0u rgeoMod=1
-vgs 1 0 1.8 
-vds 2 0 1.8 
+vgs 1 0 1.8
+vds 2 0 1.8
 vss 3 0 0
 
 .control
@@ -61,14 +61,14 @@ let lcy=0
 let loopy = vgstart
 while lcy < ycount
   alter vgs loopy
-  dc vds $&vdstart $&vdstop $&vdstep  
-*  let lcx=0  
-*  let loopx = vdstart  
+  dc vds $&vdstart $&vdstop $&vdstep
+*  let lcx=0
+*  let loopx = vdstart
 *  dowhile loopx le vdstop
 *    alter vds loopx
 *    op
 *    let xvec[lcx] = i(vss)
-*	destroy i(vss)
+*       destroy i(vss)
 *    let loopx = loopx + vdstep
 *    let lcx = lcx + 1
 *  end
@@ -76,7 +76,7 @@ while lcy < ycount
   echo $&xvec >> $outfile
   destroy dc1
   let loopy = loopy + vgstep
-  let lcy = lcy + 1  
+  let lcy = lcy + 1
 end
 
 .endc
