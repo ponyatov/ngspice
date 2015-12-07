@@ -16,8 +16,6 @@ is returned.  The original input string is undisturbed.
 
 #define OK 0
 #define FAIL 1
-#define CR 13            /* Decimal code of Carriage Return char */
-#define LF 10            /* Decimal code of Line Feed char */
 
 /* Type definition for each possible token returned. */
 typedef enum token_type_s { CNV_NO_TOK, CNV_STRING_TOK } Cnv_Token_Type_t;

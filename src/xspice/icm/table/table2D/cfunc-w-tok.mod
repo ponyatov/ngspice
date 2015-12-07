@@ -74,8 +74,6 @@ NON-STANDARD FEATURES
 
 #define OK 0
 #define FAIL 1
-#define CR 13            /* Decimal code of Carriage Return char */
-#define LF 10            /* Decimal code of Line Feed char */
 
 /*=== MACROS ===========================*/
 
@@ -564,11 +562,11 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             {
                 if (!isNewline)               /* Haven't read a CR or LF yet */
                 {
-                    if (*cThisPtr == CR || *cThisPtr == LF) /* This char IS a CR or LF */
+                    if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
                         isNewline = 1;                        /* Set flag */
                 }
 
-                else if (*cThisPtr != CR && *cThisPtr != LF) /* Already found CR or LF */
+                else if (*cThisPtr != '\r' && *cThisPtr != '\n') /* Already found CR or LF */
                     break;                                     /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
@@ -657,11 +655,11 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             {
                 if (!isNewline)               /* Haven't read a CR or LF yet */
                 {
-                    if (*cThisPtr == CR || *cThisPtr == LF) /* This char IS a CR or LF */
+                    if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
                         isNewline = 1;                        /* Set flag */
                 }
 
-                else if (*cThisPtr != CR && *cThisPtr != LF) /* Already found CR or LF */
+                else if (*cThisPtr != '\r' && *cThisPtr != '\n') /* Already found CR or LF */
                     break;                                     /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
