@@ -183,7 +183,6 @@ static int
 cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
                     double *p_value)   /* OUT - The numerical value     */
 {
-
     /* the following were "int4" devices - jpm */
     size_t len;
     size_t i;
@@ -191,7 +190,6 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 
     line_t  val_str;
 
-    /*char    *suffix;*/
     char    c = ' ';
     char    c1;
 
@@ -203,7 +201,7 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
     /* suffix as defined in the Spice 2G.6 user's manual.                */
 
     len = strlen(str);
-    if (len > (sizeof(val_str) - 1))
+    if (len > sizeof(val_str) - 1)
         len = sizeof(val_str) - 1;
 
     for (i = 0; i < len; i++) {
@@ -297,7 +295,6 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 }
 
 
-
 /*==============================================================================
 
 FUNCTION void cm_table3D()
@@ -372,8 +369,10 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     size = PORT_SIZE(out);
     if (INIT == 1) {
 
-        int i, j, ix=0 /* elements in a row */, iy=0 /*number of rows */,
-                  iz = 0 /* number of 2D tables */;
+        int i, j;
+        int ix = 0,  /* elements in a row */
+            iy = 0,  /* number of rows */
+            iz = 0;  /* number of 2D tables */
 
         double ***table_data;
 
@@ -388,7 +387,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         long  lTotalChars;            /* Total characters read */
         int   lTableCount;            /* Number of tables */
 
-        /*** allocate static storage for *loc ***/
+        /* allocate static storage for *loc */
         STATIC_VAR (locdata) = calloc (1 , sizeof ( Local_Data_t ));
         loc = STATIC_VAR (locdata);
 
@@ -459,8 +458,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
                 lTotalChars++;
-
-            } /* end while (*cThisPtr) */
+            }
 
             cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
             lLineCount++;                 /* Increment the line counter */
@@ -548,8 +546,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 /* jump out of while loop to read in the table */
                 break;
             }
-
-        } /* end while (cThisPtr <= cEndPtr) */
+        }
 
         /* generate table core */
         /* int order : interpolation order,
@@ -559,8 +556,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         /* create table_data in memory */
         /* data [n3][n2][n1] */
         table_data = calloc(iy, sizeof(double *));
-        for (i = 0; i < iz; i++)
-        {
+        for (i = 0; i < iz; i++) {
             table_data[i] = calloc(iy, sizeof(double *));
             for (j = 0; j < iy; j++)
                 table_data[i][j] = calloc(ix, sizeof(double));
@@ -590,15 +586,14 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
                     cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
                     lTotalChars++;
-
-                } /* end while (*cThisPtr) */
+                }
 
                 cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
                 lLineLen = strlen(cThisLinePtr); /* Get length of line */
+                /* ????? fixme */
                 /* continue if comment or empty */
-                if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
+                if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0)
                     continue;
-                }
                 token = CNVgettok(&cThisLinePtr);
                 i = 0;
                 while (token) {
@@ -626,8 +621,8 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     return;
                 }
                 lLineCount++;
-            } /* end for loop y */
-        } /* end for loop z */
+            }
+        }
 
         /* fill table data into eno3 structure */
 
@@ -635,13 +630,10 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
         /* free all the emory allocated */
 //      for (i = 0; i < iy; i++)
-//        {
 //             free(table_data[i]);
-//        }
 //        free(table_data);
         free(cFile);
         free(cThisLine);
-
     } /* end of initialization "if (INIT == 1)" */
 
     loc = STATIC_VAR (locdata);
@@ -733,7 +725,8 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                    xoff, yoff, zoff,    /* offset from grid */
                    &outval,             /* output data value */
                    derivval,            /* output derivatives [3] */
-                   DER         /* what to compute [FUNC,DER,BOTH] */);
+                   DER         /* what to compute [FUNC,DER,BOTH] */
+                   );
 
 
     outval = TrilinearInterpolation(xoff/(loc->xcol[xind+1] - loc->xcol[xind]),

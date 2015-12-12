@@ -139,7 +139,6 @@ CNVgettok(char **s)
 {
 
     char    *buf;       /* temporary storage to copy token into */
-    /*char    *temp;*/      /* temporary storage to copy token into */
     char    *ret_str;   /* storage for returned string */
 
     int     i;
@@ -159,19 +158,18 @@ CNVgettok(char **s)
     switch (**s) {
 
     case '\0':           /* End of string found */
-        if (buf) free(buf);
+        if (buf)
+            free(buf);
         return NULL;
-
 
     default:             /* Otherwise, we are dealing with a    */
                          /* string representation of a number   */
                          /* or a mess o' characters.            */
         i = 0;
         while ((**s != '\0') &&
-               (! ( isspace(**s) || (**s == '=') ||
+               ! ( isspace(**s) || (**s == '=') ||
                     (**s == '(') || (**s == ')') ||
-                    (**s == ',')
-             ) )  ) {
+                    (**s == ','))  ) {
             buf[i] = **s;
             i++;
             (*s)++;
@@ -188,15 +186,14 @@ CNVgettok(char **s)
 
     /* make a copy using only the space needed by the string length */
 
-
     ret_str = (char *) malloc(strlen(buf) + 1);
     ret_str = strcpy(ret_str,buf);
 
-    if (buf) free(buf);
+    if (buf)
+        free(buf);
 
     return ret_str;
 }
-
 
 
 /*=== Static CNVget_token ROUTINE =============*/
@@ -218,7 +215,6 @@ CNVget_token(char **s, Cnv_Token_Type_t *type)
 
     ret_str = CNVgettok(s);
 
-
     /* if no next token, return */
 
     if (ret_str == NULL) {
@@ -233,13 +229,10 @@ CNVget_token(char **s, Cnv_Token_Type_t *type)
     default:
         *type = CNV_STRING_TOK;
         break;
-
     }
 
     return ret_str;
 }
-
-
 
 
 /*==============================================================================
@@ -292,8 +285,6 @@ static int
 cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
                     double *p_value)    /* OUT - The numerical value     */
 {
-
-
     /* the following were "int4" devices - jpm */
     size_t len;
     size_t i;
@@ -301,20 +292,18 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
 
     line_t  val_str;
 
-    /*char    *suffix;*/
     char    c = ' ';
     char    c1;
 
     double  scale_factor;
     double  value;
 
-
     /* Scan the input string looking for an alpha character that is not  */
     /* 'e' or 'E'.  Such a character is assumed to be an engineering     */
     /* suffix as defined in the Spice 2G.6 user's manual.                */
 
     len = strlen(str);
-    if (len > (sizeof(val_str) - 1))
+    if (len > sizeof(val_str) - 1)
         len = sizeof(val_str) - 1;
 
     for (i = 0; i < len; i++) {
@@ -327,7 +316,6 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
             val_str[i] = c;
     }
     val_str[i] = '\0';
-
 
     /* Determine the scale factor */
 
@@ -409,10 +397,6 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
 }
 
 
-
-
-
-
 /*==============================================================================
 
 FUNCTION void cm_table2D()
@@ -488,7 +472,9 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     size = PORT_SIZE(out);
     if (INIT == 1) {
 
-        int i, ix=0 /* elements in a row */, iy=0 /*number of rows */;
+        int i;
+        int ix = 0,  /* elements in a row */
+            iy = 0;  /* number of rows */
         double **table_data;
         double tmp;
         char *cFile, *cThisPtr, *cThisLine, *cThisLinePtr;
@@ -500,7 +486,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         long  lStartPos;              /* Offset of start of current line */
         long  lTotalChars;            /* Total characters read */
 
-        /*** allocate static storage for *loc ***/
+        /* allocate static storage for *loc */
         STATIC_VAR (locdata) = calloc (1 , sizeof ( Local_Data_t ));
         loc = STATIC_VAR (locdata);
 
@@ -537,8 +523,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         cFile = calloc(lFileLen + 1, sizeof(char));
         /* create another string long enough for file manipulation */
         cThisLine = calloc(lFileLen + 1, sizeof(char));
-        if (cFile == NULL || cThisLine == NULL)
-        {
+        if (cFile == NULL || cThisLine == NULL) {
             snprintf(msg, sizeof(msg), "Insufficient memory to read file %s", PARAM(file));
             cm_message_send(msg);
             loc->state->atend = 1;
@@ -553,16 +538,13 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         lLineCount  = 0L;
         lTotalChars = 0L;
 
-        while (*cThisPtr)                 /* Read until reaching null char */
-        {
+        while (*cThisPtr) {               /* Read until reaching null char */
             lIndex    = 0L;                 /* Reset counters and flags */
             isNewline = 0;
             lStartPos = lTotalChars;
 
-            while (*cThisPtr)               /* Read until reaching null char */
-            {
-                if (!isNewline)               /* Haven't read a CR or LF yet */
-                {
+            while (*cThisPtr) {             /* Read until reaching null char */
+                if (!isNewline) {             /* Haven't read a CR or LF yet */
                     if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
                         isNewline = 1;                        /* Set flag */
                 }
@@ -572,8 +554,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
                 lTotalChars++;
-
-            } /* end while (*cThisPtr) */
+            }
 
             cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
             lLineCount++;                 /* Increment the line counter */
@@ -599,34 +580,36 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
                 while (token) {
-                    if (i == ix)
-                    { /* error */
+                    if (i == ix) {
+                      /* error */
                     }
                     cnv_get_spice_value(token, &loc->xcol[i++]);
                     free(token);
                     token = CNVgettok(&cThisLinePtr);
                 }
                 if (i < ix){
-                /* error */}
+                /* error */
+                }
             }
             else if (lLineCount == 4) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
                 while (token) {
-                    if (i == iy)
-                    { /* error */
+                    if (i == iy) {
+                      /* error */
                     }
                     cnv_get_spice_value(token, &loc->ycol[i++]);
                     free(token);
                     token = CNVgettok(&cThisLinePtr);
                 }
                 if (i < iy){
-                /* error */}
+                /* error */
+                }
                 /* jump out of while loop to read in the table */
                 break;
             }
 
-        } /* end while (cThisPtr <= cEndPtr) */
+        }
 
         /* generate table core */
         /* int order : interpolation order,
@@ -637,25 +620,21 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         /* data [n2][n1] */
         table_data = calloc(iy, sizeof(double *));
         for (i = 0; i < iy; i++)
-        {
              table_data[i] = calloc(ix, sizeof(double));
-        }
+
         loc->table = table_data;
 
         /* continue reading from cFile */
         lLineCount = 0;
-        while (*cThisPtr)                 /* Read until reaching null char */
-        {
+        while (*cThisPtr) {               /* Read until reaching null char */
             char *token;
 
             lIndex    = 0L;                 /* Reset counters and flags */
             isNewline = 0;
             lStartPos = lTotalChars;
 
-            while (*cThisPtr)               /* Read until reaching null char */
-            {
-                if (!isNewline)               /* Haven't read a CR or LF yet */
-                {
+            while (*cThisPtr) {             /* Read until reaching null char */
+                if (!isNewline) {             /* Haven't read a CR or LF yet */
                     if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
                         isNewline = 1;                        /* Set flag */
                 }
@@ -665,8 +644,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
                 lTotalChars++;
-
-            } /* end while (*cThisPtr) */
+            }
 
             cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
             lLineCount++;                 /* Increment the line counter */
@@ -680,8 +658,8 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             i = 0;
             while (token) {
                 double tmpval;
-                if (i == ix)
-                { /* error */
+                if (i == ix) {
+                  /* error */
                 }
 
                 /* read table core from cFile, fill local static table structure table_data */
@@ -691,21 +669,19 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 token = CNVgettok(&cThisLinePtr);
             }
             if (i < ix){
-            /* error */}
-        } /* end while (cThisPtr <= cEndPtr) */
+            /* error */
+            }
+        }
 
         /* fill table data into eno2 structure */
         sf_eno2_set (loc->newtable, table_data /* data [n2][n1] */);
 
         /* free all the emory allocated */
 //      for (i = 0; i < iy; i++)
-//        {
 //             free(table_data[i]);
-//        }
 //      free(table_data);
         free(cFile);
         free(cThisLine);
-
     } /* end of initialization "if (INIT == 1)" */
 
     loc = STATIC_VAR (locdata);
@@ -718,8 +694,12 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     yval = INPUT(iny);
 
     /*find index*/
-    if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]){/*error*/}
-    if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]){/*error*/}
+    if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]) {
+        /*error*/
+    }
+    if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]) {
+        /*error*/
+    }
 
     /* something like binary search to get the index */
     xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
@@ -755,7 +735,8 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             xoff, yoff, /* offset from grid */
             &outval,         /* output data value */
             derivval,        /* output derivatives [2] */
-            DER         /* what to compute [FUNC,DER,BOTH] */);
+            DER         /* what to compute [FUNC,DER,BOTH] */
+            );
 
     /* bilinear interpolation to obtain the output value */
     xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
