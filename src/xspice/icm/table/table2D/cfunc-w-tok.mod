@@ -160,7 +160,7 @@ static char  *CNVgettok(char **s)
 
     case '\0':           /* End of string found */
         if(buf) free(buf);
-        return(NULL);
+        return NULL;
 
 
     default:             /* Otherwise, we are dealing with a    */
@@ -194,7 +194,7 @@ static char  *CNVgettok(char **s)
 
     if(buf) free(buf);
 
-    return(ret_str);
+    return ret_str;
 }
 
 
@@ -223,7 +223,7 @@ static char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
 
     if(ret_str == NULL) {
         *type = CNV_NO_TOK;
-        return(NULL);
+        return NULL;
     }
 
     /* else, determine and return token type */
@@ -236,7 +236,7 @@ static char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
 
     }
 
-    return(ret_str);
+    return ret_str;
 }
 
 
@@ -401,11 +401,11 @@ double  *p_value )   /* OUT - The numerical value     */
 
     if(n_matched < 1) {
         *p_value = 0.0;
-        return(FAIL);
+        return FAIL;
     }
 
     *p_value = value * scale_factor;
-    return(OK);
+    return OK;
 }
 
 

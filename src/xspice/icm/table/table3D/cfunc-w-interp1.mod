@@ -307,11 +307,11 @@ static int cnv_get_spice_value(
 
     if(n_matched < 1) {
         *p_value = 0.0;
-        return(FAIL);
+        return FAIL;
     }
 
     *p_value = value * scale_factor;
-    return(OK);
+    return OK;
 }
 
 
