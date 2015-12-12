@@ -21,7 +21,8 @@ typedef Point3 Vector3;
    which elements are smaller than or equal to x and after
    which greater than x)
    http://www.geeksforgeeks.org/find-k-closest-elements-given-value/ */
-int findCrossOver(double arr[], int low, int high, double x)
+int
+findCrossOver(double arr[], int low, int high, double x)
 {
     int mid;
     // Base cases
@@ -152,7 +153,8 @@ Paul Bourke
 July 1997
 http://paulbourke.net/miscellaneous/interpolation/ */
 
-double TrilinearInterpolation(double x, double y, double z, int xind, int yind, int zind, double ***td)
+double
+TrilinearInterpolation(double x, double y, double z, int xind, int yind, int zind, double ***td)
 {
     double V000, V100, V010, V001, V101, V011, V110, V111, Vxyz;
 
