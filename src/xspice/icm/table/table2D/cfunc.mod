@@ -588,8 +588,8 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 {
                     snprintf(msg, sizeof(msg), "Too many numbers in y row no. %d.", lLineCount);
                     cm_message_send(msg);
-                                loc->init_err = 1;
-                            return;
+                    loc->init_err = 1;
+                    return;
                 }
 
                 /* read table core from cFile, fill local static table structure table_data */
@@ -601,9 +601,9 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             if (i < ix){
                 snprintf(msg, sizeof(msg), "Not enough numbers in y row no. %d.", lLineCount);
                 cm_message_send(msg);
-                            loc->init_err = 1;
-                        return;
-                        }
+                loc->init_err = 1;
+                return;
+            }
         } /* end while (cThisPtr <= cEndPtr) */
 
         /* fill table data into eno2 structure */
@@ -635,19 +635,19 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
     /*find index*/
     if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]){
-            if (PARAM(verbose) > 0) {
+        if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "x value %g exceeds table limits, \nplease enlarge range of your table", xval);
             cm_message_send(msg);
-                }
-                return;
         }
+        return;
+    }
     if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]){
-            if (PARAM(verbose) > 0) {
+        if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "y value %g exceeds table limits, \nplease enlarge range of your table", yval);
             cm_message_send(msg);
-                }
-                return;
         }
+        return;
+    }
 
     /* something like binary search to get the index */
     xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
@@ -679,11 +679,11 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     /* Essentially non-oscillatory (ENO) interpolation to obtain the derivatives only.
        Using outval for now yields ngspice op non-convergence */
     sf_eno2_apply (loc->newtable,
-            xind, yind,     /* grid location */
-            xoff, yoff, /* offset from grid */
-            &outval,         /* output data value */
-            derivval,        /* output derivatives [2] */
-            DER         /* what to compute [FUNC,DER,BOTH] */);
+        xind, yind,     /* grid location */
+        xoff, yoff, /* offset from grid */
+        &outval,         /* output data value */
+        derivval,        /* output derivatives [2] */
+        DER         /* what to compute [FUNC,DER,BOTH] */);
 
     /* bilinear interpolation to obtain the output value */
     xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
@@ -707,10 +707,10 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         yderiv = PARAM(gain) * derivval[1] / ydiff;
         PARTIAL(out,iny) = yderiv;
 
-                if (PARAM(verbose) > 1) {
+        if (PARAM(verbose) > 1) {
             snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, xderiv: %g, yderiv: %g", outv, xval, yval, xderiv, yderiv);
             cm_message_send(msg);
-                }
+        }
     }
     else {
         ac_gain.real = PARAM(gain) * derivval[0] / xdiff;
