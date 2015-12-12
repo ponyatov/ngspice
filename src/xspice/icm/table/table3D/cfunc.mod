@@ -203,14 +203,14 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
     /* suffix as defined in the Spice 2G.6 user's manual.                */
 
     len = strlen(str);
-    if( len > (sizeof(val_str) - 1))
+    if (len > (sizeof(val_str) - 1))
         len = sizeof(val_str) - 1;
 
-    for(i = 0; i < len; i++) {
+    for (i = 0; i < len; i++) {
         c = str[i];
-        if( isalpha(c) && (c != 'E') && (c != 'e') )
+        if (isalpha(c) && (c != 'E') && (c != 'e'))
             break;
-        else if( isspace(c) )
+        else if (isspace(c))
             break;
         else
             val_str[i] = c;
@@ -219,14 +219,14 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 
     /* Determine the scale factor */
 
-    if( (i >= len) || (! isalpha(c)) )
+    if ((i >= len) || (! isalpha(c)))
         scale_factor = 1.0;
     else {
 
-        if(isupper(c))
+        if (isupper(c))
             c = (char) tolower(c);
 
-        switch(c) {
+        switch (c) {
 
         case 't':
             scale_factor = 1.0e12;
@@ -258,20 +258,20 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 
         case 'm':
             i++;
-            if(i >= len) {
+            if (i >= len) {
                 scale_factor = 1.0e-3;
                 break;
             }
             c1 = str[i];
-            if(! isalpha(c1)) {
+            if (!isalpha(c1)) {
                 scale_factor = 1.0e-3;
                 break;
             }
-            if(islower(c1))
+            if (islower(c1))
                 c1 = (char) toupper(c1);
-            if(c1 == 'E')
+            if (c1 == 'E')
                 scale_factor = 1.0e6;
-            else if(c1 == 'I')
+            else if (c1 == 'I')
                 scale_factor = 25.4e-6;
             else
                 scale_factor = 1.0e-3;
@@ -287,7 +287,7 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 
     n_matched = sscanf(val_str,"%le",&value);
 
-    if(n_matched < 1) {
+    if (n_matched < 1) {
         *p_value = 0.0;
         return FAIL;
     }
@@ -427,7 +427,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         cFile = calloc(lFileLen + 1, sizeof(char));
         /* create another string long enough for file manipulation */
         cThisLine = calloc(lFileLen + 1, sizeof(char));
-        if(cFile == NULL || cThisLine == NULL) {
+        if (cFile == NULL || cThisLine == NULL) {
             snprintf(msg, sizeof(msg), "Insufficient memory to read file %s", PARAM(file));
             cm_message_send(msg);
             loc->state->atend = 1;
@@ -488,7 +488,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             } else if (lLineCount == 4) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
-                while(token) {
+                while (token) {
                     if (i == ix) {
                         snprintf(msg, sizeof(msg), "Too many numbers in x row.");
                         cm_message_send(msg);
@@ -508,7 +508,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             } else if (lLineCount == 5) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
-                while(token) {
+                while (token) {
                     if (i == iy) {
                         snprintf(msg, sizeof(msg), "Too many numbers in y row.");
                         cm_message_send(msg);
@@ -528,7 +528,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             } else if (lLineCount == 6) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
-                while(token) {
+                while (token) {
                     if (i == iz) {
                         snprintf(msg, sizeof(msg), "Too many numbers in z row.");
                         cm_message_send(msg);
@@ -601,7 +601,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 }
                 token = CNVgettok(&cThisLinePtr);
                 i = 0;
-                while(token) {
+                while (token) {
                     double tmpval;
 
                     if (i == ix) {
@@ -741,7 +741,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                                         zoff/(loc->zcol[zind+1] - loc->zcol[zind]),
                                         xind, yind, zind, loc->table);
 
-    if(ANALYSIS != MIF_AC) {
+    if (ANALYSIS != MIF_AC) {
         double xderiv, yderiv, zderiv, outv;
         outv = PARAM(offset) + PARAM(gain) * outval;
         OUTPUT(out) = outv;

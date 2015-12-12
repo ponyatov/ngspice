@@ -40,7 +40,7 @@ findCrossOver(double arr[], int low, int high, double x)
 
     /* If x is greater than arr[mid], then either arr[mid + 1]
       is ceiling of x or ceiling lies in arr[mid+1...high] */
-    if(arr[mid] < x)
+    if (arr[mid] < x)
         return findCrossOver(arr, mid+1, high, x);
 
   return findCrossOver(arr, low, mid - 1, x);
