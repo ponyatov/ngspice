@@ -62,7 +62,7 @@ char  *CNVgettok(char **s)
     case '\0':           /* End of string found */
         if(buf)
                     free(buf);
-        return(NULL);
+        return NULL;
 
 
     default:             /* Otherwise, we are dealing with a    */
@@ -96,7 +96,7 @@ char  *CNVgettok(char **s)
 
     if(buf) free(buf);
 
-    return(ret_str);
+    return ret_str;
 }
 
 
@@ -120,7 +120,7 @@ char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
     /* if no next token, return */
     if(ret_str == NULL) {
         *type = CNV_NO_TOK;
-        return(NULL);
+        return NULL;
     }
 
     /* else, determine and return token type */
@@ -129,5 +129,5 @@ char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
         *type = CNV_STRING_TOK;
         break;
     }
-    return(ret_str);
+    return ret_str;
 }
