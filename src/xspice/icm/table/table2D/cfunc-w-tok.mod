@@ -571,16 +571,16 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     break;                                     /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
-                ++lTotalChars;
+                lTotalChars++;
 
             } /* end while (*cThisPtr) */
 
             cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
-            ++lLineCount;                 /* Increment the line counter */
+            lLineCount++;                 /* Increment the line counter */
             lLineLen = strlen(cThisLinePtr); /* Get length of line */
             /* continue if comment or empty */
             if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
-                --lLineCount; /* we count only real lines */
+                lLineCount--; /* we count only real lines */
                 continue;
             }
             if (lLineCount == 1) {
@@ -664,16 +664,16 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     break;                                     /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
-                ++lTotalChars;
+                lTotalChars++;
 
             } /* end while (*cThisPtr) */
 
             cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
-            ++lLineCount;                 /* Increment the line counter */
+            lLineCount++;                 /* Increment the line counter */
             lLineLen = strlen(cThisLinePtr); /* Get length of line */
             /* continue if comment or empty */
             if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
-                --lLineCount; /* we count only real lines */
+                lLineCount--; /* we count only real lines */
                 continue;
             }
             token = CNVgettok(&cThisLinePtr);
