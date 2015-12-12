@@ -314,6 +314,10 @@ if test "x$with_ngshared" != x  &&  test "x$with_ngshared" != xno ; then
             has_shwin=true
             has_no_help=true
             ;;
+        *msys* )
+            has_shwin=true
+            has_no_help=true
+            ;;            
         *cygwin* )
             has_shcyg=true
             AC_CHECK_LIB([pthread], [pthread_create])
@@ -882,6 +886,10 @@ if test "x$enable_xspice" = xyes; then
             AC_DEFINE([IPC_DEBUG_VIA_STDIO], [1], [Client-Server only via stdio.])
             XSPICEDLLIBS=""
             ;;
+        *msys* )
+            AC_DEFINE([IPC_DEBUG_VIA_STDIO], [1], [Client-Server only via stdio.])
+            XSPICEDLLIBS=""
+            ;;            
         *cygwin* )
             AC_DEFINE([IPC_UNIX_SOCKETS], [1], [Client-Server via socket.])
             XSPICEDLLIBS=""
@@ -941,14 +949,16 @@ if test "x$enable_adms" = xyes ; then
                 adms/hicum0 \
                 adms/hicum2 \
                 adms/mextram \
-                adms/psp102 "
-
+                adms/psp102 \
+                adms/bsim6 "
+                
 # The makefiles for adms (to be added to AC_CONFIG_FILES by ./autogen.sh --adms)
 #VLAMKF    src/spicelib/devices/adms/ekv/Makefile
 #VLAMKF    src/spicelib/devices/adms/hicum0/Makefile
 #VLAMKF    src/spicelib/devices/adms/hicum2/Makefile
 #VLAMKF    src/spicelib/devices/adms/mextram/Makefile
 #VLAMKF    src/spicelib/devices/adms/psp102/Makefile
+#VLAMKF    src/spicelib/devices/adms/bsim6/Makefile
 
     NOTVLADEVDIR=""
 
@@ -956,7 +966,8 @@ if test "x$enable_adms" = xyes ; then
              spicelib/devices/adms/hicum0/libhicum0.la \
              spicelib/devices/adms/hicum2/libhicum2.la \
              spicelib/devices/adms/mextram/libbjt504t.la \
-             spicelib/devices/adms/psp102/libpsp102.la "
+             spicelib/devices/adms/psp102/libpsp102.la \
+             spicelib/devices/adms/bsim6/libbsim6.la "             
 
 else
 

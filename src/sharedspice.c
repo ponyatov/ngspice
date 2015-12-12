@@ -898,6 +898,9 @@ add_bkpt(void)
 }
 
 
+/* do not redefine vfprintf by sh_vfprintf in line 926! */
+#undef vfprintf
+
 /*------------------------------------------------------*/
 /* Redefine the vfprintf() functions for callback       */
 /*------------------------------------------------------*/
@@ -1498,7 +1501,8 @@ void shared_exit(int status)
         ngexit(status, FALSE, coquit, ng_ident, userptr);
         // finish and exit the worker thread
 #ifdef HAVE_LIBPTHREAD
-        pthread_exit(1);
+        int iex = 1;
+        pthread_exit(&iex);
 #elif defined _MSC_VER || defined __MINGW32__
         _endthreadex(1);
 #endif

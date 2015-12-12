@@ -10,7 +10,7 @@ Copyright 1999 Emmanuel Rouat
 bool AlmostEqualUlps(double, double, int);
 
 #ifndef HAVE_ERFC
-extern double erfc(double);
+//extern double erfc(double);
 #endif
 
 #ifndef HAVE_LOGB
@@ -22,7 +22,7 @@ extern double scalb(double, double);
 #endif
 
 #ifndef HAVE_SCALBN
-extern double scalbn(double, int);
+//extern double scalbn(double, int);
 #endif
 
 #if !HAVE_DECL_ISNAN
