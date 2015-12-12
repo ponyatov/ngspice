@@ -574,7 +574,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
         /* continue reading from cFile */
         for (lTableCount = 0; lTableCount < iz; lTableCount++) {
-                        lLineCount = 0;
+            lLineCount = 0;
             while (lLineCount < iy) {
                 char *token;
 
@@ -583,7 +583,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 lStartPos = lTotalChars;
 
                 /* read a line */
-                                while (*cThisPtr){             /* Read until reaching null char */
+                while (*cThisPtr){             /* Read until reaching null char */
                     if (!isNewline) {             /* Haven't read a CR or LF yet */
                         if (*cThisPtr == CR || *cThisPtr == LF) /* This char IS a CR or LF */
                             isNewline = 1;                        /* Set flag */
@@ -611,8 +611,8 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                     if (i == ix) {
                         snprintf(msg, sizeof(msg), "Too many numbers in y row no. %d of table %d.", lLineCount, lTableCount);
                         cm_message_send(msg);
-                                                loc->init_err = 1;
-                                return;
+                        loc->init_err = 1;
+                        return;
                     }
 
                     /* read table core from cFile, fill local static table structure table_data */
@@ -626,10 +626,10 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 if (i < ix) {
                     snprintf(msg, sizeof(msg), "Not enough numbers in y row no. %d of table %d.", lLineCount, lTableCount);
                     cm_message_send(msg);
-                                        loc->init_err = 1;
-                            return;
+                    loc->init_err = 1;
+                    return;
                 }
-                                lLineCount++;
+                lLineCount++;
             } /* end for loop y */
         } /* end for loop z */
 
@@ -665,25 +665,25 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
         /* check table ranges */
     if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]) {
-            if (PARAM(verbose) > 0) {
+        if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "x value %g exceeds table limits, \nplease enlarge range of your table", xval);
             cm_message_send(msg);
-                }
-                return;
+        }
+        return;
     }
     if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]) {
-            if (PARAM(verbose) > 0) {
+        if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "y value %g exceeds table limits, \nplease enlarge range of your table", yval);
             cm_message_send(msg);
-                }
-                return;
+        }
+        return;
     }
     if (zval < loc->zcol[0] || zval > loc->zcol[loc->iz-1]) {
-            if (PARAM(verbose) > 0) {
+        if (PARAM(verbose) > 0) {
             snprintf(msg, sizeof(msg), "z value %g exceeds table limits, \nplease enlarge range of your table", zval);
             cm_message_send(msg);
-                }
-                return;
+        }
+        return;
     }
 
     /*find index*/
@@ -745,7 +745,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                                         zoff/(loc->zcol[zind+1] - loc->zcol[zind]),
                                         xind, yind, zind, loc->table);
 
-        if(ANALYSIS != MIF_AC) {
+    if(ANALYSIS != MIF_AC) {
         double xderiv, yderiv, zderiv, outv;
         outv = PARAM(offset) + PARAM(gain) * outval;
         OUTPUT(out) = outv;
@@ -756,10 +756,10 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         zderiv = PARAM(gain) * derivval[2] / zdiff;
         PARTIAL(out,inz) = zderiv;
 
-                if (PARAM(verbose) > 1) {
+        if (PARAM(verbose) > 1) {
             snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, zval: %g, xderiv: %g, yderiv: %g, zderiv: %g", outv, xval, yval, zval, xderiv, yderiv, zderiv);
             cm_message_send(msg);
-                }
+        }
     } else {
         ac_gain.real = PARAM(gain) * derivval[0] / xdiff;
         ac_gain.imag= 0.0;
