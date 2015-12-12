@@ -381,7 +381,7 @@ void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         int   isNewline;              /* Boolean indicating we've read a CR or LF */
         long  lFileLen;               /* Length of file */
         long  lIndex;                 /* Index into cThisLine array */
-        long  lLineCount;             /* Current line number */
+        int   lLineCount;             /* Current line number */
         long  lLineLen;               /* Current line length */
         long  lStartPos;              /* Offset of start of current line */
         long  lTotalChars;            /* Total characters read */

@@ -125,9 +125,6 @@ typedef struct {
 /* 3d geometry types */
 /*********************/
 
-/* Type definition for each possible token returned. */
-typedef enum token_type_s {CNV_NO_TOK,CNV_STRING_TOK} Cnv_Token_Type_t;
-
 typedef char line_t[82]; /* A SPICE size line. <= 80 characters plus '\n\0' */
 
 /*=== FUNCTION PROTOTYPE DEFINITIONS ===*/
@@ -386,7 +383,7 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         int   isNewline;              /* Boolean indicating we've read a CR or LF */
         long  lFileLen;               /* Length of file */
         long  lIndex;                 /* Index into cThisLine array */
-        long  lLineCount;             /* Current line number */
+        int   lLineCount;             /* Current line number */
         long  lLineLen;               /* Current line length */
         long  lStartPos;              /* Offset of start of current line */
         long  lTotalChars;            /* Total characters read */
@@ -770,12 +767,15 @@ void cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     }
 }
 
-/* ouch ... */
-#ifndef _MSC_VER
-#include "../support/gettokens.c"
-#include "../support/interp.c"
-#include "../mada/alloc.c"
-#include "../mada/eno.c"
-#include "../mada/eno2.c"
-#include "../mada/eno3.c"
-#endif
+
+/* These includes add functions from extra source code files,
+ *   still using the standard XSPICE procedure of cmpp-ing cfunc.mod
+ *   and then only compiling the resulting *.c file.
+ */
+
+#include "../support/gettokens.c" /* reading tokens */
+#include "../support/interp.c" /* 2D and 3D linear interpolation */
+#include "../mada/alloc.c" /* eno interpolation from madagascar project */
+#include "../mada/eno.c"   /* eno interpolation from madagascar project */
+#include "../mada/eno2.c"  /* eno interpolation from madagascar project */
+#include "../mada/eno3.c"  /* eno interpolation from madagascar project */

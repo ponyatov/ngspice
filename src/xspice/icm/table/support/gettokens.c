@@ -19,6 +19,9 @@ is returned.  The original input string is undisturbed.
 #define CR 13            /* Decimal code of Carriage Return char */
 #define LF 10            /* Decimal code of Line Feed char */
 
+/* Type definition for each possible token returned. */
+typedef enum token_type_s { CNV_NO_TOK, CNV_STRING_TOK } Cnv_Token_Type_t;
+
 /*=== MACROS ===========================*/
 
 #if defined(__MINGW32__) || defined(_MSC_VER)
@@ -30,9 +33,6 @@ is returned.  The original input string is undisturbed.
 #if defined(_MSC_VER)
 #define strdup _strdup
 #define snprintf _snprintf
-
-/* Type definition for each possible token returned. */
-typedef enum token_type_s {CNV_NO_TOK,CNV_STRING_TOK} Cnv_Token_Type_t;
 #endif
 
 
