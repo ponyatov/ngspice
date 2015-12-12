@@ -134,8 +134,8 @@ is returned.  The original input string is undisturbed.
 
 #include <stdlib.h>
 
-static char  *CNVgettok(char **s)
-
+static char *
+CNVgettok(char **s)
 {
 
     char    *buf;       /* temporary storage to copy token into */
@@ -208,8 +208,8 @@ string is copied to malloced storage and a pointer to that storage
 is returned.  The original input string is undisturbed.
 */
 
-static char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
-
+static char  *
+CNVget_token(char **s, Cnv_Token_Type_t *type)
 {
 
     char    *ret_str;   /* storage for returned string */
@@ -288,9 +288,9 @@ deck and returns a floating point equivalent value.
 */
 
 
-static int cnv_get_spice_value(
-char    *str,        /* IN - The value text e.g. 1.2K */
-double  *p_value )   /* OUT - The numerical value     */
+static int
+cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
+                    double *p_value)    /* OUT - The numerical value     */
 {
 
 
@@ -471,7 +471,8 @@ x0yiy-1 x1yiy-1 x2yiy-1 ... xix-1yiy-1
 /*=== CM_table2D ROUTINE ===*/
 
 
-void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
+void
+cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 {
     int size, xind, yind;
     double xval, yval, xoff, yoff, xdiff, ydiff;

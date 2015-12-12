@@ -35,10 +35,9 @@ typedef enum token_type_s { CNV_NO_TOK, CNV_STRING_TOK } Cnv_Token_Type_t;
 
 
 
-char  *CNVgettok(char **s)
-
+char *
+CNVgettok(char **s)
 {
-
     char    *buf;       /* temporary storage to copy token into */
     /*char    *temp;*/      /* temporary storage to copy token into */
     char    *ret_str;   /* storage for returned string */
@@ -110,7 +109,8 @@ string is copied to malloced storage and a pointer to that storage
 is returned.  The original input string is undisturbed.
 */
 
-char  *CNVget_token(char **s, Cnv_Token_Type_t *type)
+char *
+CNVget_token(char **s, Cnv_Token_Type_t *type)
 {
     char    *ret_str;   /* storage for returned string */
 

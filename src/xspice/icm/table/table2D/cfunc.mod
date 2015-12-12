@@ -173,9 +173,9 @@ deck and returns a floating point equivalent value.
 */
 
 
-static int cnv_get_spice_value(
-char    *str,        /* IN - The value text e.g. 1.2K */
-double  *p_value )   /* OUT - The numerical value     */
+static int
+cnv_get_spice_value(char   *str,      /* IN - The value text e.g. 1.2K */
+                    double *p_value)  /* OUT - The numerical value     */
 {
 
 
@@ -356,7 +356,8 @@ x0yiy-1 x1yiy-1 x2yiy-1 ... xix-1yiy-1
 /*=== CM_table2D ROUTINE ===*/
 
 
-void cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
+void
+cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 {
     int size, xind, yind;
     double xval, yval, xoff, yoff, xdiff, ydiff;
