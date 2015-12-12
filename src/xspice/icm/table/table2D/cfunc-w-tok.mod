@@ -150,16 +150,16 @@ CNVgettok(char **s)
 
     /* skip over any white space */
 
-    while(isspace(**s) || (**s == '=') ||
+    while (isspace(**s) || (**s == '=') ||
           (**s == '(') || (**s == ')') || (**s == ','))
           (*s)++;
 
     /* isolate the next token */
 
-    switch(**s) {
+    switch (**s) {
 
     case '\0':           /* End of string found */
-        if(buf) free(buf);
+        if (buf) free(buf);
         return NULL;
 
 
@@ -167,7 +167,7 @@ CNVgettok(char **s)
                          /* string representation of a number   */
                          /* or a mess o' characters.            */
         i = 0;
-        while( (**s != '\0') &&
+        while ((**s != '\0') &&
                (! ( isspace(**s) || (**s == '=') ||
                     (**s == '(') || (**s == ')') ||
                     (**s == ',')
@@ -182,7 +182,7 @@ CNVgettok(char **s)
 
     /* skip over white space up to next token */
 
-    while(isspace(**s) || (**s == '=') ||
+    while (isspace(**s) || (**s == '=') ||
           (**s == '(') || (**s == ')') || (**s == ','))
           (*s)++;
 
@@ -192,7 +192,7 @@ CNVgettok(char **s)
     ret_str = (char *) malloc(strlen(buf) + 1);
     ret_str = strcpy(ret_str,buf);
 
-    if(buf) free(buf);
+    if (buf) free(buf);
 
     return ret_str;
 }
@@ -221,14 +221,14 @@ CNVget_token(char **s, Cnv_Token_Type_t *type)
 
     /* if no next token, return */
 
-    if(ret_str == NULL) {
+    if (ret_str == NULL) {
         *type = CNV_NO_TOK;
         return NULL;
     }
 
     /* else, determine and return token type */
 
-    switch(*ret_str) {
+    switch (*ret_str) {
 
     default:
         *type = CNV_STRING_TOK;
@@ -314,14 +314,14 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
     /* suffix as defined in the Spice 2G.6 user's manual.                */
 
     len = strlen(str);
-    if( len > (sizeof(val_str) - 1))
+    if (len > (sizeof(val_str) - 1))
         len = sizeof(val_str) - 1;
 
-    for(i = 0; i < len; i++) {
+    for (i = 0; i < len; i++) {
         c = str[i];
-        if( isalpha(c) && (c != 'E') && (c != 'e') )
+        if (isalpha(c) && (c != 'E') && (c != 'e'))
             break;
-        else if( isspace(c) )
+        else if (isspace(c))
             break;
         else
             val_str[i] = c;
@@ -331,14 +331,14 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
 
     /* Determine the scale factor */
 
-    if( (i >= len) || (! isalpha(c)) )
+    if ((i >= len) || (! isalpha(c)))
         scale_factor = 1.0;
     else {
 
-        if(isupper(c))
+        if (isupper(c))
             c = (char) tolower(c);
 
-        switch(c) {
+        switch (c) {
 
         case 't':
             scale_factor = 1.0e12;
@@ -370,20 +370,20 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
 
         case 'm':
             i++;
-            if(i >= len) {
+            if (i >= len) {
                 scale_factor = 1.0e-3;
                 break;
             }
             c1 = str[i];
-            if(! isalpha(c1)) {
+            if (!isalpha(c1)) {
                 scale_factor = 1.0e-3;
                 break;
             }
-            if(islower(c1))
+            if (islower(c1))
                 c1 = (char) toupper(c1);
-            if(c1 == 'E')
+            if (c1 == 'E')
                 scale_factor = 1.0e6;
-            else if(c1 == 'I')
+            else if (c1 == 'I')
                 scale_factor = 25.4e-6;
             else
                 scale_factor = 1.0e-3;
@@ -399,7 +399,7 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
 
     n_matched = sscanf(val_str,"%le",&value);
 
-    if(n_matched < 1) {
+    if (n_matched < 1) {
         *p_value = 0.0;
         return FAIL;
     }
@@ -537,7 +537,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         cFile = calloc(lFileLen + 1, sizeof(char));
         /* create another string long enough for file manipulation */
         cThisLine = calloc(lFileLen + 1, sizeof(char));
-        if(cFile == NULL || cThisLine == NULL)
+        if (cFile == NULL || cThisLine == NULL)
         {
             snprintf(msg, sizeof(msg), "Insufficient memory to read file %s", PARAM(file));
             cm_message_send(msg);
@@ -598,7 +598,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             else if (lLineCount == 3) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
-                while(token) {
+                while (token) {
                     if (i == ix)
                     { /* error */
                     }
@@ -612,7 +612,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             else if (lLineCount == 4) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
-                while(token) {
+                while (token) {
                     if (i == iy)
                     { /* error */
                     }
@@ -678,7 +678,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             }
             token = CNVgettok(&cThisLinePtr);
             i = 0;
-            while(token) {
+            while (token) {
                 double tmpval;
                 if (i == ix)
                 { /* error */
@@ -770,7 +770,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     q22 = loc->table[yind + 1][xind + 1];
     outval = BilinearInterpolation(q11, q12, q21, q22, x1, x2, y1, y2, xval, yval);
 
-    if(ANALYSIS != MIF_AC) {
+    if (ANALYSIS != MIF_AC) {
         double xderiv, yderiv, outv;
         outv = PARAM(offset) + PARAM(gain) * outval;
         OUTPUT(out) = outv;

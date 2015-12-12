@@ -50,16 +50,16 @@ CNVgettok(char **s)
 
     /* skip over any white space */
 
-    while(isspace(**s) || (**s == '=') ||
+    while (isspace(**s) || (**s == '=') ||
             (**s == '(') || (**s == ')') || (**s == ','))
         (*s)++;
 
     /* isolate the next token */
 
-    switch(**s) {
+    switch (**s) {
 
     case '\0':           /* End of string found */
-        if(buf)
+        if (buf)
                     free(buf);
         return NULL;
 
@@ -68,7 +68,7 @@ CNVgettok(char **s)
         /* string representation of a number   */
         /* or a mess o' characters.            */
         i = 0;
-        while( (**s != '\0') &&
+        while ( (**s != '\0') &&
                 (! ( isspace(**s) || (**s == '=') ||
                      (**s == '(') || (**s == ')') ||
                      (**s == ',')
@@ -83,7 +83,7 @@ CNVgettok(char **s)
 
     /* skip over white space up to next token */
 
-    while(isspace(**s) || (**s == '=') ||
+    while (isspace(**s) || (**s == '=') ||
             (**s == '(') || (**s == ')') || (**s == ','))
         (*s)++;
 
@@ -93,7 +93,7 @@ CNVgettok(char **s)
     ret_str = (char *) malloc(strlen(buf) + 1);
     ret_str = strcpy(ret_str,buf);
 
-    if(buf) free(buf);
+    if (buf) free(buf);
 
     return ret_str;
 }
@@ -118,13 +118,13 @@ CNVget_token(char **s, Cnv_Token_Type_t *type)
     ret_str = CNVgettok(s);
 
     /* if no next token, return */
-    if(ret_str == NULL) {
+    if (ret_str == NULL) {
         *type = CNV_NO_TOK;
         return NULL;
     }
 
     /* else, determine and return token type */
-    switch(*ret_str) {
+    switch (*ret_str) {
     default:
         *type = CNV_STRING_TOK;
         break;
