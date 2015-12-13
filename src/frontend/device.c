@@ -1123,9 +1123,9 @@ com_alter_common(wordlist *wl, int do_model)
     /* DIE 2009_02_06 */
     char *argument;
     char **arglist;
-    int i = 0, step = 0, n, wlen, maxelem = 3;
+    int step = 0, n, wlen, maxelem = 3;
     wordlist *wl2 = NULL, *wlin, *rhs;
-    bool eqfound = FALSE;
+    char *eq = NULL;
 
     if (!ft_curckt) {
         fprintf(cp_err, "Error: no circuit loaded\n");
@@ -1151,34 +1151,27 @@ com_alter_common(wordlist *wl, int do_model)
     while (wl) {
         argument = wl->wl_word;
         /* searching for '=' ... */
-        i = 0;
-        while (argument[i] != '=' && argument[i] != '\0')
-            i++;
+        eq = strchr(argument, '=');
 
         /* argument may be '=', then do nothing
            or =token
            or token=
            or token1=token2
            ...and if found split argument into three chars and make a new wordlist */
-        if (argument[i] != '\0') {
-            /* We found '=' */
-            eqfound = TRUE;
+        if (eq) {
             if (strlen(argument) == 1) {
                 wl = wl->wl_next;
                 step = -1;
                 wl2 = wlin;
             } else if (strlen(argument) > 1) {
                 arglist = TMALLOC(char*, 4);
-                arglist[3] = NULL;
-                arglist[0] = TMALLOC(char, i + 1);
-                arglist[2] = TMALLOC(char, strlen(&argument[i + 1]) + 1);
                 /* copy argument */
-                strncpy(arglist[0], argument, (size_t) i);
-                arglist[0][i] = '\0';
+                arglist[0] = copy_substring(argument, eq);
                 /* copy equal sign */
                 arglist[1] = copy("=");
                 /* copy expression */
-                strncpy(arglist[2], &argument[i+1], strlen(&argument[i+1])+1);
+                arglist[2] = copy(eq + 1);
+                arglist[3] = NULL;
 
                 /* create a new wordlist from array arglist */
                 wl2 = wl_build(arglist);
@@ -1198,7 +1191,7 @@ com_alter_common(wordlist *wl, int do_model)
         }
     }
 
-    if (eqfound) {
+    if (eq) {
         /* step back in the wordlist, if we have moved forward, to catch 'm1' */
         for (n = step; n > 0; n--)
             wl2 = wl2->wl_prev;
