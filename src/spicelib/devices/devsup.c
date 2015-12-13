@@ -13,6 +13,10 @@ Modified: 2000 AlansFixes
 
 #include <stdarg.h>
 
+#ifdef SHARED_MODULE
+extern int sh_vfprintf(FILE *f, const char *fmt, va_list args);
+#endif
+
 
 /* 
  * Limit the per-iteration change of VDS 

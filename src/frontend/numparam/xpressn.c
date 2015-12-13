@@ -19,6 +19,10 @@
 extern double gauss0(void);
 extern double drand(void);
 
+#ifdef SHARED_MODULE
+extern int sh_vfprintf(FILE *f, const char *fmt, va_list args);
+#endif
+
 /************ keywords ************/
 
 extern char *nupa_inst_name;    /* see spicenum.c */

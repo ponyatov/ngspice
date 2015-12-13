@@ -35,6 +35,9 @@ Modified: 2000 AlansFixes
 extern char *spice_analysis_get_name(int index);
 extern char *spice_analysis_get_description(int index);
 
+#ifdef SHARED_MODULE
+extern int sh_vfprintf(FILE *f, const char *fmt, va_list args);
+#endif
 
 static int beginPlot(JOB *analysisPtr, CKTcircuit *circuitPtr, char *cktName, char *analName,
                      char *refName, int refType, int numNames, char **dataNames, int dataType,

@@ -64,6 +64,11 @@ void inp_evaluate_temper(void);
 
 extern bool ft_batchmode;
 
+#ifdef SHARED_MODULE
+extern int sh_vfprintf(FILE *f, const char *fmt, va_list args);
+#endif
+
+
 /* structure used to save expression parse trees for .model and
  * device instance lines
  */

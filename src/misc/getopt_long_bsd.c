@@ -82,6 +82,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#ifdef SHARED_MODULE
+extern int sh_vfprintf(FILE *f, const char *fmt, va_list args);
+#endif
+
+
 //#ifdef REPLACE_GETOPT
 int   opterr = 1;    /* if error message should be printed */
 int   optind = 1;    /* index into parent argv vector */
