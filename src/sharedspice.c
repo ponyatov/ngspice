@@ -898,6 +898,9 @@ add_bkpt(void)
 }
 
 
+/* do not redefine vfprintf by sh_vfprintf in line 926! */
+#undef vfprintf
+
 /*------------------------------------------------------*/
 /* Redefine the vfprintf() functions for callback       */
 /*------------------------------------------------------*/

@@ -285,6 +285,9 @@ extern void SetAnalyse(char *analyse, int percent);
 
 #define HAS_PROGREP
 
+#undef vfprintf
+#define vfprintf sh_vfprintf
+
 #undef printf
 #define printf sh_printf
 
