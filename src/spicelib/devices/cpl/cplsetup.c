@@ -53,7 +53,7 @@ static  double R_m[MAX_DIM][MAX_DIM];
 static  double G_m[MAX_DIM][MAX_DIM];
 static  double L_m[MAX_DIM][MAX_DIM];
 static  double C_m[MAX_DIM][MAX_DIM];
-static  double length;
+static  double line_length;
 static  double TAU[MAX_DIM];
 
 static  double  A[MAX_DIM][2*MAX_DIM];
@@ -428,11 +428,11 @@ ReadCpL(CPLinstance *here, CKTcircuit *ckt)
         }
     }
     if (here->CPLlengthGiven)
-        length = here->CPLlength;
-    else length = here->CPLmodPtr->length;
+        line_length = here->CPLlength;
+    else line_length = here->CPLmodPtr->length;
 
     for (i = 0; i < noL; i++)
-        lines[i]->g = 1.0 / (R_m[i][i] * length);
+        lines[i]->g = 1.0 / (R_m[i][i] * line_length);
 
     coupled(noL);
 
@@ -1108,7 +1108,7 @@ poly_W(int dim, int deg)
 
     for (i = 0; i < dim; i++) {
         match(deg, W[i], frequency, W[i]);
-        TAU[i] = approx_mode(W[i], W[i], length);
+        TAU[i] = approx_mode(W[i], W[i], line_length);
         /*
         checkW(W[i], TAU[i]);
         */
@@ -1138,7 +1138,7 @@ eval_frequency(int dim, int deg_o)
 
     Scaling_F2 = 1.0 / min;
     Scaling_F = sqrt(Scaling_F2);
-    min = length * 8.0;
+    min = line_length * 8.0;
     /*
     min *= 1.0e18;
     min = sqrt(min)*1.0e-9*length/8.0;
@@ -1375,7 +1375,7 @@ generate_out(int dim, int deg_o)
                     continue;
                 if (i == j && k == i) {
                     rtv = Pade_apx(
-                              exp(- sqrt(G_m[i][i] * R_m[i][i]) * length) / C,
+                              exp(- sqrt(G_m[i][i] * R_m[i][i]) * line_length) / C,
                               p, &c1, &c2, &c3, &x1, &x2, &x3);
                     if (rtv == 0) {
                         IWI[i][j].C_0[k] = 0.0;
@@ -1409,7 +1409,7 @@ generate_out(int dim, int deg_o)
                     continue;
                 if (i == j && k == i) {
                     rtv = Pade_apx(sqrt(G_m[i][i] / R_m[i][i]) *
-                                   exp(- sqrt(G_m[i][i] * R_m[i][i]) * length) / C,
+                                   exp(- sqrt(G_m[i][i] * R_m[i][i]) * line_length) / C,
                                    p, &c1, &c2, &c3, &x1, &x2, &x3);
                     if (rtv == 0) {
                         IWV[i][j].C_0[k] = 0.0;
