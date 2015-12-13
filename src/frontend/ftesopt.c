@@ -32,7 +32,7 @@ static struct variable *getFTEstat(struct circ *, int);
 
 
 struct variable *
-ft_getstat(struct circ *ft_curckt, char *name)
+ft_getstat(struct circ *ckt, char *name)
 {
     int i;
     struct variable *v, *vars , *vv = NULL;
@@ -40,7 +40,7 @@ ft_getstat(struct circ *ft_curckt, char *name)
     if (name) {
         for (i = 0; i < FTEOPTcount; i++)
             if (eq(name, FTEOPTtbl[i].keyword)) {
-                vv = getFTEstat(ft_curckt, FTEOPTtbl[i].id);
+                vv = getFTEstat(ckt, FTEOPTtbl[i].id);
                 if (vv) {
                     vv->va_type = FTEOPTtbl[i].dataType;
                     vv->va_name = copy(FTEOPTtbl[i].description);
@@ -54,10 +54,10 @@ ft_getstat(struct circ *ft_curckt, char *name)
     } else {
         for (i = 0, v = vars = NULL; i < FTEOPTcount; i++) {
             if (v) {
-                v->va_next = getFTEstat(ft_curckt, FTEOPTtbl[i].id);
+                v->va_next = getFTEstat(ckt, FTEOPTtbl[i].id);
                 v = v->va_next;
             } else {
-                vars = v = getFTEstat(ft_curckt, FTEOPTtbl[i].id);
+                vars = v = getFTEstat(ckt, FTEOPTtbl[i].id);
             }
 
             v->va_type = FTEOPTtbl[i].dataType;
@@ -72,20 +72,20 @@ ft_getstat(struct circ *ft_curckt, char *name)
 /* This function fill the value field of the variable */
 
 static struct variable *
-getFTEstat(struct circ *ft_curckt, int id)
+getFTEstat(struct circ *ckt, int id)
 {
 
     struct variable *v = TMALLOC(struct variable, 1);
 
     switch (id) {
     case FTEOPT_NLDECK:
-        v->va_num = ft_curckt->FTEstats->FTESTATdeckNumLines;
+        v->va_num = ckt->FTEstats->FTESTATdeckNumLines;
         break;
     case FTEOPT_NLT:
-        v->va_real = ft_curckt->FTEstats->FTESTATnetLoadTime;
+        v->va_real = ckt->FTEstats->FTESTATnetLoadTime;
         break;
     case FTEOPT_NPT:
-        v->va_real = ft_curckt->FTEstats->FTESTATnetParseTime;
+        v->va_real = ckt->FTEstats->FTESTATnetParseTime;
         break;
     default:
         tfree(v);
