@@ -400,7 +400,7 @@ gr_relinestyle(GRAPH *graph)
 
 /* PN  static */
 void
-drawlegend(GRAPH *graph, int plotno, struct dvec *dv)
+drawlegend(GRAPH *graph, int plotno, struct dvec *dv)//plotno
 {
     int x, y, i;
     char buf[16];
