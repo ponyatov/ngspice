@@ -467,8 +467,6 @@ static double CeilingPow
     dx = - 2.0 * TMF3 / ( TMF2 * TMF2 ) ; \
 }
 
-#include "hsm2eval_dep.h"
-
 /*===========================================================*
 * Function hsm2evaluate.
 *=================*/
@@ -481,7 +479,7 @@ int HSM2evaluate
  double        vbd_jct,
  HSM2instance *here,
  HSM2model    *model,
- CKTcircuit   *ckt //
+ CKTcircuit   *ckt
  ) 
 {
   HSM2binningParam *pParam = &here->pParam ;
@@ -1838,7 +1836,7 @@ int HSM2evaluate
      *------------------*/
     Vgs_fb = Vfb - dVth + dPpg + Vbs ;
 
-    hsm2eval_dep_foo(here, model);
+#include "hsm2eval_dep.h"
 
   } else {
 
