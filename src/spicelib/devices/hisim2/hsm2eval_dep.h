@@ -57,6 +57,7 @@ Katsuhiro Shimohigashi, President&CEO, STARC
 June 2008 (revised October 2011) 
 *************************************************************************/
 
+static inline void hsm2eval_dep_foo(HSM2instance *here, HSM2model *model)
 { // Begin : hsm2eval_dep
 
 /* define local variavles */
