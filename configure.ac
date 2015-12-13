@@ -314,6 +314,10 @@ if test "x$with_ngshared" != x  &&  test "x$with_ngshared" != xno ; then
             has_shwin=true
             has_no_help=true
             ;;
+        *msys* )
+            has_shwin=true
+            has_no_help=true
+            ;;
         *cygwin* )
             has_shcyg=true
             AC_CHECK_LIB([pthread], [pthread_create])
@@ -347,6 +351,11 @@ elif test "x$with_tcl" != x  &&  test "x$with_tcl" != xno ; then
     AC_DEFINE([TCL_MODULE], [1], [Tcl Module])
     case $host_os in
         *mingw* )
+            has_tclwin=true
+            has_no_help=true
+            AC_DEFINE([HAS_TCLWIN], [1], [Tcl Windows])
+            ;;
+        *msys* )
             has_tclwin=true
             has_no_help=true
             AC_DEFINE([HAS_TCLWIN], [1], [Tcl Windows])
@@ -879,6 +888,10 @@ if test "x$enable_xspice" = xyes; then
     AC_DEFINE([XSPICE], [1], [The xspice enhancements])
     case $host_os in
         *mingw* )
+            AC_DEFINE([IPC_DEBUG_VIA_STDIO], [1], [Client-Server only via stdio.])
+            XSPICEDLLIBS=""
+            ;;
+        *msys* )
             AC_DEFINE([IPC_DEBUG_VIA_STDIO], [1], [Client-Server only via stdio.])
             XSPICEDLLIBS=""
             ;;
