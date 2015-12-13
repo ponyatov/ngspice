@@ -3104,7 +3104,7 @@ inp_expand_macro_in_str(struct function_env *env, char *str)
 
         for (num_params = 0; curr_ptr < close_paren_ptr; curr_ptr++) {
             char *beg_parameter;
-            int num_parens;
+            int num_parens;//
             if (isspace(*curr_ptr))
                 continue;
             beg_parameter = curr_ptr;

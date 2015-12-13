@@ -585,7 +585,7 @@ root3(double a1, double a2, double a3, double x)
 }
 
 static int 
-div3(double a1, double a2, double a3, double x, double *p1, double *p2)
+div3(double a1, double a2, double a3, double x, double *p1, double *p2)//p1 p2
 {
    NG_IGNORE(a2);
 
@@ -1100,7 +1100,7 @@ static NODE
 }
 
 static int 
-find_roots(double a1, double a2, double a3, double *x1, double *x2, double *x3)
+find_roots(double a1, double a2, double a3, double *x1, double *x2, double *x3)//x1,x2,x3
 {
    double x, t;
    double p, q;

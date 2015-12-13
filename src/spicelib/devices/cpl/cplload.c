@@ -793,7 +793,7 @@ static int
 update_delayed_cnv(CPLine *cp, double h)
 {
    int i, j, k;
-   double *ratio;
+   double *ratio;//
    double f;
    VI_list *vi;
    TMS *tms;
