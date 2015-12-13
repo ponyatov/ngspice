@@ -232,7 +232,7 @@ plotit(wordlist *wl, char *hcopy, char *devname)
     struct pnode *pn, *names;
     struct dvec *d = NULL, *vecs = NULL, *lv, *lastvs = NULL;
     char *xn;
-    int i, j, xt;
+    int i, y_type, xt;
     double tt;
     wordlist *wwl, *tail;
     char *cline = NULL, buf[BSIZE_SP], *pname;
@@ -966,12 +966,12 @@ plotit(wordlist *wl, char *hcopy, char *devname)
         goto quit;
     }
 
-    /* See if there is one type we can give for the y scale... */
-    for (j = vecs->v_type, d = vecs->v_link2; d; d = d->v_link2)
-        if (d->v_type != j) {
-            j = SV_NOTYPE;
+    /* See if there is one common v_type we can give for the y scale... */
+    for (d = vecs->v_link2; d; d = d->v_link2)
+        if (d->v_type != vecs->v_type)
             break;
-        }
+
+    y_type = d ? SV_NOTYPE : vecs->v_type;
 
 #ifndef X_DISPLAY_MISSING
     if (devname && eq(devname, "xgraph")) {
@@ -979,7 +979,7 @@ plotit(wordlist *wl, char *hcopy, char *devname)
         ft_xgraph(xlims, ylims, hcopy,
                   title ? title : vecs->v_plot->pl_title,
                   xlabel ? xlabel : ft_typabbrev(vecs->v_scale->v_type),
-                  ylabel ? ylabel : ft_typabbrev(j),
+                  ylabel ? ylabel : ft_typabbrev(y_type),
                   gtype, ptype, vecs);
         rtn = TRUE;
         goto quit;
@@ -991,7 +991,7 @@ plotit(wordlist *wl, char *hcopy, char *devname)
         ft_gnuplot(xlims, ylims, hcopy,
                    title ? title : vecs->v_plot->pl_title,
                    xlabel ? xlabel : ft_typabbrev(vecs->v_scale->v_type),
-                   ylabel ? ylabel : ft_typabbrev(j),
+                   ylabel ? ylabel : ft_typabbrev(y_type),
                    gtype, ptype, vecs);
         rtn = TRUE;
         goto quit;
@@ -1002,7 +1002,7 @@ plotit(wordlist *wl, char *hcopy, char *devname)
         ft_writesimple(xlims, ylims, hcopy,
                        title ? title : vecs->v_plot->pl_title,
                        xlabel ? xlabel : ft_typabbrev(vecs->v_scale->v_type),
-                       ylabel ? ylabel : ft_typabbrev(j),
+                       ylabel ? ylabel : ft_typabbrev(y_type),
                        gtype, ptype, vecs);
         rtn = TRUE;
         goto quit;
@@ -1032,7 +1032,7 @@ plotit(wordlist *wl, char *hcopy, char *devname)
                  hcopy, i,
                  xdelta ? *xdelta : 0.0,
                  ydelta ? *ydelta : 0.0,
-                 gtype, ptype, xlabel, ylabel, xt, j, pname, cline))
+                 gtype, ptype, xlabel, ylabel, xt, y_type, pname, cline))
         goto quit;
 
     /* Now plot all the graphs. */
