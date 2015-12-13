@@ -1938,7 +1938,7 @@ static NODE
 
 #define  epsi2    1.0e-8
 
-static  int         dim;
+static  int         ZY_dim;
 static  MAXE_PTR    row;
 
 static MAXE_PTR
@@ -1964,10 +1964,10 @@ ordering(void)
     int i, j, m;
     double mv;
 
-    for (i = 0; i < dim-1; i++) {
+    for (i = 0; i < ZY_dim - 1; i++) {
         m = i+1;
         mv = ABS(ZY[i][m]);
-        for (j = m+1; j < dim; j++)
+        for (j = m+1; j < ZY_dim; j++)
             if ((int)(ABS(ZY[i][j]) * 1e7) > (int) (1e7 *mv)) {
 
                 mv = ABS(ZY[i][j]);
@@ -2005,7 +2005,7 @@ reordering(int p, int q)
 
     m = p+1;
     mv = ABS(ZY[p][m]);
-    for (j = m+1; j < dim; j++)
+    for (j = m+1; j < ZY_dim; j++)
         if ((int)(ABS(ZY[p][j]) * 1e7) > (int) (1e7 *mv)) {
             mv = ABS(ZY[p][j]);
             m = j;
@@ -2014,9 +2014,9 @@ reordering(int p, int q)
     row = sort(row, mv, p, m, e);
 
     m = q+1;
-    if (m != dim) {
+    if (m != ZY_dim) {
         mv = ABS(ZY[q][m]);
-        for (j = m+1; j < dim; j++)
+        for (j = m+1; j < ZY_dim; j++)
             if ((int)(ABS(ZY[q][j]) * 1e7) > (int) (1e7 *mv)) {
 
                 mv = ABS(ZY[q][j]);
@@ -2029,12 +2029,12 @@ reordering(int p, int q)
 }
 
 static void
-diag(int dims)
+diag(int dim)
 {
     int i, j, c;
     double fmin, fmax;
 
-    dim = dims;
+    ZY_dim = dim;
     row = NULL;
 
     fmin = fmax = ABS(ZY[0][0]);
