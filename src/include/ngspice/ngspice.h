@@ -213,6 +213,16 @@ extern double x_atanh(double);
 #define NAN (0.0/0.0)
 #endif
 
+// http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1453.htm
+
+#if defined(__GNUC__)
+#define _Noreturn __attribute__ ((noreturn))
+#elif defined(_MSC_VER)
+#define _Noreturn __declspec (noreturn)
+#else
+#define _Noreturn
+#endif
+
 /* Fast random number generator */
 //#define FastRand
 #define WaGauss
@@ -311,11 +321,7 @@ extern void SetAnalyse(char *analyse, int percent);
 
 void soa_printf(CKTcircuit *ckt, GENinstance *instance, const char *fmt, ...);
 
-#ifdef __GNUC__
-extern void controlled_exit(int status) __attribute__ ((noreturn));
-#else
-extern void controlled_exit(int status);
-#endif
+_Noreturn void controlled_exit(int status);
 
 
 /* macro to ignore unused variables and parameters */
