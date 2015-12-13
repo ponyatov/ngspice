@@ -312,7 +312,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
 {
     struct line *deck, *dd, *ld, *prev_param = NULL, *prev_card = NULL;
     struct line *realdeck = NULL, *options = NULL, *curr_meas = NULL;
-    char *tt = NULL, name[BSIZE_SP], *s, *t, *temperature = NULL;
+    char *tt = NULL, name[BSIZE_SP], *s, *s_end, *temperature = NULL;
     double testemp = 0.0;
     bool commands = FALSE;
     wordlist *wl = NULL, *end = NULL, *wl_first = NULL;
@@ -427,9 +427,9 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
             strncpy(name, dd->li_line, BSIZE_SP);
             for (s = name; *s && isspace(*s); s++)
                 ;
-            for (t = s; *t && !isspace(*t); t++)
+            for (s_end = s; *s_end && !isspace(*s_end); s_end++)
                 ;
-            *t = '\0';
+            *s_end = '\0';
 
             if (ciprefix(".control", dd->li_line)) {
                 ld->li_next = dd->li_next;
