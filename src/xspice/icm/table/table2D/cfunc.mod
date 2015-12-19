@@ -560,6 +560,12 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
             lLineLen = strlen(cThisLinePtr);   /* Get length of line */
             /* continue if comment or empty */
             if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
+                if (lTotalChars >= lFileLen) {
+                    snprintf(msg, sizeof(msg), "Not enough data in file %s", PARAM(file));
+                    cm_message_send(msg);
+                    loc->init_err = 1;
+                    return;
+                }
                 lLineCount--;   /* we count only real lines */
                 continue;
             }
