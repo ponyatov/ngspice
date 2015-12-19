@@ -99,23 +99,23 @@ struct filesource_state {
 
 typedef struct {
 
-    int   ix;   /* size of array in x   */
-    int   iy;   /* size of array in y   */
+    int   ix;   /* size of array in x */
+    int   iy;   /* size of array in y */
 
     struct filesource_state  *state;   /* the storage array for the
-                                          filesource status.    */
+                                          filesource status. */
 
-    sf_eno2 newtable;         /* the table, code borrowed from madagascar project */
+    sf_eno2 newtable;   /* the table, code borrowed from madagascar project */
 
-    double *xcol; /* array of floats in x   */
-    double *ycol; /* array of floats in y   */
+    double *xcol;   /* array of floats in x */
+    double *ycol;   /* array of floats in y */
 
     double **table;
 
 } Local_Data_t;
 
 /* Type definition for each possible token returned. */
-typedef enum token_type_s {CNV_NO_TOK,CNV_STRING_TOK} Cnv_Token_Type_t;
+typedef enum token_type_s {CNV_NO_TOK, CNV_STRING_TOK} Cnv_Token_Type_t;
 
 typedef char line_t[82]; /* A SPICE size line. <= 80 characters plus '\n\0' */
 
@@ -126,10 +126,10 @@ double BilinearInterpolation(double q11, double q12, double q21, double q22, dou
 
 /*=== Static CNVgettok ROUTINE ================*/
 /*
-Get the next token from the input string.  The input string pointer
-is advanced to the following token and the token from the input
-string is copied to malloced storage and a pointer to that storage
-is returned.  The original input string is undisturbed.
+  Get the next token from the input string.  The input string pointer
+  is advanced to the following token and the token from the input
+  string is copied to malloced storage and a pointer to that storage
+  is returned.  The original input string is undisturbed.
 */
 
 #include <stdlib.h>
@@ -150,8 +150,8 @@ CNVgettok(char **s)
     /* skip over any white space */
 
     while (isspace(**s) || (**s == '=') ||
-          (**s == '(') || (**s == ')') || (**s == ','))
-          (*s)++;
+           (**s == '(') || (**s == ')') || (**s == ','))
+        (*s)++;
 
     /* isolate the next token */
 
@@ -167,9 +167,9 @@ CNVgettok(char **s)
                          /* or a mess o' characters.            */
         i = 0;
         while ((**s != '\0') &&
-               ! ( isspace(**s) || (**s == '=') ||
-                    (**s == '(') || (**s == ')') ||
-                    (**s == ','))  ) {
+               !(isspace(**s) || (**s == '=') ||
+                 (**s == '(') || (**s == ')') ||
+                 (**s == ','))) {
             buf[i] = **s;
             i++;
             (*s)++;
@@ -181,13 +181,13 @@ CNVgettok(char **s)
     /* skip over white space up to next token */
 
     while (isspace(**s) || (**s == '=') ||
-          (**s == '(') || (**s == ')') || (**s == ','))
-          (*s)++;
+           (**s == '(') || (**s == ')') || (**s == ','))
+        (*s)++;
 
     /* make a copy using only the space needed by the string length */
 
     ret_str = (char *) malloc(strlen(buf) + 1);
-    ret_str = strcpy(ret_str,buf);
+    ret_str = strcpy(ret_str, buf);
 
     if (buf)
         free(buf);
@@ -198,18 +198,18 @@ CNVgettok(char **s)
 
 /*=== Static CNVget_token ROUTINE =============*/
 /*
-Get the next token from the input string together with its type.
-The input string pointer
-is advanced to the following token and the token from the input
-string is copied to malloced storage and a pointer to that storage
-is returned.  The original input string is undisturbed.
+  Get the next token from the input string together with its type.
+  The input string pointer
+  is advanced to the following token and the token from the input
+  string is copied to malloced storage and a pointer to that storage
+  is returned.  The original input string is undisturbed.
 */
 
-static char  *
+static char *
 CNVget_token(char **s, Cnv_Token_Type_t *type)
 {
 
-    char    *ret_str;   /* storage for returned string */
+    char *ret_str;   /* storage for returned string */
 
     /* get the token from the input line */
 
@@ -276,19 +276,19 @@ NON-STANDARD FEATURES
 /*=== Static CNV_get_spice_value ROUTINE =============*/
 
 /*
-   Function takes as input a string token from a SPICE
-deck and returns a floating point equivalent value.
+  Function takes as input a string token from a SPICE
+  deck and returns a floating point equivalent value.
 */
 
 
 static int
-cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
-                    double *p_value)    /* OUT - The numerical value     */
+cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
+                    double *p_value)   /* OUT - The numerical value     */
 {
     /* the following were "int4" devices - jpm */
-    size_t len;
-    size_t i;
-    int    n_matched;
+    size_t  len;
+    size_t  i;
+    int     n_matched;
 
     line_t  val_str;
 
@@ -319,7 +319,7 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
 
     /* Determine the scale factor */
 
-    if ((i >= len) || (! isalpha(c)))
+    if ((i >= len) || (!isalpha(c)))
         scale_factor = 1.0;
     else {
 
@@ -385,7 +385,7 @@ cnv_get_spice_value(char   *str,        /* IN - The value text e.g. 1.2K */
     /* Convert the numeric portion to a float and multiply by the */
     /* scale factor.                                              */
 
-    n_matched = sscanf(val_str,"%le",&value);
+    n_matched = sscanf(val_str, "%le", &value);
 
     if (n_matched < 1) {
         *p_value = 0.0;
@@ -456,15 +456,15 @@ x0yiy-1 x1yiy-1 x2yiy-1 ... xix-1yiy-1
 
 
 void
-cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
+cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 {
     int size, xind, yind;
     double xval, yval, xoff, yoff, xdiff, ydiff;
     double derivval[2], outval;
     double q11, q12, q21, q22, x1, x2, y1, y2;
 
-    Local_Data_t *loc;        /* Pointer to local static data, not to be included
-                                       in the state vector */
+    Local_Data_t *loc;   /* Pointer to local static data, not to be included
+                            in the state vector */
     Mif_Complex_t ac_gain;
 
     char msg[512];
@@ -473,25 +473,25 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     if (INIT == 1) {
 
         int i;
-        int ix = 0,  /* elements in a row */
-            iy = 0;  /* number of rows */
+        int ix = 0,   /* elements in a row */
+            iy = 0;   /* number of rows */
         double **table_data;
         double tmp;
         char *cFile, *cThisPtr, *cThisLine, *cThisLinePtr;
-        int   isNewline;              /* Boolean indicating we've read a CR or LF */
-        long  lFileLen;               /* Length of file */
-        long  lIndex;                 /* Index into cThisLine array */
-        long  lLineCount;             /* Current line number */
-        long  lLineLen;               /* Current line length */
-        long  lStartPos;              /* Offset of start of current line */
-        long  lTotalChars;            /* Total characters read */
+        int   isNewline;     /* Boolean indicating we've read a CR or LF */
+        long  lFileLen;      /* Length of file */
+        long  lIndex;        /* Index into cThisLine array */
+        long  lLineCount;    /* Current line number */
+        long  lLineLen;      /* Current line length */
+        long  lStartPos;     /* Offset of start of current line */
+        long  lTotalChars;   /* Total characters read */
 
         /* allocate static storage for *loc */
-        STATIC_VAR (locdata) = calloc (1 , sizeof ( Local_Data_t ));
+        STATIC_VAR (locdata) = calloc(1, sizeof(Local_Data_t));
         loc = STATIC_VAR (locdata);
 
         /* Allocate storage for internal state */
-        loc->state = (struct filesource_state*)malloc(sizeof(struct filesource_state));
+        loc->state = (struct filesource_state*) malloc(sizeof(struct filesource_state));
         loc->ix = loc->iy = 0;
 
         /* open file */
@@ -539,56 +539,56 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         lTotalChars = 0L;
 
         while (*cThisPtr) {               /* Read until reaching null char */
-            lIndex    = 0L;                 /* Reset counters and flags */
+            lIndex    = 0L;               /* Reset counters and flags */
             isNewline = 0;
             lStartPos = lTotalChars;
 
-            while (*cThisPtr) {             /* Read until reaching null char */
-                if (!isNewline) {             /* Haven't read a CR or LF yet */
+            while (*cThisPtr) {           /* Read until reaching null char */
+                if (!isNewline) {         /* Haven't read a CR or LF yet */
                     if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
-                        isNewline = 1;                        /* Set flag */
+                        isNewline = 1;    /* Set flag */
                 }
 
                 else if (*cThisPtr != '\r' && *cThisPtr != '\n') /* Already found CR or LF */
-                    break;                                     /* Done with line */
+                    break;                /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
                 lTotalChars++;
             }
 
-            cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
+            cThisLinePtr[lIndex] = '\0';  /* Terminate the string */
             lLineCount++;                 /* Increment the line counter */
             lLineLen = strlen(cThisLinePtr); /* Get length of line */
             /* continue if comment or empty */
             if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
-                lLineCount--; /* we count only real lines */
+                lLineCount--;   /* we count only real lines */
                 continue;
             }
             if (lLineCount == 1) {
                 cnv_get_spice_value(cThisLinePtr, &tmp);
-                loc->ix = ix = (int)tmp;
-                /* generate row  data structure (x) */
-                loc->xcol = (double*)calloc(ix, sizeof(double));
+                loc->ix = ix = (int) tmp;
+                /* generate row data structure (x) */
+                loc->xcol = (double*) calloc(ix, sizeof(double));
             }
             else if (lLineCount == 2) {
                 cnv_get_spice_value(cThisLinePtr, &tmp);
-                loc->iy = iy = (int)tmp;
-                /* generate  column data structure (y) */
-                loc->ycol = (double*)calloc(iy, sizeof(double));
+                loc->iy = iy = (int) tmp;
+                /* generate column data structure (y) */
+                loc->ycol = (double*) calloc(iy, sizeof(double));
             }
             else if (lLineCount == 3) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
                 while (token) {
                     if (i == ix) {
-                      /* error */
+                        /* error */
                     }
                     cnv_get_spice_value(token, &loc->xcol[i++]);
                     free(token);
                     token = CNVgettok(&cThisLinePtr);
                 }
-                if (i < ix){
-                /* error */
+                if (i < ix) {
+                    /* error */
                 }
             }
             else if (lLineCount == 4) {
@@ -596,14 +596,14 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
                 i = 0;
                 while (token) {
                     if (i == iy) {
-                      /* error */
+                        /* error */
                     }
                     cnv_get_spice_value(token, &loc->ycol[i++]);
                     free(token);
                     token = CNVgettok(&cThisLinePtr);
                 }
-                if (i < iy){
-                /* error */
+                if (i < iy) {
+                    /* error */
                 }
                 /* jump out of while loop to read in the table */
                 break;
@@ -613,14 +613,14 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
 
         /* generate table core */
         /* int order : interpolation order,
-        int n1, int n2 : data dimensions */
-        loc->newtable =  sf_eno2_init (PARAM(order), ix, iy);
+           int n1, int n2 : data dimensions */
+        loc->newtable =  sf_eno2_init(PARAM(order), ix, iy);
 
         /* create table_data in memory */
         /* data [n2][n1] */
         table_data = calloc(iy, sizeof(double *));
         for (i = 0; i < iy; i++)
-             table_data[i] = calloc(ix, sizeof(double));
+            table_data[i] = calloc(ix, sizeof(double));
 
         loc->table = table_data;
 
@@ -629,29 +629,29 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         while (*cThisPtr) {               /* Read until reaching null char */
             char *token;
 
-            lIndex    = 0L;                 /* Reset counters and flags */
+            lIndex    = 0L;               /* Reset counters and flags */
             isNewline = 0;
             lStartPos = lTotalChars;
 
-            while (*cThisPtr) {             /* Read until reaching null char */
-                if (!isNewline) {             /* Haven't read a CR or LF yet */
+            while (*cThisPtr) {           /* Read until reaching null char */
+                if (!isNewline) {         /* Haven't read a CR or LF yet */
                     if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
-                        isNewline = 1;                        /* Set flag */
+                        isNewline = 1;    /* Set flag */
                 }
 
                 else if (*cThisPtr != '\r' && *cThisPtr != '\n') /* Already found CR or LF */
-                    break;                                     /* Done with line */
+                    break;                /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
                 lTotalChars++;
             }
 
-            cThisLinePtr[lIndex] = '\0';     /* Terminate the string */
+            cThisLinePtr[lIndex] = '\0';  /* Terminate the string */
             lLineCount++;                 /* Increment the line counter */
             lLineLen = strlen(cThisLinePtr); /* Get length of line */
             /* continue if comment or empty */
             if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
-                lLineCount--; /* we count only real lines */
+                lLineCount--;   /* we count only real lines */
                 continue;
             }
             token = CNVgettok(&cThisLinePtr);
@@ -659,17 +659,17 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
             while (token) {
                 double tmpval;
                 if (i == ix) {
-                  /* error */
+                    /* error */
                 }
 
                 /* read table core from cFile, fill local static table structure table_data */
                 cnv_get_spice_value(token, &tmpval);
-                table_data[lLineCount-1][i++] = (float)tmpval;
+                table_data[lLineCount - 1][i++] = (float) tmpval;
                 free(token);
                 token = CNVgettok(&cThisLinePtr);
             }
-            if (i < ix){
-            /* error */
+            if (i < ix) {
+                /* error */
             }
         }
 
@@ -677,9 +677,9 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         sf_eno2_set (loc->newtable, table_data /* data [n2][n1] */);
 
         /* free all the emory allocated */
-//      for (i = 0; i < iy; i++)
-//             free(table_data[i]);
-//      free(table_data);
+        // for (i = 0; i < iy; i++)
+        //     free(table_data[i]);
+        // free(table_data);
         free(cFile);
         free(cThisLine);
     } /* end of initialization "if (INIT == 1)" */
@@ -687,41 +687,41 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     loc = STATIC_VAR (locdata);
 
     /* get input x, y,
-    find corresponding indices,
-    get x and y offsets,
-    call interpolation function with value and derivative */
+       find corresponding indices,
+       get x and y offsets,
+       call interpolation function with value and derivative */
     xval = INPUT(inx);
     yval = INPUT(iny);
 
-    /*find index*/
-    if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix-1]) {
-        /*error*/
+    /* find index */
+    if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix - 1]) {
+        /* error */
     }
-    if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy-1]) {
-        /*error*/
+    if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy - 1]) {
+        /* error */
     }
 
     /* something like binary search to get the index */
-    xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
+    xind = findCrossOver(loc->xcol, 0, loc->ix - 1, xval);
     /* find index with minimum distance between xval and row value */
-    if (fabs(loc->xcol[xind+1]-xval) < fabs(xval - loc->xcol[xind]))
+    if (fabs(loc->xcol[xind + 1] - xval) < fabs(xval - loc->xcol[xind]))
         xind++;
     xoff = xval - loc->xcol[xind];
-    yind = findCrossOver(loc->ycol, 0, loc->iy-1, yval);
+    yind = findCrossOver(loc->ycol, 0, loc->iy - 1, yval);
     /* find index with minimum distance between yval and column value */
-    if (fabs(loc->ycol[yind+1]-yval) < fabs(yval - loc->ycol[yind]))
+    if (fabs(loc->ycol[yind + 1] - yval) < fabs(yval - loc->ycol[yind]))
         yind++;
     yoff = yval - loc->ycol[yind];
 
-    /* find local difference around index of independent row and column values*/
-    if (xind == loc->ix-1)
+    /* find local difference around index of independent row and column values */
+    if (xind == loc->ix - 1)
         xdiff = loc->xcol[xind] - loc->xcol[xind - 1];
     else if (xind == 0)
         xdiff = loc->xcol[xind + 1] - loc->xcol[xind];
     else
         xdiff = 0.5 * (loc->xcol[xind + 1] - loc->xcol[xind - 1]);
 
-    if (yind == loc->iy-1)
+    if (yind == loc->iy - 1)
         ydiff = loc->ycol[yind] - loc->ycol[yind - 1];
     else if (yind == 0)
         ydiff = loc->ycol[yind + 1] - loc->ycol[yind];
@@ -731,16 +731,16 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
     /* Essentially non-oscillatory (ENO) interpolation to obtain the derivatives only.
        Using outval for now yields ngspice op non-convergence */
     sf_eno2_apply (loc->newtable,
-            xind, yind,     /* grid location */
-            xoff, yoff, /* offset from grid */
-            &outval,         /* output data value */
-            derivval,        /* output derivatives [2] */
-            DER         /* what to compute [FUNC,DER,BOTH] */
-            );
+                   xind, yind,   /* grid location */
+                   xoff, yoff,   /* offset from grid */
+                   &outval,      /* output data value */
+                   derivval,     /* output derivatives [2] */
+                   DER           /* what to compute [FUNC, DER, BOTH] */
+                   );
 
     /* bilinear interpolation to obtain the output value */
-    xind = findCrossOver(loc->xcol, 0, loc->ix-1, xval);
-    yind = findCrossOver(loc->ycol, 0, loc->iy-1, yval);
+    xind = findCrossOver(loc->xcol, 0, loc->ix - 1, xval);
+    yind = findCrossOver(loc->ycol, 0, loc->iy - 1, yval);
     x1 = loc->xcol[xind];
     x2 = loc->xcol[xind + 1];
     y1 = loc->ycol[yind];
@@ -756,20 +756,20 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc.     */
         outv = PARAM(offset) + PARAM(gain) * outval;
         OUTPUT(out) = outv;
         xderiv = PARAM(gain) * derivval[0] / xdiff;
-        PARTIAL(out,inx) = xderiv;
+        PARTIAL(out, inx) = xderiv;
         yderiv = PARAM(gain) * derivval[1] / ydiff;
-        PARTIAL(out,iny) = yderiv;
+        PARTIAL(out, iny) = yderiv;
 
-//        snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, xderiv: %g, yderiv: %g", outv, xval, yval, xderiv, yderiv);
-//        cm_message_send(msg);
+        // snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, xderiv: %g, yderiv: %g", outv, xval, yval, xderiv, yderiv);
+        // cm_message_send(msg);
     }
     else {
         ac_gain.real = PARAM(gain) * derivval[0] / xdiff;
         ac_gain.imag= 0.0;
-        AC_GAIN(out,inx) = ac_gain;
+        AC_GAIN(out, inx) = ac_gain;
         ac_gain.real = PARAM(gain) * derivval[1] / ydiff;
         ac_gain.imag= 0.0;
-        AC_GAIN(out,iny) = ac_gain;
+        AC_GAIN(out, iny) = ac_gain;
     }
 
 }
