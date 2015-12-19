@@ -1,0 +1,26 @@
+test plot
+*
+* (exec-spice "ngspice %s" t)
+
+v1 1 0 DC 0.1
+v2 2 0 DC 1.5
+
+b3 3 0 v = v(1)*v(2)
+
+.control
+
+let foo = vector(100)
+let aa = sin(foo/20*3*pi) * (1 - foo/100)
+let bb = cos(foo/20*3*pi) * (1 - foo/100)
+plot aa vs bb
+gnuplot moo1 aa vs bb
+
+dc V1 -1 2 0.2 V2 0 1 0.2
+plot v(3)
+gnuplot moo2 v(3)
+
+dc V1 2 -1 -0.2 V2 1 0 -0.2
+plot v(3)
+gnuplot moo3 v(3)
+
+.endc
