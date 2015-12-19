@@ -588,8 +588,15 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
                 cThisLinePtr[lIndex] = '\0';       /* Terminate the string */
                 /* continue if comment or empty */
-                if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0')
+                if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0') {
+                    if (lTotalChars >= lFileLen) {
+                        snprintf(msg, sizeof(msg), "Not enough data in file %s", PARAM(file));
+                        cm_message_send(msg);
+                        loc->init_err = 1;
+                        return;
+                    }
                     continue;
+                }
                 token = CNVgettok(&cThisLinePtr);
                 i = 0;
                 while (token) {
