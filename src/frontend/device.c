@@ -1336,12 +1336,12 @@ com_alter_common(wordlist *wl, int do_model)
             }
 
             dv = TMALLOC(struct dvec, 1);
+            if (!dv)
+                return;
+
             dv->v_name = copy("real vector");
             dv->v_realdata = list;
         dv->v_length = i;
-
-        if (!dv)
-            return;
 
         /*       Here I was, to change the inclusion in the circuit.
          * will have to revise that dv is right for its insertion.
