@@ -470,8 +470,9 @@ static void
 OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
 {
     int i;
+    int s = run->numData;
 
-    for (i = 0; i < run->numData; i++) {
+    for (i = 0; i < s; i++) {
 
 #ifdef TCL_MODULE
         /*Locks the blt vector to stop access*/
