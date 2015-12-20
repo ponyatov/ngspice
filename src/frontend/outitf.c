@@ -470,18 +470,21 @@ addSpecialDesc(runDesc *run, char *name, char *devname, char *param, int depind)
     return (OK);
 }
 
+
 static void OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
 {
     int i;
     int s = run->numData;
 
     for (i = 0; i < s; i++) {
+
         dataDesc *dset = &run->data[i];
 
 #ifdef TCL_MODULE
         /*Locks the blt vector to stop access*/
         blt_lockvec(i);
 #endif
+
         if (dset->outIndex == -1) {
             if (dset->type == IF_REAL)
                 plotAddRealValue(dset, refValue->rValue);
@@ -500,6 +503,7 @@ static void OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
             /* should pre-check instance */
             if (!getSpecial(dset, run, &val))
                 continue;
+
             if (dset->type == IF_REAL)
                 plotAddRealValue(dset, val.rValue);
             else if (dset->type == IF_COMPLEX)
@@ -507,12 +511,15 @@ static void OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
             else
                 fprintf(stderr, "OUTpData: unsupported data type\n");
         }
+
 #ifdef TCL_MODULE
         /*relinks and unlocks vector*/
         blt_relink(i, dset->vec);
 #endif
+
     }
 }
+
 
 int OUTpData(runDesc *plotPtr, IFvalue *refValue, IFvalue *valuePtr)
 {
@@ -1076,6 +1083,7 @@ static inline int vlength2delta(int l)
     return 64;
 }
 
+
 static void
 plotAddRealValue(dataDesc *desc, double value)
 {
@@ -1112,6 +1120,7 @@ plotAddComplexValue(dataDesc *desc, IFcomplex value)
         v->v_alloc_space += vlength2delta(v->v_alloc_space);
         v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
     }
+
     v->v_compdata[v->v_length].cx_real = value.real;
     v->v_compdata[v->v_length].cx_imag = value.imag;
 
