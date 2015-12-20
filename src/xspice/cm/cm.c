@@ -706,20 +706,21 @@ char *cm_get_path(void)
     return Infile_Path;
 }
 
-/* cm_get_circuit(void) 
 
-To build complex custom-built xspice-models, access to certain 
-parameters (e.g. maximum step size) may be needed to get reasonable 
-results of a simulation. In detail, this may be necessary when 
-spice interacts with an external sensor-simulator and the results 
-of that external simulator do not have a direct impact on the spice 
-circuit. Then, modifying the maximum step size on the fly may help 
-to improve the simulation results. Modifying such parameters has to 
-be done carefully. The patch enhances the xspice interface with 
+/* cm_get_circuit(void)
+
+To build complex custom-built xspice-models, access to certain
+parameters (e.g. maximum step size) may be needed to get reasonable
+results of a simulation. In detail, this may be necessary when
+spice interacts with an external sensor-simulator and the results
+of that external simulator do not have a direct impact on the spice
+circuit. Then, modifying the maximum step size on the fly may help
+to improve the simulation results. Modifying such parameters has to
+be done carefully. The patch enhances the xspice interface with
 access to the (fundamental) ckt pointer.
 */
+
 CKTcircuit *cm_get_circuit(void)
 {
-	return(g_mif_info.ckt);
+    return(g_mif_info.ckt);
 }
- 
