@@ -14,6 +14,7 @@ Modified: 2000 AlansFixes
 #include "ngspice/cpdefs.h"
 #include "ngspice/ftedefs.h"
 #include "ngspice/dgen.h"
+#include "ngspice/sim.h"
 
 #include "circuits.h"
 #include "device.h"
@@ -1341,6 +1342,8 @@ com_alter_common(wordlist *wl, int do_model)
             return;
 
         dv->v_name = copy("real vector");
+        dv->v_type = SV_NOTYPE;
+        dv->v_flags = VF_REAL;
         dv->v_length = i;
         dv->v_realdata = list;
 
