@@ -793,7 +793,6 @@ vec_new(struct dvec *d)
         d->v_numdims = 1;
         d->v_dims[0] = d->v_length;
     }
-    d->v_alloc_space = 0;
     d->v_next = d->v_plot->pl_dvecs;
     d->v_plot->pl_dvecs = d;
 }
@@ -873,8 +872,8 @@ vec_free_x(struct dvec *v)
         }
     }
 
-    if (v->v_name && v->v_name != (void *)(v + 1))
-	tfree(v->v_name);
+    if (v->v_name)
+        tfree(v->v_name);
     if (v->v_realdata)
         tfree(v->v_realdata);
     if (v->v_compdata)
