@@ -791,6 +791,7 @@ vec_new(struct dvec *d)
         d->v_numdims = 1;
         d->v_dims[0] = d->v_length;
     }
+    d->v_alloc_space = 0;
     d->v_next = d->v_plot->pl_dvecs;
     d->v_plot->pl_dvecs = d;
 }
