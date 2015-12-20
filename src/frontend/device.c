@@ -1320,8 +1320,6 @@ com_alter_common(wordlist *wl, int do_model)
             words = words->wl_next;
         xsbuf = rem_xsbuf = wl_flatten(words);
         /* fprintf(cp_err, "Chain    converted  %s \n", xsbuf); */
-        dv = TMALLOC(struct dvec, 1);
-        dv->v_name = copy("real vector");
             list = TMALLOC(double, 1);
             for (;;) {
                 tmp = INPevaluate(&xsbuf, &error, 1);
@@ -1331,6 +1329,8 @@ com_alter_common(wordlist *wl, int do_model)
                 list = TREALLOC(double, list, i + 1);
                 list[i++] = tmp;
             }
+            dv = TMALLOC(struct dvec, 1);
+            dv->v_name = copy("real vector");
             dv->v_realdata = list;
         dv->v_length = i;
 
