@@ -249,7 +249,7 @@ ft_gnuplot(double *xlims, double *ylims, char *filename, char *title, char *xlab
 
     /* Write out the data and setup arrays */
     dir = 0;
-    prev_xval = 0.0 / 0.0;
+    prev_xval = NAN;
     for (i = 0; i < scale->v_length; i++) {
         for (v = vecs; v; v = v->v_link2) {
             scale = v->v_scale;
