@@ -1,7 +1,7 @@
 /**********
 Copyright 1990 Regents of the University of California.  All rights reserved.
 Author: 1988 Wayne A. Christopher, U. C. Berkeley CAD Group
-Modified: 2000 AlansFixes
+Modified: 2000 AlansFixes, 2013/2015 patch by Krzysztof Blaszkowski
 **********/
 
 /*
@@ -10,6 +10,11 @@ Modified: 2000 AlansFixes
  * the simulator routines, and only call routines in nutmeg.  The rest
  * of nutmeg doesn't deal with OUT at all.
  */
+
+/* Before the 2015 patch realloc was called for every vector to be stored.
+   This cost time and may leave user memory on the PC cluttered.
+   The patch enables realloc to be called only every 64 or more times,
+   then adding a chunk of 64 or more vectors to memory. */
 
 #include "ngspice/ngspice.h"
 #include "ngspice/cpdefs.h"
@@ -1064,17 +1069,40 @@ plotInit(runDesc *run)
 }
 
 
+static inline int
+vlength2delta(int l)
+{
+    if (l < 50000)
+        return 512;
+    if (l < 200000)
+        return 256;
+    if (l < 500000)
+        return 128;
+    /* larger memory allocations may exhaust memory easily
+     * this function may use better estimation depending on
+     * available memory and number of vectors (run->numData)
+     */
+    return 64;
+}
+
+
 static void
 plotAddRealValue(dataDesc *desc, double value)
 {
     struct dvec *v = desc->vec;
 
+    if (v->v_alloc_space == 0 || v->v_length == v->v_alloc_space) {
+        v->v_alloc_space += vlength2delta(v->v_alloc_space);
+        if (isreal(v))
+            v->v_realdata = TREALLOC(double, v->v_realdata, v->v_alloc_space);
+        else
+            v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
+    }
+
     if (isreal(v)) {
-        v->v_realdata = TREALLOC(double, v->v_realdata, v->v_length + 1);
         v->v_realdata[v->v_length] = value;
     } else {
         /* a real parading as a VF_COMPLEX */
-        v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_length + 1);
         v->v_compdata[v->v_length].cx_real = value;
         v->v_compdata[v->v_length].cx_imag = 0.0;
     }
@@ -1089,7 +1117,11 @@ plotAddComplexValue(dataDesc *desc, IFcomplex value)
 {
     struct dvec *v = desc->vec;
 
-    v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_length + 1);
+    if (v->v_alloc_space == 0 || v->v_length == v->v_alloc_space) {
+        v->v_alloc_space += vlength2delta(v->v_alloc_space);
+        v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
+    }
+
     v->v_compdata[v->v_length].cx_real = value.real;
     v->v_compdata[v->v_length].cx_imag = value.imag;
 
