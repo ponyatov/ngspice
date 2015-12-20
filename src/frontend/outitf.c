@@ -493,11 +493,9 @@ OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
                 plotAddComplexValue(dset, refValue->cValue);
         } else if (dset->regular) {
             if (dset->type == IF_REAL)
-                plotAddRealValue(dset,
-                                 valuePtr->v.vec.rVec[dset->outIndex]);
+                plotAddRealValue(dset, valuePtr->v.vec.rVec[dset->outIndex]);
             else if (dset->type == IF_COMPLEX)
-                plotAddComplexValue(dset,
-                                    valuePtr->v.vec.cVec[dset->outIndex]);
+                plotAddComplexValue(dset, valuePtr->v.vec.cVec[dset->outIndex]);
         } else {
             IFvalue val;
 
@@ -1080,9 +1078,10 @@ vlength2delta(int l)
         return 256;
     if (l < 500000)
         return 128;
-    /* larger memory allocations may exhaust memory easily */
-    /* this function may use better estimation depending on
-       available memory and number of vectors (run->numData) */
+    /* larger memory allocations may exhaust memory easily
+     * this function may use better estimation depending on
+     * available memory and number of vectors (run->numData)
+     */
     return 64;
 }
 
@@ -1094,11 +1093,10 @@ plotAddRealValue(dataDesc *desc, double value)
 
     if (v->v_alloc_space == 0 || v->v_length == v->v_alloc_space) {
         v->v_alloc_space += vlength2delta(v->v_alloc_space);
-        if (isreal(v)) {
+        if (isreal(v))
             v->v_realdata = TREALLOC(double, v->v_realdata, v->v_alloc_space);
-        } else {
+        else
             v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
-        }
     }
 
     if (isreal(v)) {
