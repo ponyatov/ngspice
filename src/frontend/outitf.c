@@ -471,7 +471,8 @@ addSpecialDesc(runDesc *run, char *name, char *devname, char *param, int depind)
 }
 
 
-static void OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
+static void
+OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
 {
     int i;
     int s = run->numData;
@@ -521,7 +522,8 @@ static void OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
 }
 
 
-int OUTpData(runDesc *plotPtr, IFvalue *refValue, IFvalue *valuePtr)
+int
+OUTpData(runDesc *plotPtr, IFvalue *refValue, IFvalue *valuePtr)
 {
     runDesc *run = plotPtr;  // FIXME
     int i;
@@ -1069,7 +1071,8 @@ plotInit(runDesc *run)
 }
 
 
-static inline int vlength2delta(int l)
+static inline int
+vlength2delta(int l)
 {
     if (l < 50000)
         return 512;
