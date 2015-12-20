@@ -475,43 +475,43 @@ static void OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
     int i;
     int s = run->numData;
 
-        for (i = 0; i < s; i++) {
+    for (i = 0; i < s; i++) {
         dataDesc *dset = &run->data[i];
 
 #ifdef TCL_MODULE
-           /*Locks the blt vector to stop access*/
-       blt_lockvec(i);
+        /*Locks the blt vector to stop access*/
+        blt_lockvec(i);
 #endif
-            if (dset->outIndex == -1) {
-                if (dset->type == IF_REAL)
-                    plotAddRealValue(dset, refValue->rValue);
-                else if (dset->type == IF_COMPLEX)
-                    plotAddComplexValue(dset, refValue->cValue);
-            } else if (dset->regular) {
-                if (dset->type == IF_REAL)
-                    plotAddRealValue(dset, 
-                        valuePtr->v.vec.rVec[dset->outIndex]);
-                else if (dset->type == IF_COMPLEX)
-                    plotAddComplexValue(dset,
-                        valuePtr->v.vec.cVec[dset->outIndex]);
-            } else {
-        IFvalue val;
+        if (dset->outIndex == -1) {
+            if (dset->type == IF_REAL)
+                plotAddRealValue(dset, refValue->rValue);
+            else if (dset->type == IF_COMPLEX)
+                plotAddComplexValue(dset, refValue->cValue);
+        } else if (dset->regular) {
+            if (dset->type == IF_REAL)
+                plotAddRealValue(dset,
+                                 valuePtr->v.vec.rVec[dset->outIndex]);
+            else if (dset->type == IF_COMPLEX)
+                plotAddComplexValue(dset,
+                                    valuePtr->v.vec.cVec[dset->outIndex]);
+        } else {
+            IFvalue val;
 
             /* should pre-check instance */
-                if (!getSpecial(dset, run, &val))
-                    continue;
-                if (dset->type == IF_REAL)
-                    plotAddRealValue(dset, val.rValue);
-                else if (dset->type == IF_COMPLEX)
-                    plotAddComplexValue(dset, val.cValue);
-                else 
-                    fprintf(stderr, "OUTpData: unsupported data type\n");
-            }
-#ifdef TCL_MODULE
-            /*relinks and unlocks vector*/
-            blt_relink(i, dset->vec);
-#endif
+            if (!getSpecial(dset, run, &val))
+                continue;
+            if (dset->type == IF_REAL)
+                plotAddRealValue(dset, val.rValue);
+            else if (dset->type == IF_COMPLEX)
+                plotAddComplexValue(dset, val.cValue);
+            else
+                fprintf(stderr, "OUTpData: unsupported data type\n");
         }
+#ifdef TCL_MODULE
+        /*relinks and unlocks vector*/
+        blt_relink(i, dset->vec);
+#endif
+    }
 }
 
 int OUTpData(runDesc *plotPtr, IFvalue *refValue, IFvalue *valuePtr)
@@ -1070,10 +1070,10 @@ static inline int vlength2delta(int l)
         return 256;
     if (l < 500000)
         return 128;
-/* larger memory allocations may exhaust memory easily */
-/* this function may use better estimation depending on
-     available memory and number of vectors (run->numData) */
-    return 64; 
+    /* larger memory allocations may exhaust memory easily */
+    /* this function may use better estimation depending on
+       available memory and number of vectors (run->numData) */
+    return 64;
 }
 
 static void
@@ -1082,12 +1082,12 @@ plotAddRealValue(dataDesc *desc, double value)
     struct dvec *v = desc->vec;
 
     if (v->v_alloc_space == 0 || v->v_length == v->v_alloc_space) {
-    v->v_alloc_space += vlength2delta(v->v_alloc_space);
-    if (isreal(v)) {
-        v->v_realdata = TREALLOC(double, v->v_realdata, v->v_alloc_space);
-    } else {
-        v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
-    }
+        v->v_alloc_space += vlength2delta(v->v_alloc_space);
+        if (isreal(v)) {
+            v->v_realdata = TREALLOC(double, v->v_realdata, v->v_alloc_space);
+        } else {
+            v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
+        }
     }
 
     if (isreal(v)) {
@@ -1109,8 +1109,8 @@ plotAddComplexValue(dataDesc *desc, IFcomplex value)
     struct dvec *v = desc->vec;
 
     if (v->v_alloc_space == 0 || v->v_length == v->v_alloc_space) {
-    v->v_alloc_space += vlength2delta(v->v_alloc_space);
-    v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
+        v->v_alloc_space += vlength2delta(v->v_alloc_space);
+        v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_alloc_space);
     }
     v->v_compdata[v->v_length].cx_real = value.real;
     v->v_compdata[v->v_length].cx_imag = value.imag;

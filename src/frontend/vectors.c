@@ -873,7 +873,7 @@ vec_free_x(struct dvec *v)
         }
     }
 
-    if (v->v_name && v->v_name != (void *)(v + 1)) 
+    if (v->v_name && v->v_name != (void *)(v + 1))
 	tfree(v->v_name);
     if (v->v_realdata)
         tfree(v->v_realdata);
