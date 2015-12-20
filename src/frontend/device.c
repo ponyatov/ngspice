@@ -1340,8 +1340,8 @@ com_alter_common(wordlist *wl, int do_model)
                 return;
 
             dv->v_name = copy("real vector");
-            dv->v_realdata = list;
         dv->v_length = i;
+        dv->v_realdata = list;
 
         /*       Here I was, to change the inclusion in the circuit.
          * will have to revise that dv is right for its insertion.
