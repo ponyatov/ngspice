@@ -60,6 +60,11 @@ NON-STANDARD FEATURES
 #define PWL 1
 #define HYSTERESIS 2
 
+#ifndef NAN
+    static const __int64 global_nan = 0x7ff8000000000000i64;
+    #define NAN (*(const double *) &global_nan)
+#endif
+
 
 /*=== MACROS ===========================*/
 
@@ -294,8 +299,13 @@ cm_core(ARGS)
             /*** must determine position progressively & then ***/
             /*** calculate required output. ***/
 
+#ifdef _MSC_VER
+            dout_din = NAN;
+            B_out    = NAN;
+#else
             dout_din = 0.0 / 0.0;
             B_out    = 0.0 / 0.0;
+#endif
 
             for (i = 1; i < size; i++)
                 if (H_input < (H[i].rvalue + H[i+1].rvalue) / 2.0) {
