@@ -100,8 +100,7 @@ xtend(struct dvec *v, int length)
         double d = NAN;
         v->v_realdata = TREALLOC(double, v->v_realdata, length);
         od = v->v_realdata;
-        for (i = 0; i < v->v_length; i++)
-            v->v_realdata[i] = od[i];
+        i = v->v_length;
         if (i > 0)
             d = od[i - 1];
         while (i < length)
@@ -110,9 +109,7 @@ xtend(struct dvec *v, int length)
         ngcomplex_t c = {NAN, NAN};
         v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, length);
         oc = v->v_compdata;
-        for (i = 0; i < v->v_length; i++) {
-            v->v_compdata[i] = oc[i];
-        }
+        i = v->v_length;
         if (i > 0)
             c = oc[i - 1];
         while (i < length)
