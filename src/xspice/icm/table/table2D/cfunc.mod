@@ -376,6 +376,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         int   lLineCount;    /* Current line number */
         long  lStartPos;     /* Offset of start of current line */
         long  lTotalChars;   /* Total characters read */
+        int   interporder;   /* order of interpolation for eno */
 
         /* allocate static storage for *loc */
         STATIC_VAR (locdata) = calloc(1, sizeof(Local_Data_t));
@@ -518,9 +519,17 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         }
 
         /* generate table core */
+        interporder = PARAM(order);
+        /* boundary limits set to param 'order' aren't recognized,
+           so limit them here */
+        if (interporder < 2) {
+            snprintf(msg, sizeof(msg), "Parameter Order=%d not possible, set to minimum value 2", interporder);
+            cm_message_send(msg);
+            interporder = 2;
+        }
         /* int order : interpolation order,
            int n1, int n2 : data dimensions */
-        loc->newtable = sf_eno2_init(PARAM(order), ix, iy);
+        loc->newtable = sf_eno2_init(interporder, ix, iy);
 
         /* create table_data in memory */
         /* data [n2][n1] */
