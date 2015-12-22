@@ -525,10 +525,10 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         /* boundary limits set to param 'order' aren't recognized,
            so limit them here */
         if (interporder < 2) {
-            snprintf(msg, sizeof(msg), "Parameter Order=%d not possible, set to minimum value 2",  interporder);
+            snprintf(msg, sizeof(msg), "Parameter Order=%d not possible, set to minimum value 2", interporder);
             cm_message_send(msg);
-            interporder = 2;            
-        }            
+            interporder = 2;
+        }
         /* int order : interpolation order,
            int n1, int n2 : data dimensions */
         loc->newtable = sf_eno2_init(interporder, ix, iy);
