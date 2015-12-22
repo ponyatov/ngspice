@@ -454,18 +454,20 @@ com_compose(wordlist *wl)
     result = alloc(struct dvec);
     ZERO(result, struct dvec);
     result->v_name = resname;
-    resname = NULL;             /* resname storage has been consumed */
     result->v_type = type;
 
     if (realflag) {
         result->v_flags = VF_REAL | VF_PERMANENT;
+        result->v_length = length;
         result->v_realdata = data;
     } else {
         result->v_flags =  VF_COMPLEX | VF_PERMANENT;
+        result->v_length = length;
         result->v_compdata = cdata;
     }
 
-    result->v_length = length;
+    resname = NULL;             /* resname storage has been consumed */
+
     result->v_numdims = 1;
     result->v_dims[0] = length;
 

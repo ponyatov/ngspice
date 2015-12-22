@@ -68,8 +68,9 @@ com_linearize(wordlist *wl)
     newtime->v_flags = oldtime->v_flags;
     newtime->v_flags |= VF_PERMANENT;
     newtime->v_length = len;
-    newtime->v_plot = new;
     newtime->v_realdata = TMALLOC(double, len);
+
+    newtime->v_plot = new;
     for (i = 0, d = tstart; i < len; i++, d += tstep)
         newtime->v_realdata[i] = d;
     new->pl_scale = new->pl_dvecs = newtime;
