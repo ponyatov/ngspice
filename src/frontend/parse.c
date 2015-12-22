@@ -367,6 +367,7 @@ PP_mksnode(const char *string)
                         0,
                         0, NULL);
         p->pn_value = nv;
+        /* noflags nothing at all ? */
         return (p);
     }
 
