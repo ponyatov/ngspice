@@ -935,6 +935,7 @@ plotit(wordlist *wl, char *hcopy, char *devname)
                 nointerp = TRUE;
             }
 
+            /* the others ? */
             vecs->v_scale = newv_scale;
 
         }
