@@ -1337,7 +1337,7 @@ com_alter_common(wordlist *wl, int do_model)
             return;
         }
 
-        dv = TMALLOC(struct dvec, 1);
+        dv = dvec_alloc();
         if (!dv)
             return;
 

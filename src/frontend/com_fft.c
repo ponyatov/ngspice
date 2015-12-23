@@ -128,7 +128,7 @@ com_fft(wordlist *wl)
     plot_cur->pl_name = copy("Spectrum");
     plot_cur->pl_date = copy(datestring());
 
-    f = alloc(struct dvec);
+    f = dvec_alloc();
     ZERO(f, struct dvec);
     f->v_name = copy("frequency");
     f->v_type = SV_FREQUENCY;
@@ -149,7 +149,7 @@ com_fft(wordlist *wl)
     tdvec = TMALLOC(double  *, ngood);
     fdvec = TMALLOC(ngcomplex_t *, ngood);
     for (i = 0, vec = vlist; i<ngood; i++) {
-        f = alloc(struct dvec);
+        f = dvec_alloc();
         ZERO(f, struct dvec);
         f->v_name = vec_basename(vec);
         f->v_type = SV_NOTYPE;
@@ -355,7 +355,7 @@ com_psd(wordlist *wl)
     plot_cur->pl_name = copy("PSD");
     plot_cur->pl_date = copy(datestring());
 
-    f = alloc(struct dvec);
+    f = dvec_alloc();
     ZERO(f, struct dvec);
     f->v_name = copy("frequency");
     f->v_type = SV_FREQUENCY;
@@ -377,7 +377,7 @@ com_psd(wordlist *wl)
     tdvec = TMALLOC(double*, ngood);
     fdvec = TMALLOC(ngcomplex_t*, ngood);
     for (i = 0, vec = vlist; i<ngood; i++) {
-        f = alloc(struct dvec);
+        f = dvec_alloc();
         ZERO(f, struct dvec);
         f->v_name = vec_basename(vec);
         f->v_type = SV_NOTYPE; //vec->v_type;
