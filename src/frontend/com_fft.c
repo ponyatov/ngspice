@@ -128,12 +128,10 @@ com_fft(wordlist *wl)
     plot_cur->pl_name = copy("Spectrum");
     plot_cur->pl_date = copy(datestring());
 
-    f = dvec_alloc();
-    f->v_name = copy("frequency");
-    f->v_type = SV_FREQUENCY;
-    f->v_flags = (VF_REAL | VF_PERMANENT | VF_PRINT);
-    f->v_length = fpts;
-    f->v_realdata = TMALLOC(double, fpts);
+    f = dvec_alloc(copy("frequency"),
+                   SV_FREQUENCY,
+                   VF_REAL | VF_PERMANENT | VF_PRINT,
+                   fpts, NULL);
     vec_new(f);
 
     freq = f->v_realdata;
@@ -148,12 +146,10 @@ com_fft(wordlist *wl)
     tdvec = TMALLOC(double  *, ngood);
     fdvec = TMALLOC(ngcomplex_t *, ngood);
     for (i = 0, vec = vlist; i<ngood; i++) {
-        f = dvec_alloc();
-        f->v_name = vec_basename(vec);
-        f->v_type = SV_NOTYPE;
-        f->v_flags = (VF_COMPLEX | VF_PERMANENT);
-        f->v_length = fpts;
-        f->v_compdata = TMALLOC(ngcomplex_t, fpts);
+        f = dvec_alloc(vec_basename(vec),
+                       SV_NOTYPE,
+                       VF_COMPLEX | VF_PERMANENT,
+                       fpts, NULL);
         vec_new(f);
         tdvec[i] = vec->v_realdata; /* real input data */
         fdvec[i] = f->v_compdata; /* complex output data */
@@ -353,12 +349,10 @@ com_psd(wordlist *wl)
     plot_cur->pl_name = copy("PSD");
     plot_cur->pl_date = copy(datestring());
 
-    f = dvec_alloc();
-    f->v_name = copy("frequency");
-    f->v_type = SV_FREQUENCY;
-    f->v_flags = (VF_REAL | VF_PERMANENT | VF_PRINT);
-    f->v_length = fpts;
-    f->v_realdata = TMALLOC(double, fpts);
+    f = dvec_alloc(copy("frequency"),
+                   SV_FREQUENCY,
+                   VF_REAL | VF_PERMANENT | VF_PRINT,
+                   fpts, NULL);
     vec_new(f);
 
     freq = f->v_realdata;
@@ -374,12 +368,10 @@ com_psd(wordlist *wl)
     tdvec = TMALLOC(double*, ngood);
     fdvec = TMALLOC(ngcomplex_t*, ngood);
     for (i = 0, vec = vlist; i<ngood; i++) {
-        f = dvec_alloc();
-        f->v_name = vec_basename(vec);
-        f->v_type = SV_NOTYPE; //vec->v_type;
-        f->v_flags = (VF_COMPLEX | VF_PERMANENT);
-        f->v_length = fpts;
-        f->v_compdata = TMALLOC(ngcomplex_t, fpts);
+        f = dvec_alloc(vec_basename(vec),
+                       SV_NOTYPE, //vec->v_type
+                       VF_COMPLEX | VF_PERMANENT,
+                       fpts, NULL);
         vec_new(f);
         tdvec[i] = vec->v_realdata; /* real input data */
         fdvec[i] = f->v_compdata; /* complex output data */
