@@ -38,13 +38,13 @@ struct dvec {
     char *v_name;		/* Same as so_vname. */
     int v_type;			/* Same as so_vtype. */
     short v_flags;		/* Flags (a combination of VF_*). */
-    double * const v_realdata;		/* Real data. */
-    ngcomplex_t * const v_compdata;	/* Complex data. */
+    double *v_realdata;		/* Real data. */
+    ngcomplex_t *v_compdata;	/* Complex data. */
     double v_minsignal;		/* Minimum value to plot. */
     double v_maxsignal;		/* Maximum value to plot. */
     GRIDTYPE v_gridtype;	/* One of GRID_*. */
     PLOTTYPE v_plottype;	/* One of PLOT_*. */
-    const int v_length;		/* Length of the vector. */
+    int v_length;		/* Length of the vector. */
     int v_rlength;		/* How much space we really have. */
     int v_outindex;		/* Index if writedata is building the
 				   vector. */
