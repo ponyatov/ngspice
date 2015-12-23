@@ -622,7 +622,7 @@ cx_fft(void *data, short int type, int length, int *newlength, short int *newtyp
         goto done;
 
     /* create a new scale vector */
-    sv = alloc(struct dvec);
+    sv = dvec_alloc();
     ZERO(sv, struct dvec);
     sv->v_name = copy("fft_scale");
     sv->v_type = SV_FREQUENCY;
@@ -859,7 +859,7 @@ cx_ifft(void *data, short int type, int length, int *newlength, short int *newty
     span = xscale[tpts-1] - xscale[0];
 
     /* create a new scale vector */
-    sv = alloc(struct dvec);
+    sv = dvec_alloc();
     ZERO(sv, struct dvec);
     sv->v_name = copy("ifft_scale");
     sv->v_type = SV_TIME;
