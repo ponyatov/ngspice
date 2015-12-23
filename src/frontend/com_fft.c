@@ -132,6 +132,7 @@ com_fft(wordlist *wl)
                    SV_FREQUENCY,
                    VF_REAL | VF_PERMANENT | VF_PRINT,
                    fpts, NULL);
+
     vec_new(f);
 
     freq = f->v_realdata;
