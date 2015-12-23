@@ -450,7 +450,6 @@ com_compose(wordlist *wl)
     }
 
     result = dvec_alloc();
-    ZERO(result, struct dvec);
     result->v_name = resname;
     result->v_type = type;
 

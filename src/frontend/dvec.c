@@ -6,6 +6,7 @@ struct dvec *
 dvec_alloc(void)
 {
     struct dvec *rv = TMALLOC(struct dvec, 1);
+    ZERO(rv, struct dvec);
 
     return rv;
 }
