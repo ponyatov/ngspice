@@ -618,6 +618,7 @@ op_range(struct pnode *arg1, struct pnode *arg2)
     res->v_gridtype = v->v_gridtype;
     res->v_plottype = v->v_plottype;
     res->v_defcolor = v->v_defcolor;
+
     res->v_scale = /* nscale; */ scale;
     /* Dave says get rid of this
        res->v_numdims = v->v_numdims;
@@ -765,6 +766,7 @@ op_ind(struct pnode *arg1, struct pnode *arg2)
     res->v_defcolor = v->v_defcolor;
     res->v_gridtype = v->v_gridtype;
     res->v_plottype = v->v_plottype;
+
     res->v_numdims = newdim;
     if (up != down) {
         for (i = 0; i < newdim; i++)
@@ -931,6 +933,7 @@ apply_func(struct func *func, struct pnode *arg)
         t->v_defcolor = v->v_defcolor;
         t->v_gridtype = v->v_gridtype;
         t->v_plottype = v->v_plottype;
+
         t->v_numdims = v->v_numdims;
         for (i = 0; i < t->v_numdims; i++)
             t->v_dims[i] = v->v_dims[i];

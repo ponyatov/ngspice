@@ -626,6 +626,7 @@ cx_fft(void *data, short int type, int length, int *newlength, short int *newtyp
                     SV_FREQUENCY,
                     VF_REAL | VF_PERMANENT | VF_PRINT,
                     fpts, xscale);
+
     vec_new(sv);
 
     if (type == VF_COMPLEX) { /* input vector is complex */
@@ -860,6 +861,7 @@ cx_ifft(void *data, short int type, int length, int *newlength, short int *newty
                     SV_TIME,
                     VF_REAL | VF_PERMANENT | VF_PRINT,
                     tpts, xscale);
+
     vec_new(sv);
 
     *newtype = VF_COMPLEX;
