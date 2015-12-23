@@ -1050,16 +1050,16 @@ plotAddRealValue(dataDesc *desc, double value)
     struct dvec *v = desc->vec;
 
     if (isreal(v)) {
-        v->v_realdata = TREALLOC(double, v->v_realdata, v->v_length + 1);
+        v->v_realdata = TREALLOC(double, v->v_realdata, v->v_length + 1); /*  */
         v->v_realdata[v->v_length] = value;
     } else {
         /* a real parading as a VF_COMPLEX */
-        v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_length + 1);
+        v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_length + 1); /*  */
         v->v_compdata[v->v_length].cx_real = value;
         v->v_compdata[v->v_length].cx_imag = 0.0;
     }
 
-    v->v_length++;
+    v->v_length++; /*  */
     v->v_dims[0] = v->v_length; /* va, must be updated */
 }
 
@@ -1069,11 +1069,11 @@ plotAddComplexValue(dataDesc *desc, IFcomplex value)
 {
     struct dvec *v = desc->vec;
 
-    v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_length + 1);
+    v->v_compdata = TREALLOC(ngcomplex_t, v->v_compdata, v->v_length + 1); /*  */
     v->v_compdata[v->v_length].cx_real = value.real;
     v->v_compdata[v->v_length].cx_imag = value.imag;
 
-    v->v_length++;
+    v->v_length++; /*  */
     v->v_dims[0] = v->v_length; /* va, must be updated */
 }
 
