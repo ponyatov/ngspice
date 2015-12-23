@@ -8,6 +8,7 @@ dvec_alloc(void)
     struct dvec *rv = TMALLOC(struct dvec, 1);
     ZERO(rv, struct dvec);
 
+    rv->v_plot = NULL;
     rv->v_numdims = 0;
 
     return rv;
