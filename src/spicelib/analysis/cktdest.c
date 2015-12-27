@@ -268,11 +268,49 @@ evt_dest(Evt_Ckt_Data_t *evt)
         tfree(msg_data->modified_index);
     }
 
-    /* still to care for :
-     *   output_table
-     *   node_table
-     *   port_table
-     */
+    tfree(evt->info.hybrid_index);
+
+    Evt_Inst_Info_t     *inst;
+    Evt_Node_Info_t     *nodei;
+    Evt_Port_Info_t     *port;
+    Evt_Output_Info_t   *output;
+
+    inst = evt->info.inst_list;
+    nodei = evt->info.node_list;
+    port = evt->info.port_list;
+    output = evt->info.output_list;
+
+    while (inst) {
+        Evt_Inst_Info_t *next_inst = inst->next;
+        tfree(inst);
+        inst = next_inst;
+    }
+    tfree(evt->info.inst_table);
+
+    while (nodei) {
+        Evt_Node_Info_t *next_nodei = nodei->next;
+        tfree(nodei->name);
+        tfree(nodei);
+        nodei = next_nodei;
+    }
+    tfree(evt->info.node_table);
+
+    while (port) {
+        Evt_Port_Info_t *next_port = port->next;
+        tfree(port->node_name);
+        tfree(port->inst_name);
+        tfree(port->conn_name);
+        tfree(port);
+        port = next_port;
+    }
+    tfree(evt->info.port_table);
+
+    while (output) {
+        Evt_Output_Info_t *next_output = output->next;
+        tfree(output);
+        output = next_output;
+    }
+    tfree(evt->info.output_table);
 
     return(OK);
 }
