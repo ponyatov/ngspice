@@ -6230,10 +6230,10 @@ static void inp_meas_current(struct line *deck)
                 continue;
         }
 
-        if (strstr(curr_line, "i("))
-            s = v = stripWhiteSpacesInsideParens(curr_line);
-        else
+        if (!strstr(curr_line, "i("))
             continue;
+
+        s = v = stripWhiteSpacesInsideParens(curr_line);
         while (s) {
             /* i( may occur more than once in a line */
             s = u = strstr(s, "i(");
@@ -6281,7 +6281,7 @@ static void inp_meas_current(struct line *deck)
     /* return if we did not find any i( */
     if (rep == NULL)
       return;
-    
+
     /* scan through all the devices, search for xyz, modify node 1 by adding _vmeas,
        add a line with zero voltage v_xyz, having original node 1 and modified node 1.
        Do this within the top level or the same level of subcircuit only. */
