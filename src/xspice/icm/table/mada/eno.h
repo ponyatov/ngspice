@@ -15,8 +15,8 @@ typedef enum {FUNC, DER, BOTH} der;
 /* flag values */
 
 
-sf_eno sf_eno_init (int order /* interpolation order */,
-              int n     /* data size */);
+sf_eno sf_eno_init (int order, /* interpolation order */
+                    int n      /* data size */);
 /*< Initialize interpolation object. >*/
 
 
@@ -33,11 +33,11 @@ void sf_eno_set_wstride (sf_eno ent, double* c /* data [n] */, int stride);
 
 
 void sf_eno_apply (sf_eno ent,
-                int i     /* grid location */,
-                double x   /* offset from grid */,
-                double *f  /* output data value */,
-                double *f1 /* output derivative */,
-                der what  /* flag of what to compute */);
+                   int i,      /* grid location */
+                   double x,   /* offset from grid */
+                   double *f,  /* output data value */
+                   double *f1, /* output derivative */
+                   der what    /* flag of what to compute */);
 /*< Apply interpolation >*/
 
 #endif

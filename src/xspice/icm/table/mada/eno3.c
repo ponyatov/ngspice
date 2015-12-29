@@ -42,73 +42,70 @@ struct Eno3 {
 };
 /* concrete data type */
 
-sf_eno3 sf_eno3_init (int order              /* interpolation order */,
-                      int n1, int n2, int n3 /* data dimensions */)
+sf_eno3
+sf_eno3_init(int order,             /* interpolation order */
+             int n1, int n2, int n3 /* data dimensions */)
 /*< Initialize interpolation object >*/
 {
     sf_eno3 pnt;
     int i2, i3;
 
-    pnt = (sf_eno3) sf_alloc(1,sizeof(*pnt));
+    pnt = (sf_eno3) sf_alloc (1, sizeof(*pnt));
     pnt->order = order;
     pnt->n1 = n1;
     pnt->n2 = n2;
     pnt->n3 = n3;
-    pnt->ng = 2*order-2;
+    pnt->ng = 2 * order - 2;
     if (pnt->ng > n2 || pnt->ng > n3) {
-        //      sf_error("%s: ng=%d is too big",__FILE__,pnt->ng);
         char msg[512];
-        snprintf(msg, sizeof(msg), "%s: ng=%d is too big", __FILE__, pnt->ng);
-        cm_message_send(msg);
+        snprintf (msg, sizeof(msg), "%s: ng=%d is too big", __FILE__, pnt->ng);
+        cm_message_send (msg);
     }
     pnt->jnt = sf_eno2_init (order, pnt->ng, pnt->ng);
-    pnt->f  = sf_doublealloc2(pnt->ng,pnt->ng);
-    pnt->f1 = sf_doublealloc2(pnt->ng,pnt->ng);
-    pnt->ent = (sf_eno**) sf_alloc(n3,sizeof(sf_eno*));
+    pnt->f   = sf_doublealloc2 (pnt->ng, pnt->ng);
+    pnt->f1  = sf_doublealloc2 (pnt->ng, pnt->ng);
+    pnt->ent = (sf_eno**) sf_alloc (n3, sizeof(sf_eno*));
     for (i3 = 0; i3 < n3; i3++) {
-        pnt->ent[i3] = (sf_eno*) sf_alloc(n2,sizeof(sf_eno));
-        for (i2 = 0; i2 < n2; i2++) {
+        pnt->ent[i3] = (sf_eno*) sf_alloc (n2, sizeof(sf_eno));
+        for (i2 = 0; i2 < n2; i2++)
             pnt->ent[i3][i2] = sf_eno_init (order, n1);
-        }
     }
 
     return pnt;
 }
 
-void sf_eno3_set (sf_eno3 pnt, double*** c /* data [n3][n2][n1] */)
+void
+sf_eno3_set(sf_eno3 pnt, double ***c /* data [n3][n2][n1] */)
 /*< Set the interpolation table. c can be changed or freed afterwords. >*/
 {
     int i2, i3;
 
-    for (i3 = 0; i3 < pnt->n3; i3++) {
-        for (i2 = 0; i2 < pnt->n2; i2++) {
+    for (i3 = 0; i3 < pnt->n3; i3++)
+        for (i2 = 0; i2 < pnt->n2; i2++)
             sf_eno_set (pnt->ent[i3][i2], c[i3][i2]);
-        }
-    }
 }
 
-void sf_eno3_set1 (sf_eno3 pnt, double* c /* data [n3*n2*n1] */)
+void
+sf_eno3_set1(sf_eno3 pnt, double *c /* data [n3*n2*n1] */)
 /*< Set the interpolation table. c can be changed or freed afterwords. >*/
 {
     int i2, i3;
 
-    for (i3 = 0; i3 < pnt->n3; i3++) {
-        for (i2 = 0; i2 < pnt->n2; i2++) {
-            sf_eno_set (pnt->ent[i3][i2], c+(pnt->n1)*(i2+(pnt->n2)*i3));
-        }
-    }
+    for (i3 = 0; i3 < pnt->n3; i3++)
+        for (i2 = 0; i2 < pnt->n2; i2++)
+            sf_eno_set (pnt->ent[i3][i2], c + (pnt->n1) * (i2 + (pnt->n2) * i3));
 }
 
-void sf_eno3_close (sf_eno3 pnt)
+void
+sf_eno3_close(sf_eno3 pnt)
 /*< Free internal storage. >*/
 {
     int i2, i3;
 
     sf_eno2_close (pnt->jnt);
     for (i3 = 0; i3 < pnt->n3; i3++) {
-        for (i2 = 0; i2 < pnt->n2; i2++) {
+        for (i2 = 0; i2 < pnt->n2; i2++)
             sf_eno_close (pnt->ent[i3][i2]);
-        }
         free (pnt->ent[i3]);
     }
     free (pnt->ent);
@@ -119,53 +116,50 @@ void sf_eno3_close (sf_eno3 pnt)
     free (pnt);
 }
 
-void sf_eno3_apply (sf_eno3 pnt,
-                    int i, int j, int k       /* grid location */,
-                    double x, double y, double z /* offsets from grid */,
-                    double* f                  /* output data */,
-                    double* f1                 /* output derivative [3] */,
-                    der what                  /* to compute [FUNC|DER|BOTH] */)
+void
+sf_eno3_apply(sf_eno3 pnt,
+              int i, int j, int k,          /* grid location */
+              double x, double y, double z, /* offsets from grid */
+              double *f,                    /* output data */
+              double *f1,                   /* output derivative [3] */
+              der what                      /* to compute [FUNC|DER|BOTH] */)
 /*< Apply interpolation. >*/
 {
     int i2, i3, b2, b3;
     double g;
 
-    if (j-pnt->order+2 < 0) {
+    if (j - pnt->order + 2 < 0)
         b2 = 0;
-    } else if (j+pnt->order-1 > pnt->n2-1) {
+    else if (j + pnt->order - 1 > pnt->n2 - 1)
         b2 = pnt->n2 - pnt->ng;
-    } else {
-        b2 = j-pnt->order+2;
-    }
+    else
+        b2 = j - pnt->order + 2;
 
     j -= b2;
 
 
-    if (k-pnt->order+2 < 0) {
+    if (k - pnt->order + 2 < 0)
         b3 = 0;
-    } else if (k+pnt->order-1 > pnt->n3-1) {
+    else if (k + pnt->order - 1 > pnt->n3 - 1)
         b3 = pnt->n3 - pnt->ng;
-    } else {
-        b3 = k-pnt->order+2;
-    }
+    else
+        b3 = k - pnt->order + 2;
 
     k -= b3;
 
-    for (i3 = 0; i3 < pnt->ng; i3++) {
-        for (i2 = 0; i2 < pnt->ng; i2++) {
-            sf_eno_apply (pnt->ent[b3+i3][b2+i2],i,x,
+    for (i3 = 0; i3 < pnt->ng; i3++)
+        for (i2 = 0; i2 < pnt->ng; i2++)
+            sf_eno_apply (pnt->ent[b3 + i3][b2 + i2], i, x,
                           &(pnt->f[i3][i2]),
                           &(pnt->f1[i3][i2]),
-                          (what==FUNC? FUNC: BOTH));
-        }
-    }
+                          (what==FUNC ? FUNC : BOTH));
 
-    sf_eno2_set (pnt->jnt,pnt->f);
-    sf_eno2_apply (pnt->jnt,j,k,y,z,f,f1+1,what);
+    sf_eno2_set (pnt->jnt, pnt->f);
+    sf_eno2_apply (pnt->jnt, j, k, y, z, f, f1 + 1, what);
 
     if (what != FUNC) {
-        sf_eno2_set (pnt->jnt,pnt->f1);
-        sf_eno2_apply(pnt->jnt,j,k,y,z,f1,&g,FUNC);
+        sf_eno2_set (pnt->jnt, pnt->f1);
+        sf_eno2_apply (pnt->jnt, j, k, y, z, f1, &g, FUNC);
     }
 }
 
