@@ -364,8 +364,6 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                             in the state vector */
     Mif_Complex_t ac_gain;
 
-    char msg[512];
-
     size = PORT_SIZE(out);
     if (INIT == 1) {
 
@@ -410,8 +408,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                 free(pp);
             }
             if (!loc->state->fp) {
-                snprintf(msg, sizeof(msg), "cannot open file %s", PARAM(file));
-                cm_message_send(msg);
+                cm_message_printf("cannot open file %s", PARAM(file));
                 loc->state->atend = 1;
                 loc->init_err = 1;
                 return;
@@ -427,8 +424,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         /* create another string long enough for file manipulation */
         cThisLine = calloc(lFileLen + 1, sizeof(char));
         if (cFile == NULL || cThisLine == NULL) {
-            snprintf(msg, sizeof(msg), "Insufficient memory to read file %s", PARAM(file));
-            cm_message_send(msg);
+            cm_message_printf("Insufficient memory to read file %s", PARAM(file));
             loc->state->atend = 1;
             loc->init_err = 1;
             return;
@@ -487,8 +483,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                 i = 0;
                 while (token) {
                     if (i == ix) {
-                        snprintf(msg, sizeof(msg), "Too many numbers in x row.");
-                        cm_message_send(msg);
+                        cm_message_printf("Too many numbers in x row.");
                         loc->init_err = 1;
                         return;
                     }
@@ -497,8 +492,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                     token = CNVgettok(&cThisLinePtr);
                 }
                 if (i < ix) {
-                    snprintf(msg, sizeof(msg), "Not enough numbers in x row.");
-                    cm_message_send(msg);
+                    cm_message_printf("Not enough numbers in x row.");
                     loc->init_err = 1;
                     return;
                 }
@@ -507,8 +501,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                 i = 0;
                 while (token) {
                     if (i == iy) {
-                        snprintf(msg, sizeof(msg), "Too many numbers in y row.");
-                        cm_message_send(msg);
+                        cm_message_printf("Too many numbers in y row.");
                         loc->init_err = 1;
                         return;
                     }
@@ -517,8 +510,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                     token = CNVgettok(&cThisLinePtr);
                 }
                 if (i < iy) {
-                    snprintf(msg, sizeof(msg), "Not enough numbers in y row.");
-                    cm_message_send(msg);
+                    cm_message_printf("Not enough numbers in y row.");
                     loc->init_err = 1;
                     return;
                 }
@@ -527,8 +519,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                 i = 0;
                 while (token) {
                     if (i == iz) {
-                        snprintf(msg, sizeof(msg), "Too many numbers in z row.");
-                        cm_message_send(msg);
+                        cm_message_printf("Too many numbers in z row.");
                         loc->init_err = 1;
                         return;
                     }
@@ -537,8 +528,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                     token = CNVgettok(&cThisLinePtr);
                 }
                 if (i < iz) {
-                    snprintf(msg, sizeof(msg), "Not enough numbers in z row.");
-                    cm_message_send(msg);
+                    cm_message_printf("Not enough numbers in z row.");
                     loc->init_err = 1;
                     return;
                 }
@@ -552,8 +542,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         /* boundary limits set to param 'order' aren't recognized,
            so limit them here */
         if (interporder < 2) {
-            snprintf(msg, sizeof(msg), "Parameter Order=%d not possible, set to minimum value 2", interporder);
-            cm_message_send(msg);
+            cm_message_printf("Parameter Order=%d not possible, set to minimum value 2", interporder);
             interporder = 2;
         }
         /* int order : interpolation order,
@@ -599,8 +588,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                 /* continue if comment or empty */
                 if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0') {
                     if (lTotalChars >= lFileLen) {
-                        snprintf(msg, sizeof(msg), "Not enough data in file %s", PARAM(file));
-                        cm_message_send(msg);
+                        cm_message_printf("Not enough data in file %s", PARAM(file));
                         loc->init_err = 1;
                         return;
                     }
@@ -612,8 +600,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                     double tmpval;
 
                     if (i == ix) {
-                        snprintf(msg, sizeof(msg), "Too many numbers in y row no. %d of table %d.", lLineCount, lTableCount);
-                        cm_message_send(msg);
+                        cm_message_printf("Too many numbers in y row no. %d of table %d.", lLineCount, lTableCount);
                         loc->init_err = 1;
                         return;
                     }
@@ -627,8 +614,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                     token = CNVgettok(&cThisLinePtr);
                 }
                 if (i < ix) {
-                    snprintf(msg, sizeof(msg), "Not enough numbers in y row no. %d of table %d.", lLineCount, lTableCount);
-                    cm_message_send(msg);
+                    cm_message_printf("Not enough numbers in y row no. %d of table %d.", lLineCount, lTableCount);
                     loc->init_err = 1;
                     return;
                 }
@@ -665,24 +651,18 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
     /* check table ranges */
     if (xval < loc->xcol[0] || xval > loc->xcol[loc->ix - 1]) {
-        if (PARAM(verbose) > 0) {
-            snprintf(msg, sizeof(msg), "x value %g exceeds table limits, \nplease enlarge range of your table", xval);
-            cm_message_send(msg);
-        }
+        if (PARAM(verbose) > 0)
+            cm_message_printf("x value %g exceeds table limits, \nplease enlarge range of your table", xval);
         return;
     }
     if (yval < loc->ycol[0] || yval > loc->ycol[loc->iy - 1]) {
-        if (PARAM(verbose) > 0) {
-            snprintf(msg, sizeof(msg), "y value %g exceeds table limits, \nplease enlarge range of your table", yval);
-            cm_message_send(msg);
-        }
+        if (PARAM(verbose) > 0)
+            cm_message_printf("y value %g exceeds table limits, \nplease enlarge range of your table", yval);
         return;
     }
     if (zval < loc->zcol[0] || zval > loc->zcol[loc->iz - 1]) {
-        if (PARAM(verbose) > 0) {
-            snprintf(msg, sizeof(msg), "z value %g exceeds table limits, \nplease enlarge range of your table", zval);
-            cm_message_send(msg);
-        }
+        if (PARAM(verbose) > 0)
+            cm_message_printf("z value %g exceeds table limits, \nplease enlarge range of your table", zval);
         return;
     }
 
@@ -757,10 +737,8 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         zderiv = PARAM(gain) * derivval[2] / zdiff;
         PARTIAL(out, inz) = zderiv;
 
-        if (PARAM(verbose) > 1) {
-            snprintf(msg, sizeof(msg), "\nI: %g, xval: %g, yval: %g, zval: %g, xderiv: %g, yderiv: %g, zderiv: %g", outv, xval, yval, zval, xderiv, yderiv, zderiv);
-            cm_message_send(msg);
-        }
+        if (PARAM(verbose) > 1)
+            cm_message_printf("\nI: %g, xval: %g, yval: %g, zval: %g, xderiv: %g, yderiv: %g, zderiv: %g", outv, xval, yval, zval, xderiv, yderiv, zderiv);
     } else {
         ac_gain.real = PARAM(gain) * derivval[0] / xdiff;
         ac_gain.imag= 0.0;
