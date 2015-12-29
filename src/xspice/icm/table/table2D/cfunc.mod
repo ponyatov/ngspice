@@ -374,7 +374,6 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         long  lFileLen;      /* Length of file */
         long  lIndex;        /* Index into cThisLine array */
         int   lLineCount;    /* Current line number */
-        long  lLineLen;      /* Current line length */
         long  lStartPos;     /* Offset of start of current line */
         long  lTotalChars;   /* Total characters read */
         int   interporder;   /* order of interpolation for eno */
@@ -455,9 +454,8 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
             cThisLinePtr[lIndex] = '\0';       /* Terminate the string */
             lLineCount++;                      /* Increment the line counter */
-            lLineLen = strlen(cThisLinePtr);   /* Get length of line */
             /* continue if comment or empty */
-            if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
+            if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0') {
                 lLineCount--;   /* we count only real lines */
                 continue;
             }
@@ -566,9 +564,8 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
             cThisLinePtr[lIndex] = '\0';       /* Terminate the string */
             lLineCount++;                      /* Increment the line counter */
-            lLineLen = strlen(cThisLinePtr);   /* Get length of line */
             /* continue if comment or empty */
-            if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0' || lLineLen == 0) {
+            if (cThisLinePtr[0] == '*' || cThisLinePtr[0] == '\0') {
                 if (lTotalChars >= lFileLen) {
                     snprintf(msg, sizeof(msg), "Not enough data in file %s", PARAM(file));
                     cm_message_send(msg);
