@@ -6187,16 +6187,17 @@ struct replace_currm
    Replace I(XYZ) bx I(V_XYZ), add voltage source V_XYZ with
    suitable extra nodes.
 */
-static void inp_meas_current(struct line *deck)
+
+static void
+inp_meas_current(struct line *deck)
 {
     struct line *card, *subc_start = NULL, *subc_prev = NULL;
     struct replace_currm *new_rep, *rep = NULL;
     char *s, *t, *u, *v;
     int skip_control = 0, subs = 0;
-    card = deck;
 
     /* scan through deck and find i(xyz), replace by i(v_xyz) */
-    for (; card; card = card->li_next) {
+    for (card = deck; card; card = card->li_next) {
 
         char *curr_line = card->li_line;
 
