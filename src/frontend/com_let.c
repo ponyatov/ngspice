@@ -140,13 +140,13 @@ com_let(wordlist *wl)
     char *br = rhs;
     /* skip leading spaces */
     while (isspace(*br))
-        *br++;
+        br++;
     if (*br == '[') {
         /* we may have [...] */
         char *cr, *tok;
         int ii = 0, error;
         double *doublevec = NULL;
-        *br++;
+        br++;
         if ((cr = strchr(rhs, ']')) != NULL) {
             *cr = '\0';
             tok = gettok(&br);
