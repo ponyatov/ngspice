@@ -49,19 +49,13 @@ sf_alloc(size_t n    /* number of elements */,
 
     size *= n;
 
-    if (0 >= size) {
-        char msg[512];
-        snprintf(msg, sizeof(msg), "%s: illegal allocation(%d bytes)", __FILE__, (int) size);
-        cm_message_send(msg);
-    }
+    if (0 >= size)
+        cm_message_printf("%s: illegal allocation(%d bytes)", __FILE__, (int) size);
 
     ptr = malloc(size);
 
-    if (NULL == ptr) {
-        char msg[512];
-        snprintf(msg, sizeof(msg), "%s: cannot allocate %d bytes : ", __FILE__, (int) size);
-        cm_message_send(msg);
-    }
+    if (NULL == ptr)
+        cm_message_printf("%s: cannot allocate %d bytes : ", __FILE__, (int) size);
 
     return ptr;
 }
@@ -75,11 +69,8 @@ sf_realloc(void* ptr   /* previous data */,
 {
     void *ptr2 = realloc(ptr, n * size);
 
-    if (NULL == ptr2) {
-        char msg[512];
-        snprintf(msg, sizeof(msg), "%s: cannot reallocate %d bytes : ", __FILE__, (int) (n * size));
-        cm_message_send(msg);
-    }
+    if (NULL == ptr2)
+        cm_message_printf("%s: cannot reallocate %d bytes : ", __FILE__, (int) (n * size));
 
     return ptr2;
 }

@@ -56,11 +56,8 @@ sf_eno3_init(int order,             /* interpolation order */
     pnt->n2 = n2;
     pnt->n3 = n3;
     pnt->ng = 2 * order - 2;
-    if (pnt->ng > n2 || pnt->ng > n3) {
-        char msg[512];
-        snprintf (msg, sizeof(msg), "%s: ng=%d is too big", __FILE__, pnt->ng);
-        cm_message_send (msg);
-    }
+    if (pnt->ng > n2 || pnt->ng > n3)
+        cm_message_printf("%s: ng=%d is too big", __FILE__, pnt->ng);
     pnt->jnt = sf_eno2_init (order, pnt->ng, pnt->ng);
     pnt->f   = sf_doublealloc2 (pnt->ng, pnt->ng);
     pnt->f1  = sf_doublealloc2 (pnt->ng, pnt->ng);
