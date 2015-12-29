@@ -165,9 +165,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (bool**) sf_alloc (n2, sizeof(bool*));
     ptr[0] = sf_boolalloc (n1 * n2);
-    for (i2 = 1; i2 < n2; i2++) {
+    for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
-    }
     return ptr;
 }
 
@@ -182,9 +181,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (bool***) sf_alloc (n3, sizeof(bool**));
     ptr[0] = sf_boolalloc2 (n1, n2 * n3);
-    for (i3 = 1; i3 < n3; i3++) {
+    for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
-    }
     return ptr;
 }
 
@@ -198,9 +196,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (float**) sf_alloc (n2, sizeof(float*));
     ptr[0] = sf_floatalloc (n1 * n2);
-    for (i2 = 1; i2 < n2; i2++) {
+    for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
-    }
     return ptr;
 }
 /*------------------------------------------------------------*/
@@ -213,9 +210,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (double**) sf_alloc(n2, sizeof(double*));
     ptr[0] = sf_doublealloc(n1 * n2);
-    for (i2 = 1; i2 < n2; i2++) {
+    for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
-    }
     return ptr;
 }
 /*------------------------------------------------------------*/
@@ -229,9 +225,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (float***) sf_alloc (n3, sizeof(float**));
     ptr[0] = sf_floatalloc2 (n1, n2 * n3);
-    for (i3 = 1; i3 < n3; i3++) {
+    for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
-    }
     return ptr;
 }
 
@@ -247,9 +242,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (float****) sf_alloc (n4, sizeof(float***));
     ptr[0] = sf_floatalloc3 (n1, n2, n3 * n4);
-    for (i4 = 1; i4 < n4; i4++) {
+    for (i4 = 1; i4 < n4; i4++)
         ptr[i4] = ptr[0] + i4 * n3;
-    }
     return ptr;
 }
 
@@ -266,9 +260,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (float*****) sf_alloc (n5, sizeof(float****));
     ptr[0] = sf_floatalloc4 (n1, n2, n3, n4 * n5);
-    for (i5 = 1; i5 < n5; i5++) {
+    for (i5 = 1; i5 < n5; i5++)
         ptr[i5] = ptr[0] + i5 * n4;
-    }
     return ptr;
 }
 
@@ -286,9 +279,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (float******) sf_alloc (n6, sizeof(float*****));
     ptr[0] = sf_floatalloc5 (n1, n2, n3, n4, n5 * n6);
-    for (i6 = 1; i6 < n6; i6++) {
+    for (i6 = 1; i6 < n6; i6++)
         ptr[i6] = ptr[0] + i6 * n5;
-    }
     return ptr;
 }
 
@@ -302,9 +294,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (int**) sf_alloc (n2, sizeof(int*));
     ptr[0] = sf_intalloc (n1 * n2);
-    for (i2 = 1; i2 < n2; i2++) {
+    for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
-    }
     return ptr;
 }
 
@@ -319,9 +310,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (int***) sf_alloc (n3, sizeof(int**));
     ptr[0] = sf_intalloc2 (n1, n2 * n3);
-    for (i3 = 1; i3 < n3; i3++) {
+    for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
-    }
     return ptr;
 }
 
@@ -337,9 +327,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (int****) sf_alloc (n4, sizeof(int***));
     ptr[0] = sf_intalloc3 (n1, n2, n3 * n4);
-    for (i4 = 1; i4 < n4; i4++) {
+    for (i4 = 1; i4 < n4; i4++)
         ptr[i4] = ptr[0] + i4 * n3;
-    }
     return ptr;
 }
 
@@ -353,9 +342,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (char**) sf_alloc (n2, sizeof(char*));
     ptr[0] = sf_charalloc (n1 * n2);
-    for (i2 = 1; i2 < n2; i2++) {
+    for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
-    }
     return ptr;
 }
 
@@ -369,9 +357,8 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (unsigned char**) sf_alloc (n2, sizeof(unsigned char*));
     ptr[0] = sf_ucharalloc (n1 * n2);
-    for (i2 = 1; i2 < n2; i2++) {
+    for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
-    }
     return ptr;
 }
 
@@ -386,8 +373,7 @@ void *sf_realloc (void* ptr   /* previous data */,
 
     ptr = (unsigned char***) sf_alloc (n3, sizeof(unsigned char**));
     ptr[0] = sf_ucharalloc2 (n1, n2 * n3);
-    for (i3 = 1; i3 < n3; i3++) {
+    for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
-    }
     return ptr;
 }
