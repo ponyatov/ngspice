@@ -1,4 +1,4 @@
- /* Convenience allocation programs. */
+/* Convenience allocation programs. */
 /*
   Copyright (C) 2004 University of Texas at Austin
   Copyright (C) 2007 Colorado School of Mines
@@ -37,8 +37,8 @@
 #include "ngspice/cm.h"
 
 /*------------------------------------------------------------*/
-/*@out@*/ void *sf_alloc (size_t n    /* number of elements */,
-                          size_t size /* size of one element */)
+/*@out@*/ void *sf_alloc(size_t n    /* number of elements */,
+                         size_t size /* size of one element */)
           /*< output-checking allocation >*/
 {
     void *ptr;
@@ -55,7 +55,7 @@
     ptr = malloc(size);
 
 //    if (NULL == ptr)
-//      sf_error ("%s: cannot allocate %lu bytes:", __FILE__, size);
+//      sf_error("%s: cannot allocate %lu bytes:", __FILE__, size);
     if (NULL == ptr) {
         char msg[512];
         snprintf(msg, sizeof(msg), "%s: cannot allocate %d bytes : ", __FILE__, (int) size);
@@ -66,16 +66,16 @@
 }
 
 /*------------------------------------------------------------*/
-void *sf_realloc (void* ptr   /* previous data */,
-                  size_t n    /* number of elements */,
-                  size_t size /* size of one element */)
+void *sf_realloc(void* ptr   /* previous data */,
+                 size_t n    /* number of elements */,
+                 size_t size /* size of one element */)
 /*< output-checing reallocation >*/
 {
     void *ptr2;
 
-    ptr2 = realloc (ptr, n * size);
+    ptr2 = realloc(ptr, n * size);
     if (NULL == ptr2) {
-        //      sf_error ("%s: cannot reallocate %d bytes:", __FILE__, n * size);
+        //      sf_error("%s: cannot reallocate %d bytes:", __FILE__, n * size);
         char msg[512];
         snprintf(msg, sizeof(msg), "%s: cannot reallocate %d bytes : ", __FILE__, (int) (n * size));
         cm_message_send(msg);
@@ -84,70 +84,70 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ char *sf_charalloc (size_t n /* number of elements */)
+/*@out@*/ char *sf_charalloc(size_t n /* number of elements */)
           /*< char allocation >*/
 {
-    return (char*) sf_alloc (n, sizeof(char));
+    return (char*) sf_alloc(n, sizeof(char));
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ unsigned char *sf_ucharalloc (size_t n /* number of elements */)
+/*@out@*/ unsigned char *sf_ucharalloc(size_t n /* number of elements */)
           /*< unsigned char allocation >*/
 {
-    return (unsigned char*) sf_alloc (n, sizeof(unsigned char));
+    return (unsigned char*) sf_alloc(n, sizeof(unsigned char));
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ short *sf_shortalloc (size_t n /* number of elements */)
+/*@out@*/ short *sf_shortalloc(size_t n /* number of elements */)
           /*< short allocation >*/
 {
-    return (short*) sf_alloc (n, sizeof(short));
+    return (short*) sf_alloc(n, sizeof(short));
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ int *sf_intalloc (size_t n /* number of elements */)
+/*@out@*/ int *sf_intalloc(size_t n /* number of elements */)
           /*< int allocation >*/
 {
-    return (int*) sf_alloc (n, sizeof(int));
+    return (int*) sf_alloc(n, sizeof(int));
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ off_t *sf_largeintalloc (size_t n /* number of elements */)
+/*@out@*/ off_t *sf_largeintalloc(size_t n /* number of elements */)
           /*< sf_largeint allocation >*/
 {
-    return (off_t*) sf_alloc (n, sizeof(off_t));
+    return (off_t*) sf_alloc(n, sizeof(off_t));
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ float *sf_floatalloc (size_t n /* number of elements */)
+/*@out@*/ float *sf_floatalloc(size_t n /* number of elements */)
 /*< float allocation >*/
 {
-    return (float*) sf_alloc (n, sizeof(float));
+    return (float*) sf_alloc(n, sizeof(float));
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ double *sf_doublealloc (size_t n /* number of elements */)
+/*@out@*/ double *sf_doublealloc(size_t n /* number of elements */)
 /*< float allocation >*/
 {
-    return (double*) sf_alloc (n, sizeof(double));
+    return (double*) sf_alloc(n, sizeof(double));
 }
 
 
 /*------------------------------------------------------------*/
-/*@out@*/ bool *sf_boolalloc (size_t n /* number of elements */)
+/*@out@*/ bool *sf_boolalloc(size_t n /* number of elements */)
 /*< bool allocation >*/
 {
-    return (bool*) sf_alloc (n, sizeof(bool));
+    return (bool*) sf_alloc(n, sizeof(bool));
 }
 
-/*@out@*/ bool **sf_boolalloc2 (size_t n1 /* fast dimension */,
-                                size_t n2 /* slow dimension */)
+/*@out@*/ bool **sf_boolalloc2(size_t n1 /* fast dimension */,
+                               size_t n2 /* slow dimension */)
 /*< bool 2-D allocation, out[0] points to a contiguous array >*/
 {
     size_t i2;
-    bool **ptr = (bool**) sf_alloc (n2, sizeof(bool*));
+    bool **ptr = (bool**) sf_alloc(n2, sizeof(bool*));
 
-    ptr[0] = sf_boolalloc (n1 * n2);
+    ptr[0] = sf_boolalloc(n1 * n2);
     for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
 
@@ -155,15 +155,15 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ bool ***sf_boolalloc3 (size_t n1 /* fast dimension */,
-                                 size_t n2 /* slower dimension */,
-                                 size_t n3 /* slowest dimension */)
+/*@out@*/ bool ***sf_boolalloc3(size_t n1 /* fast dimension */,
+                                size_t n2 /* slower dimension */,
+                                size_t n3 /* slowest dimension */)
 /*< bool 3-D allocation, out[0][0] points to a contiguous array >*/
 {
     size_t i3;
-    bool ***ptr = (bool***) sf_alloc (n3, sizeof(bool**));
+    bool ***ptr = (bool***) sf_alloc(n3, sizeof(bool**));
 
-    ptr[0] = sf_boolalloc2 (n1, n2 * n3);
+    ptr[0] = sf_boolalloc2(n1, n2 * n3);
     for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
 
@@ -171,22 +171,22 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ float **sf_floatalloc2 (size_t n1 /* fast dimension */,
-                                  size_t n2 /* slow dimension */)
+/*@out@*/ float **sf_floatalloc2(size_t n1 /* fast dimension */,
+                                 size_t n2 /* slow dimension */)
 /*< float 2-D allocation, out[0] points to a contiguous array >*/
 {
     size_t i2;
-    float **ptr = (float**) sf_alloc (n2, sizeof(float*));
+    float **ptr = (float**) sf_alloc(n2, sizeof(float*));
 
-    ptr[0] = sf_floatalloc (n1 * n2);
+    ptr[0] = sf_floatalloc(n1 * n2);
     for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
 
     return ptr;
 }
 /*------------------------------------------------------------*/
-/*@out@*/ double **sf_doublealloc2 (size_t n1 /* fast dimension */,
-                                    size_t n2 /* slow dimension */)
+/*@out@*/ double **sf_doublealloc2(size_t n1 /* fast dimension */,
+                                   size_t n2 /* slow dimension */)
 /*< float 2-D allocation, out[0] points to a contiguous array >*/
 {
     size_t i2;
@@ -199,15 +199,15 @@ void *sf_realloc (void* ptr   /* previous data */,
     return ptr;
 }
 /*------------------------------------------------------------*/
-/*@out@*/ float ***sf_floatalloc3 (size_t n1 /* fast dimension */,
-                                   size_t n2 /* slower dimension */,
-                                   size_t n3 /* slowest dimension */)
+/*@out@*/ float ***sf_floatalloc3(size_t n1 /* fast dimension */,
+                                  size_t n2 /* slower dimension */,
+                                  size_t n3 /* slowest dimension */)
 /*< float 3-D allocation, out[0][0] points to a contiguous array >*/
 {
     size_t i3;
-    float ***ptr = (float***) sf_alloc (n3, sizeof(float**));
+    float ***ptr = (float***) sf_alloc(n3, sizeof(float**));
 
-    ptr[0] = sf_floatalloc2 (n1, n2 * n3);
+    ptr[0] = sf_floatalloc2(n1, n2 * n3);
     for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
 
@@ -215,16 +215,16 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ float ****sf_floatalloc4 (size_t n1 /* fast dimension */,
-                                    size_t n2 /* slower dimension */,
-                                    size_t n3 /* slower dimension */,
-                                    size_t n4 /* slowest dimension */)
+/*@out@*/ float ****sf_floatalloc4(size_t n1 /* fast dimension */,
+                                   size_t n2 /* slower dimension */,
+                                   size_t n3 /* slower dimension */,
+                                   size_t n4 /* slowest dimension */)
 /*< float 4-D allocation, out[0][0][0] points to a contiguous array >*/
 {
     size_t i4;
-    float ****ptr = (float****) sf_alloc (n4, sizeof(float***));
+    float ****ptr = (float****) sf_alloc(n4, sizeof(float***));
 
-    ptr[0] = sf_floatalloc3 (n1, n2, n3 * n4);
+    ptr[0] = sf_floatalloc3(n1, n2, n3 * n4);
     for (i4 = 1; i4 < n4; i4++)
         ptr[i4] = ptr[0] + i4 * n3;
 
@@ -232,17 +232,17 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ float *****sf_floatalloc5 (size_t n1 /* fast dimension */,
-                                     size_t n2 /* slower dimension */,
-                                     size_t n3 /* slower dimension */,
-                                     size_t n4 /* slower dimension */,
-                                     size_t n5 /* slowest dimension */)
+/*@out@*/ float *****sf_floatalloc5(size_t n1 /* fast dimension */,
+                                    size_t n2 /* slower dimension */,
+                                    size_t n3 /* slower dimension */,
+                                    size_t n4 /* slower dimension */,
+                                    size_t n5 /* slowest dimension */)
 /*< float 5-D allocation, out[0][0][0][0] points to a contiguous array >*/
 {
     size_t i5;
-    float *****ptr = (float*****) sf_alloc (n5, sizeof(float****));
+    float *****ptr = (float*****) sf_alloc(n5, sizeof(float****));
 
-    ptr[0] = sf_floatalloc4 (n1, n2, n3, n4 * n5);
+    ptr[0] = sf_floatalloc4(n1, n2, n3, n4 * n5);
     for (i5 = 1; i5 < n5; i5++)
         ptr[i5] = ptr[0] + i5 * n4;
 
@@ -250,18 +250,18 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ float ******sf_floatalloc6 (size_t n1 /* fast dimension */,
-                                      size_t n2 /* slower dimension */,
-                                      size_t n3 /* slower dimension */,
-                                      size_t n4 /* slower dimension */,
-                                      size_t n5 /* slower dimension */,
-                                      size_t n6 /* slowest dimension */)
+/*@out@*/ float ******sf_floatalloc6(size_t n1 /* fast dimension */,
+                                     size_t n2 /* slower dimension */,
+                                     size_t n3 /* slower dimension */,
+                                     size_t n4 /* slower dimension */,
+                                     size_t n5 /* slower dimension */,
+                                     size_t n6 /* slowest dimension */)
 /*< float 6-D allocation, out[0][0][0][0][0] points to a contiguous array >*/
 {
     size_t i6;
-    float ******ptr = (float******) sf_alloc (n6, sizeof(float*****));
+    float ******ptr = (float******) sf_alloc(n6, sizeof(float*****));
 
-    ptr[0] = sf_floatalloc5 (n1, n2, n3, n4, n5 * n6);
+    ptr[0] = sf_floatalloc5(n1, n2, n3, n4, n5 * n6);
     for (i6 = 1; i6 < n6; i6++)
         ptr[i6] = ptr[0] + i6 * n5;
 
@@ -269,14 +269,14 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ int **sf_intalloc2 (size_t n1 /* fast dimension */,
-                              size_t n2 /* slow dimension */)
+/*@out@*/ int **sf_intalloc2(size_t n1 /* fast dimension */,
+                             size_t n2 /* slow dimension */)
 /*< float 2-D allocation, out[0] points to a contiguous array >*/
 {
     size_t i2;
-    int **ptr = (int**) sf_alloc (n2, sizeof(int*));
+    int **ptr = (int**) sf_alloc(n2, sizeof(int*));
 
-    ptr[0] = sf_intalloc (n1 * n2);
+    ptr[0] = sf_intalloc(n1 * n2);
     for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
 
@@ -284,15 +284,15 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ int ***sf_intalloc3 (size_t n1 /* fast dimension */,
-                               size_t n2 /* slower dimension */,
-                               size_t n3 /* slowest dimension */)
+/*@out@*/ int ***sf_intalloc3(size_t n1 /* fast dimension */,
+                              size_t n2 /* slower dimension */,
+                              size_t n3 /* slowest dimension */)
 /*< int 3-D allocation, out[0][0] points to a contiguous array >*/
 {
     size_t i3;
-    int ***ptr = (int***) sf_alloc (n3, sizeof(int**));
+    int ***ptr = (int***) sf_alloc(n3, sizeof(int**));
 
-    ptr[0] = sf_intalloc2 (n1, n2 * n3);
+    ptr[0] = sf_intalloc2(n1, n2 * n3);
     for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
 
@@ -300,16 +300,16 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ int ****sf_intalloc4 (size_t n1 /* fast dimension */,
-                                size_t n2 /* slower dimension */,
-                                size_t n3 /* slower dimension */,
-                                size_t n4 /* slowest dimension */ )
+/*@out@*/ int ****sf_intalloc4(size_t n1 /* fast dimension */,
+                               size_t n2 /* slower dimension */,
+                               size_t n3 /* slower dimension */,
+                               size_t n4 /* slowest dimension */ )
 /*< int 4-D allocation, out[0][0][0] points to a contiguous array >*/
 {
     size_t i4;
-    int ****ptr = (int****) sf_alloc (n4, sizeof(int***));
+    int ****ptr = (int****) sf_alloc(n4, sizeof(int***));
 
-    ptr[0] = sf_intalloc3 (n1, n2, n3 * n4);
+    ptr[0] = sf_intalloc3(n1, n2, n3 * n4);
     for (i4 = 1; i4 < n4; i4++)
         ptr[i4] = ptr[0] + i4 * n3;
 
@@ -317,14 +317,14 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ char **sf_charalloc2 (size_t n1 /* fast dimension */,
-                                size_t n2 /* slow dimension */)
+/*@out@*/ char **sf_charalloc2(size_t n1 /* fast dimension */,
+                               size_t n2 /* slow dimension */)
 /*< char 2-D allocation, out[0] points to a contiguous array >*/
 {
     size_t i2;
-    char **ptr = (char**) sf_alloc (n2, sizeof(char*));
+    char **ptr = (char**) sf_alloc(n2, sizeof(char*));
 
-    ptr[0] = sf_charalloc (n1 * n2);
+    ptr[0] = sf_charalloc(n1 * n2);
     for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
 
@@ -332,15 +332,15 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ unsigned char **sf_ucharalloc2 (size_t n1 /* fast dimension */,
-                                          size_t n2 /* slow dimension */)
+/*@out@*/ unsigned char **sf_ucharalloc2(size_t n1 /* fast dimension */,
+                                         size_t n2 /* slow dimension */)
 /*< unsigned char 2-D allocation, out[0] points to a contiguous array >*/
 {
     size_t i2;
 
-    unsigned char **ptr = (unsigned char**) sf_alloc (n2, sizeof(unsigned char*));
+    unsigned char **ptr = (unsigned char**) sf_alloc(n2, sizeof(unsigned char*));
 
-    ptr[0] = sf_ucharalloc (n1 * n2);
+    ptr[0] = sf_ucharalloc(n1 * n2);
     for (i2 = 1; i2 < n2; i2++)
         ptr[i2] = ptr[0] + i2 * n1;
 
@@ -348,16 +348,16 @@ void *sf_realloc (void* ptr   /* previous data */,
 }
 
 /*------------------------------------------------------------*/
-/*@out@*/ unsigned char ***sf_ucharalloc3 (size_t n1 /* fast dimension */,
-                                           size_t n2 /* slower dimension */,
-                                           size_t n3 /* slowest dimension */)
+/*@out@*/ unsigned char ***sf_ucharalloc3(size_t n1 /* fast dimension */,
+                                          size_t n2 /* slower dimension */,
+                                          size_t n3 /* slowest dimension */)
 /*< unsigned char 3-D allocation, out[0][0] points to a contiguous array >*/
 {
     size_t i3;
 
-    unsigned char ***ptr = (unsigned char***) sf_alloc (n3, sizeof(unsigned char**));
+    unsigned char ***ptr = (unsigned char***) sf_alloc(n3, sizeof(unsigned char**));
 
-    ptr[0] = sf_ucharalloc2 (n1, n2 * n3);
+    ptr[0] = sf_ucharalloc2(n1, n2 * n3);
     for (i3 = 1; i3 < n3; i3++)
         ptr[i3] = ptr[0] + i3 * n2;
 
