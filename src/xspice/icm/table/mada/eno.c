@@ -41,118 +41,126 @@ typedef enum {FUNC, DER, BOTH} der;
 
 struct Eno {
     int order, n;
-    double** diff;
+    double **diff;
 };
 /* concrete data type */
 
-sf_eno sf_eno_init (int order /* interpolation order */,
-                    int n     /* data size */)
+sf_eno
+sf_eno_init (int order, /* interpolation order */
+             int n      /* data size */)
 /*< Initialize interpolation object. >*/
 {
     sf_eno ent;
     int i;
 
-    ent = (sf_eno) sf_alloc(1,sizeof(*ent));
+    ent = (sf_eno) sf_alloc(1, sizeof(*ent));
     ent->order = order;
     ent->n = n;
-    ent->diff = (double**) sf_alloc(order,sizeof(double*));
-    for (i = 0; i < order; i++) {
-        ent->diff[i] = sf_doublealloc(n-i);
-    }
+    ent->diff = (double**) sf_alloc(order, sizeof(double*));
+    for (i = 0; i < order; i++)
+        ent->diff[i] = sf_doublealloc(n - i);
 
     return ent;
 }
 
-void sf_eno_close (sf_eno ent)
+void
+sf_eno_close (sf_eno ent)
 /*< Free internal storage >*/
 {
     int i;
 
-    for (i = 0; i < ent->order; i++) {
-        free(ent->diff[i]);
-    }
+    for (i = 0; i < ent->order; i++)
+        free (ent->diff[i]);
     free (ent->diff);
     free (ent);
 }
 
-void sf_eno_set (sf_eno ent, double* c /* data [n] */)
+void
+sf_eno_set (sf_eno ent, double *c /* data [n] */)
 /*< Set the interpolation table. c can be changed or freed afterwords >*/
 {
     int i, j;
 
-    for (i=0; i < ent->n; i++) {
+    for (i = 0; i < ent->n; i++) {
         /* copy the initial data */
         ent->diff[0][i] = c[i];
     }
 
-    for (j=1; j < ent->order; j++) {
-        for (i=0; i < ent->n-j; i++) {
+    for (j = 1; j < ent->order; j++) {
+        for (i = 0; i < ent->n - j; i++) {
             /* compute difference tables */
-            ent->diff[j][i] = ent->diff[j-1][i+1] - ent->diff[j-1][i];
+            ent->diff[j][i] = ent->diff[j - 1][i + 1] - ent->diff[j - 1][i];
         }
     }
 }
 
-void sf_eno_set_wstride (sf_eno ent, double* c /* data [n] */, int stride)
+void
+sf_eno_set_wstride (sf_eno ent, double *c /* data [n] */, int stride)
 /*< Set the interpolation table. c can be changed or freed afterwords >*/
 {
     int i, j;
 
-    if (stride < 1) stride = 1;
+    if (stride < 1)
+        stride = 1;
 
-    for (i=0; i < ent->n; i++) {
+    for (i = 0; i < ent->n; i++) {
         /* copy the initial data */
-        ent->diff[0][i] = c[i*stride];
+        ent->diff[0][i] = c[i * stride];
     }
 
-    for (j=1; j < ent->order; j++) {
-        for (i=0; i < ent->n-j; i++) {
+    for (j = 1; j < ent->order; j++) {
+        for (i = 0; i < ent->n - j; i++) {
             /* compute difference tables */
-            ent->diff[j][i] = ent->diff[j-1][i+1] - ent->diff[j-1][i];
+            ent->diff[j][i] = ent->diff[j - 1][i + 1] - ent->diff[j - 1][i];
         }
     }
 }
 
 void sf_eno_apply (sf_eno ent,
-                   int i     /* grid location */,
-                   double x   /* offset from grid */,
-                   double *f  /* output data value */,
-                   double *f1 /* output derivative */,
-                   der what  /* flag of what to compute */)
+                   int i,      /* grid location */
+                   double x,   /* offset from grid */
+                   double *f,  /* output data value */
+                   double *f1, /* output derivative */
+                   der what    /* flag of what to compute */)
 /*< Apply interpolation >*/
 {
     int j, k, i1, i2, n;
     double s, s1, y, w, g, g1;
 
-    i2 = SF_MAX(0,SF_MIN(i,ent->n-ent->order));
-    i1 = SF_MIN(i2,SF_MAX(0,i-ent->order+2));
+    i2 = SF_MAX (0, SF_MIN(i, ent->n - ent->order));
+    i1 = SF_MIN (i2, SF_MAX(0, i - ent->order + 2));
 
-    w = fabs(ent->diff[ent->order-1][i1]);
-    for (j=i1+1; j <=i2; j++) {
-        g = fabs(ent->diff[ent->order-1][j]);
-        if (w > g) w = g;
+    w = fabs(ent->diff[ent->order - 1][i1]);
+    for (j = i1 + 1; j <= i2; j++) {
+        g = fabs(ent->diff[ent->order - 1][j]);
+        if (w > g)
+            w = g;
     }
 
     /* loop over starting points */
     for (g = 0., g1 = 0., n = 0, j = i1; j <= i2; j++) {
-        if (fabs(ent->diff[ent->order-1][j]) > w) continue;
+        if (fabs(ent->diff[ent->order - 1][j]) > w)
+            continue;
         n++;
 
         y = x + i - j;
 
         /* loop to compute the polynomial */
-        for (s = 1., s1 = 0., k=0; k < ent->order; k++) {
+        for (s = 1., s1 = 0., k = 0; k < ent->order; k++) {
             if (what != FUNC) {
-                g1 += s1*ent->diff[k][j];
-                s1 = (s + s1*(y-k))/(k+1.);
+                g1 += s1 * ent->diff[k][j];
+                s1 = (s + s1 * (y - k)) / (k + 1.);
             }
-            if (what != DER) g += s*ent->diff[k][j];
-            s *= (y-k)/(k+1.);
+            if (what != DER)
+                g += s * ent->diff[k][j];
+            s *= (y - k) / (k + 1.);
         }
     }
 
-    if (what != DER) *f = g/n;
-    if (what != FUNC) *f1 = g1/n;
+    if (what != DER)
+        *f = g / n;
+    if (what != FUNC)
+        *f1 = g1 / n;
 }
 
 /*      $Id: eno.c 8699 2012-07-03 22:10:38Z vovizmus $  */
