@@ -155,12 +155,10 @@ com_let(wordlist *wl)
                 /* remove the old vector 'p' */
                 vec_remove(p);
                 /* create and assign the new vector 'p' */
-                n = alloc(struct dvec);
-                ZERO(n, struct dvec);
-                n->v_name = copy(p);
-                n->v_type = SV_NOTYPE;
-                n->v_flags = (VF_REAL | VF_PERMANENT);
-                n->v_length = 0;
+                n = dvec_alloc(copy(p),
+                               SV_NOTYPE,
+                               VF_REAL | VF_PERMANENT,
+                               0, NULL);
                 vec_new(n);
                 tfree(p);
                 return;
