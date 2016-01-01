@@ -965,6 +965,8 @@ var_alloc(char *name,
           struct variable *next)
 {
     struct variable *v = TMALLOC(struct variable, 1);
+    if (!v)
+        return NULL;
     ZERO(v, struct variable);
 
     v->va_name = copy(name);
