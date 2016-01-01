@@ -967,6 +967,8 @@ var_alloc(
 {
     struct variable *v;
     v = TMALLOC(struct variable, 1);
+    if (!v)
+        return NULL;
     ZERO(v, struct variable);
     v->va_name = copy(name);
     v->va_type = type;
@@ -983,6 +985,7 @@ var_alloc(
     case CP_REAL: {
         if(what)        
             v->va_real = *(double *)what;
+        break;
     }
     case CP_STRING: {
         if(what)
