@@ -24,7 +24,10 @@ bool cp_noglob = TRUE;
 bool cp_nonomatch = FALSE;
 bool cp_noclobber = FALSE;
 bool cp_ignoreeof = FALSE;
-bool cp_echo = FALSE;   /* CDHW */
+bool cp_echo = FALSE;
+
+bool ntrue = TRUE;
+bool *p_true = &ntrue; /* pointer to boolean TRUE */
 
 struct variable *variables = NULL;
 
@@ -83,8 +86,6 @@ cp_vset(char *varname, enum cp_types type, void *value)
     bool alreadythere = FALSE, v_free = FALSE;
     char *copyvarname;
 
-    /* varname = cp_unquote(varname);  DG: Memory leak old varname is lost*/
-
     copyvarname = cp_unquote(varname);
 
     w = NULL;
@@ -104,9 +105,10 @@ cp_vset(char *varname, enum cp_types type, void *value)
     }
 
     if (!v) {
-        v = alloc(struct variable);
+        v = var_alloc(copyvarname, type, NULL, NULL);
+/*        v = alloc(struct variable);
         v->va_name = copy(copyvarname);
-        v->va_next = NULL;
+        v->va_next = NULL; */
         v_free = TRUE;
     }
 
@@ -282,12 +284,12 @@ cp_setparse(wordlist *wl)
 
         wl = wl->wl_next;
         if ((!wl || (*wl->wl_word != '=')) && !strchr(name, '=')) {
-            vv = alloc(struct variable);
+            vars = vv = var_alloc(name, CP_BOOL, p_true, vars);
+ /*           vv = alloc(struct variable);
             vv->va_name = copy(name);
             vv->va_type = CP_BOOL;
             vv->va_bool = TRUE;
-            vv->va_next = vars;
-            vars = vv;
+            vv->va_next = vars; */
             tfree(name);        /*DG: cp_unquote Memory leak*/
             continue;
         }
@@ -346,16 +348,18 @@ cp_setparse(wordlist *wl)
                     if (!--balance)
                         break;
                 }
-                vv = alloc(struct variable);
-                vv->va_next = NULL;
+/*                vv = alloc(struct variable);
+                vv->va_next = NULL; */
                 copyval = ss = cp_unquote(wl->wl_word);
                 td = ft_numparse(&ss, FALSE);
                 if (td) {
-                    vv->va_type = CP_REAL;
-                    vv->va_real = *td;
+                    vv = var_alloc(NULL, CP_REAL, td, NULL);
+/*                    vv->va_type = CP_REAL;
+                    vv->va_real = *td; */
                 } else {
-                    vv->va_type = CP_STRING;
-                    vv->va_string = copy(ss);
+                    vv = var_alloc(NULL, CP_STRING, ss, NULL);
+/*                    vv->va_type = CP_STRING;
+                    vv->va_string = copy(ss); */
                 }
                 tfree(copyval); /*DG: must free ss any way to avoid cp_unquote memory leak*/
                 if (listv) {
@@ -374,12 +378,13 @@ cp_setparse(wordlist *wl)
                 return (NULL);
             }
 
-            vv = alloc(struct variable);
+            vars = vv = var_alloc(name, CP_LIST, listv, vars);
+/*            vv = alloc(struct variable);
             vv->va_name = copy(name);
             vv->va_type = CP_LIST;
             vv->va_vlist = listv;
-            vv->va_next = vars;
-            vars = vv;
+            vv->va_next = vars; 
+            vars = vv;*/
 
             wl = wl->wl_next;
             continue;
@@ -387,18 +392,21 @@ cp_setparse(wordlist *wl)
 
         copyval = ss = cp_unquote(val);
         td = ft_numparse(&ss, FALSE);
-        vv = alloc(struct variable);
+ /*       vv = alloc(struct variable);
         vv->va_name = copy(name);
-        vv->va_next = vars;
-        vars = vv;
+        vv->va_next = vars; 
+        vars = vv;*/
         if (td) {
             /*** We should try to get CP_NUM's... */
-            vv->va_type = CP_REAL;
-            vv->va_real = *td;
+            vars = vv = var_alloc(name, CP_REAL, td, vars);
+ /*           vv->va_type = CP_REAL;
+            vv->va_real = *td;*/
         } else {
-            vv->va_type = CP_STRING;
-            vv->va_string = copy(val);
+            vars = vv = var_alloc(name, CP_STRING, val, vars);
+/*            vv->va_type = CP_STRING;
+            vv->va_string = copy(val); */
         }
+
         tfree(copyval); /*DG: must free ss any way to avoid cp_unquote memory leak */
         tfree(name);  /* va: cp_unquote memory leak: free name for every loop */
     }
@@ -461,11 +469,12 @@ cp_remvar(char *varname)
     }
     if (!v) {
         /* Gotta make up a var struct for cp_usrset()... */
-        v = alloc(struct variable);
+        v = var_alloc(varname, CP_NUM, NULL, NULL);
+/*        v = alloc(struct variable);
         ZERO(v, struct variable);
         v->va_name = copy(varname);
         v->va_type = CP_NUM;
-        v->va_num = 0;
+        v->va_num = 0; */
         found = FALSE;
     }
 
@@ -979,4 +988,49 @@ cp_vprint(void)
     }
 
     tfree(vars);
+}
+
+/* allocate a 'struct *variable' and fill its members */
+struct variable *
+var_alloc(
+    char * name, 
+    enum cp_types type, 
+    void *what, 
+    struct variable *next )
+{
+    struct variable *v;
+    v = TMALLOC(struct variable, 1);
+    ZERO(v, struct variable);
+    v->va_name = copy(name);
+    v->va_type = type;
+    v->va_next = next;
+    switch (type) {
+    case CP_BOOL:
+        v->va_bool = TRUE;
+        break;
+    case CP_NUM: {
+        if(what)        
+            v->va_num = *(int *)what;
+        break;
+    }
+    case CP_REAL: {
+        if(what)        
+            v->va_real = *(double *)what;
+    }
+    case CP_STRING: {
+        if(what)
+            v->va_string = copy((char *)what);
+        break;
+    }
+    case CP_LIST: {
+        if(what)
+            v->va_vlist = (struct variable *) what;
+        break;
+    }
+    default:
+        fprintf(cp_err,
+            "var_alloc: Internal Error: bad var type %d.\n", type);
+        break;
+    }
+    return v;
 }
