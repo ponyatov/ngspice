@@ -961,10 +961,10 @@ cp_vprint(void)
 
 /* allocate a 'struct *variable' and fill its members */
 struct variable *
-var_alloc(char *name,
-          enum cp_types type,
-          void *what,
-          struct variable *next)
+var_alloc(char *name,            /* name of variable */
+          enum cp_types type,    /* type of variable, select from CP_NUM, CP_LIST, CP_REAL, CP_BOOL, CP_STRING */
+          void *what,            /* pointer to contents, according to type */
+          struct variable *next) /* foo->next member of new 'struct *variable' set to address of another 'struct *variable' or linked list */
 {
     struct variable *v = TMALLOC(struct variable, 1);
     if (!v)
