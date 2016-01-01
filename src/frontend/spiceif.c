@@ -958,10 +958,9 @@ if_setparam(CKTcircuit *ckt, char **name, char *param, struct dvec *val, int do_
 static struct variable *
 parmtovar(IFvalue *pv, IFparm *opt)
 {
-/*    struct variable *vv = alloc(struct variable);
-    struct variable *nv; */
-
     int i = 0;
+
+    /* It's not clear whether we want the keyword or the desc here... */
     struct variable *vv = var_alloc(opt->description, 0, NULL, NULL);
 
     switch (opt->dataType & IF_VARTYPES) {
@@ -990,15 +989,11 @@ parmtovar(IFvalue *pv, IFparm *opt)
                 CP_REAL,
                 &(pv->v.vec.rVec[pv->v.numValue - i - 1]), 
                 vv->va_vlist);
-/*            nv = alloc(struct variable);
-            nv->va_next = vv->va_vlist;
-            vv->va_vlist = nv;
-            nv->va_type = CP_REAL; */
+
             /* Change this so that the values are printed in order and
              * not in inverted order as happens in the conversion process.
              * Originally was  nv->va_real = pv->v.vec.rVec[i];
              */
-//            nv->va_real = pv->v.vec.rVec[pv->v.numValue-i-1];
         }
         /* It is a linked list where the first node is a variable
          * pointing to the different values of the variables.
@@ -1024,9 +1019,6 @@ parmtovar(IFvalue *pv, IFparm *opt)
         return (NULL);
     }
 
-    /* It's not clear whether we want the keyword or the desc here... */
-/*    vv->va_name = copy(opt->description);
-    vv->va_next = NULL; */
     return (vv);
 }
 
