@@ -958,6 +958,7 @@ if_setparam(CKTcircuit *ckt, char **name, char *param, struct dvec *val, int do_
 static struct variable *
 parmtovar(IFvalue *pv, IFparm *opt)
 {
+    /* It's not clear whether we want the keyword or the desc here... */
     struct variable *vv = var_alloc(opt->description, 0, NULL, NULL);
     int i = 0;
 
@@ -1016,7 +1017,6 @@ parmtovar(IFvalue *pv, IFparm *opt)
         return (NULL);
     }
 
-    /* It's not clear whether we want the keyword or the desc here... */
     return (vv);
 }
 

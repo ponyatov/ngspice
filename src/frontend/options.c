@@ -76,19 +76,18 @@ cp_enqvar(char *word)
         for (vv = plot_cur->pl_env; vv; vv = vv->va_next)
             if (eq(vv->va_name, word))
                 return (vv);
-        if (eq(word, "curplotname")) {
+        if (eq(word, "curplotname"))
             vv = var_alloc(word, CP_STRING, plot_cur->pl_name, NULL);
-        } else if (eq(word, "curplottitle")) {
+        else if (eq(word, "curplottitle"))
             vv = var_alloc(word, CP_STRING, plot_cur->pl_title, NULL);
-        } else if (eq(word, "curplotdate")) {
+        else if (eq(word, "curplotdate"))
             vv = var_alloc(word, CP_STRING, plot_cur->pl_date, NULL);
-        } else if (eq(word, "curplot")) {
+        else if (eq(word, "curplot"))
             vv = var_alloc(word, CP_STRING, plot_cur->pl_typename, NULL);
-        } else if (eq(word, "plots")) {
+        else if (eq(word, "plots")) {
             vv = var_alloc(word, CP_LIST, NULL, NULL);
-            for (pl = plot_list; pl; pl = pl->pl_next) {
+            for (pl = plot_list; pl; pl = pl->pl_next)
                 vv->va_vlist = var_alloc(NULL, CP_STRING, pl->pl_typename, vv->va_vlist);
-            }
         }
         if (vv)
             return (vv);

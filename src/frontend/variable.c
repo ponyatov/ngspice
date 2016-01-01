@@ -378,6 +378,7 @@ cp_setparse(wordlist *wl)
         } else {
             vars = vv = var_alloc(name, CP_STRING, val, vars);
         }
+
         tfree(copyval); /*DG: must free ss any way to avoid cp_unquote memory leak */
         tfree(name);  /* va: cp_unquote memory leak: free name for every loop */
     }
