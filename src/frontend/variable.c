@@ -399,6 +399,8 @@ free_struct_variable(struct variable *v)
             free_struct_variable(v->va_vlist);
         if (v->va_type == CP_STRING)
             tfree(v->va_string);
+        if (v->va_name)
+            tfree(v->va_name);
         tfree(v);
         v = next_v;
     }
