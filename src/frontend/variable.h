@@ -46,7 +46,8 @@ void free_struct_variable(struct variable *v);
 /* allocate a 'struct *variable' and fill its members */
 struct variable *var_alloc(
     char * name,
-enum cp_types type,
+    enum cp_types type,
     void *what,
-struct variable *next);
+    struct variable *next
+);
 #endif
