@@ -980,3 +980,51 @@ cp_vprint(void)
 
     tfree(vars);
 }
+
+/* allocate a 'struct *variable' and fill its members */
+struct variable *
+var_alloc(
+    char * name,        /* name of variable */
+    enum cp_types type, /* type of variable, select from CP_NUM, CP_LIST, CP_REAL, CP_BOOL, CP_STRING */
+    void *what,         /* pointer to contents, according to type */
+    struct variable *next ) /* foo->next member of new 'struct *variable' set to address of another 'struct *variable' or linked list */
+{
+    struct variable *v;
+    v = TMALLOC(struct variable, 1);
+    if (!v)
+        return NULL;
+    ZERO(v, struct variable);
+    v->va_name = copy(name);
+    v->va_type = type;
+    v->va_next = next;
+    switch (type) {
+    case CP_BOOL:
+        v->va_bool = TRUE;
+        break;
+    case CP_NUM: {
+        if(what)
+            v->va_num = *(int *)what;
+        break;
+    }
+    case CP_REAL: {
+        if(what)
+            v->va_real = *(double *)what;
+        break;
+    }
+    case CP_STRING: {
+        if(what)
+            v->va_string = copy((char *)what);
+        break;
+    }
+    case CP_LIST: {
+        if(what)
+            v->va_vlist = (struct variable *) what;
+        break;
+    }
+    default:
+        fprintf(cp_err,
+            "var_alloc: Internal Error: bad var type %d.\n", type);
+        break;
+    }
+    return v;
+}

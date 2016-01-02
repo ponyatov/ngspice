@@ -43,4 +43,10 @@ wordlist *cp_varwl(struct variable *var);
 wordlist *cp_variablesubst(wordlist *wlist);
 void free_struct_variable(struct variable *v);
 
+/* allocate a 'struct *variable' and fill its members */
+struct variable *var_alloc(
+    char * name,
+enum cp_types type,
+    void *what,
+struct variable *next);
 #endif
