@@ -27,5 +27,6 @@ goto end
 
 :copy2
 copy .\vngspice-fftw\Debug.Win32\ngspice.exe c:\Spiced\bin\ngspice.exe
+copy "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spiced\bin\libfftw3-3.dll"
 
 :end

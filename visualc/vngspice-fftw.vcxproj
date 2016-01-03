@@ -237,7 +237,6 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
     </Link>
     <PostBuildEvent>
       <Command>
-      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spiced\bin\libfftw3-3.dll"
       copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
       make-install-vngspiced.bat fftw
       </Command>
@@ -289,7 +288,6 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
     </Link>
     <PostBuildEvent>
       <Command>
-      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spice\bin\libfftw3-3.dll"
       copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
       make-install-vngspice.bat fftw
       </Command>
@@ -619,7 +617,6 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
     </Link>
     <PostBuildEvent>
       <Command>
-      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spice\bin\libfftw3-3.dll"
       copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
       make-install-vngspice.bat fftw
       </Command>
