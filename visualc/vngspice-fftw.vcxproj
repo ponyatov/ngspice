@@ -233,9 +233,15 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"</Command>
+      <Command>
+      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spiced\bin\libfftw3-3.dll"
+      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
+      make-install-vngspiced.bat fftw
+      </Command>
+      <Message>Install all needed files to C:\Spiced</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -279,9 +285,14 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"</Command>
+      <Command>
+      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spice\bin\libfftw3-3.dll"
+      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
+      make-install-vngspice.bat fftw
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -322,6 +333,7 @@ lib /machine:x64 /def:..\..\fftw-3.3.4-dll64\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll64\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -373,6 +385,7 @@ lib /machine:x64 /def:..\..\fftw-3.3.4-dll64\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll64\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -413,6 +426,7 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -459,6 +473,7 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -502,6 +517,7 @@ lib /machine:x64 /def:..\..\fftw-3.3.4-dll64\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll64\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -551,6 +567,7 @@ lib /machine:x64 /def:..\..\fftw-3.3.4-dll64\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll64\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -598,9 +615,14 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"</Command>
+      <Command>
+      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "C:\Spice\bin\libfftw3-3.dll"
+      copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
+      make-install-vngspice.bat fftw
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">
@@ -650,6 +672,7 @@ lib /machine:x64 /def:..\..\fftw-3.3.4-dll64\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll64\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -697,6 +720,7 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"</Command>
@@ -747,6 +771,7 @@ lib /machine:x64 /def:..\..\fftw-3.3.4-dll64\libfftw3-3.def /out:$(IntDir)libfft
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX64</TargetMachine>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "..\..\fftw-3.3.4-dll64\libfftw3-3.dll" "$(OutDir)"</Command>
