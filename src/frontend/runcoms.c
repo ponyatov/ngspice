@@ -70,6 +70,9 @@ com_scirc(wordlist *wl)
                 fprintf(cp_out, "Current");
             fprintf(cp_out, "\t%d\t%s\n", ++j, p->ci_name);
         }
+#ifdef SHARED_MODULE
+        return;
+#endif
         fprintf(cp_out, "? ");
         (void) fflush(cp_out);
         (void) fgets(buf, BSIZE_SP, cp_in);
