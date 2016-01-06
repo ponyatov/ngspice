@@ -946,7 +946,9 @@ com_splot(wordlist *wl)
         fprintf(cp_out, "%s%s\t%s (%s)\n",
                 (pl == plot_cur) ? "Current " : "\t",
                 pl->pl_typename, pl->pl_title, pl->pl_name);
-
+#ifdef SHARED_MODULE
+    return;
+#endif
     fprintf(cp_out, "? ");
     if (!fgets(buf, BSIZE_SP, cp_in)) {
         clearerr(cp_in);
