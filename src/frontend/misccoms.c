@@ -338,7 +338,7 @@ confirm_quit(void)
     fprintf(cp_out, "\nAre you sure you want to quit (yes)? ");
     (void) fflush(cp_out);
 
-    if (!fgets(buf, sizeof(buf), stdin)) {
+    if (!fgets(buf, sizeof(buf), stdin)) { /* fixme, confirm_quit io */
         clearerr(stdin);
         *buf = 'y';
     }

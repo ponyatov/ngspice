@@ -950,7 +950,7 @@ com_splot(wordlist *wl)
     return;
 #endif
     fprintf(cp_out, "? ");
-    if (!fgets(buf, BSIZE_SP, cp_in)) {
+    if (!fgets(buf, BSIZE_SP, cp_in)) { /* fixme, com_splot io */
         clearerr(cp_in);
         return;
     }

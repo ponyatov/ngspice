@@ -75,7 +75,7 @@ com_scirc(wordlist *wl)
 #endif
         fprintf(cp_out, "? ");
         (void) fflush(cp_out);
-        (void) fgets(buf, BSIZE_SP, cp_in);
+        (void) fgets(buf, BSIZE_SP, cp_in); /* fixme, com_scirc io */
         clearerr(cp_in);
         if ((sscanf(buf, " %d ", &i) != 1) || (i < 0) || (i > j))
             return;
