@@ -45,7 +45,7 @@ com_quit(wordlist *wl)
     bool noask =
         (wl  &&  wl->wl_word  &&  1 == sscanf(wl->wl_word, "%d", &exitcode)) ||
         (wl  &&  wl->wl_word  &&  cieq(wl->wl_word, "noask"))  ||
-        cp_getvar("noaskquit", CP_BOOL, NULL);
+        !cp_getvar("askquit", CP_BOOL, NULL);
 
     /* update screen and reset terminal */
     gr_clean();
@@ -338,7 +338,7 @@ confirm_quit(void)
     fprintf(cp_out, "\nAre you sure you want to quit (yes)? ");
     (void) fflush(cp_out);
 
-    if (!fgets(buf, sizeof(buf), stdin)) { /* fixme, confirm_quit io */
+    if (!fgets(buf, sizeof(buf), stdin)) {
         clearerr(stdin);
         *buf = 'y';
     }
