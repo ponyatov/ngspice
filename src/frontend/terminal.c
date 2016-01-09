@@ -42,8 +42,8 @@ Author: 1986 Wayne A. Christopher, U. C. Berkeley CAD Group
 #include "terminal.h"
 
 
-bool out_moremode = TRUE;
-bool out_isatty = TRUE;
+bool out_moremode = FALSE;
+bool out_isatty = FALSE;
 
 #ifndef TCL_MODULE
 
