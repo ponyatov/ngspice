@@ -497,26 +497,16 @@ nupa_done(void)
        simulation has finished. */
 
     if (nerrors) {
-
-#ifdef SHARED_MODULE
-        fprintf(cp_err, "Numparam expansion errors: Problem with input file.\n");
-        shared_exit(EXIT_BAD);
-#endif
-
-        printf(" Copies=%d Evals=%d Placeholders=%ld Symbols=%d Errors=%d\n",
+        /* numparam errors are serious, continuing does not make sense */
+        /* fixme Is this error message useful ? */
+        fprintf(cp_err, " Copies=%d Evals=%d Placeholders=%ld Symbols=%d Errors=%d\n",
                linecountS, evalcountS, placeholder, dictsize, nerrors);
-        /* debug: ask if spice run really wanted */
-        if (ft_batchmode)
-            controlled_exit(EXIT_FAILURE);
-        for (;;) {
-            int c;
-            printf("Numparam expansion errors: Run Spice anyway? y/n ?\n");
-            c = yes_or_no();    /* fixme, nupa_done, io */
-            if (c == 'n' || c == EOF)
-                controlled_exit(EXIT_FAILURE);
-            if (c == 'y')
-                break;
-        }
+        fprintf(cp_err, "Numparam expansion errors: Problem with input file.\n");
+#ifdef SHARED_MODULE
+        shared_exit(EXIT_FAILURE);
+#else
+        controlled_exit(EXIT_FAILURE);
+#endif
     }
 
     linecountS = 0;
