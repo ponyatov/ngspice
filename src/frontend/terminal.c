@@ -73,10 +73,10 @@ out_init(void)
 
     noprint = nopause = FALSE;
 
-    if (cp_getvar("nomoremode", CP_BOOL, NULL)) /* fixme, reuse ? */
-        out_moremode = FALSE;
-    else
+    if (cp_getvar("moremode", CP_BOOL, NULL))
         out_moremode = TRUE;
+    else
+        out_moremode = FALSE;
 
     if (!out_moremode || !cp_interactive)
         out_isatty = FALSE;
