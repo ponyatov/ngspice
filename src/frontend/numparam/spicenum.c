@@ -505,7 +505,10 @@ nupa_done(void)
         /* debug: ask if spice run really wanted */
         if (ft_batchmode)
             controlled_exit(EXIT_FAILURE);
-        if (is_interactive)
+        if (!is_interactive) {
+            fprintf(cp_err, "Numparam expansion errors: Problem with input file.\n");
+            controlled_exit(EXIT_FAILURE);
+        }
             for (;;) {
                 int c;
                 printf("Numparam expansion errors: Run Spice anyway? y/n ?\n");
@@ -515,10 +518,6 @@ nupa_done(void)
                 if (c == 'y')
                     break;
             }
-        else {
-            fprintf(cp_err, "Numparam expansion errors: Problem with input file.\n");
-            controlled_exit(EXIT_FAILURE);
-        }
     }
 
     linecountS = 0;
