@@ -147,7 +147,16 @@ nloop:
 
     for (;;) {
 
-        c = cp_readchar(&string, cp_inp_cur);
+#if 0
+	    c = cp_readchar(&string, cp_inp_cur);
+#else
+	    if (string) {
+		    c = *string++;
+		    if (c == '\0')   c = '\n';
+		    if (c == ESCAPE) c = '[';
+	    }
+	    else c = input(cp_inp_cur);
+#endif
 
     gotchar:
 
