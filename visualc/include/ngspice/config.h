@@ -442,6 +442,7 @@
 
 /* Do not trigger unwanted traps by default */
 /* #undef NEWTRUNC */
+
 #ifdef NGDEBUG
 #ifdef CONFIG64
 /* Define the directory for executables */
@@ -467,6 +468,7 @@
 #define NGSPICEDATADIR "C:/Spice/share/ngspice"
 #endif
 #endif
+
 /* Define if we want NOBYPASS */
 /* #undef NOBYPASS */
 

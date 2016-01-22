@@ -1051,7 +1051,9 @@ com_edit(wordlist *wl)
     char buf[BSIZE_SP];
 
     if (!cp_getvar("interactive", CP_BOOL, NULL)) {
-        fprintf(cp_err, "Warning: flag 'interactive' not set.\nType 'set interactive' at first.\n");
+        fprintf(cp_err,
+                "Warning: flag 'interactive' not set.\n"
+                "Type 'set interactive' at first.\n");
         return;
     }
 

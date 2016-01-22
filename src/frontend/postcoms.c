@@ -929,6 +929,7 @@ DelPlotWindows(struct plot *pl)
 #endif
 }
 
+
 /* 'setplot' : print a list of plots available
    'setplot plotname' : make plotname the current plot
    'setplot new' : create a new plot */
@@ -941,6 +942,7 @@ com_splot(wordlist *wl)
         plot_setcur(wl->wl_word);
         return;
     }
+
     fprintf(cp_out, "List of plots available:\n\n");
     for (pl = plot_list; pl; pl = pl->pl_next)
         fprintf(cp_out, "%s%s\t%s (%s)\n",
