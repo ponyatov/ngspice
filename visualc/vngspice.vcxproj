@@ -236,7 +236,6 @@
     </Link>
     <PostBuildEvent>
       <Command>make-install-vngspiced.bat</Command>
-      <Message>Install all needed files to C:\Spiced</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -596,9 +595,6 @@
     </Link>
     <PostBuildEvent>
       <Command>make-install-vngspice.bat</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Install all needed files to C:\Spice</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOMP|x64'">

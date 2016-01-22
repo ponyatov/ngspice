@@ -240,7 +240,6 @@ lib /machine:x86 /def:..\..\fftw-3.3.4-dll32\libfftw3-3.def /out:$(IntDir)libfft
       copy /y "..\..\fftw-3.3.4-dll32\libfftw3-3.dll" "$(OutDir)"
       make-install-vngspiced.bat fftw
       </Command>
-      <Message>Install all needed files to C:\Spiced</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
