@@ -213,7 +213,7 @@ struct CKTcircuit {
     double CKTgshunt;           /* .options RSHUNT */
     double CKTdelmin;           /* minimum time step for tran analysis */
     double CKTtrtol;            /* .options TRTOL */
-    double CKTfinalTime;        /* TST0P */
+    double CKTfinalTime;        /* TSTOP */
     double CKTstep;             /* TSTEP */
     double CKTmaxStep;          /* TMAX */
     double CKTinitTime;         /* TSTART */
@@ -223,7 +223,8 @@ struct CKTcircuit {
     int CKTnumSrcSteps;         /* .options SRCSTEPS */
     int CKTnumGminSteps;        /* .options GMINSTEPS */
     double CKTgminFactor;       /* gmin stepping scaling factor */
-    int CKTnoncon;              /* how many iterations, still without convergence */
+    int CKTnoncon;              /* used by devices (and few other places)
+                                   to announce non-convergence */
     double CKTdefaultMosM;      /* Default MOS multiplier parameter m */
     double CKTdefaultMosL;      /* Default Channel Lenght of MOS devices */
     double CKTdefaultMosW;      /* Default Channel Width of MOS devics */
