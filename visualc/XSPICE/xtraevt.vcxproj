@@ -128,22 +128,6 @@ call .\try-udn.bat $(ProjectName)</Command>
       <ImportLibrary>$(TargetDir)$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
-    <PostBuildEvent>
-      <Command>
-cd ..\..\src\xspice\icm\xtraevt
-set mdir=real
-cd %mdir%
-del %mdir%_udnfunc.c
-set mdir=int
-cd ..\%mdir%
-del %mdir%_udnfunc.c
-cd ..
-cd ..
-      </Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>delete renamed files</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -169,22 +153,6 @@ cd ..
       <TargetMachine>MachineX86</TargetMachine>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
-    <PostBuildEvent>
-      <Command>
-cd ..\..\src\xspice\icm\xtraevt
-set mdir=real
-cd %mdir%
-del %mdir%_udnfunc.c
-set mdir=int
-cd ..\%mdir%
-del %mdir%_udnfunc.c
-cd ..
-cd ..
-      </Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>delete renamed files</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -216,19 +184,6 @@ cd ..
       <ImportLibrary>$(TargetDir)$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
-    <PostBuildEvent>
-      <Command>
-cd ..\..\src\xspice\icm\xtraevt
-set mdir=real
-cd %mdir%
-del %mdir%_udnfunc.c
-set mdir=int
-cd ..\%mdir%
-del %mdir%_udnfunc.c
-cd ..
-cd ..
-    </Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -255,19 +210,6 @@ cd ..
       <ImportLibrary>$(TargetDir)$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
-    <PostBuildEvent>
-      <Command>
-cd ..\..\src\xspice\icm\xtraevt
-set mdir=real
-cd %mdir%
-del %mdir%_udnfunc.c
-set mdir=int
-cd ..\%mdir%
-del %mdir%_udnfunc.c
-cd ..
-cd ..
-      </Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="icm\xtraevt\d_to_real\d_to_real-cfunc.c" />
