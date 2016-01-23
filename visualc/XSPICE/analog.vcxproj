@@ -221,13 +221,13 @@
     <ClCompile Include="icm\analog\gain\gain-cfunc.c" />
     <ClCompile Include="icm\analog\gain\gain-ifspec.c" />
     <ClCompile Include="icm\analog\hyst\hyst-cfunc.c">
-      <AdditionalIncludeDirectories>..\..\src\xspice\icm\analog\hyst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\src\xspice\%(RelativeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="icm\analog\hyst\hyst-ifspec.c" />
     <ClCompile Include="icm\analog\ilimit\ilimit-cfunc.c" />
     <ClCompile Include="icm\analog\ilimit\ilimit-ifspec.c" />
     <ClCompile Include="icm\analog\int\int-cfunc.c">
-      <AdditionalIncludeDirectories>..\..\src\xspice\icm\analog\int;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\src\xspice\%(RelativeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="icm\analog\int\int-ifspec.c" />
     <ClCompile Include="icm\analog\limit\limit-cfunc.c" />
@@ -237,7 +237,7 @@
     <ClCompile Include="icm\analog\multi_input_pwl\multi_input_pwl-cfunc.c" />
     <ClCompile Include="icm\analog\multi_input_pwl\multi_input_pwl-ifspec.c" />
     <ClCompile Include="icm\analog\oneshot\oneshot-cfunc.c">
-      <AdditionalIncludeDirectories>..\..\src\xspice\icm\analog\oneshot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\src\xspice\%(RelativeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="icm\analog\oneshot\oneshot-ifspec.c" />
     <ClCompile Include="icm\analog\pwl\pwl-cfunc.c" />
@@ -245,7 +245,7 @@
     <ClCompile Include="icm\analog\sine\sine-cfunc.c" />
     <ClCompile Include="icm\analog\sine\sine-ifspec.c" />
     <ClCompile Include="icm\analog\slew\slew-cfunc.c">
-      <AdditionalIncludeDirectories>..\..\src\xspice\icm\analog\slew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\src\xspice\%(RelativeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="icm\analog\slew\slew-ifspec.c" />
     <ClCompile Include="icm\analog\square\square-cfunc.c" />
