@@ -1,5 +1,5 @@
 rem invoke as
-rem    .\try.bat analog
+rem    .\aux-cfunc.bat analog
 
 set sub=%1
 

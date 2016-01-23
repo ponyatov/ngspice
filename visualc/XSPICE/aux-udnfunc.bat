@@ -1,5 +1,5 @@
 rem invoke as
-rem    .\try.bat xtraevt
+rem    .\aux-udnfunc.bat xtraevt
 
 set sub=%1
 

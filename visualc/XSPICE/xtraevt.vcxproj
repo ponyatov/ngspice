@@ -96,8 +96,8 @@
   <ItemDefinitionGroup>
     <PreBuildEvent>
       <Message>generate cfunc.c and ifspec.c files</Message>
-      <Command>call .\try.bat $(ProjectName)
-call .\try-udn.bat $(ProjectName)</Command>
+      <Command>call .\aux-cfunc.bat $(ProjectName)
+call .\aux-udnfunc.bat $(ProjectName)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
