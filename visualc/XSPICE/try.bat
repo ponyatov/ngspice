@@ -13,8 +13,8 @@ for %%n in (
   mult multi_input_pwl oneshot pwl sine slew
   square summer s_xfer triangle file_source
 ) do (
-  set CMPP_IDIR=..\..\src\xspice\icm\%sub%\%%n
-  set CMPP_ODIR=icm\%sub%\%%n
+  set CMPP_IDIR=../../src/xspice/icm/%sub%/%%n
+  set CMPP_ODIR=icm/%sub%/%%n
   if not exist icm\%sub%\%%n mkdir icm\%sub%\%%n
   .\bin\cmpp -ifs
   .\bin\cmpp -mod
