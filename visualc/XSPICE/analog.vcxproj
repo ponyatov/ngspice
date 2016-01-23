@@ -285,8 +285,40 @@
     <ClCompile Include="..\..\src\xspice\icm\dlmain.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\xspice\icm\analog\climit\cfunc.mod" />
-    <None Include="..\..\src\xspice\icm\analog\climit\ifspec.ifs" />
+    <CustomBuild Include="..\..\src\xspice\icm\analog\climit\cfunc.mod">
+      <Message>thats me for %(Identity)</Message>
+      <Command>
+  echo %(Directory) and $(OutDir)
+  set sub=analog
+  set n=climit
+  set CMPP_IDIR=../../src/xspice/icm/%sub%/%n%
+  set CMPP_ODIR=icm/%sub%/%n%
+  if not exist icm\%sub%\%n% mkdir icm\%sub%\%n%
+  .\bin\cmpp -mod
+  pushd icm\%sub%\%n%
+  if exist %n%-cfunc.c del %n%-cfunc.c
+  rename cfunc.c %n%-cfunc.c
+  popd
+</Command>
+      <Outputs>icm\analog\climit\climit-cfunc.c</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\xspice\icm\analog\climit\ifspec.ifs">
+      <Message>thats me for %(Identity)</Message>
+      <Command>
+  echo %(Directory) and $(OutDir)
+  set sub=analog
+  set n=climit
+  set CMPP_IDIR=../../src/xspice/icm/%sub%/%n%
+  set CMPP_ODIR=icm/%sub%/%n%
+  if not exist icm\%sub%\%n% mkdir icm\%sub%\%n%
+  .\bin\cmpp -ifs
+  pushd icm\%sub%\%n%
+  if exist %n%-ifspec.c del %n%-ifspec.c
+  rename ifspec.c %n%-ifspec.c
+  popd
+</Command>
+      <Outputs>icm\analog\climit\climit-ifspec.c</Outputs>
+    </CustomBuild>
     <None Include="..\..\src\xspice\icm\analog\divide\cfunc.mod" />
     <None Include="..\..\src\xspice\icm\analog\divide\ifspec.ifs" />
     <None Include="..\..\src\xspice\icm\analog\d_dt\cfunc.mod" />

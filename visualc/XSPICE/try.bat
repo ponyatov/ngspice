@@ -9,7 +9,7 @@ if not exist icm\%sub% mkdir icm\%sub%
 .\bin\cmpp -lst
 
 for %%n in (
-  climit divide d_dt gain hyst ilimit int limit
+  divide d_dt gain hyst ilimit int limit
   mult multi_input_pwl oneshot pwl sine slew
   square summer s_xfer triangle file_source
 ) do (
