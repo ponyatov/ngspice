@@ -214,11 +214,11 @@
   <ItemGroup>
     <ClCompile Include="icm\table\table2D\table2D-cfunc.c">
       <AdditionalIncludeDirectories>..\..\src\xspice\icm\$(ProjectName);..\..\src\xspice\%(RelativeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
+    </ClCompile>
     <ClCompile Include="icm\table\table2D\table2D-ifspec.c" />
     <ClCompile Include="icm\table\table3D\table3D-cfunc.c">
       <AdditionalIncludeDirectories>..\..\src\xspice\icm\$(ProjectName);..\..\src\xspice\%(RelativeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
+    </ClCompile>
     <ClCompile Include="icm\table\table3D\table3D-ifspec.c" />
     <ClCompile Include="..\..\src\xspice\icm\dlmain.c" />
   </ItemGroup>
