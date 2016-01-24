@@ -198,7 +198,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>None</DebugInformationFormat>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
@@ -214,7 +214,7 @@
     <ClCompile Include="icm\spice2poly\icm_spice2poly\icm_spice2poly-cfunc.c" />
     <ClCompile Include="icm\spice2poly\icm_spice2poly\icm_spice2poly-ifspec.c" />
     <ClCompile Include="..\..\src\xspice\icm\dlmain.c" />
-  </ItemGroup>  
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\xspice\icm\spice2poly\icm_spice2poly\cfunc.mod" />
   </ItemGroup>  
