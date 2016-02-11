@@ -17,6 +17,15 @@ l1 	4 2 	5uH
 re 	3 6 	4.65k
 vee 	6 0 	dc -10 pwl 0 0 1e-9 -10 
 
-*.tran 30n 12u
-.pss 3.1e6 500e-6 3 256 10 50 5e-3
+*.tran 5n 12u 0 5n
+.pss 3.1e6 500e-6 3 256 10 50 5e-3 ; wrong!
 
+.control 
+	listing e
+	run
+	write colpitts_osc_pss.raw
+	rusage
+	quit
+.endc
+
+.end

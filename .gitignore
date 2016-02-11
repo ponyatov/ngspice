@@ -13,6 +13,14 @@ Makefile.in
 *.la
 .libs
 
+*.obj
+*.tlog
+*.exe
+*.pdb
+*.lastbuildstate
+*.sdf
+*.user
+
 *.orig
 *~
 \#*#

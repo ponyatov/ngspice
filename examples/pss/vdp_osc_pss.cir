@@ -13,5 +13,15 @@ Ca	gib 0	1e-9 ic=0.5
 * Ghost node... Test for my PSS!
 Rb	bad 0	1k
 
-*.tran 1e-9 150e-6 uic
-.pss 0.8e6 130e-6 1 50 10 50 5e-3 uic
+*.tran 1e-9 150e-6 0 1ns uic ; 4.56MHz
+.pss 0.8e6 130e-6 1 50 10 50 5e-3 uic ; 
+
+.control 
+	listing e
+	run
+	write vdp_osc_pss.raw
+	rusage
+	quit
+.endc
+
+.end

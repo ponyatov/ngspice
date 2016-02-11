@@ -24,6 +24,16 @@ mn4	bout	inv3	gnd_ana	gnd_ana	nch	w=10u l=0.18u
 .model nch nmos ( version=4.7 level=54 lmin=0.1u lmax=20u wmin=0.1u wmax=10u  )
 .model pch pmos ( version=4.7 level=54 lmin=0.1u lmax=20u wmin=0.1u wmax=10u  )
 
-*.tran 0.005n 100n
+*.tran 0.005n 100n 0 5p uic
 *.plot tran v(4)
 .pss 624e6 500n 1 1024 10 5 5e-3 uic
+
+.control 
+	listing e
+	run
+	write ring_osc_pss.raw
+	rusage
+	quit
+.endc
+
+.end

@@ -40,7 +40,9 @@ inchar(FILE *fp)
             i = read(fileno(fp), &c, 1);
         while (i == -1 && errno == EINTR);
 
-        if (i == 0 || c == '\004') {
+	if (i == 0 && c == '\n') return (int)c;
+
+	if (i == 0 || c == '\004') {
             return (EOF);
         } else if (i == -1) {
             perror("read");
