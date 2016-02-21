@@ -6185,7 +6185,7 @@ static void
 inp_meas_current(struct line *deck)
 {
     struct line *card, *subc_start = NULL, *subc_prev = NULL;
-    struct replace_currm *new_rep, *rep = NULL;
+    struct replace_currm *new_rep, *act_rep = NULL, *rep = NULL;
     char *s, *t, *u, *v;
     int skip_control = 0, subs = 0;
 
@@ -6247,15 +6247,19 @@ inp_meas_current(struct line *deck)
                         t = copy_substring(s, --u);
                         printf("i(%s) found in \n%s\n\n", t, curr_line);
 
+                        /* new entry to the end of struct rep */
                         new_rep = TMALLOC(struct replace_currm, 1);
                         new_rep->s_start = subc_start;
                         new_rep->next = NULL;
                         new_rep->cline = card;
                         new_rep->rtoken = t;
-                        if (rep)
-                            rep->next = new_rep;
+                        if (act_rep) {
+                            act_rep->next = new_rep;
+                            act_rep = act_rep->next;
+                        }
                         else
-                            rep = new_rep;
+                            rep = act_rep = new_rep;
+                        /* change line, convert i(XXX) to i(v_XXX) */
                         beg_str = copy_substring(v, s);
                         new_str = tprintf("%s%s%s", beg_str, "v_", s);
                         printf("converted to \n%s\n\n", new_str);
@@ -6320,7 +6324,7 @@ inp_meas_current(struct line *deck)
                where i(xyz) has been found */
             tok = gettok(&curr_line);
             /* done when end of subcircuit is reached */
-            if (eq(".ends", tok))
+            if (eq(".ends", tok) && rep->s_start)
                 break;
             if (eq(rep->rtoken, tok)) {
                 node1 = gettok(&curr_line);
