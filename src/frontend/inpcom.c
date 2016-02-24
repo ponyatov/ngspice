@@ -2287,7 +2287,7 @@ inp_remove_ws(char *s)
      *   is this really necessary ?
      *   or is this an artefact of original inp_remove_ws() implementation ?
      */
-    if (isspace(*s))
+    if (isspace((unsigned char)*s))
         *d++ = *s++;
 
     while (*s != '\0') {
