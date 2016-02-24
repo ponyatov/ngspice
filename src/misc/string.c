@@ -184,6 +184,24 @@ ciprefix(const char *p, const char *s)
     return (TRUE);
 }
 
+/* Case insensitive prefix.
+ * s may be shorter than p */
+int
+cisymprefix(const char *p, const char *s)
+{
+    while (*p) {
+        if (!s || (isupper_c(*p) ? tolower_c(*p) : *p) !=
+            (isupper_c(*s) ? tolower_c(*s) : *s))
+            return(FALSE);
+        p++;
+        s++;
+    }
+    return (TRUE);
+}
+
+
+
+
 void
 strtolower(char *str)
 {
