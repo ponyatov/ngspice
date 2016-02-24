@@ -2296,7 +2296,7 @@ inp_remove_ws(char *s)
         if (*s == '}')
             brace_level--;
 
-        if (isspace(*s)) {
+        if (isspace((unsigned char)*s)) {
             s = skip_ws(s);
             if (!(*s == '\0' || *s == '=' || ((brace_level > 0) && (is_arith_char(*s) || *s == ','))))
                 *d++ = ' ';
