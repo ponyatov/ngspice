@@ -49,6 +49,11 @@
 
 #define QUIT_BUTTON_ID 2
 
+/* used to safely cast `char' to `int',
+   for functions of the <ctype.h> family, isspace etc ... */
+#define CHAR_TO_INT
+inline static int char_to_int(char c) { return (unsigned char)c; }
+
 /* Types */
 typedef char SBufLine[SBufSize+1];  // Eingabezeile
 
