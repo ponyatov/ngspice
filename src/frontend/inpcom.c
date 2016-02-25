@@ -4098,7 +4098,7 @@ inp_split_multi_param_lines(struct line *card, int line_num)
 
 
 static int
-identifier_char(int c)
+identifier_char(char c)
 {
     return (c == '_') || isalnum(c);
 }
