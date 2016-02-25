@@ -2287,7 +2287,7 @@ inp_remove_ws(char *s)
      *   is this really necessary ?
      *   or is this an artefact of original inp_remove_ws() implementation ?
      */
-    if (isspace((unsigned char)*s))
+    if (isspace(*s))
         *d++ = *s++;
 
     while (*s != '\0') {
@@ -2296,7 +2296,7 @@ inp_remove_ws(char *s)
         if (*s == '}')
             brace_level--;
 
-        if (isspace((unsigned char)*s)) {
+        if (isspace(*s)) {
             s = skip_ws(s);
             if (!(*s == '\0' || *s == '=' || ((brace_level > 0) && (is_arith_char(*s) || *s == ','))))
                 *d++ = ' ';
