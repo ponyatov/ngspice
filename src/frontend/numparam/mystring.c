@@ -38,15 +38,15 @@ yes_or_no(void)
         first = getchar();      /* fixme, yes_or_no io, numparm */
         if (first == '\n' || first == EOF)
             return first;
-    } while (isspace(char_to_int(first)));
+    } while (isspace(first));
 
     for (;;) {
         int c = getchar();
         if (c == EOF)
             return c;
         if (c == '\n')
-            return tolower(char_to_int(first));
-        if (!isspace(char_to_int(c)))
+            return tolower(first);
+        if (!isspace(c))
             first = '\0';
     }
 }
