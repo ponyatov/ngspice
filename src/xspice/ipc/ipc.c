@@ -316,14 +316,14 @@ ipc_get_line (
                
                tok1 = &str[8];
                for (tok2 = tok1; *tok2; tok2++) {
-                  if (isspace(*tok2)) {
+                  if (isspace(char_to_int(*tok2))) {
                      *tok2 = '\0';
                      tok2++;
                      break;
                   }
                }
                for(tok3 = tok2; *tok3; tok3++) {
-                   if(isspace(*tok3)) {
+                   if(isspace(char_to_int(*tok3))) {
                        *tok3 = '\0';
                        break;
                    }

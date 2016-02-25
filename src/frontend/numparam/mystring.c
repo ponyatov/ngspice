@@ -38,15 +38,15 @@ yes_or_no(void)
         first = getchar();      /* fixme, yes_or_no io, numparm */
         if (first == '\n' || first == EOF)
             return first;
-    } while (isspace(first));
+    } while (isspace(char_to_int(first)));
 
     for (;;) {
         int c = getchar();
         if (c == EOF)
             return c;
         if (c == '\n')
-            return tolower(first);
-        if (!isspace(c))
+            return tolower(char_to_int(first));
+        if (!isspace(char_to_int(c)))
             first = '\0';
     }
 }
@@ -56,8 +56,8 @@ bool
 ci_prefix(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper(*p) ? tolower(*p) : *p) !=
-            (isupper(*s) ? tolower(*s) : *s))
+        if ((isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) !=
+            (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
             return (0);
         p++;
         s++;

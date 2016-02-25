@@ -90,7 +90,7 @@ com_define(wordlist *wlist)
     (void) strcpy(tbuf, buf);
 
     for (b = tbuf; *b; b++)
-        if (isspace(*b) || (*b == '(')) {
+        if (isspace(char_to_int(*b)) || (*b == '(')) {
             *b = '\0';
             break;
         }

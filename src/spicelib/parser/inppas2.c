@@ -88,8 +88,8 @@ void INPpas2(CKTcircuit *ckt, card * data, INPtables * tab, TSKtask *task)
 #endif
 
 	c = *(current->line);
-	if(islower(c))
-	    c = (char) toupper(c);
+	if(islower(char_to_int(c)))
+	    c = (char) toupper(char_to_int(c));
 
 	switch (c) {
 

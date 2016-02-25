@@ -148,7 +148,7 @@ scannum(char *str)
 {
     int i = 0;
 
-    while(isdigit(*str))
+    while(isdigit(char_to_int(*str)))
         i = i * 10 + *(str++) - '0';
     return(i);
 }
@@ -160,8 +160,8 @@ int
 cieq(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper(*p) ? tolower(*p) : *p) !=
-            (isupper(*s) ? tolower(*s) : *s))
+        if ((isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) !=
+            (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
             return(FALSE);
         p++;
         s++;
@@ -175,8 +175,8 @@ int
 ciprefix(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper(*p) ? tolower(*p) : *p) !=
-            (isupper(*s) ? tolower(*s) : *s))
+        if ((isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) !=
+            (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
             return(FALSE);
         p++;
         s++;
@@ -190,8 +190,8 @@ int
 cisymprefix(const char *p, const char *s)
 {
     while (*p) {
-        if (!s || (isupper(*p) ? tolower(*p) : *p) !=
-            (isupper(*s) ? tolower(*s) : *s))
+        if (!s || (isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) !=
+            (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
             return(FALSE);
         p++;
         s++;
@@ -207,8 +207,8 @@ strtolower(char *str)
 {
     if (str)
         while (*str) {
-            if(isupper(*str))
-                *str = (char) tolower(*str);
+            if(isupper(char_to_int(*str)))
+                *str = (char) tolower(char_to_int(*str));
             str++;
         }
 }
@@ -218,8 +218,8 @@ strtoupper(char *str)
 {
     if (str)
         while (*str) {
-            if(islower(*str))
-                *str = (char) toupper(*str);
+            if(islower(char_to_int(*str)))
+                *str = (char) toupper(char_to_int(*str));
             str++;
         }
 }
@@ -246,7 +246,7 @@ register int n)
   if (!p || !s) return( 0 );
  
   while (*p) {
-    if ((isupper(*p) ? tolower(*p) : *p) != (isupper(*s) ? tolower(*s) : *s))
+    if ((isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) != (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
       return( 0 );
     p++;
     s++;
@@ -273,7 +273,7 @@ register char *p, register char *s)
   if (!p || !s) return( 0 );
  
   while (*p) {
-    if ((isupper(*p) ? tolower(*p) : *p) != (isupper(*s) ? tolower(*s) : *s))
+    if ((isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) != (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
       return( n );
     p++;
     s++;
@@ -300,12 +300,12 @@ gettok(char **s)
     char *beg, *token ;				/* return token */
 
     paren = 0;
-    while (isspace(**s))
+    while (isspace(char_to_int(**s)))
         (*s)++;
     if (!**s)
         return (NULL);
     beg = *s ;
-    while ((c = **s) != '\0' && !isspace(c)) {
+    while ((c = **s) != '\0' && !isspace(char_to_int(c))) {
 	if (c == '(')
 	    paren += 1;
 	else if (c == ')')
@@ -315,7 +315,7 @@ gettok(char **s)
         (*s)++ ;
     }
     token = copy_substring(beg, *s) ;
-    while (isspace(**s) || **s == ',')
+    while (isspace(char_to_int(**s)) || **s == ',')
         (*s)++;
     return ( token ) ;
 }
@@ -334,7 +334,7 @@ gettok_iv(char **s)
     SPICE_DSTRING buf ;	      /* allow any length string */
 
     paren = 0;
-    while ((isspace(**s)) || (**s=='='))
+    while ((isspace(char_to_int(**s))) || (**s=='='))
         (*s)++;
     if ((!**s) || ((**s != 'v') && (**s != 'i') && (**s != 'V') && (**s != 'I')))
         return (NULL);
@@ -347,14 +347,14 @@ gettok_iv(char **s)
             paren += 1;
         else if (c == ')')
             paren -= 1;
-        if (isspace(c)) 
+        if (isspace(char_to_int(c))) 
             (*s)++;
         else {
             spice_dstring_append_char( &buf, *(*s)++ ) ;
             if (paren == 0) break;
         }
     }
-    while (isspace(**s) || **s == ',')
+    while (isspace(char_to_int(**s)) || **s == ',')
         (*s)++;
     token = copy( spice_dstring_value(&buf) ) ;
     spice_dstring_free(&buf) ;
@@ -375,7 +375,7 @@ gettok_noparens(char **s)
     char c;
     char *beg, *token ;				/* return token */
 
-    while ( isspace(**s) )
+    while ( isspace(char_to_int(**s)) )
         (*s)++;   /* iterate over whitespace */
 
     if (!**s)
@@ -383,7 +383,7 @@ gettok_noparens(char **s)
 
     beg = *s ;
     while ((c = **s) != '\0' && 
-	   !isspace(c) && 
+	   !isspace(char_to_int(c)) && 
 	   ( **s != '(' ) &&
 	   ( **s != ')' ) &&
 	   ( **s != ',') 
@@ -394,7 +394,7 @@ gettok_noparens(char **s)
     token = copy_substring(beg, *s) ;
 
     /* Now iterate up to next non-whitespace char */
-    while ( isspace(**s) )
+    while ( isspace(char_to_int(**s)) )
         (*s)++;  
 
     return ( token ) ;
@@ -406,7 +406,7 @@ gettok_instance(char **s)
     char c;
     char *beg, *token ;				/* return token */
 
-    while ( isspace(**s) )
+    while ( isspace(char_to_int(**s)) )
         (*s)++;   /* iterate over whitespace */
 
     if (!**s)
@@ -414,7 +414,7 @@ gettok_instance(char **s)
 
     beg = *s ;
     while ((c = **s) != '\0' && 
-         !isspace(c) && 
+         !isspace(char_to_int(c)) && 
          ( **s != '(' ) &&
          ( **s != ')' )
         )  {
@@ -424,7 +424,7 @@ gettok_instance(char **s)
     token = copy_substring(beg, *s) ;
 
     /* Now iterate up to next non-whitespace char */
-    while ( isspace(**s) )
+    while ( isspace(char_to_int(**s)) )
         (*s)++;  
 
     return ( token ) ;
@@ -442,7 +442,7 @@ gettok_char(char **s, char p, bool inc_p, bool nested)
     char c;
     char *beg, *token ;				/* return token */
 
-    while ( isspace(**s) )
+    while ( isspace(char_to_int(**s)) )
         (*s)++;   /* iterate over whitespace */
 
     if (!**s)
@@ -490,7 +490,7 @@ gettok_char(char **s, char p, bool inc_p, bool nested)
     token = copy_substring(beg, *s) ;
 
     /* Now iterate up to next non-whitespace char */
-    while ( isspace(**s) )
+    while ( isspace(char_to_int(**s)) )
         (*s)++;  
 
     return ( token ) ;
@@ -511,7 +511,7 @@ gettok_node(char **s)
     if (*s == NULL)
         return NULL;
 
-    while (isspace(**s) ||
+    while (isspace(char_to_int(**s)) ||
            ( **s == '(' ) ||
            ( **s == ')' ) ||
            ( **s == ',')
@@ -523,7 +523,7 @@ gettok_node(char **s)
 
     token = *s;
     while ((c = **s) != '\0' && 
-	   !isspace(c) && 
+	   !isspace(char_to_int(c)) && 
 	   ( **s != '(' ) &&
 	   ( **s != ')' ) &&
 	   ( **s != ',') 
@@ -534,7 +534,7 @@ gettok_node(char **s)
     token = copy_substring(token, *s);
 
     /* Now iterate up to next non-whitespace char */
-    while (isspace(**s) ||
+    while (isspace(char_to_int(**s)) ||
            ( **s == '(' ) ||
            ( **s == ')' ) ||
            ( **s == ',')
@@ -683,12 +683,12 @@ get_comma_separated_values( char *values[], char *str ) {
   
   while ( ( comma_ptr = strstr( str, "," ) ) != NULL ) {
     ptr = comma_ptr - 1;
-    while ( isspace(*ptr) ) ptr--;
+    while ( isspace(char_to_int(*ptr)) ) ptr--;
     ptr++; keep = *ptr; *ptr = '\0';
     values[count++] = strdup(str);
     *ptr = keep;
     str = comma_ptr + 1;
-    while ( isspace(*str) ) str++;
+    while ( isspace(char_to_int(*str)) ) str++;
   }
   values[count++] = strdup(str);
   return count;
@@ -729,7 +729,7 @@ model_name_match(const char *token, const char *model_name)
 
     // all of them digits
     for (; *p; p++)
-        if (!isdigit(*p))
+        if (!isdigit(char_to_int(*p)))
             return 0;
 
     return 2;

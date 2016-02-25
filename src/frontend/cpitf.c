@@ -245,10 +245,10 @@ ft_cpinit(void)
 
         /* jump over leading spaces */
         for (copys = s = cp_tildexpand(Lib_Path); copys && *copys; ) {
-            while (isspace(*s))
+            while (isspace(char_to_int(*s)))
                 s++;
             /* copy s into buf until space is seen, r is the actual position */
-            for (r = buf; *s && !isspace(*s); r++, s++)
+            for (r = buf; *s && !isspace(char_to_int(*s)); r++, s++)
                 *r = *s;
             tfree(copys);
             /* add a path separator to buf at actual position */
