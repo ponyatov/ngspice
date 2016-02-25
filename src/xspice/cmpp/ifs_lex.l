@@ -58,7 +58,7 @@ double yydval;
 
 /* saj - use -i flex command line option
 #undef input
-#define input() (((yytchar=yysptr>yysbuf?U(*--yysptr):getc(yyin))==10?(yylineno++,yytchar):yytchar)==EOF?0:isupper(char_to_int(yytchar))?tolower(char_to_int(yytchar)):yytchar)
+#define input() (((yytchar=yysptr>yysbuf?U(*--yysptr):getc(yyin))==10?(yylineno++,yytchar):yytchar)==EOF?0:isupper(char_to_int(yytchar))?tolower(yytchar):yytchar)
 */
 
 /*---------------------------------------------------------------------------*/
