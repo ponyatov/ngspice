@@ -447,7 +447,7 @@ EVTprintvcd(wordlist *wl)
 void
 EVTdisplay(wordlist *wl)
 {
-
+    NG_IGNORE(wl);
 }
 
 struct dvec *
