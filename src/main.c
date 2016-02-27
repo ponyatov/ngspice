@@ -29,8 +29,6 @@ extern int rl_catch_signals;        /* missing from editline/readline.h */
 #include "ngspice/iferrmsg.h"
 #include "ngspice/ftedefs.h"
 #include "ngspice/devdefs.h"
-#include "spicelib/devices/dev.h"
-#include "spicelib/analysis/analysis.h"
 #include "misc/ivars.h"
 #include "misc/misc_time.h"
 #include "misc/util.h"
@@ -45,27 +43,7 @@ extern int rl_catch_signals;        /* missing from editline/readline.h */
 # include "misc/getopt_bsd.h"
 #endif
 
-#include "frontend/spiceif.h"
-#include "frontend/resource.h"
-#include "frontend/variable.h"
-#include "frontend/display.h"  /* added by SDB to pick up Input() fcn */
-#include "frontend/signal_handler.h"
-#include "frontend/misccoms.h"
 #include "ngspice/compatmode.h"
-
-/* saj xspice headers */
-#ifdef XSPICE
-# include "ngspice/ipctiein.h"
-# include "ngspice/mif.h"
-# include "ngspice/enh.h"
-# include "ngspice/mifproto.h"
-# include "ngspice/evtproto.h"
-#endif
-
-#ifdef CIDER
-# include "ngspice/numenum.h"
-# include "maths/misc/accuracy.h"
-#endif
 
 #if defined(HAVE_GNUREADLINE) || defined(HAVE_BSDEDITLINE)
 char history_file[512] = {'\0'};
@@ -150,19 +128,16 @@ double EpsNorm, VNorm, NNorm, LNorm, TNorm, JNorm, GNorm, ENorm;
 /* end cider globals */
 #endif /* CIDER */
 
-struct variable *(*if_getparam)(CKTcircuit *ckt, char **name, char *param, int ind, int do_model);
 
 /* static functions */
-int SIMinit(IFfrontEnd *frontEnd, IFsimulator **simulator);
+int SIMinit(void);
 static ATTRIBUTE_NORETURN void sp_shutdown(int exitval);
-static void app_rl_readlines(void);
 
 #if defined(HAVE_GNUREADLINE) || defined(HAVE_BSDEDITLINE)
 static char *prompt(void);
 #endif
 
 #ifndef X_DISPLAY_MISSING
-# include "frontend/plotting/x11.h"
 # ifdef HAVE_GNUREADLINE
 static int app_event_func(void);
 # endif
@@ -175,18 +150,13 @@ static void show_help(void);
 static void show_version(void);
 static bool read_initialisation_file(char *dir, char *name);
 
-#ifdef SIMULATOR
 static void append_to_stream(FILE *dest, FILE *source);
-#endif
 
 
 extern IFsimulator SIMinfo;
 
-#ifdef SIMULATOR
 
 const bool ft_nutmeg = FALSE;
-extern struct comm spcp_coms[];
-struct comm *cp_coms = spcp_coms;
 
 extern int OUTpBeginPlot(CKTcircuit *, JOB *, IFuid, IFuid, int, int, IFuid *, int, runDesc **);
 extern int OUTpData(runDesc *, IFvalue *, IFvalue *);
@@ -207,258 +177,7 @@ extern int OUTattributes(runDesc *, IFuid, int, IFvalue *);
 
 extern void initw(void);
 
-IFfrontEnd nutmeginfo = {
-    IFnewUid,
-    IFdelUid,
-    OUTstopnow,
-    seconds,
-    OUTerror,
-    OUTerrorf,
-    OUTpBeginPlot,
-    OUTpData,
-    OUTwBeginPlot,
-    OUTwReference,
-    OUTwData,
-    OUTwEnd,
-    OUTendPlot,
-    OUTbeginDomain,
-    OUTendDomain,
-    OUTattributes
-};
 
-#else /* SIMULATOR */
-
-const bool ft_nutmeg = TRUE;
-extern struct comm nutcp_coms[];
-struct comm *cp_coms = nutcp_coms;
-IFfrontEnd nutmeginfo;
-
-/* -------------------------------------------------------------------------- */
-int
-if_run(CKTcircuit *t, char *w, wordlist *s, INPtables *b)
-{
-    NG_IGNORE(b);
-    NG_IGNORE(s);
-    NG_IGNORE(w);
-    NG_IGNORE(t);
-
-    return 0;
-}
-
-/* -------------------------------------------------------------------------- */
-int
-if_sens_run(CKTcircuit *t, wordlist *args, INPtables *tab)
-{
-    NG_IGNORE(tab);
-    NG_IGNORE(args);
-    NG_IGNORE(t);
-
-    return 0;
-}
-
-/* -------------------------------------------------------------------------- */
-void
-if_dump(CKTcircuit *ckt, FILE *fp)
-{
-    NG_IGNORE(fp);
-    NG_IGNORE(ckt);
-}
-
-/* -------------------------------------------------------------------------- */
-CKTcircuit *
-if_inpdeck(struct line *deck, INPtables **tab)
-{
-    NG_IGNORE(tab);
-    NG_IGNORE(deck);
-
-    return NULL;
-}
-
-/* -------------------------------------------------------------------------- */
-int
-if_option(CKTcircuit *ckt, char *name, enum cp_types type, void *value)
-{
-    NG_IGNORE(value);
-    NG_IGNORE(type);
-    NG_IGNORE(name);
-    NG_IGNORE(ckt);
-
-    return 0;
-}
-
-/* -------------------------------------------------------------------------- */
-void
-if_cktfree(CKTcircuit *ckt, INPtables *tab)
-{
-    NG_IGNORE(tab);
-    NG_IGNORE(ckt);
-}
-
-/* -------------------------------------------------------------------------- */
-void
-if_setndnames(char *line)
-{
-    NG_IGNORE(line);
-}
-
-/* -------------------------------------------------------------------------- */
-char *
-if_errstring(int code)
-{
-    NG_IGNORE(code);
-
-    return "spice error";
-}
-
-/* -------------------------------------------------------------------------- */
-void
-if_setparam_model(CKTcircuit *ckt, char **name, char *val)
-{
-    NG_IGNORE(val);
-    NG_IGNORE(name);
-    NG_IGNORE(ckt);
-}
-
-void
-if_setparam(CKTcircuit *ckt, char **name, char *param, struct dvec *val, int do_model)
-{
-    NG_IGNORE(do_model);
-    NG_IGNORE(val);
-    NG_IGNORE(param);
-    NG_IGNORE(name);
-    NG_IGNORE(ckt);
-}
-
-/* -------------------------------------------------------------------------- */
-bool
-if_tranparams(struct circ *ci, double *start, double *stop, double *step)
-{
-    NG_IGNORE(step);
-    NG_IGNORE(stop);
-    NG_IGNORE(start);
-    NG_IGNORE(ci);
-
-    return FALSE;
-}
-
-/* -------------------------------------------------------------------------- */
-struct variable *
-if_getstat(CKTcircuit *ckt, char *name)
-{
-    NG_IGNORE(name);
-    NG_IGNORE(ckt);
-
-    return NULL;
-}
-
-void
-com_snload(wordlist *wl)
-{
-    NG_IGNORE(wl);
-}
-
-void
-com_snsave(wordlist *wl)
-{
-    NG_IGNORE(wl);
-}
-
-void
-SMPprint(SMPmatrix *n1, char *n2)
-{
-    NG_IGNORE(n1);
-    NG_IGNORE(n2);
-}
-
-void
-SMPprintRHS(SMPmatrix *n1, char *n2, double *n3, double *n4)
-{
-    NG_IGNORE(n1);
-    NG_IGNORE(n2);
-    NG_IGNORE(n3);
-    NG_IGNORE(n4);
-}
-
-void
-spice_destroy_devices(void)
-{
-}
-
-#endif /* SIMULATOR */
-
-#ifndef SIMULATOR
-
-#ifdef XSPICE
-/* saj to get nutmeg to compile, not nice but necessary */
-Ipc_Tiein_t  g_ipc;
-
-Ipc_Status_t
-ipc_send_errchk(void)
-{
-    Ipc_Status_t x = IPC_STATUS_OK;
-    return x;
-}
-
-Ipc_Status_t
-ipc_get_line(char *str, int *len, Ipc_Wait_t wait)
-{
-    Ipc_Status_t x = IPC_STATUS_OK;
-
-    NG_IGNORE(str);
-    NG_IGNORE(len);
-    NG_IGNORE(wait);
-
-    return x;
-}
-
-struct line *
-ENHtranslate_poly(struct line *deck)
-{
-    NG_IGNORE(deck);
-    return NULL;
-}
-
-int
-load_opus(char *name)
-{
-    NG_IGNORE(name);
-    return 1;
-}
-
-char *
-MIFgettok(char **s)
-{
-    NG_IGNORE(s);
-    return NULL;
-}
-
-void
-EVTprint(wordlist *wl)
-{
-    NG_IGNORE(wl);
-}
-
-void
-EVTprintvcd(wordlist *wl)
-{
-    NG_IGNORE(wl);
-}
-
-void
-EVTdisplay(wordlist *wl)
-{
-
-}
-
-struct dvec *
-EVTfindvec(char *node) {
-    NG_IGNORE(node);
-    return NULL;
-}
-
-#endif /* XSPICE */
-
-#endif /* SIMULATOR */
 
 char *hlp_filelist[] = { "ngspice", NULL };
 
@@ -484,48 +203,13 @@ int DEVmaxnum = 0;
 COMPATMODE_T
 ngspice_compat_mode(void)
 {
-    char behaviour[80];
-
-    if (cp_getvar("ngbehavior", CP_STRING, behaviour)) {
-        if (strcasecmp(behaviour, "all") == 0)
-            return COMPATMODE_ALL;
-        if (strcasecmp(behaviour, "hs") == 0)
-            return COMPATMODE_HS;
-        if (strcasecmp(behaviour, "ps") == 0)
-            return COMPATMODE_PS;
-        if (strcasecmp(behaviour, "spice3") == 0)
-            return COMPATMODE_SPICE3;
-    }
-
     return COMPATMODE_ALL;
 }
 
 /* -------------------------------------------------------------------------- */
 int
-SIMinit(IFfrontEnd *frontEnd, IFsimulator **simulator)
+SIMinit(void)
 {
-#ifdef SIMULATOR
-    spice_init_devices();
-    SIMinfo.numDevices = DEVmaxnum = num_devices();
-    SIMinfo.devices = devices_ptr();
-    SIMinfo.numAnalyses = spice_num_analysis();
-    SIMinfo.analyses = (IFanalysis **)spice_analysis_ptr(); /* va: we recast, because we use
-                                                             * only the public part
-                                                             */
-
-#ifdef CIDER
-/* Evaluates limits of machine accuracy for CIDER */
-    evalAccLimits();
-#endif /* CIDER */
-
-#endif /* SIMULATOR */
-
-    SPfrontEnd = frontEnd;
-    *simulator = &SIMinfo;
-    CONSTroot2 = sqrt(2.);
-    CONSTvt0 = CONSTboltz * (27 /* deg c */ + CONSTCtoK) / CHARGE;
-    CONSTKoverQ = CONSTboltz / CHARGE;
-    CONSTe = exp(1.0);
     return OK;
 }
 
@@ -625,74 +309,6 @@ app_event_func(void)
    The function is called even when GNU readline is unavailable, in which
    case it falls back to repeatable calling cp_evloop()
    SJB 26th April 2005 */
-static void
-app_rl_readlines(void)
-{
-#if defined(HAVE_GNUREADLINE) || defined(HAVE_BSDEDITLINE)
-    /* GNU Readline Support -- Andrew Veliath <veliaa@rpi.edu> */
-    char *line, *expanded_line;
-
-    /* ---  set up readline params --- */
-    strcpy(history_file, getenv("HOME"));
-    strcat(history_file, "/.");
-    strcat(history_file, application_name);
-    strcat(history_file, "_history");
-
-    using_history();
-    read_history(history_file);
-
-    rl_readline_name = application_name;
-    rl_instream = cp_in;
-    rl_outstream = cp_out;
-#ifndef X_DISPLAY_MISSING
-    if (dispdev->Input == X11_Input)
-        rl_event_hook = app_event_func;
-#endif
-    rl_catch_signals = 0;   /* disable signal handling  */
-
-    /* sjb - what to do for editline?
-       This variable is not supported by editline. */
-#if defined(HAVE_GNUREADLINE)
-    rl_catch_sigwinch = 1;  /* allow readline to respond to resized windows  */
-#endif
-
-    /* note that we want some mechanism to detect ctrl-D and expand it to exit */
-    for (;;) {
-        history_set_pos(history_length);
-
-        if (SETJMP(jbuf, 1))    /* Set location to jump to after handling SIGINT (ctrl-C)  */
-            ft_sigintr_cleanup();
-
-        line = readline(prompt());
-
-        if (!line) {
-            cp_evloop("quit");
-            continue;
-        }
-
-        if (*line) {
-            int s = history_expand(line, &expanded_line);
-
-            if (s == 2) {
-                fprintf(stderr, "-> %s\n", expanded_line);
-            } else if (s == -1) {
-                fprintf(stderr, "readline: %s\n", expanded_line);
-            } else {
-                cp_evloop(expanded_line);
-                add_history(expanded_line);
-            }
-            free(expanded_line);
-        }
-
-        free(line);
-    }
-    /* History gets written in ../fte/misccoms.c com_quit */
-
-#else
-    while (cp_evloop(NULL) == 1)
-        ;
-#endif /* defined(HAVE_GNUREADLINE) || defined(HAVE_BSDEDITLINE) */
-}
 
 
 /* -------------------------------------------------------------------------- */
@@ -785,13 +401,6 @@ read_initialisation_file(char *dir, char *name)
     }
 #endif
 
-    if (result) {
-        inp_source(path);
-#ifdef TRACE
-        printf("Init file: '%s'\n", path);
-#endif
-    }
-
     if (path != name)
         tfree(path);
 
@@ -803,17 +412,7 @@ read_initialisation_file(char *dir, char *name)
 static void
 print_news(void)
 {
-    if (News_File && *News_File) {
-        char *fname = cp_tildexpand(News_File); /*DG  Memory leak */
-        FILE *fp = fopen(fname, "r");
-        tfree(fname);
-        if (fp) {
-            char buf[BSIZE_SP];
-            while (fgets(buf, BSIZE_SP, fp))
-                fputs(buf, stdout);
-            fclose(fp);
-        }
-    }
+    fprintf(stderr, "foo\n");
 }
 
 
@@ -835,27 +434,6 @@ main(int argc, char **argv)
     bool oflag = FALSE;
     bool srflag = FALSE;
 
-#ifdef TRACE
-    /* this is used to detect memory leaks during debugging */
-    /* added by SDB during debug . . . . */
-    /* mtrace(); */
-#endif
-
-#ifdef TRACE
-    /* this is also used for memory leak plugging . . . */
-    /* added by SDB during debug . . . . */
-    /* mwDoFlush(1); */
-#endif
-
-    /* MFB tends to jump to 0 on errors.  This tends to catch it. */
-    {
-        static int started = 0;
-        if (started++) {
-            fprintf(cp_err, "main: Internal Error: jump to zero\n");
-            sp_shutdown(EXIT_BAD);
-        }
-    }
-
 #if defined(HAVE_GNUREADLINE) || defined(HAVE_BSDEDITLINE)
     application_name = strrchr(argv[0], '/');
     if (application_name)
@@ -866,20 +444,8 @@ main(int argc, char **argv)
 
     ivars(argv[0]);
 
-    cp_in  = stdin;
-    cp_out = stdout;
-    cp_err = stderr;
-
-    circuit_file = stdin;
-
-#if defined(HAVE_ISATTY) && !defined(HAS_WINGUI)
-    istty = (bool) isatty(fileno(stdin));
-#endif
-
-    init_time();
-
     {
-        int rv = SIMinit(&nutmeginfo, &ft_sim);
+        int rv = SIMinit();
         if (rv != OK) {
             ft_sperror(rv, "SIMinit");
             sp_shutdown(EXIT_BAD);
@@ -889,7 +455,6 @@ main(int argc, char **argv)
     cp_program = ft_sim->simulator;
 
     srand((unsigned int) getpid());
-    TausSeed();
 
     /* --- Process command line options --- */
     for (;;) {
@@ -933,19 +498,10 @@ main(int argc, char **argv)
             break;
 
         case 'b':       /* Batch mode */
-        {
-            bool x_false = FALSE;
-            cp_vset("addcontrol", CP_BOOL, &x_false);
-
             ft_batchmode = TRUE;
-        }
-        break;
+            break;
 
         case 'a':       /* Add control section for autorun */
-            if (!ft_batchmode) {
-                bool x_true = TRUE;
-                cp_vset("addcontrol", CP_BOOL, &x_true);
-            }
             break;
 
         case 'c':       /* Circuit file */
@@ -988,8 +544,6 @@ main(int argc, char **argv)
             break;
 
         case 'r':       /* The raw file */
-            if (optarg)
-                cp_vset("rawfile", CP_STRING, optarg);
             rflag = TRUE;
             break;
 
@@ -998,8 +552,6 @@ main(int argc, char **argv)
             break;
 
         case 't':
-            if (optarg)
-                cp_vset("term", CP_STRING, optarg);
             break;
 
         case soa_log:
@@ -1019,8 +571,6 @@ main(int argc, char **argv)
 
 
     if (oflag) {   /* -o option has been set */
-
-        com_version(NULL);
 
         if (ft_servermode)
             fprintf(stdout, "\nServer mode\n\n");
@@ -1066,138 +616,40 @@ main(int argc, char **argv)
         }
     } /* srflag */
 
-#ifdef SIMULATOR
-    if_getparam = spif_getparam_special;
-#else
-    if_getparam = nutif_getparam;
-#endif
-
     if ((!iflag && !istty) || ft_servermode) /* (batch and file) or server operation */
         ft_batchmode = TRUE;
-
-    if ((iflag && !istty) || qflag)  /* (interactive and file) or command completion */
-        cp_nocc = TRUE;              /* set command completion */
-    else
-        cp_nocc = FALSE;
 
     if (ft_servermode)              /* in server no init file */
         readinit = FALSE;
 
-    if (!istty || ft_batchmode)     /* file or batch - no more output */
-        out_moremode = FALSE;
 
-    /* Get information on memory status upon startup.
-       Would like to do this later, but cpinit evals commands.
-       fcn is in resource.c */
-    init_rlimits();
+    if (readinit) {
+        /* load user's initialisation file
+           try accessing the initialisation file in the current directory
+           if that fails try the alternate name */
+        if (FALSE == read_initialisation_file("", INITSTR)  &&
+            FALSE == read_initialisation_file("", ALT_INITSTR)) {
+            /* if that failed try in the user's home directory
+               if their HOME environment variable is set */
+            char *homedir = getenv("HOME");
+            if (homedir)
+                if (FALSE == read_initialisation_file(homedir, INITSTR)  &&
+                    FALSE == read_initialisation_file(homedir, ALT_INITSTR)) {
+                    ;
+                }
+        }
+    }
 
-    /* Have to initialize cp now.
-       fcn is in cpitf.c*/
-    ft_cpinit();
-
-
-    /* Set up signal handling */
     if (!ft_batchmode) {
-        /*  Set up interrupt handler  */
-        signal(SIGINT, (SIGNAL_FUNCTION) ft_sigintr);
-
-        /* floating point exception  */
-        signal(SIGFPE, (SIGNAL_FUNCTION) sigfloat);
-
-#ifdef SIGTSTP
-        signal(SIGTSTP, (SIGNAL_FUNCTION) sigstop);
-#endif
-    }
-
-    /* Set up signal handling for fatal errors. */
-    signal(SIGILL, (SIGNAL_FUNCTION) sigill);
-
-#ifdef SIGBUS
-    signal(SIGBUS, (SIGNAL_FUNCTION) sigbus);
-#endif
-#if defined(SIGSEGV) && !defined(NGDEBUG) && defined(HAS_WINGUI)
-/* Allow a comment and graceful shutdown after seg fault */
-    signal(SIGSEGV, (SIGNAL_FUNCTION) sigsegv);
-#endif
-#ifdef SIGSYS
-    signal(SIGSYS, (SIGNAL_FUNCTION) sig_sys);
-#endif
-
-
-    /* To catch interrupts during .spiceinit... */
-    if (SETJMP(jbuf, 1)) {
-
-        ft_sigintr_cleanup();
-        fprintf(cp_err, "Warning: error executing .spiceinit.\n");
-
-    } else {
-
-        if (readinit) {
-            /* load user's initialisation file
-               try accessing the initialisation file in the current directory
-               if that fails try the alternate name */
-            if (FALSE == read_initialisation_file("", INITSTR)  &&
-                FALSE == read_initialisation_file("", ALT_INITSTR)) {
-                /* if that failed try in the user's home directory
-                   if their HOME environment variable is set */
-                char *homedir = getenv("HOME");
-                if (homedir)
-                    if (FALSE == read_initialisation_file(homedir, INITSTR)  &&
-                        FALSE == read_initialisation_file(homedir, ALT_INITSTR)) {
-                        ;
-                    }
-            }
-        }
-
-        if (!ft_batchmode) {
-            com_version(NULL);
-            DevInit();
-            print_news();
-        }
-
+        print_news();
     }
 
 
-#ifdef SIMULATOR
 
     /* Pass 2 -- get the filenames. If we are spice, then this means
      * build a circuit for this file. If this is in server mode, don't
      * process any of these args.  */
 
-    if (SETJMP(jbuf, 1)) {
-
-        ft_sigintr_cleanup();
-        fprintf(cp_err, "Warning: error executing during ngspice startup.\n");
-
-    } else {
-
-        bool gotone = FALSE;
-
-        cp_interactive = FALSE;
-
-#ifdef FastRand
-// initialization and seed for FastNorm Gaussian random generator
-        {
-            unsigned int rseed = 66;
-            initnorm(0, 0);
-            if (!cp_getvar("rndseed", CP_NUM, &rseed)) {
-                time_t acttime = time(NULL);
-                rseed = (unsigned int) acttime;
-            }
-            initnorm(rseed, 2);
-            fprintf(cp_out, "SoS %f, seed value: %ld\n", renormalize(), rseed);
-        }
-#elif defined(WaGauss)
-        {
-            unsigned int rseed = 66;
-            if (!cp_getvar("rndseed", CP_NUM, &rseed)) {
-                time_t acttime = time(NULL);
-                rseed = (unsigned int) acttime;
-            }
-            srand(rseed);
-            initw();
-        }
-#endif
 
         if (!ft_servermode) {
 
@@ -1280,100 +732,12 @@ main(int argc, char **argv)
 
             fseek(tempfile, 0L, SEEK_SET);
 
-            if (tempfile && (!err || !ft_batchmode)) {
-#if defined(HAS_WINGUI) || defined(_MSC_VER) || defined(__MINGW32__)
-                /* Copy the input file name for adding another file search path */
-                inp_spsource(tempfile, FALSE, dname, FALSE);
-                tfree(dname);
-#else
-                inp_spsource(tempfile, FALSE, NULL, FALSE);
-#endif
-                gotone = TRUE;
-            }
-
             if (ft_batchmode && err)
                 sp_shutdown(EXIT_BAD);
 
         }   /* ---  if (!ft_servermode) --- */
 
-        if (!gotone && ft_batchmode)
-            inp_spsource(circuit_file, FALSE, NULL, FALSE);
-
-    }
-
-    if (ft_batchmode) {
-
-        /* If we get back here in batch mode then something is wrong,
-         * so exit.  */
-
-        if (SETJMP(jbuf, 1)) {
-            ft_sigintr_cleanup();
-            sp_shutdown(EXIT_BAD);
-        }
 
 
-        if (ft_servermode) {
-            if (ft_curckt == NULL) {
-                fprintf(cp_err, "Error: no circuit loaded!\n");
-                sp_shutdown(EXIT_BAD);
-            }
-            if (ft_dorun(""))
-                sp_shutdown(EXIT_BAD);
-            sp_shutdown(EXIT_NORMAL);
-        }
-
-
-        cp_interactive = FALSE;
-
-        if (rflag) {
-            /* If -r is specified, then dot cards (.width, .plot, .print, .op, .meas, .tf)
-               are ignored, except .save, which has been handled by ft_dotsaves()
-               from within inp_spsource (), data are put into linked list dbs.
-            */
-            int error2 = ft_dorun(ft_rawfile);
-            /* Execute the .whatever lines found in the deck, after we are done running. */
-            if (ft_cktcoms(TRUE) || error2)
-                sp_shutdown(EXIT_BAD);
-        } else if (ft_savedotargs()) {
-            /* all dot card data to be put into dbs */
-            int error2 = ft_dorun(NULL);
-            /* Execute the .whatever lines found in the deck, after we are done running. */
-            if (ft_cktcoms(FALSE) || error2)
-                sp_shutdown(EXIT_BAD);
-        } else {
-            fprintf(stderr,
-                    "Note: No \".plot\", \".print\", or \".fourier\" lines; "
-                    "no simulations run\n");
-            sp_shutdown(EXIT_BAD);
-        }
-
-        sp_shutdown(EXIT_NORMAL);
-    }  /* ---  if (ft_batchmode) ---  */
-
-
-#else  /* ~ SIMULATOR */
-
-    if (SETJMP(jbuf, 1)) {
-
-        ft_sigintr_cleanup();
-        fprintf(cp_err, "Warning: error executing during ft_loadfile().\n");
-
-    } else {
-
-        cp_interactive = FALSE;
-
-        while (optind < argc)
-            ft_loadfile(argv[optind++]);
-    }
-
-#endif /* ~ SIMULATOR */
-
-    for (;;)
-        if (!SETJMP(jbuf, 1)) {
-            /*  enter the command processing loop  */
-            cp_interactive = TRUE;
-            app_rl_readlines();
-        } else {
-            ft_sigintr_cleanup();
-        }
+    return 0;
 }
