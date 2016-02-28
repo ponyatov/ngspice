@@ -124,8 +124,7 @@ static struct func {
     int number;
     void (*funcptr)(void);
 } funcs[] = {
-    { "abs",    PTF_ABS,    (void(*)(void)) PTabs } ,
-    { "acos",   PTF_ACOS,   (void(*)(void)) PTacos } ,
+    { "acos",   PTF_ACOS,   (void(*)(void)) PTacos } ,	/* 0 */
     { "acosh",  PTF_ACOSH,  (void(*)(void)) PTacosh } ,
     { "asin",   PTF_ASIN,   (void(*)(void)) PTasin } ,
     { "asinh",  PTF_ASINH,  (void(*)(void)) PTasinh } ,
@@ -133,36 +132,40 @@ static struct func {
     { "atanh",  PTF_ATANH,  (void(*)(void)) PTatanh } ,
     { "cos",    PTF_COS,    (void(*)(void)) PTcos } ,
     { "cosh",   PTF_COSH,   (void(*)(void)) PTcosh } ,
-    { "exp",    PTF_EXP,    (void(*)(void)) PTexp } ,
-    { "ln",     PTF_LOG,    (void(*)(void)) PTlog } ,
+
+    { "exp",    PTF_EXP,    (void(*)(void)) PTexp } ,	/* 8 */
     { "log",    PTF_LOG,    (void(*)(void)) PTlog } ,
     { "log10",  PTF_LOG10,  (void(*)(void)) PTlog10 } ,
-    { "sgn",    PTF_SGN,    (void(*)(void)) PTsgn } ,
     { "sin",    PTF_SIN,    (void(*)(void)) PTsin } ,
     { "sinh",   PTF_SINH,   (void(*)(void)) PTsinh } ,
     { "sqrt",   PTF_SQRT,   (void(*)(void)) PTsqrt } ,
     { "tan",    PTF_TAN,    (void(*)(void)) PTtan } ,
     { "tanh",   PTF_TANH,   (void(*)(void)) PTtanh } ,
+    { "-",      PTF_UMINUS, (void(*)(void)) PTuminus } , /* 16 */
+    { "abs",    PTF_ABS,    (void(*)(void)) PTabs } ,
+    { "sgn",    PTF_SGN,    (void(*)(void)) PTsgn } ,
     { "u",      PTF_USTEP,  (void(*)(void)) PTustep } ,
     { "uramp",  PTF_URAMP,  (void(*)(void)) PTuramp } ,
-    { "ceil",   PTF_CEIL,   (void(*)(void)) PTceil } ,
-    { "floor",  PTF_FLOOR,  (void(*)(void)) PTfloor } ,
-    { "nint",   PTF_NINT,   (void(*)(void)) PTnint } ,
-    { "-",      PTF_UMINUS, (void(*)(void)) PTuminus },
     /* MW. cif function added */
-    { "u2",     PTF_USTEP2, (void(*)(void)) PTustep2},
+    { "u2",     PTF_USTEP2, (void(*)(void)) PTustep2},	/* 21 */
     { "pwl",    PTF_PWL,    (void(*)(void)) PTpwl},
     { "pwl_derivative", PTF_PWL_DERIVATIVE, (void(*)(void)) PTpwl_derivative},
-    { "eq0",    PTF_EQ0,    (void(*)(void)) PTeq0},
+    { "eq0",    PTF_EQ0,    (void(*)(void)) PTeq0},	/* 24 */
     { "ne0",    PTF_NE0,    (void(*)(void)) PTne0},
     { "gt0",    PTF_GT0,    (void(*)(void)) PTgt0},
     { "lt0",    PTF_LT0,    (void(*)(void)) PTlt0},
     { "ge0",    PTF_GE0,    (void(*)(void)) PTge0},
     { "le0",    PTF_LE0,    (void(*)(void)) PTle0},
-    { "pow",    PTF_POW,    (void(*)(void)) PTpower},
+    { "pow",    PTF_POW,    (void(*)(void)) PTpower},	/* 30 */
     { "pwr",    PTF_PWR,    (void(*)(void)) PTpwr},
     { "min",    PTF_MIN,    (void(*)(void)) PTmin},
     { "max",    PTF_MAX,    (void(*)(void)) PTmax},
+
+    { "ceil",   PTF_CEIL,   (void(*)(void)) PTceil } ,	/* 34 */
+    { "floor",  PTF_FLOOR,  (void(*)(void)) PTfloor } ,
+    { "nint",   PTF_NINT,   (void(*)(void)) PTnint } ,	/* 36 */
+
+    { "ln",     PTF_LOG,    (void(*)(void)) PTlog } ,	/* 37 */
 } ;
 
 #define NUM_FUNCS (int)NUMELEMS(funcs)
