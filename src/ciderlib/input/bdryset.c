@@ -4,6 +4,10 @@ Author:	1991 David A. Gates, U. C. Berkeley CAD Group
 Modified: 2001 Paolo Nenzi
 **********/
 
+/* mhx: Stupid and Dangerous hack: As bdryset.c SEEMS to be first file to be compiled, we make sure
+   the compiler sees config.h before it compiles anything else. */
+#include "ngspice/config.h"
+
 #include "ngspice/ngspice.h"
 #include "ngspice/cktdefs.h"
 #include "ngspice/bdrydefs.h"

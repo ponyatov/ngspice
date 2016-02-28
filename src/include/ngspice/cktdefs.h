@@ -6,6 +6,8 @@
 #ifndef ngspice_CKTDEFS_H
 #define ngspice_CKTDEFS_H
 
+#include "ngspice/config.h"  // mhx
+
 #include "ngspice/typedefs.h"
 
 
