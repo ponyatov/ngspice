@@ -1,0 +1,44 @@
+test if conditions
+* use $batchmode variable to steer control flow
+* start either with ngspice -b -r rawfile.raw if-test-1.cir
+* or with ngspice if-test-1.cir
+v0 1 0  1
+R 1 2 1
+C 2 0 1m
+.tran 100u 10m uic
+
+.print tran all
+.control
+* just some tests
+let iv = 3.5
+if iv = 3.3
+  echo first true not o.k.
+else
+  echo first false o.k.
+end
+if iv = 3.5
+  echo second true o.k
+else
+  echo second false not o.k.
+end
+if $batchmode
+  echo batch mode is set by -b
+else
+  echo ' ' result set to FALSE
+  echo no batch mode
+end
+* simulation starts here
+echo
+if $batchmode
+  echo batch mode
+else
+  unset ngdebug
+  echo ' ' ignore above error message
+  echo control mode
+  tran 100u 10m uic
+  plot v(2)
+end
+
+
+.endc
+.end
