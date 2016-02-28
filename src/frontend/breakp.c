@@ -331,9 +331,10 @@ com_delete(wordlist *wl)
     struct dbcomm *d, *dt;
 
     if (wl && eq(wl->wl_word, "all")) {
-        dbfree(dbs);
-        ft_curckt->ci_dbs = dbs = NULL;
-        return;
+        dbfree(dbs); /* Historically, didn't zero ft_curckt and dbs */
+	if (ft_curckt) ft_curckt->ci_dbs = NULL;
+	if (dbs) dbs = NULL;
+	return;
     } else if (!wl) {
         if (!dbs) {
             fprintf(cp_err, "Error: no debugs in effect\n");
