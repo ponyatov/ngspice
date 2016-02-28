@@ -647,7 +647,7 @@ DCpss(CKTcircuit *ckt,
             RHS_copy_der [i] = ckt->CKTrhsOld [i + 1] ;
 
 #ifdef STEPDEBUG
-            fprintf (stderr, "Pred is so high or so low! Diff is: %g\n", err_conv [i]) ;
+	    fprintf (stderr, "Pred is so high or so low! Diff is: %-.9g\tat node: %d\n", err_conv[i], i);
 #endif
 
         }
@@ -744,13 +744,14 @@ DCpss(CKTcircuit *ckt,
             {
                 /* Pitagora ha sempre ragione!!! :))) */
                 /* pred is treated as FREQUENCY to avoid numerical overflow when derivative is close to ZERO */
-                pred [i] = RHS_derivative [i] / err_conv [i] ;
-
+		    if (err_conv[i] != 0) 
+			  pred [i] = RHS_derivative [i] / err_conv [i] ;
+		    else  pred [i] = ckt->CKTguessedFreq;
 #ifdef STEPDEBUG
-                fprintf (stderr, "Pred is so high or so low! Diff is: %g\n", err_conv [i]) ;
+		    fprintf(stderr, "Pred is so high or so low! Diff is: %-.9g\tat node: %d\n", err_conv[i], i);
 #endif
 
-                if ((fabs (pred [i]) > 1.0e6 * ckt->CKTguessedFreq) || (err_conv [i] == 0))
+                if (fabs (pred [i]) >= 1.0e6 * ckt->CKTguessedFreq)
                 {
                     if (pred [i] > 0)
                         pred [i] = 1.0e6 * ckt->CKTguessedFreq ;
@@ -860,7 +861,7 @@ DCpss(CKTcircuit *ckt,
 //                     err_conv_ref / dynamic_test, predsum) ;
 //#endif
 
-            /* Take the mean value of time prediction trough the dynamic test variable - predsum becomes TIME */
+            /* Take the mean value of time prediction through the dynamic test variable - predsum becomes TIME */
             predsum = 1 / (predsum * dynamic_test) ;
 
             /* Store the predsum history as absolute value */
@@ -986,7 +987,7 @@ DCpss(CKTcircuit *ckt,
                 CKTsetBreak (ckt, time_temp + (1 / ckt->CKTguessedFreq) * ((double)pss_points_cycle / (double)ckt->CKTpsspoints)) ;
 
                 if (excessive_err_nodes == 0)
-                    fprintf (stderr, "\nConvergence reached. Final circuit time is %1.10g seconds (iteration n° %d) and predicted fundamental frequency is %15.10g Hz\n", ckt->CKTtime, shooting_cycle_counter - 1, ckt->CKTguessedFreq) ;
+                    fprintf (stderr, "\nConvergence reached. Final circuit time is %1.10g seconds (iteration no. %d) and predicted fundamental frequency is %15.10g Hz\n", ckt->CKTtime, shooting_cycle_counter - 1, ckt->CKTguessedFreq) ;
                 else
                     fprintf (stderr, "\nConvergence not reached. However the most near convergence iteration has predicted (iteration %d) a fundamental frequency of %15.10g Hz\n", k, ckt->CKTguessedFreq) ;
 

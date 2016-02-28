@@ -13,6 +13,17 @@ Makefile.in
 *.la
 .libs
 
+*.out
+*.plt
+*.raw
+*.png
+visualc/vngspice.vcxproj
+*.filters
+*.htm
+*.sln
+*.idb
+vngspice.log
+
 *.obj
 *.tlog
 *.exe
