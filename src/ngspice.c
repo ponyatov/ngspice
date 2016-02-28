@@ -8,7 +8,4 @@ Copyright 1990 Regents of the University of California.  All rights reserved.
 
 #define CONFIG
 
-#include "ngspice/devdefs.h"
-#include "ngspice/noisedef.h"
-#include "ngspice/suffix.h"
 

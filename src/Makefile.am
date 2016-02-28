@@ -64,5 +64,3 @@ CLEANFILES = ngspice.idx spinit tclspinit pkgIndex.tcl
 
 MAINTAINERCLEANFILES = Makefile.in
 
-
-EXTRA_DIST += spice.def

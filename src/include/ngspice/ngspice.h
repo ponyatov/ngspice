@@ -31,7 +31,6 @@
 #include "ngspice/defines.h"
 #include "ngspice/macros.h"
 #include "ngspice/bool.h"
-#include "ngspice/complex.h"
 #include "ngspice/typedefs.h"
 
 #include <math.h>
@@ -41,7 +40,6 @@
 #include <ieeefp.h>
 #endif
 
-#include "ngspice/missing_math.h"
 
 #ifdef STDC_HEADERS
 #  include <stdlib.h>

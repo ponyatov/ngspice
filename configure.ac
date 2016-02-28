@@ -1052,8 +1052,6 @@ fi
 # ------------
 
 AC_CONFIG_FILES([Makefile
-                 man/Makefile
-                 man/man1/Makefile
                  src/Makefile
                  src/include/ngspice/Makefile
                  src/misc/Makefile])

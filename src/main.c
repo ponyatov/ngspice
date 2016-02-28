@@ -27,8 +27,7 @@ extern int rl_catch_signals;        /* missing from editline/readline.h */
 #endif
 
 #include "ngspice/iferrmsg.h"
-#include "ngspice/ftedefs.h"
-#include "ngspice/devdefs.h"
+#include "ngspice/fteext.h"
 #include "misc/ivars.h"
 #include "misc/misc_time.h"
 #include "misc/util.h"
@@ -43,7 +42,6 @@ extern int rl_catch_signals;        /* missing from editline/readline.h */
 # include "misc/getopt_bsd.h"
 #endif
 
-#include "ngspice/compatmode.h"
 
 #if defined(HAVE_GNUREADLINE) || defined(HAVE_BSDEDITLINE)
 char history_file[512] = {'\0'};
@@ -80,7 +78,6 @@ IFsimulator *ft_sim = NULL;
 
 char *errRtn;     /* name of the routine declaring error */
 char *errMsg = NULL;     /* descriptive message about what went wrong */
-char *cp_program; /* program name 'ngspice' */
 
 char *Infile_Path = NULL; /* Path to netlist input file */
 
@@ -200,11 +197,6 @@ int DEVmaxnum = 0;
    - all compatibility stuff
 */
 
-COMPATMODE_T
-ngspice_compat_mode(void)
-{
-    return COMPATMODE_ALL;
-}
 
 /* -------------------------------------------------------------------------- */
 int
@@ -333,7 +325,7 @@ show_help(void)
            "  -h, --help                display this help and exit\n"
            "  -v, --version             output version information and exit\n"
            "\n"
-           "Report bugs to %s.\n", cp_program, Bug_Addr);
+           "Report bugs to %s.\n", "ff", Bug_Addr);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -346,7 +338,7 @@ show_version(void)
            "Copyright (C) 1985-1996,"
            "  The Regents of the University of California\n"
            "Copyright (C) 1999-2011,"
-           "  The NGSpice Project\n", cp_program, PACKAGE, VERSION);
+           "  The NGSpice Project\n", "" , PACKAGE, VERSION);
 }
 
 #ifdef SIMULATOR
@@ -451,8 +443,6 @@ main(int argc, char **argv)
             sp_shutdown(EXIT_BAD);
         }
     }
-
-    cp_program = ft_sim->simulator;
 
     srand((unsigned int) getpid());
 
