@@ -81,7 +81,7 @@ static int numeofs = 0;
 #define newword                                 \
     do {                                        \
         append(copy(buf));                      \
-        bzero(buf, NEW_BSIZE_SP);               \
+        bzero(buf, (size_t) len);               \
         i = 0;                                  \
     } while(0)
 
@@ -125,8 +125,8 @@ cp_lexer(char *string)
     int c, d;
     int i, j;
     wordlist *wlist = NULL, *cw = NULL;
-    char buf[NEW_BSIZE_SP], linebuf[NEW_BSIZE_SP];
-    int paren;
+    char *buf, *linebuf;
+    int paren, len;
 
     if (!cp_inp_cur)
         cp_inp_cur = cp_in;
@@ -142,11 +142,15 @@ nloop:
     i = 0;
     j = 0;
     paren = 0;
-    bzero(linebuf, NEW_BSIZE_SP);
-    bzero(buf, NEW_BSIZE_SP);
+    if (string)
+        len = (int) strlen(string) + 3;
+    else
+        len = 64;
+    buf = TMALLOC(char, len);
+    linebuf = TMALLOC(char, len);
 
     for (;;) {
-
+        /* if string, read from string, else read from stdin */
         c = cp_readchar(&string, cp_inp_cur);
 
     gotchar:
@@ -160,17 +164,26 @@ nloop:
         if (c != EOF)
             numeofs = 0;
 
-        if (i == NEW_BSIZE_SP - 1) {
-            fprintf(cp_err, "Warning: word too long.\n");
-            c = ' ';
+        if (i == len - 1) {
+            int ii;
+            len = 2 * len;
+            buf = TREALLOC(char, buf, len);
+            for (ii = i; ii < len; ii++ )
+                buf[ii] = '\0';
+            linebuf = TREALLOC(char, linebuf, len);
+            for (ii = j; ii < len; ii++ )
+                linebuf[ii] = '\0';
         }
 
-        if (j == NEW_BSIZE_SP - 1) {
-            fprintf(cp_err, "Warning: line too long.\n");
-            if (cp_bqflag)
-                c = EOF;
-            else
-                c = '\n';
+        if (j == len - 1) {
+            int ii;
+            len = 2 * len;
+            buf = TREALLOC(char, buf, len);
+            for (ii = i; ii < len; ii++ )
+                buf[ii] = '\0';
+            linebuf = TREALLOC(char, linebuf, len);
+            for (ii = j; ii < len; ii++ )
+                linebuf[ii] = '\0';
         }
 
         if (c != EOF)           /* Don't need to do this really. */
@@ -190,6 +203,8 @@ nloop:
         if ((c == cp_hash) && !cp_interactive && (j == 1)) {
             wl_free(wlist);
             wlist = cw = NULL;
+            tfree(buf);
+            tfree(linebuf);
             if (string)
                 return NULL;
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\n') && (c != EOF))
@@ -197,7 +212,7 @@ nloop:
             goto nloop;
         }
 
-        if ((c == '(') || (c == '[')) /* MW. Nedded by parse() */
+        if ((c == '(') || (c == '[')) // MW. needed by parse()
             paren++;
         else if ((c == ')') || (c == ']'))
             paren--;
@@ -206,8 +221,10 @@ nloop:
 
         case ' ':
         case '\t':
-            if (i > 0)
+            if (i > 0) {
+                buf[i] = '\0';
                 newword;
+            }
             break;
 
         case '\n':
@@ -221,7 +238,7 @@ nloop:
 
         case '\'':
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\'') &&
-                   (i < NEW_BSIZE_SP - 1))
+                (i < len - 1))
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
@@ -236,7 +253,8 @@ nloop:
             d = c;
             buf[i++] = (char) d;
             while (((c = cp_readchar(&string, cp_inp_cur)) != d) &&
-                   (i < NEW_BSIZE_SP - 2))
+                (i < len - 2))
+
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
@@ -281,6 +299,8 @@ nloop:
                 fputc(linebuf[j], cp_out);  /* But you can't edit */
 #endif
                 wlist = cw = NULL;
+                tfree(buf);
+                tfree(linebuf);
                 goto nloop;
             }
 
@@ -293,6 +313,8 @@ nloop:
             }
 
             wl_free(wlist);
+            tfree(buf);
+            tfree(linebuf);
             return NULL;
 
         case ESCAPE:
@@ -309,6 +331,8 @@ nloop:
                 cp_ccom(wlist, buf, TRUE);
                 wl_free(wlist);
                 wlist = cw = NULL;
+                tfree(buf);
+                tfree(linebuf);
                 goto nloop;
             }
             goto ldefault;
@@ -361,6 +385,8 @@ nloop:
 done:
     if (wlist->wl_word)
         pwlist_echo(wlist, "Command>");
+    tfree(buf);
+    tfree(linebuf);
     return wlist;
 }
 
