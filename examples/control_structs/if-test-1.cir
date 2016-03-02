@@ -21,19 +21,17 @@ if iv = 3.5
 else
   echo second false not o.k.
 end
-if $batchmode
+if $?batchmode
   echo batch mode is set by -b
 else
-  echo ' ' result set to FALSE
   echo no batch mode
 end
 * simulation starts here
 echo
-if $batchmode
+if $?batchmode
   echo batch mode
 else
   unset ngdebug
-  echo ' ' ignore above error message
   echo control mode
   tran 100u 10m uic
   plot v(2)
