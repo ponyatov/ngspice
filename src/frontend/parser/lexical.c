@@ -65,7 +65,7 @@ static int numeofs = 0;
 
 
 /* Return a list of words, with backslash quoting and '' quoting done.
- * Strings en(void) closed in "" or `` are made single words and returned,
+ * Strings enclosed in "" or `` are made single words and returned,
  * but with the "" or `` still present. For the \ and '' cases, the
  * 8th bit is turned on (as in csh) to prevent them from being recognized,
  * and stripped off once all processing is done. We also have to deal with
@@ -164,6 +164,8 @@ nloop:
         if (c != EOF)
             numeofs = 0;
 
+        /* If number of char allocated is reached, double the
+           buffer size by realloc and fill new memory with \0 */
         if (i == len - 1) {
             int ii;
             len = 2 * len;
@@ -175,6 +177,8 @@ nloop:
                 linebuf[ii] = '\0';
         }
 
+        /* Probably only measuring j is needed, because j (line
+           position) should be larger than i (word position) */
         if (j == len - 1) {
             int ii;
             len = 2 * len;
@@ -189,17 +193,22 @@ nloop:
         if (c != EOF)           /* Don't need to do this really. */
             c = strip(c);
 
+        /* if '\' or '^', add following character to linebuf */
         if ((c == '\\' && DIR_TERM != '\\') || (c == '\026') /* ^V */ ) {
             c = quote(cp_readchar(&string, cp_inp_cur));
             linebuf[j++] = (char) strip(c);
         }
 
+        /* if reading from fcn backeval() for backquote subst. */
         if ((c == '\n') && cp_bqflag)
             c = ' ';
 
         if ((c == EOF) && cp_bqflag)
             c = '\n';
 
+        /* '#' as first character, batch mode, read from stdin
+         * go to end of line, and then restart reading */
+        /* What is this ?? */
         if ((c == cp_hash) && !cp_interactive && (j == 1)) {
             wl_free(wlist);
             wlist = cw = NULL;
@@ -212,13 +221,17 @@ nloop:
             goto nloop;
         }
 
-        if ((c == '(') || (c == '[')) // MW. needed by parse()
+        /* check if we are inside of parens during reading:
+         * if we are and ',' or ';' occur: no new line */
+        if ((c == '(') || (c == '['))
             paren++;
         else if ((c == ')') || (c == ']'))
             paren--;
 
+        /* What else has to be decided, depending on c ?*/
         switch (c) {
 
+        /* new word to wordlist, when space or tab follow */
         case ' ':
         case '\t':
             if (i > 0) {
@@ -227,6 +240,7 @@ nloop:
             }
             break;
 
+        /* new word to wordlist, when \n follows */
         case '\n':
             if (i) {
                 buf[i] = '\0';
@@ -236,6 +250,8 @@ nloop:
                 append(NULL);
             goto done;
 
+        /* if ' read until next ' is hit, will form a new word,
+           but without the ' */
         case '\'':
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\'') &&
                 (i < len - 1))
@@ -248,6 +264,9 @@ nloop:
             linebuf[j++] = '\'';
             break;
 
+        /* if " or `, read until next " or ` is hit, will form a new word,
+           including the quotes.
+           In case of \, the next character gets the eights bit set. */
         case '"':
         case '`':
             d = c;
@@ -274,6 +293,7 @@ nloop:
 
         case '\004':
         case EOF:
+            /* upon command completion, not used actually */
             if (cp_interactive && !cp_nocc && !string) {
 
                 if (j == 0) {
@@ -318,6 +338,7 @@ nloop:
             return NULL;
 
         case ESCAPE:
+            /* upon command completion, not used actually */
             if (cp_interactive && !cp_nocc) {
                 fputs("\b\b  \b\b\r", cp_out);
                 prompt();
