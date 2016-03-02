@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = misc include/ngspice
-DIST_SUBDIRS = misc include/ngspice
+SUBDIRS = include/ngspice misc
+DIST_SUBDIRS = include/ngspice misc
 
 bin_PROGRAMS =  ngspice
 
