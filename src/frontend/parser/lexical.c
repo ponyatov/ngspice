@@ -141,7 +141,6 @@ nloop:
     i = 0;
     j = 0;
     paren = 0;
-    bzero(linebuf, NEW_BSIZE_SP);
 
     for (;;) {
 
@@ -271,6 +270,7 @@ nloop:
                 wl_free(wlist);
                 (void) fputc('\r', cp_out);
                 prompt();
+                linebuf[j] = '\0';
                 for (j = 0; linebuf[j]; j++)
 #ifdef TIOCSTI
                     (void) ioctl(fileno(cp_out), TIOCSTI, linebuf + j);
@@ -296,6 +296,7 @@ nloop:
             if (cp_interactive && !cp_nocc) {
                 fputs("\b\b  \b\b\r", cp_out);
                 prompt();
+                linebuf[j] = '\0';
                 for (j = 0; linebuf[j]; j++)
 #ifdef TIOCSTI
                     (void) ioctl(fileno(cp_out), TIOCSTI, linebuf + j);
