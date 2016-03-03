@@ -76,13 +76,17 @@ static int numeofs = 0;
 
 struct cp_lexer_buf
 {
-    int i;
-    char s[NEW_BSIZE_SP];
+    int i, sz;
+    char *s;
 };
 
 static inline void
 push(struct cp_lexer_buf *buf, int c)
 {
+    if (buf->sz <= buf->i) {
+        buf->sz += MAX(64, buf->sz);
+        buf->s = TREALLOC(char, buf->s, buf->sz);
+    }
     buf->s[buf->i++] = (char) c;
 }
 
@@ -148,6 +152,11 @@ cp_lexer(char *string)
         prompt();
     }
 
+    buf.sz = 0;
+    buf.s = NULL;
+    linebuf.sz = 0;
+    linebuf.s = NULL;
+
 nloop:
     wlist = cw = NULL;
     buf.i = 0;
@@ -168,19 +177,6 @@ nloop:
 
         if (c != EOF)
             numeofs = 0;
-
-        if (buf.i == NEW_BSIZE_SP - 1) {
-            fprintf(cp_err, "Warning: word too long.\n");
-            c = ' ';
-        }
-
-        if (linebuf.i == NEW_BSIZE_SP - 1) {
-            fprintf(cp_err, "Warning: line too long.\n");
-            if (cp_bqflag)
-                c = EOF;
-            else
-                c = '\n';
-        }
 
         if (c != EOF)           /* Don't need to do this really. */
             c = strip(c);
