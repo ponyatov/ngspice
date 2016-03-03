@@ -81,7 +81,7 @@ static int numeofs = 0;
 #define newword                                 \
     do {                                        \
         append(copy(buf));                      \
-        bzero(buf, len);                        \
+        bzero(buf, (size_t) len);               \
         i = 0;                                  \
     } while(0)
 
@@ -143,7 +143,7 @@ nloop:
     j = 0;
     paren = 0;
     if (string)
-        len = strlen(string) + 3;
+        len = (int) strlen(string) + 3;
     else
         len = 64;
     buf = TMALLOC(char, len);
