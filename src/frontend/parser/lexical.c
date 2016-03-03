@@ -265,12 +265,12 @@ nloop:
                 }
 
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
-                buf[i] = '\0';
+                buf[i++] = '\0';
                 cp_ccom(wlist, buf, FALSE);
                 wl_free(wlist);
                 (void) fputc('\r', cp_out);
                 prompt();
-                linebuf[j] = '\0';
+                linebuf[j++] = '\0';
                 for (j = 0; linebuf[j]; j++)
 #ifdef TIOCSTI
                     (void) ioctl(fileno(cp_out), TIOCSTI, linebuf + j);
@@ -296,7 +296,7 @@ nloop:
             if (cp_interactive && !cp_nocc) {
                 fputs("\b\b  \b\b\r", cp_out);
                 prompt();
-                linebuf[j] = '\0';
+                linebuf[j++] = '\0';
                 for (j = 0; linebuf[j]; j++)
 #ifdef TIOCSTI
                     (void) ioctl(fileno(cp_out), TIOCSTI, linebuf + j);
@@ -304,7 +304,7 @@ nloop:
                 fputc(linebuf[j], cp_out);  /* But you can't edit */
 #endif
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
-                buf[i] = '\0';
+                buf[i++] = '\0';
                 cp_ccom(wlist, buf, TRUE);
                 wl_free(wlist);
                 wlist = cw = NULL;
