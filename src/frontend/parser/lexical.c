@@ -289,7 +289,6 @@ nloop:
 #else
                 fputc(linebuf.s[i], cp_out);  /* But you can't edit */
 #endif
-                linebuf.i = i;
                 wlist = cw = NULL;
                 goto nloop;
             }
@@ -316,7 +315,6 @@ nloop:
 #else
                 fputc(linebuf.s[i], cp_out);  /* But you can't edit */
 #endif
-                linebuf.i = i;
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
                 push(&buf, '\0');
                 cp_ccom(wlist, buf.s, TRUE);
