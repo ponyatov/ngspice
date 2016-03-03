@@ -80,8 +80,7 @@ static int numeofs = 0;
 
 #define newword(buf, i)                         \
     do {                                        \
-        append(copy(buf));                      \
-        bzero(buf, NEW_BSIZE_SP);               \
+        append(copy_substring(buf, buf + i));   \
         i = 0;                                  \
     } while(0)
 
@@ -143,7 +142,6 @@ nloop:
     j = 0;
     paren = 0;
     bzero(linebuf, NEW_BSIZE_SP);
-    bzero(buf, NEW_BSIZE_SP);
 
     for (;;) {
 
@@ -211,10 +209,8 @@ nloop:
             break;
 
         case '\n':
-            if (i) {
-                buf[i] = '\0';
+            if (i)
                 newword(buf, i);
-            }
             if (!cw)
                 append(NULL);
             goto done;
@@ -270,6 +266,7 @@ nloop:
                 }
 
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
+                buf[i] = '\0';
                 cp_ccom(wlist, buf, FALSE);
                 wl_free(wlist);
                 (void) fputc('\r', cp_out);
@@ -306,6 +303,7 @@ nloop:
                 fputc(linebuf[j], cp_out);  /* But you can't edit */
 #endif
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
+                buf[i] = '\0';
                 cp_ccom(wlist, buf, TRUE);
                 wl_free(wlist);
                 wlist = cw = NULL;
