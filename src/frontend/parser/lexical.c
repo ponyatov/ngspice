@@ -134,9 +134,9 @@ wordlist *
 cp_lexer(char *string)
 {
     int c, d;
-    int jj;
+    int i;
     wordlist *wlist = NULL, *cw = NULL;
-    struct cp_lexer_buf bufx, linebufx;
+    struct cp_lexer_buf buf, linebuf;
     int paren;
 
     if (!cp_inp_cur)
@@ -150,8 +150,8 @@ cp_lexer(char *string)
 
 nloop:
     wlist = cw = NULL;
-    bufx.i = 0;
-    linebufx.i = 0;
+    buf.i = 0;
+    linebuf.i = 0;
     paren = 0;
 
     for (;;) {
@@ -164,17 +164,17 @@ nloop:
             continue;
 
         if ((c != EOF) && (c != ESCAPE))
-            push(&linebufx, c);
+            push(&linebuf, c);
 
         if (c != EOF)
             numeofs = 0;
 
-        if (bufx.i == NEW_BSIZE_SP - 1) {
+        if (buf.i == NEW_BSIZE_SP - 1) {
             fprintf(cp_err, "Warning: word too long.\n");
             c = ' ';
         }
 
-        if (linebufx.i == NEW_BSIZE_SP - 1) {
+        if (linebuf.i == NEW_BSIZE_SP - 1) {
             fprintf(cp_err, "Warning: line too long.\n");
             if (cp_bqflag)
                 c = EOF;
@@ -187,7 +187,7 @@ nloop:
 
         if ((c == '\\' && DIR_TERM != '\\') || (c == '\026') /* ^V */ ) {
             c = quote(cp_readchar(&string, cp_inp_cur));
-            push(&linebufx, strip(c));
+            push(&linebuf, strip(c));
         }
 
         if ((c == '\n') && cp_bqflag)
@@ -196,7 +196,7 @@ nloop:
         if ((c == EOF) && cp_bqflag)
             c = '\n';
 
-        if ((c == cp_hash) && !cp_interactive && (linebufx.i == 1)) {
+        if ((c == cp_hash) && !cp_interactive && (linebuf.i == 1)) {
             wl_free(wlist);
             wlist = cw = NULL;
             if (string)
@@ -215,57 +215,57 @@ nloop:
 
         case ' ':
         case '\t':
-            if (bufx.i > 0)
-                newword(bufx);
+            if (buf.i > 0)
+                newword(buf);
             break;
 
         case '\n':
-            if (bufx.i)
-                newword(bufx);
+            if (buf.i)
+                newword(buf);
             if (!cw)
                 append(NULL);
             goto done;
 
         case '\'':
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\'') &&
-                   (bufx.i < NEW_BSIZE_SP - 1))
+                   (buf.i < NEW_BSIZE_SP - 1))
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
-                push(&bufx, quote(c));
-                push(&linebufx, c);
+                push(&buf, quote(c));
+                push(&linebuf, c);
             }
-            push(&linebufx, '\'');
+            push(&linebuf, '\'');
             break;
 
         case '"':
         case '`':
             d = c;
-            push(&bufx, d);
+            push(&buf, d);
             while (((c = cp_readchar(&string, cp_inp_cur)) != d) &&
-                   (bufx.i < NEW_BSIZE_SP - 2))
+                   (buf.i < NEW_BSIZE_SP - 2))
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
                 if (c == '\\') {
-                    push(&linebufx, c);
+                    push(&linebuf, c);
                     c = cp_readchar(&string, cp_inp_cur);
-                    push(&bufx, quote(c));
-                    push(&linebufx, c);
+                    push(&buf, quote(c));
+                    push(&linebuf, c);
                 } else {
-                    push(&bufx, c);
-                    push(&linebufx, c);
+                    push(&buf, c);
+                    push(&linebuf, c);
                 }
             }
-            push(&bufx, d);
-            push(&linebufx, d);
+            push(&buf, d);
+            push(&linebuf, d);
             break;
 
         case '\004':
         case EOF:
             if (cp_interactive && !cp_nocc && !string) {
 
-                if (linebufx.i == 0) {
+                if (linebuf.i == 0) {
                     if (cp_ignoreeof && (numeofs++ < 23)) {
                         fputs("Use \"quit\" to quit.\n", stdout);
                     } else {
@@ -277,19 +277,19 @@ nloop:
                 }
 
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
-                push(&bufx, '\0');
-                cp_ccom(wlist, bufx.s, FALSE);
+                push(&buf, '\0');
+                cp_ccom(wlist, buf.s, FALSE);
                 wl_free(wlist);
                 (void) fputc('\r', cp_out);
                 prompt();
-                push(&linebufx, '\0');
-                for (jj = 0; linebufx.s[jj]; jj++)
+                push(&linebuf, '\0');
+                for (i = 0; linebuf.s[i]; i++)
 #ifdef TIOCSTI
-                    (void) ioctl(fileno(cp_out), TIOCSTI, linebufx.s + jj);
+                    (void) ioctl(fileno(cp_out), TIOCSTI, linebuf.s + i);
 #else
-                fputc(linebufx.s[jj], cp_out);  /* But you can't edit */
+                fputc(linebuf.s[i], cp_out);  /* But you can't edit */
 #endif
-                linebufx.i = jj;
+                linebuf.i = i;
                 wlist = cw = NULL;
                 goto nloop;
             }
@@ -309,17 +309,17 @@ nloop:
             if (cp_interactive && !cp_nocc) {
                 fputs("\b\b  \b\b\r", cp_out);
                 prompt();
-                push(&linebufx, '\0');
-                for (jj = 0; linebufx.s[jj]; jj++)
+                push(&linebuf, '\0');
+                for (i = 0; linebuf.s[i]; i++)
 #ifdef TIOCSTI
-                    (void) ioctl(fileno(cp_out), TIOCSTI, linebufx.s + jj);
+                    (void) ioctl(fileno(cp_out), TIOCSTI, linebuf.s + i);
 #else
-                fputc(linebufx.s[jj], cp_out);  /* But you can't edit */
+                fputc(linebuf.s[i], cp_out);  /* But you can't edit */
 #endif
-                linebufx.i = jj;
+                linebuf.i = i;
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
-                push(&bufx, '\0');
-                cp_ccom(wlist, bufx.s, TRUE);
+                push(&buf, '\0');
+                cp_ccom(wlist, buf.s, TRUE);
                 wl_free(wlist);
                 wlist = cw = NULL;
                 goto nloop;
@@ -327,22 +327,22 @@ nloop:
             goto ldefault;
 
         case ',':
-            if ((paren < 1) && (bufx.i > 0)) {
-                newword(bufx);
+            if ((paren < 1) && (buf.i > 0)) {
+                newword(buf);
                 break;
             }
             goto ldefault;
 
         case ';':  /* CDHW semicolon inside parentheses is part of expression */
             if (paren > 0) {
-                push(&bufx, c);
+                push(&buf, c);
                 break;
             }
             goto ldefault;
 
         case '&':  /* va: $&name is one word */
-            if ((bufx.i >= 1) && (bufx.s[bufx.i-1] == '$') && (c == '&')) {
-                push(&bufx, c);
+            if ((buf.i >= 1) && (buf.s[buf.i-1] == '$') && (c == '&')) {
+                push(&buf, c);
                 break;
             }
             goto ldefault;
@@ -350,8 +350,8 @@ nloop:
         case '<':
         case '>':  /* va: <=, >= are unbreakable words */
             if (string)
-                if ((bufx.i == 0) && (*string == '=')) {
-                    push(&bufx, c);
+                if ((buf.i == 0) && (*string == '=')) {
+                    push(&buf, c);
                     break;
                 }
             goto ldefault;
@@ -361,13 +361,13 @@ nloop:
              * here
              */
         ldefault:
-            if ((cp_chars[c] & CPC_BRL) && (bufx.i > 0))
-                if ((c != '<') || (bufx.s[bufx.i-1] != '$'))
-                    newword(bufx);
-            push(&bufx, c);
+            if ((cp_chars[c] & CPC_BRL) && (buf.i > 0))
+                if ((c != '<') || (buf.s[buf.i-1] != '$'))
+                    newword(buf);
+            push(&buf, c);
             if (cp_chars[c] & CPC_BRR)
-                if ((c != '<') || (bufx.i < 2) || (bufx.s[bufx.i-2] != '$'))
-                    newword(bufx);
+                if ((c != '<') || (buf.i < 2) || (buf.s[buf.i-2] != '$'))
+                    newword(buf);
         }
     }
 
