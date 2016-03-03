@@ -78,7 +78,7 @@ static int numeofs = 0;
     wl_append_word(&wlist, &cw, word)
 
 
-#define newword                                 \
+#define newword(buf, i)                         \
     do {                                        \
         append(copy(buf));                      \
         bzero(buf, NEW_BSIZE_SP);               \
@@ -207,13 +207,13 @@ nloop:
         case ' ':
         case '\t':
             if (i > 0)
-                newword;
+                newword(buf, i);
             break;
 
         case '\n':
             if (i) {
                 buf[i] = '\0';
-                newword;
+                newword(buf, i);
             }
             if (!cw)
                 append(NULL);
@@ -315,7 +315,7 @@ nloop:
 
         case ',':
             if ((paren < 1) && (i > 0)) {
-                newword;
+                newword(buf, i);
                 break;
             }
             goto ldefault;
@@ -350,11 +350,11 @@ nloop:
         ldefault:
             if ((cp_chars[c] & CPC_BRL) && (i > 0))
                 if ((c != '<') || (buf[i-1] != '$'))
-                    newword;
+                    newword(buf, i);
             buf[i++] = (char) c;
             if (cp_chars[c] & CPC_BRR)
                 if ((c != '<') || (i < 2) || (buf[i-2] != '$'))
-                    newword;
+                    newword(buf, i);
         }
     }
 
