@@ -176,6 +176,7 @@ nloop:
             for (ii = j; ii < len; ii++ )
                 linebuf[ii] = '\0';
         }
+
         /* Probably only measuring j is needed, because j (line
            position) should be larger than i (word position) */
         if (j == len - 1) {
@@ -262,7 +263,7 @@ nloop:
             }
             linebuf[j++] = '\'';
             break;
- 
+
         /* if " or `, read until next " or ` is hit, will form a new word,
            including the quotes.
            In case of \, the next character gets the eights bit set. */
