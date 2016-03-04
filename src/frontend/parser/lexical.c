@@ -195,8 +195,11 @@ nloop:
         if ((c == cp_hash) && !cp_interactive && (linebuf.i == 1)) {
             wl_free(wlist);
             wlist = cw = NULL;
-            if (string)
+            if (string) {
+                tfree(buf.s);
+                tfree(linebuf.s);
                 return NULL;
+            }
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\n') && (c != EOF))
                 ;
             goto nloop;
@@ -298,6 +301,8 @@ nloop:
             }
 
             wl_free(wlist);
+            tfree(buf.s);
+            tfree(linebuf.s);
             return NULL;
 
         case ESCAPE:
@@ -368,6 +373,8 @@ nloop:
 done:
     if (wlist->wl_word)
         pwlist_echo(wlist, "Command>");
+    tfree(buf.s);
+    tfree(linebuf.s);
     return wlist;
 }
 
