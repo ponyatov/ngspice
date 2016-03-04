@@ -41,8 +41,6 @@ Author: 1985 Wayne A. Christopher, U. C. Berkeley CAD Group
 #endif
 #endif
 
-#define NEW_BSIZE_SP 2*BSIZE_SP
-
 #include "ngspice/fteinput.h"
 #include "lexical.h"
 
@@ -226,8 +224,7 @@ nloop:
             goto done;
 
         case '\'':
-            while (((c = cp_readchar(&string, cp_inp_cur)) != '\'') &&
-                   (buf.i < NEW_BSIZE_SP - 1))
+            while ((c = cp_readchar(&string, cp_inp_cur)) != '\'')
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
@@ -241,8 +238,7 @@ nloop:
         case '`':
             d = c;
             push(&buf, d);
-            while (((c = cp_readchar(&string, cp_inp_cur)) != d) &&
-                   (buf.i < NEW_BSIZE_SP - 2))
+            while ((c = cp_readchar(&string, cp_inp_cur)) != d)
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
