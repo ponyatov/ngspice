@@ -154,11 +154,14 @@ cp_lexer(char *string)
     buf.s = NULL;
     linebuf.sz = 0;
     linebuf.s = NULL;
-
-nloop:
     wlist = cw = NULL;
+
+ nloop:
     buf.i = 0;
     linebuf.i = 0;
+    if (wlist)
+        wl_free(wlist);
+    wlist = cw = NULL;
     paren = 0;
 
     for (;;) {
@@ -197,9 +200,8 @@ nloop:
          * go to end of line, and then restart reading */
         /* What is this ?? */
         if ((c == cp_hash) && !cp_interactive && (linebuf.i == 1)) {
-            wl_free(wlist);
-            wlist = cw = NULL;
             if (string) {
+                wl_free(wlist);
                 tfree(buf.s);
                 tfree(linebuf.s);
                 return NULL;
@@ -291,7 +293,6 @@ nloop:
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
                 push(&buf, '\0');
                 cp_ccom(wlist, buf.s, FALSE);
-                wl_free(wlist);
                 (void) fputc('\r', cp_out);
                 prompt();
                 push(&linebuf, '\0');
@@ -301,7 +302,6 @@ nloop:
 #else
                 fputc(linebuf.s[i], cp_out);  /* But you can't edit */
 #endif
-                wlist = cw = NULL;
                 goto nloop;
             }
 
@@ -333,8 +333,6 @@ nloop:
                 // cp_ccom doesn't mess wlist, read only access to wlist->wl_word
                 push(&buf, '\0');
                 cp_ccom(wlist, buf.s, TRUE);
-                wl_free(wlist);
-                wlist = cw = NULL;
                 goto nloop;
             }
             goto ldefault;
