@@ -420,9 +420,9 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         rewind(loc->state->fp);                /* Back to start of file */
 
         /* create string to hold the whole file */
-        cFile = calloc(lFileLen + 1, sizeof(char));
+        cFile = calloc((size_t) lFileLen + 1, sizeof(char));
         /* create another string long enough for file manipulation */
-        cThisLine = calloc(lFileLen + 1, sizeof(char));
+        cThisLine = calloc((size_t) lFileLen + 1, sizeof(char));
         if (cFile == NULL || cThisLine == NULL) {
             cm_message_printf("Insufficient memory to read file %s", PARAM(file));
             loc->state->atend = 1;
@@ -430,7 +430,7 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
             return;
         }
         /* read whole file into memory */
-        fread(cFile, lFileLen, 1, loc->state->fp); /* Read the entire file into cFile */
+        fread(cFile, (size_t) lFileLen, 1, loc->state->fp); /* Read the entire file into cFile */
         fclose(loc->state->fp);
 
         cThisPtr = cFile;
@@ -467,17 +467,17 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
                 cnv_get_spice_value(cThisLinePtr, &tmp);
                 loc->ix = ix = (int) tmp;
                 /* generate row  data structure (x) */
-                loc->xcol = (double*) calloc(ix, sizeof(double));
+                loc->xcol = (double*) calloc((size_t) ix, sizeof(double));
             } else if (lLineCount == 2) {
                 cnv_get_spice_value(cThisLinePtr, &tmp);
                 loc->iy = iy = (int) tmp;
                 /* generate  column data structure (y) */
-                loc->ycol = (double*) calloc(iy, sizeof(double));
+                loc->ycol = (double*) calloc((size_t) iy, sizeof(double));
             } else if (lLineCount == 3) {
                 cnv_get_spice_value(cThisLinePtr, &tmp);
                 loc->iz = iz = (int) tmp;
                 /* generate  column data structure (y) */
-                loc->zcol = (double*) calloc(iz, sizeof(double));
+                loc->zcol = (double*) calloc((size_t) iz, sizeof(double));
             } else if (lLineCount == 4) {
                 char *token = CNVgettok(&cThisLinePtr);
                 i = 0;
@@ -551,11 +551,11 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
         /* create table_data in memory */
         /* data [n3][n2][n1] */
-        table_data = calloc(iy, sizeof(double *));
+        table_data = calloc((size_t) iy, sizeof(double *));
         for (i = 0; i < iz; i++) {
-            table_data[i] = calloc(iy, sizeof(double *));
+            table_data[i] = calloc((size_t) iy, sizeof(double *));
             for (j = 0; j < iy; j++)
-                table_data[i][j] = calloc(ix, sizeof(double));
+                table_data[i][j] = calloc((size_t) ix, sizeof(double));
         }
 
         loc->table = table_data;
