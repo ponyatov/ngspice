@@ -30,11 +30,6 @@
 /*^*/
 
 #include "alloc.h"
-//#include "error.h"
-
-#include "_bool.h"
-//#include "c99.h"
-/*^*/
 
 #include "ngspice/cm.h"
 
