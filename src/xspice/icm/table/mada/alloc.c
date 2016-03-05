@@ -18,19 +18,10 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifndef _LARGEFILE_SOURCE
-#define _LARGEFILE_SOURCE
-#endif
-
-#include <sys/types.h>
-//#include <unistd.h>
-/*^*/
-
 #include <stdlib.h>
-/*^*/
+#include <sys/types.h>
 
 #include "alloc.h"
-
 #include "ngspice/cm.h"
 
 

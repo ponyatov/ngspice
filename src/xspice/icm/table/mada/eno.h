@@ -4,9 +4,6 @@
 #define _sf_eno_h
 
 
-#include "_defs.h"
-
-
 typedef struct Eno *sf_eno;
 /* abstract data type */
 

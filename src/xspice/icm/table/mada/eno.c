@@ -24,20 +24,9 @@
 #include "eno.h"
 #include "alloc.h"
 
-#include "_defs.h"
-/*^*/
+#define SF_MAX(a,b) ((a) < (b) ? (b) : (a))
+#define SF_MIN(a,b) ((a) < (b) ? (a) : (b))
 
-#ifndef _sf_eno_h
-
-typedef struct Eno *sf_eno;
-/* abstract data type */
-/*^*/
-
-typedef enum {FUNC, DER, BOTH} der;
-/* flag values */
-/*^*/
-
-#endif
 
 struct Eno {
     int order, n;
