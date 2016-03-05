@@ -41,13 +41,13 @@
 
 /*------------------------------------------------------------*/
 void *
-sf_alloc(size_t n    /* number of elements */,
+sf_alloc(int n       /* number of elements */,
          size_t size /* size of one element */)
 /*< output-checking allocation >*/
 {
     void *ptr;
 
-    size *= n;
+    size *= (size_t) n;
 
     if (0 >= size)
         cm_message_printf("%s: illegal allocation(%d bytes)", __FILE__, (int) size);
@@ -62,7 +62,7 @@ sf_alloc(size_t n    /* number of elements */,
 
 /*------------------------------------------------------------*/
 double *
-sf_doublealloc(size_t n /* number of elements */)
+sf_doublealloc(int n /* number of elements */)
 /*< float allocation >*/
 {
     return (double*) sf_alloc(n, sizeof(double));
@@ -70,11 +70,11 @@ sf_doublealloc(size_t n /* number of elements */)
 
 /*------------------------------------------------------------*/
 double **
-sf_doublealloc2(size_t n1 /* fast dimension */,
-                size_t n2 /* slow dimension */)
+sf_doublealloc2(int n1 /* fast dimension */,
+                int n2 /* slow dimension */)
 /*< float 2-D allocation, out[0] points to a contiguous array >*/
 {
-    size_t i2;
+    int i2;
     double **ptr = (double**) sf_alloc(n2, sizeof(double*));
 
     ptr[0] = sf_doublealloc(n1 * n2);

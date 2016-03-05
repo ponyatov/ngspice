@@ -21,17 +21,17 @@
 
 
 /*------------------------------------------------------------*/
-void *sf_alloc (size_t n,   /* number of elements */
+void *sf_alloc (int n,      /* number of elements */
                 size_t size /* size of one element */);
 /*< output-checking allocation >*/
 
 /*------------------------------------------------------------*/
-double *sf_doublealloc (size_t n /* number of elements */);
+double *sf_doublealloc (int n /* number of elements */);
 /*< double allocation >*/
 
 /*------------------------------------------------------------*/
-double **sf_doublealloc2(size_t n1, /* fast dimension */
-                         size_t n2  /* slow dimension */);
+double **sf_doublealloc2(int n1, /* fast dimension */
+                         int n2  /* slow dimension */);
 /*< float 2-D allocation, out[0] points to a contiguous array >*/
 
 #endif
