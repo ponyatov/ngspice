@@ -20,10 +20,6 @@ void sf_eno3_set (sf_eno3 pnt, double ***c /* data [n3][n2][n1] */);
 /*< Set the interpolation table. c can be changed or freed afterwords. >*/
 
 
-void sf_eno3_set1 (sf_eno3 pnt, double *c /* data [n3*n2*n1] */);
-/*< Set the interpolation table. c can be changed or freed afterwords. >*/
-
-
 void sf_eno3_close (sf_eno3 pnt);
 /*< Free internal storage. >*/
 

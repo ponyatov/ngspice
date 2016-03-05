@@ -20,14 +20,6 @@ void sf_eno2_set (sf_eno2 pnt, double **c /* data [n2][n1] */);
 /*< Set the interpolation table. c can be changed or freed afterwords. >*/
 
 
-void sf_eno2_set1 (sf_eno2 pnt, double *c /* data [n2*n1] */);
-/*< Set the interpolation table. c can be changed or freed afterwords. >*/
-
-
-void sf_eno2_set1_wstride (sf_eno2 pnt, double *c /* data [n2*n1] */, int stride);
-/*< Set the interpolation table. c can be changed or freed afterwords. >*/
-
-
 void sf_eno2_close (sf_eno2 pnt);
 /*< Free internal storage >*/
 

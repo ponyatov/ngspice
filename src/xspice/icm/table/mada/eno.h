@@ -25,10 +25,6 @@ void sf_eno_set (sf_eno ent, double* c /* data [n] */);
 /*< Set the interpolation table. c can be changed or freed afterwords >*/
 
 
-void sf_eno_set_wstride (sf_eno ent, double* c /* data [n] */, int stride);
-/*< Set the interpolation table. c can be changed or freed afterwords >*/
-
-
 void sf_eno_apply (sf_eno ent,
                    int i,      /* grid location */
                    double x,   /* offset from grid */
