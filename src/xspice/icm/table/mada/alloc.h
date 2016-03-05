@@ -17,8 +17,6 @@
 #define snprintf _snprintf
 #endif
 
-#include "_bool.h"
-
 
 /*------------------------------------------------------------*/
 void *sf_alloc (int n,      /* number of elements */
