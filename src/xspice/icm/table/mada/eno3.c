@@ -73,17 +73,6 @@ sf_eno3_set(sf_eno3 pnt, double ***c /* data [n3][n2][n1] */)
 }
 
 void
-sf_eno3_set1(sf_eno3 pnt, double *c /* data [n3*n2*n1] */)
-/*< Set the interpolation table. c can be changed or freed afterwords. >*/
-{
-    int i2, i3;
-
-    for (i3 = 0; i3 < pnt->n3; i3++)
-        for (i2 = 0; i2 < pnt->n2; i2++)
-            sf_eno_set (pnt->ent[i3][i2], c + (pnt->n1) * (i2 + (pnt->n2) * i3));
-}
-
-void
 sf_eno3_close(sf_eno3 pnt)
 /*< Free internal storage. >*/
 {
