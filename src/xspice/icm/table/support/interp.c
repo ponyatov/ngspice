@@ -13,6 +13,8 @@ typedef struct Point3Struct {   /* 3d point */
         } Point3;
 typedef Point3 Vector3;
 
+//FIXME
+double BilinearInterpolation(double q11, double q12, double q21, double q22, double x1, double x2, double y1, double y2, double x, double y);
 
 
 /* Function to find the cross over point (the point before
@@ -72,6 +74,7 @@ BilinearInterpolation(double q11, double q12, double q21, double q22, double x1,
  *
  */
 
+#if 0
 
 double
 trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def)
@@ -145,6 +148,9 @@ trilinear(Point3 *p, double *d, int xsize, int ysize, int zsize, double def)
 
     return dxyz;
 }
+
+#endif
+
 
 /* trilinear interpolation
 Paul Bourke

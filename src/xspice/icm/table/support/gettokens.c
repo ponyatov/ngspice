@@ -20,6 +20,8 @@ is returned.  The original input string is undisturbed.
 /* Type definition for each possible token returned. */
 typedef enum token_type_s { CNV_NO_TOK, CNV_STRING_TOK } Cnv_Token_Type_t;
 
+extern char *CNVget_token(char **s, Cnv_Token_Type_t *type);
+
 /*=== MACROS ===========================*/
 
 #if defined(__MINGW32__) || defined(_MSC_VER)
