@@ -18,21 +18,11 @@
 */
 
 #include "eno2.h"
-/*^*/
-
 #include "eno3.h"
 
 #include "alloc.h"
-
 #include "ngspice/cm.h"
 
-#ifndef _sf_eno3_h
-
-typedef struct Eno3 *sf_eno3;
-/* abstract data type */
-/*^*/
-
-#endif
 
 struct Eno3 {
     int order, ng, n1, n2, n3;
