@@ -160,8 +160,8 @@ int
 cieq(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper_c(*p) ? tolower(*p) : *p) !=
-            (isupper_c(*s) ? tolower(*s) : *s))
+        if ((isupper_c(*p) ? tolower_c(*p) : *p) !=
+            (isupper_c(*s) ? tolower_c(*s) : *s))
             return(FALSE);
         p++;
         s++;
@@ -175,8 +175,8 @@ int
 ciprefix(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper_c(*p) ? tolower(*p) : *p) !=
-            (isupper_c(*s) ? tolower(*s) : *s))
+        if ((isupper_c(*p) ? tolower_c(*p) : *p) !=
+            (isupper_c(*s) ? tolower_c(*s) : *s))
             return(FALSE);
         p++;
         s++;
@@ -190,8 +190,8 @@ int
 cisymprefix(const char *p, const char *s)
 {
     while (*p) {
-        if (!s || (isupper_c(*p) ? tolower(*p) : *p) !=
-            (isupper_c(*s) ? tolower(*s) : *s))
+        if (!s || (isupper_c(*p) ? tolower_c(*p) : *p) !=
+            (isupper_c(*s) ? tolower_c(*s) : *s))
             return(FALSE);
         p++;
         s++;
@@ -208,7 +208,7 @@ strtolower(char *str)
     if (str)
         while (*str) {
             if(isupper_c(*str))
-                *str = (char) tolower(*str);
+                *str = (char) tolower_c(*str);
             str++;
         }
 }
@@ -219,7 +219,7 @@ strtoupper(char *str)
     if (str)
         while (*str) {
             if(islower_c(*str))
-                *str = (char) toupper(*str);
+                *str = (char) toupper_c(*str);
             str++;
         }
 }
@@ -246,7 +246,7 @@ register int n)
   if (!p || !s) return( 0 );
  
   while (*p) {
-    if ((isupper_c(*p) ? tolower(*p) : *p) != (isupper_c(*s) ? tolower(*s) : *s))
+    if ((isupper_c(*p) ? tolower_c(*p) : *p) != (isupper_c(*s) ? tolower_c(*s) : *s))
       return( 0 );
     p++;
     s++;
@@ -273,7 +273,7 @@ register char *p, register char *s)
   if (!p || !s) return( 0 );
  
   while (*p) {
-    if ((isupper_c(*p) ? tolower(*p) : *p) != (isupper_c(*s) ? tolower(*s) : *s))
+    if ((isupper_c(*p) ? tolower_c(*p) : *p) != (isupper_c(*s) ? tolower_c(*s) : *s))
       return( n );
     p++;
     s++;

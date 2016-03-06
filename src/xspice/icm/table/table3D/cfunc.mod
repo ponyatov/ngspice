@@ -222,7 +222,7 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
     else {
 
         if (isupper_c(c))
-            c = (char) tolower(c);
+            c = (char) tolower_c(c);
 
         switch (c) {
 
@@ -266,7 +266,7 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
                 break;
             }
             if (islower_c(c1))
-                c1 = (char) toupper(c1);
+                c1 = (char) toupper_c(c1);
             if (c1 == 'E')
                 scale_factor = 1.0e6;
             else if (c1 == 'I')

@@ -45,7 +45,7 @@ yes_or_no(void)
         if (c == EOF)
             return c;
         if (c == '\n')
-            return tolower(first);
+            return tolower_c(first);
         if (!isspace_c(c))
             first = '\0';
     }
@@ -56,8 +56,8 @@ bool
 ci_prefix(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper_c(*p) ? tolower(*p) : *p) !=
-            (isupper_c(*s) ? tolower(*s) : *s))
+        if ((isupper_c(*p) ? tolower_c(*p) : *p) !=
+            (isupper_c(*s) ? tolower_c(*s) : *s))
             return (0);
         p++;
         s++;
