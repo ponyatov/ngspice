@@ -354,6 +354,9 @@ inline static int char_to_int(char c) { return (unsigned char) c; }
 #define isspace_c(x) isspace(char_to_int(x))
 #define isupper_c(x) isupper(char_to_int(x))
 
+#define tolower_c(x) ((char) tolower(char_to_int(x)))
+#define toupper_c(x) ((char) toupper(char_to_int(x)))
+
 #endif
 
 
