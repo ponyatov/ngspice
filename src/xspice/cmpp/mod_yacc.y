@@ -138,7 +138,7 @@ local_strcmpi(char *s, char *t)
    if (! (*s || *t)) {
       return 0;
    }
-   return (tolower_c(*s) - tolower_c(*t));
+   return tolower((unsigned char) *s) - tolower((unsigned char) *t);
 }
 
 /*---------------------------------------------------------------------------*/
