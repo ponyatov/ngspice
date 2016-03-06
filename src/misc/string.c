@@ -208,7 +208,7 @@ strtolower(char *str)
     if (str)
         while (*str) {
             if(isupper_c(*str))
-                *str = (char) tolower_c(*str);
+                *str = tolower_c(*str);
             str++;
         }
 }
@@ -219,7 +219,7 @@ strtoupper(char *str)
     if (str)
         while (*str) {
             if(islower_c(*str))
-                *str = (char) toupper_c(*str);
+                *str = toupper_c(*str);
             str++;
         }
 }

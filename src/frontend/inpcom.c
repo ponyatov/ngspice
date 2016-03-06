@@ -856,7 +856,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
             {
                 /* lower case for all other lines */
                 for (s = buffer; *s && (*s != '\n'); s++)
-                    *s = (char)tolower_c(*s);
+                    *s = tolower_c(*s);
             } else if ((ciprefix("plot", buffer)) || (ciprefix("hardcopy", buffer))) {
                 /* lower case excluded for tokens following title, xlabel, ylabel.
                  * tokens may contain spaces, then they have to be enclosed in quotes.
@@ -864,12 +864,12 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
                 int j;
                 char t = ' ';
                 for (s = buffer; *s && (*s != '\n'); s++) {
-                    *s = (char)tolower_c(*s);
+                    *s = tolower_c(*s);
                     if (cisymprefix("title", s)) {
                         /* jump beyond title */
                         for (j = 0; j < 5; j++) {
                             s++;
-                            *s = (char)tolower_c(*s);
+                            *s = tolower_c(*s);
                         }
                         while (*s == ' ')
                             s++;
@@ -895,7 +895,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
                         /* jump beyond xlabel, ylabel */
                         for (j = 0; j < 6; j++) {
                             s++;
-                            *s = (char)tolower_c(*s);
+                            *s = tolower_c(*s);
                         }
                         while (*s == ' ')
                             s++;
@@ -2028,7 +2028,7 @@ inp_casefix(char *string)
             if (!isspace_c(*string) && !isprint_c(*string))
                 *string = '_';
             if (isupper_c(*string))
-                *string = (char) tolower_c(*string);
+                *string = tolower_c(*string);
             string++;
         }
 #endif
