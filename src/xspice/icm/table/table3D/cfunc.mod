@@ -206,9 +206,9 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 
     for (i = 0; i < len; i++) {
         c = str[i];
-        if (isalpha(char_to_int(c)) && (c != 'E') && (c != 'e'))
+        if (isalpha(c) && (c != 'E') && (c != 'e'))
             break;
-        else if (isspace(char_to_int(c)))
+        else if (isspace(c))
             break;
         else
             val_str[i] = c;
@@ -217,12 +217,12 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
 
     /* Determine the scale factor */
 
-    if ((i >= len) || (! isalpha(char_to_int(c))))
+    if ((i >= len) || (! isalpha(c)))
         scale_factor = 1.0;
     else {
 
-        if (isupper(char_to_int(c)))
-            c = (char) tolower(char_to_int(c));
+        if (isupper(c))
+            c = (char) tolower(c);
 
         switch (c) {
 
@@ -261,12 +261,12 @@ cnv_get_spice_value(char   *str,       /* IN - The value text e.g. 1.2K */
                 break;
             }
             c1 = str[i];
-            if (!isalpha(char_to_int(c1))) {
+            if (!isalpha(c1)) {
                 scale_factor = 1.0e-3;
                 break;
             }
-            if (islower(char_to_int(c1)))
-                c1 = (char) toupper(char_to_int(c1));
+            if (islower(c1))
+                c1 = (char) toupper(c1);
             if (c1 == 'E')
                 scale_factor = 1.0e6;
             else if (c1 == 'I')

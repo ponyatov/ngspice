@@ -831,7 +831,7 @@ nupa_eval(char *s, int linenum, int orig_linenum)
     } else if (c == 'X') {
         /* compute args of subcircuit, if required */
         ptr = s;
-        while (!isspace(char_to_int(*ptr)))
+        while (!isspace(*ptr))
             ptr++;
         keep = *ptr;
         *ptr = '\0';

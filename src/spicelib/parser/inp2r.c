@@ -85,7 +85,7 @@ void INP2R(CKTcircuit *ckt, INPtables * tab, card * current)
         s += 2;
 
         /* skip any white space */
-        while(isspace(char_to_int(*s)))
+        while(isspace(*s))
             s++;
 
         /* reject if not '=' */
@@ -95,27 +95,27 @@ void INP2R(CKTcircuit *ckt, INPtables * tab, card * current)
         s++;
 
         /* skip any white space */
-        while(isspace(char_to_int(*s)))
+        while(isspace(*s))
             s++;
 
         /* if we now have +, - or a decimal digit then assume we have a number,
            otherwise reject */
-        if((*s != '+') && (*s != '-') && !isdigit(char_to_int(*s)))
+        if((*s != '+') && (*s != '-') && !isdigit(*s))
             continue;
 
         /* look for next white space or null */
-        while(*s && !isspace(char_to_int(*s)))
+        while(*s && !isspace(*s))
             s++;
 
         left_length = (size_t) (s - current->line);
 
         /* skip any additional white space */
-        while(isspace(char_to_int(*s)))
+        while(isspace(*s))
             s++;
 
         /* if we now have +, - or a decimal digit then assume we have the
             second number, otherwise reject */
-        if((*s != '+') && (*s != '-') && !isdigit(char_to_int(*s)))
+        if((*s != '+') && (*s != '-') && !isdigit(*s))
             continue;
 
         /* if we get this far we have met all are criterea,

@@ -300,14 +300,3 @@ Status_t write_ifs_c_file(const char *filename, Ifs_Table_t *ifs_table);
 
 
 FILE *fopen_cmpp(const char **path_p, const char *mode);
-
-
-/*
- * used to safely cast `char' to `int',
- *   for functions of the <ctype.h> family, isspace etc ...
- */
-
-#if !defined(CHAR_TO_INT)
-#define CHAR_TO_INT
-inline static int char_to_int(char c) { return (unsigned char) c; }
-#endif

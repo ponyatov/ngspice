@@ -848,7 +848,7 @@ vareval(char *string)
     for (v = variables; v; v = v->va_next)
         if (eq(v->va_name, string))
             break;
-    if (!v && isdigit(char_to_int(*string))) {
+    if (!v && isdigit(*string)) {
         for (v = variables; v; v = v->va_next)
             if (eq(v->va_name, "argv"))
                 break;
@@ -891,10 +891,10 @@ vareval(char *string)
             }
             range = r->wl_word;
         }
-        for (low = 0; isdigit(char_to_int(*range)); range++)
+        for (low = 0; isdigit(*range); range++)
             low = low * 10 + *range - '0';
-        if ((*range == '-') && isdigit(char_to_int(range[1])))
-            for (up = 0, range++; isdigit(char_to_int(*range)); range++)
+        if ((*range == '-') && isdigit(range[1]))
+            for (up = 0, range++; isdigit(*range); range++)
                 up = up * 10 + *range - '0';
         else if (*range == '-')
             up = wl_length(wl);

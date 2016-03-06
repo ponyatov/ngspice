@@ -174,7 +174,7 @@ static char  *CNVgettok(char **s)
 
     /* skip over any white space */
 
-    while(isspace(char_to_int(**s)) || (**s == '=') ||
+    while(isspace(**s) || (**s == '=') ||
           (**s == '(') || (**s == ')') || (**s == ','))
           (*s)++;
 
@@ -192,7 +192,7 @@ static char  *CNVgettok(char **s)
                          /* or a mess o' characters.            */
         i = 0;
         while( (**s != '\0') &&
-               (! ( isspace(char_to_int(**s)) || (**s == '=') ||
+               (! ( isspace(**s) || (**s == '=') ||
                     (**s == '(') || (**s == ')') ||
                     (**s == ',')
              ) )  ) {
@@ -206,7 +206,7 @@ static char  *CNVgettok(char **s)
 
     /* skip over white space up to next token */
 
-    while(isspace(char_to_int(**s)) || (**s == '=') ||
+    while(isspace(**s) || (**s == '=') ||
           (**s == '(') || (**s == ')') || (**s == ','))
           (*s)++;
 
@@ -380,9 +380,9 @@ double  *p_value )   /* OUT - The numerical value     */
 
     for(i = 0; i < len; i++) {
         c = str[i];
-        if( isalpha(char_to_int(c)) && (c != 'E') && (c != 'e') )
+        if( isalpha(c) && (c != 'E') && (c != 'e') )
             break;
-        else if( isspace(char_to_int(c)) )
+        else if( isspace(c) )
             break;
         else
             val_str[i] = c;
@@ -392,12 +392,12 @@ double  *p_value )   /* OUT - The numerical value     */
 
     /* Determine the scale factor */
 
-    if( (i >= len) || (! isalpha(char_to_int(c))) )
+    if( (i >= len) || (! isalpha(c)) )
         scale_factor = 1.0;
     else {
 
-        if(isupper(char_to_int(c)))
-            c = (char) tolower(char_to_int(c));
+        if(isupper(c))
+            c = (char) tolower(c);
 
         switch(c) {
 
@@ -436,12 +436,12 @@ double  *p_value )   /* OUT - The numerical value     */
                 break;
             }
             c1 = str[i];
-            if(! isalpha(char_to_int(c1))) {
+            if(! isalpha(c1)) {
                 scale_factor = 1.0e-3;
                 break;
             }
-            if(islower(char_to_int(c1)))
-                c1 = (char) toupper(char_to_int(c1));
+            if(islower(c1))
+                c1 = (char) toupper(c1);
             if(c1 == 'E')
                 scale_factor = 1.0e6;
             else if(c1 == 'I')
@@ -725,7 +725,7 @@ static int cm_read_source(FILE *source, Local_Data_t *loc)
         /* Test this string to see if it is whitespace... */
 
         base_address = s;
-        while(isspace(char_to_int(*s)) || (*s == '*'))
+        while(isspace(*s) || (*s == '*'))
               (s)++;
         if ( *s != '\0' ) {     /* This is not a blank line, so process... */
             s = base_address;
@@ -946,7 +946,7 @@ void cm_d_source(ARGS)
           s = temp;
           while ( fgets(s,MAX_STRING_SIZE,source) != NULL) {
               if ( '*' != s[0] ) {
-                  while(isspace(char_to_int(*s)) || (*s == '*'))
+                  while(isspace(*s) || (*s == '*'))
                         (s)++;
                   if ( *s != '\0' ) i++;
               }

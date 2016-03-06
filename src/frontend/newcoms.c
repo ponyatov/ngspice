@@ -79,7 +79,7 @@ com_reshape(wordlist *wl)
                 wlast = wlast->wl_next;
             }
 
-            while (*p && isspace(char_to_int(*p)))
+            while (*p && isspace(*p))
                 p++;
 
             switch (state) {
@@ -89,7 +89,7 @@ com_reshape(wordlist *wl)
                     if (numdims == MAXDIMS)
                         printf("Maximum of %d dimensions possible\n", MAXDIMS);
                     numdims += 1;
-                } else if (!isdigit(char_to_int(*p))) {
+                } else if (!isdigit(*p)) {
                     if (empty > -1) {
                         printf("dimensions underspecified at dimension %d\n",
                                numdims++);
@@ -100,7 +100,7 @@ com_reshape(wordlist *wl)
                     }
                 } else {
                     dims[numdims++] = atoi(p);
-                    while (isdigit(char_to_int(*p)))
+                    while (isdigit(*p))
                         p++;
                 }
                 state = 1;
@@ -113,10 +113,10 @@ com_reshape(wordlist *wl)
                 } else if (*p == ',') {
                     p++;
                     state = 0;
-                } else if (isdigit(char_to_int(*p))) {
+                } else if (isdigit(*p)) {
                     state = 0;
                     break;
-                } else if (!isspace(char_to_int(*p))) {
+                } else if (!isspace(*p)) {
                     /* error */
                     state = 4;
                 }
@@ -131,7 +131,7 @@ com_reshape(wordlist *wl)
                 }
             }
 
-            while (*p && isspace(char_to_int(*p)))
+            while (*p && isspace(*p))
                 p++;
 
         } while (state < 3);

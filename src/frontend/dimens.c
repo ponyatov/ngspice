@@ -132,12 +132,12 @@ atodims(char *p, int *data, int *outlength)
         return 0;
     }
 
-    while (*p && isspace(char_to_int(*p)))
+    while (*p && isspace(*p))
         p++;
 
     if (*p == '[') {
         p++;
-        while (*p && isspace(char_to_int(*p)))
+        while (*p && isspace(*p))
             p++;
         needbracket = 1;
     }
@@ -150,11 +150,11 @@ atodims(char *p, int *data, int *outlength)
                     printf("Error: maximum of %d dimensions allowed.\n",
                            MAXDIMS);
                 length += 1;
-            } else if (!isdigit(char_to_int(*p))) {
+            } else if (!isdigit(*p)) {
                 data[length++] = 0;     /* This position was empty. */
             } else {
                 data[length++] = atoi(p);
-                while (isdigit(char_to_int(*p)))
+                while (isdigit(*p))
                     p++;
             }
             state = 1;
@@ -185,7 +185,7 @@ atodims(char *p, int *data, int *outlength)
             break;
         }
 
-        while (*p && isspace(char_to_int(*p)))
+        while (*p && isspace(*p))
             p++;
     }
 
@@ -218,7 +218,7 @@ skipdims(char *p)
     if (!p)
         return NULL;
 
-    while (*p && (*p == '[' || *p == ']' || *p == ',' || isspace(char_to_int(*p)) || isdigit(char_to_int(*p))))
+    while (*p && (*p == '[' || *p == ']' || *p == ',' || isspace(*p) || isdigit(*p)))
         p++;
 
     return (p);

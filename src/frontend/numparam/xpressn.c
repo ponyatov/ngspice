@@ -647,7 +647,7 @@ static double
 parseunit(const char *s)
 /* the Spice suffixes */
 {
-    switch (toupper(char_to_int(s[0])))
+    switch (toupper(s[0]))
     {
     case 'T':  return 1e12;
     case 'G':  return 1e9;
@@ -1635,7 +1635,7 @@ nupa_subcktcall(dico_t *dico, char *s, char *x, bool err)
                 continue;
 
             kptr = jptr;
-            while (--kptr >= optr && isspace(char_to_int(*kptr)))
+            while (--kptr >= optr && isspace(*kptr))
                 ;
 
             hptr = kptr;

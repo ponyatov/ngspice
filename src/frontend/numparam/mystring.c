@@ -56,8 +56,8 @@ bool
 ci_prefix(const char *p, const char *s)
 {
     while (*p) {
-        if ((isupper(char_to_int(*p)) ? tolower(char_to_int(*p)) : *p) !=
-            (isupper(char_to_int(*s)) ? tolower(char_to_int(*s)) : *s))
+        if ((isupper(*p) ? tolower(*p) : *p) !=
+            (isupper(*s) ? tolower(*s) : *s))
             return (0);
         p++;
         s++;

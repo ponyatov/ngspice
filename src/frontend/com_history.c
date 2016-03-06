@@ -120,7 +120,7 @@ dohsubst(char *string)
             wl = getevent(cp_event - scannum(++string));
             if (!wl)
                 return (NULL);
-            while (isdigit(char_to_int(*string)))
+            while (isdigit(*string))
                 string++;
             break;
 
@@ -141,11 +141,11 @@ dohsubst(char *string)
             return (wl);
 
         default:
-            if (isdigit(char_to_int(*string))) {
+            if (isdigit(*string)) {
                 wl = getevent(scannum(string));
                 if (!wl)
                     return (NULL);
-                while (isdigit(char_to_int(*string)))
+                while (isdigit(*string))
                     string++;
             } else {
                 (void) strcpy(buf, string);
@@ -266,7 +266,7 @@ anothermod:
             (*string)++;
         break;
     default:
-        if (!isdigit(char_to_int(**string))) {
+        if (!isdigit(**string)) {
             fprintf(cp_err, "Error: %s: bad modifier.\n",
                     *string);
             return (NULL);
@@ -278,16 +278,16 @@ anothermod:
             return (NULL);
         }
         eventhi = eventlo = i;
-        while (isdigit(char_to_int(**string)))
+        while (isdigit(**string))
             (*string)++;
         if (**string == '*')
             eventhi = numwords - 1;
         if (**string == '-') {
-            if (!isdigit(char_to_int(*(*string + 1)))) {
+            if (!isdigit(*(*string + 1))) {
                 eventhi = numwords - 1;
             } else {
                 eventhi = scannum(++*string);
-                while (isdigit(char_to_int(**string)))
+                while (isdigit(**string))
                     (*string)++;
             }
         }

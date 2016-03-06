@@ -127,7 +127,7 @@ static int
 local_strcmpi(char *s, char *t)
      /* string compare -  case insensitive */
 {
-   for (; *s && t && tolower(char_to_int(*s)) == tolower(char_to_int(*t)); s++, t++)
+   for (; *s && t && tolower(*s) == tolower(*t); s++, t++)
       ;
    if (*s && !*t) {
       return 1;
@@ -138,7 +138,7 @@ local_strcmpi(char *s, char *t)
    if (! (*s || *t)) {
       return 0;
    }
-   return (tolower(char_to_int(*s)) - tolower(char_to_int(*t)));
+   return (tolower(*s) - tolower(*t));
 }
 
 /*---------------------------------------------------------------------------*/

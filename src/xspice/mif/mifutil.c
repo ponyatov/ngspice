@@ -80,7 +80,7 @@ char  *MIFgettok(char **s)
 
     /* skip over any white space */
 
-    while(isspace(char_to_int(**s)) || (**s == '=') ||
+    while(isspace(**s) || (**s == '=') ||
           (**s == '(') || (**s == ')') || (**s == ','))
         (*s)++;
 
@@ -120,7 +120,7 @@ char  *MIFgettok(char **s)
         /* else, read until the next delimiter */
         else {
             while( (**s != '\0') &&
-                   (! ( isspace(char_to_int(**s)) || (**s == '=') || (**s == '%') ||
+                   (! ( isspace(**s) || (**s == '=') || (**s == '%') ||
                         (**s == '(') || (**s == ')') || (**s == ',') ||
                         (**s == '[') || (**s == ']') ||
                         (**s == '<') || (**s == '>') || (**s == '~')
@@ -137,7 +137,7 @@ char  *MIFgettok(char **s)
 
     /* skip over white space up to next token */
 
-    while(isspace(char_to_int(**s)) || (**s == '=') ||
+    while(isspace(**s) || (**s == '=') ||
           (**s == '(') || (**s == ')') || (**s == ','))
         (*s)++;
 

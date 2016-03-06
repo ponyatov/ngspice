@@ -1039,7 +1039,7 @@ plotInit(runDesc *run)
         dataDesc *dd = &run->data[i];
         char *name;
 
-        if (isdigit(char_to_int(dd->name[0])))
+        if (isdigit(dd->name[0]))
             name = tprintf("V(%s)", dd->name);
         else
             name = copy(dd->name);

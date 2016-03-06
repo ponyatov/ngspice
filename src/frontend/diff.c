@@ -34,15 +34,15 @@ cannonical_name(char *name, SPICE_DSTRINGPTR dbuf_p)
             tmp++;
         tmp++;
         for (ptr = tmp; *ptr; ptr++)
-            if (isupper(char_to_int(*ptr)))
-                tmp = spice_dstring_append_char(dbuf_p, (char)tolower(char_to_int(*ptr)));
+            if (isupper(*ptr))
+                tmp = spice_dstring_append_char(dbuf_p, (char)tolower(*ptr));
             else
                 tmp = spice_dstring_append_char(dbuf_p, *ptr);
         while (*tmp != ')')
             tmp++;
         *tmp = '\0';
         tmp = spice_dstring_append(dbuf_p, "#branch", -1);
-    } else if (isdigit(char_to_int(*name))) {
+    } else if (isdigit(*name)) {
         spice_dstring_append(dbuf_p, "v(", -1);
         spice_dstring_append(dbuf_p, name, -1);
         tmp = spice_dstring_append_char(dbuf_p, ')');
@@ -80,7 +80,7 @@ nameeq(char *n1, char *n2)
             tmp++;
         *tmp = '\0';
         (void) strcat(buf1, "#branch");
-    } else if (isdigit(char_to_int(*n1))) {
+    } else if (isdigit(*n1)) {
         (void) sprintf(buf1, "v(%s)", n1);
     } else {
         (void) strcpy(buf1, n1);
@@ -97,7 +97,7 @@ nameeq(char *n1, char *n2)
             tmp++;
         *tmp = '\0';
         (void) strcat(buf2, "#branch");
-    } else if (isdigit(char_to_int(*n2))) {
+    } else if (isdigit(*n2)) {
         (void) sprintf(buf2, "v(%s)", n2);
     } else {
         (void) strcpy(buf2, n2);

@@ -336,15 +336,4 @@ ATTRIBUTE_NORETURN void controlled_exit(int status);
 #endif
 
 
-/*
- * used to safely cast `char' to `int',
- *   for functions of the <ctype.h> family, isspace etc ...
- */
-
-#if !defined(CHAR_TO_INT)
-#define CHAR_TO_INT
-inline static int char_to_int(char c) { return (unsigned char) c; }
-#endif
-
-
 #endif
