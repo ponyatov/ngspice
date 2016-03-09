@@ -340,8 +340,7 @@ ATTRIBUTE_NORETURN void controlled_exit(int status);
  * type safe variants of the <ctype.h> functions for char arguments
  */
 
-#if !defined(CHAR_TO_INT)
-#define CHAR_TO_INT
+#if !defined(isalpha_c)
 
 inline static int char_to_int(char c) { return (unsigned char) c; }
 
