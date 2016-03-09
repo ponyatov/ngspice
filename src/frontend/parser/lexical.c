@@ -65,7 +65,7 @@ static int numeofs = 0;
 
 
 /* Return a list of words, with backslash quoting and '' quoting done.
- * Strings enclosed in "" or `` are made single words and returned,
+ * Strings en(void) closed in "" or `` are made single words and returned,
  * but with the "" or `` still present. For the \ and '' cases, the
  * 8th bit is turned on (as in csh) to prevent them from being recognized,
  * and stripped off once all processing is done. We also have to deal with
@@ -81,7 +81,7 @@ static int numeofs = 0;
 #define newword                                 \
     do {                                        \
         append(copy(buf));                      \
-        bzero(buf, (size_t) len);               \
+        bzero(buf, NEW_BSIZE_SP);               \
         i = 0;                                  \
     } while(0)
 
@@ -125,8 +125,8 @@ cp_lexer(char *string)
     int c, d;
     int i, j;
     wordlist *wlist = NULL, *cw = NULL;
-    char *buf, *linebuf;
-    int paren, len;
+    char buf[NEW_BSIZE_SP], linebuf[NEW_BSIZE_SP];
+    int paren;
 
     if (!cp_inp_cur)
         cp_inp_cur = cp_in;
@@ -142,15 +142,11 @@ nloop:
     i = 0;
     j = 0;
     paren = 0;
-    if (string)
-        len = (int) strlen(string) + 3;
-    else
-        len = 64;
-    buf = TMALLOC(char, len);
-    linebuf = TMALLOC(char, len);
+    bzero(linebuf, NEW_BSIZE_SP);
+    bzero(buf, NEW_BSIZE_SP);
 
     for (;;) {
-        /* if string, read from string, else read from stdin */
+
         c = cp_readchar(&string, cp_inp_cur);
 
     gotchar:
@@ -164,56 +160,36 @@ nloop:
         if (c != EOF)
             numeofs = 0;
 
-        /* If number of char allocated is reached, double the
-           buffer size by realloc and fill new memory with \0 */
-        if (i == len - 1) {
-            int ii;
-            len = 2 * len;
-            buf = TREALLOC(char, buf, len);
-            for (ii = i; ii < len; ii++ )
-                buf[ii] = '\0';
-            linebuf = TREALLOC(char, linebuf, len);
-            for (ii = j; ii < len; ii++ )
-                linebuf[ii] = '\0';
+        if (i == NEW_BSIZE_SP - 1) {
+            fprintf(cp_err, "Warning: word too long.\n");
+            c = ' ';
         }
 
-        /* Probably only measuring j is needed, because j (line
-           position) should be larger than i (word position) */
-        if (j == len - 1) {
-            int ii;
-            len = 2 * len;
-            buf = TREALLOC(char, buf, len);
-            for (ii = i; ii < len; ii++ )
-                buf[ii] = '\0';
-            linebuf = TREALLOC(char, linebuf, len);
-            for (ii = j; ii < len; ii++ )
-                linebuf[ii] = '\0';
+        if (j == NEW_BSIZE_SP - 1) {
+            fprintf(cp_err, "Warning: line too long.\n");
+            if (cp_bqflag)
+                c = EOF;
+            else
+                c = '\n';
         }
 
         if (c != EOF)           /* Don't need to do this really. */
             c = strip(c);
 
-        /* if '\' or '^', add following character to linebuf */
         if ((c == '\\' && DIR_TERM != '\\') || (c == '\026') /* ^V */ ) {
             c = quote(cp_readchar(&string, cp_inp_cur));
             linebuf[j++] = (char) strip(c);
         }
 
-        /* if reading from fcn backeval() for backquote subst. */
         if ((c == '\n') && cp_bqflag)
             c = ' ';
 
         if ((c == EOF) && cp_bqflag)
             c = '\n';
 
-        /* '#' as first character, batch mode, read from stdin
-         * go to end of line, and then restart reading */
-        /* What is this ?? */
         if ((c == cp_hash) && !cp_interactive && (j == 1)) {
             wl_free(wlist);
             wlist = cw = NULL;
-            tfree(buf);
-            tfree(linebuf);
             if (string)
                 return NULL;
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\n') && (c != EOF))
@@ -221,26 +197,19 @@ nloop:
             goto nloop;
         }
 
-        /* check if we are inside of parens during reading:
-         * if we are and ',' or ';' occur: no new line */
-        if ((c == '(') || (c == '['))
+        if ((c == '(') || (c == '[')) /* MW. Nedded by parse() */
             paren++;
         else if ((c == ')') || (c == ']'))
             paren--;
 
-        /* What else has to be decided, depending on c ?*/
         switch (c) {
 
-        /* new word to wordlist, when space or tab follow */
         case ' ':
         case '\t':
-            if (i > 0) {
-                buf[i] = '\0';
+            if (i > 0)
                 newword;
-            }
             break;
 
-        /* new word to wordlist, when \n follows */
         case '\n':
             if (i) {
                 buf[i] = '\0';
@@ -250,11 +219,9 @@ nloop:
                 append(NULL);
             goto done;
 
-        /* if ' read until next ' is hit, will form a new word,
-           but without the ' */
         case '\'':
             while (((c = cp_readchar(&string, cp_inp_cur)) != '\'') &&
-                (i < len - 1))
+                   (i < NEW_BSIZE_SP - 1))
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
@@ -264,16 +231,12 @@ nloop:
             linebuf[j++] = '\'';
             break;
 
-        /* if " or `, read until next " or ` is hit, will form a new word,
-           including the quotes.
-           In case of \, the next character gets the eights bit set. */
         case '"':
         case '`':
             d = c;
             buf[i++] = (char) d;
             while (((c = cp_readchar(&string, cp_inp_cur)) != d) &&
-                (i < len - 2))
-
+                   (i < NEW_BSIZE_SP - 2))
             {
                 if ((c == '\n') || (c == EOF) || (c == ESCAPE))
                     goto gotchar;
@@ -293,7 +256,6 @@ nloop:
 
         case '\004':
         case EOF:
-            /* upon command completion, not used actually */
             if (cp_interactive && !cp_nocc && !string) {
 
                 if (j == 0) {
@@ -319,8 +281,6 @@ nloop:
                 fputc(linebuf[j], cp_out);  /* But you can't edit */
 #endif
                 wlist = cw = NULL;
-                tfree(buf);
-                tfree(linebuf);
                 goto nloop;
             }
 
@@ -333,12 +293,9 @@ nloop:
             }
 
             wl_free(wlist);
-            tfree(buf);
-            tfree(linebuf);
             return NULL;
 
         case ESCAPE:
-            /* upon command completion, not used actually */
             if (cp_interactive && !cp_nocc) {
                 fputs("\b\b  \b\b\r", cp_out);
                 prompt();
@@ -352,8 +309,6 @@ nloop:
                 cp_ccom(wlist, buf, TRUE);
                 wl_free(wlist);
                 wlist = cw = NULL;
-                tfree(buf);
-                tfree(linebuf);
                 goto nloop;
             }
             goto ldefault;
@@ -406,8 +361,6 @@ nloop:
 done:
     if (wlist->wl_word)
         pwlist_echo(wlist, "Command>");
-    tfree(buf);
-    tfree(linebuf);
     return wlist;
 }
 
