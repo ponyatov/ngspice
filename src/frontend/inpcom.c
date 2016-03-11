@@ -6096,6 +6096,7 @@ inp_fix_temper_in_param(struct line *deck)
     inp_delete_funcs(funcs);
 }
 
+
 /* Convert .param lines containing function 'agauss' into .func lines:
 * .param xxx1 = 'temper + 25'  --->  .func xxx1() 'temper + 25'
 * Add info about the functions (name, subcircuit depth, number of
@@ -6263,9 +6264,9 @@ inp_fix_agauss_in_param(struct line *deck)
                 continue;
             }
 
-            /* if function is not at top level, 
-            exclude lines which do not have the same subcircuit
-            nesting depth and number as found in f */
+            /* if function is not at top level,
+               exclude lines which do not have the same subcircuit
+               nesting depth and number as found in f */
             if (f->subckt_depth > 0) {
                 if (subckt_depth != f->subckt_depth)
                     continue;
@@ -6317,7 +6318,6 @@ inp_fix_agauss_in_param(struct line *deck)
 }
 
 
-
 static char *
 inp_functionalise_identifier(char *curr_line, char *identifier)
 {
@@ -6360,10 +6360,12 @@ inp_new_func(char *funcname, char *funcbody, struct line *card,
 
     /* replace line in deck */
     new_str = tprintf(".func %s() %s", funcname, funcbody);
-/*    if (*funcbody == '{')
+/*
+    if (*funcbody == '{')
       new_str = tprintf(".func %s() %s", funcname, funcbody);
     else
-      new_str = tprintf(".func %s() {%s}", funcname, funcbody);*/
+      new_str = tprintf(".func %s() {%s}", funcname, funcbody);
+*/
     card->li_next = xx_new_line(card->li_next, new_str, 0, card->li_linenum);
     *card->li_line = '*';
 

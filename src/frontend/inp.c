@@ -41,8 +41,6 @@ Author: 1985 Wayne A. Christopher
 #include "numparam/numpaif.h"
 
 extern double gauss0(void);
-extern char *
-search_identifier(char *str, const char *identifier, char *str_begin);
 
 #define line_free(line, flag)                   \
     do {                                        \
@@ -1715,6 +1713,7 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
         (*wl) = (*wl)->wl_prev;
 }
 
+
 static double
 agauss(double nominal_val, double abs_variation, double sigma)
 {
@@ -1722,6 +1721,7 @@ agauss(double nominal_val, double abs_variation, double sigma)
     stdvar = abs_variation / sigma;
     return (nominal_val + stdvar * gauss0());
 }
+
 
 /* Second step to enable agauss in professional parameter decks:
  * agauss has been preserved by replacement operation of .func
@@ -1761,7 +1761,7 @@ eval_agauss_bsource(struct line *deck)
         if (*curr_line != 'b')
             continue;
 
-        while (ap = search_identifier(curr_line, "agauss", curr_line)) {
+        while ((ap = search_identifier(curr_line, "agauss", curr_line)) != NULL) {
             char *lparen, *rparen, *begstr, *contstr = NULL, *new_line, *midstr;
             char *tmp1str, *tmp2str;
             int nerror;
