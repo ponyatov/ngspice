@@ -524,7 +524,7 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         inp_fix_agauss_in_param(working);
 
         inp_fix_temper_in_param(working);
-        tprint(working);
+
         inp_expand_macros_in_deck(NULL, working);
 
         inp_fix_param_values(working);
