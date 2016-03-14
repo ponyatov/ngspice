@@ -6,12 +6,12 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/ngspice.h"
 #include "ngspice/cktdefs.h"
 #include "ngspice/sperror.h"
+#include "ngspice/cpextern.h"
 
 /* xmu=0:    Backward Euler
  * xmu=0.5:  trapezoidal (standard)
- * xmu=0.48: good damping of current ringing, e.g. in R.O.s.
+ * xmu=0.49: good damping of current ringing, e.g. in R.O.s.
  */
-#define xmu 0.5
 
 
 int
@@ -22,6 +22,7 @@ NIcomCof(CKTcircuit *ckt)
     int i,j,k;          /* generic loop indicies */
     double arg;
     double arg1;
+    double xmu = 0.5;
 
     /*  this routine calculates the timestep-dependent terms used in the
      *  numerical integration.
@@ -41,6 +42,12 @@ NIcomCof(CKTcircuit *ckt)
             break;
 
         case 2:
+            /* very experimental, to be used with care !
+             * 'set xmuext = 0.499' may already reduce
+             * trapezoidal ringing by introducing slight damping */
+            if (!cp_getvar("xmuext", CP_REAL, &xmu))
+                xmu = 0.5;
+
             ckt->CKTag[0] = 1.0 / ckt->CKTdelta / (1.0 - xmu);
             ckt->CKTag[1] = xmu / (1.0 - xmu);
             break;
