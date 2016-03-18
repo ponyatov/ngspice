@@ -6096,8 +6096,6 @@ inp_fix_temper_in_param(struct line *deck)
 * Then scan new_func, for each xxx1 scan all lines of deck,
 * find all xxx1 and convert them to a function:
 * xxx1   --->  xxx1()
-* If this happens to be in another .param line, convert it to .func,
-* add info to end of new_func and continue scanning.
 *
 * In a second step, after subcircuits have been expanded, all occurencies
 * of agauss in a b-line are replaced by their suitable value (function
@@ -6116,7 +6114,7 @@ inp_fix_agauss_in_param(struct line *deck)
     for (j = 0; j < 16; j++)
         sub_count[j] = 0;
 
-    /* first pass: determine all .param with temper inside and replace by .func
+    /* first pass: determine all .param with agauss inside and replace by .func
     .param xxx1 = 'agauss(x,y,z) * 25'
     will become
     .func xxx1() 'agauss(x,y,z) * 25'
@@ -6211,10 +6209,7 @@ inp_fix_agauss_in_param(struct line *deck)
     /* for each .func entry in `funcs' start the insertion operation:
     search each line from the deck which has the suitable subcircuit nesting data.
     for tokens xxx equalling the funcname, replace xxx by xxx().
-    if the replacement is done in a .param line then
-    convert it to a .func line and append an entry to `funcs'.
-    Continue up to the very end of `funcs'.
-    */
+     */
 
     for (f = funcs; f; f = f->next) {
 
@@ -6283,23 +6278,9 @@ inp_fix_agauss_in_param(struct line *deck)
             new_str = INPstrCat(firsttok_str, new_str, " ");
             new_str = inp_remove_ws(new_str);
 
-            /* if we have inserted into a .param line, convert to .func */
-            if (prefix(".param", new_str)) {
-                char *new_tmp_str = new_str;
-                txfree(gettok(&new_tmp_str));
-                funcname = gettok_char(&new_tmp_str, '=', FALSE, FALSE);
-                funcbody = copy(new_tmp_str + 1);
-                *funcs_tail_ptr =
-                    inp_new_func(funcname, funcbody, card, sub_count, subckt_depth);
-                funcs_tail_ptr = &(*funcs_tail_ptr)->next;
-                tfree(new_str);
-                tfree(funcbody);
-            }
-            else {
-                /* Or just enter new line into deck */
-                card->li_next = xx_new_line(card->li_next, new_str, 0, card->li_linenum);
-                *card->li_line = '*';
-            }
+            /* Enter new line into deck */
+            card->li_next = xx_new_line(card->li_next, new_str, 0, card->li_linenum);
+            *card->li_line = '*';
         }
     }
 
