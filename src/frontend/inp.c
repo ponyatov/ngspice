@@ -42,6 +42,7 @@ Author: 1985 Wayne A. Christopher
 #include "ngspice/stringskip.h"
 
 extern double gauss0(void);
+extern double drand(void);
 
 #define line_free(line, flag)                   \
     do {                                        \
@@ -59,7 +60,7 @@ static void inp_parse_temper_trees(void);
 
 static void inp_savecurrents(struct line *deck, struct line *options, wordlist **wl, wordlist *con);
 
-static void eval_agauss_bsource(struct line *deck);
+static void eval_agauss_bsource(struct line *deck, char *fcn);
 
 void line_free_x(struct line *deck, bool recurse);
 void create_circbyline(char *line);
@@ -603,7 +604,10 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
                 inp_parse_temper(deck);
 
             /* replace agauss(x,y,z) in each b-line by suitable value */
-            eval_agauss_bsource(deck);
+            static char *statfcn[] = { "agauss", "gauss", "aunif", "unif", "limit" };
+            int ii;
+            for (ii = 0; ii < 5; ii++)
+                eval_agauss_bsource(deck, statfcn[ii]);
 
             /* If user wants all currents saved (.options savecurrents), add .save 
             to wl_first with all terminal currents available on selected devices */
@@ -1706,6 +1710,35 @@ agauss(double nominal_val, double abs_variation, double sigma)
     return (nominal_val + stdvar * gauss0());
 }
 
+static double
+gauss(double nominal_val, double rel_variation, double sigma)
+{
+    double stdvar;
+    stdvar = nominal_val * rel_variation / sigma;
+    return (nominal_val + stdvar * gauss0());
+}
+
+
+static double
+unif(double nominal_val, double rel_variation)
+{
+    return (nominal_val + nominal_val * rel_variation * drand());
+}
+
+
+static double
+aunif(double nominal_val, double abs_variation)
+{
+    return (nominal_val + abs_variation * drand());
+}
+
+
+static double
+limit(double nominal_val, double abs_variation)
+{
+    return (nominal_val + (drand() > 0 ? abs_variation : -1. * abs_variation));
+}
+
 
 /* Second step to enable agauss in professional parameter decks:
  * agauss has been preserved by replacement operation of .func
@@ -1719,7 +1752,7 @@ agauss(double nominal_val, double abs_variation, double sigma)
  * of agauss() */
 
 static void
-eval_agauss_bsource(struct line *deck)
+eval_agauss_bsource(struct line *deck, char *fcn)
 {
     struct line *card;
     double x, y, z, val;
@@ -1746,7 +1779,7 @@ eval_agauss_bsource(struct line *deck)
         if (*curr_line != 'b')
             continue;
 
-        while ((ap = search_identifier(curr_line, "agauss", curr_line)) != NULL) {
+        while ((ap = search_identifier(curr_line, fcn, curr_line)) != NULL) {
             char *lparen, *rparen, *begstr, *contstr = NULL, *new_line, *midstr;
             char *tmp1str, *tmp2str;
             int nerror;
@@ -1765,8 +1798,31 @@ eval_agauss_bsource(struct line *deck)
             tmp2str = gettok(&tmp1str);
             y = INPevaluate(&tmp2str, &nerror, 0);
             tmp2str = gettok(&tmp1str);
-            z = INPevaluate(&tmp2str, &nerror, 0);
-            val = agauss(x, y, z);
+            if (cieq(fcn, "agauss")) {
+                z = INPevaluate(&tmp2str, &nerror, 0);
+                val = agauss(x, y, z);
+            }
+            else if (cieq(fcn, "gauss")) {
+                z = INPevaluate(&tmp2str, &nerror, 0);
+                val = gauss(x, y, z);
+            }
+            else if (cieq(fcn, "aunif")) {
+                val = aunif(x, y);
+            }
+            else if (cieq(fcn, "unif")) {
+                val = unif(x, y);
+            }
+            else if (cieq(fcn, "limit")) {
+                val = limit(x, y);
+            }
+            else {
+                fprintf(cp_err, "ERROR: Unknown function %s, cannot evaluate\n", fcn);
+                tfree(begstr);
+                tfree(contstr);
+                tfree(midstr);
+                return;
+            }
+
             new_line = tprintf("%s%g%s", begstr, val, contstr);
             tfree(card->li_line);
             curr_line = card->li_line = new_line;
