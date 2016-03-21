@@ -424,9 +424,11 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
 
             /* Put the first token from line into s */
             strncpy(name, dd->li_line, BSIZE_SP);
-            for (s = name; *s && isspace_c(*s); s++)
+            s = name;
+            for (; *s && isspace_c(*s); s++)
                 ;
-            for (t = s; *t && !isspace_c(*t); t++)
+            t = s;
+            for (; *t && !isspace_c(*t); t++)
                 ;
             *t = '\0';
 
@@ -817,7 +819,8 @@ inp_dodeck(
     if (!noparse) {
         struct line *opt_beg = options;
         for (; options; options = options->li_next) {
-            for (s = options->li_line; *s && !isspace_c(*s); s++)
+            s = options->li_line;
+            for (; *s && !isspace_c(*s); s++)
                 ;
 
             ii = cp_interactive;
@@ -998,7 +1001,8 @@ inp_dodeck(
     if (!noparse) {
         /*
          * for (; options; options = options->li_next) {
-         *     for (s = options->li_line; *s && !isspace_c(*s); s++)
+         *     s = options->li_line;
+         *     for (; *s && !isspace_c(*s); s++)
          *         ;
          *     ii = cp_interactive;
          *     cp_interactive = FALSE;
