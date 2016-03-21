@@ -113,8 +113,7 @@ com_let(wordlist *wl)
                 vec_free(t);
             free_pnode(names); /* frees also t, if pnode `names' is simple value */
 
-            s = q;
-            s = skip_ws(s);
+            s = skip_ws(q);
         }
     }
     /* vector name at p */
@@ -138,9 +137,7 @@ com_let(wordlist *wl)
     let xyz = [3 -5.7 0.6]
     If found, xyz is created or overwritten by a new vector, either empty
     with length 0, or with length and values given by [3 -5.7 0.6] */
-    char *br = rhs;
-    /* skip leading spaces */
-    br = skip_ws(br);
+    char *br = skip_ws(rhs);
     if (*br == '[') {
         /* we may have [...] */
         char *cr, *tok;
