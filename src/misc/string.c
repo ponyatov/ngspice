@@ -301,8 +301,7 @@ gettok(char **s)
     char *beg, *token ;				/* return token */
 
     paren = 0;
-    while (isspace_c(**s))
-        (*s)++;
+    TEMPORARY_SKIP_WS_X1(*s);
     if (!**s)
         return (NULL);
     beg = *s ;
@@ -376,8 +375,7 @@ gettok_noparens(char **s)
     char c;
     char *beg, *token ;				/* return token */
 
-    while ( isspace_c(**s) )
-        (*s)++;   /* iterate over whitespace */
+    TEMPORARY_SKIP_WS_X1(*s);
 
     if (!**s)
         return (NULL);  /* return NULL if we come to end of line */
@@ -395,8 +393,7 @@ gettok_noparens(char **s)
     token = copy_substring(beg, *s) ;
 
     /* Now iterate up to next non-whitespace char */
-    while ( isspace_c(**s) )
-        (*s)++;  
+    TEMPORARY_SKIP_WS_X1(*s);
 
     return ( token ) ;
 }
@@ -407,8 +404,7 @@ gettok_instance(char **s)
     char c;
     char *beg, *token ;				/* return token */
 
-    while ( isspace_c(**s) )
-        (*s)++;   /* iterate over whitespace */
+    TEMPORARY_SKIP_WS_X1(*s);
 
     if (!**s)
         return (NULL);  /* return NULL if we come to end of line */
@@ -425,8 +421,7 @@ gettok_instance(char **s)
     token = copy_substring(beg, *s) ;
 
     /* Now iterate up to next non-whitespace char */
-    while ( isspace_c(**s) )
-        (*s)++;  
+    TEMPORARY_SKIP_WS_X1(*s);
 
     return ( token ) ;
 }
@@ -443,8 +438,7 @@ gettok_char(char **s, char p, bool inc_p, bool nested)
     char c;
     char *beg, *token ;				/* return token */
 
-    while ( isspace_c(**s) )
-        (*s)++;   /* iterate over whitespace */
+    TEMPORARY_SKIP_WS_X1(*s);
 
     if (!**s)
         return (NULL);  /* return NULL if we come to end of line */
@@ -491,8 +485,7 @@ gettok_char(char **s, char p, bool inc_p, bool nested)
     token = copy_substring(beg, *s) ;
 
     /* Now iterate up to next non-whitespace char */
-    while ( isspace_c(**s) )
-        (*s)++;  
+    TEMPORARY_SKIP_WS_X1(*s);
 
     return ( token ) ;
 }
@@ -689,7 +682,7 @@ get_comma_separated_values( char *values[], char *str ) {
     values[count++] = strdup(str);
     *ptr = keep;
     str = comma_ptr + 1;
-    while ( isspace_c(*str) ) str++;
+    TEMPORARY_SKIP_WS_X1(str);
   }
   values[count++] = strdup(str);
   return count;
