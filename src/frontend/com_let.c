@@ -114,7 +114,7 @@ com_let(wordlist *wl)
             free_pnode(names); /* frees also t, if pnode `names' is simple value */
 
             s = q;
-            TEMPORARY_SKIP_WS_X1(s);
+            s = TEMPORARY_SKIP_WS_X1(s);
         }
     }
     /* vector name at p */
@@ -140,7 +140,7 @@ com_let(wordlist *wl)
     with length 0, or with length and values given by [3 -5.7 0.6] */
     char *br = rhs;
     /* skip leading spaces */
-    TEMPORARY_SKIP_WS_X1(br);
+    br = TEMPORARY_SKIP_WS_X1(br);
     if (*br == '[') {
         /* we may have [...] */
         char *cr, *tok;
