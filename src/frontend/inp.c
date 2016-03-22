@@ -1750,6 +1750,7 @@ limit(double nominal_val, double abs_variation)
  * So we have to do the following in each B-line:
  * check for agauss(x,y,z), and replace it by a suitable return value
  * of agauss() */
+
 static void
 eval_agauss_bsource(struct line *deck, char *fcn)
 {

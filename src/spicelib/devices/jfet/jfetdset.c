@@ -94,7 +94,7 @@ JFETdSetup(GENmodel *inModel, CKTcircuit *ckt)
 
 	    if (vds < 0.0) {
 		vds = -vds;
-                SWAP(double, vgs, vgd);
+		SWAP(double, vgs, vgd);
 		/* so now these have become the local variables */
 		here->JFETmode = -1;
 		} else {

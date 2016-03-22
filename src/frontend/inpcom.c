@@ -523,7 +523,6 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         inp_fix_temper_in_param(working);
 
         inp_expand_macros_in_deck(NULL, working);
-
         inp_fix_param_values(working);
 
         inp_reorder_params(subckt_w_params, cc);
@@ -6107,7 +6106,6 @@ inp_fix_temper_in_param(struct line *deck)
 * eval_agauss_bsource() in inp.c).
 */
 
-
 static void
 inp_fix_agauss_in_param(struct line *deck, char *fcn)
 {
@@ -6340,9 +6338,9 @@ inp_new_func(char *funcname, char *funcbody, struct line *card,
     new_str = tprintf(".func %s() %s", funcname, funcbody);
 /*
     if (*funcbody == '{')
-      new_str = tprintf(".func %s() %s", funcname, funcbody);
+        new_str = tprintf(".func %s() %s", funcname, funcbody);
     else
-      new_str = tprintf(".func %s() {%s}", funcname, funcbody);
+        new_str = tprintf(".func %s() {%s}", funcname, funcbody);
 */
     card->li_next = xx_new_line(card->li_next, new_str, 0, card->li_linenum);
     *card->li_line = '*';
