@@ -20,7 +20,6 @@ void appendc(char *s, char c);
 int scannum(char *str);
 int cieq(const char *p, const char *s);
 int ciprefix(const char *p, const char *s);
-int cisymprefix(const char *p, const char *s);
 void strtolower(char *str);
 void strtoupper(char *str);
 char * stripWhiteSpacesInsideParens(char *str);

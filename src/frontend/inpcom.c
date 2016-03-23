@@ -865,7 +865,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
                 char t = ' ';
                 for (s = buffer; *s && (*s != '\n'); s++) {
                     *s = tolower_c(*s);
-                    if (cisymprefix("title", s)) {
+                    if (ciprefix("title", s)) {
                         /* jump beyond title */
                         for (j = 0; j < 5; j++) {
                             s++;
@@ -891,7 +891,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
                         while ((*s != '\n') && (*s != t))
                             s++;
                     }
-                    else if (cisymprefix("xlabel", s) || cisymprefix("ylabel", s)) {
+                    else if (ciprefix("xlabel", s) || ciprefix("ylabel", s)) {
                         /* jump beyond xlabel, ylabel */
                         for (j = 0; j < 6; j++) {
                             s++;
