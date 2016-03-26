@@ -324,11 +324,11 @@ cp_istrue(wordlist *wl)
     v = ft_evaluate(names);
     /* rv=1 if at least one vector element differs from 0 */
     rv = !vec_iszero(v);
-    /* free v, if pnode names is no simple value, but a new vector */
-    if (v != NULL && names->pn_value == NULL)
+
+    /* va: garbage collection for v, if pnode names is no simple value */
+    if (names && !names->pn_value && v)
         vec_free(v);
-    /* free also v, if pnode names is simple value */
-    free_pnode(names);
+    free_pnode(names); /* free also v, if pnode names is simple value */
 
     return rv;
 }
