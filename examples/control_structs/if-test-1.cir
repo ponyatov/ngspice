@@ -1,42 +1,78 @@
 test if conditions
-* use $batchmode variable to steer control flow
-* start either with ngspice -b -r rawfile.raw if-test-1.cir
-* or with ngspice if-test-1.cir
-v0 1 0  1
-R 1 2 1
-C 2 0 1m
-.tran 100u 10m uic
 
-.print tran all
+* test behaviour in special circumstances
+
+v1  1 0  dc 42
+R1  1 0  1k
+
+
 .control
-* just some tests
-let iv = 3.5
-if iv = 3.3
-  echo first true not o.k.
-else
-  echo first false o.k.
-end
-if iv = 3.5
-  echo second true o.k
-else
-  echo second false not o.k.
-end
-if $?batchmode
-  echo batch mode is set by -b
-else
-  echo no batch mode
-end
-* simulation starts here
-echo
-if $?batchmode
-  echo batch mode
-else
-  unset ngdebug
-  echo control mode
-  tran 100u 10m uic
-  plot v(2)
-end
 
+echo "expect Error: missing if condition"
+* does not enter cp_istrue()
+if
+  echo "FAIL: you should not see this"
+else
+  echo "nonetheless evaluated as FALSE"
+end
+echo
+
+set testvar_b=""
+echo "expect |false|"
+* in cp_istrue(): wl!=NULL names==NULL v==NULL
+if $testvar_b
+  echo "FAIL: you should not see this"
+else
+  echo "|false|"
+end
+echo
+
+set testvar_c
+echo "expect testvar_c=|TRUE|"
+* in cp_istrue(): wl!=NULL names!=NULL v!=NULL
+if $testvar_c
+  echo "testvar_c=|$testvar_c|"
+end
+echo
+
+echo "expect Error: testvar_d: no such variable."
+* in cp_istrue(): wl!=NULL then wl==NULL names==NULL v==NULL
+if $testvar_d
+  echo "FAIL: you should not see this"
+else
+  echo "nonetheless evaluated as FALSE"
+end
+echo
+
+echo "expect Error(parse.c--checkvalid): testvar_e: no such vector."
+* in cp_istrue(): wl!=NULL names==NULL v==NULL
+if testvar_e = 3.3
+  echo "FAIL: you should not see this"
+else
+  echo "nonetheless evaluated as FALSE"
+end
+echo
+
+let testvar_f = 3.5
+
+echo "expect |false|"
+if testvar_f = 3.3
+  echo "FAIL: you should not see this"
+else
+  echo "|false|"
+end
+echo
+
+echo "expect |true|"
+if testvar_f = 3.5
+  echo "|true|"
+else
+  echo "FAIL: you should not see this"
+end
+echo
+
+op
+print v(1)
 
 .endc
 .end
