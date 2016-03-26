@@ -294,9 +294,10 @@ ft_cpinit(void)
 }
 
 
-/* Returns TRUE if condition is TRUE, or if a variable type BOOL is set.
-   Returns FALSE in all other cases: condition not met, vector or
-   variable not defined, condition not even given. */
+/* Decide whether a condition is TRUE or not.
+ * In erroneous situations the condition shall evaluate to FALSE
+ *   additionally error messages might have been printed.
+ */
 
 bool
 cp_istrue(wordlist *wl)
@@ -308,21 +309,24 @@ cp_istrue(wordlist *wl)
     /* First do all the csh-type stuff here... */
     wl = wl_copy(wl);
     wl = cp_variablesubst(wl);
-    /* if variable does not exist, return FALSE */
+    /* return FALSE if this did not expand to anything */
     if (!wl)
         return FALSE;
     /* backquote '`' substitution */
     wl = cp_bquote(wl);
     /* strip bit number eight */
     cp_striplist(wl);
-    /* parse the condition expression */
+
+    /* parse the condition */
     names = ft_getpnames(wl, TRUE);
     wl_free(wl);
-    /* evaluate the expression,
-       return a vector with v_realdata 1.
-       if condition is met, otherwise 0. */
+
+    /* evaluate the parsed condition.
+     * boolean expressions evaluate to real 1.0 or 0.0 */
     v = ft_evaluate(names);
-    /* rv=1 if at least one vector element differs from 0 */
+
+    /* non boolean expressions will be considered TRUE
+     * if at least one real or complex vector element is non zero */
     rv = !vec_iszero(v);
 
     /* va: garbage collection for v, if pnode names is no simple value */
