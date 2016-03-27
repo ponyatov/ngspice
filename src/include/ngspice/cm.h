@@ -45,17 +45,14 @@ NON-STANDARD FEATURES
 #include "ngspice/cmproto.h"
 #include "ngspice/mifcmdat.h"
 
-#if defined (_MSC_VER)
-#ifndef NAN
+#if !defined(NAN)
+#if defined(_MSC_VER) && (_MSC_VER < 1800) /* NAN not defined for VS 2012 or less */
     static const __int64 global_nan = 0x7ff8000000000000i64;
     #define NAN (*(const double *) &global_nan)
-#endif
-#endif
-
-#if !defined(NAN)
+#else
 #define NAN (0.0/0.0)
 #endif
-
+#endif
 
 /*
  * type safe variants of the <ctype.h> functions for char arguments
