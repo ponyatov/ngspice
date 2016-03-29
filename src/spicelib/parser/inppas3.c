@@ -68,7 +68,10 @@ INPpas3(CKTcircuit *ckt, card *data, INPtables *tab, TSKtask *task,
             for(;;) {
                 /* loop until we run out of data */
                 INPgetTok(&line,&name,1);
-                if( *name == '\0') break; /* end of line */
+                if( *name == '\0') {
+                    FREE(name);
+                    break; /* end of line */
+                }
 
                 /* If we have 'all = value' , then set all voltage nodes to 'value',
                    except for ground node at node->number 0 */
@@ -78,19 +81,23 @@ INPpas3(CKTcircuit *ckt, card *data, INPtables *tab, TSKtask *task,
                         if ((node1->type == SP_VOLTAGE) && (node1->number > 0))
                             IFC(setNodeParm, (ckt, node1, which, &ptemp, NULL));
                     }
+                    FREE(name);
                     break;
                 }
                 /* check to see if in the form V(xxx) and grab the xxx */
                 if( (*name == 'V' || *name == 'v') && !name[1] ) {
                     /* looks like V - must be V(xx) - get xx now*/
-                    INPgetTok(&line,&name,1);
-                    if (INPtermInsert(ckt,&name,tab,&node1)!=E_EXISTS)
+                    char *nodename;
+                    INPgetTok(&line,&nodename,1);
+                    if (INPtermInsert(ckt,&nodename,tab,&node1)!=E_EXISTS)
                         fprintf(stderr,
-                                "Warning : Nodeset on non-existant node - %s\n", name);
+                                "Warning : Nodeset on non-existant node - %s\n", nodename);
                     ptemp.rValue = INPevaluate(&line,&error,1);
                     IFC(setNodeParm, (ckt, node1, which, &ptemp, NULL));
+                    FREE(name);
                     continue;
                 }
+                FREE(name);
                 LITERR(" Error: .nodeset syntax error.\n");
                 break;
             }
@@ -119,15 +126,18 @@ INPpas3(CKTcircuit *ckt, card *data, INPtables *tab, TSKtask *task,
                 }
                 if( (*name == 'V' || *name == 'v') && !name[1] ) {
                     /* looks like V - must be V(xx) - get xx now*/
-                    INPgetTok(&line,&name,1);
-                    if (INPtermInsert(ckt,&name,tab,&node1)!=E_EXISTS)
+                    char *nodename;
+                    INPgetTok(&line,&nodename,1);
+                    if (INPtermInsert(ckt,&nodename,tab,&node1)!=E_EXISTS)
                         fprintf(stderr,
-                                "Warning : IC on non-existant node - %s\n", name);
+                                "Warning : IC on non-existant node - %s\n", nodename);
                     ptemp.rValue = INPevaluate(&line,&error,1);
                     IFC(setNodeParm, (ckt, node1, which, &ptemp, NULL));
+                    FREE(name);
                     continue;
                 }
                 LITERR(" Error: .ic syntax error.\n");
+                FREE(name);
                 break;
             }
         }
