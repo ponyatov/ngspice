@@ -46,11 +46,12 @@ NON-STANDARD FEATURES
 #include "ngspice/mifcmdat.h"
 
 #if !defined(NAN)
-#if defined(_MSC_VER) && (_MSC_VER < 1800) /* NAN not defined for VS 2012 or less */
+#if defined(_MSC_VER) && (_MSC_VER < 1800)
+    /* VS 2012 or less cannot evaluate 0.0/0.0 */
     static const __int64 global_nan = 0x7ff8000000000000i64;
     #define NAN (*(const double *) &global_nan)
 #else
-#define NAN (0.0/0.0)
+    #define NAN (0.0/0.0)
 #endif
 #endif
 
