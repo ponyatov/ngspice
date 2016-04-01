@@ -7,7 +7,6 @@
 #define ngspice_CKTDEFS_H
 
 #include "ngspice/typedefs.h"
-#include "ngspice/config.h"
 
 
 /* gtri - evt - wbk - 5/20/91 - add event-driven and enhancements data */
