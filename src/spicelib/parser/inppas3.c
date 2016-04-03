@@ -98,8 +98,8 @@ INPpas3(CKTcircuit *ckt, card *data, INPtables *tab, TSKtask *task,
                     FREE(name);
                     continue;
                 }
-                FREE(name);
                 LITERR(" Error: .nodeset syntax error.\n");
+                FREE(name);
                 break;
             }
         } else if ((strcmp(token,".ic") == 0)) {
