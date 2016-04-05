@@ -1,6 +1,7 @@
 *****************==== 17-Stage CMOS RO ====*******************
 *********** Benchmarking Implementation of BSIM4 by Jane Xi 11/05/2002.
 ***************** current measurement improved by setting xmuext
+* (exec-spice "ngspice %s" t)
 
 vdd 1 0 2.0
 mp1 3 2 1 1 p1 l=0.1u w=10u ad=5p pd=6u as=5p ps=6u
@@ -53,7 +54,8 @@ c1 18 0 .1p
 
 .control
 *reduce current ringing
-set xmuext=0.49
+set xmu=0.49
+* option xmu possible too ? and .option and ... ???
 set num_threads=4
 set noinit
 run
