@@ -113,7 +113,6 @@ CKTsetOpt(CKTcircuit *ckt, JOB *anal, int opt, IFvalue *val)
         task->TSKbypass = val->iValue;
         break;
     case OPT_XMU:
-        fprintf(stderr, "CKTsetOpt, OPT_XMU = %g\n", val->rValue);
         task->TSKxmu = val->rValue;
         break;
     case OPT_MAXORD:

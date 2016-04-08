@@ -40,7 +40,6 @@ NIcomCof(CKTcircuit *ckt)
             break;
 
         case 2:
-            fprintf(stderr, "NIcomCof, CKTxmu = %g\n", ckt->CKTxmu);
             ckt->CKTag[0] = 1.0 / ckt->CKTdelta / (1.0 - ckt->CKTxmu);
             ckt->CKTag[1] = ckt->CKTxmu / (1.0 - ckt->CKTxmu);
             break;
