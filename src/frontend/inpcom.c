@@ -6526,7 +6526,8 @@ inp_meas_current(struct line *deck)
                         get_r_paren(&u);
                         /* token containing name of devices to be measured */
                         t = copy_substring(s, --u);
-                        printf("i(%s) found in \n%s\n\n", t, curr_line);
+                        if (ft_ngdebug)
+                            printf("i(%s) found in \n%s\n\n", t, curr_line);
 
                         /* new entry to the end of struct rep */
                         new_rep = TMALLOC(struct replace_currm, 1);
@@ -6543,7 +6544,8 @@ inp_meas_current(struct line *deck)
                         /* change line, convert i(XXX) to i(v_XXX) */
                         beg_str = copy_substring(v, s);
                         new_str = tprintf("%s%s%s", beg_str, "v_", s);
-                        printf("converted to \n%s\n\n", new_str);
+                        if (ft_ngdebug)
+                            printf("converted to \n%s\n\n", new_str);
                         tfree(curr_line);
                         tfree(v);
                         card->li_line = s = v = new_str;
