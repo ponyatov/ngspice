@@ -577,7 +577,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
                 /* read table core from cFile, fill local static table structure table_data */
                 cnv_get_spice_value(token, &tmpval);
-                table_data[lLineCount - 1][i++] = (float) tmpval; /* fixme (float) */
+                table_data[lLineCount - 1][i++] = tmpval;
                 free(token);
                 token = CNVgettok(&cThisLinePtr);
             }
