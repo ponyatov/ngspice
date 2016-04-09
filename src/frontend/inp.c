@@ -1124,7 +1124,7 @@ com_edit(wordlist *wl)
 
     fprintf(cp_out, "run circuit? ");
     fflush(cp_out);
-    fgets(buf, BSIZE_SP, stdin); /* fixme, com_edit, io, no use in sharedspice anyway */
+    fgets(buf, BSIZE_SP, stdin);
     if (buf[0] != 'n') {
         fprintf(cp_out, "running circuit\n");
         com_run(NULL);
