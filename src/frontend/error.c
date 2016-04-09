@@ -55,7 +55,6 @@ ft_sperror(int code, char *mess)
 {
     char *errstring = if_errstring(code);
     fprintf(cp_err, "%s: %s\n", mess, errstring);
-    /* free memory allocated in INPerror() */
     tfree(errstring);
 }
 
