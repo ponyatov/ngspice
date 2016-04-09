@@ -550,7 +550,7 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         /* get max. line length and number of lines in input deck,
            and renumber the lines,
            count the number of '{' per line as an upper estimate of the number
-           of parameter substitutions in a line*/
+           of parameter substitutions in a line */
         dynmaxline = 0;
         max_line_length = 0;
         no_braces = 0;
@@ -826,7 +826,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
 
         /* loop through 'buffer' until end is reached. Make all letters lower
          * case except for the commands given below. Special treatment for
-         * commands 'hardcopy' and 'plot', wehre all letters are made lower
+         * commands 'hardcopy' and 'plot', where all letters are made lower
          * case except for the tokens following xlabel, ylabel and title.
          * These tokens may contain spaces, if they are enclosed in single or
          * double quotes. Single quotes are later on swallowed and disappear,
@@ -1389,6 +1389,15 @@ inp_chk_for_multi_in_vcvs(struct line *c, int *line_number)
 }
 
 
+/* If ngspice is started with option -a, a variable 'autorun'
+ * is set and the following function scans the deck.
+ * If 'run' is not found, a .control section will be added:
+ * .control
+ * run
+ * op              ; if .op is found
+ * write rawfile   ; if rawfile given
+ * .endc
+ */
 static void
 inp_add_control_section(struct line *deck, int *line_number)
 {
@@ -1455,8 +1464,8 @@ inp_add_control_section(struct line *deck, int *line_number)
 }
 
 
-// look for shell-style end-of-line continuation '\\'
-
+/* look for shell-style end-of-line continuation '\\',
+ * If found, replace by double space ' ' and return TRUE */
 static bool
 chk_for_line_continuation(char *line)
 {
@@ -5825,6 +5834,10 @@ inp_poly_err(struct line *card)
 #endif
 
 
+/* Used for debugging: add
+ * tprint(working);
+ * manually in between lines 490 and 560 of this file
+ * to obtain an printout to file tprint-out.txt of the actual deck */
 void
 tprint(struct line *t)
 {
@@ -6086,6 +6099,8 @@ inp_fix_temper_in_param(struct line *deck)
 }
 
 
+/* add () to each token 'identifier' in line 'curr_line',
+ * if not already there */
 static char *
 inp_functionalise_identifier(char *curr_line, char *identifier)
 {
