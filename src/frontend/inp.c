@@ -1406,7 +1406,6 @@ static struct pt_temper *devtlist = NULL;
        wordlist, com_alter(mod) is called to set the new parameters
        to the model parameters or device instance parameters.
 */
-
 static int
 inp_parse_temper(struct line *card)
 {
@@ -1739,8 +1738,8 @@ limit(double nominal_val, double abs_variation)
     return (nominal_val + (drand() > 0 ? abs_variation : -1. * abs_variation));
 }
 
-
-/* Second step to enable agauss in professional parameter decks:
+/* Second step to enable functions agauss, gauss, aunif, unif, limit
+ * in professional parameter decks:
  * agauss has been preserved by replacement operation of .func
  * (function inp_fix_agauss_in_param() in inpcom.c).
  * After subcircuit expansion, agauss may be still existing in b-lines,
@@ -1750,7 +1749,6 @@ limit(double nominal_val, double abs_variation)
  * So we have to do the following in each B-line:
  * check for agauss(x,y,z), and replace it by a suitable return value
  * of agauss() */
-
 static void
 eval_agauss_bsource(struct line *deck, char *fcn)
 {

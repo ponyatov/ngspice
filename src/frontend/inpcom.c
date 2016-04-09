@@ -6093,8 +6093,9 @@ inp_fix_temper_in_param(struct line *deck)
 }
 
 
-/* Convert .param lines containing function 'agauss' into .func lines:
-* .param xxx1 = 'temper + 25'  --->  .func xxx1() 'temper + 25'
+/* Convert .param lines containing function 'agauss' and others
+*  (function name handed over by *fcn),  into .func lines:
+* .param xxx1 = 'aunif()'  --->  .func xxx1() 'aunif()'
 * Add info about the functions (name, subcircuit depth, number of
 * subckt) to linked list new_func.
 * Then scan new_func, for each xxx1 scan all lines of deck,
@@ -6105,7 +6106,6 @@ inp_fix_temper_in_param(struct line *deck)
 * of agauss in a b-line are replaced by their suitable value (function
 * eval_agauss_bsource() in inp.c).
 */
-
 static void
 inp_fix_agauss_in_param(struct line *deck, char *fcn)
 {
@@ -6192,9 +6192,9 @@ inp_fix_agauss_in_param(struct line *deck, char *fcn)
 
             if (temper < equal_ptr) {
                 fprintf(stderr,
-                    "Error: you cannot assign a value to TEMPER\n"
+                    "Error: you cannot assign a value to %s\n"
                     "  Line no. %d, %s\n",
-                    card->li_linenum, curr_line);
+                    fcn, card->li_linenum, curr_line);
                 controlled_exit(EXIT_BAD);
             }
 
