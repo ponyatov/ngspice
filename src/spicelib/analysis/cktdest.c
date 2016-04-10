@@ -97,6 +97,81 @@ Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node)
 }
 
 
+static void
+Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt)
+{
+    Evt_Node_Data_t *node_data = evt->data.node;
+    int i;
+
+    if (!node_data)
+        return;
+
+    for (i = 0; i < evt->counts.num_nodes; i++) {
+        Evt_Node_Info_t *info = evt->info.node_table[i];
+        Evt_Node_t *node;
+        node = node_data->head[i];
+        while (node) {
+            Evt_Node_t *next = node->next;
+            Evt_Node_destroy(info, node);
+            tfree(node);
+            node = next;
+        }
+        node = node_data->free[i];
+        while (node) {
+            Evt_Node_t *next = node->next;
+            Evt_Node_destroy(info, node);
+            tfree(node);
+            node = next;
+        }
+    }
+    tfree(node_data->head);
+    tfree(node_data->tail);
+    tfree(node_data->last_step);
+    tfree(node_data->free);
+
+    tfree(node_data->modified);
+    tfree(node_data->modified_index);
+
+    for (i = 0; i < evt->counts.num_nodes; i++) {
+        Evt_Node_Info_t *info = evt->info.node_table[i];
+        Evt_Node_destroy(info, &(node_data->rhs[i]));
+        Evt_Node_destroy(info, &(node_data->rhsold[i]));
+    }
+
+    tfree(node_data->rhs);
+    tfree(node_data->rhsold);
+    tfree(node_data->total_load);
+}
+
+
+static void
+Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt)
+{
+    Evt_Msg_Data_t *msg_data = evt->data.msg;
+    int i;
+
+    if (!msg_data)
+        return;
+
+    for (i = 0; i < evt->counts.num_ports; i++) {
+        Evt_Msg_t *msg = msg_data->head[i];
+        while (msg) {
+            Evt_Msg_t *next = msg->next;
+            tfree(msg);
+            msg = next;
+        }
+    }
+
+    tfree(msg_data->head);
+    tfree(msg_data->tail);
+    tfree(msg_data->last_step);
+    tfree(msg_data->free);
+
+    tfree(msg_data->modified);
+    tfree(msg_data->modified_index);
+}
+
+
 static int
 evt_dest(Evt_Ckt_Data_t *evt)
 {
@@ -109,11 +184,6 @@ evt_dest(Evt_Ckt_Data_t *evt)
 
     Evt_State_Data_t    *state_data;
     Evt_State_t         *statenext, *state;
-
-    Evt_Node_Data_t     *node_data;
-
-    Evt_Msg_Data_t      *msg_data;
-    Evt_Msg_t           *msg, *msgnext;
 
     Evt_Inst_Event_t    *here;
     Evt_Inst_Event_t    *next;
@@ -129,9 +199,7 @@ evt_dest(Evt_Ckt_Data_t *evt)
     node_queue = &(evt->queue.node);
     inst_queue = &(evt->queue.inst);
 
-    node_data = evt->data.node;
     state_data = evt->data.state;
-    msg_data = evt->data.msg;
 
     /* instance queue */
     for (i = 0; i < evt->counts.num_insts; i++) {
@@ -223,65 +291,8 @@ evt_dest(Evt_Ckt_Data_t *evt)
         tfree(state_data->desc);
     }
 
-    /* node data */
-    /* only if digital nodes are there */
-    if (node_data) {
-        for (i = 0; i < evt->counts.num_nodes; i++) {
-            Evt_Node_Info_t *info = evt->info.node_table[i];
-            Evt_Node_t *node;
-            node = node_data->head[i];
-            while (node) {
-                Evt_Node_t *next = node->next;
-                Evt_Node_destroy(info, node);
-                tfree(node);
-                node = next;
-            }
-            node = node_data->free[i];
-            while (node) {
-                Evt_Node_t *next = node->next;
-                Evt_Node_destroy(info, node);
-                tfree(node);
-                node = next;
-            }
-        }
-        tfree(node_data->head);
-        tfree(node_data->tail);
-        tfree(node_data->last_step);
-        tfree(node_data->free);
-
-        tfree(node_data->modified);
-        tfree(node_data->modified_index);
-
-        for (i = 0; i < evt->counts.num_nodes; i++) {
-            Evt_Node_Info_t *info = evt->info.node_table[i];
-            Evt_Node_destroy(info, &(node_data->rhs[i]));
-            Evt_Node_destroy(info, &(node_data->rhsold[i]));
-        }
-        tfree(node_data->rhs);
-        tfree(node_data->rhsold);
-        tfree(node_data->total_load);
-    }
-
-    /* msg data */
-
-    if (msg_data) {
-        for (i = 0; i < evt->counts.num_ports; i++) {
-            msg = msg_data->head[i];
-            while (msg) {
-                msgnext = msg->next;
-                tfree(msg);
-                msg = msgnext;
-            }
-        }
-
-        tfree(msg_data->head);
-        tfree(msg_data->tail);
-        tfree(msg_data->last_step);
-        tfree(msg_data->free);
-
-        tfree(msg_data->modified);
-        tfree(msg_data->modified_index);
-    }
+    Evt_Node_Data_destroy(evt);
+    Evt_Msg_Data_destroy(evt);
 
     tfree(evt->data.node);
     tfree(evt->data.state);
