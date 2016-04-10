@@ -183,13 +183,6 @@ evt_dest(Evt_Ckt_Data_t *evt)
     Evt_Inst_Queue_t    *inst_queue;
 
     Evt_State_Data_t    *state_data;
-    Evt_State_t         *statenext, *state;
-
-    Evt_Inst_Event_t    *here;
-    Evt_Inst_Event_t    *next;
-
-    Evt_Output_Event_t  *outhere;
-    Evt_Output_Event_t  *outnext;
 
     /* Exit immediately if no event-driven instances in circuit */
     if (evt->counts.num_insts == 0)
@@ -203,11 +196,11 @@ evt_dest(Evt_Ckt_Data_t *evt)
 
     /* instance queue */
     for (i = 0; i < evt->counts.num_insts; i++) {
-        here = inst_queue->head[i];
-        while (here) {
-            next = here->next;
-            tfree(here);
-            here = next;
+        Evt_Inst_Event_t *event = inst_queue->head[i];
+        while (event) {
+            Evt_Inst_Event_t *next = event->next;
+            tfree(event);
+            event = next;
         }
     }
     tfree(inst_queue->head);
@@ -231,19 +224,20 @@ evt_dest(Evt_Ckt_Data_t *evt)
 
     /* output queue */
     for (i = 0; i < evt->counts.num_outputs; i++) {
-        outhere = output_queue->head[i];
-        while (outhere) {
-            outnext = outhere->next;
-            tfree(outhere->value);
-            tfree(outhere);
-            outhere = outnext;
+        Evt_Output_Event_t *event;
+        event = output_queue->head[i];
+        while (event) {
+            Evt_Output_Event_t *next = event->next;
+            tfree(event->value);
+            tfree(event);
+            event = next;
         }
-        outhere = output_queue->free[i];
-        while (outhere) {
-            outnext = outhere->next;
-            tfree(outhere->value);
-            tfree(outhere);
-            outhere = outnext;
+        event = output_queue->free[i];
+        while (event) {
+            Evt_Output_Event_t *next = event->next;
+            tfree(event->value);
+            tfree(event);
+            event = next;
         }
     }
     tfree(output_queue->head);
@@ -259,15 +253,14 @@ evt_dest(Evt_Ckt_Data_t *evt)
     tfree(output_queue->changed);
 
     /* state data */
-    /* only if digital states are there */
     if (state_data) {
         for (i = 0; i < evt->counts.num_insts; i++) {
-            state = state_data->head[i];
+            Evt_State_t *state = state_data->head[i];
             while (state) {
-                statenext = state->next;
+                Evt_State_t *next = state->next;
                 tfree(state->block);
                 tfree(state);
-                state = statenext;
+                state = next;
             }
         }
 
