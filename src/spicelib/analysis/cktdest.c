@@ -81,6 +81,22 @@ CKTdestroy(CKTcircuit *ckt)
 }
 
 #ifdef XSPICE
+
+static void
+Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node)
+{
+    tfree(node->node_value);
+    tfree(node->inverted_value);
+
+    if (node->output_value) {
+        int k = info->num_outputs;
+        while (--k >= 0)
+            tfree(node->output_value[k]);
+        tfree(node->output_value);
+    }
+}
+
+
 static int
 evt_dest(Evt_Ckt_Data_t *evt)
 {
@@ -95,9 +111,6 @@ evt_dest(Evt_Ckt_Data_t *evt)
     Evt_State_t         *statenext, *state;
 
     Evt_Node_Data_t     *node_data;
-    Evt_Node_t          *rhs, *rhsnext;
-
-    Evt_Node_t          *node, *nodenext;
 
     Evt_Msg_Data_t      *msg_data;
     Evt_Msg_t           *msg, *msgnext;
@@ -214,21 +227,21 @@ evt_dest(Evt_Ckt_Data_t *evt)
     /* only if digital nodes are there */
     if (node_data) {
         for (i = 0; i < evt->counts.num_nodes; i++) {
+            Evt_Node_Info_t *info = evt->info.node_table[i];
+            Evt_Node_t *node;
             node = node_data->head[i];
             while (node) {
-                nodenext = node->next;
-                tfree(node->node_value);
-                tfree(node->inverted_value);
+                Evt_Node_t *next = node->next;
+                Evt_Node_destroy(info, node);
                 tfree(node);
-                node = nodenext;
+                node = next;
             }
             node = node_data->free[i];
             while (node) {
-                nodenext = node->next;
-                tfree(node->node_value);
-                tfree(node->inverted_value);
+                Evt_Node_t *next = node->next;
+                Evt_Node_destroy(info, node);
                 tfree(node);
-                node = nodenext;
+                node = next;
             }
         }
         tfree(node_data->head);
@@ -240,26 +253,11 @@ evt_dest(Evt_Ckt_Data_t *evt)
         tfree(node_data->modified_index);
 
         for (i = 0; i < evt->counts.num_nodes; i++) {
-            rhs = &(node_data->rhs[i]);
-            while (rhs) {
-                rhsnext = rhs->next;
-                tfree(rhs->output_value);
-                tfree(rhs->node_value);
-                tfree(rhs->inverted_value);
-                rhs = rhsnext;
-            }
+            Evt_Node_Info_t *info = evt->info.node_table[i];
+            Evt_Node_destroy(info, &(node_data->rhs[i]));
+            Evt_Node_destroy(info, &(node_data->rhsold[i]));
         }
         tfree(node_data->rhs);
-        for (i = 0; i < evt->counts.num_nodes; i++) {
-            rhs = &(node_data->rhsold[i]);
-            while (rhs) {
-                rhsnext = rhs->next;
-                tfree(rhs->output_value);
-                tfree(rhs->node_value);
-                tfree(rhs->inverted_value);
-                rhs = rhsnext;
-            }
-        }
         tfree(node_data->rhsold);
         tfree(node_data->total_load);
     }
