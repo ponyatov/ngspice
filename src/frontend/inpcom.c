@@ -1395,6 +1395,7 @@ inp_chk_for_multi_in_vcvs(struct line *c, int *line_number)
     }
 }
 
+
 /* If ngspice is started with option -a, a variable 'autorun'
  * is set and the following function scans the deck.
  * If 'run' is not found, a .control section will be added:
@@ -5839,6 +5840,7 @@ inp_poly_err(struct line *card)
 
 #endif
 
+
 /* Used for debugging: add
  * tprint(working);
  * manually in between lines 490 and 560 of this file
@@ -6117,6 +6119,7 @@ inp_fix_temper_in_param(struct line *deck)
 * of agauss in a b-line are replaced by their suitable value (function
 * eval_agauss_bsource() in inp.c).
 */
+
 static void
 inp_fix_agauss_in_param(struct line *deck, char *fcn)
 {
@@ -6303,6 +6306,7 @@ inp_fix_agauss_in_param(struct line *deck, char *fcn)
     tfree(sub_count);
     inp_delete_funcs(funcs);
 }
+
 
 /* add () to each token 'identifier' in line 'curr_line',
  * if not already there */
@@ -6530,7 +6534,7 @@ inp_meas_current(struct line *deck)
                 if (is_arith_char(s[-1]) || s[-1] == '{') {
                     s += 2;
                     if (*s == 'v') {
-                        // printf("i(v...) found in \n%s\n not converted!\n\n", curr_line);
+                        // printf("i(v...) found in\n%s\n not converted!\n\n", curr_line);
                         continue;
                     }
                     else {
@@ -6539,7 +6543,7 @@ inp_meas_current(struct line *deck)
                         /* token containing name of devices to be measured */
                         t = copy_substring(s, --u);
                         if (ft_ngdebug)
-                            printf("i(%s) found in \n%s\n\n", t, curr_line);
+                            printf("i(%s) found in\n%s\n\n", t, curr_line);
 
                         /* new entry to the end of struct rep */
                         new_rep = TMALLOC(struct replace_currm, 1);
@@ -6557,7 +6561,7 @@ inp_meas_current(struct line *deck)
                         beg_str = copy_substring(v, s);
                         new_str = tprintf("%s%s%s", beg_str, "v_", s);
                         if (ft_ngdebug)
-                            printf("converted to \n%s\n\n", new_str);
+                            printf("converted to\n%s\n\n", new_str);
                         tfree(curr_line);
                         tfree(v);
                         card->li_line = s = v = new_str;
