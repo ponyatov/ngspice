@@ -5,110 +5,14 @@
 #include "ngspice/evtproto.h"
 
 
+static void Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node);
+static void Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Node_Data_t *node_data);
+static void Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Msg_Data_t *msg_data);
 static void Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue);
 static void Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data);
 static void Evt_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Data_t *data);
 static void Evt_Job_destroy(Evt_Job_t *job);
 static void Evt_Info_destroy(Evt_Info_t *info);
-
-
-static void
-Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node)
-{
-    tfree(node->node_value);
-    tfree(node->inverted_value);
-
-    if (node->output_value) {
-        int k = info->num_outputs;
-        while (--k >= 0)
-            tfree(node->output_value[k]);
-        tfree(node->output_value);
-    }
-}
-
-
-static void
-Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Node_Data_t *node_data)
-{
-    int i;
-
-    if (!node_data)
-        return;
-
-    for (i = 0; i < evt->counts.num_nodes; i++) {
-        Evt_Node_Info_t *info = evt->info.node_table[i];
-        Evt_Node_t *node;
-        node = node_data->head[i];
-        while (node) {
-            Evt_Node_t *next = node->next;
-            Evt_Node_destroy(info, node);
-            tfree(node);
-            node = next;
-        }
-        node = node_data->free[i];
-        while (node) {
-            Evt_Node_t *next = node->next;
-            Evt_Node_destroy(info, node);
-            tfree(node);
-            node = next;
-        }
-    }
-    tfree(node_data->head);
-    tfree(node_data->tail);
-    tfree(node_data->last_step);
-    tfree(node_data->free);
-
-    tfree(node_data->modified);
-    tfree(node_data->modified_index);
-
-    for (i = 0; i < evt->counts.num_nodes; i++) {
-        Evt_Node_Info_t *info = evt->info.node_table[i];
-        Evt_Node_destroy(info, &(node_data->rhs[i]));
-        Evt_Node_destroy(info, &(node_data->rhsold[i]));
-    }
-
-    tfree(node_data->rhs);
-    tfree(node_data->rhsold);
-    tfree(node_data->total_load);
-}
-
-
-static void
-Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Msg_Data_t *msg_data)
-{
-    int i;
-
-    if (!msg_data)
-        return;
-
-    for (i = 0; i < evt->counts.num_ports; i++) {
-        Evt_Msg_t *msg;
-        msg = msg_data->head[i];
-        while (msg) {
-            Evt_Msg_t *next = msg->next;
-            if (msg->text)
-                tfree(msg->text);
-            tfree(msg);
-            msg = next;
-        }
-        msg = msg_data->free[i];
-        while (msg) {
-            Evt_Msg_t *next = msg->next;
-            if (msg->text)
-                tfree(msg->text);
-            tfree(msg);
-            msg = next;
-        }
-    }
-
-    tfree(msg_data->head);
-    tfree(msg_data->tail);
-    tfree(msg_data->last_step);
-    tfree(msg_data->free);
-
-    tfree(msg_data->modified);
-    tfree(msg_data->modified_index);
-}
 
 
 int
@@ -251,6 +155,105 @@ Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data)
     }
 
     tfree(state_data->desc);
+}
+
+
+static void
+Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Node_Data_t *node_data)
+{
+    int i;
+
+    if (!node_data)
+        return;
+
+    for (i = 0; i < evt->counts.num_nodes; i++) {
+        Evt_Node_Info_t *info = evt->info.node_table[i];
+        Evt_Node_t *node;
+        node = node_data->head[i];
+        while (node) {
+            Evt_Node_t *next = node->next;
+            Evt_Node_destroy(info, node);
+            tfree(node);
+            node = next;
+        }
+        node = node_data->free[i];
+        while (node) {
+            Evt_Node_t *next = node->next;
+            Evt_Node_destroy(info, node);
+            tfree(node);
+            node = next;
+        }
+    }
+    tfree(node_data->head);
+    tfree(node_data->tail);
+    tfree(node_data->last_step);
+    tfree(node_data->free);
+
+    tfree(node_data->modified);
+    tfree(node_data->modified_index);
+
+    for (i = 0; i < evt->counts.num_nodes; i++) {
+        Evt_Node_Info_t *info = evt->info.node_table[i];
+        Evt_Node_destroy(info, &(node_data->rhs[i]));
+        Evt_Node_destroy(info, &(node_data->rhsold[i]));
+    }
+
+    tfree(node_data->rhs);
+    tfree(node_data->rhsold);
+    tfree(node_data->total_load);
+}
+
+
+static void
+Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node)
+{
+    tfree(node->node_value);
+    tfree(node->inverted_value);
+
+    if (node->output_value) {
+        int k = info->num_outputs;
+        while (--k >= 0)
+            tfree(node->output_value[k]);
+        tfree(node->output_value);
+    }
+}
+
+
+static void
+Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Msg_Data_t *msg_data)
+{
+    int i;
+
+    if (!msg_data)
+        return;
+
+    for (i = 0; i < evt->counts.num_ports; i++) {
+        Evt_Msg_t *msg;
+        msg = msg_data->head[i];
+        while (msg) {
+            Evt_Msg_t *next = msg->next;
+            if (msg->text)
+                tfree(msg->text);
+            tfree(msg);
+            msg = next;
+        }
+        msg = msg_data->free[i];
+        while (msg) {
+            Evt_Msg_t *next = msg->next;
+            if (msg->text)
+                tfree(msg->text);
+            tfree(msg);
+            msg = next;
+        }
+    }
+
+    tfree(msg_data->head);
+    tfree(msg_data->tail);
+    tfree(msg_data->last_step);
+    tfree(msg_data->free);
+
+    tfree(msg_data->modified);
+    tfree(msg_data->modified_index);
 }
 
 
