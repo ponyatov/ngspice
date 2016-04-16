@@ -77,9 +77,20 @@ Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt)
         return;
 
     for (i = 0; i < evt->counts.num_ports; i++) {
-        Evt_Msg_t *msg = msg_data->head[i];
+        Evt_Msg_t *msg;
+        msg = msg_data->head[i];
         while (msg) {
             Evt_Msg_t *next = msg->next;
+            if (msg->text)
+                tfree(msg->text);
+            tfree(msg);
+            msg = next;
+        }
+        msg = msg_data->free[i];
+        while (msg) {
+            Evt_Msg_t *next = msg->next;
+            if (msg->text)
+                tfree(msg->text);
             tfree(msg);
             msg = next;
         }
