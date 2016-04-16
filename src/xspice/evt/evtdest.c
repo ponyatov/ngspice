@@ -24,9 +24,8 @@ Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node)
 
 
 static void
-Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt)
+Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Node_Data_t *node_data)
 {
-    Evt_Node_Data_t *node_data = evt->data.node;
     int i;
 
     if (!node_data)
@@ -71,9 +70,8 @@ Evt_Node_Data_destroy(Evt_Ckt_Data_t *evt)
 
 
 static void
-Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt)
+Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Msg_Data_t *msg_data)
 {
-    Evt_Msg_Data_t *msg_data = evt->data.msg;
     int i;
 
     if (!msg_data)
@@ -190,8 +188,8 @@ EVTdest(Evt_Ckt_Data_t *evt)
     tfree(output_queue->changed);
 
     Evt_State_Data_destroy(evt, state_data);
-    Evt_Node_Data_destroy(evt);
-    Evt_Msg_Data_destroy(evt);
+    Evt_Node_Data_destroy(evt, evt->data.node);
+    Evt_Msg_Data_destroy(evt, evt->data.msg);
 
     tfree(evt->data.node);
     tfree(evt->data.state);
