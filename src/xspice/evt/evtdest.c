@@ -8,6 +8,7 @@
 static void Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue);
 static void Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data);
 static void Evt_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Data_t *data);
+static void Evt_Job_destroy(Evt_Job_t *job);
 
 
 static void
@@ -112,22 +113,13 @@ Evt_Msg_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Msg_Data_t *msg_data)
 int
 EVTdest(Evt_Ckt_Data_t *evt)
 {
-    int i;
-
     /* Exit immediately if no event-driven instances in circuit */
     if (evt->counts.num_insts == 0)
         return(OK);
 
     Evt_Queue_destroy(evt, & evt->queue);
     Evt_Data_destroy(evt, & evt->data);
-
-    for (i = 0; i < evt->jobs.num_jobs; i++)
-        tfree(evt->jobs.job_name[i]);
-    tfree(evt->jobs.job_name);
-    tfree(evt->jobs.node_data);
-    tfree(evt->jobs.state_data);
-    tfree(evt->jobs.msg_data);
-    tfree(evt->jobs.statistics);
+    Evt_Job_destroy(& evt->jobs);
 
     tfree(evt->info.hybrid_index);
 
@@ -303,4 +295,20 @@ Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data)
     }
 
     tfree(state_data->desc);
+}
+
+
+static void
+Evt_Job_destroy(Evt_Job_t *job)
+{
+    int i;
+
+    for (i = 0; i < job->num_jobs; i++)
+        tfree(job->job_name[i]);
+
+    tfree(job->job_name);
+    tfree(job->node_data);
+    tfree(job->state_data);
+    tfree(job->msg_data);
+    tfree(job->statistics);
 }
