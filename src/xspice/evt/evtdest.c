@@ -5,6 +5,7 @@
 #include "ngspice/evtproto.h"
 
 
+static void Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue);
 static void Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data);
 
 
@@ -112,81 +113,15 @@ EVTdest(Evt_Ckt_Data_t *evt)
 {
     int i;
 
-    /* Get temporary pointers for fast access */
-    Evt_Output_Queue_t  *output_queue;
-    Evt_Node_Queue_t    *node_queue;
-    Evt_Inst_Queue_t    *inst_queue;
-
     Evt_State_Data_t    *state_data;
 
     /* Exit immediately if no event-driven instances in circuit */
     if (evt->counts.num_insts == 0)
         return(OK);
 
-    Evt_Queue_t *queue = & evt->queue;
-    output_queue = &(queue->output);
-    node_queue = &(queue->node);
-    inst_queue = &(queue->inst);
+    Evt_Queue_destroy(evt, & evt->queue);
 
     state_data = evt->data.state;
-
-    /* instance queue */
-    for (i = 0; i < evt->counts.num_insts; i++) {
-        Evt_Inst_Event_t *event = inst_queue->head[i];
-        while (event) {
-            Evt_Inst_Event_t *next = event->next;
-            tfree(event);
-            event = next;
-        }
-    }
-    tfree(inst_queue->head);
-    tfree(inst_queue->current);
-    tfree(inst_queue->last_step);
-    tfree(inst_queue->free);
-
-    tfree(inst_queue->modified_index);
-    tfree(inst_queue->modified);
-    tfree(inst_queue->pending_index);
-    tfree(inst_queue->pending);
-    tfree(inst_queue->to_call_index);
-    tfree(inst_queue->to_call);
-
-    /* node queue */
-
-    tfree(node_queue->to_eval_index);
-    tfree(node_queue->to_eval);
-    tfree(node_queue->changed_index);
-    tfree(node_queue->changed);
-
-    /* output queue */
-    for (i = 0; i < evt->counts.num_outputs; i++) {
-        Evt_Output_Event_t *event;
-        event = output_queue->head[i];
-        while (event) {
-            Evt_Output_Event_t *next = event->next;
-            tfree(event->value);
-            tfree(event);
-            event = next;
-        }
-        event = output_queue->free[i];
-        while (event) {
-            Evt_Output_Event_t *next = event->next;
-            tfree(event->value);
-            tfree(event);
-            event = next;
-        }
-    }
-    tfree(output_queue->head);
-    tfree(output_queue->current);
-    tfree(output_queue->last_step);
-    tfree(output_queue->free);
-
-    tfree(output_queue->modified_index);
-    tfree(output_queue->modified);
-    tfree(output_queue->pending_index);
-    tfree(output_queue->pending);
-    tfree(output_queue->changed_index);
-    tfree(output_queue->changed);
 
     Evt_State_Data_destroy(evt, state_data);
     Evt_Node_Data_destroy(evt, evt->data.node);
@@ -252,6 +187,79 @@ EVTdest(Evt_Ckt_Data_t *evt)
     tfree(evt->info.output_table);
 
     return(OK);
+}
+
+
+static void
+Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue)
+{
+    Evt_Output_Queue_t  *output_queue;
+    Evt_Node_Queue_t    *node_queue;
+    Evt_Inst_Queue_t    *inst_queue;
+
+    int i;
+
+    output_queue = &(queue->output);
+    node_queue = &(queue->node);
+    inst_queue = &(queue->inst);
+
+    /* instance queue */
+    for (i = 0; i < evt->counts.num_insts; i++) {
+        Evt_Inst_Event_t *event = inst_queue->head[i];
+        while (event) {
+            Evt_Inst_Event_t *next = event->next;
+            tfree(event);
+            event = next;
+        }
+    }
+    tfree(inst_queue->head);
+    tfree(inst_queue->current);
+    tfree(inst_queue->last_step);
+    tfree(inst_queue->free);
+
+    tfree(inst_queue->modified_index);
+    tfree(inst_queue->modified);
+    tfree(inst_queue->pending_index);
+    tfree(inst_queue->pending);
+    tfree(inst_queue->to_call_index);
+    tfree(inst_queue->to_call);
+
+    /* node queue */
+
+    tfree(node_queue->to_eval_index);
+    tfree(node_queue->to_eval);
+    tfree(node_queue->changed_index);
+    tfree(node_queue->changed);
+
+    /* output queue */
+    for (i = 0; i < evt->counts.num_outputs; i++) {
+        Evt_Output_Event_t *event;
+        event = output_queue->head[i];
+        while (event) {
+            Evt_Output_Event_t *next = event->next;
+            tfree(event->value);
+            tfree(event);
+            event = next;
+        }
+        event = output_queue->free[i];
+        while (event) {
+            Evt_Output_Event_t *next = event->next;
+            tfree(event->value);
+            tfree(event);
+            event = next;
+        }
+    }
+    tfree(output_queue->head);
+    tfree(output_queue->current);
+    tfree(output_queue->last_step);
+    tfree(output_queue->free);
+
+    tfree(output_queue->modified_index);
+    tfree(output_queue->modified);
+    tfree(output_queue->pending_index);
+    tfree(output_queue->pending);
+    tfree(output_queue->changed_index);
+    tfree(output_queue->changed);
 }
 
 
