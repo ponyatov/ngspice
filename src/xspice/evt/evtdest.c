@@ -9,6 +9,7 @@ static void Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue);
 static void Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data);
 static void Evt_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Data_t *data);
 static void Evt_Job_destroy(Evt_Job_t *job);
+static void Evt_Info_destroy(Evt_Info_t *info);
 
 
 static void
@@ -120,54 +121,8 @@ EVTdest(Evt_Ckt_Data_t *evt)
     Evt_Queue_destroy(evt, & evt->queue);
     Evt_Data_destroy(evt, & evt->data);
     Evt_Job_destroy(& evt->jobs);
+    Evt_Info_destroy(& evt->info);
 
-    Evt_Info_t *info = & evt->info;
-
-    Evt_Inst_Info_t *inst = info->inst_list;
-    while (inst) {
-        Evt_Inst_Info_t *next_inst = inst->next;
-        tfree(inst);
-        inst = next_inst;
-    }
-    tfree(info->inst_table);
-
-    Evt_Node_Info_t *nodei = info->node_list;
-    while (nodei) {
-        Evt_Node_Info_t *next_nodei = nodei->next;
-        tfree(nodei->name);
-
-        Evt_Inst_Index_t *p = nodei->inst_list;
-        while (p) {
-            Evt_Inst_Index_t *next_p = p->next;
-            tfree(p);
-            p = next_p;
-        }
-
-        tfree(nodei);
-        nodei = next_nodei;
-    }
-    tfree(info->node_table);
-
-    Evt_Port_Info_t *port = info->port_list;
-    while (port) {
-        Evt_Port_Info_t *next_port = port->next;
-        tfree(port->node_name);
-        tfree(port->inst_name);
-        tfree(port->conn_name);
-        tfree(port);
-        port = next_port;
-    }
-    tfree(info->port_table);
-
-    Evt_Output_Info_t *output = info->output_list;
-    while (output) {
-        Evt_Output_Info_t *next_output = output->next;
-        tfree(output);
-        output = next_output;
-    }
-    tfree(info->output_table);
-
-    tfree(info->hybrid_index);
     return(OK);
 }
 
@@ -312,4 +267,55 @@ Evt_Job_destroy(Evt_Job_t *job)
     tfree(job->state_data);
     tfree(job->msg_data);
     tfree(job->statistics);
+}
+
+
+static void
+Evt_Info_destroy(Evt_Info_t *info)
+{
+    Evt_Inst_Info_t *inst = info->inst_list;
+    while (inst) {
+        Evt_Inst_Info_t *next_inst = inst->next;
+        tfree(inst);
+        inst = next_inst;
+    }
+    tfree(info->inst_table);
+
+    Evt_Node_Info_t *nodei = info->node_list;
+    while (nodei) {
+        Evt_Node_Info_t *next_nodei = nodei->next;
+        tfree(nodei->name);
+
+        Evt_Inst_Index_t *p = nodei->inst_list;
+        while (p) {
+            Evt_Inst_Index_t *next_p = p->next;
+            tfree(p);
+            p = next_p;
+        }
+
+        tfree(nodei);
+        nodei = next_nodei;
+    }
+    tfree(info->node_table);
+
+    Evt_Port_Info_t *port = info->port_list;
+    while (port) {
+        Evt_Port_Info_t *next_port = port->next;
+        tfree(port->node_name);
+        tfree(port->inst_name);
+        tfree(port->conn_name);
+        tfree(port);
+        port = next_port;
+    }
+    tfree(info->port_table);
+
+    Evt_Output_Info_t *output = info->output_list;
+    while (output) {
+        Evt_Output_Info_t *next_output = output->next;
+        tfree(output);
+        output = next_output;
+    }
+    tfree(info->output_table);
+
+    tfree(info->hybrid_index);
 }
