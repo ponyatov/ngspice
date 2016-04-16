@@ -5,6 +5,9 @@
 #include "ngspice/evtproto.h"
 
 
+static void Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data);
+
+
 static void
 Evt_Node_destroy(Evt_Node_Info_t *info, Evt_Node_t *node)
 {
@@ -186,38 +189,7 @@ EVTdest(Evt_Ckt_Data_t *evt)
     tfree(output_queue->changed_index);
     tfree(output_queue->changed);
 
-    /* state data */
-    if (state_data) {
-        for (i = 0; i < evt->counts.num_insts; i++) {
-            Evt_State_t *state = state_data->head[i];
-            while (state) {
-                Evt_State_t *next = state->next;
-                tfree(state->block);
-                tfree(state);
-                state = next;
-            }
-        }
-
-        tfree(state_data->head);
-        tfree(state_data->tail);
-        tfree(state_data->last_step);
-        tfree(state_data->free);
-
-        tfree(state_data->modified);
-        tfree(state_data->modified_index);
-        tfree(state_data->total_size);
-
-        for (i = 0; i < evt->counts.num_insts; i++) {
-            Evt_State_Desc_t *p = state_data->desc[i];
-            while (p) {
-                Evt_State_Desc_t *next_p = p->next;
-                tfree(p);
-                p = next_p;
-            }
-        }
-        tfree(state_data->desc);
-    }
-
+    Evt_State_Data_destroy(evt, state_data);
     Evt_Node_Data_destroy(evt);
     Evt_Msg_Data_destroy(evt);
 
@@ -281,4 +253,42 @@ EVTdest(Evt_Ckt_Data_t *evt)
     tfree(evt->info.output_table);
 
     return(OK);
+}
+
+
+static void
+Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data)
+{
+    int i;
+
+    if (state_data) {
+        for (i = 0; i < evt->counts.num_insts; i++) {
+            Evt_State_t *state = state_data->head[i];
+            while (state) {
+                Evt_State_t *next = state->next;
+                tfree(state->block);
+                tfree(state);
+                state = next;
+            }
+        }
+
+        tfree(state_data->head);
+        tfree(state_data->tail);
+        tfree(state_data->last_step);
+        tfree(state_data->free);
+
+        tfree(state_data->modified);
+        tfree(state_data->modified_index);
+        tfree(state_data->total_size);
+
+        for (i = 0; i < evt->counts.num_insts; i++) {
+            Evt_State_Desc_t *p = state_data->desc[i];
+            while (p) {
+                Evt_State_Desc_t *next_p = p->next;
+                tfree(p);
+                p = next_p;
+            }
+        }
+        tfree(state_data->desc);
+    }
 }
