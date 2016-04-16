@@ -121,17 +121,17 @@ EVTdest(Evt_Ckt_Data_t *evt)
     Evt_Data_destroy(evt, & evt->data);
     Evt_Job_destroy(& evt->jobs);
 
-    tfree(evt->info.hybrid_index);
+    Evt_Info_t *info = & evt->info;
 
-    Evt_Inst_Info_t *inst = evt->info.inst_list;
+    Evt_Inst_Info_t *inst = info->inst_list;
     while (inst) {
         Evt_Inst_Info_t *next_inst = inst->next;
         tfree(inst);
         inst = next_inst;
     }
-    tfree(evt->info.inst_table);
+    tfree(info->inst_table);
 
-    Evt_Node_Info_t *nodei = evt->info.node_list;
+    Evt_Node_Info_t *nodei = info->node_list;
     while (nodei) {
         Evt_Node_Info_t *next_nodei = nodei->next;
         tfree(nodei->name);
@@ -146,9 +146,9 @@ EVTdest(Evt_Ckt_Data_t *evt)
         tfree(nodei);
         nodei = next_nodei;
     }
-    tfree(evt->info.node_table);
+    tfree(info->node_table);
 
-    Evt_Port_Info_t *port = evt->info.port_list;
+    Evt_Port_Info_t *port = info->port_list;
     while (port) {
         Evt_Port_Info_t *next_port = port->next;
         tfree(port->node_name);
@@ -157,16 +157,17 @@ EVTdest(Evt_Ckt_Data_t *evt)
         tfree(port);
         port = next_port;
     }
-    tfree(evt->info.port_table);
+    tfree(info->port_table);
 
-    Evt_Output_Info_t *output = evt->info.output_list;
+    Evt_Output_Info_t *output = info->output_list;
     while (output) {
         Evt_Output_Info_t *next_output = output->next;
         tfree(output);
         output = next_output;
     }
-    tfree(evt->info.output_table);
+    tfree(info->output_table);
 
+    tfree(info->hybrid_index);
     return(OK);
 }
 
