@@ -7,6 +7,7 @@
 
 static void Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue);
 static void Evt_State_Data_destroy(Evt_Ckt_Data_t *evt, Evt_State_Data_t *state_data);
+static void Evt_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Data_t *data);
 
 
 static void
@@ -118,16 +119,7 @@ EVTdest(Evt_Ckt_Data_t *evt)
         return(OK);
 
     Evt_Queue_destroy(evt, & evt->queue);
-
-    Evt_Data_t *data = & evt->data;
-    Evt_State_Data_destroy(evt, data->state);
-    Evt_Node_Data_destroy(evt, data->node);
-    Evt_Msg_Data_destroy(evt, data->msg);
-
-    tfree(data->node);
-    tfree(data->state);
-    tfree(data->msg);
-    tfree(data->statistics);
+    Evt_Data_destroy(evt, & evt->data);
 
     for (i = 0; i < evt->jobs.num_jobs; i++)
         tfree(evt->jobs.job_name[i]);
@@ -257,6 +249,20 @@ Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue)
     tfree(output_queue->pending);
     tfree(output_queue->changed_index);
     tfree(output_queue->changed);
+}
+
+
+static void
+Evt_Data_destroy(Evt_Ckt_Data_t *evt, Evt_Data_t *data)
+{
+    Evt_State_Data_destroy(evt, data->state);
+    Evt_Node_Data_destroy(evt, data->node);
+    Evt_Msg_Data_destroy(evt, data->msg);
+
+    tfree(data->node);
+    tfree(data->state);
+    tfree(data->msg);
+    tfree(data->statistics);
 }
 
 
