@@ -123,9 +123,10 @@ EVTdest(Evt_Ckt_Data_t *evt)
     if (evt->counts.num_insts == 0)
         return(OK);
 
-    output_queue = &(evt->queue.output);
-    node_queue = &(evt->queue.node);
-    inst_queue = &(evt->queue.inst);
+    Evt_Queue_t *queue = & evt->queue;
+    output_queue = &(queue->output);
+    node_queue = &(queue->node);
+    inst_queue = &(queue->inst);
 
     state_data = evt->data.state;
 
