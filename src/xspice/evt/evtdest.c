@@ -113,24 +113,21 @@ EVTdest(Evt_Ckt_Data_t *evt)
 {
     int i;
 
-    Evt_State_Data_t    *state_data;
-
     /* Exit immediately if no event-driven instances in circuit */
     if (evt->counts.num_insts == 0)
         return(OK);
 
     Evt_Queue_destroy(evt, & evt->queue);
 
-    state_data = evt->data.state;
+    Evt_Data_t *data = & evt->data;
+    Evt_State_Data_destroy(evt, data->state);
+    Evt_Node_Data_destroy(evt, data->node);
+    Evt_Msg_Data_destroy(evt, data->msg);
 
-    Evt_State_Data_destroy(evt, state_data);
-    Evt_Node_Data_destroy(evt, evt->data.node);
-    Evt_Msg_Data_destroy(evt, evt->data.msg);
-
-    tfree(evt->data.node);
-    tfree(evt->data.state);
-    tfree(evt->data.msg);
-    tfree(evt->data.statistics);
+    tfree(data->node);
+    tfree(data->state);
+    tfree(data->msg);
+    tfree(data->statistics);
 
     for (i = 0; i < evt->jobs.num_jobs; i++)
         tfree(evt->jobs.job_name[i]);
