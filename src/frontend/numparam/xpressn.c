@@ -429,7 +429,7 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op)
     */
     entry_t *entry;             /* symbol table entry */
 
-    entry = (entry_t *) nghash_find(htable_p, t);
+    entry = (entry_t *)nghash_find(htable_p, t);
     if (entry && (op == 'N') &&
         (entry->level < dico->stack_depth) && (entry->tp != '?'))
     {
@@ -529,8 +529,16 @@ nupa_define(dico_t *dico,
                Subcircuit expansion is o.k., we have to deal with this numparam
                behaviour later. (H. Vogt 090426)
             */
-            if (0)
-                message(dico, "%s: cannot redefine\n", t);
+            message(dico, "%s is already used,\n cannot be redefined\n", t);
+/*            if ((c == 'U') && (tpe == 'U'))
+                message(dico, "%s is already used as subcircuit name,\n cannot be used for another subcircuit\n", t);
+            else if ((c == 'U') && (tpe == 'O'))
+                message(dico, "%s is already used as subcircuit name,\n cannot be used for model\n", t);
+            else if ((c == 'O') && (tpe == 'U'))
+                message(dico, "%s is already used as model name,\n cannot be used for subcircuit\n", t);
+            else if ((c == 'O') && (tpe == 'O'))
+                message(dico, "%s is already used as model name,\n cannot be reused for another model\n", t);
+*/
         }
     }
 
