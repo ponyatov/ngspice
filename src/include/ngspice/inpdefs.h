@@ -68,6 +68,7 @@ struct card{
     char *error;
     card *nextcard;
     card *actualLine;
+    unsigned short level[10];
 };
 
 /* structure used to save models in after they are read during pass 1 */
