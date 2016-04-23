@@ -148,7 +148,7 @@ static char *inp_spawn_brace(char *s);
 static char *inp_pathresolve(const char *name);
 static char *inp_pathresolve_at(char *name, char *dir);
 static char *search_plain_identifier(char *str, const char *identifier);
-void tprint(struct line *deck);
+void tprint(struct line *deck, int numb);
 
 struct inp_read_t
 { struct line *cc;
@@ -526,8 +526,9 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         inp_fix_param_values(working);
 
         inp_reorder_params(subckt_w_params, cc);
+//        tprint(working, 1);
         inp_fix_inst_calls_for_numparam(subckt_w_params, working);
-
+//        tprint(working, 2);
         delete_names(subckt_w_params);
         subckt_w_params = NULL;
 
@@ -5846,12 +5847,13 @@ inp_poly_err(struct line *card)
  * manually in between lines 490 and 560 of this file
  * to obtain an printout to file tprint-out.txt of the actual deck */
 void
-tprint(struct line *t)
+tprint(struct line *t, int numb)
 {
     struct line *tmp;
+    char *filename = tprintf("tprint-out%d.txt", numb);
 
     /*debug: print into file*/
-    FILE *fd = fopen("tprint-out.txt", "w");
+    FILE *fd = fopen(filename, "w");
     for (tmp = t; tmp; tmp = tmp->li_next)
         if (*(tmp->li_line) != '*')
             fprintf(fd, "%6d  %6d  %s\n", tmp->li_linenum_orig, tmp->li_linenum, tmp->li_line);
