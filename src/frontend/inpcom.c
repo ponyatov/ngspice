@@ -511,8 +511,8 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         delete_libs();
 
         inp_check_levels(working);
+        tprint(working, 1);
         inp_fix_for_numparam(subckt_w_params, working);
-
 
         inp_remove_excess_ws(working);
 
@@ -5864,8 +5864,15 @@ tprint(struct line *t, int numb)
     /*debug: print into file*/
     FILE *fd = fopen(filename, "w");
     for (tmp = t; tmp; tmp = tmp->li_next)
-        if (*(tmp->li_line) != '*')
-            fprintf(fd, "%6d  %6d  %s\n", tmp->li_linenum_orig, tmp->li_linenum, tmp->li_line);
+        if (*(tmp->li_line) != '*') {
+            fprintf(fd, "%6d  %6d  %s", tmp->li_linenum_orig, tmp->li_linenum, tmp->li_line);
+            fprintf(fd, "  level: ");
+            int i;
+            for (i = 0; i < 10; i++) {
+                fprintf(fd, "%3d", tmp->level[i]);
+            }
+            fprintf(fd, "\n");
+        }
     fprintf(fd, "\n*********************************************************************************\n");
     fprintf(fd, "*********************************************************************************\n");
     fprintf(fd, "*********************************************************************************\n\n");
@@ -6711,7 +6718,10 @@ inp_check_levels(struct line *deck)
             else if (ciprefix(".ends", curr_line)) {
                 subs--;
                 for (i = 0; i < 10; i++)
-                    card->level[i] = card_prev->level[i];
+                    if (i < subs)
+                       card->level[i] = card_prev->level[i];
+                    else
+                       card->level[i] = 0;
                 card_prev = card;
             }
             else {
