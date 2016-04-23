@@ -6676,10 +6676,9 @@ inp_meas_current(struct line *deck)
 static void 
 inp_check_levels(struct line *deck)
 {
-    struct line *card, *subc_start = NULL, *subc_prev = NULL;
-    struct replace_currm *new_rep, *act_rep = NULL, *rep = NULL;
-    char *s, *t, *u, *v;
-    int skip_control = 0, subs = 0;
+    struct line *card,  *card_prev = deck;
+    int skip_control = 0, subs = 0, i;
+    static unsigned short levelinfo[10];
 
     for (card = deck; card; card = card->li_next) {
 
@@ -6704,15 +6703,27 @@ inp_check_levels(struct line *deck)
         if (*curr_line == '.') {
             if (ciprefix(".subckt", curr_line)) {
                 subs++;
-                subc_prev = subc_start;
-                subc_start = card;
+                levelinfo[subs - 1]++;
+                for (i = 0; i < 10; i++)
+                    card->level[i] = levelinfo[i];
+                card_prev = card;
             }
             else if (ciprefix(".ends", curr_line)) {
                 subs--;
-                subc_start = subc_prev;
+                for (i = 0; i < 10; i++)
+                    card->level[i] = card_prev->level[i];
+                card_prev = card;
             }
-            else
-                continue;
+            else {
+                for (i = 0; i < 10; i++)
+                    card->level[i] = card_prev->level[i];
+                card_prev = card;
+            }
+        }
+        else {
+            for (i = 0; i < 10; i++)
+                card->level[i] = card_prev->level[i];
+            card_prev = card;
         }
     }
 }
