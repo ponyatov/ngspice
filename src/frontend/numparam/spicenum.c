@@ -808,7 +808,7 @@ nupa_eval(char *s, int linenum, int orig_linenum)
 */
 {
     int idef;                   /* subckt definition line */
-    char c, keep, *ptr;
+    char c;
     SPICE_DSTRING subname;      /* dynamic string for subcircuit name */
     bool err = 1;
 
@@ -831,12 +831,8 @@ nupa_eval(char *s, int linenum, int orig_linenum)
         err = nupa_substitute(dicoS, dicoS->dynrefptr[linenum], s, 0);
     } else if (c == 'X') {
         /* compute args of subcircuit, if required */
-        ptr = skip_non_ws(s);
-        keep = *ptr;
-        *ptr = '\0';
-        nupa_inst_name = strdup(s);
+        nupa_inst_name = copy_substring(s, skip_non_ws(s));
         *nupa_inst_name = 'x';
-        *ptr = keep;
 
         strtoupper(nupa_inst_name);
 
