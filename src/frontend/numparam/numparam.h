@@ -28,7 +28,6 @@ typedef struct {                /* used as a type-checked enum */
 #define NUPA_SUBCKT   ((nupa_type) 4)
 #define NUPA_MODEL    ((nupa_type) 5)
 #define NUPA_SPACE    ((nupa_type) 6)
-#define NUPA_POINTER  ((nupa_type) 7)
 
 typedef struct entry_s {
     nupa_type tp;      /* type: I)nt R)eal S)tring F)unction M)acro P)ointer */

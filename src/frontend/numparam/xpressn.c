@@ -408,9 +408,6 @@ fetchnumentry(dico_t *dico, char *s, bool *perr)
 {
     entry_t *entry = entrynb(dico, s);
 
-    while (entry && (entry->tp == NUPA_POINTER))
-        entry = entry->pointer;
-
     if (entry && (entry->tp == NUPA_REAL))
         return entry->vl;
 
@@ -500,9 +497,6 @@ nupa_define(dico_t *dico,
         err = message(dico, " Symbol table overflow\n");
 
     } else {
-
-        if (entry->tp == NUPA_POINTER)
-            entry = entry->pointer; /* pointer indirection */
 
         if (entry)
             c = entry->tp;
@@ -1132,10 +1126,6 @@ evaluate(dico_t *dico, SPICE_DSTRINGPTR qstr_p, char *t, unsigned char mode)
         entry = entrynb(dico, t);
         nolookup = !entry;
 
-        while (entry && (entry->tp == NUPA_POINTER))
-            entry = entry->pointer; /* follow pointer chain */
-
-        /* pointer chain */
         if (entry)
             tp = entry->tp;
         else
