@@ -24,7 +24,6 @@ typedef enum {
     NUPA_STRING,
     NUPA_UNKNOWN,
     NUPA_SUBCKT,
-    NUPA_MODEL
 } nupa_type;
 
 typedef struct entry_s {
