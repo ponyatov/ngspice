@@ -150,7 +150,8 @@ static char *inp_pathresolve_at(char *name, char *dir);
 static char *search_plain_identifier(char *str, const char *identifier);
 void tprint(struct line *deck, int numb);
 static void inp_add_levels(struct line *deck);
-bool inp_check_scope_mod(unsigned short elem_levels[], unsigned short mod_levels[]);
+bool inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[]);
+bool inp_check_scope_sub(unsigned short x_level[], unsigned short subckt_level[]);
 
 struct inp_read_t
 { struct line *cc;
@@ -2811,7 +2812,7 @@ inp_fix_inst_calls_for_numparam(struct names *subckt_w_params, struct line *deck
                                         break;
                                 }
 
-                                if (!found_param_match) {
+                                if ((!found_param_match) && (inp_check_scope_sub(c->level, d->level))){
                                     // comment out .subckt and continue
                                     while (d != NULL && !ciprefix(".ends", d->li_line)) {
                                         *(d->li_line) = '*';
@@ -6740,16 +6741,29 @@ inp_add_levels(struct line *deck)
     }
 }
 
-bool inp_check_scope_mod(unsigned short elem_levels[], unsigned short mod_levels[])
+bool inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[])
 {
     int i;
+    /* model at top level, accessible from all devices */
+    if (mod_level[0] == 0)
+        return TRUE;
+    /* model at nesting level */
+    for (i = 0; i < NESTINGDEPTH - 1; i++)
+        if ((elem_level[i] == mod_level[i]) && (mod_level[i + 1] == 0))
+            return TRUE;
+    if (elem_level[NESTINGDEPTH - 1] == mod_level[NESTINGDEPTH - 1])
+        return TRUE;
+    return FALSE;
+}
 
-    if (mod_levels[0] == 0)
+bool inp_check_scope_sub(unsigned short x_level[], unsigned short subckt_level[])
+{
+    int i;
+    /* subcircuit at top level, accessible from all x lines */
+    if ((subckt_level[0] > 0) && (subckt_level[1] == 0))
         return TRUE;
     for (i = 1; i < NESTINGDEPTH - 1; i++)
-        if ((elem_levels[i] == mod_levels[i]) && (mod_levels[i + 1] == 0))
+        if ((x_level[i] == subckt_level[i]) && (x_level[i + 1] == 0))
             return TRUE;
-    if (elem_levels[NESTINGDEPTH - 1] == mod_levels[NESTINGDEPTH - 1])
-        return TRUE;
     return FALSE;
 }
