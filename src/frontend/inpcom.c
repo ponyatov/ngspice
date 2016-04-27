@@ -150,6 +150,7 @@ static char *inp_pathresolve_at(char *name, char *dir);
 static char *search_plain_identifier(char *str, const char *identifier);
 void tprint(struct line *deck, int numb);
 static void inp_add_levels(struct line *deck);
+bool inp_check_scope_mod(unsigned short elem_levels[], unsigned short mod_levels[]);
 
 struct inp_read_t
 { struct line *cc;
@@ -6737,4 +6738,18 @@ inp_add_levels(struct line *deck)
             card_prev = card;
         }
     }
+}
+
+bool inp_check_scope_mod(unsigned short elem_levels[], unsigned short mod_levels[])
+{
+    int i;
+
+    if (mod_levels[0] == 0)
+        return TRUE;
+    for (i = 1; i < NESTINGDEPTH - 1; i++)
+        if ((elem_levels[i] == mod_levels[i]) && (mod_levels[i + 1] == 0))
+            return TRUE;
+    if (elem_levels[NESTINGDEPTH - 1] == mod_levels[NESTINGDEPTH - 1])
+        return TRUE;
+    return FALSE;
 }
