@@ -19,14 +19,13 @@ typedef enum {Psp     = '{'} _nPsp;      /* Ps expression */
  * I believe the entry_t should be a union of type but I need more info.
  * ----------------------------------------------------------------- */
 
-typedef struct {                /* used as a type-checked enum */
-} *nupa_type;
-
-#define NUPA_REAL     ((nupa_type) 1)
-#define NUPA_STRING   ((nupa_type) 2)
-#define NUPA_UNKNOWN  ((nupa_type) 3)
-#define NUPA_SUBCKT   ((nupa_type) 4)
-#define NUPA_MODEL    ((nupa_type) 5)
+typedef enum {
+    NUPA_REAL,
+    NUPA_STRING,
+    NUPA_UNKNOWN,
+    NUPA_SUBCKT,
+    NUPA_MODEL
+} nupa_type;
 
 typedef struct entry_s {
     nupa_type tp;      /* type: I)nt R)eal S)tring F)unction M)acro P)ointer */
