@@ -37,8 +37,6 @@ extern bool ft_batchmode;
 
 void dump_symbols(dico_t *);
 
-char *nupa_inst_name;
-
 /* number of parameter substitutions, available only after the substitution */
 extern long dynsubst; /* spicenum.c:144 */
 
@@ -225,7 +223,7 @@ findsubname(dico_t *dico, SPICE_DSTRINGPTR dstr_p)
                 cadd(&name, upcase(s[j]));
                 j++;
             }
-            found = (getidtype(dico, spice_dstring_value(&name)) == 'U');
+            found = (getidtype(dico, spice_dstring_value(&name)) == NUPA_SUBCKT);
         }
     }
 
@@ -533,9 +531,9 @@ void
 nupa_scan(char *s, int linenum, int is_subckt)
 {
     if (is_subckt)
-        defsubckt(dicoS, s, linenum, 'U');
+        defsubckt(dicoS, s, linenum, NUPA_SUBCKT);
     else
-        defsubckt(dicoS, s, linenum, 'O');
+        defsubckt(dicoS, s, linenum, NUPA_MODEL);
 }
 
 
@@ -554,7 +552,7 @@ dump_symbol_table(dico_t *dico, NGHASHPTR htable_p, FILE *fp)
          entry;
          entry = (entry_t *) nghash_enumerateRE(htable_p, &iter))
     {
-        if (entry->tp == 'R') {
+        if (entry->tp == NUPA_REAL) {
             spice_dstring_reinit(& dico->lookup_buf);
             scopy_lower(& dico->lookup_buf, entry->symbol);
             name = spice_dstring_value(& dico->lookup_buf);
@@ -661,7 +659,7 @@ nupa_add_param(char *param_name, double value)
     entry = attrib(dico, htable_p, up_name, 'N');
     if (entry) {
         entry->vl = value;
-        entry->tp = 'R';
+        entry->tp = NUPA_REAL;
         entry->ivl = 0;
         entry->sbbase = NULL;
     }
@@ -688,7 +686,7 @@ nupa_add_inst_param(char *param_name, double value)
     entry = attrib(dico, dico->inst_symbols, up_name, 'N');
     if (entry) {
         entry->vl = value;
-        entry->tp = 'R';
+        entry->tp = NUPA_REAL;
         entry->ivl = 0;
         entry->sbbase = NULL;
     }
@@ -808,11 +806,9 @@ nupa_eval(char *s, int linenum, int orig_linenum)
 */
 {
     int idef;                   /* subckt definition line */
-    char c, keep, *ptr;
-    SPICE_DSTRING subname;      /* dynamic string for subcircuit name */
+    char c;
     bool err = 1;
 
-    spice_dstring_init(&subname);
     dicoS->srcline = linenum;
     dicoS->oldline = orig_linenum;
 
@@ -831,18 +827,14 @@ nupa_eval(char *s, int linenum, int orig_linenum)
         err = nupa_substitute(dicoS, dicoS->dynrefptr[linenum], s, 0);
     } else if (c == 'X') {
         /* compute args of subcircuit, if required */
-        ptr = skip_non_ws(s);
-        keep = *ptr;
-        *ptr = '\0';
-        nupa_inst_name = strdup(s);
-        *nupa_inst_name = 'x';
-        *ptr = keep;
+        char *inst_name = copy_substring(s, skip_non_ws(s));
+        *inst_name = 'x';
 
-        strtoupper(nupa_inst_name);
+        strtoupper(inst_name);
 
-        idef = findsubckt(dicoS, s, &subname);
+        idef = findsubckt(dicoS, s);
         if (idef > 0)
-            nupa_subcktcall(dicoS, dicoS->dynrefptr[idef], dicoS->dynrefptr[linenum], 0);
+            nupa_subcktcall(dicoS, dicoS->dynrefptr[idef], dicoS->dynrefptr[linenum], inst_name);
         else
             putlogfile('?', linenum, "  illegal subckt call.");
     } else if (c == 'U') {              /*  release local symbols = parameters */
@@ -881,7 +873,6 @@ nupa_signal(int sig, char *info)
         inexpansionS = 1;
     } else if (sig == NUPASUBDONE) {
         inexpansionS = 0;
-        nupa_inst_name = NULL;
     } else if (sig == NUPAEVALDONE) {
         nupa_done();
         firstsignalS = 1;

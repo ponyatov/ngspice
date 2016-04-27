@@ -19,8 +19,16 @@ typedef enum {Psp     = '{'} _nPsp;      /* Ps expression */
  * I believe the entry_t should be a union of type but I need more info.
  * ----------------------------------------------------------------- */
 
+typedef enum {
+    NUPA_REAL,
+    NUPA_STRING,
+    NUPA_UNKNOWN,
+    NUPA_SUBCKT,
+    NUPA_MODEL
+} nupa_type;
+
 typedef struct entry_s {
-    char   tp;         /* type: I)nt R)eal S)tring F)unction M)acro P)ointer */
+    nupa_type tp;      /* type: I)nt R)eal S)tring F)unction M)acro P)ointer */
     char *symbol;
     int  level;                 /* subckt nesting level */
     double vl;                  /* float value if defined */
@@ -52,13 +60,13 @@ typedef struct {                /* the input scanner data structure */
 void initdico(dico_t *);
 int donedico(dico_t *);
 void dico_free_entry(entry_t *);
-bool defsubckt(dico_t *, char *s, int w, char categ);
-int findsubckt(dico_t *, char *s, SPICE_DSTRINGPTR subname);
+bool defsubckt(dico_t *, char *s, int w, nupa_type categ);
+int findsubckt(dico_t *, char *s);
 bool nupa_substitute(dico_t *, char *s, char *r, bool err);
 bool nupa_assignment(dico_t *, char *s, char mode);
-bool nupa_subcktcall(dico_t *, char *s, char *x, bool err);
+bool nupa_subcktcall(dico_t *, char *s, char *x, char *inst_name);
 void nupa_subcktexit(dico_t *);
 dico_t *nupa_fetchinstance(void);
-char getidtype(dico_t *, char *s);
+nupa_type getidtype(dico_t *, char *s);
 entry_t *attrib(dico_t *, NGHASHPTR htable, char *t, char op);
 void del_attrib(void *);

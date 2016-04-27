@@ -21,7 +21,6 @@ extern double drand(void);
 
 /************ keywords ************/
 
-extern char *nupa_inst_name;    /* see spicenum.c */
 extern long dynsubst;           /* see inpcom.c */
 
 #define ACT_CHARACTS 25      /* actual string length to be inserted and replaced */
@@ -292,7 +291,7 @@ dico_free_entry(entry_t *entry)
 */
 
 static void
-dicostack_push(dico_t *dico)
+dicostack_push(dico_t *dico, char *inst_name)
 /* push operation for nested subcircuit locals */
 {
     dico->stack_depth++;
@@ -305,7 +304,7 @@ dicostack_push(dico_t *dico)
 
     /* lazy allocation - don't allocate space if we can help it */
     dico->symbols[dico->stack_depth] = NULL;
-    dico->inst_name[dico->stack_depth] = nupa_inst_name;
+    dico->inst_name[dico->stack_depth] = inst_name;
 }
 
 
@@ -390,7 +389,7 @@ entrynb(dico_t *dico, char *s)
 }
 
 
-char
+nupa_type
 getidtype(dico_t *dico, char *s)
 /* test if identifier s is known. Answer its type, or '?' if not in table */
 {
@@ -399,7 +398,7 @@ getidtype(dico_t *dico, char *s)
     if (entry)
         return entry->tp;
 
-    return '?';
+    return NUPA_UNKNOWN;
 }
 
 
@@ -408,10 +407,7 @@ fetchnumentry(dico_t *dico, char *s, bool *perr)
 {
     entry_t *entry = entrynb(dico, s);
 
-    while (entry && (entry->tp == 'P'))
-        entry = entry->pointer;
-
-    if (entry && (entry->tp == 'R'))
+    if (entry && (entry->tp == NUPA_REAL))
         return entry->vl;
 
     *perr = message(dico, "Undefined number [%s]\n", s);
@@ -431,7 +427,7 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op)
 
     entry = (entry_t *)nghash_find(htable_p, t);
     if (entry && (op == 'N') &&
-        (entry->level < dico->stack_depth) && (entry->tp != '?'))
+        (entry->level < dico->stack_depth) && (entry->tp != NUPA_UNKNOWN))
     {
         entry = NULL;
     }
@@ -439,7 +435,7 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op)
     if (!entry) {
         entry = TMALLOC(entry_t, 1);
         entry->symbol = strdup(t);
-        entry->tp = '?';      /* signal Unknown */
+        entry->tp = NUPA_UNKNOWN;      /* signal Unknown */
         entry->level = dico->stack_depth;
         nghash_insert(htable_p, t, entry);
     }
@@ -468,7 +464,7 @@ static bool
 nupa_define(dico_t *dico,
        char *t,                 /* identifier to define */
        char op,                 /* option */
-       char tpe,                /* type marker */
+       nupa_type tpe,           /* type marker */
        double z,                /* float value if any */
        int w,                   /* integer value if any */
        char *base)              /* string pointer if any */
@@ -481,7 +477,7 @@ nupa_define(dico_t *dico,
       we already make symbol entries which are dummy globals !
       we mark each id with its subckt level, and warn if write at higher one.
     */
-    char c;
+    nupa_type c;
     bool err, warn;
     entry_t *entry;             /* spice table entry */
     NGHASHPTR htable_p;         /* hash table */
@@ -501,22 +497,16 @@ nupa_define(dico_t *dico,
 
     } else {
 
-        if (entry->tp == 'P')
-            entry = entry->pointer; /* pointer indirection */
+        c = entry->tp;
 
-        if (entry)
-            c = entry->tp;
-        else
-            c = ' ';
-
-        if ((c == 'R') || (c == 'S') || (c == '?')) {
+        if ((c == NUPA_REAL) || (c == NUPA_STRING) || (c == NUPA_UNKNOWN)) {
 
             entry->vl = z;
             entry->tp = tpe;
             entry->ivl = w;
             entry->sbbase = base;
             /* if ((c != '?') && (i <= dico->stack[dico->tos])) { */
-            if (c == '?')
+            if (c == NUPA_UNKNOWN)
                 entry->level = dico->stack_depth; /* promote! */
 
             /* warn about re-write to a global scope! */
@@ -534,7 +524,7 @@ nupa_define(dico_t *dico,
 
 
 bool
-defsubckt(dico_t *dico, char *s, int w, char categ)
+defsubckt(dico_t *dico, char *s, int w, nupa_type categ)
 /* called on 1st pass of spice source code,
    to enter subcircuit (categ=U) and model (categ=O) names
 */
@@ -574,10 +564,9 @@ defsubckt(dico_t *dico, char *s, int w, char categ)
 
 
 int
-findsubckt(dico_t *dico, char *s, SPICE_DSTRINGPTR subname)
+findsubckt(dico_t *dico, char *s)
 /* input: s is a subcircuit invocation line.
-   returns 0 if not found, else the stored definition line number value
-   and the name in string subname  */
+   returns 0 if not found, else the stored definition line number value */
 {
     entry_t *entry;             /* symbol table entry */
     SPICE_DSTRING ustr;         /* u= subckt name is last token in string s */
@@ -599,12 +588,10 @@ findsubckt(dico_t *dico, char *s, SPICE_DSTRINGPTR subname)
     pscopy_up(&ustr, s, k + 1, j - k);
     entry = entrynb(dico, spice_dstring_value(&ustr));
 
-    if (entry && (entry->tp == 'U')) {
+    if (entry && (entry->tp == NUPA_SUBCKT)) {
         line = entry->ivl;
-        scopyd(subname, &ustr);
     } else {
         line = 0;
-        spice_dstring_reinit(subname);
         message(dico, "Cannot find subcircuit.\n");
     }
 
@@ -1112,7 +1099,7 @@ evaluate(dico_t *dico, SPICE_DSTRINGPTR qstr_p, char *t, unsigned char mode)
     /* transform t to result q. mode 0: expression, mode 1: simple variable */
     double u = 0.0;
     int j, lq;
-    char dt;
+    nupa_type tp;
     entry_t *entry;
     bool numeric, done, nolookup;
     bool err;
@@ -1127,37 +1114,34 @@ evaluate(dico_t *dico, SPICE_DSTRINGPTR qstr_p, char *t, unsigned char mode)
         entry = entrynb(dico, t);
         nolookup = !entry;
 
-        while (entry && (entry->tp == 'P'))
-            entry = entry->pointer; /* follow pointer chain */
-
-        /* pointer chain */
         if (entry)
-            dt = entry->tp;
+            tp = entry->tp;
         else
-            dt = ' ';
+            tp = NUPA_UNKNOWN;
 
         /* data type: Real or String */
-        if (dt == 'R') {
+        if (tp == NUPA_REAL) {
             u = entry->vl;
             numeric = 1;
-        } else if (dt == 'S') {
+        } else if (tp == NUPA_STRING) {
             /* suppose source text "..." at */
             j = entry->ivl;
             lq = 0;
 
             do
             {
+                char c;
                 j++;
                 lq++;
-                dt = /* ibf->bf[j]; */ entry->sbbase[j];
+                c = /* ibf->bf[j]; */ entry->sbbase[j];
 
                 if (cpos('3', spice_dstring_value(&dico->option)) <= 0)
-                    dt = upcase(dt); /* spice-2 */
+                    c = upcase(c); /* spice-2 */
 
-                done = (dt == '\"') || (dt < ' ') || (lq > 99);
+                done = (c == '\"') || (c < ' ') || (lq > 99);
 
                 if (!done)
-                    cadd(qstr_p, dt);
+                    cadd(qstr_p, c);
 
             } while (!done);
         }
@@ -1385,7 +1369,7 @@ getword(char *s, SPICE_DSTRINGPTR tstr_p, int after, int *pi)
 }
 
 
-static char
+static nupa_type
 getexpress(char *s, SPICE_DSTRINGPTR tstr_p, int *pi)
 /* returns expression-like string until next separator
    Input  i=position before expr, output  i=just after expr, on separator.
@@ -1394,7 +1378,8 @@ getexpress(char *s, SPICE_DSTRINGPTR tstr_p, int *pi)
 {
     int i = *pi;
     int ia, ls, level;
-    char c, d, tpe;
+    char c, d;
+    nupa_type tpe;
 
     ls = length(s);
     ia = i + 1;
@@ -1410,7 +1395,7 @@ getexpress(char *s, SPICE_DSTRINGPTR tstr_p, int *pi)
         while ((i < ls) && (s[i - 1] != '"'))
             i++;
 
-        tpe = 'S';
+        tpe = NUPA_STRING;
 
         do
             i++;
@@ -1454,7 +1439,7 @@ getexpress(char *s, SPICE_DSTRINGPTR tstr_p, int *pi)
 
         } while (!(cpos (c, ",;)}") >= 0)); /* legal separators */
 
-        tpe = 'R';
+        tpe = NUPA_REAL;
     }
 
     pscopy(tstr_p, s, ia-1, i - ia);
@@ -1462,7 +1447,7 @@ getexpress(char *s, SPICE_DSTRINGPTR tstr_p, int *pi)
     if (s[i - 1] == '}')
         i++;
 
-    if (tpe == 'S')
+    if (tpe == NUPA_STRING)
         i++;                    /* beyond quote */
 
     *pi = i;
@@ -1482,7 +1467,7 @@ nupa_assignment(dico_t *dico, char *s, char mode)
     /* s has the format: ident = expression; ident= expression ...  */
     int i, ls;
     bool error, err;
-    char dtype;
+    nupa_type dtype;
     int wval = 0;
     double rval = 0.0;
     char *t_p;                  /* dstring contents value */
@@ -1522,14 +1507,14 @@ nupa_assignment(dico_t *dico, char *s, char mode)
 
             dtype = getexpress(s, &ustr, &i);
 
-            if (dtype == 'R') {
+            if (dtype == NUPA_REAL) {
                 const char *tmp = spice_dstring_value(&ustr);
                 rval = formula(dico, tmp, tmp + strlen(tmp), &error);
                 if (error)
                     message(dico,
                             " Formula() error.\n"
                             "      %s\n", s);
-            } else if (dtype == 'S') {
+            } else if (dtype == NUPA_STRING) {
                 wval = i;
             }
 
@@ -1552,7 +1537,7 @@ nupa_assignment(dico_t *dico, char *s, char mode)
 
 
 bool
-nupa_subcktcall(dico_t *dico, char *s, char *x, bool err)
+nupa_subcktcall(dico_t *dico, char *s, char *x, char *inst_name)
 /* s= a subckt define line, with formal params.
    x= a matching subckt call line, with actual params
 */
@@ -1568,6 +1553,7 @@ nupa_subcktcall(dico_t *dico, char *s, char *x, bool err)
     char *t_p;
     char *u_p;
     bool found;
+    bool err = 0;
 
     spice_dstring_init(&subname);
     spice_dstring_init(&tstr);
@@ -1753,7 +1739,7 @@ nupa_subcktcall(dico_t *dico, char *s, char *x, bool err)
     }
 
     /***** finally, execute the multi-assignment line */
-    dicostack_push(dico);      /* create local symbol scope */
+    dicostack_push(dico, inst_name);      /* create local symbol scope */
 
     if (narg != n) {
         err = message(dico,
