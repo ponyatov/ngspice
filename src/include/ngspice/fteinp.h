@@ -21,7 +21,7 @@ struct line {
     char *li_error;
     struct line *li_next;
     struct line *li_actual;
-    unsigned short level[10];
+    unsigned short level[NESTINGDEPTH];
 } ;
 
 /* Listing types. */
