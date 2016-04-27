@@ -6678,6 +6678,7 @@ inp_meas_current(struct line *deck)
     }
 }
 
+
 /* scan through deck and add level information to all struct line 
  * depending on nested subcircuits */
 static void 
@@ -6685,7 +6686,7 @@ inp_add_levels(struct line *deck)
 {
     struct line *card,  *card_prev = deck;
     int skip_control = 0, subs = 0, i;
-    static unsigned short levelinfo[10];
+    static unsigned short levelinfo[NESTINGDEPTH];
 
     for (card = deck; card; card = card->li_next) {
 
@@ -6711,13 +6712,13 @@ inp_add_levels(struct line *deck)
             if (ciprefix(".subckt", curr_line)) {
                 subs++;
                 levelinfo[subs - 1]++;
-                for (i = 0; i < 10; i++)
+                for (i = 0; i < NESTINGDEPTH; i++)
                     card->level[i] = levelinfo[i];
                 card_prev = card;
             }
             else if (ciprefix(".ends", curr_line)) {
                 subs--;
-                for (i = 0; i < 10; i++)
+                for (i = 0; i < NESTINGDEPTH; i++)
                     if (i < subs)
                        card->level[i] = card_prev->level[i];
                     else
@@ -6725,13 +6726,13 @@ inp_add_levels(struct line *deck)
                 card_prev = card;
             }
             else {
-                for (i = 0; i < 10; i++)
+                for (i = 0; i < NESTINGDEPTH; i++)
                     card->level[i] = card_prev->level[i];
                 card_prev = card;
             }
         }
         else {
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < NESTINGDEPTH; i++)
                 card->level[i] = card_prev->level[i];
             card_prev = card;
         }
