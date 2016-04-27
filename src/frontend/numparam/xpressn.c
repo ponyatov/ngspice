@@ -498,10 +498,7 @@ nupa_define(dico_t *dico,
 
     } else {
 
-        if (entry)
-            c = entry->tp;
-        else
-            c = NUPA_SPACE;
+        c = entry->tp;
 
         if ((c == NUPA_REAL) || (c == NUPA_STRING) || (c == NUPA_UNKNOWN)) {
 
