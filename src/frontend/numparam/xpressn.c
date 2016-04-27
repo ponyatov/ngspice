@@ -1117,7 +1117,7 @@ evaluate(dico_t *dico, SPICE_DSTRINGPTR qstr_p, char *t, unsigned char mode)
     /* transform t to result q. mode 0: expression, mode 1: simple variable */
     double u = 0.0;
     int j, lq;
-    char dt;
+    char tp;
     entry_t *entry;
     bool numeric, done, nolookup;
     bool err;
@@ -1137,32 +1137,33 @@ evaluate(dico_t *dico, SPICE_DSTRINGPTR qstr_p, char *t, unsigned char mode)
 
         /* pointer chain */
         if (entry)
-            dt = entry->tp;
+            tp = entry->tp;
         else
-            dt = ' ';
+            tp = ' ';
 
         /* data type: Real or String */
-        if (dt == 'R') {
+        if (tp == 'R') {
             u = entry->vl;
             numeric = 1;
-        } else if (dt == 'S') {
+        } else if (tp == 'S') {
             /* suppose source text "..." at */
             j = entry->ivl;
             lq = 0;
 
             do
             {
+                char c;
                 j++;
                 lq++;
-                dt = /* ibf->bf[j]; */ entry->sbbase[j];
+                c = /* ibf->bf[j]; */ entry->sbbase[j];
 
                 if (cpos('3', spice_dstring_value(&dico->option)) <= 0)
-                    dt = upcase(dt); /* spice-2 */
+                    c = upcase(c); /* spice-2 */
 
-                done = (dt == '\"') || (dt < ' ') || (lq > 99);
+                done = (c == '\"') || (c < ' ') || (lq > 99);
 
                 if (!done)
-                    cadd(qstr_p, dt);
+                    cadd(qstr_p, c);
 
             } while (!done);
         }
