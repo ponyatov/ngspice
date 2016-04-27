@@ -149,7 +149,7 @@ static char *inp_pathresolve(const char *name);
 static char *inp_pathresolve_at(char *name, char *dir);
 static char *search_plain_identifier(char *str, const char *identifier);
 void tprint(struct line *deck, int numb);
-static void inp_check_levels(struct line *deck);
+static void inp_add_levels(struct line *deck);
 
 struct inp_read_t
 { struct line *cc;
@@ -510,7 +510,7 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
 
         delete_libs();
 
-        inp_check_levels(working);
+        inp_add_levels(working);
         tprint(working, 1);
         inp_fix_for_numparam(subckt_w_params, working);
 
@@ -6681,7 +6681,7 @@ inp_meas_current(struct line *deck)
 /* scan through deck and add level information to all struct line 
  * depending on nested subcircuits */
 static void 
-inp_check_levels(struct line *deck)
+inp_add_levels(struct line *deck)
 {
     struct line *card,  *card_prev = deck;
     int skip_control = 0, subs = 0, i;
