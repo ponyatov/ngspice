@@ -809,10 +809,8 @@ nupa_eval(char *s, int linenum, int orig_linenum)
 {
     int idef;                   /* subckt definition line */
     char c;
-    SPICE_DSTRING subname;      /* dynamic string for subcircuit name */
     bool err = 1;
 
-    spice_dstring_init(&subname);
     dicoS->srcline = linenum;
     dicoS->oldline = orig_linenum;
 
@@ -836,7 +834,7 @@ nupa_eval(char *s, int linenum, int orig_linenum)
 
         strtoupper(nupa_inst_name);
 
-        idef = findsubckt(dicoS, s, &subname);
+        idef = findsubckt(dicoS, s);
         if (idef > 0)
             nupa_subcktcall(dicoS, dicoS->dynrefptr[idef], dicoS->dynrefptr[linenum], 0);
         else
