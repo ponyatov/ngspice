@@ -1,0 +1,428 @@
+Warning: no graphics interface!
+ You may use command 'gnuplot'
+ if GnuPlot is installed.
+Periodic Steady State Analysis Started
+
+PSS Guessed Frequency 3.1e+06
+PSS Points 256
+PSS Harmonics number 10
+PSS Steady Coefficient 0.005
+PSS sc_iter 50
+PSS Stabilization Time 0.0005
+Exiting from stabilization
+Time of first shooting evaluation will be 0.0005003225806
+RHS on exiting from stabilization: 6.36805e-05     6.052           -0.493595       5               -10             0.00643173      0.0227114       0.00204439      -0.00220209     
+In shooting...
+
+----------------
+Shooting cycle iteration number:   0 || rr: 0 || predsum: -1.61294e-13
+Updated guessed frequency: 3358070.296 .
+Next shooting evaluation time is 0.0005006203707 and current time is 0.0005003225806.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   1 || rr: 0.996528 || predsum: -1.48888e-13
+Updated guessed frequency: 3368026.464 .
+Next shooting evaluation time is 0.0005009172805 and current time is 0.0005006203707.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   2 || rr: 0.029349 || predsum: -1.48412e-13
+Updated guessed frequency: 3368026.224 .
+Next shooting evaluation time is 0.0005012141903 and current time is 0.0005009172805.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   3 || rr: 0.0664169 || predsum: -1.4842e-13
+Updated guessed frequency: 3368025.983 .
+Next shooting evaluation time is 0.0005015111001 and current time is 0.0005012141903.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   4 || rr: 0.0953278 || predsum: -1.48419e-13
+Updated guessed frequency: 3368025.742 .
+Next shooting evaluation time is 0.00050180801 and current time is 0.0005015111001.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   5 || rr: 0.0923228 || predsum: -1.4842e-13
+Updated guessed frequency: 3368025.502 .
+Next shooting evaluation time is 0.0005021049198 and current time is 0.00050180801.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   6 || rr: 0.08355 || predsum: -1.48412e-13
+Updated guessed frequency: 3368025.261 .
+Next shooting evaluation time is 0.0005024018297 and current time is 0.0005021049198.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   7 || rr: 0.0824804 || predsum: -1.48415e-13
+Updated guessed frequency: 3368025.021 .
+Next shooting evaluation time is 0.0005026987396 and current time is 0.0005024018297.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   8 || rr: 0.0880113 || predsum: -1.48419e-13
+Updated guessed frequency: 3368024.78 .
+Next shooting evaluation time is 0.0005029956496 and current time is 0.0005026987396.
+----------------
+
+
+----------------
+Shooting cycle iteration number:   9 || rr: 0.0945697 || predsum: -1.48383e-13
+Updated guessed frequency: 3368024.54 .
+Next shooting evaluation time is 0.0005032925595 and current time is 0.0005029956496.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  10 || rr: 0.099333 || predsum: -1.48415e-13
+Updated guessed frequency: 3368024.299 .
+Next shooting evaluation time is 0.0005035894695 and current time is 0.0005032925595.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  11 || rr: 0.102531 || predsum: -1.4842e-13
+Updated guessed frequency: 3368024.059 .
+Next shooting evaluation time is 0.0005038863795 and current time is 0.0005035894695.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  12 || rr: 0.105301 || predsum: -1.4842e-13
+Updated guessed frequency: 3368023.818 .
+Next shooting evaluation time is 0.0005041832895 and current time is 0.0005038863795.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  13 || rr: 0.108197 || predsum: -1.4842e-13
+Updated guessed frequency: 3368023.578 .
+Next shooting evaluation time is 0.0005044801995 and current time is 0.0005041832895.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  14 || rr: 0.111161 || predsum: -1.4842e-13
+Updated guessed frequency: 3368023.337 .
+Next shooting evaluation time is 0.0005047771096 and current time is 0.0005044801995.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  15 || rr: 0.113949 || predsum: -1.48419e-13
+Updated guessed frequency: 3368023.097 .
+Next shooting evaluation time is 0.0005050740197 and current time is 0.0005047771096.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  16 || rr: 0.116463 || predsum: -1.48421e-13
+Updated guessed frequency: 3368022.856 .
+Next shooting evaluation time is 0.0005053709298 and current time is 0.0005050740197.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  17 || rr: 0.118691 || predsum: -1.48419e-13
+Updated guessed frequency: 3368022.616 .
+Next shooting evaluation time is 0.0005056678399 and current time is 0.0005053709298.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  18 || rr: 0.120684 || predsum: -1.48422e-13
+Updated guessed frequency: 3368022.375 .
+Next shooting evaluation time is 0.00050596475 and current time is 0.0005056678399.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  19 || rr: 0.122452 || predsum: -1.48152e-13
+Updated guessed frequency: 3368022.135 .
+Next shooting evaluation time is 0.0005062616602 and current time is 0.00050596475.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  20 || rr: 0.123983 || predsum: -1.48444e-13
+Updated guessed frequency: 3368021.895 .
+Next shooting evaluation time is 0.0005065585704 and current time is 0.0005062616602.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  21 || rr: 0.125265 || predsum: -1.48426e-13
+Updated guessed frequency: 3368021.654 .
+Next shooting evaluation time is 0.0005068554806 and current time is 0.0005065585704.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  22 || rr: 0.12629 || predsum: -1.48415e-13
+Updated guessed frequency: 6648123.698 .
+Next shooting evaluation time is 0.000507005899 and current time is 0.0005068554806.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  23 || rr: 0.127061 || predsum: -7.52094e-14
+Updated guessed frequency: 6648123.223 .
+Next shooting evaluation time is 0.0005071563173 and current time is 0.000507005899.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  24 || rr: 0.242531 || predsum: -7.52086e-14
+Updated guessed frequency: 6648122.748 .
+Next shooting evaluation time is 0.0005073067357 and current time is 0.0005071563173.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  25 || rr: 0.14859 || predsum: -7.52069e-14
+Updated guessed frequency: 6648122.274 .
+Next shooting evaluation time is 0.0005074571542 and current time is 0.0005073067357.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  26 || rr: 0.0902795 || predsum: -7.52129e-14
+Updated guessed frequency: 6693215.022 .
+Next shooting evaluation time is 0.0005076065592 and current time is 0.0005074571542.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  27 || rr: 0.09858 || predsum: -7.47044e-14
+Updated guessed frequency: 6785116.808 .
+Next shooting evaluation time is 0.0005077539406 and current time is 0.0005076065592.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  28 || rr: 0.123012 || predsum: -7.36876e-14
+Updated guessed frequency: 6785116.323 .
+Next shooting evaluation time is 0.000507901322 and current time is 0.0005077539406.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  29 || rr: 0.0888757 || predsum: -7.3691e-14
+Updated guessed frequency: 6785115.838 .
+Next shooting evaluation time is 0.0005080487034 and current time is 0.000507901322.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  30 || rr: 0.254977 || predsum: -7.36928e-14
+Updated guessed frequency: 6785115.354 .
+Next shooting evaluation time is 0.0005081960848 and current time is 0.0005080487034.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  31 || rr: 0.502848 || predsum: -7.36877e-14
+Updated guessed frequency: 6785114.869 .
+Next shooting evaluation time is 0.0005083434663 and current time is 0.0005081960848.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  32 || rr: 0.705172 || predsum: -7.36897e-14
+Updated guessed frequency: 6785114.384 .
+Next shooting evaluation time is 0.0005084908477 and current time is 0.0005083434663.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  33 || rr: 0.958481 || predsum: -7.36903e-14
+Updated guessed frequency: 6785113.9 .
+Next shooting evaluation time is 0.0005086382292 and current time is 0.0005084908477.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  34 || rr: 1.16158 || predsum: -7.36903e-14
+Updated guessed frequency: 6785113.415 .
+Next shooting evaluation time is 0.0005087856107 and current time is 0.0005086382292.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  35 || rr: 1.41394 || predsum: -7.36904e-14
+Updated guessed frequency: 6785112.93 .
+Next shooting evaluation time is 0.0005089329922 and current time is 0.0005087856107.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  36 || rr: 1.61516 || predsum: -7.36904e-14
+Updated guessed frequency: 6785112.446 .
+Next shooting evaluation time is 0.0005090803736 and current time is 0.0005089329922.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  37 || rr: 1.86393 || predsum: -7.36906e-14
+Updated guessed frequency: 6785111.961 .
+Next shooting evaluation time is 0.0005092277551 and current time is 0.0005090803736.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  38 || rr: 2.06137 || predsum: -7.36905e-14
+Updated guessed frequency: 6785111.476 .
+Next shooting evaluation time is 0.0005093751367 and current time is 0.0005092277551.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  39 || rr: 2.30419 || predsum: -7.36906e-14
+Updated guessed frequency: 6785110.992 .
+Next shooting evaluation time is 0.0005095225182 and current time is 0.0005093751367.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  40 || rr: 2.4961 || predsum: -7.36906e-14
+Updated guessed frequency: 6785110.507 .
+Next shooting evaluation time is 0.0005096698997 and current time is 0.0005095225182.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  41 || rr: 2.73048 || predsum: -7.36907e-14
+Updated guessed frequency: 6785110.022 .
+Next shooting evaluation time is 0.0005098172813 and current time is 0.0005096698997.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  42 || rr: 2.91518 || predsum: -7.36905e-14
+Updated guessed frequency: 6785109.538 .
+Next shooting evaluation time is 0.0005099646628 and current time is 0.0005098172813.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  43 || rr: 3.13824 || predsum: -7.36907e-14
+Updated guessed frequency: 6785109.053 .
+Next shooting evaluation time is 0.0005101120444 and current time is 0.0005099646628.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  44 || rr: 3.3141 || predsum: -7.36906e-14
+Updated guessed frequency: 6785108.569 .
+Next shooting evaluation time is 0.000510259426 and current time is 0.0005101120444.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  45 || rr: 3.52195 || predsum: -7.36908e-14
+Updated guessed frequency: 6785108.084 .
+Next shooting evaluation time is 0.0005104068076 and current time is 0.000510259426.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  46 || rr: 3.68738 || predsum: -7.36907e-14
+Updated guessed frequency: 6785107.599 .
+Next shooting evaluation time is 0.0005105541891 and current time is 0.0005104068076.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  47 || rr: 3.87372 || predsum: -7.36908e-14
+Updated guessed frequency: 6785107.115 .
+Next shooting evaluation time is 0.0005107015708 and current time is 0.0005105541891.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  48 || rr: 4.02723 || predsum: -7.3691e-14
+Updated guessed frequency: 6785106.63 .
+Next shooting evaluation time is 0.0005108489524 and current time is 0.0005107015708.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  49 || rr: 4.18405 || predsum: -7.36909e-14
+Updated guessed frequency: 6785106.145 .
+Next shooting evaluation time is 0.000510996334 and current time is 0.0005108489524.
+----------------
+
+
+----------------
+Shooting cycle iteration number:  50 || rr: 4.32421 || predsum: -7.36915e-14
+Updated guessed frequency: 6785105.661 .
+Next shooting evaluation time is 0.0005111437156 and current time is 0.000510996334.
+----------------
+
+0   -> FE: 3358070.296     || RR:    0.9965278171 || predsum/dynamic_test: 2.304205077e-14 || minimum: 2.304205077e-14
+1   -> FE: 3368026.464     || RR:   0.02934897385 || predsum/dynamic_test: 2.126975531e-14 || minimum: 2.126975531e-14
+2   -> FE: 3368026.224     || RR:   0.06641688222 || predsum/dynamic_test: 2.120166435e-14 || minimum: 2.120166435e-14
+3   -> FE: 3368025.983     || RR:   0.09532776717 || predsum/dynamic_test: 2.120279343e-14 || minimum: 2.120166435e-14
+4   -> FE: 3368025.742     || RR:   0.09232282481 || predsum/dynamic_test: 2.120266194e-14 || minimum: 2.120166435e-14
+5   -> FE: 3368025.502     || RR:   0.08354999237 || predsum/dynamic_test: 2.120282719e-14 || minimum: 2.120166435e-14
+6   -> FE: 3368025.261     || RR:   0.08248043074 || predsum/dynamic_test: 2.120169534e-14 || minimum: 2.120166435e-14
+7   -> FE: 3368025.021     || RR:   0.08801131897 || predsum/dynamic_test: 2.120211092e-14 || minimum: 2.120166435e-14
+8   -> FE: 3368024.78      || RR:   0.09456967088 || predsum/dynamic_test: 2.120273243e-14 || minimum: 2.120166435e-14
+9   -> FE: 3368024.54      || RR:    0.0993329577 || predsum/dynamic_test: 2.119761104e-14 || minimum: 2.119761104e-14
+10  -> FE: 3368024.299     || RR:    0.1025307863 || predsum/dynamic_test:  2.12021493e-14 || minimum: 2.119761104e-14
+11  -> FE: 3368024.059     || RR:    0.1053013611 || predsum/dynamic_test: 2.120283501e-14 || minimum: 2.119761104e-14
+12  -> FE: 3368023.818     || RR:    0.1081970516 || predsum/dynamic_test: 2.120280666e-14 || minimum: 2.119761104e-14
+13  -> FE: 3368023.578     || RR:    0.1111611162 || predsum/dynamic_test: 2.120285892e-14 || minimum: 2.119761104e-14
+14  -> FE: 3368023.337     || RR:    0.1139493901 || predsum/dynamic_test: 2.120287808e-14 || minimum: 2.119761104e-14
+15  -> FE: 3368023.097     || RR:    0.1164632351 || predsum/dynamic_test: 2.120277679e-14 || minimum: 2.119761104e-14
+16  -> FE: 3368022.856     || RR:    0.1186911581 || predsum/dynamic_test: 2.120301272e-14 || minimum: 2.119761104e-14
+17  -> FE: 3368022.616     || RR:    0.1206843783 || predsum/dynamic_test: 2.120275719e-14 || minimum: 2.119761104e-14
+18  -> FE: 3368022.375     || RR:      0.12245214 || predsum/dynamic_test:  2.12031206e-14 || minimum: 2.119761104e-14
+19  -> FE: 3368022.135     || RR:    0.1239829374 || predsum/dynamic_test:  2.11645435e-14 || minimum:  2.11645435e-14
+20  -> FE: 3368021.895     || RR:    0.1252647264 || predsum/dynamic_test: 2.120628097e-14 || minimum:  2.11645435e-14
+21  -> FE: 3368021.654     || RR:     0.126290417 || predsum/dynamic_test: 2.120368971e-14 || minimum:  2.11645435e-14
+22  -> FE: 6648123.698     || RR:     0.127060614 || predsum/dynamic_test: 2.120217526e-14 || minimum:  2.11645435e-14
+23  -> FE: 6648123.223     || RR:    0.2425313493 || predsum/dynamic_test: 1.074419821e-14 || minimum: 1.074419821e-14
+24  -> FE: 6648122.748     || RR:    0.1485901271 || predsum/dynamic_test: 1.074407974e-14 || minimum: 1.074407974e-14
+25  -> FE: 6648122.274     || RR:   0.09027950345 || predsum/dynamic_test: 1.074384344e-14 || minimum: 1.074384344e-14
+26  -> FE: 6693215.022     || RR:   0.09858004147 || predsum/dynamic_test: 1.074469624e-14 || minimum: 1.074384344e-14
+27  -> FE: 6785116.808     || RR:    0.1230120269 || predsum/dynamic_test: 1.067205794e-14 || minimum: 1.067205794e-14
+28  -> FE: 6785116.323     || RR:   0.08887569617 || predsum/dynamic_test: 1.052679746e-14 || minimum: 1.052679746e-14
+29  -> FE: 6785115.838     || RR:    0.2549769497 || predsum/dynamic_test: 1.052728454e-14 || minimum: 1.052679746e-14
+30  -> FE: 6785115.354     || RR:    0.5028480393 || predsum/dynamic_test: 1.052754295e-14 || minimum: 1.052679746e-14
+31  -> FE: 6785114.869     || RR:    0.7051723064 || predsum/dynamic_test: 1.052681589e-14 || minimum: 1.052679746e-14
+32  -> FE: 6785114.384     || RR:    0.9584807332 || predsum/dynamic_test: 1.052709623e-14 || minimum: 1.052679746e-14
+33  -> FE: 6785113.9       || RR:     1.161584246 || predsum/dynamic_test: 1.052717906e-14 || minimum: 1.052679746e-14
+34  -> FE: 6785113.415     || RR:     1.413940361 || predsum/dynamic_test: 1.052717913e-14 || minimum: 1.052679746e-14
+35  -> FE: 6785112.93      || RR:     1.615155586 || predsum/dynamic_test: 1.052720422e-14 || minimum: 1.052679746e-14
+36  -> FE: 6785112.446     || RR:     1.863934044 || predsum/dynamic_test: 1.052720543e-14 || minimum: 1.052679746e-14
+37  -> FE: 6785111.961     || RR:     2.061372647 || predsum/dynamic_test: 1.052722176e-14 || minimum: 1.052679746e-14
+38  -> FE: 6785111.476     || RR:     2.304192268 || predsum/dynamic_test: 1.052721859e-14 || minimum: 1.052679746e-14
+39  -> FE: 6785110.992     || RR:      2.49610418 || predsum/dynamic_test: 1.052723362e-14 || minimum: 1.052679746e-14
+40  -> FE: 6785110.507     || RR:     2.730480001 || predsum/dynamic_test: 1.052722476e-14 || minimum: 1.052679746e-14
+41  -> FE: 6785110.022     || RR:     2.915179104 || predsum/dynamic_test:  1.05272427e-14 || minimum: 1.052679746e-14
+42  -> FE: 6785109.538     || RR:     3.138242984 || predsum/dynamic_test: 1.052721439e-14 || minimum: 1.052679746e-14
+43  -> FE: 6785109.053     || RR:     3.314096405 || predsum/dynamic_test: 1.052724862e-14 || minimum: 1.052679746e-14
+44  -> FE: 6785108.569     || RR:     3.521948852 || predsum/dynamic_test: 1.052722983e-14 || minimum: 1.052679746e-14
+45  -> FE: 6785108.084     || RR:     3.687383582 || predsum/dynamic_test: 1.052725389e-14 || minimum: 1.052679746e-14
+46  -> FE: 6785107.599     || RR:     3.873720849 || predsum/dynamic_test: 1.052723628e-14 || minimum: 1.052679746e-14
+47  -> FE: 6785107.115     || RR:     4.027227083 || predsum/dynamic_test: 1.052725628e-14 || minimum: 1.052679746e-14
+48  -> FE: 6785106.63      || RR:     4.184048976 || predsum/dynamic_test: 1.052729228e-14 || minimum: 1.052679746e-14
+49  -> FE: 6785106.145     || RR:     4.324208304 || predsum/dynamic_test: 1.052726468e-14 || minimum: 1.052679746e-14
+50  -> FE: 6785105.661     || RR:     4.445833794 || predsum/dynamic_test: 1.052735335e-14 || minimum: 1.052679746e-14
+ Reference value :  5.10996e-04
+Convergence not reached. However the most near convergence iteration has predicted (iteration 28) 
+a fundamental frequency of     6785116.323 Hz
+
+
