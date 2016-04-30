@@ -268,8 +268,11 @@ gr_point(struct dvec *dv,
     case PLOT_LIN:
 
         /* If it's a linear plot, ignore first point since we don't
-           want to connect with oldx and oldy. */
-        if (np)
+           want to connect with oldx and oldy. 
+	   mhx: This situation can also happen when np != 0, e.g. when plotting a .dc with two sources.
+	        I assume (for now) that dx should be > 0. We need a static variable here that saves dx?
+	*/
+	if (np && (tox > fromx)) 
             DevDrawLine(fromx, fromy, tox, toy);
         if ((tics = (double *) currentgraph->ticdata) != NULL) {
             for (; *tics < HUGE; tics++)
