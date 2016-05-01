@@ -6818,8 +6818,8 @@ inp_get_elem_ident(char *type)
 }
 
 /* scan through deck. If .model is found, check if elements
-   referring to that model are available. If not, comment out
-   the model line. */
+   referring to that model are available. Model scope is aknowledged. 
+   If model is not used, comment out the model line. */
 static void
 inp_rem_unused_models(struct line *deck)
 {
@@ -6875,7 +6875,7 @@ inp_rem_unused_models(struct line *deck)
                     int num_terminals = get_number_terminals(elem_line);
                     if (num_terminals != 0) {
                         char *elem_model_name = get_model_name(elem_line, num_terminals);
-                        char *model_name = get_subckt_model_name(curr_line);
+//                        char *model_name = get_subckt_model_name(curr_line);
                         if (is_a_modelname(elem_model_name))
                             if (cieq(elem_model_name, model_name))
                                 /* check if element is within scope of model */
