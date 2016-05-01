@@ -6817,14 +6817,15 @@ inp_get_elem_ident(char *type)
         return 'a';
 }
 
-/* scan through deck. If .model is found, check if elements
-   referring to that model are available. Model scope is aknowledged. 
+/* scan through deck. If .model is found, scan again through deck.
+   Check if elements referring to that model are available. 
+   Model scope is aknowledged. 
    If model is not used, comment out the model line. */
 static void
 inp_rem_unused_models(struct line *deck)
 {
     struct line *card, *card_elem;
-    int skip_control = 0, subs = 0, i;
+    int skip_control = 0;
     static unsigned short levelinfo[NESTINGDEPTH];
 
     for (card = deck; card; card = card->li_next) {
@@ -6875,12 +6876,12 @@ inp_rem_unused_models(struct line *deck)
                     int num_terminals = get_number_terminals(elem_line);
                     if (num_terminals != 0) {
                         char *elem_model_name = get_model_name(elem_line, num_terminals);
-//                        char *model_name = get_subckt_model_name(curr_line);
                         if (is_a_modelname(elem_model_name))
-                            if (cieq(elem_model_name, model_name))
+                            if (model_name_match(elem_model_name, model_name))
                                 /* check if element is within scope of model */
                                 if (inp_check_scope_mod(card_elem->level, card->level))
                                     model_is_in_use = TRUE;
+                        tfree(elem_model_name);
                     }
                 }
                 else
@@ -6888,6 +6889,9 @@ inp_rem_unused_models(struct line *deck)
             }
             if (!model_is_in_use)
                 curr_line[0] = '*';
+
+            tfree(model_type);
+            tfree(model_name);
         }
     }
 }
