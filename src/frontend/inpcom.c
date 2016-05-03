@@ -6790,7 +6790,9 @@ inp_get_elem_ident(char *type)
         return 'm';
     else if (cieq(type, "d"))
         return 'd';
-    else if (cieq(type, "bjt"))
+    else if (cieq(type, "npn"))
+        return 'q';
+    else if (cieq(type, "pnp"))
         return 'q';
     else if (cieq(type, "njf"))
         return 'j';
