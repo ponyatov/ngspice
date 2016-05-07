@@ -1723,6 +1723,7 @@ nlist_find(const struct nlist *nlist, const char *name)
 }
 
 
+#if 0
 static const char *
 nlist_model_find(const struct nlist *nlist, const char *name)
 {
@@ -1732,6 +1733,7 @@ nlist_model_find(const struct nlist *nlist, const char *name)
             return nlist->names[i];
     return NULL;
 }
+#endif
 
 
 static void
@@ -1934,6 +1936,7 @@ comment_out_unused_subckt_models(struct line *start_card)
 
         if (remove_subckt)
             *line = '*';
+#if 0
         else if (has_models &&
                  (ciprefix(".model", line) || ciprefix(".cmodel", line)))
         {
@@ -1954,6 +1957,7 @@ comment_out_unused_subckt_models(struct line *start_card)
             tfree(model_type);
             tfree(model_name);
         }
+#endif
     }
 
     nlist_destroy(used_subckts);
