@@ -545,8 +545,8 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile, bool *expr_w_t
 
         inp_remove_excess_ws(working);
 
-        inp_rem_unused_models(working);
         comment_out_unused_subckt_models(working);
+        inp_rem_unused_models(working);
 
         subckt_params_to_param(working);
 
