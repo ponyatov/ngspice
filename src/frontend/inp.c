@@ -41,7 +41,6 @@ Author: 1985 Wayne A. Christopher
 #include "numparam/numpaif.h"
 #include "ngspice/stringskip.h"
 
-
 extern double gauss0(void);
 extern double drand(void);
 
@@ -1710,7 +1709,6 @@ agauss(double nominal_val, double abs_variation, double sigma)
     stdvar = abs_variation / sigma;
     return (nominal_val + stdvar * gauss0());
 }
-
 
 static double
 gauss(double nominal_val, double rel_variation, double sigma)

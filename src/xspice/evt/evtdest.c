@@ -20,25 +20,29 @@ EVTdest(Evt_Ckt_Data_t *evt)
 {
     /* Exit immediately if no event-driven instances in circuit */
     if (evt->counts.num_insts == 0)
-        return OK;
+        return(OK);
 
     Evt_Queue_destroy(evt, & evt->queue);
     Evt_Data_destroy(evt, & evt->data);
     Evt_Job_destroy(& evt->jobs);
     Evt_Info_destroy(& evt->info);
 
-    return OK;
+    return(OK);
 }
 
 
 static void
 Evt_Queue_destroy(Evt_Ckt_Data_t *evt, Evt_Queue_t *queue)
 {
-    Evt_Output_Queue_t  *output_queue = &(queue->output);
-    Evt_Node_Queue_t    *node_queue = &(queue->node);
-    Evt_Inst_Queue_t    *inst_queue = &(queue->inst);
+    Evt_Output_Queue_t  *output_queue;
+    Evt_Node_Queue_t    *node_queue;
+    Evt_Inst_Queue_t    *inst_queue;
 
     int i;
+
+    output_queue = &(queue->output);
+    node_queue = &(queue->node);
+    inst_queue = &(queue->inst);
 
     /* instance queue */
     for (i = 0; i < evt->counts.num_insts; i++) {
