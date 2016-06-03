@@ -519,7 +519,7 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         delete_libs();
 
         inp_add_levels(working);
-        tprint(working, 1);
+
         inp_fix_for_numparam(subckt_w_params, working);
 
         inp_remove_excess_ws(working);
@@ -527,7 +527,7 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
 
         comment_out_unused_subckt_models(working);
         inp_rem_unused_models(working);
-        tprint(working, 2);
+
         subckt_params_to_param(working);
 
         rv . line_number = inp_split_multi_param_lines(working, rv . line_number);
