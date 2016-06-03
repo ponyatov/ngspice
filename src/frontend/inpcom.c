@@ -539,7 +539,6 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile, bool *expr_w_t
         delete_libs();
 
         inp_add_levels(working);
-        tprint(working, 1);
         inp_fix_for_numparam(subckt_w_params, working);
 
 
