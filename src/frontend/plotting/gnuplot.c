@@ -17,6 +17,9 @@
 #include "ngspice/fteparse.h"
 #include "gnuplot.h"
 
+#ifndef max
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#endif
 
 #define GP_MAXVECTORS 64
 
