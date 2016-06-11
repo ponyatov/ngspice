@@ -1013,6 +1013,7 @@ inp_dodeck(
     ct->ci_inprogress = FALSE;
     ct->ci_runonce = FALSE;
     ct->ci_commands = end;
+    ct->ci_dicos = nupa_add_dicoslist();
     if (filename)
         ct->ci_filename = copy(filename);
     else
