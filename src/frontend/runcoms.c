@@ -15,6 +15,8 @@ Modified: 2000 AlansFixes
 #include "ngspice/ftedebug.h"
 #include "ngspice/dvec.h"
 
+#include "numparam/numpaif.h"
+
 #include "circuits.h"
 #include "completion.h"
 #include "runcoms.h"
@@ -56,7 +58,6 @@ char *last_used_rawfile = NULL;
  * command "setcirc <n>"
  *   switch to circuit number <n>
  */
-
 void
 com_scirc(wordlist *wl)
 {
@@ -108,6 +109,8 @@ com_scirc(wordlist *wl)
     modtab = ft_curckt->ci_modtab;
     /* get the database for save, iplot, stop */
     dbs = ft_curckt->ci_dbs;
+    /* set the numparam dicos structure for use with measure */
+    nupa_set_dicoslist(ft_curckt->ci_dicos);
 }
 
 
