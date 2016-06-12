@@ -1835,16 +1835,17 @@ eval_agauss(struct line *deck, char *fcn)
 
             /* find the parameters */
             tmp2str = gettok(&tmp1str);
-            x = INPevaluate(&tmp2str, &nerror, 0);
+            x = INPevaluate(&tmp2str, &nerror, 1);
             tmp2str = gettok(&tmp1str);
-            y = INPevaluate(&tmp2str, &nerror, 0);
-            tmp2str = gettok(&tmp1str);
+            y = INPevaluate(&tmp2str, &nerror, 1);
             if (cieq(fcn, "agauss")) {
-                z = INPevaluate(&tmp2str, &nerror, 0);
+                tmp2str = gettok(&tmp1str);
+                z = INPevaluate(&tmp2str, &nerror, 1);
                 val = agauss(x, y, z);
             }
             else if (cieq(fcn, "gauss")) {
-                z = INPevaluate(&tmp2str, &nerror, 0);
+                tmp2str = gettok(&tmp1str);
+                z = INPevaluate(&tmp2str, &nerror, 1);
                 val = gauss(x, y, z);
             }
             else if (cieq(fcn, "aunif")) {
