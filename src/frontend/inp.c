@@ -1822,7 +1822,7 @@ eval_agauss(struct line *deck, char *fcn)
 
         while ((ap = search_identifier(curr_line, fcn, curr_line)) != NULL) {
             char *lparen, *rparen, *begstr, *contstr = NULL, *new_line, *midstr;
-            char *tmp1str, *tmp2str;
+            char *tmp1str, *tmp2str, *delstr;
             int nerror;
 
             begstr = copy_substring(curr_line, ap);
@@ -1834,18 +1834,22 @@ eval_agauss(struct line *deck, char *fcn)
                 contstr = copy(rparen + 1);
 
             /* find the parameters */
-            tmp2str = gettok(&tmp1str);
+            delstr = tmp2str = gettok(&tmp1str);
             x = INPevaluate(&tmp2str, &nerror, 1);
-            tmp2str = gettok(&tmp1str);
+            tfree(delstr);
+            delstr = tmp2str = gettok(&tmp1str);
             y = INPevaluate(&tmp2str, &nerror, 1);
+            tfree(delstr);
             if (cieq(fcn, "agauss")) {
-                tmp2str = gettok(&tmp1str);
+                delstr = tmp2str = gettok(&tmp1str);
                 z = INPevaluate(&tmp2str, &nerror, 1);
+                tfree(delstr);
                 val = agauss(x, y, z);
             }
             else if (cieq(fcn, "gauss")) {
-                tmp2str = gettok(&tmp1str);
+                delstr = tmp2str = gettok(&tmp1str);
                 z = INPevaluate(&tmp2str, &nerror, 1);
+                tfree(delstr);
                 val = gauss(x, y, z);
             }
             else if (cieq(fcn, "aunif")) {
