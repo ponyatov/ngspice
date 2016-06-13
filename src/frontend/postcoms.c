@@ -867,16 +867,15 @@ killplot(struct plot *pl)
     tfree(pl->pl_name);
     tfree(pl->pl_typename);
     wl_free(pl->pl_commands);
-    tfree(pl->pl_date); /* va: also tfree (memory leak) */
-    if (pl->pl_ccom)    /* va: also tfree (memory leak) */
+    tfree(pl->pl_date);
+    if (pl->pl_ccom)
         throwaway(pl->pl_ccom);
 
-    if (pl->pl_env) { /* The 'environment' for this plot. */
-        /* va: HOW to do? */
-        printf("va: killplot should tfree pl->pl_env=(%p)\n", pl->pl_env);
-        fflush(stdout);
-    }
-    tfree(pl); /* va: also tfree pl itself (memory leak) */
+    if (pl->pl_env)
+		free_struct_variable(pl->pl_env);
+	if (pl->pl_lookup_table)
+		nghash_free(pl->pl_lookup_table, NULL, NULL);
+    tfree(pl);
 }
 
 
@@ -892,14 +891,14 @@ destroy_const_plot(void)
         vec_free(v);
     }
     wl_free(pl->pl_commands);
-    if (pl->pl_ccom)    /* va: also tfree (memory leak) */
+    if (pl->pl_ccom)
         throwaway(pl->pl_ccom);
 
-    if (pl->pl_env) { /* The 'environment' for this plot. */
-        /* va: HOW to do? */
-        printf("va: killplot should tfree pl->pl_env=(%p)\n", pl->pl_env);
-        fflush(stdout);
-    }
+	if (pl->pl_env)
+		free_struct_variable(pl->pl_env);
+	if (pl->pl_lookup_table)
+		nghash_free(pl->pl_lookup_table, NULL, NULL);
+	tfree(pl);   /* fixme: to be checked */
 }
 
 
