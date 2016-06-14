@@ -464,15 +464,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 here->B4SOISPeStructPtr = matched ;
                 here->B4SOISPePtr = matched->CSC ;
             }
-/*
-            if ((here-> B4SOIeNode != 0) && (here-> B4SOIbNode != 0))
-            {
-                i = here->B4SOIEbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIEbStructPtr = matched ;
-                here->B4SOIEbPtr = matched->CSC ;
-            }
-*/
+
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIeNode != 0))
             {
                 i = here->B4SOIEePtr ;
@@ -1089,10 +1081,7 @@ B4SOIbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIeNode != 0))
                 here->B4SOISPePtr = here->B4SOISPeStructPtr->CSC_Complex ;
-/*
-            if ((here-> B4SOIeNode != 0) && (here-> B4SOIbNode != 0))
-                here->B4SOIEbPtr = here->B4SOIEbStructPtr->CSC_Complex ;
-*/
+
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIeNode != 0))
                 here->B4SOIEePtr = here->B4SOIEeStructPtr->CSC_Complex ;
 
@@ -1454,10 +1443,7 @@ B4SOIbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIeNode != 0))
                 here->B4SOISPePtr = here->B4SOISPeStructPtr->CSC ;
-/*
-            if ((here-> B4SOIeNode != 0) && (here-> B4SOIbNode != 0))
-                here->B4SOIEbPtr = here->B4SOIEbStructPtr->CSC ;
-*/
+
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIeNode != 0))
                 here->B4SOIEePtr = here->B4SOIEeStructPtr->CSC ;
 
