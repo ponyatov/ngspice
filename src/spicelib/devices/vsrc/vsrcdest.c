@@ -30,7 +30,10 @@ VSRCdestroy(GENmodel **inModel)
             }
             prev = here;
         }
-        if(prev) FREE(prev);
+        if (prev) {
+            tfree(prev->VSRCcoeffs);
+            FREE(prev);
+        }
     }
     if(oldmod) FREE(oldmod);
     *model = NULL;
