@@ -1471,8 +1471,7 @@ inp_parse_temper(struct line *card)
         if (prefix(".model", curr_line)) {
             struct pt_temper *modtlistnew = NULL;
             /* remove '.model' */
-            str_ptr = gettok(&curr_line);
-            tfree(str_ptr);
+            gettok_nc(&curr_line);
             devmodname = gettok(&curr_line);
             beg_tstr = curr_line;
             while ((end_tstr = beg_tstr = strstr(beg_tstr, "temper")) != NULL) {
@@ -1734,6 +1733,7 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
            default:
                ;
        }
+       tfree(devname);
     }
     while((*wl)->wl_prev)
         (*wl) = (*wl)->wl_prev;
