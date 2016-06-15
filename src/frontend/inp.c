@@ -1735,6 +1735,7 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
            default:
                ;
        }
+       tfree(devname);
     }
     while((*wl)->wl_prev)
         (*wl) = (*wl)->wl_prev;
