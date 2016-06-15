@@ -262,7 +262,7 @@ do_measure(
     for (meas_card = ft_curckt->ci_meas; meas_card != NULL; meas_card = meas_card->li_next) {
         line = meas_card->li_line;
 
-        txfree(gettok(&line)); /* discard .meas */
+        gettok_nc(&line); /* discard .meas */
 
         an_type = gettok(&line);
         resname = gettok(&line);
@@ -357,7 +357,7 @@ do_measure(
     for (meas_card = ft_curckt->ci_meas; meas_card != NULL; meas_card = meas_card->li_next) {
         line = meas_card->li_line;
 
-        txfree(gettok(&line)); /* discard .meas */
+        gettok_nc(&line); /* discard .meas */
 
         an_type = gettok(&line);
         resname = gettok(&line);
@@ -464,7 +464,7 @@ measure_parse_line(char *line)
     char *extra_item;                   /* extra item */
 
     wl = NULL;
-    txfree(gettok(&line));
+    gettok_nc(&line);
     do {
         item = gettok(&line);
         if (!(item))
