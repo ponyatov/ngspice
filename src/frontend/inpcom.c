@@ -6945,7 +6945,7 @@ inp_rem_unused_models(struct line *deck)
             else
                 elem_model_name = get_model_name(curr_line, num_terminals);
 
-            if (is_a_modelname(elem_model_name))
+            if (is_a_modelname(elem_model_name)) {
                 /* if element is on top level, do faster here */
                 if (nested == 0) {
                     for (modn = modl; modn; modn = modn->next)
@@ -6975,6 +6975,7 @@ inp_rem_unused_models(struct line *deck)
                             goto nextcard;
                     }
                 }
+            }
             tfree(elem_model_name);
         }
 
