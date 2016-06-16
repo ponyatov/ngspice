@@ -101,11 +101,6 @@ CKTsetup(CKTcircuit *ckt)
 
 #ifdef KLU
     if (ckt->CKTmatrix->CKTkluMODE)
-        SMPnnz (ckt->CKTmatrix) ;
-#endif
-
-#ifdef KLU
-    if (ckt->CKTmatrix->CKTkluMODE)
     {
         fprintf (stderr, "Using KLU as Direct Linear Solver\n") ;
 
@@ -113,6 +108,7 @@ CKTsetup(CKTcircuit *ckt)
         int n = SMPmatSize (ckt->CKTmatrix) ;
         ckt->CKTmatrix->CKTkluN = n ;
 
+        SMPnnz (ckt->CKTmatrix) ;
         int nz = ckt->CKTmatrix->CKTklunz ;
 
         ckt->CKTmatrix->CKTkluAp           = TMALLOC (int, n + 1) ;
@@ -127,6 +123,10 @@ CKTsetup(CKTcircuit *ckt)
         /* Complex Stuff needed for AC Analysis */
         ckt->CKTmatrix->CKTkluAx_Complex = TMALLOC (double, 2 * nz) ;
         ckt->CKTmatrix->CKTkluIntermediate_Complex = TMALLOC (double, 2 * n) ;
+
+        /* Ux and Uz for the Determinant */
+        ckt->CKTmatrix->CKTkluUx = TMALLOC (double, n) ;
+        ckt->CKTmatrix->CKTkluUz = TMALLOC (double, n) ;
 
         /* Binding Table from Sparse to CSC Format Creation */
         SMPmatrix_CSC (ckt->CKTmatrix) ;

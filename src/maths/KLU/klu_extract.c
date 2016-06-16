@@ -288,3 +288,89 @@ Int KLU_extract     /* returns TRUE if successful, FALSE otherwise */
 
     return (TRUE) ;
 }
+
+/* Francesco - Extract only Udiag */
+Int KLU_extract_Udiag     /* returns TRUE if successful, FALSE otherwise */
+(
+    /* inputs: */
+    KLU_numeric *Numeric,
+    KLU_symbolic *Symbolic,
+
+    /* outputs, all of which must be allocated on input */
+
+    /* U */
+    double *Ux,     /* size nnz(U) */
+#ifdef COMPLEX
+    double *Uz,     /* size nnz(U) for the complex case, ignored if real */
+#endif
+
+    KLU_common *Common
+)
+{
+    Entry *Ukk ;
+    Int block, k1, k2, kk, nk, nblocks, nz ;
+
+    if (Common == NULL)
+    {
+        return (FALSE) ;
+    }
+
+    if (Common->status == KLU_EMPTY_MATRIX)
+    {
+        return (FALSE) ;
+    }
+
+    if (Symbolic == NULL || Numeric == NULL)
+    {printf ("KLU EXTRACT OK\n") ;
+        Common->status = KLU_INVALID ;
+        return (FALSE) ;
+    }
+
+    Common->status = KLU_OK ;
+    nblocks = Symbolic->nblocks ;
+
+    /* ---------------------------------------------------------------------- */
+    /* extract each block of U */
+    /* ---------------------------------------------------------------------- */
+
+    if (Ux != NULL
+#ifdef COMPLEX
+        && Uz != NULL
+#endif
+    )
+    {
+        nz = 0 ;
+        for (block = 0 ; block < nblocks ; block++)
+        {
+            k1 = Symbolic->R [block] ;
+            k2 = Symbolic->R [block+1] ;
+            nk = k2 - k1 ;
+            Ukk = ((Entry *) Numeric->Udiag) + k1 ;
+            if (nk == 1)
+            {
+                /* singleton block */
+                Ux [nz] = REAL (Ukk [0]) ;
+#ifdef COMPLEX
+                Uz [nz] = IMAG (Ukk [0]) ;
+#endif
+                nz++ ;
+            }
+            else
+            {
+                /* non-singleton block */
+                for (kk = 0 ; kk < nk ; kk++)
+                {
+                    /* add the diagonal entry */
+                    Ux [nz] = REAL (Ukk [kk]) ;
+#ifdef COMPLEX
+                    Uz [nz] = IMAG (Ukk [kk]) ;
+#endif
+                    nz++ ;
+                }
+            }
+        }
+        ASSERT (nz == Numeric->unz) ;
+    }
+
+    return (TRUE) ;
+}

@@ -454,19 +454,22 @@ SMPnewMatrix (SMPmatrix *Matrix)
 void
 SMPdestroy (SMPmatrix *Matrix)
 {
+    spDestroy (Matrix->SPmatrix) ;
+
     if (Matrix->CKTkluMODE)
     {
-        spDestroy (Matrix->SPmatrix) ;
         klu_free_numeric (&(Matrix->CKTkluNumeric), Matrix->CKTkluCommon) ;
         klu_free_symbolic (&(Matrix->CKTkluSymbolic), Matrix->CKTkluCommon) ;
         free (Matrix->CKTkluAp) ;
         free (Matrix->CKTkluAi) ;
         free (Matrix->CKTkluAx) ;
-        free (Matrix->CKTdiag_CSC) ;
         free (Matrix->CKTkluIntermediate) ;
+        free (Matrix->CKTbindStruct) ;
+        free (Matrix->CKTdiag_CSC) ;
+        free (Matrix->CKTkluAx_Complex) ;
         free (Matrix->CKTkluIntermediate_Complex) ;
-    } else {
-        spDestroy (Matrix->SPmatrix) ;
+        free (Matrix->CKTkluUx) ;
+        free (Matrix->CKTkluUz) ;
     }
 }
 
@@ -539,6 +542,137 @@ SMPgetError (SMPmatrix *Matrix, int *Col, int *Row)
     }
 }
 
+#ifdef KLU
+void
+spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, RealNumber *piDeterminant)
+{
+    int I, Size ;
+    RealNumber Norm, nr, ni ;
+    ComplexNumber Pivot, cDeterminant, Udiag ;
+
+#define  NORM(a)     (nr = ABS((a).Real), ni = ABS((a).Imag), MAX (nr,ni))
+
+    *pExponent = 0 ;
+
+    if (Matrix->CKTkluCommon->status == KLU_SINGULAR)
+    {
+	*pDeterminant = 0.0 ;
+        if (Matrix->CKTkluMatrixIsComplex == CKTkluMatrixComplex)
+        {
+            *piDeterminant = 0.0 ;
+        }
+        return ;
+    }
+
+    Size = Matrix->CKTkluN ;
+    I = 0 ;
+
+    if (Matrix->CKTkluMatrixIsComplex == CKTkluMatrixComplex)        /* Complex Case. */
+    {printf ("Complex Case\n") ;
+	cDeterminant.Real = 1.0 ;
+        cDeterminant.Imag = 0.0 ;
+
+        klu_z_extract_Udiag (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic, Matrix->CKTkluUx, Matrix->CKTkluUz, Matrix->CKTkluCommon) ;
+        while (I++ < Size)
+        {
+            Udiag.Real = Matrix->CKTkluUx [I] ;
+            Udiag.Imag = Matrix->CKTkluUz [I] ;
+            CMPLX_RECIPROCAL (Pivot, Udiag) ;
+            CMPLX_MULT_ASSIGN (cDeterminant, Pivot) ;
+
+	    /* Scale Determinant. */
+            Norm = NORM (cDeterminant) ;
+            if (Norm != 0.0)
+            {
+		while (Norm >= 1.0e12)
+                {
+		    cDeterminant.Real *= 1.0e-12 ;
+                    cDeterminant.Imag *= 1.0e-12 ;
+                    *pExponent += 12 ;
+                    Norm = NORM (cDeterminant) ;
+                }
+                while (Norm < 1.0e-12)
+                {
+		    cDeterminant.Real *= 1.0e12 ;
+                    cDeterminant.Imag *= 1.0e12 ;
+                    *pExponent -= 12 ;
+                    Norm = NORM (cDeterminant) ;
+                }
+            }
+        }
+
+	/* Scale Determinant again, this time to be between 1.0 <= x < 10.0. */
+        Norm = NORM (cDeterminant) ;
+        if (Norm != 0.0)
+        {
+	    while (Norm >= 10.0)
+            {
+		cDeterminant.Real *= 0.1 ;
+                cDeterminant.Imag *= 0.1 ;
+                (*pExponent)++ ;
+                Norm = NORM (cDeterminant) ;
+            }
+            while (Norm < 1.0)
+            {
+		cDeterminant.Real *= 10.0 ;
+                cDeterminant.Imag *= 10.0 ;
+                (*pExponent)-- ;
+                Norm = NORM (cDeterminant) ;
+            }
+        }
+//        if (Matrix->NumberOfInterchangesIsOdd) // How to do this in KLU ?
+//            CMPLX_NEGATE (cDeterminant) ;
+        
+        *pDeterminant = cDeterminant.Real ;
+        *piDeterminant = cDeterminant.Imag ;
+    }
+    else
+    {printf ("Real Case\n") ;
+	/* Real Case. */
+        *pDeterminant = 1.0 ;
+
+        klu_extract_Udiag (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic, Matrix->CKTkluUx, Matrix->CKTkluCommon) ;
+        while (I++ < Size)
+        {
+	    *pDeterminant /= Matrix->CKTkluUx [I] ;
+
+	    /* Scale Determinant. */
+            if (*pDeterminant != 0.0)
+            {
+		while (ABS(*pDeterminant) >= 1.0e12)
+                {
+		    *pDeterminant *= 1.0e-12 ;
+                    *pExponent += 12 ;
+                }
+                while (ABS(*pDeterminant) < 1.0e-12)
+                {
+		    *pDeterminant *= 1.0e12 ;
+                    *pExponent -= 12 ;
+                }
+            }
+        }
+
+	/* Scale Determinant again, this time to be between 1.0 <= x <
+           10.0. */
+        if (*pDeterminant != 0.0)
+        {
+	    while (ABS(*pDeterminant) >= 10.0)
+            {
+		*pDeterminant *= 0.1 ;
+                (*pExponent)++ ;
+            }
+            while (ABS(*pDeterminant) < 1.0)
+            {
+		*pDeterminant *= 10.0 ;
+                (*pExponent)-- ;
+            }
+        }
+//        if (Matrix->NumberOfInterchangesIsOdd)
+//            *pDeterminant = -*pDeterminant ;
+    }
+}
+#endif
+
 /*
  * SMPcProdDiag()
  *    note: obsolete for Spice3d2 and later
@@ -546,7 +680,12 @@ SMPgetError (SMPmatrix *Matrix, int *Col, int *Row)
 int
 SMPcProdDiag (SMPmatrix *Matrix, SPcomplex *pMantissa, int *pExponent)
 {
-    spDeterminant (Matrix->SPmatrix, pExponent, &(pMantissa->real), &(pMantissa->imag)) ;
+    if (Matrix->CKTkluMODE)
+    {
+        spDeterminant_KLU (Matrix, pExponent, &(pMantissa->real), &(pMantissa->imag)) ;
+    } else {
+        spDeterminant (Matrix->SPmatrix, pExponent, &(pMantissa->real), &(pMantissa->imag)) ;
+    }
     return spError (Matrix->SPmatrix) ;
 }
 
@@ -559,7 +698,12 @@ SMPcDProd (SMPmatrix *Matrix, SPcomplex *pMantissa, int *pExponent)
     double	re, im, x, y, z;
     int		p;
 
-    spDeterminant (Matrix->SPmatrix, &p, &re, &im) ;
+    if (Matrix->CKTkluMODE)
+    {
+        spDeterminant_KLU (Matrix, &p, &re, &im) ;
+    } else {
+        spDeterminant (Matrix->SPmatrix, &p, &re, &im) ;
+    }
 
 #ifndef M_LN2
 #define M_LN2   0.69314718055994530942
