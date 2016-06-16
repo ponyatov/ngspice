@@ -15,6 +15,8 @@ Modified: 2000 AlansFixes
 #include "ngspice/ftedebug.h"
 #include "ngspice/dvec.h"
 
+#include "numparam/numpaif.h"
+
 #include "circuits.h"
 #include "completion.h"
 #include "runcoms.h"
