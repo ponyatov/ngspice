@@ -2905,6 +2905,7 @@ free_function(struct function *fcn)
 
     tfree(fcn->name);
     tfree(fcn->body);
+    tfree(fcn->accept);
 
     for (i = 0; i < fcn->num_parameters; i++)
         tfree(fcn->params[i]);
@@ -6974,6 +6975,7 @@ inp_rem_unused_models(struct line *deck)
                             goto nextcard;
                     }
                 }
+            tfree(elem_model_name);
         }
 
 nextcard:
