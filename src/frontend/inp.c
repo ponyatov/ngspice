@@ -1631,7 +1631,7 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
 {
     struct line *tmp_deck, *tmp_line;
     char beg;
-    char *devname, *devline, *newline;
+    char *devname = NULL, *devline, *newline;
     bool goon = FALSE, havesave = FALSE;
     wordlist *tmpword;
 
