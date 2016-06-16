@@ -57,7 +57,7 @@ void
 ft_dotsaves(void)
 {
     wordlist *iline, *wl = NULL;
-    char *s, *fr;
+    char *s;
 
     if (!ft_curckt) /* Shouldn't happen. */
         return;

@@ -1741,6 +1741,7 @@ nlist_find(const struct nlist *nlist, const char *name)
 }
 
 
+#if 0
 static const char *
 nlist_model_find(const struct nlist *nlist, const char *name)
 {
@@ -1750,6 +1751,7 @@ nlist_model_find(const struct nlist *nlist, const char *name)
             return nlist->names[i];
     return NULL;
 }
+#endif
 
 
 static void
@@ -6858,8 +6860,6 @@ inp_rem_unused_models(struct line *deck)
     int nested, i;
     struct modellist *modn;
     int skip_control = 0;
-    static unsigned short levelinfo[NESTINGDEPTH];
-
     /* create a list of .model */
     for (card = deck; card; card = card->li_next) {
 
