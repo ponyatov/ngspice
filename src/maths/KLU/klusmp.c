@@ -116,6 +116,9 @@ SMPmatrix_CSC (SMPmatrix *Matrix)
 {
     spMatrix_CSC (Matrix->SPmatrix, Matrix->CKTkluAp, Matrix->CKTkluAi, Matrix->CKTkluAx,
                   Matrix->CKTkluAx_Complex, Matrix->CKTkluN, Matrix->CKTbindStruct, Matrix->CKTdiag_CSC) ;
+
+//    spMatrix_CSC_dump (Matrix->SPmatrix, 1, NULL) ;
+
     return ;
 }
 
@@ -270,6 +273,7 @@ SMPcReorder (SMPmatrix *Matrix, double PivTol, double PivRel, int *NumSwaps)
     {
         *NumSwaps = 1 ;
         spSetComplex (Matrix->SPmatrix) ;
+//        Matrix->CKTkluCommon->tol = PivTol ;
 
         if (Matrix->CKTkluNumeric != NULL)
         {
@@ -306,6 +310,7 @@ SMPreorder (SMPmatrix *Matrix, double PivTol, double PivRel, double Gmin)
     {
         spSetReal (Matrix->SPmatrix) ;
         LoadGmin_CSC (Matrix->CKTdiag_CSC, Matrix->CKTkluN, Gmin) ;
+//        Matrix->CKTkluCommon->tol = PivTol ;
 
         if (Matrix->CKTkluNumeric != NULL)
         {
@@ -468,8 +473,6 @@ SMPdestroy (SMPmatrix *Matrix)
         free (Matrix->CKTdiag_CSC) ;
         free (Matrix->CKTkluAx_Complex) ;
         free (Matrix->CKTkluIntermediate_Complex) ;
-        free (Matrix->CKTkluUx) ;
-        free (Matrix->CKTkluUz) ;
     }
 }
 
@@ -518,8 +521,12 @@ SMPprintRHS (SMPmatrix *Matrix, char *Filename, RealVector RHS, RealVector iRHS)
 void
 SMPprint (SMPmatrix *Matrix, char *Filename)
 {
-    if (!Matrix->CKTkluMODE)
+    if (Matrix->CKTkluMODE)
     {
+        NG_IGNORE (Filename) ;
+
+        klu_z_print (Matrix->CKTkluAp, Matrix->CKTkluAi, Matrix->CKTkluAx_Complex, Matrix->CKTkluN, Matrix->SPmatrix->IntToExtRowMap, Matrix->SPmatrix->IntToExtColMap) ;
+    } else {
         if (Filename)
             spFileMatrix (Matrix->SPmatrix, Filename, "Circuit Matrix", 0, 1, 1) ;
         else
@@ -535,8 +542,8 @@ SMPgetError (SMPmatrix *Matrix, int *Col, int *Row)
 {
     if (Matrix->CKTkluMODE)
     {
-        *Row = Matrix->SPmatrix->IntToExtRowMap [Matrix->CKTkluCommon->singular_col] ;
-        *Col = Matrix->SPmatrix->IntToExtColMap [Matrix->CKTkluCommon->singular_col] ;
+        *Row = Matrix->SPmatrix->IntToExtRowMap [Matrix->CKTkluCommon->singular_col + 1] ;
+        *Col = Matrix->SPmatrix->IntToExtColMap [Matrix->CKTkluCommon->singular_col + 1] ;
     } else {
         spWhereSingular (Matrix->SPmatrix, Row, Col) ;
     }
@@ -549,6 +556,10 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
     int I, Size ;
     RealNumber Norm, nr, ni ;
     ComplexNumber Pivot, cDeterminant, Udiag ;
+
+    int *P, *Q ;
+    double *Rs, *Ux, *Uz ;
+    unsigned int nSwap ;
 
 #define  NORM(a)     (nr = ABS((a).Real), ni = ABS((a).Imag), MAX (nr,ni))
 
@@ -567,18 +578,93 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
     Size = Matrix->CKTkluN ;
     I = 0 ;
 
+    P = (int *) malloc ((size_t)Matrix->CKTkluN * sizeof (int)) ;
+    Q = (int *) malloc ((size_t)Matrix->CKTkluN * sizeof (int)) ;
+
+    Ux = (double *) malloc ((size_t)Matrix->CKTkluN * sizeof (double)) ;
+
+    Rs = (double *) malloc ((size_t)Matrix->CKTkluN * sizeof (double)) ;
+
     if (Matrix->CKTkluMatrixIsComplex == CKTkluMatrixComplex)        /* Complex Case. */
-    {printf ("Complex Case\n") ;
+    {
 	cDeterminant.Real = 1.0 ;
         cDeterminant.Imag = 0.0 ;
 
-        klu_z_extract_Udiag (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic, Matrix->CKTkluUx, Matrix->CKTkluUz, Matrix->CKTkluCommon) ;
-        while (I++ < Size)
+        Uz = (double *) malloc ((size_t)Matrix->CKTkluN * sizeof (double)) ;
+/*
+        int *Lp, *Li, *Up, *Ui, *Fp, *Fi, *P, *Q ;
+        double *Lx, *Lz, *Ux, *Uz, *Fx, *Fz, *Rs ;
+        Lp = (int *) malloc (((size_t)Matrix->CKTkluN + 1) * sizeof (int)) ;
+        Li = (int *) malloc ((size_t)Matrix->CKTkluNumeric->lnz * sizeof (int)) ;
+        Lx = (double *) malloc ((size_t)Matrix->CKTkluNumeric->lnz * sizeof (double)) ;
+        Lz = (double *) malloc ((size_t)Matrix->CKTkluNumeric->lnz * sizeof (double)) ;
+        Up = (int *) malloc (((size_t)Matrix->CKTkluN + 1) * sizeof (int)) ;
+        Ui = (int *) malloc ((size_t)Matrix->CKTkluNumeric->unz * sizeof (int)) ;
+        Ux = (double *) malloc ((size_t)Matrix->CKTkluNumeric->unz * sizeof (double)) ;
+        Uz = (double *) malloc ((size_t)Matrix->CKTkluNumeric->unz * sizeof (double)) ;
+        Fp = (int *) malloc (((size_t)Matrix->CKTkluN + 1) * sizeof (int)) ;
+        Fi = (int *) malloc ((size_t)Matrix->CKTkluNumeric->Offp [Matrix->CKTkluN] * sizeof (int)) ;
+        Fx = (double *) malloc ((size_t)Matrix->CKTkluNumeric->Offp [Matrix->CKTkluN] * sizeof (double)) ;
+        Fz = (double *) malloc ((size_t)Matrix->CKTkluNumeric->Offp [Matrix->CKTkluN] * sizeof (double)) ;
+        klu_z_extract (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic,
+                       Lp, Li, Lx, Lz,
+                       Up, Ui, Ux, Uz,
+                       Fp, Fi, Fx, Fz,
+                       P, Q, Rs, NULL,
+                       Matrix->CKTkluCommon) ;
+*/
+        klu_z_extract_Udiag (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic, Ux, Uz, P, Q, Rs, Matrix->CKTkluCommon) ;
+/*
+        for (I = 0 ; I < Matrix->CKTkluNumeric->lnz ; I++)
         {
-            Udiag.Real = Matrix->CKTkluUx [I] ;
-            Udiag.Imag = Matrix->CKTkluUz [I] ;
+            printf ("L - Value: %-.9g\t%-.9g\n", Lx [I], Lz [I]) ;
+        }
+        for (I = 0 ; I < Matrix->CKTkluNumeric->unz ; I++)
+        {
+            printf ("U - Value: %-.9g\t%-.9g\n", Ux [I], Uz [I]) ;
+        }
+        for (I = 0 ; I < Matrix->CKTkluNumeric->Offp [Matrix->CKTkluN] ; I++)
+        {
+            printf ("F - Value: %-.9g\t%-.9g\n", Fx [I], Fz [I]) ;
+        }
+
+        for (I = 0 ; I < Matrix->CKTkluN ; I++)
+        {
+            printf ("U - Value: %-.9g\t%-.9g\n", Ux [I], Uz [I]) ;
+        }
+*/
+        nSwap = 0 ;
+        for (I = 0 ; I < Matrix->CKTkluN ; I++)
+        {
+            if (P [I] != I || Q [I] != I)
+            {
+                nSwap++ ;
+            }
+        }
+/*
+        free (Lp) ;
+        free (Li) ;
+        free (Lx) ;
+        free (Lz) ;
+        free (Up) ;
+        free (Ui) ;
+        free (Fp) ;
+        free (Fi) ;
+        free (Fx) ;
+        free (Fz) ;
+*/
+        I = 0 ;
+        while (I < Size)
+        {
+            Udiag.Real = 1 / (Ux [I] * Rs [I]) ;
+            Udiag.Imag = Uz [I] * Rs [I] ;
+
+//            printf ("Udiag.Real: %-.9g\tUdiag.Imag %-.9g\n", Udiag.Real, Udiag.Imag) ;
+
             CMPLX_RECIPROCAL (Pivot, Udiag) ;
             CMPLX_MULT_ASSIGN (cDeterminant, Pivot) ;
+
+//            printf ("cDeterminant.Real: %-.9g\tcDeterminant.Imag %-.9g\n", cDeterminant.Real, cDeterminant.Imag) ;
 
 	    /* Scale Determinant. */
             Norm = NORM (cDeterminant) ;
@@ -599,6 +685,7 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
                     Norm = NORM (cDeterminant) ;
                 }
             }
+            I++ ;
         }
 
 	/* Scale Determinant again, this time to be between 1.0 <= x < 10.0. */
@@ -620,21 +707,35 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
                 Norm = NORM (cDeterminant) ;
             }
         }
-//        if (Matrix->NumberOfInterchangesIsOdd) // How to do this in KLU ?
-//            CMPLX_NEGATE (cDeterminant) ;
+        if (nSwap % 2 != 0)
+        {
+            CMPLX_NEGATE (cDeterminant) ;
+        }
         
         *pDeterminant = cDeterminant.Real ;
         *piDeterminant = cDeterminant.Imag ;
+
+        free (Uz) ;
     }
     else
-    {printf ("Real Case\n") ;
+    {
 	/* Real Case. */
         *pDeterminant = 1.0 ;
 
-        klu_extract_Udiag (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic, Matrix->CKTkluUx, Matrix->CKTkluCommon) ;
-        while (I++ < Size)
+        klu_extract_Udiag (Matrix->CKTkluNumeric, Matrix->CKTkluSymbolic, Ux, P, Q, Rs, Matrix->CKTkluCommon) ;
+
+        nSwap = 0 ;
+        for (I = 0 ; I < Matrix->CKTkluN ; I++)
         {
-	    *pDeterminant /= Matrix->CKTkluUx [I] ;
+            if (P [I] != I || Q [I] != I)
+            {
+                nSwap++ ;
+            }
+        }
+
+        while (I < Size)
+        {
+            *pDeterminant /= Ux [I] ;
 
 	    /* Scale Determinant. */
             if (*pDeterminant != 0.0)
@@ -650,6 +751,7 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
                     *pExponent -= 12 ;
                 }
             }
+            I++ ;
         }
 
 	/* Scale Determinant again, this time to be between 1.0 <= x <
@@ -667,9 +769,16 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
                 (*pExponent)-- ;
             }
         }
-//        if (Matrix->NumberOfInterchangesIsOdd)
-//            *pDeterminant = -*pDeterminant ;
+        if (nSwap % 2 != 0)
+        {
+            *pDeterminant = -*pDeterminant ;
+        }
     }
+
+    free (P) ;
+    free (Q) ;
+    free (Ux) ;
+    free (Rs) ;
 }
 #endif
 
@@ -772,7 +881,13 @@ SMPcDProd (SMPmatrix *Matrix, SPcomplex *pMantissa, int *pExponent)
 #ifdef debug_print
     printf ("Determinant 10->2: (%20g,%20g)^%d\n", pMantissa->real, pMantissa->imag, *pExponent) ;
 #endif
-    return spError (Matrix->SPmatrix) ;
+
+    if (Matrix->CKTkluMODE)
+    {
+        return 0 ;
+    } else {
+        return spError (Matrix->SPmatrix) ;
+    }
 }
 
 
@@ -867,13 +982,23 @@ SMPcZeroCol (SMPmatrix *eMatrix, int Col)
 
     Col = Matrix->ExtToIntColMap [Col] ;
 
-    for (Element = Matrix->FirstInCol [Col] ; Element != NULL ; Element = Element->NextInCol)
+    if (eMatrix->CKTkluMODE)
     {
-	Element->Real = 0.0 ;
-	Element->Imag = 0.0 ;
+        int i ;
+        for (i = eMatrix->CKTkluAp [Col - 1] ; i < eMatrix->CKTkluAp [Col] ; i++)
+        {
+            eMatrix->CKTkluAx_Complex [2 * i] = 0 ;
+            eMatrix->CKTkluAx_Complex [2 * i + 1] = 0 ;
+        }
+        return 0 ;
+    } else {
+        for (Element = Matrix->FirstInCol [Col] ; Element != NULL ; Element = Element->NextInCol)
+        {
+	    Element->Real = 0.0 ;
+            Element->Imag = 0.0 ;
+        }
+        return spError (Matrix) ;
     }
-
-    return spError (Matrix) ;
 }
 
 /*

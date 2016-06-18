@@ -47,8 +47,6 @@ typedef struct sSMPmatrix {
     unsigned int CKTkluMODE:1 ;           /* KLU MODE parameter to enable KLU or not from the heuristic */
     #define CKTkluON 1                    /* KLU MODE ON definition */
     #define CKTkluOFF 0                   /* KLU MODE OFF definition */
-    double *CKTkluUx ;                    /* KLU Ux for Determinant */
-    double *CKTkluUz ;                    /* KLU Uz for Determinant */
 #endif
 
 } SMPmatrix ;

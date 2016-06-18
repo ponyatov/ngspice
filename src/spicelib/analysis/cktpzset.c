@@ -128,10 +128,6 @@ CKTpzSetup(CKTcircuit *ckt, int type)
         ckt->CKTmatrix->CKTkluAx_Complex = TMALLOC (double, 2 * nz) ;
         ckt->CKTmatrix->CKTkluIntermediate_Complex = TMALLOC (double, 2 * n) ;
 
-        /* Ux and Uz for the Determinant */
-        ckt->CKTmatrix->CKTkluUx = TMALLOC (double, n) ;
-        ckt->CKTmatrix->CKTkluUz = TMALLOC (double, n) ;
-
         /* Binding Table from Sparse to CSC Format Creation */
         SMPmatrix_CSC (ckt->CKTmatrix) ;
 
@@ -155,6 +151,24 @@ CKTpzSetup(CKTcircuit *ckt, int type)
                 DEVices [i]->DEVbindCSCComplex (ckt->CKThead [i], ckt) ;
 
         ckt->CKTmatrix->CKTkluMatrixIsComplex = CKTkluMatrixComplex ;
+
+        /* Input Pos */
+        if ((input_pos != 0) && (solution_col != 0))
+        {
+            double *j ;
+
+            j = job->PZdrive_pptr ;
+            job->PZdrive_pptr = ((BindElement *) bsearch (&j, ckt->CKTmatrix->CKTbindStruct, (size_t)nz, sizeof(BindElement), BindCompare))->CSC_Complex ;
+        }
+
+        /* Input Neg */
+        if ((input_neg != 0) && (solution_col != 0))
+        {
+            double *j ;
+
+            j = job->PZdrive_nptr ;
+            job->PZdrive_nptr = ((BindElement *) bsearch (&j, ckt->CKTmatrix->CKTbindStruct, (size_t)nz, sizeof(BindElement), BindCompare))->CSC_Complex ;
+        }
     } else {
         fprintf (stderr, "Using SPARSE 1.3 as Direct Linear Solver\n") ;
     }

@@ -53,6 +53,11 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
             TSTALLOC(VSRCnegIbrptr, VSRCnegNode, VSRCbranch);
             TSTALLOC(VSRCibrNegptr, VSRCbranch, VSRCnegNode);
             TSTALLOC(VSRCibrPosptr, VSRCbranch, VSRCposNode);
+
+#ifdef KLU
+            here->VSRCibrIbrptr = NULL ;
+#endif
+
         }
     }
     return(OK);

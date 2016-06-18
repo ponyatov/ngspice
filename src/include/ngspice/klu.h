@@ -719,6 +719,10 @@ int klu_extract_Udiag     /* returns TRUE if successful, FALSE otherwise */
     /* U */
     double *Ux,     /* size nnz(U) */
 
+    int *P,
+    int *Q,
+    double *Rs,
+
     klu_common *Common
 ) ;
 
@@ -777,6 +781,10 @@ int klu_z_extract_Udiag     /* returns TRUE if successful, FALSE otherwise */
     double *Ux,     /* size nnz(U) */
     double *Uz,     /* size nnz(U) for the complex case, ignored if real */
 
+    int *P,
+    int *Q,
+    double *Rs,
+
     klu_common *Common
 ) ;
 
@@ -831,6 +839,26 @@ void *klu_realloc       /* returns pointer to reallocated block */
 void *klu_l_malloc (size_t, size_t, klu_l_common *) ;
 void *klu_l_free (void *, size_t, size_t, klu_l_common *) ;
 void *klu_l_realloc (size_t, size_t, size_t, void *, klu_l_common *) ;
+
+int klu_print
+(
+    int *Ap,
+    int *Ai,
+    double *Ax,
+    int n,
+    int *IntToExtRowMap,
+    int *IntToExtColMap
+) ;
+
+int klu_z_print
+(
+    int *Ap,
+    int *Ai,
+    double *Ax,
+    int n,
+    int *IntToExtRowMap,
+    int *IntToExtColMap
+) ;
 
 
 /* ========================================================================== */

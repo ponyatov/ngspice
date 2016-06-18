@@ -304,11 +304,15 @@ Int KLU_extract_Udiag     /* returns TRUE if successful, FALSE otherwise */
     double *Uz,     /* size nnz(U) for the complex case, ignored if real */
 #endif
 
+    Int *P,
+    Int *Q,
+    double *Rs,
+
     KLU_common *Common
 )
 {
     Entry *Ukk ;
-    Int block, k1, k2, kk, nk, nblocks, nz ;
+    Int block, k1, k2, kk, i, n, nk, nblocks, nz ;
 
     if (Common == NULL)
     {
@@ -321,13 +325,61 @@ Int KLU_extract_Udiag     /* returns TRUE if successful, FALSE otherwise */
     }
 
     if (Symbolic == NULL || Numeric == NULL)
-    {printf ("KLU EXTRACT OK\n") ;
+    {
         Common->status = KLU_INVALID ;
         return (FALSE) ;
     }
 
     Common->status = KLU_OK ;
+    n = Symbolic->n ;
     nblocks = Symbolic->nblocks ;
+
+    /* ---------------------------------------------------------------------- */
+    /* extract scale factors */
+    /* ---------------------------------------------------------------------- */
+
+    if (Rs != NULL)
+    {
+        if (Numeric->Rs != NULL)
+        {
+            for (i = 0 ; i < n ; i++)
+            {
+                Rs [i] = Numeric->Rs [i] ;
+            }
+        }
+        else
+        {
+            /* no scaling */
+            for (i = 0 ; i < n ; i++)
+            {
+                Rs [i] = 1 ;
+            }
+        }
+    }
+
+    /* ---------------------------------------------------------------------- */
+    /* extract final row permutation */
+    /* ---------------------------------------------------------------------- */
+
+    if (P != NULL)
+    {
+        for (i = 0 ; i < n ; i++)
+        {
+            P [i] = Numeric->Pnum [i] ;
+        }
+    }
+
+    /* ---------------------------------------------------------------------- */
+    /* extract column permutation */
+    /* ---------------------------------------------------------------------- */
+
+    if (Q != NULL)
+    {
+        for (i = 0 ; i < n ; i++)
+        {
+            Q [i] = Symbolic->Q [i] ;
+        }
+    }
 
     /* ---------------------------------------------------------------------- */
     /* extract each block of U */
@@ -370,7 +422,39 @@ Int KLU_extract_Udiag     /* returns TRUE if successful, FALSE otherwise */
             }
         }
         ASSERT (nz == Numeric->unz) ;
+
     }
 
     return (TRUE) ;
+}
+
+Int KLU_print
+(
+    Int *Ap,
+    Int *Ai,
+    double *Ax,
+    int n,
+    int *IntToExtRowMap,
+    int *IntToExtColMap
+)
+{
+    Entry *Az ;
+    int i, j ;
+
+    Az = (Entry *)Ax ;
+    for (i = 0 ; i < n ; i++)
+    {
+        for (j = Ap [i] ; j < Ap [i + 1] ; j++)
+        {
+
+#ifdef COMPLEX
+            fprintf (stderr, "Row: %d\tCol: %d\tValue: %-.9g j%-.9g\n", IntToExtRowMap [Ai [j] + 1], IntToExtColMap [i + 1], Az [j].Real, Az [j].Imag) ;
+#else
+            fprintf (stderr, "Row: %d\tCol: %d\tValue: %-.9g\n", IntToExtRowMap [Ai [j] + 1], IntToExtColMap [i + 1], Az [j]) ;
+#endif
+
+        }
+    }
+
+    return 0 ;
 }

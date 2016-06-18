@@ -124,10 +124,6 @@ CKTsetup(CKTcircuit *ckt)
         ckt->CKTmatrix->CKTkluAx_Complex = TMALLOC (double, 2 * nz) ;
         ckt->CKTmatrix->CKTkluIntermediate_Complex = TMALLOC (double, 2 * n) ;
 
-        /* Ux and Uz for the Determinant */
-        ckt->CKTmatrix->CKTkluUx = TMALLOC (double, n) ;
-        ckt->CKTmatrix->CKTkluUz = TMALLOC (double, n) ;
-
         /* Binding Table from Sparse to CSC Format Creation */
         SMPmatrix_CSC (ckt->CKTmatrix) ;
 
