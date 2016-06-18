@@ -40,18 +40,18 @@ MUTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((here->MUTind1->INDbrEq != 0) && (here->MUTind2->INDbrEq != 0))
             {
-                i = here->MUTbr1br2 ;
+                i = here->MUTbr1br2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->MUTbr1br2StructPtr = matched ;
-                here->MUTbr1br2 = matched->CSC ;
+                here->MUTbr1br2Ptr = matched->CSC ;
             }
 
             if ((here->MUTind2->INDbrEq != 0) && (here->MUTind1->INDbrEq != 0))
             {
-                i = here->MUTbr2br1 ;
+                i = here->MUTbr2br1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->MUTbr2br1StructPtr = matched ;
-                here->MUTbr2br1 = matched->CSC ;
+                here->MUTbr2br1Ptr = matched->CSC ;
             }
 
         }
@@ -75,10 +75,10 @@ MUTbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MUTinstances ; here != NULL ; here = here->MUTnextInstance)
         {
             if ((here->MUTind1->INDbrEq != 0) && (here->MUTind2->INDbrEq != 0))
-                here->MUTbr1br2 = here->MUTbr1br2StructPtr->CSC_Complex ;
+                here->MUTbr1br2Ptr = here->MUTbr1br2StructPtr->CSC_Complex ;
 
             if ((here->MUTind2->INDbrEq != 0) && (here->MUTind1->INDbrEq != 0))
-                here->MUTbr2br1 = here->MUTbr2br1StructPtr->CSC_Complex ;
+                here->MUTbr2br1Ptr = here->MUTbr2br1StructPtr->CSC_Complex ;
 
         }
     }
@@ -101,10 +101,10 @@ MUTbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MUTinstances ; here != NULL ; here = here->MUTnextInstance)
         {
             if ((here->MUTind1->INDbrEq != 0) && (here->MUTind2->INDbrEq != 0))
-                here->MUTbr1br2 = here->MUTbr1br2StructPtr->CSC ;
+                here->MUTbr1br2Ptr = here->MUTbr1br2StructPtr->CSC ;
 
             if ((here->MUTind2->INDbrEq != 0) && (here->MUTind1->INDbrEq != 0))
-                here->MUTbr2br1 = here->MUTbr2br1StructPtr->CSC ;
+                here->MUTbr2br1Ptr = here->MUTbr2br1StructPtr->CSC ;
 
         }
     }
