@@ -40,18 +40,18 @@ CCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
             {
-                i = here->CCCSposContBrptr ;
+                i = here->CCCSposContBrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->CCCSposContBrptrStructPtr = matched ;
-                here->CCCSposContBrptr = matched->CSC ;
+                here->CCCSposContBrPtr = matched->CSC ;
             }
 
             if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
             {
-                i = here->CCCSnegContBrptr ;
+                i = here->CCCSnegContBrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->CCCSnegContBrptrStructPtr = matched ;
-                here->CCCSnegContBrptr = matched->CSC ;
+                here->CCCSnegContBrPtr = matched->CSC ;
             }
 
         }
@@ -75,10 +75,10 @@ CCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
             if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSposContBrptr = here->CCCSposContBrptrStructPtr->CSC_Complex ;
+                here->CCCSposContBrPtr = here->CCCSposContBrptrStructPtr->CSC_Complex ;
 
             if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSnegContBrptr = here->CCCSnegContBrptrStructPtr->CSC_Complex ;
+                here->CCCSnegContBrPtr = here->CCCSnegContBrptrStructPtr->CSC_Complex ;
 
         }
     }
@@ -101,10 +101,10 @@ CCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
             if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSposContBrptr = here->CCCSposContBrptrStructPtr->CSC ;
+                here->CCCSposContBrPtr = here->CCCSposContBrptrStructPtr->CSC ;
 
             if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSnegContBrptr = here->CCCSnegContBrptrStructPtr->CSC ;
+                here->CCCSnegContBrPtr = here->CCCSnegContBrptrStructPtr->CSC ;
 
         }
     }

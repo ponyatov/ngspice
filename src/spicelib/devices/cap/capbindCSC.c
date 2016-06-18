@@ -40,34 +40,34 @@ CAPbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
             {
-                i = here->CAPposPosptr ;
+                i = here->CAPposPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->CAPposPosptrStructPtr = matched ;
-                here->CAPposPosptr = matched->CSC ;
+                here->CAPposPosPtr = matched->CSC ;
             }
 
             if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
             {
-                i = here->CAPnegNegptr ;
+                i = here->CAPnegNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->CAPnegNegptrStructPtr = matched ;
-                here->CAPnegNegptr = matched->CSC ;
+                here->CAPnegNegPtr = matched->CSC ;
             }
 
             if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
             {
-                i = here->CAPposNegptr ;
+                i = here->CAPposNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->CAPposNegptrStructPtr = matched ;
-                here->CAPposNegptr = matched->CSC ;
+                here->CAPposNegPtr = matched->CSC ;
             }
 
             if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
             {
-                i = here->CAPnegPosptr ;
+                i = here->CAPnegPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->CAPnegPosptrStructPtr = matched ;
-                here->CAPnegPosptr = matched->CSC ;
+                here->CAPnegPosPtr = matched->CSC ;
             }
         }
     }
@@ -90,16 +90,16 @@ CAPbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
             if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-                here->CAPposPosptr = here->CAPposPosptrStructPtr->CSC_Complex ;
+                here->CAPposPosPtr = here->CAPposPosptrStructPtr->CSC_Complex ;
 
             if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-                here->CAPnegNegptr = here->CAPnegNegptrStructPtr->CSC_Complex ;
+                here->CAPnegNegPtr = here->CAPnegNegptrStructPtr->CSC_Complex ;
 
             if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-                here->CAPposNegptr = here->CAPposNegptrStructPtr->CSC_Complex ;
+                here->CAPposNegPtr = here->CAPposNegptrStructPtr->CSC_Complex ;
 
             if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-                here->CAPnegPosptr = here->CAPnegPosptrStructPtr->CSC_Complex ;
+                here->CAPnegPosPtr = here->CAPnegPosptrStructPtr->CSC_Complex ;
 
         }
     }
@@ -122,16 +122,16 @@ CAPbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
             if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-                here->CAPposPosptr = here->CAPposPosptrStructPtr->CSC ;
+                here->CAPposPosPtr = here->CAPposPosptrStructPtr->CSC ;
 
             if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-                here->CAPnegNegptr = here->CAPnegNegptrStructPtr->CSC ;
+                here->CAPnegNegPtr = here->CAPnegNegptrStructPtr->CSC ;
 
             if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-                here->CAPposNegptr = here->CAPposNegptrStructPtr->CSC ;
+                here->CAPposNegPtr = here->CAPposNegptrStructPtr->CSC ;
 
             if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-                here->CAPnegPosptr = here->CAPnegPosptrStructPtr->CSC ;
+                here->CAPnegPosPtr = here->CAPnegPosptrStructPtr->CSC ;
 
         }
     }

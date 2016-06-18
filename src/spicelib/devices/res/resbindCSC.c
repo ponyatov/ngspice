@@ -40,34 +40,34 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
             {
-                i = here->RESposPosptr ;
+                i = here->RESposPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->RESposPosptrStructPtr = matched ;
-                here->RESposPosptr = matched->CSC ;
+                here->RESposPosPtr = matched->CSC ;
             }
 
             if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
             {
-                i = here->RESnegNegptr ;
+                i = here->RESnegNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->RESnegNegptrStructPtr = matched ;
-                here->RESnegNegptr = matched->CSC ;
+                here->RESnegNegPtr = matched->CSC ;
             }
 
             if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
             {
-                i = here->RESposNegptr ;
+                i = here->RESposNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->RESposNegptrStructPtr = matched ;
-                here->RESposNegptr = matched->CSC ;
+                here->RESposNegPtr = matched->CSC ;
             }
 
             if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
             {
-                i = here->RESnegPosptr ;
+                i = here->RESnegPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->RESnegPosptrStructPtr = matched ;
-                here->RESnegPosptr = matched->CSC ;
+                here->RESnegPosPtr = matched->CSC ;
             }
 
         }
@@ -91,16 +91,16 @@ RESbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
             if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-                here->RESposPosptr = here->RESposPosptrStructPtr->CSC_Complex ;
+                here->RESposPosPtr = here->RESposPosptrStructPtr->CSC_Complex ;
 
             if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-                here->RESnegNegptr = here->RESnegNegptrStructPtr->CSC_Complex ;
+                here->RESnegNegPtr = here->RESnegNegptrStructPtr->CSC_Complex ;
 
             if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-                here->RESposNegptr = here->RESposNegptrStructPtr->CSC_Complex ;
+                here->RESposNegPtr = here->RESposNegptrStructPtr->CSC_Complex ;
 
             if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-                here->RESnegPosptr = here->RESnegPosptrStructPtr->CSC_Complex ;
+                here->RESnegPosPtr = here->RESnegPosptrStructPtr->CSC_Complex ;
 
         }
     }
@@ -123,16 +123,16 @@ RESbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
             if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-                here->RESposPosptr = here->RESposPosptrStructPtr->CSC ;
+                here->RESposPosPtr = here->RESposPosptrStructPtr->CSC ;
 
             if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-                here->RESnegNegptr = here->RESnegNegptrStructPtr->CSC ;
+                here->RESnegNegPtr = here->RESnegNegptrStructPtr->CSC ;
 
             if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-                here->RESposNegptr = here->RESposNegptrStructPtr->CSC ;
+                here->RESposNegPtr = here->RESposNegptrStructPtr->CSC ;
 
             if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-                here->RESnegPosptr = here->RESnegPosptrStructPtr->CSC ;
+                here->RESnegPosPtr = here->RESnegPosptrStructPtr->CSC ;
 
         }
     }

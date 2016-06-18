@@ -40,45 +40,45 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
             {
-                i = here->VSRCposIbrptr ;
+                i = here->VSRCposIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VSRCposIbrptrStructPtr = matched ;
-                here->VSRCposIbrptr = matched->CSC ;
+                here->VSRCposIbrPtr = matched->CSC ;
             }
 
             if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
             {
-                i = here->VSRCnegIbrptr ;
+                i = here->VSRCnegIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VSRCnegIbrptrStructPtr = matched ;
-                here->VSRCnegIbrptr = matched->CSC ;
+                here->VSRCnegIbrPtr = matched->CSC ;
             }
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
             {
-                i = here->VSRCibrNegptr ;
+                i = here->VSRCibrNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VSRCibrNegptrStructPtr = matched ;
-                here->VSRCibrNegptr = matched->CSC ;
+                here->VSRCibrNegPtr = matched->CSC ;
             }
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
             {
-                i = here->VSRCibrPosptr ;
+                i = here->VSRCibrPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VSRCibrPosptrStructPtr = matched ;
-                here->VSRCibrPosptr = matched->CSC ;
+                here->VSRCibrPosPtr = matched->CSC ;
             }
 
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
-                i = here->VSRCibrIbrptr ;
+                i = here->VSRCibrIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VSRCibrIbrptrStructPtr = matched ;
                 if (matched != NULL)
                 {
-                    here->VSRCibrIbrptr = matched->CSC ;
+                    here->VSRCibrIbrPtr = matched->CSC ;
                 }
             }
         }
@@ -102,23 +102,23 @@ VSRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
             if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCposIbrptr = here->VSRCposIbrptrStructPtr->CSC_Complex ;
+                here->VSRCposIbrPtr = here->VSRCposIbrptrStructPtr->CSC_Complex ;
 
             if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCnegIbrptr = here->VSRCnegIbrptrStructPtr->CSC_Complex ;
+                here->VSRCnegIbrPtr = here->VSRCnegIbrptrStructPtr->CSC_Complex ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-                here->VSRCibrNegptr = here->VSRCibrNegptrStructPtr->CSC_Complex ;
+                here->VSRCibrNegPtr = here->VSRCibrNegptrStructPtr->CSC_Complex ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-                here->VSRCibrPosptr = here->VSRCibrPosptrStructPtr->CSC_Complex ;
+                here->VSRCibrPosPtr = here->VSRCibrPosptrStructPtr->CSC_Complex ;
 
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
                 if (here->VSRCibrIbrptrStructPtr != NULL)
                 {
-                    here->VSRCibrIbrptr = here->VSRCibrIbrptrStructPtr->CSC_Complex ;
+                    here->VSRCibrIbrPtr = here->VSRCibrIbrptrStructPtr->CSC_Complex ;
                 }
             }
         }
@@ -142,23 +142,23 @@ VSRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
             if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCposIbrptr = here->VSRCposIbrptrStructPtr->CSC ;
+                here->VSRCposIbrPtr = here->VSRCposIbrptrStructPtr->CSC ;
 
             if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCnegIbrptr = here->VSRCnegIbrptrStructPtr->CSC ;
+                here->VSRCnegIbrPtr = here->VSRCnegIbrptrStructPtr->CSC ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-                here->VSRCibrNegptr = here->VSRCibrNegptrStructPtr->CSC ;
+                here->VSRCibrNegPtr = here->VSRCibrNegptrStructPtr->CSC ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-                here->VSRCibrPosptr = here->VSRCibrPosptrStructPtr->CSC ;
+                here->VSRCibrPosPtr = here->VSRCibrPosptrStructPtr->CSC ;
 
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
                 if (here->VSRCibrIbrptrStructPtr != NULL)
                 {
-                    here->VSRCibrIbrptr = here->VSRCibrIbrptrStructPtr->CSC ;
+                    here->VSRCibrIbrPtr = here->VSRCibrIbrptrStructPtr->CSC ;
                 }
             }
         }

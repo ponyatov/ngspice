@@ -44,37 +44,37 @@ ASRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 if ((here->ASRCposNode != 0) && (here->ASRCbranch != 0))
                 {
-                    i = here->ASRCposptr [j] ;
+                    i = here->ASRCposPtr [j] ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                     here->ASRCposptrStructPtr [j] = matched ;
-                    here->ASRCposptr [j] = matched->CSC ;
+                    here->ASRCposPtr [j] = matched->CSC ;
                 }
                 j++ ;
 
                 if ((here->ASRCnegNode != 0) && (here->ASRCbranch != 0))
                 {
-                    i = here->ASRCposptr [j] ;
+                    i = here->ASRCposPtr [j] ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                     here->ASRCposptrStructPtr [j] = matched ;
-                    here->ASRCposptr [j] = matched->CSC ;
+                    here->ASRCposPtr [j] = matched->CSC ;
                 }
                 j++ ;
 
                 if ((here->ASRCbranch != 0) && (here->ASRCnegNode != 0))
                 {
-                    i = here->ASRCposptr [j] ;
+                    i = here->ASRCposPtr [j] ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                     here->ASRCposptrStructPtr [j] = matched ;
-                    here->ASRCposptr [j] = matched->CSC ;
+                    here->ASRCposPtr [j] = matched->CSC ;
                 }
                 j++ ;
 
                 if ((here->ASRCbranch != 0) && (here->ASRCposNode != 0))
                 {
-                    i = here->ASRCposptr [j] ;
+                    i = here->ASRCposPtr [j] ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                     here->ASRCposptrStructPtr [j] = matched ;
-                    here->ASRCposptr [j] = matched->CSC ;
+                    here->ASRCposPtr [j] = matched->CSC ;
                 }
                 j++ ;
             }
@@ -85,28 +85,28 @@ ASRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     if ((here->ASRCbranch != 0) && (here->ASRCvars [k] != 0))
                     {
-                        i = here->ASRCposptr [j] ;
+                        i = here->ASRCposPtr [j] ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                         here->ASRCposptrStructPtr [j] = matched ;
-                        here->ASRCposptr [j] = matched->CSC ;
+                        here->ASRCposPtr [j] = matched->CSC ;
                     }
                     j++ ;
                 } else {
                     if ((here->ASRCposNode != 0) && (here->ASRCvars [k] != 0))
                     {
-                        i = here->ASRCposptr [j] ;
+                        i = here->ASRCposPtr [j] ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                         here->ASRCposptrStructPtr [j] = matched ;
-                        here->ASRCposptr [j] = matched->CSC ;
+                        here->ASRCposPtr [j] = matched->CSC ;
                     }
                     j++ ;
 
                     if ((here->ASRCnegNode != 0) && (here->ASRCvars [k] != 0))
                     {
-                        i = here->ASRCposptr [j] ;
+                        i = here->ASRCposPtr [j] ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                         here->ASRCposptrStructPtr [j] = matched ;
-                        here->ASRCposptr [j] = matched->CSC ;
+                        here->ASRCposPtr [j] = matched->CSC ;
                     }
                     j++ ;
                 }
@@ -137,25 +137,25 @@ ASRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             {
                 if ((here->ASRCposNode != 0) && (here->ASRCbranch != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                 }
                 j++ ;
 
                 if ((here->ASRCnegNode != 0) && (here->ASRCbranch != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                 }
                 j++ ;
 
                 if ((here->ASRCbranch != 0) && (here->ASRCnegNode != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                 }
                 j++ ;
 
                 if ((here->ASRCbranch != 0) && (here->ASRCposNode != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                 }
                 j++ ;
             }
@@ -166,19 +166,19 @@ ASRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     if ((here->ASRCbranch != 0) && (here->ASRCvars [k] != 0))
                     {
-                        here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                        here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                     }
                     j++ ;
                 } else {
                     if ((here->ASRCposNode != 0) && (here->ASRCvars [k] != 0))
                     {
-                        here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                        here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                     }
                     j++ ;
 
                     if ((here->ASRCnegNode != 0) && (here->ASRCvars [k] != 0))
                     {
-                        here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
+                        here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC_Complex ;
                     }
                     j++ ;
                 }
@@ -209,25 +209,25 @@ ASRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             {
                 if ((here->ASRCposNode != 0) && (here->ASRCbranch != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                 }
                 j++ ;
 
                 if ((here->ASRCnegNode != 0) && (here->ASRCbranch != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                 }
                 j++ ;
 
                 if ((here->ASRCbranch != 0) && (here->ASRCnegNode != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                 }
                 j++ ;
 
                 if ((here->ASRCbranch != 0) && (here->ASRCposNode != 0))
                 {
-                    here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                    here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                 }
                 j++ ;
             }
@@ -238,19 +238,19 @@ ASRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     if ((here->ASRCbranch != 0) && (here->ASRCvars [k] != 0))
                     {
-                        here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                        here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                     }
                     j++ ;
                 } else {
                     if ((here->ASRCposNode != 0) && (here->ASRCvars [k] != 0))
                     {
-                        here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                        here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                     }
                     j++ ;
 
                     if ((here->ASRCnegNode != 0) && (here->ASRCvars [k] != 0))
                     {
-                        here->ASRCposptr [j] = here->ASRCposptrStructPtr [j]->CSC ;
+                        here->ASRCposPtr [j] = here->ASRCposptrStructPtr [j]->CSC ;
                     }
                     j++ ;
                 }

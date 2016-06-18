@@ -40,34 +40,34 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
             {
-                i = here->VCCSposContPosptr ;
+                i = here->VCCSposContPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VCCSposContPosptrStructPtr = matched ;
-                here->VCCSposContPosptr = matched->CSC ;
+                here->VCCSposContPosPtr = matched->CSC ;
             }
 
             if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
             {
-                i = here->VCCSposContNegptr ;
+                i = here->VCCSposContNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VCCSposContNegptrStructPtr = matched ;
-                here->VCCSposContNegptr = matched->CSC ;
+                here->VCCSposContNegPtr = matched->CSC ;
             }
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
             {
-                i = here->VCCSnegContPosptr ;
+                i = here->VCCSnegContPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VCCSnegContPosptrStructPtr = matched ;
-                here->VCCSnegContPosptr = matched->CSC ;
+                here->VCCSnegContPosPtr = matched->CSC ;
             }
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
             {
-                i = here->VCCSnegContNegptr ;
+                i = here->VCCSnegContNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
                 here->VCCSnegContNegptrStructPtr = matched ;
-                here->VCCSnegContNegptr = matched->CSC ;
+                here->VCCSnegContNegPtr = matched->CSC ;
             }
 
         }
@@ -91,16 +91,16 @@ VCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
             if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSposContPosptr = here->VCCSposContPosptrStructPtr->CSC_Complex ;
+                here->VCCSposContPosPtr = here->VCCSposContPosptrStructPtr->CSC_Complex ;
 
             if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSposContNegptr = here->VCCSposContNegptrStructPtr->CSC_Complex ;
+                here->VCCSposContNegPtr = here->VCCSposContNegptrStructPtr->CSC_Complex ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSnegContPosptr = here->VCCSnegContPosptrStructPtr->CSC_Complex ;
+                here->VCCSnegContPosPtr = here->VCCSnegContPosptrStructPtr->CSC_Complex ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSnegContNegptr = here->VCCSnegContNegptrStructPtr->CSC_Complex ;
+                here->VCCSnegContNegPtr = here->VCCSnegContNegptrStructPtr->CSC_Complex ;
 
         }
     }
@@ -123,16 +123,16 @@ VCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
             if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSposContPosptr = here->VCCSposContPosptrStructPtr->CSC ;
+                here->VCCSposContPosPtr = here->VCCSposContPosptrStructPtr->CSC ;
 
             if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSposContNegptr = here->VCCSposContNegptrStructPtr->CSC ;
+                here->VCCSposContNegPtr = here->VCCSposContNegptrStructPtr->CSC ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSnegContPosptr = here->VCCSnegContPosptrStructPtr->CSC ;
+                here->VCCSnegContPosPtr = here->VCCSnegContPosptrStructPtr->CSC ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSnegContNegptr = here->VCCSnegContNegptrStructPtr->CSC ;
+                here->VCCSnegContNegPtr = here->VCCSnegContNegptrStructPtr->CSC ;
 
         }
     }
