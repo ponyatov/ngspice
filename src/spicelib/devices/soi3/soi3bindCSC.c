@@ -6,6 +6,7 @@ Author: 2013 Francesco Lannutti
 #include "ngspice/cktdefs.h"
 #include "soi3defs.h"
 #include "ngspice/sperror.h"
+#include "ngspice/klu-binding.h"
 
 #include <stdlib.h>
 

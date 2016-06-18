@@ -6,6 +6,7 @@ Author: 2015 Francesco Lannutti
 #include "ngspice/cktdefs.h"
 #include "asrcdefs.h"
 #include "ngspice/sperror.h"
+#include "ngspice/klu-binding.h"
 
 #include <stdlib.h>
 
