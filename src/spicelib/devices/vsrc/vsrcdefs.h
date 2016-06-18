@@ -81,6 +81,7 @@ typedef struct sVSRCinstance {
     BindElement *VSRCnegIbrptrStructPtr ;
     BindElement *VSRCibrNegptrStructPtr ;
     BindElement *VSRCibrPosptrStructPtr ;
+    BindElement *VSRCibrIbrptrStructPtr ;
 #endif
 
 } VSRCinstance ;

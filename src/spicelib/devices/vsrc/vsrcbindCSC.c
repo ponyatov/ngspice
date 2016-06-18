@@ -70,6 +70,17 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 here->VSRCibrPosptr = matched->CSC ;
             }
 
+            /* Pole-Zero Analysis */
+            if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
+            {
+                i = here->VSRCibrIbrptr ;
+                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
+                here->VSRCibrIbrptrStructPtr = matched ;
+                if (matched != NULL)
+                {
+                    here->VSRCibrIbrptr = matched->CSC ;
+                }
+            }
         }
     }
 
@@ -102,6 +113,14 @@ VSRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
                 here->VSRCibrPosptr = here->VSRCibrPosptrStructPtr->CSC_Complex ;
 
+            /* Pole-Zero Analysis */
+            if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
+            {
+                if (here->VSRCibrIbrptrStructPtr != NULL)
+                {
+                    here->VSRCibrIbrptr = here->VSRCibrIbrptrStructPtr->CSC_Complex ;
+                }
+            }
         }
     }
 
@@ -134,6 +153,14 @@ VSRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
                 here->VSRCibrPosptr = here->VSRCibrPosptrStructPtr->CSC ;
 
+            /* Pole-Zero Analysis */
+            if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
+            {
+                if (here->VSRCibrIbrptrStructPtr != NULL)
+                {
+                    here->VSRCibrIbrptr = here->VSRCibrIbrptrStructPtr->CSC ;
+                }
+            }
         }
     }
 
