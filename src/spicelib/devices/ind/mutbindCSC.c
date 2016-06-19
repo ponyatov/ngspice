@@ -39,22 +39,8 @@ MUTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MUTinstances ; here != NULL ; here = here->MUTnextInstance)
         {
-            if ((here->MUTind1->INDbrEq != 0) && (here->MUTind2->INDbrEq != 0))
-            {
-                i = here->MUTbr1br2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MUTbr1br2Binding = matched ;
-                here->MUTbr1br2Ptr = matched->CSC ;
-            }
-
-            if ((here->MUTind2->INDbrEq != 0) && (here->MUTind1->INDbrEq != 0))
-            {
-                i = here->MUTbr2br1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MUTbr2br1Binding = matched ;
-                here->MUTbr2br1Ptr = matched->CSC ;
-            }
-
+            CREATE_KLU_BINDING_TABLE(MUTbr1br2Ptr, MUTbr1br2Binding, MUTind1->INDbrEq, MUTind2->INDbrEq);
+            CREATE_KLU_BINDING_TABLE(MUTbr2br1Ptr, MUTbr2br1Binding, MUTind2->INDbrEq, MUTind1->INDbrEq);
         }
     }
 
@@ -75,12 +61,8 @@ MUTbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MUTinstances ; here != NULL ; here = here->MUTnextInstance)
         {
-            if ((here->MUTind1->INDbrEq != 0) && (here->MUTind2->INDbrEq != 0))
-                here->MUTbr1br2Ptr = here->MUTbr1br2Binding->CSC_Complex ;
-
-            if ((here->MUTind2->INDbrEq != 0) && (here->MUTind1->INDbrEq != 0))
-                here->MUTbr2br1Ptr = here->MUTbr2br1Binding->CSC_Complex ;
-
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MUTbr1br2Ptr, MUTbr1br2Binding, MUTind1->INDbrEq, MUTind2->INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MUTbr2br1Ptr, MUTbr2br1Binding, MUTind2->INDbrEq, MUTind1->INDbrEq);
         }
     }
 
@@ -101,12 +83,8 @@ MUTbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MUTinstances ; here != NULL ; here = here->MUTnextInstance)
         {
-            if ((here->MUTind1->INDbrEq != 0) && (here->MUTind2->INDbrEq != 0))
-                here->MUTbr1br2Ptr = here->MUTbr1br2Binding->CSC ;
-
-            if ((here->MUTind2->INDbrEq != 0) && (here->MUTind1->INDbrEq != 0))
-                here->MUTbr2br1Ptr = here->MUTbr2br1Binding->CSC ;
-
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MUTbr1br2Ptr, MUTbr1br2Binding, MUTind1->INDbrEq, MUTind2->INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MUTbr2br1Ptr, MUTbr2br1Binding, MUTind2->INDbrEq, MUTind1->INDbrEq);
         }
     }
 

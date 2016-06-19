@@ -39,479 +39,80 @@ SOI3bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SOI3instances ; here != NULL ; here = here->SOI3nextInstance)
         {
-            if ((here->SOI3dNode != 0) && (here->SOI3dNode != 0))
-            {
-                i = here->SOI3D_dPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3D_dBinding = matched ;
-                here->SOI3D_dPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNode != 0) && (here->SOI3dNodePrime != 0))
-            {
-                i = here->SOI3D_dpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3D_dpBinding = matched ;
-                here->SOI3D_dpPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3dNode != 0))
-            {
-                i = here->SOI3DP_dPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3DP_dBinding = matched ;
-                here->SOI3DP_dPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNode != 0) && (here->SOI3sNode != 0))
-            {
-                i = here->SOI3S_sPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3S_sBinding = matched ;
-                here->SOI3S_sPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNode != 0) && (here->SOI3sNodePrime != 0))
-            {
-                i = here->SOI3S_spPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3S_spBinding = matched ;
-                here->SOI3S_spPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3sNode != 0))
-            {
-                i = here->SOI3SP_sPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3SP_sBinding = matched ;
-                here->SOI3SP_sPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3gfNode != 0))
-            {
-                i = here->SOI3GF_gfPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GF_gfBinding = matched ;
-                here->SOI3GF_gfPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3gbNode != 0))
-            {
-                i = here->SOI3GF_gbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GF_gbBinding = matched ;
-                here->SOI3GF_gbPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3dNodePrime != 0))
-            {
-                i = here->SOI3GF_dpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GF_dpBinding = matched ;
-                here->SOI3GF_dpPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3sNodePrime != 0))
-            {
-                i = here->SOI3GF_spPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GF_spBinding = matched ;
-                here->SOI3GF_spPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3bNode != 0))
-            {
-                i = here->SOI3GF_bPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GF_bBinding = matched ;
-                here->SOI3GF_bPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3gfNode != 0))
-            {
-                i = here->SOI3GB_gfPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GB_gfBinding = matched ;
-                here->SOI3GB_gfPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3gbNode != 0))
-            {
-                i = here->SOI3GB_gbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GB_gbBinding = matched ;
-                here->SOI3GB_gbPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3dNodePrime != 0))
-            {
-                i = here->SOI3GB_dpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GB_dpBinding = matched ;
-                here->SOI3GB_dpPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3sNodePrime != 0))
-            {
-                i = here->SOI3GB_spPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GB_spBinding = matched ;
-                here->SOI3GB_spPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3bNode != 0))
-            {
-                i = here->SOI3GB_bPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3GB_bBinding = matched ;
-                here->SOI3GB_bPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3bNode != 0) && (here->SOI3gfNode != 0))
-            {
-                i = here->SOI3B_gfPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3B_gfBinding = matched ;
-                here->SOI3B_gfPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3bNode != 0) && (here->SOI3gbNode != 0))
-            {
-                i = here->SOI3B_gbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3B_gbBinding = matched ;
-                here->SOI3B_gbPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3bNode != 0) && (here->SOI3dNodePrime != 0))
-            {
-                i = here->SOI3B_dpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3B_dpBinding = matched ;
-                here->SOI3B_dpPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3bNode != 0) && (here->SOI3sNodePrime != 0))
-            {
-                i = here->SOI3B_spPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3B_spBinding = matched ;
-                here->SOI3B_spPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3bNode != 0) && (here->SOI3bNode != 0))
-            {
-                i = here->SOI3B_bPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3B_bBinding = matched ;
-                here->SOI3B_bPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3gfNode != 0))
-            {
-                i = here->SOI3DP_gfPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3DP_gfBinding = matched ;
-                here->SOI3DP_gfPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3gbNode != 0))
-            {
-                i = here->SOI3DP_gbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3DP_gbBinding = matched ;
-                here->SOI3DP_gbPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3dNodePrime != 0))
-            {
-                i = here->SOI3DP_dpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3DP_dpBinding = matched ;
-                here->SOI3DP_dpPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3sNodePrime != 0))
-            {
-                i = here->SOI3DP_spPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3DP_spBinding = matched ;
-                here->SOI3DP_spPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3bNode != 0))
-            {
-                i = here->SOI3DP_bPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3DP_bBinding = matched ;
-                here->SOI3DP_bPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3gfNode != 0))
-            {
-                i = here->SOI3SP_gfPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3SP_gfBinding = matched ;
-                here->SOI3SP_gfPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3gbNode != 0))
-            {
-                i = here->SOI3SP_gbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3SP_gbBinding = matched ;
-                here->SOI3SP_gbPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3dNodePrime != 0))
-            {
-                i = here->SOI3SP_dpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3SP_dpBinding = matched ;
-                here->SOI3SP_dpPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3sNodePrime != 0))
-            {
-                i = here->SOI3SP_spPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3SP_spBinding = matched ;
-                here->SOI3SP_spPtr = matched->CSC ;
-            }
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3bNode != 0))
-            {
-                i = here->SOI3SP_bPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SOI3SP_bBinding = matched ;
-                here->SOI3SP_bPtr = matched->CSC ;
-            }
-
+            CREATE_KLU_BINDING_TABLE(SOI3D_dPtr, SOI3D_dBinding, SOI3dNode, SOI3dNode);
+            CREATE_KLU_BINDING_TABLE(SOI3D_dpPtr, SOI3D_dpBinding, SOI3dNode, SOI3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3DP_dPtr, SOI3DP_dBinding, SOI3dNodePrime, SOI3dNode);
+            CREATE_KLU_BINDING_TABLE(SOI3S_sPtr, SOI3S_sBinding, SOI3sNode, SOI3sNode);
+            CREATE_KLU_BINDING_TABLE(SOI3S_spPtr, SOI3S_spBinding, SOI3sNode, SOI3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3SP_sPtr, SOI3SP_sBinding, SOI3sNodePrime, SOI3sNode);
+            CREATE_KLU_BINDING_TABLE(SOI3GF_gfPtr, SOI3GF_gfBinding, SOI3gfNode, SOI3gfNode);
+            CREATE_KLU_BINDING_TABLE(SOI3GF_gbPtr, SOI3GF_gbBinding, SOI3gfNode, SOI3gbNode);
+            CREATE_KLU_BINDING_TABLE(SOI3GF_dpPtr, SOI3GF_dpBinding, SOI3gfNode, SOI3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3GF_spPtr, SOI3GF_spBinding, SOI3gfNode, SOI3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3GF_bPtr, SOI3GF_bBinding, SOI3gfNode, SOI3bNode);
+            CREATE_KLU_BINDING_TABLE(SOI3GB_gfPtr, SOI3GB_gfBinding, SOI3gbNode, SOI3gfNode);
+            CREATE_KLU_BINDING_TABLE(SOI3GB_gbPtr, SOI3GB_gbBinding, SOI3gbNode, SOI3gbNode);
+            CREATE_KLU_BINDING_TABLE(SOI3GB_dpPtr, SOI3GB_dpBinding, SOI3gbNode, SOI3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3GB_spPtr, SOI3GB_spBinding, SOI3gbNode, SOI3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3GB_bPtr, SOI3GB_bBinding, SOI3gbNode, SOI3bNode);
+            CREATE_KLU_BINDING_TABLE(SOI3B_gfPtr, SOI3B_gfBinding, SOI3bNode, SOI3gfNode);
+            CREATE_KLU_BINDING_TABLE(SOI3B_gbPtr, SOI3B_gbBinding, SOI3bNode, SOI3gbNode);
+            CREATE_KLU_BINDING_TABLE(SOI3B_dpPtr, SOI3B_dpBinding, SOI3bNode, SOI3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3B_spPtr, SOI3B_spBinding, SOI3bNode, SOI3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3B_bPtr, SOI3B_bBinding, SOI3bNode, SOI3bNode);
+            CREATE_KLU_BINDING_TABLE(SOI3DP_gfPtr, SOI3DP_gfBinding, SOI3dNodePrime, SOI3gfNode);
+            CREATE_KLU_BINDING_TABLE(SOI3DP_gbPtr, SOI3DP_gbBinding, SOI3dNodePrime, SOI3gbNode);
+            CREATE_KLU_BINDING_TABLE(SOI3DP_dpPtr, SOI3DP_dpBinding, SOI3dNodePrime, SOI3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3DP_spPtr, SOI3DP_spBinding, SOI3dNodePrime, SOI3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3DP_bPtr, SOI3DP_bBinding, SOI3dNodePrime, SOI3bNode);
+            CREATE_KLU_BINDING_TABLE(SOI3SP_gfPtr, SOI3SP_gfBinding, SOI3sNodePrime, SOI3gfNode);
+            CREATE_KLU_BINDING_TABLE(SOI3SP_gbPtr, SOI3SP_gbBinding, SOI3sNodePrime, SOI3gbNode);
+            CREATE_KLU_BINDING_TABLE(SOI3SP_dpPtr, SOI3SP_dpBinding, SOI3sNodePrime, SOI3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3SP_spPtr, SOI3SP_spBinding, SOI3sNodePrime, SOI3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(SOI3SP_bPtr, SOI3SP_bBinding, SOI3sNodePrime, SOI3bNode);
             if (here->SOI3rt == 0)
             {
-                if ((here->SOI3toutNode != 0) && (here->SOI3branch != 0))
-                {
-                    i = here->SOI3TOUT_ibrPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_ibrBinding = matched ;
-                    here->SOI3TOUT_ibrPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3branch != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3IBR_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3IBR_toutBinding = matched ;
-                    here->SOI3IBR_toutPtr = matched->CSC ;
-                }
-
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_ibrPtr, SOI3TOUT_ibrBinding, SOI3toutNode, SOI3branch);
+                CREATE_KLU_BINDING_TABLE(SOI3IBR_toutPtr, SOI3IBR_toutBinding, SOI3branch, SOI3toutNode);
             }
             else
             {
-                if ((here->SOI3toutNode != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3TOUT_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_toutBinding = matched ;
-                    here->SOI3TOUT_toutPtr = matched->CSC ;
-                }
-
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_toutPtr, SOI3TOUT_toutBinding, SOI3toutNode, SOI3toutNode);
                 if (here->SOI3numThermalNodes > 1)
                 {
-                    if ((here->SOI3toutNode != 0) && (here->SOI3tout1Node != 0))
-                    {
-                        i = here->SOI3TOUT_tout1Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT_tout1Binding = matched ;
-                        here->SOI3TOUT_tout1Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3toutNode != 0))
-                    {
-                        i = here->SOI3TOUT1_toutPtr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT1_toutBinding = matched ;
-                        here->SOI3TOUT1_toutPtr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3tout1Node != 0))
-                    {
-                        i = here->SOI3TOUT1_tout1Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT1_tout1Binding = matched ;
-                        here->SOI3TOUT1_tout1Ptr = matched->CSC ;
-                    }
-
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT_tout1Ptr, SOI3TOUT_tout1Binding, SOI3toutNode, SOI3tout1Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT1_toutPtr, SOI3TOUT1_toutBinding, SOI3tout1Node, SOI3toutNode);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT1_tout1Ptr, SOI3TOUT1_tout1Binding, SOI3tout1Node, SOI3tout1Node);
                 }
                 if (here->SOI3numThermalNodes > 2)
                 {
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3tout2Node != 0))
-                    {
-                        i = here->SOI3TOUT1_tout2Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT1_tout2Binding = matched ;
-                        here->SOI3TOUT1_tout2Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout1Node != 0))
-                    {
-                        i = here->SOI3TOUT2_tout1Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT2_tout1Binding = matched ;
-                        here->SOI3TOUT2_tout1Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout2Node != 0))
-                    {
-                        i = here->SOI3TOUT2_tout2Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT2_tout2Binding = matched ;
-                        here->SOI3TOUT2_tout2Ptr = matched->CSC ;
-                    }
-
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT1_tout2Ptr, SOI3TOUT1_tout2Binding, SOI3tout1Node, SOI3tout2Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT2_tout1Ptr, SOI3TOUT2_tout1Binding, SOI3tout2Node, SOI3tout1Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT2_tout2Ptr, SOI3TOUT2_tout2Binding, SOI3tout2Node, SOI3tout2Node);
                 }
                 if (here->SOI3numThermalNodes > 3)
                 {
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout3Node != 0))
-                    {
-                        i = here->SOI3TOUT2_tout3Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT2_tout3Binding = matched ;
-                        here->SOI3TOUT2_tout3Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout2Node != 0))
-                    {
-                        i = here->SOI3TOUT3_tout2Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT3_tout2Binding = matched ;
-                        here->SOI3TOUT3_tout2Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout3Node != 0))
-                    {
-                        i = here->SOI3TOUT3_tout3Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT3_tout3Binding = matched ;
-                        here->SOI3TOUT3_tout3Ptr = matched->CSC ;
-                    }
-
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT2_tout3Ptr, SOI3TOUT2_tout3Binding, SOI3tout2Node, SOI3tout3Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT3_tout2Ptr, SOI3TOUT3_tout2Binding, SOI3tout3Node, SOI3tout2Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT3_tout3Ptr, SOI3TOUT3_tout3Binding, SOI3tout3Node, SOI3tout3Node);
                 }
                 if (here->SOI3numThermalNodes > 4)
                 {
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout4Node != 0))
-                    {
-                        i = here->SOI3TOUT3_tout4Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT3_tout4Binding = matched ;
-                        here->SOI3TOUT3_tout4Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout4Node != 0) && (here->SOI3tout3Node != 0))
-                    {
-                        i = here->SOI3TOUT4_tout3Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT4_tout3Binding = matched ;
-                        here->SOI3TOUT4_tout3Ptr = matched->CSC ;
-                    }
-
-                    if ((here->SOI3tout4Node != 0) && (here->SOI3tout4Node != 0))
-                    {
-                        i = here->SOI3TOUT4_tout4Ptr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->SOI3TOUT4_tout4Binding = matched ;
-                        here->SOI3TOUT4_tout4Ptr = matched->CSC ;
-                    }
-
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT3_tout4Ptr, SOI3TOUT3_tout4Binding, SOI3tout3Node, SOI3tout4Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT4_tout3Ptr, SOI3TOUT4_tout3Binding, SOI3tout4Node, SOI3tout3Node);
+                    CREATE_KLU_BINDING_TABLE(SOI3TOUT4_tout4Ptr, SOI3TOUT4_tout4Binding, SOI3tout4Node, SOI3tout4Node);
                 }
-                if ((here->SOI3toutNode != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3TOUT_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_toutBinding = matched ;
-                    here->SOI3TOUT_toutPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3gfNode != 0))
-                {
-                    i = here->SOI3TOUT_gfPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_gfBinding = matched ;
-                    here->SOI3TOUT_gfPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3gbNode != 0))
-                {
-                    i = here->SOI3TOUT_gbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_gbBinding = matched ;
-                    here->SOI3TOUT_gbPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3dNodePrime != 0))
-                {
-                    i = here->SOI3TOUT_dpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_dpBinding = matched ;
-                    here->SOI3TOUT_dpPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3sNodePrime != 0))
-                {
-                    i = here->SOI3TOUT_spPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_spBinding = matched ;
-                    here->SOI3TOUT_spPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3bNode != 0))
-                {
-                    i = here->SOI3TOUT_bPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3TOUT_bBinding = matched ;
-                    here->SOI3TOUT_bPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3gfNode != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3GF_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3GF_toutBinding = matched ;
-                    here->SOI3GF_toutPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3gbNode != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3GB_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3GB_toutBinding = matched ;
-                    here->SOI3GB_toutPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3dNodePrime != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3DP_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3DP_toutBinding = matched ;
-                    here->SOI3DP_toutPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3sNodePrime != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3SP_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3SP_toutBinding = matched ;
-                    here->SOI3SP_toutPtr = matched->CSC ;
-                }
-
-                if ((here->SOI3bNode != 0) && (here->SOI3toutNode != 0))
-                {
-                    i = here->SOI3B_toutPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->SOI3B_toutBinding = matched ;
-                    here->SOI3B_toutPtr = matched->CSC ;
-                }
-
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_toutPtr, SOI3TOUT_toutBinding, SOI3toutNode, SOI3toutNode);
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_gfPtr, SOI3TOUT_gfBinding, SOI3toutNode, SOI3gfNode);
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_gbPtr, SOI3TOUT_gbBinding, SOI3toutNode, SOI3gbNode);
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_dpPtr, SOI3TOUT_dpBinding, SOI3toutNode, SOI3dNodePrime);
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_spPtr, SOI3TOUT_spBinding, SOI3toutNode, SOI3sNodePrime);
+                CREATE_KLU_BINDING_TABLE(SOI3TOUT_bPtr, SOI3TOUT_bBinding, SOI3toutNode, SOI3bNode);
+                CREATE_KLU_BINDING_TABLE(SOI3GF_toutPtr, SOI3GF_toutBinding, SOI3gfNode, SOI3toutNode);
+                CREATE_KLU_BINDING_TABLE(SOI3GB_toutPtr, SOI3GB_toutBinding, SOI3gbNode, SOI3toutNode);
+                CREATE_KLU_BINDING_TABLE(SOI3DP_toutPtr, SOI3DP_toutBinding, SOI3dNodePrime, SOI3toutNode);
+                CREATE_KLU_BINDING_TABLE(SOI3SP_toutPtr, SOI3SP_toutBinding, SOI3sNodePrime, SOI3toutNode);
+                CREATE_KLU_BINDING_TABLE(SOI3B_toutPtr, SOI3B_toutBinding, SOI3bNode, SOI3toutNode);
             }
         }
     }
@@ -533,194 +134,80 @@ SOI3bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SOI3instances ; here != NULL ; here = here->SOI3nextInstance)
         {
-            if ((here->SOI3dNode != 0) && (here->SOI3dNode != 0))
-                here->SOI3D_dPtr = here->SOI3D_dBinding->CSC_Complex ;
-
-            if ((here->SOI3dNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3D_dpPtr = here->SOI3D_dpBinding->CSC_Complex ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3dNode != 0))
-                here->SOI3DP_dPtr = here->SOI3DP_dBinding->CSC_Complex ;
-
-            if ((here->SOI3sNode != 0) && (here->SOI3sNode != 0))
-                here->SOI3S_sPtr = here->SOI3S_sBinding->CSC_Complex ;
-
-            if ((here->SOI3sNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3S_spPtr = here->SOI3S_spBinding->CSC_Complex ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3sNode != 0))
-                here->SOI3SP_sPtr = here->SOI3SP_sBinding->CSC_Complex ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3gfNode != 0))
-                here->SOI3GF_gfPtr = here->SOI3GF_gfBinding->CSC_Complex ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3gbNode != 0))
-                here->SOI3GF_gbPtr = here->SOI3GF_gbBinding->CSC_Complex ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3GF_dpPtr = here->SOI3GF_dpBinding->CSC_Complex ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3GF_spPtr = here->SOI3GF_spBinding->CSC_Complex ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3bNode != 0))
-                here->SOI3GF_bPtr = here->SOI3GF_bBinding->CSC_Complex ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3gfNode != 0))
-                here->SOI3GB_gfPtr = here->SOI3GB_gfBinding->CSC_Complex ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3gbNode != 0))
-                here->SOI3GB_gbPtr = here->SOI3GB_gbBinding->CSC_Complex ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3GB_dpPtr = here->SOI3GB_dpBinding->CSC_Complex ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3GB_spPtr = here->SOI3GB_spBinding->CSC_Complex ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3bNode != 0))
-                here->SOI3GB_bPtr = here->SOI3GB_bBinding->CSC_Complex ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3gfNode != 0))
-                here->SOI3B_gfPtr = here->SOI3B_gfBinding->CSC_Complex ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3gbNode != 0))
-                here->SOI3B_gbPtr = here->SOI3B_gbBinding->CSC_Complex ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3B_dpPtr = here->SOI3B_dpBinding->CSC_Complex ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3B_spPtr = here->SOI3B_spBinding->CSC_Complex ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3bNode != 0))
-                here->SOI3B_bPtr = here->SOI3B_bBinding->CSC_Complex ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3gfNode != 0))
-                here->SOI3DP_gfPtr = here->SOI3DP_gfBinding->CSC_Complex ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3gbNode != 0))
-                here->SOI3DP_gbPtr = here->SOI3DP_gbBinding->CSC_Complex ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3DP_dpPtr = here->SOI3DP_dpBinding->CSC_Complex ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3DP_spPtr = here->SOI3DP_spBinding->CSC_Complex ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3bNode != 0))
-                here->SOI3DP_bPtr = here->SOI3DP_bBinding->CSC_Complex ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3gfNode != 0))
-                here->SOI3SP_gfPtr = here->SOI3SP_gfBinding->CSC_Complex ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3gbNode != 0))
-                here->SOI3SP_gbPtr = here->SOI3SP_gbBinding->CSC_Complex ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3SP_dpPtr = here->SOI3SP_dpBinding->CSC_Complex ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3SP_spPtr = here->SOI3SP_spBinding->CSC_Complex ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3bNode != 0))
-                here->SOI3SP_bPtr = here->SOI3SP_bBinding->CSC_Complex ;
-
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3D_dPtr, SOI3D_dBinding, SOI3dNode, SOI3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3D_dpPtr, SOI3D_dpBinding, SOI3dNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_dPtr, SOI3DP_dBinding, SOI3dNodePrime, SOI3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3S_sPtr, SOI3S_sBinding, SOI3sNode, SOI3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3S_spPtr, SOI3S_spBinding, SOI3sNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_sPtr, SOI3SP_sBinding, SOI3sNodePrime, SOI3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GF_gfPtr, SOI3GF_gfBinding, SOI3gfNode, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GF_gbPtr, SOI3GF_gbBinding, SOI3gfNode, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GF_dpPtr, SOI3GF_dpBinding, SOI3gfNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GF_spPtr, SOI3GF_spBinding, SOI3gfNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GF_bPtr, SOI3GF_bBinding, SOI3gfNode, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GB_gfPtr, SOI3GB_gfBinding, SOI3gbNode, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GB_gbPtr, SOI3GB_gbBinding, SOI3gbNode, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GB_dpPtr, SOI3GB_dpBinding, SOI3gbNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GB_spPtr, SOI3GB_spBinding, SOI3gbNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GB_bPtr, SOI3GB_bBinding, SOI3gbNode, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3B_gfPtr, SOI3B_gfBinding, SOI3bNode, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3B_gbPtr, SOI3B_gbBinding, SOI3bNode, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3B_dpPtr, SOI3B_dpBinding, SOI3bNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3B_spPtr, SOI3B_spBinding, SOI3bNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3B_bPtr, SOI3B_bBinding, SOI3bNode, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_gfPtr, SOI3DP_gfBinding, SOI3dNodePrime, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_gbPtr, SOI3DP_gbBinding, SOI3dNodePrime, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_dpPtr, SOI3DP_dpBinding, SOI3dNodePrime, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_spPtr, SOI3DP_spBinding, SOI3dNodePrime, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_bPtr, SOI3DP_bBinding, SOI3dNodePrime, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_gfPtr, SOI3SP_gfBinding, SOI3sNodePrime, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_gbPtr, SOI3SP_gbBinding, SOI3sNodePrime, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_dpPtr, SOI3SP_dpBinding, SOI3sNodePrime, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_spPtr, SOI3SP_spBinding, SOI3sNodePrime, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_bPtr, SOI3SP_bBinding, SOI3sNodePrime, SOI3bNode);
             if (here->SOI3rt == 0)
             {
-                if ((here->SOI3toutNode != 0) && (here->SOI3branch != 0))
-                    here->SOI3TOUT_ibrPtr = here->SOI3TOUT_ibrBinding->CSC_Complex ;
-
-                if ((here->SOI3branch != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3IBR_toutPtr = here->SOI3IBR_toutBinding->CSC_Complex ;
-
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_ibrPtr, SOI3TOUT_ibrBinding, SOI3toutNode, SOI3branch);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3IBR_toutPtr, SOI3IBR_toutBinding, SOI3branch, SOI3toutNode);
             }
             else
             {
-                if ((here->SOI3toutNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3TOUT_toutPtr = here->SOI3TOUT_toutBinding->CSC_Complex ;
-
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_toutPtr, SOI3TOUT_toutBinding, SOI3toutNode, SOI3toutNode);
                 if (here->SOI3numThermalNodes > 1)
                 {
-                    if ((here->SOI3toutNode != 0) && (here->SOI3tout1Node != 0))
-                        here->SOI3TOUT_tout1Ptr = here->SOI3TOUT_tout1Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3toutNode != 0))
-                        here->SOI3TOUT1_toutPtr = here->SOI3TOUT1_toutBinding->CSC_Complex ;
-
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3tout1Node != 0))
-                        here->SOI3TOUT1_tout1Ptr = here->SOI3TOUT1_tout1Binding->CSC_Complex ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_tout1Ptr, SOI3TOUT_tout1Binding, SOI3toutNode, SOI3tout1Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT1_toutPtr, SOI3TOUT1_toutBinding, SOI3tout1Node, SOI3toutNode);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT1_tout1Ptr, SOI3TOUT1_tout1Binding, SOI3tout1Node, SOI3tout1Node);
                 }
                 if (here->SOI3numThermalNodes > 2)
                 {
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3tout2Node != 0))
-                        here->SOI3TOUT1_tout2Ptr = here->SOI3TOUT1_tout2Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout1Node != 0))
-                        here->SOI3TOUT2_tout1Ptr = here->SOI3TOUT2_tout1Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout2Node != 0))
-                        here->SOI3TOUT2_tout2Ptr = here->SOI3TOUT2_tout2Binding->CSC_Complex ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT1_tout2Ptr, SOI3TOUT1_tout2Binding, SOI3tout1Node, SOI3tout2Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT2_tout1Ptr, SOI3TOUT2_tout1Binding, SOI3tout2Node, SOI3tout1Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT2_tout2Ptr, SOI3TOUT2_tout2Binding, SOI3tout2Node, SOI3tout2Node);
                 }
                 if (here->SOI3numThermalNodes > 3)
                 {
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout3Node != 0))
-                        here->SOI3TOUT2_tout3Ptr = here->SOI3TOUT2_tout3Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout2Node != 0))
-                        here->SOI3TOUT3_tout2Ptr = here->SOI3TOUT3_tout2Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout3Node != 0))
-                        here->SOI3TOUT3_tout3Ptr = here->SOI3TOUT3_tout3Binding->CSC_Complex ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT2_tout3Ptr, SOI3TOUT2_tout3Binding, SOI3tout2Node, SOI3tout3Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT3_tout2Ptr, SOI3TOUT3_tout2Binding, SOI3tout3Node, SOI3tout2Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT3_tout3Ptr, SOI3TOUT3_tout3Binding, SOI3tout3Node, SOI3tout3Node);
                 }
                 if (here->SOI3numThermalNodes > 4)
                 {
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout4Node != 0))
-                        here->SOI3TOUT3_tout4Ptr = here->SOI3TOUT3_tout4Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout4Node != 0) && (here->SOI3tout3Node != 0))
-                        here->SOI3TOUT4_tout3Ptr = here->SOI3TOUT4_tout3Binding->CSC_Complex ;
-
-                    if ((here->SOI3tout4Node != 0) && (here->SOI3tout4Node != 0))
-                        here->SOI3TOUT4_tout4Ptr = here->SOI3TOUT4_tout4Binding->CSC_Complex ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT3_tout4Ptr, SOI3TOUT3_tout4Binding, SOI3tout3Node, SOI3tout4Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT4_tout3Ptr, SOI3TOUT4_tout3Binding, SOI3tout4Node, SOI3tout3Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT4_tout4Ptr, SOI3TOUT4_tout4Binding, SOI3tout4Node, SOI3tout4Node);
                 }
-                if ((here->SOI3toutNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3TOUT_toutPtr = here->SOI3TOUT_toutBinding->CSC_Complex ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3gfNode != 0))
-                    here->SOI3TOUT_gfPtr = here->SOI3TOUT_gfBinding->CSC_Complex ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3gbNode != 0))
-                    here->SOI3TOUT_gbPtr = here->SOI3TOUT_gbBinding->CSC_Complex ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3dNodePrime != 0))
-                    here->SOI3TOUT_dpPtr = here->SOI3TOUT_dpBinding->CSC_Complex ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3sNodePrime != 0))
-                    here->SOI3TOUT_spPtr = here->SOI3TOUT_spBinding->CSC_Complex ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3bNode != 0))
-                    here->SOI3TOUT_bPtr = here->SOI3TOUT_bBinding->CSC_Complex ;
-
-                if ((here->SOI3gfNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3GF_toutPtr = here->SOI3GF_toutBinding->CSC_Complex ;
-
-                if ((here->SOI3gbNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3GB_toutPtr = here->SOI3GB_toutBinding->CSC_Complex ;
-
-                if ((here->SOI3dNodePrime != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3DP_toutPtr = here->SOI3DP_toutBinding->CSC_Complex ;
-
-                if ((here->SOI3sNodePrime != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3SP_toutPtr = here->SOI3SP_toutBinding->CSC_Complex ;
-
-                if ((here->SOI3bNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3B_toutPtr = here->SOI3B_toutBinding->CSC_Complex ;
-
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_toutPtr, SOI3TOUT_toutBinding, SOI3toutNode, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_gfPtr, SOI3TOUT_gfBinding, SOI3toutNode, SOI3gfNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_gbPtr, SOI3TOUT_gbBinding, SOI3toutNode, SOI3gbNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_dpPtr, SOI3TOUT_dpBinding, SOI3toutNode, SOI3dNodePrime);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_spPtr, SOI3TOUT_spBinding, SOI3toutNode, SOI3sNodePrime);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3TOUT_bPtr, SOI3TOUT_bBinding, SOI3toutNode, SOI3bNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GF_toutPtr, SOI3GF_toutBinding, SOI3gfNode, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3GB_toutPtr, SOI3GB_toutBinding, SOI3gbNode, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3DP_toutPtr, SOI3DP_toutBinding, SOI3dNodePrime, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3SP_toutPtr, SOI3SP_toutBinding, SOI3sNodePrime, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SOI3B_toutPtr, SOI3B_toutBinding, SOI3bNode, SOI3toutNode);
             }
         }
     }
@@ -742,194 +229,80 @@ SOI3bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SOI3instances ; here != NULL ; here = here->SOI3nextInstance)
         {
-            if ((here->SOI3dNode != 0) && (here->SOI3dNode != 0))
-                here->SOI3D_dPtr = here->SOI3D_dBinding->CSC ;
-
-            if ((here->SOI3dNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3D_dpPtr = here->SOI3D_dpBinding->CSC ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3dNode != 0))
-                here->SOI3DP_dPtr = here->SOI3DP_dBinding->CSC ;
-
-            if ((here->SOI3sNode != 0) && (here->SOI3sNode != 0))
-                here->SOI3S_sPtr = here->SOI3S_sBinding->CSC ;
-
-            if ((here->SOI3sNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3S_spPtr = here->SOI3S_spBinding->CSC ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3sNode != 0))
-                here->SOI3SP_sPtr = here->SOI3SP_sBinding->CSC ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3gfNode != 0))
-                here->SOI3GF_gfPtr = here->SOI3GF_gfBinding->CSC ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3gbNode != 0))
-                here->SOI3GF_gbPtr = here->SOI3GF_gbBinding->CSC ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3GF_dpPtr = here->SOI3GF_dpBinding->CSC ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3GF_spPtr = here->SOI3GF_spBinding->CSC ;
-
-            if ((here->SOI3gfNode != 0) && (here->SOI3bNode != 0))
-                here->SOI3GF_bPtr = here->SOI3GF_bBinding->CSC ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3gfNode != 0))
-                here->SOI3GB_gfPtr = here->SOI3GB_gfBinding->CSC ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3gbNode != 0))
-                here->SOI3GB_gbPtr = here->SOI3GB_gbBinding->CSC ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3GB_dpPtr = here->SOI3GB_dpBinding->CSC ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3GB_spPtr = here->SOI3GB_spBinding->CSC ;
-
-            if ((here->SOI3gbNode != 0) && (here->SOI3bNode != 0))
-                here->SOI3GB_bPtr = here->SOI3GB_bBinding->CSC ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3gfNode != 0))
-                here->SOI3B_gfPtr = here->SOI3B_gfBinding->CSC ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3gbNode != 0))
-                here->SOI3B_gbPtr = here->SOI3B_gbBinding->CSC ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3B_dpPtr = here->SOI3B_dpBinding->CSC ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3B_spPtr = here->SOI3B_spBinding->CSC ;
-
-            if ((here->SOI3bNode != 0) && (here->SOI3bNode != 0))
-                here->SOI3B_bPtr = here->SOI3B_bBinding->CSC ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3gfNode != 0))
-                here->SOI3DP_gfPtr = here->SOI3DP_gfBinding->CSC ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3gbNode != 0))
-                here->SOI3DP_gbPtr = here->SOI3DP_gbBinding->CSC ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3DP_dpPtr = here->SOI3DP_dpBinding->CSC ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3DP_spPtr = here->SOI3DP_spBinding->CSC ;
-
-            if ((here->SOI3dNodePrime != 0) && (here->SOI3bNode != 0))
-                here->SOI3DP_bPtr = here->SOI3DP_bBinding->CSC ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3gfNode != 0))
-                here->SOI3SP_gfPtr = here->SOI3SP_gfBinding->CSC ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3gbNode != 0))
-                here->SOI3SP_gbPtr = here->SOI3SP_gbBinding->CSC ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3dNodePrime != 0))
-                here->SOI3SP_dpPtr = here->SOI3SP_dpBinding->CSC ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3sNodePrime != 0))
-                here->SOI3SP_spPtr = here->SOI3SP_spBinding->CSC ;
-
-            if ((here->SOI3sNodePrime != 0) && (here->SOI3bNode != 0))
-                here->SOI3SP_bPtr = here->SOI3SP_bBinding->CSC ;
-
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3D_dPtr, SOI3D_dBinding, SOI3dNode, SOI3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3D_dpPtr, SOI3D_dpBinding, SOI3dNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_dPtr, SOI3DP_dBinding, SOI3dNodePrime, SOI3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3S_sPtr, SOI3S_sBinding, SOI3sNode, SOI3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3S_spPtr, SOI3S_spBinding, SOI3sNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_sPtr, SOI3SP_sBinding, SOI3sNodePrime, SOI3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GF_gfPtr, SOI3GF_gfBinding, SOI3gfNode, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GF_gbPtr, SOI3GF_gbBinding, SOI3gfNode, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GF_dpPtr, SOI3GF_dpBinding, SOI3gfNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GF_spPtr, SOI3GF_spBinding, SOI3gfNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GF_bPtr, SOI3GF_bBinding, SOI3gfNode, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GB_gfPtr, SOI3GB_gfBinding, SOI3gbNode, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GB_gbPtr, SOI3GB_gbBinding, SOI3gbNode, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GB_dpPtr, SOI3GB_dpBinding, SOI3gbNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GB_spPtr, SOI3GB_spBinding, SOI3gbNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GB_bPtr, SOI3GB_bBinding, SOI3gbNode, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3B_gfPtr, SOI3B_gfBinding, SOI3bNode, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3B_gbPtr, SOI3B_gbBinding, SOI3bNode, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3B_dpPtr, SOI3B_dpBinding, SOI3bNode, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3B_spPtr, SOI3B_spBinding, SOI3bNode, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3B_bPtr, SOI3B_bBinding, SOI3bNode, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_gfPtr, SOI3DP_gfBinding, SOI3dNodePrime, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_gbPtr, SOI3DP_gbBinding, SOI3dNodePrime, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_dpPtr, SOI3DP_dpBinding, SOI3dNodePrime, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_spPtr, SOI3DP_spBinding, SOI3dNodePrime, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_bPtr, SOI3DP_bBinding, SOI3dNodePrime, SOI3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_gfPtr, SOI3SP_gfBinding, SOI3sNodePrime, SOI3gfNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_gbPtr, SOI3SP_gbBinding, SOI3sNodePrime, SOI3gbNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_dpPtr, SOI3SP_dpBinding, SOI3sNodePrime, SOI3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_spPtr, SOI3SP_spBinding, SOI3sNodePrime, SOI3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_bPtr, SOI3SP_bBinding, SOI3sNodePrime, SOI3bNode);
             if (here->SOI3rt == 0)
             {
-                if ((here->SOI3toutNode != 0) && (here->SOI3branch != 0))
-                    here->SOI3TOUT_ibrPtr = here->SOI3TOUT_ibrBinding->CSC ;
-
-                if ((here->SOI3branch != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3IBR_toutPtr = here->SOI3IBR_toutBinding->CSC ;
-
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_ibrPtr, SOI3TOUT_ibrBinding, SOI3toutNode, SOI3branch);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3IBR_toutPtr, SOI3IBR_toutBinding, SOI3branch, SOI3toutNode);
             }
             else
             {
-                if ((here->SOI3toutNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3TOUT_toutPtr = here->SOI3TOUT_toutBinding->CSC ;
-
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_toutPtr, SOI3TOUT_toutBinding, SOI3toutNode, SOI3toutNode);
                 if (here->SOI3numThermalNodes > 1)
                 {
-                    if ((here->SOI3toutNode != 0) && (here->SOI3tout1Node != 0))
-                        here->SOI3TOUT_tout1Ptr = here->SOI3TOUT_tout1Binding->CSC ;
-
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3toutNode != 0))
-                        here->SOI3TOUT1_toutPtr = here->SOI3TOUT1_toutBinding->CSC ;
-
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3tout1Node != 0))
-                        here->SOI3TOUT1_tout1Ptr = here->SOI3TOUT1_tout1Binding->CSC ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_tout1Ptr, SOI3TOUT_tout1Binding, SOI3toutNode, SOI3tout1Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT1_toutPtr, SOI3TOUT1_toutBinding, SOI3tout1Node, SOI3toutNode);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT1_tout1Ptr, SOI3TOUT1_tout1Binding, SOI3tout1Node, SOI3tout1Node);
                 }
                 if (here->SOI3numThermalNodes > 2)
                 {
-                    if ((here->SOI3tout1Node != 0) && (here->SOI3tout2Node != 0))
-                        here->SOI3TOUT1_tout2Ptr = here->SOI3TOUT1_tout2Binding->CSC ;
-
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout1Node != 0))
-                        here->SOI3TOUT2_tout1Ptr = here->SOI3TOUT2_tout1Binding->CSC ;
-
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout2Node != 0))
-                        here->SOI3TOUT2_tout2Ptr = here->SOI3TOUT2_tout2Binding->CSC ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT1_tout2Ptr, SOI3TOUT1_tout2Binding, SOI3tout1Node, SOI3tout2Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT2_tout1Ptr, SOI3TOUT2_tout1Binding, SOI3tout2Node, SOI3tout1Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT2_tout2Ptr, SOI3TOUT2_tout2Binding, SOI3tout2Node, SOI3tout2Node);
                 }
                 if (here->SOI3numThermalNodes > 3)
                 {
-                    if ((here->SOI3tout2Node != 0) && (here->SOI3tout3Node != 0))
-                        here->SOI3TOUT2_tout3Ptr = here->SOI3TOUT2_tout3Binding->CSC ;
-
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout2Node != 0))
-                        here->SOI3TOUT3_tout2Ptr = here->SOI3TOUT3_tout2Binding->CSC ;
-
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout3Node != 0))
-                        here->SOI3TOUT3_tout3Ptr = here->SOI3TOUT3_tout3Binding->CSC ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT2_tout3Ptr, SOI3TOUT2_tout3Binding, SOI3tout2Node, SOI3tout3Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT3_tout2Ptr, SOI3TOUT3_tout2Binding, SOI3tout3Node, SOI3tout2Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT3_tout3Ptr, SOI3TOUT3_tout3Binding, SOI3tout3Node, SOI3tout3Node);
                 }
                 if (here->SOI3numThermalNodes > 4)
                 {
-                    if ((here->SOI3tout3Node != 0) && (here->SOI3tout4Node != 0))
-                        here->SOI3TOUT3_tout4Ptr = here->SOI3TOUT3_tout4Binding->CSC ;
-
-                    if ((here->SOI3tout4Node != 0) && (here->SOI3tout3Node != 0))
-                        here->SOI3TOUT4_tout3Ptr = here->SOI3TOUT4_tout3Binding->CSC ;
-
-                    if ((here->SOI3tout4Node != 0) && (here->SOI3tout4Node != 0))
-                        here->SOI3TOUT4_tout4Ptr = here->SOI3TOUT4_tout4Binding->CSC ;
-
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT3_tout4Ptr, SOI3TOUT3_tout4Binding, SOI3tout3Node, SOI3tout4Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT4_tout3Ptr, SOI3TOUT4_tout3Binding, SOI3tout4Node, SOI3tout3Node);
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT4_tout4Ptr, SOI3TOUT4_tout4Binding, SOI3tout4Node, SOI3tout4Node);
                 }
-                if ((here->SOI3toutNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3TOUT_toutPtr = here->SOI3TOUT_toutBinding->CSC ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3gfNode != 0))
-                    here->SOI3TOUT_gfPtr = here->SOI3TOUT_gfBinding->CSC ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3gbNode != 0))
-                    here->SOI3TOUT_gbPtr = here->SOI3TOUT_gbBinding->CSC ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3dNodePrime != 0))
-                    here->SOI3TOUT_dpPtr = here->SOI3TOUT_dpBinding->CSC ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3sNodePrime != 0))
-                    here->SOI3TOUT_spPtr = here->SOI3TOUT_spBinding->CSC ;
-
-                if ((here->SOI3toutNode != 0) && (here->SOI3bNode != 0))
-                    here->SOI3TOUT_bPtr = here->SOI3TOUT_bBinding->CSC ;
-
-                if ((here->SOI3gfNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3GF_toutPtr = here->SOI3GF_toutBinding->CSC ;
-
-                if ((here->SOI3gbNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3GB_toutPtr = here->SOI3GB_toutBinding->CSC ;
-
-                if ((here->SOI3dNodePrime != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3DP_toutPtr = here->SOI3DP_toutBinding->CSC ;
-
-                if ((here->SOI3sNodePrime != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3SP_toutPtr = here->SOI3SP_toutBinding->CSC ;
-
-                if ((here->SOI3bNode != 0) && (here->SOI3toutNode != 0))
-                    here->SOI3B_toutPtr = here->SOI3B_toutBinding->CSC ;
-
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_toutPtr, SOI3TOUT_toutBinding, SOI3toutNode, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_gfPtr, SOI3TOUT_gfBinding, SOI3toutNode, SOI3gfNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_gbPtr, SOI3TOUT_gbBinding, SOI3toutNode, SOI3gbNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_dpPtr, SOI3TOUT_dpBinding, SOI3toutNode, SOI3dNodePrime);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_spPtr, SOI3TOUT_spBinding, SOI3toutNode, SOI3sNodePrime);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3TOUT_bPtr, SOI3TOUT_bBinding, SOI3toutNode, SOI3bNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GF_toutPtr, SOI3GF_toutBinding, SOI3gfNode, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3GB_toutPtr, SOI3GB_toutBinding, SOI3gbNode, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3DP_toutPtr, SOI3DP_toutBinding, SOI3dNodePrime, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3SP_toutPtr, SOI3SP_toutBinding, SOI3sNodePrime, SOI3toutNode);
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(SOI3B_toutPtr, SOI3B_toutBinding, SOI3bNode, SOI3toutNode);
             }
         }
     }

@@ -43,40 +43,16 @@ ASRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             j = 0 ;
             if (here->ASRCtype == ASRC_VOLTAGE)
             {
-                if ((here->ASRCposNode != 0) && (here->ASRCbranch != 0))
-                {
-                    i = here->ASRCposPtr [j] ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->ASRCposBinding [j] = matched ;
-                    here->ASRCposPtr [j] = matched->CSC ;
-                }
+                CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCposNode, ASRCbranch);
                 j++ ;
 
-                if ((here->ASRCnegNode != 0) && (here->ASRCbranch != 0))
-                {
-                    i = here->ASRCposPtr [j] ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->ASRCposBinding [j] = matched ;
-                    here->ASRCposPtr [j] = matched->CSC ;
-                }
+                CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCnegNode, ASRCbranch);
                 j++ ;
 
-                if ((here->ASRCbranch != 0) && (here->ASRCnegNode != 0))
-                {
-                    i = here->ASRCposPtr [j] ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->ASRCposBinding [j] = matched ;
-                    here->ASRCposPtr [j] = matched->CSC ;
-                }
+                CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCnegNode);
                 j++ ;
 
-                if ((here->ASRCbranch != 0) && (here->ASRCposNode != 0))
-                {
-                    i = here->ASRCposPtr [j] ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->ASRCposBinding [j] = matched ;
-                    here->ASRCposPtr [j] = matched->CSC ;
-                }
+                CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCposNode);
                 j++ ;
             }
 
@@ -84,31 +60,13 @@ ASRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 if (here->ASRCtype == ASRC_VOLTAGE)
                 {
-                    if ((here->ASRCbranch != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        i = here->ASRCposPtr [j] ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->ASRCposBinding [j] = matched ;
-                        here->ASRCposPtr [j] = matched->CSC ;
-                    }
+                    CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCvars [k]);
                     j++ ;
                 } else {
-                    if ((here->ASRCposNode != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        i = here->ASRCposPtr [j] ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->ASRCposBinding [j] = matched ;
-                        here->ASRCposPtr [j] = matched->CSC ;
-                    }
+                    CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCposNode, ASRCvars [k]);
                     j++ ;
 
-                    if ((here->ASRCnegNode != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        i = here->ASRCposPtr [j] ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->ASRCposBinding [j] = matched ;
-                        here->ASRCposPtr [j] = matched->CSC ;
-                    }
+                    CREATE_KLU_BINDING_TABLE(ASRCposPtr [j], ASRCposBinding [j], ASRCnegNode, ASRCvars [k]);
                     j++ ;
                 }
             }
@@ -136,28 +94,16 @@ ASRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             j = 0 ;
             if (here->ASRCtype == ASRC_VOLTAGE)
             {
-                if ((here->ASRCposNode != 0) && (here->ASRCbranch != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCposNode, ASRCbranch);
                 j++ ;
 
-                if ((here->ASRCnegNode != 0) && (here->ASRCbranch != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCnegNode, ASRCbranch);
                 j++ ;
 
-                if ((here->ASRCbranch != 0) && (here->ASRCnegNode != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCnegNode);
                 j++ ;
 
-                if ((here->ASRCbranch != 0) && (here->ASRCposNode != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCposNode);
                 j++ ;
             }
 
@@ -165,22 +111,13 @@ ASRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             {
                 if (here->ASRCtype == ASRC_VOLTAGE)
                 {
-                    if ((here->ASRCbranch != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                    }
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCvars [k]);
                     j++ ;
                 } else {
-                    if ((here->ASRCposNode != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                    }
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCposNode, ASRCvars [k]);
                     j++ ;
 
-                    if ((here->ASRCnegNode != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC_Complex ;
-                    }
+                    CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(ASRCposPtr [j], ASRCposBinding [j], ASRCnegNode, ASRCvars [k]);
                     j++ ;
                 }
             }
@@ -208,28 +145,16 @@ ASRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             j = 0 ;
             if (here->ASRCtype == ASRC_VOLTAGE)
             {
-                if ((here->ASRCposNode != 0) && (here->ASRCbranch != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCposNode, ASRCbranch);
                 j++ ;
 
-                if ((here->ASRCnegNode != 0) && (here->ASRCbranch != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCnegNode, ASRCbranch);
                 j++ ;
 
-                if ((here->ASRCbranch != 0) && (here->ASRCnegNode != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCnegNode);
                 j++ ;
 
-                if ((here->ASRCbranch != 0) && (here->ASRCposNode != 0))
-                {
-                    here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                }
+                CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCposNode);
                 j++ ;
             }
 
@@ -237,22 +162,13 @@ ASRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             {
                 if (here->ASRCtype == ASRC_VOLTAGE)
                 {
-                    if ((here->ASRCbranch != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                    }
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCbranch, ASRCvars [k]);
                     j++ ;
                 } else {
-                    if ((here->ASRCposNode != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                    }
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCposNode, ASRCvars [k]);
                     j++ ;
 
-                    if ((here->ASRCnegNode != 0) && (here->ASRCvars [k] != 0))
-                    {
-                        here->ASRCposPtr [j] = here->ASRCposBinding [j]->CSC ;
-                    }
+                    CONVERT_KLU_BINDING_TABLE_TO_REAL(ASRCposPtr [j], ASRCposBinding [j], ASRCnegNode, ASRCvars [k]);
                     j++ ;
                 }
             }
