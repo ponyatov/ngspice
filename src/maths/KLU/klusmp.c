@@ -523,8 +523,6 @@ SMPprint (SMPmatrix *Matrix, char *Filename)
 {
     if (Matrix->CKTkluMODE)
     {
-        NG_IGNORE (Filename) ;
-
         klu_z_print (Matrix->CKTkluAp, Matrix->CKTkluAi, Matrix->CKTkluAx_Complex, Matrix->CKTkluN, Matrix->SPmatrix->IntToExtRowMap, Matrix->SPmatrix->IntToExtColMap) ;
     } else {
         if (Filename)

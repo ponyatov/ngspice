@@ -108,7 +108,7 @@ spMatrix_CSC_dump (MatrixPtr Matrix, unsigned int complex, char *CSC_output)
         Ap [i] = offset ;
     }
 
-    if (CSC_output != NULL)
+    if (!complex && CSC_output != NULL)
     {
         output = fopen (CSC_output, "w") ;
         fprintf (output, "%%%%MatrixMarket matrix coordinate real general\n") ;
