@@ -39,182 +39,28 @@ TRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->TRAinstances ; here != NULL ; here = here->TRAnextInstance)
         {
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAbrEq2 != 0))
-            {
-                i = here->TRAibr1Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr1Ibr2Binding = matched ;
-                here->TRAibr1Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAintNode1 != 0))
-            {
-                i = here->TRAibr1Int1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr1Int1Binding = matched ;
-                here->TRAibr1Int1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAnegNode1 != 0))
-            {
-                i = here->TRAibr1Neg1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr1Neg1Binding = matched ;
-                here->TRAibr1Neg1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAnegNode2 != 0))
-            {
-                i = here->TRAibr1Neg2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr1Neg2Binding = matched ;
-                here->TRAibr1Neg2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAposNode2 != 0))
-            {
-                i = here->TRAibr1Pos2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr1Pos2Binding = matched ;
-                here->TRAibr1Pos2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAbrEq1 != 0))
-            {
-                i = here->TRAibr2Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr2Ibr1Binding = matched ;
-                here->TRAibr2Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAintNode2 != 0))
-            {
-                i = here->TRAibr2Int2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr2Int2Binding = matched ;
-                here->TRAibr2Int2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAnegNode1 != 0))
-            {
-                i = here->TRAibr2Neg1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr2Neg1Binding = matched ;
-                here->TRAibr2Neg1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAnegNode2 != 0))
-            {
-                i = here->TRAibr2Neg2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr2Neg2Binding = matched ;
-                here->TRAibr2Neg2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAposNode1 != 0))
-            {
-                i = here->TRAibr2Pos1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAibr2Pos1Binding = matched ;
-                here->TRAibr2Pos1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAbrEq1 != 0))
-            {
-                i = here->TRAint1Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAint1Ibr1Binding = matched ;
-                here->TRAint1Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAintNode1 != 0))
-            {
-                i = here->TRAint1Int1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAint1Int1Binding = matched ;
-                here->TRAint1Int1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAposNode1 != 0))
-            {
-                i = here->TRAint1Pos1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAint1Pos1Binding = matched ;
-                here->TRAint1Pos1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAbrEq2 != 0))
-            {
-                i = here->TRAint2Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAint2Ibr2Binding = matched ;
-                here->TRAint2Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAintNode2 != 0))
-            {
-                i = here->TRAint2Int2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAint2Int2Binding = matched ;
-                here->TRAint2Int2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAposNode2 != 0))
-            {
-                i = here->TRAint2Pos2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAint2Pos2Binding = matched ;
-                here->TRAint2Pos2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAnegNode1 != 0) && (here-> TRAbrEq1 != 0))
-            {
-                i = here->TRAneg1Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAneg1Ibr1Binding = matched ;
-                here->TRAneg1Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAnegNode2 != 0) && (here-> TRAbrEq2 != 0))
-            {
-                i = here->TRAneg2Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRAneg2Ibr2Binding = matched ;
-                here->TRAneg2Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAposNode1 != 0) && (here-> TRAintNode1 != 0))
-            {
-                i = here->TRApos1Int1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRApos1Int1Binding = matched ;
-                here->TRApos1Int1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAposNode1 != 0) && (here-> TRAposNode1 != 0))
-            {
-                i = here->TRApos1Pos1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRApos1Pos1Binding = matched ;
-                here->TRApos1Pos1Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAposNode2 != 0) && (here-> TRAintNode2 != 0))
-            {
-                i = here->TRApos2Int2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRApos2Int2Binding = matched ;
-                here->TRApos2Int2Ptr = matched->CSC ;
-            }
-
-            if ((here-> TRAposNode2 != 0) && (here-> TRAposNode2 != 0))
-            {
-                i = here->TRApos2Pos2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TRApos2Pos2Binding = matched ;
-                here->TRApos2Pos2Ptr = matched->CSC ;
-            }
-
+            XFOO(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
+            XFOO(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
+            XFOO(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
+            XFOO(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
+            XFOO(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
+            XFOO(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
+            XFOO(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
+            XFOO(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
+            XFOO(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
+            XFOO(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
+            XFOO(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
+            XFOO(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
+            XFOO(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
+            XFOO(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
+            XFOO(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
+            XFOO(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
+            XFOO(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
+            XFOO(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
+            XFOO(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
+            XFOO(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
+            XFOO(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
+            XFOO(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
         }
     }
 
@@ -235,72 +81,28 @@ TRAbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->TRAinstances ; here != NULL ; here = here->TRAnextInstance)
         {
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAbrEq2 != 0))
-                here->TRAibr1Ibr2Ptr = here->TRAibr1Ibr2Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAintNode1 != 0))
-                here->TRAibr1Int1Ptr = here->TRAibr1Int1Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAnegNode1 != 0))
-                here->TRAibr1Neg1Ptr = here->TRAibr1Neg1Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAnegNode2 != 0))
-                here->TRAibr1Neg2Ptr = here->TRAibr1Neg2Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAposNode2 != 0))
-                here->TRAibr1Pos2Ptr = here->TRAibr1Pos2Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAbrEq1 != 0))
-                here->TRAibr2Ibr1Ptr = here->TRAibr2Ibr1Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAintNode2 != 0))
-                here->TRAibr2Int2Ptr = here->TRAibr2Int2Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAnegNode1 != 0))
-                here->TRAibr2Neg1Ptr = here->TRAibr2Neg1Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAnegNode2 != 0))
-                here->TRAibr2Neg2Ptr = here->TRAibr2Neg2Binding->CSC_Complex ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAposNode1 != 0))
-                here->TRAibr2Pos1Ptr = here->TRAibr2Pos1Binding->CSC_Complex ;
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAbrEq1 != 0))
-                here->TRAint1Ibr1Ptr = here->TRAint1Ibr1Binding->CSC_Complex ;
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAintNode1 != 0))
-                here->TRAint1Int1Ptr = here->TRAint1Int1Binding->CSC_Complex ;
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAposNode1 != 0))
-                here->TRAint1Pos1Ptr = here->TRAint1Pos1Binding->CSC_Complex ;
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAbrEq2 != 0))
-                here->TRAint2Ibr2Ptr = here->TRAint2Ibr2Binding->CSC_Complex ;
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAintNode2 != 0))
-                here->TRAint2Int2Ptr = here->TRAint2Int2Binding->CSC_Complex ;
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAposNode2 != 0))
-                here->TRAint2Pos2Ptr = here->TRAint2Pos2Binding->CSC_Complex ;
-
-            if ((here-> TRAnegNode1 != 0) && (here-> TRAbrEq1 != 0))
-                here->TRAneg1Ibr1Ptr = here->TRAneg1Ibr1Binding->CSC_Complex ;
-
-            if ((here-> TRAnegNode2 != 0) && (here-> TRAbrEq2 != 0))
-                here->TRAneg2Ibr2Ptr = here->TRAneg2Ibr2Binding->CSC_Complex ;
-
-            if ((here-> TRAposNode1 != 0) && (here-> TRAintNode1 != 0))
-                here->TRApos1Int1Ptr = here->TRApos1Int1Binding->CSC_Complex ;
-
-            if ((here-> TRAposNode1 != 0) && (here-> TRAposNode1 != 0))
-                here->TRApos1Pos1Ptr = here->TRApos1Pos1Binding->CSC_Complex ;
-
-            if ((here-> TRAposNode2 != 0) && (here-> TRAintNode2 != 0))
-                here->TRApos2Int2Ptr = here->TRApos2Int2Binding->CSC_Complex ;
-
-            if ((here-> TRAposNode2 != 0) && (here-> TRAposNode2 != 0))
-                here->TRApos2Pos2Ptr = here->TRApos2Pos2Binding->CSC_Complex ;
-
+            BFOO(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
+            BFOO(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
+            BFOO(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
+            BFOO(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
+            BFOO(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
+            BFOO(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
+            BFOO(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
+            BFOO(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
+            BFOO(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
+            BFOO(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
+            BFOO(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
+            BFOO(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
+            BFOO(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
+            BFOO(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
+            BFOO(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
+            BFOO(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
+            BFOO(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
+            BFOO(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
+            BFOO(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
+            BFOO(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
+            BFOO(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
+            BFOO(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
         }
     }
 
@@ -321,72 +123,28 @@ TRAbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->TRAinstances ; here != NULL ; here = here->TRAnextInstance)
         {
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAbrEq2 != 0))
-                here->TRAibr1Ibr2Ptr = here->TRAibr1Ibr2Binding->CSC ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAintNode1 != 0))
-                here->TRAibr1Int1Ptr = here->TRAibr1Int1Binding->CSC ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAnegNode1 != 0))
-                here->TRAibr1Neg1Ptr = here->TRAibr1Neg1Binding->CSC ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAnegNode2 != 0))
-                here->TRAibr1Neg2Ptr = here->TRAibr1Neg2Binding->CSC ;
-
-            if ((here-> TRAbrEq1 != 0) && (here-> TRAposNode2 != 0))
-                here->TRAibr1Pos2Ptr = here->TRAibr1Pos2Binding->CSC ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAbrEq1 != 0))
-                here->TRAibr2Ibr1Ptr = here->TRAibr2Ibr1Binding->CSC ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAintNode2 != 0))
-                here->TRAibr2Int2Ptr = here->TRAibr2Int2Binding->CSC ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAnegNode1 != 0))
-                here->TRAibr2Neg1Ptr = here->TRAibr2Neg1Binding->CSC ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAnegNode2 != 0))
-                here->TRAibr2Neg2Ptr = here->TRAibr2Neg2Binding->CSC ;
-
-            if ((here-> TRAbrEq2 != 0) && (here-> TRAposNode1 != 0))
-                here->TRAibr2Pos1Ptr = here->TRAibr2Pos1Binding->CSC ;
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAbrEq1 != 0))
-                here->TRAint1Ibr1Ptr = here->TRAint1Ibr1Binding->CSC ;
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAintNode1 != 0))
-                here->TRAint1Int1Ptr = here->TRAint1Int1Binding->CSC ;
-
-            if ((here-> TRAintNode1 != 0) && (here-> TRAposNode1 != 0))
-                here->TRAint1Pos1Ptr = here->TRAint1Pos1Binding->CSC ;
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAbrEq2 != 0))
-                here->TRAint2Ibr2Ptr = here->TRAint2Ibr2Binding->CSC ;
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAintNode2 != 0))
-                here->TRAint2Int2Ptr = here->TRAint2Int2Binding->CSC ;
-
-            if ((here-> TRAintNode2 != 0) && (here-> TRAposNode2 != 0))
-                here->TRAint2Pos2Ptr = here->TRAint2Pos2Binding->CSC ;
-
-            if ((here-> TRAnegNode1 != 0) && (here-> TRAbrEq1 != 0))
-                here->TRAneg1Ibr1Ptr = here->TRAneg1Ibr1Binding->CSC ;
-
-            if ((here-> TRAnegNode2 != 0) && (here-> TRAbrEq2 != 0))
-                here->TRAneg2Ibr2Ptr = here->TRAneg2Ibr2Binding->CSC ;
-
-            if ((here-> TRAposNode1 != 0) && (here-> TRAintNode1 != 0))
-                here->TRApos1Int1Ptr = here->TRApos1Int1Binding->CSC ;
-
-            if ((here-> TRAposNode1 != 0) && (here-> TRAposNode1 != 0))
-                here->TRApos1Pos1Ptr = here->TRApos1Pos1Binding->CSC ;
-
-            if ((here-> TRAposNode2 != 0) && (here-> TRAintNode2 != 0))
-                here->TRApos2Int2Ptr = here->TRApos2Int2Binding->CSC ;
-
-            if ((here-> TRAposNode2 != 0) && (here-> TRAposNode2 != 0))
-                here->TRApos2Pos2Ptr = here->TRApos2Pos2Binding->CSC ;
-
+            CFOO(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
+            CFOO(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
+            CFOO(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
+            CFOO(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
+            CFOO(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
+            CFOO(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
+            CFOO(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
+            CFOO(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
+            CFOO(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
+            CFOO(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
+            CFOO(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
+            CFOO(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
+            CFOO(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
+            CFOO(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
+            CFOO(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
+            CFOO(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
+            CFOO(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
+            CFOO(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
+            CFOO(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
+            CFOO(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
+            CFOO(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
+            CFOO(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
         }
     }
 

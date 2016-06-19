@@ -39,37 +39,10 @@ CAPbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
-            if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-            {
-                i = here->CAPposPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPposPosBinding = matched ;
-                here->CAPposPosPtr = matched->CSC ;
-            }
-
-            if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-            {
-                i = here->CAPnegNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPnegNegBinding = matched ;
-                here->CAPnegNegPtr = matched->CSC ;
-            }
-
-            if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-            {
-                i = here->CAPposNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPposNegBinding = matched ;
-                here->CAPposNegPtr = matched->CSC ;
-            }
-
-            if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-            {
-                i = here->CAPnegPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPnegPosBinding = matched ;
-                here->CAPnegPosPtr = matched->CSC ;
-            }
+            XFOO(CAPposPosPtr, CAPposPosBinding, CAPposNode, CAPposNode);
+            XFOO(CAPnegNegPtr, CAPnegNegBinding, CAPnegNode, CAPnegNode);
+            XFOO(CAPposNegPtr, CAPposNegBinding, CAPposNode, CAPnegNode);
+            XFOO(CAPnegPosPtr, CAPnegPosBinding, CAPnegNode, CAPposNode);
         }
     }
 
@@ -90,18 +63,10 @@ CAPbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
-            if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-                here->CAPposPosPtr = here->CAPposPosBinding->CSC_Complex ;
-
-            if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-                here->CAPnegNegPtr = here->CAPnegNegBinding->CSC_Complex ;
-
-            if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-                here->CAPposNegPtr = here->CAPposNegBinding->CSC_Complex ;
-
-            if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-                here->CAPnegPosPtr = here->CAPnegPosBinding->CSC_Complex ;
-
+            BFOO(CAPposPosPtr, CAPposPosBinding, CAPposNode, CAPposNode);
+            BFOO(CAPnegNegPtr, CAPnegNegBinding, CAPnegNode, CAPnegNode);
+            BFOO(CAPposNegPtr, CAPposNegBinding, CAPposNode, CAPnegNode);
+            BFOO(CAPnegPosPtr, CAPnegPosBinding, CAPnegNode, CAPposNode);
         }
     }
 
@@ -122,18 +87,10 @@ CAPbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
-            if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-                here->CAPposPosPtr = here->CAPposPosBinding->CSC ;
-
-            if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-                here->CAPnegNegPtr = here->CAPnegNegBinding->CSC ;
-
-            if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-                here->CAPposNegPtr = here->CAPposNegBinding->CSC ;
-
-            if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-                here->CAPnegPosPtr = here->CAPnegPosBinding->CSC ;
-
+            CFOO(CAPposPosPtr, CAPposPosBinding, CAPposNode, CAPposNode);
+            CFOO(CAPnegNegPtr, CAPnegNegBinding, CAPnegNode, CAPnegNode);
+            CFOO(CAPposNegPtr, CAPposNegBinding, CAPposNode, CAPnegNode);
+            CFOO(CAPnegPosPtr, CAPnegPosBinding, CAPnegNode, CAPposNode);
         }
     }
 

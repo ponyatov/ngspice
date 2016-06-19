@@ -39,720 +39,104 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HSMHVinstances ; here != NULL ; here = here->HSMHVnextInstance)
         {
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVDPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPbpBinding = matched ;
-                here->HSMHVDPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVSPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPbpBinding = matched ;
-                here->HSMHVSPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVGPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPbpBinding = matched ;
-                here->HSMHVGPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVBPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPdBinding = matched ;
-                here->HSMHVBPdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVBPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPsBinding = matched ;
-                here->HSMHVBPsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-            {
-                i = here->HSMHVBPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPdpBinding = matched ;
-                here->HSMHVBPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-            {
-                i = here->HSMHVBPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPspBinding = matched ;
-                here->HSMHVBPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVBPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPgpBinding = matched ;
-                here->HSMHVBPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVBPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPbpBinding = matched ;
-                here->HSMHVBPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVDdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDdBinding = matched ;
-                here->HSMHVDdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVGPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPgpBinding = matched ;
-                here->HSMHVGPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVSsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSsBinding = matched ;
-                here->HSMHVSsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-            {
-                i = here->HSMHVDPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPdpBinding = matched ;
-                here->HSMHVDPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-            {
-                i = here->HSMHVSPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPspBinding = matched ;
-                here->HSMHVSPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNodePrime != 0))
-            {
-                i = here->HSMHVDdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDdpBinding = matched ;
-                here->HSMHVDdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-            {
-                i = here->HSMHVGPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPdpBinding = matched ;
-                here->HSMHVGPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-            {
-                i = here->HSMHVGPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPspBinding = matched ;
-                here->HSMHVGPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNodePrime != 0))
-            {
-                i = here->HSMHVSspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSspBinding = matched ;
-                here->HSMHVSspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-            {
-                i = here->HSMHVDPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPspBinding = matched ;
-                here->HSMHVDPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVDPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPdBinding = matched ;
-                here->HSMHVDPdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVDPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPgpBinding = matched ;
-                here->HSMHVDPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVSPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPgpBinding = matched ;
-                here->HSMHVSPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVSPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPsBinding = matched ;
-                here->HSMHVSPsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-            {
-                i = here->HSMHVSPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPdpBinding = matched ;
-                here->HSMHVSPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNode != 0))
-            {
-                i = here->HSMHVGgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGgBinding = matched ;
-                here->HSMHVGgPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVGgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGgpBinding = matched ;
-                here->HSMHVGgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNode != 0))
-            {
-                i = here->HSMHVGPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPgBinding = matched ;
-                here->HSMHVGPgPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdbNode != 0))
-            {
-                i = here->HSMHVDdbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDdbBinding = matched ;
-                here->HSMHVDdbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsbNode != 0))
-            {
-                i = here->HSMHVSsbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSsbBinding = matched ;
-                here->HSMHVSsbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVDBdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDBdBinding = matched ;
-                here->HSMHVDBdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdbNode != 0))
-            {
-                i = here->HSMHVDBdbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDBdbBinding = matched ;
-                here->HSMHVDBdbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVDBbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDBbpBinding = matched ;
-                here->HSMHVDBbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdbNode != 0))
-            {
-                i = here->HSMHVBPdbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPdbBinding = matched ;
-                here->HSMHVBPdbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNode != 0))
-            {
-                i = here->HSMHVBPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPbBinding = matched ;
-                here->HSMHVBPbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsbNode != 0))
-            {
-                i = here->HSMHVBPsbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPsbBinding = matched ;
-                here->HSMHVBPsbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVSBsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSBsBinding = matched ;
-                here->HSMHVSBsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVSBbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSBbpBinding = matched ;
-                here->HSMHVSBbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsbNode != 0))
-            {
-                i = here->HSMHVSBsbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSBsbBinding = matched ;
-                here->HSMHVSBsbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVBbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBbpBinding = matched ;
-                here->HSMHVBbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNode != 0))
-            {
-                i = here->HSMHVBbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBbBinding = matched ;
-                here->HSMHVBbPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVDgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDgpBinding = matched ;
-                here->HSMHVDgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVDsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDsBinding = matched ;
-                here->HSMHVDsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVDbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDbpBinding = matched ;
-                here->HSMHVDbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNodePrime != 0))
-            {
-                i = here->HSMHVDspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDspBinding = matched ;
-                here->HSMHVDspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVDPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPsBinding = matched ;
-                here->HSMHVDPsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVgNodePrime != 0))
-            {
-                i = here->HSMHVSgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSgpBinding = matched ;
-                here->HSMHVSgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVSdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSdBinding = matched ;
-                here->HSMHVSdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVbNodePrime != 0))
-            {
-                i = here->HSMHVSbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSbpBinding = matched ;
-                here->HSMHVSbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNodePrime != 0))
-            {
-                i = here->HSMHVSdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSdpBinding = matched ;
-                here->HSMHVSdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVSPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPdBinding = matched ;
-                here->HSMHVSPdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNode != 0))
-            {
-                i = here->HSMHVGPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPdBinding = matched ;
-                here->HSMHVGPdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNode != 0))
-            {
-                i = here->HSMHVGPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPsBinding = matched ;
-                here->HSMHVGPsPtr = matched->CSC ;
-            }
-
+            XFOO(HSMHVDPbpPtr, HSMHVDPbpBinding, HSMHVdNodePrime, HSMHVbNodePrime);
+            XFOO(HSMHVSPbpPtr, HSMHVSPbpBinding, HSMHVsNodePrime, HSMHVbNodePrime);
+            XFOO(HSMHVGPbpPtr, HSMHVGPbpBinding, HSMHVgNodePrime, HSMHVbNodePrime);
+            XFOO(HSMHVBPdPtr, HSMHVBPdBinding, HSMHVbNodePrime, HSMHVdNode);
+            XFOO(HSMHVBPsPtr, HSMHVBPsBinding, HSMHVbNodePrime, HSMHVsNode);
+            XFOO(HSMHVBPdpPtr, HSMHVBPdpBinding, HSMHVbNodePrime, HSMHVdNodePrime);
+            XFOO(HSMHVBPspPtr, HSMHVBPspBinding, HSMHVbNodePrime, HSMHVsNodePrime);
+            XFOO(HSMHVBPgpPtr, HSMHVBPgpBinding, HSMHVbNodePrime, HSMHVgNodePrime);
+            XFOO(HSMHVBPbpPtr, HSMHVBPbpBinding, HSMHVbNodePrime, HSMHVbNodePrime);
+            XFOO(HSMHVDdPtr, HSMHVDdBinding, HSMHVdNode, HSMHVdNode);
+            XFOO(HSMHVGPgpPtr, HSMHVGPgpBinding, HSMHVgNodePrime, HSMHVgNodePrime);
+            XFOO(HSMHVSsPtr, HSMHVSsBinding, HSMHVsNode, HSMHVsNode);
+            XFOO(HSMHVDPdpPtr, HSMHVDPdpBinding, HSMHVdNodePrime, HSMHVdNodePrime);
+            XFOO(HSMHVSPspPtr, HSMHVSPspBinding, HSMHVsNodePrime, HSMHVsNodePrime);
+            XFOO(HSMHVDdpPtr, HSMHVDdpBinding, HSMHVdNode, HSMHVdNodePrime);
+            XFOO(HSMHVGPdpPtr, HSMHVGPdpBinding, HSMHVgNodePrime, HSMHVdNodePrime);
+            XFOO(HSMHVGPspPtr, HSMHVGPspBinding, HSMHVgNodePrime, HSMHVsNodePrime);
+            XFOO(HSMHVSspPtr, HSMHVSspBinding, HSMHVsNode, HSMHVsNodePrime);
+            XFOO(HSMHVDPspPtr, HSMHVDPspBinding, HSMHVdNodePrime, HSMHVsNodePrime);
+            XFOO(HSMHVDPdPtr, HSMHVDPdBinding, HSMHVdNodePrime, HSMHVdNode);
+            XFOO(HSMHVDPgpPtr, HSMHVDPgpBinding, HSMHVdNodePrime, HSMHVgNodePrime);
+            XFOO(HSMHVSPgpPtr, HSMHVSPgpBinding, HSMHVsNodePrime, HSMHVgNodePrime);
+            XFOO(HSMHVSPsPtr, HSMHVSPsBinding, HSMHVsNodePrime, HSMHVsNode);
+            XFOO(HSMHVSPdpPtr, HSMHVSPdpBinding, HSMHVsNodePrime, HSMHVdNodePrime);
+            XFOO(HSMHVGgPtr, HSMHVGgBinding, HSMHVgNode, HSMHVgNode);
+            XFOO(HSMHVGgpPtr, HSMHVGgpBinding, HSMHVgNode, HSMHVgNodePrime);
+            XFOO(HSMHVGPgPtr, HSMHVGPgBinding, HSMHVgNodePrime, HSMHVgNode);
+            XFOO(HSMHVDdbPtr, HSMHVDdbBinding, HSMHVdNode, HSMHVdbNode);
+            XFOO(HSMHVSsbPtr, HSMHVSsbBinding, HSMHVsNode, HSMHVsbNode);
+            XFOO(HSMHVDBdPtr, HSMHVDBdBinding, HSMHVdbNode, HSMHVdNode);
+            XFOO(HSMHVDBdbPtr, HSMHVDBdbBinding, HSMHVdbNode, HSMHVdbNode);
+            XFOO(HSMHVDBbpPtr, HSMHVDBbpBinding, HSMHVdbNode, HSMHVbNodePrime);
+            XFOO(HSMHVBPdbPtr, HSMHVBPdbBinding, HSMHVbNodePrime, HSMHVdbNode);
+            XFOO(HSMHVBPbPtr, HSMHVBPbBinding, HSMHVbNodePrime, HSMHVbNode);
+            XFOO(HSMHVBPsbPtr, HSMHVBPsbBinding, HSMHVbNodePrime, HSMHVsbNode);
+            XFOO(HSMHVSBsPtr, HSMHVSBsBinding, HSMHVsbNode, HSMHVsNode);
+            XFOO(HSMHVSBbpPtr, HSMHVSBbpBinding, HSMHVsbNode, HSMHVbNodePrime);
+            XFOO(HSMHVSBsbPtr, HSMHVSBsbBinding, HSMHVsbNode, HSMHVsbNode);
+            XFOO(HSMHVBbpPtr, HSMHVBbpBinding, HSMHVbNode, HSMHVbNodePrime);
+            XFOO(HSMHVBbPtr, HSMHVBbBinding, HSMHVbNode, HSMHVbNode);
+            XFOO(HSMHVDgpPtr, HSMHVDgpBinding, HSMHVdNode, HSMHVgNodePrime);
+            XFOO(HSMHVDsPtr, HSMHVDsBinding, HSMHVdNode, HSMHVsNode);
+            XFOO(HSMHVDbpPtr, HSMHVDbpBinding, HSMHVdNode, HSMHVbNodePrime);
+            XFOO(HSMHVDspPtr, HSMHVDspBinding, HSMHVdNode, HSMHVsNodePrime);
+            XFOO(HSMHVDPsPtr, HSMHVDPsBinding, HSMHVdNodePrime, HSMHVsNode);
+            XFOO(HSMHVSgpPtr, HSMHVSgpBinding, HSMHVsNode, HSMHVgNodePrime);
+            XFOO(HSMHVSdPtr, HSMHVSdBinding, HSMHVsNode, HSMHVdNode);
+            XFOO(HSMHVSbpPtr, HSMHVSbpBinding, HSMHVsNode, HSMHVbNodePrime);
+            XFOO(HSMHVSdpPtr, HSMHVSdpBinding, HSMHVsNode, HSMHVdNodePrime);
+            XFOO(HSMHVSPdPtr, HSMHVSPdBinding, HSMHVsNodePrime, HSMHVdNode);
+            XFOO(HSMHVGPdPtr, HSMHVGPdBinding, HSMHVgNodePrime, HSMHVdNode);
+            XFOO(HSMHVGPsPtr, HSMHVGPsBinding, HSMHVgNodePrime, HSMHVsNode);
             if (here->HSMHVsubNode > 0)
             {
-                if ((here-> HSMHVdNode != 0) && (here-> HSMHVsubNode != 0))
-                {
-                    i = here->HSMHVDsubPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDsubBinding = matched ;
-                    here->HSMHVDsubPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                {
-                    i = here->HSMHVDPsubPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDPsubBinding = matched ;
-                    here->HSMHVDPsubPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVsNode != 0) && (here-> HSMHVsubNode != 0))
-                {
-                    i = here->HSMHVSsubPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSsubBinding = matched ;
-                    here->HSMHVSsubPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                {
-                    i = here->HSMHVSPsubPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSPsubBinding = matched ;
-                    here->HSMHVSPsubPtr = matched->CSC ;
-                }
-
+                XFOO(HSMHVDsubPtr, HSMHVDsubBinding, HSMHVdNode, HSMHVsubNode);
+                XFOO(HSMHVDPsubPtr, HSMHVDPsubBinding, HSMHVdNodePrime, HSMHVsubNode);
+                XFOO(HSMHVSsubPtr, HSMHVSsubBinding, HSMHVsNode, HSMHVsubNode);
+                XFOO(HSMHVSPsubPtr, HSMHVSPsubBinding, HSMHVsNodePrime, HSMHVsubNode);
             }
             if (here->HSMHV_coselfheat > 0)
             {
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVTemptempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTemptempBinding = matched ;
-                    here->HSMHVTemptempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNode != 0))
-                {
-                    i = here->HSMHVTempdPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempdBinding = matched ;
-                    here->HSMHVTempdPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNodePrime != 0))
-                {
-                    i = here->HSMHVTempdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempdpBinding = matched ;
-                    here->HSMHVTempdpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNode != 0))
-                {
-                    i = here->HSMHVTempsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempsBinding = matched ;
-                    here->HSMHVTempsPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNodePrime != 0))
-                {
-                    i = here->HSMHVTempspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempspBinding = matched ;
-                    here->HSMHVTempspPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVDPtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDPtempBinding = matched ;
-                    here->HSMHVDPtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVSPtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSPtempBinding = matched ;
-                    here->HSMHVSPtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVgNodePrime != 0))
-                {
-                    i = here->HSMHVTempgpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempgpBinding = matched ;
-                    here->HSMHVTempgpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVbNodePrime != 0))
-                {
-                    i = here->HSMHVTempbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempbpBinding = matched ;
-                    here->HSMHVTempbpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVGPtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVGPtempBinding = matched ;
-                    here->HSMHVGPtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVBPtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVBPtempBinding = matched ;
-                    here->HSMHVBPtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVdbNode != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVDBtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDBtempBinding = matched ;
-                    here->HSMHVDBtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVsbNode != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVSBtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSBtempBinding = matched ;
-                    here->HSMHVSBtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVdNode != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVDtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDtempBinding = matched ;
-                    here->HSMHVDtempPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVsNode != 0) && (here-> HSMHVtempNode != 0))
-                {
-                    i = here->HSMHVStempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVStempBinding = matched ;
-                    here->HSMHVStempPtr = matched->CSC ;
-                }
-
+                XFOO(HSMHVTemptempPtr, HSMHVTemptempBinding, HSMHVtempNode, HSMHVtempNode);
+                XFOO(HSMHVTempdPtr, HSMHVTempdBinding, HSMHVtempNode, HSMHVdNode);
+                XFOO(HSMHVTempdpPtr, HSMHVTempdpBinding, HSMHVtempNode, HSMHVdNodePrime);
+                XFOO(HSMHVTempsPtr, HSMHVTempsBinding, HSMHVtempNode, HSMHVsNode);
+                XFOO(HSMHVTempspPtr, HSMHVTempspBinding, HSMHVtempNode, HSMHVsNodePrime);
+                XFOO(HSMHVDPtempPtr, HSMHVDPtempBinding, HSMHVdNodePrime, HSMHVtempNode);
+                XFOO(HSMHVSPtempPtr, HSMHVSPtempBinding, HSMHVsNodePrime, HSMHVtempNode);
+                XFOO(HSMHVTempgpPtr, HSMHVTempgpBinding, HSMHVtempNode, HSMHVgNodePrime);
+                XFOO(HSMHVTempbpPtr, HSMHVTempbpBinding, HSMHVtempNode, HSMHVbNodePrime);
+                XFOO(HSMHVGPtempPtr, HSMHVGPtempBinding, HSMHVgNodePrime, HSMHVtempNode);
+                XFOO(HSMHVBPtempPtr, HSMHVBPtempBinding, HSMHVbNodePrime, HSMHVtempNode);
+                XFOO(HSMHVDBtempPtr, HSMHVDBtempBinding, HSMHVdbNode, HSMHVtempNode);
+                XFOO(HSMHVSBtempPtr, HSMHVSBtempBinding, HSMHVsbNode, HSMHVtempNode);
+                XFOO(HSMHVDtempPtr, HSMHVDtempBinding, HSMHVdNode, HSMHVtempNode);
+                XFOO(HSMHVStempPtr, HSMHVStempBinding, HSMHVsNode, HSMHVtempNode);
             }
             if (model->HSMHV_conqs)
             {
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                {
-                    i = here->HSMHVDPqiPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDPqiBinding = matched ;
-                    here->HSMHVDPqiPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                {
-                    i = here->HSMHVGPqiPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVGPqiBinding = matched ;
-                    here->HSMHVGPqiPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                {
-                    i = here->HSMHVGPqbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVGPqbBinding = matched ;
-                    here->HSMHVGPqbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                {
-                    i = here->HSMHVSPqiPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSPqiBinding = matched ;
-                    here->HSMHVSPqiPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                {
-                    i = here->HSMHVBPqbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVBPqbBinding = matched ;
-                    here->HSMHVBPqbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVdNodePrime != 0))
-                {
-                    i = here->HSMHVQIdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIdpBinding = matched ;
-                    here->HSMHVQIdpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVgNodePrime != 0))
-                {
-                    i = here->HSMHVQIgpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIgpBinding = matched ;
-                    here->HSMHVQIgpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVsNodePrime != 0))
-                {
-                    i = here->HSMHVQIspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIspBinding = matched ;
-                    here->HSMHVQIspPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVbNodePrime != 0))
-                {
-                    i = here->HSMHVQIbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIbpBinding = matched ;
-                    here->HSMHVQIbpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVqiNode != 0))
-                {
-                    i = here->HSMHVQIqiPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIqiBinding = matched ;
-                    here->HSMHVQIqiPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVdNodePrime != 0))
-                {
-                    i = here->HSMHVQBdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBdpBinding = matched ;
-                    here->HSMHVQBdpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVgNodePrime != 0))
-                {
-                    i = here->HSMHVQBgpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBgpBinding = matched ;
-                    here->HSMHVQBgpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVsNodePrime != 0))
-                {
-                    i = here->HSMHVQBspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBspBinding = matched ;
-                    here->HSMHVQBspPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                {
-                    i = here->HSMHVQBbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBbpBinding = matched ;
-                    here->HSMHVQBbpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVqbNode != 0))
-                {
-                    i = here->HSMHVQBqbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBqbBinding = matched ;
-                    here->HSMHVQBqbPtr = matched->CSC ;
-                }
-
+                XFOO(HSMHVDPqiPtr, HSMHVDPqiBinding, HSMHVdNodePrime, HSMHVqiNode);
+                XFOO(HSMHVGPqiPtr, HSMHVGPqiBinding, HSMHVgNodePrime, HSMHVqiNode);
+                XFOO(HSMHVGPqbPtr, HSMHVGPqbBinding, HSMHVgNodePrime, HSMHVqbNode);
+                XFOO(HSMHVSPqiPtr, HSMHVSPqiBinding, HSMHVsNodePrime, HSMHVqiNode);
+                XFOO(HSMHVBPqbPtr, HSMHVBPqbBinding, HSMHVbNodePrime, HSMHVqbNode);
+                XFOO(HSMHVQIdpPtr, HSMHVQIdpBinding, HSMHVqiNode, HSMHVdNodePrime);
+                XFOO(HSMHVQIgpPtr, HSMHVQIgpBinding, HSMHVqiNode, HSMHVgNodePrime);
+                XFOO(HSMHVQIspPtr, HSMHVQIspBinding, HSMHVqiNode, HSMHVsNodePrime);
+                XFOO(HSMHVQIbpPtr, HSMHVQIbpBinding, HSMHVqiNode, HSMHVbNodePrime);
+                XFOO(HSMHVQIqiPtr, HSMHVQIqiBinding, HSMHVqiNode, HSMHVqiNode);
+                XFOO(HSMHVQBdpPtr, HSMHVQBdpBinding, HSMHVqbNode, HSMHVdNodePrime);
+                XFOO(HSMHVQBgpPtr, HSMHVQBgpBinding, HSMHVqbNode, HSMHVgNodePrime);
+                XFOO(HSMHVQBspPtr, HSMHVQBspBinding, HSMHVqbNode, HSMHVsNodePrime);
+                XFOO(HSMHVQBbpPtr, HSMHVQBbpBinding, HSMHVqbNode, HSMHVbNodePrime);
+                XFOO(HSMHVQBqbPtr, HSMHVQBqbBinding, HSMHVqbNode, HSMHVqbNode);
                 if (here->HSMHV_coselfheat > 0)
                 {
-                    if ((here-> HSMHVqiNode != 0) && (here-> HSMHVtempNode != 0))
-                    {
-                        i = here->HSMHVQItempPtr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->HSMHVQItempBinding = matched ;
-                        here->HSMHVQItempPtr = matched->CSC ;
-                    }
-
-                    if ((here-> HSMHVqbNode != 0) && (here-> HSMHVtempNode != 0))
-                    {
-                        i = here->HSMHVQBtempPtr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->HSMHVQBtempBinding = matched ;
-                        here->HSMHVQBtempPtr = matched->CSC ;
-                    }
-
+                    XFOO(HSMHVQItempPtr, HSMHVQItempBinding, HSMHVqiNode, HSMHVtempNode);
+                    XFOO(HSMHVQBtempPtr, HSMHVQBtempBinding, HSMHVqbNode, HSMHVtempNode);
                 }
             }
         }
@@ -775,280 +159,104 @@ HSMHVbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HSMHVinstances ; here != NULL ; here = here->HSMHVnextInstance)
         {
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDPbpPtr = here->HSMHVDPbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSPbpPtr = here->HSMHVSPbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVGPbpPtr = here->HSMHVGPbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVBPdPtr = here->HSMHVBPdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVBPsPtr = here->HSMHVBPsBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVBPdpPtr = here->HSMHVBPdpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVBPspPtr = here->HSMHVBPspBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVBPgpPtr = here->HSMHVBPgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBPbpPtr = here->HSMHVBPbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDdPtr = here->HSMHVDdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGPgpPtr = here->HSMHVGPgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSsPtr = here->HSMHVSsBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDPdpPtr = here->HSMHVDPdpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSPspPtr = here->HSMHVSPspBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDdpPtr = here->HSMHVDdpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVGPdpPtr = here->HSMHVGPdpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVGPspPtr = here->HSMHVGPspBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSspPtr = here->HSMHVSspBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDPspPtr = here->HSMHVDPspBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDPdPtr = here->HSMHVDPdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDPgpPtr = here->HSMHVDPgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSPgpPtr = here->HSMHVSPgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSPsPtr = here->HSMHVSPsBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSPdpPtr = here->HSMHVSPdpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGgPtr = here->HSMHVGgBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGgpPtr = here->HSMHVGgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGPgPtr = here->HSMHVGPgBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDdbPtr = here->HSMHVDdbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSsbPtr = here->HSMHVSsbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDBdPtr = here->HSMHVDBdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDBdbPtr = here->HSMHVDBdbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDBbpPtr = here->HSMHVDBbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVBPdbPtr = here->HSMHVBPdbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBPbPtr = here->HSMHVBPbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVBPsbPtr = here->HSMHVBPsbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSBsPtr = here->HSMHVSBsBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSBbpPtr = here->HSMHVSBbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSBsbPtr = here->HSMHVSBsbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBbpPtr = here->HSMHVBbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBbPtr = here->HSMHVBbBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDgpPtr = here->HSMHVDgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDsPtr = here->HSMHVDsBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDbpPtr = here->HSMHVDbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDspPtr = here->HSMHVDspBinding->CSC_Complex ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDPsPtr = here->HSMHVDPsBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSgpPtr = here->HSMHVSgpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSdPtr = here->HSMHVSdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSbpPtr = here->HSMHVSbpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSdpPtr = here->HSMHVSdpBinding->CSC_Complex ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSPdPtr = here->HSMHVSPdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVGPdPtr = here->HSMHVGPdBinding->CSC_Complex ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVGPsPtr = here->HSMHVGPsBinding->CSC_Complex ;
-
+            BFOO(HSMHVDPbpPtr, HSMHVDPbpBinding, HSMHVdNodePrime, HSMHVbNodePrime);
+            BFOO(HSMHVSPbpPtr, HSMHVSPbpBinding, HSMHVsNodePrime, HSMHVbNodePrime);
+            BFOO(HSMHVGPbpPtr, HSMHVGPbpBinding, HSMHVgNodePrime, HSMHVbNodePrime);
+            BFOO(HSMHVBPdPtr, HSMHVBPdBinding, HSMHVbNodePrime, HSMHVdNode);
+            BFOO(HSMHVBPsPtr, HSMHVBPsBinding, HSMHVbNodePrime, HSMHVsNode);
+            BFOO(HSMHVBPdpPtr, HSMHVBPdpBinding, HSMHVbNodePrime, HSMHVdNodePrime);
+            BFOO(HSMHVBPspPtr, HSMHVBPspBinding, HSMHVbNodePrime, HSMHVsNodePrime);
+            BFOO(HSMHVBPgpPtr, HSMHVBPgpBinding, HSMHVbNodePrime, HSMHVgNodePrime);
+            BFOO(HSMHVBPbpPtr, HSMHVBPbpBinding, HSMHVbNodePrime, HSMHVbNodePrime);
+            BFOO(HSMHVDdPtr, HSMHVDdBinding, HSMHVdNode, HSMHVdNode);
+            BFOO(HSMHVGPgpPtr, HSMHVGPgpBinding, HSMHVgNodePrime, HSMHVgNodePrime);
+            BFOO(HSMHVSsPtr, HSMHVSsBinding, HSMHVsNode, HSMHVsNode);
+            BFOO(HSMHVDPdpPtr, HSMHVDPdpBinding, HSMHVdNodePrime, HSMHVdNodePrime);
+            BFOO(HSMHVSPspPtr, HSMHVSPspBinding, HSMHVsNodePrime, HSMHVsNodePrime);
+            BFOO(HSMHVDdpPtr, HSMHVDdpBinding, HSMHVdNode, HSMHVdNodePrime);
+            BFOO(HSMHVGPdpPtr, HSMHVGPdpBinding, HSMHVgNodePrime, HSMHVdNodePrime);
+            BFOO(HSMHVGPspPtr, HSMHVGPspBinding, HSMHVgNodePrime, HSMHVsNodePrime);
+            BFOO(HSMHVSspPtr, HSMHVSspBinding, HSMHVsNode, HSMHVsNodePrime);
+            BFOO(HSMHVDPspPtr, HSMHVDPspBinding, HSMHVdNodePrime, HSMHVsNodePrime);
+            BFOO(HSMHVDPdPtr, HSMHVDPdBinding, HSMHVdNodePrime, HSMHVdNode);
+            BFOO(HSMHVDPgpPtr, HSMHVDPgpBinding, HSMHVdNodePrime, HSMHVgNodePrime);
+            BFOO(HSMHVSPgpPtr, HSMHVSPgpBinding, HSMHVsNodePrime, HSMHVgNodePrime);
+            BFOO(HSMHVSPsPtr, HSMHVSPsBinding, HSMHVsNodePrime, HSMHVsNode);
+            BFOO(HSMHVSPdpPtr, HSMHVSPdpBinding, HSMHVsNodePrime, HSMHVdNodePrime);
+            BFOO(HSMHVGgPtr, HSMHVGgBinding, HSMHVgNode, HSMHVgNode);
+            BFOO(HSMHVGgpPtr, HSMHVGgpBinding, HSMHVgNode, HSMHVgNodePrime);
+            BFOO(HSMHVGPgPtr, HSMHVGPgBinding, HSMHVgNodePrime, HSMHVgNode);
+            BFOO(HSMHVDdbPtr, HSMHVDdbBinding, HSMHVdNode, HSMHVdbNode);
+            BFOO(HSMHVSsbPtr, HSMHVSsbBinding, HSMHVsNode, HSMHVsbNode);
+            BFOO(HSMHVDBdPtr, HSMHVDBdBinding, HSMHVdbNode, HSMHVdNode);
+            BFOO(HSMHVDBdbPtr, HSMHVDBdbBinding, HSMHVdbNode, HSMHVdbNode);
+            BFOO(HSMHVDBbpPtr, HSMHVDBbpBinding, HSMHVdbNode, HSMHVbNodePrime);
+            BFOO(HSMHVBPdbPtr, HSMHVBPdbBinding, HSMHVbNodePrime, HSMHVdbNode);
+            BFOO(HSMHVBPbPtr, HSMHVBPbBinding, HSMHVbNodePrime, HSMHVbNode);
+            BFOO(HSMHVBPsbPtr, HSMHVBPsbBinding, HSMHVbNodePrime, HSMHVsbNode);
+            BFOO(HSMHVSBsPtr, HSMHVSBsBinding, HSMHVsbNode, HSMHVsNode);
+            BFOO(HSMHVSBbpPtr, HSMHVSBbpBinding, HSMHVsbNode, HSMHVbNodePrime);
+            BFOO(HSMHVSBsbPtr, HSMHVSBsbBinding, HSMHVsbNode, HSMHVsbNode);
+            BFOO(HSMHVBbpPtr, HSMHVBbpBinding, HSMHVbNode, HSMHVbNodePrime);
+            BFOO(HSMHVBbPtr, HSMHVBbBinding, HSMHVbNode, HSMHVbNode);
+            BFOO(HSMHVDgpPtr, HSMHVDgpBinding, HSMHVdNode, HSMHVgNodePrime);
+            BFOO(HSMHVDsPtr, HSMHVDsBinding, HSMHVdNode, HSMHVsNode);
+            BFOO(HSMHVDbpPtr, HSMHVDbpBinding, HSMHVdNode, HSMHVbNodePrime);
+            BFOO(HSMHVDspPtr, HSMHVDspBinding, HSMHVdNode, HSMHVsNodePrime);
+            BFOO(HSMHVDPsPtr, HSMHVDPsBinding, HSMHVdNodePrime, HSMHVsNode);
+            BFOO(HSMHVSgpPtr, HSMHVSgpBinding, HSMHVsNode, HSMHVgNodePrime);
+            BFOO(HSMHVSdPtr, HSMHVSdBinding, HSMHVsNode, HSMHVdNode);
+            BFOO(HSMHVSbpPtr, HSMHVSbpBinding, HSMHVsNode, HSMHVbNodePrime);
+            BFOO(HSMHVSdpPtr, HSMHVSdpBinding, HSMHVsNode, HSMHVdNodePrime);
+            BFOO(HSMHVSPdPtr, HSMHVSPdBinding, HSMHVsNodePrime, HSMHVdNode);
+            BFOO(HSMHVGPdPtr, HSMHVGPdBinding, HSMHVgNodePrime, HSMHVdNode);
+            BFOO(HSMHVGPsPtr, HSMHVGPsBinding, HSMHVgNodePrime, HSMHVsNode);
             if (here->HSMHVsubNode > 0)
             {
-                if ((here-> HSMHVdNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDsubPtr = here->HSMHVDsubBinding->CSC_Complex ;
-
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDPsubPtr = here->HSMHVDPsubBinding->CSC_Complex ;
-
-                if ((here-> HSMHVsNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSsubPtr = here->HSMHVSsubBinding->CSC_Complex ;
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSPsubPtr = here->HSMHVSPsubBinding->CSC_Complex ;
-
+                BFOO(HSMHVDsubPtr, HSMHVDsubBinding, HSMHVdNode, HSMHVsubNode);
+                BFOO(HSMHVDPsubPtr, HSMHVDPsubBinding, HSMHVdNodePrime, HSMHVsubNode);
+                BFOO(HSMHVSsubPtr, HSMHVSsubBinding, HSMHVsNode, HSMHVsubNode);
+                BFOO(HSMHVSPsubPtr, HSMHVSPsubBinding, HSMHVsNodePrime, HSMHVsubNode);
             }
             if (here->HSMHV_coselfheat > 0)
             {
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVTemptempPtr = here->HSMHVTemptempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNode != 0))
-                    here->HSMHVTempdPtr = here->HSMHVTempdBinding->CSC_Complex ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVTempdpPtr = here->HSMHVTempdpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNode != 0))
-                    here->HSMHVTempsPtr = here->HSMHVTempsBinding->CSC_Complex ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVTempspPtr = here->HSMHVTempspBinding->CSC_Complex ;
-
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDPtempPtr = here->HSMHVDPtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSPtempPtr = here->HSMHVSPtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVTempgpPtr = here->HSMHVTempgpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVTempbpPtr = here->HSMHVTempbpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVGPtempPtr = here->HSMHVGPtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVBPtempPtr = here->HSMHVBPtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVdbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDBtempPtr = here->HSMHVDBtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVsbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSBtempPtr = here->HSMHVSBtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVdNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDtempPtr = here->HSMHVDtempBinding->CSC_Complex ;
-
-                if ((here-> HSMHVsNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVStempPtr = here->HSMHVStempBinding->CSC_Complex ;
-
+                BFOO(HSMHVTemptempPtr, HSMHVTemptempBinding, HSMHVtempNode, HSMHVtempNode);
+                BFOO(HSMHVTempdPtr, HSMHVTempdBinding, HSMHVtempNode, HSMHVdNode);
+                BFOO(HSMHVTempdpPtr, HSMHVTempdpBinding, HSMHVtempNode, HSMHVdNodePrime);
+                BFOO(HSMHVTempsPtr, HSMHVTempsBinding, HSMHVtempNode, HSMHVsNode);
+                BFOO(HSMHVTempspPtr, HSMHVTempspBinding, HSMHVtempNode, HSMHVsNodePrime);
+                BFOO(HSMHVDPtempPtr, HSMHVDPtempBinding, HSMHVdNodePrime, HSMHVtempNode);
+                BFOO(HSMHVSPtempPtr, HSMHVSPtempBinding, HSMHVsNodePrime, HSMHVtempNode);
+                BFOO(HSMHVTempgpPtr, HSMHVTempgpBinding, HSMHVtempNode, HSMHVgNodePrime);
+                BFOO(HSMHVTempbpPtr, HSMHVTempbpBinding, HSMHVtempNode, HSMHVbNodePrime);
+                BFOO(HSMHVGPtempPtr, HSMHVGPtempBinding, HSMHVgNodePrime, HSMHVtempNode);
+                BFOO(HSMHVBPtempPtr, HSMHVBPtempBinding, HSMHVbNodePrime, HSMHVtempNode);
+                BFOO(HSMHVDBtempPtr, HSMHVDBtempBinding, HSMHVdbNode, HSMHVtempNode);
+                BFOO(HSMHVSBtempPtr, HSMHVSBtempBinding, HSMHVsbNode, HSMHVtempNode);
+                BFOO(HSMHVDtempPtr, HSMHVDtempBinding, HSMHVdNode, HSMHVtempNode);
+                BFOO(HSMHVStempPtr, HSMHVStempBinding, HSMHVsNode, HSMHVtempNode);
             }
             if (model->HSMHV_conqs)
             {
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVDPqiPtr = here->HSMHVDPqiBinding->CSC_Complex ;
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVGPqiPtr = here->HSMHVGPqiBinding->CSC_Complex ;
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVGPqbPtr = here->HSMHVGPqbBinding->CSC_Complex ;
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVSPqiPtr = here->HSMHVSPqiBinding->CSC_Complex ;
-
-                if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVBPqbPtr = here->HSMHVBPqbBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQIdpPtr = here->HSMHVQIdpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQIgpPtr = here->HSMHVQIgpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQIspPtr = here->HSMHVQIspBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQIbpPtr = here->HSMHVQIbpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVQIqiPtr = here->HSMHVQIqiBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQBdpPtr = here->HSMHVQBdpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQBgpPtr = here->HSMHVQBgpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQBspPtr = here->HSMHVQBspBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQBbpPtr = here->HSMHVQBbpBinding->CSC_Complex ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVQBqbPtr = here->HSMHVQBqbBinding->CSC_Complex ;
-
+                BFOO(HSMHVDPqiPtr, HSMHVDPqiBinding, HSMHVdNodePrime, HSMHVqiNode);
+                BFOO(HSMHVGPqiPtr, HSMHVGPqiBinding, HSMHVgNodePrime, HSMHVqiNode);
+                BFOO(HSMHVGPqbPtr, HSMHVGPqbBinding, HSMHVgNodePrime, HSMHVqbNode);
+                BFOO(HSMHVSPqiPtr, HSMHVSPqiBinding, HSMHVsNodePrime, HSMHVqiNode);
+                BFOO(HSMHVBPqbPtr, HSMHVBPqbBinding, HSMHVbNodePrime, HSMHVqbNode);
+                BFOO(HSMHVQIdpPtr, HSMHVQIdpBinding, HSMHVqiNode, HSMHVdNodePrime);
+                BFOO(HSMHVQIgpPtr, HSMHVQIgpBinding, HSMHVqiNode, HSMHVgNodePrime);
+                BFOO(HSMHVQIspPtr, HSMHVQIspBinding, HSMHVqiNode, HSMHVsNodePrime);
+                BFOO(HSMHVQIbpPtr, HSMHVQIbpBinding, HSMHVqiNode, HSMHVbNodePrime);
+                BFOO(HSMHVQIqiPtr, HSMHVQIqiBinding, HSMHVqiNode, HSMHVqiNode);
+                BFOO(HSMHVQBdpPtr, HSMHVQBdpBinding, HSMHVqbNode, HSMHVdNodePrime);
+                BFOO(HSMHVQBgpPtr, HSMHVQBgpBinding, HSMHVqbNode, HSMHVgNodePrime);
+                BFOO(HSMHVQBspPtr, HSMHVQBspBinding, HSMHVqbNode, HSMHVsNodePrime);
+                BFOO(HSMHVQBbpPtr, HSMHVQBbpBinding, HSMHVqbNode, HSMHVbNodePrime);
+                BFOO(HSMHVQBqbPtr, HSMHVQBqbBinding, HSMHVqbNode, HSMHVqbNode);
                 if (here->HSMHV_coselfheat > 0)
                 {
-                    if ((here-> HSMHVqiNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQItempPtr = here->HSMHVQItempBinding->CSC_Complex ;
-
-                    if ((here-> HSMHVqbNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQBtempPtr = here->HSMHVQBtempBinding->CSC_Complex ;
-
+                    BFOO(HSMHVQItempPtr, HSMHVQItempBinding, HSMHVqiNode, HSMHVtempNode);
+                    BFOO(HSMHVQBtempPtr, HSMHVQBtempBinding, HSMHVqbNode, HSMHVtempNode);
                 }
             }
         }
@@ -1071,280 +279,104 @@ HSMHVbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HSMHVinstances ; here != NULL ; here = here->HSMHVnextInstance)
         {
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDPbpPtr = here->HSMHVDPbpBinding->CSC ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSPbpPtr = here->HSMHVSPbpBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVGPbpPtr = here->HSMHVGPbpBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVBPdPtr = here->HSMHVBPdBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVBPsPtr = here->HSMHVBPsBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVBPdpPtr = here->HSMHVBPdpBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVBPspPtr = here->HSMHVBPspBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVBPgpPtr = here->HSMHVBPgpBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBPbpPtr = here->HSMHVBPbpBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDdPtr = here->HSMHVDdBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGPgpPtr = here->HSMHVGPgpBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSsPtr = here->HSMHVSsBinding->CSC ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDPdpPtr = here->HSMHVDPdpBinding->CSC ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSPspPtr = here->HSMHVSPspBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDdpPtr = here->HSMHVDdpBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVGPdpPtr = here->HSMHVGPdpBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVGPspPtr = here->HSMHVGPspBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSspPtr = here->HSMHVSspBinding->CSC ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDPspPtr = here->HSMHVDPspBinding->CSC ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDPdPtr = here->HSMHVDPdBinding->CSC ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDPgpPtr = here->HSMHVDPgpBinding->CSC ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSPgpPtr = here->HSMHVSPgpBinding->CSC ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSPsPtr = here->HSMHVSPsBinding->CSC ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSPdpPtr = here->HSMHVSPdpBinding->CSC ;
-
-            if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGgPtr = here->HSMHVGgBinding->CSC ;
-
-            if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGgpPtr = here->HSMHVGgpBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGPgPtr = here->HSMHVGPgBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDdbPtr = here->HSMHVDdbBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSsbPtr = here->HSMHVSsbBinding->CSC ;
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDBdPtr = here->HSMHVDBdBinding->CSC ;
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDBdbPtr = here->HSMHVDBdbBinding->CSC ;
-
-            if ((here-> HSMHVdbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDBbpPtr = here->HSMHVDBbpBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVBPdbPtr = here->HSMHVBPdbBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBPbPtr = here->HSMHVBPbBinding->CSC ;
-
-            if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVBPsbPtr = here->HSMHVBPsbBinding->CSC ;
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSBsPtr = here->HSMHVSBsBinding->CSC ;
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSBbpPtr = here->HSMHVSBbpBinding->CSC ;
-
-            if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSBsbPtr = here->HSMHVSBsbBinding->CSC ;
-
-            if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBbpPtr = here->HSMHVBbpBinding->CSC ;
-
-            if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBbPtr = here->HSMHVBbBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDgpPtr = here->HSMHVDgpBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDsPtr = here->HSMHVDsBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDbpPtr = here->HSMHVDbpBinding->CSC ;
-
-            if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDspPtr = here->HSMHVDspBinding->CSC ;
-
-            if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDPsPtr = here->HSMHVDPsBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSgpPtr = here->HSMHVSgpBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSdPtr = here->HSMHVSdBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSbpPtr = here->HSMHVSbpBinding->CSC ;
-
-            if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSdpPtr = here->HSMHVSdpBinding->CSC ;
-
-            if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSPdPtr = here->HSMHVSPdBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVGPdPtr = here->HSMHVGPdBinding->CSC ;
-
-            if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVGPsPtr = here->HSMHVGPsBinding->CSC ;
-
+            CFOO(HSMHVDPbpPtr, HSMHVDPbpBinding, HSMHVdNodePrime, HSMHVbNodePrime);
+            CFOO(HSMHVSPbpPtr, HSMHVSPbpBinding, HSMHVsNodePrime, HSMHVbNodePrime);
+            CFOO(HSMHVGPbpPtr, HSMHVGPbpBinding, HSMHVgNodePrime, HSMHVbNodePrime);
+            CFOO(HSMHVBPdPtr, HSMHVBPdBinding, HSMHVbNodePrime, HSMHVdNode);
+            CFOO(HSMHVBPsPtr, HSMHVBPsBinding, HSMHVbNodePrime, HSMHVsNode);
+            CFOO(HSMHVBPdpPtr, HSMHVBPdpBinding, HSMHVbNodePrime, HSMHVdNodePrime);
+            CFOO(HSMHVBPspPtr, HSMHVBPspBinding, HSMHVbNodePrime, HSMHVsNodePrime);
+            CFOO(HSMHVBPgpPtr, HSMHVBPgpBinding, HSMHVbNodePrime, HSMHVgNodePrime);
+            CFOO(HSMHVBPbpPtr, HSMHVBPbpBinding, HSMHVbNodePrime, HSMHVbNodePrime);
+            CFOO(HSMHVDdPtr, HSMHVDdBinding, HSMHVdNode, HSMHVdNode);
+            CFOO(HSMHVGPgpPtr, HSMHVGPgpBinding, HSMHVgNodePrime, HSMHVgNodePrime);
+            CFOO(HSMHVSsPtr, HSMHVSsBinding, HSMHVsNode, HSMHVsNode);
+            CFOO(HSMHVDPdpPtr, HSMHVDPdpBinding, HSMHVdNodePrime, HSMHVdNodePrime);
+            CFOO(HSMHVSPspPtr, HSMHVSPspBinding, HSMHVsNodePrime, HSMHVsNodePrime);
+            CFOO(HSMHVDdpPtr, HSMHVDdpBinding, HSMHVdNode, HSMHVdNodePrime);
+            CFOO(HSMHVGPdpPtr, HSMHVGPdpBinding, HSMHVgNodePrime, HSMHVdNodePrime);
+            CFOO(HSMHVGPspPtr, HSMHVGPspBinding, HSMHVgNodePrime, HSMHVsNodePrime);
+            CFOO(HSMHVSspPtr, HSMHVSspBinding, HSMHVsNode, HSMHVsNodePrime);
+            CFOO(HSMHVDPspPtr, HSMHVDPspBinding, HSMHVdNodePrime, HSMHVsNodePrime);
+            CFOO(HSMHVDPdPtr, HSMHVDPdBinding, HSMHVdNodePrime, HSMHVdNode);
+            CFOO(HSMHVDPgpPtr, HSMHVDPgpBinding, HSMHVdNodePrime, HSMHVgNodePrime);
+            CFOO(HSMHVSPgpPtr, HSMHVSPgpBinding, HSMHVsNodePrime, HSMHVgNodePrime);
+            CFOO(HSMHVSPsPtr, HSMHVSPsBinding, HSMHVsNodePrime, HSMHVsNode);
+            CFOO(HSMHVSPdpPtr, HSMHVSPdpBinding, HSMHVsNodePrime, HSMHVdNodePrime);
+            CFOO(HSMHVGgPtr, HSMHVGgBinding, HSMHVgNode, HSMHVgNode);
+            CFOO(HSMHVGgpPtr, HSMHVGgpBinding, HSMHVgNode, HSMHVgNodePrime);
+            CFOO(HSMHVGPgPtr, HSMHVGPgBinding, HSMHVgNodePrime, HSMHVgNode);
+            CFOO(HSMHVDdbPtr, HSMHVDdbBinding, HSMHVdNode, HSMHVdbNode);
+            CFOO(HSMHVSsbPtr, HSMHVSsbBinding, HSMHVsNode, HSMHVsbNode);
+            CFOO(HSMHVDBdPtr, HSMHVDBdBinding, HSMHVdbNode, HSMHVdNode);
+            CFOO(HSMHVDBdbPtr, HSMHVDBdbBinding, HSMHVdbNode, HSMHVdbNode);
+            CFOO(HSMHVDBbpPtr, HSMHVDBbpBinding, HSMHVdbNode, HSMHVbNodePrime);
+            CFOO(HSMHVBPdbPtr, HSMHVBPdbBinding, HSMHVbNodePrime, HSMHVdbNode);
+            CFOO(HSMHVBPbPtr, HSMHVBPbBinding, HSMHVbNodePrime, HSMHVbNode);
+            CFOO(HSMHVBPsbPtr, HSMHVBPsbBinding, HSMHVbNodePrime, HSMHVsbNode);
+            CFOO(HSMHVSBsPtr, HSMHVSBsBinding, HSMHVsbNode, HSMHVsNode);
+            CFOO(HSMHVSBbpPtr, HSMHVSBbpBinding, HSMHVsbNode, HSMHVbNodePrime);
+            CFOO(HSMHVSBsbPtr, HSMHVSBsbBinding, HSMHVsbNode, HSMHVsbNode);
+            CFOO(HSMHVBbpPtr, HSMHVBbpBinding, HSMHVbNode, HSMHVbNodePrime);
+            CFOO(HSMHVBbPtr, HSMHVBbBinding, HSMHVbNode, HSMHVbNode);
+            CFOO(HSMHVDgpPtr, HSMHVDgpBinding, HSMHVdNode, HSMHVgNodePrime);
+            CFOO(HSMHVDsPtr, HSMHVDsBinding, HSMHVdNode, HSMHVsNode);
+            CFOO(HSMHVDbpPtr, HSMHVDbpBinding, HSMHVdNode, HSMHVbNodePrime);
+            CFOO(HSMHVDspPtr, HSMHVDspBinding, HSMHVdNode, HSMHVsNodePrime);
+            CFOO(HSMHVDPsPtr, HSMHVDPsBinding, HSMHVdNodePrime, HSMHVsNode);
+            CFOO(HSMHVSgpPtr, HSMHVSgpBinding, HSMHVsNode, HSMHVgNodePrime);
+            CFOO(HSMHVSdPtr, HSMHVSdBinding, HSMHVsNode, HSMHVdNode);
+            CFOO(HSMHVSbpPtr, HSMHVSbpBinding, HSMHVsNode, HSMHVbNodePrime);
+            CFOO(HSMHVSdpPtr, HSMHVSdpBinding, HSMHVsNode, HSMHVdNodePrime);
+            CFOO(HSMHVSPdPtr, HSMHVSPdBinding, HSMHVsNodePrime, HSMHVdNode);
+            CFOO(HSMHVGPdPtr, HSMHVGPdBinding, HSMHVgNodePrime, HSMHVdNode);
+            CFOO(HSMHVGPsPtr, HSMHVGPsBinding, HSMHVgNodePrime, HSMHVsNode);
             if (here->HSMHVsubNode > 0)
             {
-                if ((here-> HSMHVdNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDsubPtr = here->HSMHVDsubBinding->CSC ;
-
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDPsubPtr = here->HSMHVDPsubBinding->CSC ;
-
-                if ((here-> HSMHVsNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSsubPtr = here->HSMHVSsubBinding->CSC ;
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSPsubPtr = here->HSMHVSPsubBinding->CSC ;
-
+                CFOO(HSMHVDsubPtr, HSMHVDsubBinding, HSMHVdNode, HSMHVsubNode);
+                CFOO(HSMHVDPsubPtr, HSMHVDPsubBinding, HSMHVdNodePrime, HSMHVsubNode);
+                CFOO(HSMHVSsubPtr, HSMHVSsubBinding, HSMHVsNode, HSMHVsubNode);
+                CFOO(HSMHVSPsubPtr, HSMHVSPsubBinding, HSMHVsNodePrime, HSMHVsubNode);
             }
             if (here->HSMHV_coselfheat > 0)
             {
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVTemptempPtr = here->HSMHVTemptempBinding->CSC ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNode != 0))
-                    here->HSMHVTempdPtr = here->HSMHVTempdBinding->CSC ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVTempdpPtr = here->HSMHVTempdpBinding->CSC ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNode != 0))
-                    here->HSMHVTempsPtr = here->HSMHVTempsBinding->CSC ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVTempspPtr = here->HSMHVTempspBinding->CSC ;
-
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDPtempPtr = here->HSMHVDPtempBinding->CSC ;
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSPtempPtr = here->HSMHVSPtempBinding->CSC ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVTempgpPtr = here->HSMHVTempgpBinding->CSC ;
-
-                if ((here-> HSMHVtempNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVTempbpPtr = here->HSMHVTempbpBinding->CSC ;
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVGPtempPtr = here->HSMHVGPtempBinding->CSC ;
-
-                if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVBPtempPtr = here->HSMHVBPtempBinding->CSC ;
-
-                if ((here-> HSMHVdbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDBtempPtr = here->HSMHVDBtempBinding->CSC ;
-
-                if ((here-> HSMHVsbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSBtempPtr = here->HSMHVSBtempBinding->CSC ;
-
-                if ((here-> HSMHVdNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDtempPtr = here->HSMHVDtempBinding->CSC ;
-
-                if ((here-> HSMHVsNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVStempPtr = here->HSMHVStempBinding->CSC ;
-
+                CFOO(HSMHVTemptempPtr, HSMHVTemptempBinding, HSMHVtempNode, HSMHVtempNode);
+                CFOO(HSMHVTempdPtr, HSMHVTempdBinding, HSMHVtempNode, HSMHVdNode);
+                CFOO(HSMHVTempdpPtr, HSMHVTempdpBinding, HSMHVtempNode, HSMHVdNodePrime);
+                CFOO(HSMHVTempsPtr, HSMHVTempsBinding, HSMHVtempNode, HSMHVsNode);
+                CFOO(HSMHVTempspPtr, HSMHVTempspBinding, HSMHVtempNode, HSMHVsNodePrime);
+                CFOO(HSMHVDPtempPtr, HSMHVDPtempBinding, HSMHVdNodePrime, HSMHVtempNode);
+                CFOO(HSMHVSPtempPtr, HSMHVSPtempBinding, HSMHVsNodePrime, HSMHVtempNode);
+                CFOO(HSMHVTempgpPtr, HSMHVTempgpBinding, HSMHVtempNode, HSMHVgNodePrime);
+                CFOO(HSMHVTempbpPtr, HSMHVTempbpBinding, HSMHVtempNode, HSMHVbNodePrime);
+                CFOO(HSMHVGPtempPtr, HSMHVGPtempBinding, HSMHVgNodePrime, HSMHVtempNode);
+                CFOO(HSMHVBPtempPtr, HSMHVBPtempBinding, HSMHVbNodePrime, HSMHVtempNode);
+                CFOO(HSMHVDBtempPtr, HSMHVDBtempBinding, HSMHVdbNode, HSMHVtempNode);
+                CFOO(HSMHVSBtempPtr, HSMHVSBtempBinding, HSMHVsbNode, HSMHVtempNode);
+                CFOO(HSMHVDtempPtr, HSMHVDtempBinding, HSMHVdNode, HSMHVtempNode);
+                CFOO(HSMHVStempPtr, HSMHVStempBinding, HSMHVsNode, HSMHVtempNode);
             }
             if (model->HSMHV_conqs)
             {
-                if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVDPqiPtr = here->HSMHVDPqiBinding->CSC ;
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVGPqiPtr = here->HSMHVGPqiBinding->CSC ;
-
-                if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVGPqbPtr = here->HSMHVGPqbBinding->CSC ;
-
-                if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVSPqiPtr = here->HSMHVSPqiBinding->CSC ;
-
-                if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVBPqbPtr = here->HSMHVBPqbBinding->CSC ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQIdpPtr = here->HSMHVQIdpBinding->CSC ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQIgpPtr = here->HSMHVQIgpBinding->CSC ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQIspPtr = here->HSMHVQIspBinding->CSC ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQIbpPtr = here->HSMHVQIbpBinding->CSC ;
-
-                if ((here-> HSMHVqiNode != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVQIqiPtr = here->HSMHVQIqiBinding->CSC ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQBdpPtr = here->HSMHVQBdpBinding->CSC ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQBgpPtr = here->HSMHVQBgpBinding->CSC ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQBspPtr = here->HSMHVQBspBinding->CSC ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQBbpPtr = here->HSMHVQBbpBinding->CSC ;
-
-                if ((here-> HSMHVqbNode != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVQBqbPtr = here->HSMHVQBqbBinding->CSC ;
-
+                CFOO(HSMHVDPqiPtr, HSMHVDPqiBinding, HSMHVdNodePrime, HSMHVqiNode);
+                CFOO(HSMHVGPqiPtr, HSMHVGPqiBinding, HSMHVgNodePrime, HSMHVqiNode);
+                CFOO(HSMHVGPqbPtr, HSMHVGPqbBinding, HSMHVgNodePrime, HSMHVqbNode);
+                CFOO(HSMHVSPqiPtr, HSMHVSPqiBinding, HSMHVsNodePrime, HSMHVqiNode);
+                CFOO(HSMHVBPqbPtr, HSMHVBPqbBinding, HSMHVbNodePrime, HSMHVqbNode);
+                CFOO(HSMHVQIdpPtr, HSMHVQIdpBinding, HSMHVqiNode, HSMHVdNodePrime);
+                CFOO(HSMHVQIgpPtr, HSMHVQIgpBinding, HSMHVqiNode, HSMHVgNodePrime);
+                CFOO(HSMHVQIspPtr, HSMHVQIspBinding, HSMHVqiNode, HSMHVsNodePrime);
+                CFOO(HSMHVQIbpPtr, HSMHVQIbpBinding, HSMHVqiNode, HSMHVbNodePrime);
+                CFOO(HSMHVQIqiPtr, HSMHVQIqiBinding, HSMHVqiNode, HSMHVqiNode);
+                CFOO(HSMHVQBdpPtr, HSMHVQBdpBinding, HSMHVqbNode, HSMHVdNodePrime);
+                CFOO(HSMHVQBgpPtr, HSMHVQBgpBinding, HSMHVqbNode, HSMHVgNodePrime);
+                CFOO(HSMHVQBspPtr, HSMHVQBspBinding, HSMHVqbNode, HSMHVsNodePrime);
+                CFOO(HSMHVQBbpPtr, HSMHVQBbpBinding, HSMHVqbNode, HSMHVbNodePrime);
+                CFOO(HSMHVQBqbPtr, HSMHVQBqbBinding, HSMHVqbNode, HSMHVqbNode);
                 if (here->HSMHV_coselfheat > 0)
                 {
-                    if ((here-> HSMHVqiNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQItempPtr = here->HSMHVQItempBinding->CSC ;
-
-                    if ((here-> HSMHVqbNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQBtempPtr = here->HSMHVQBtempBinding->CSC ;
-
+                    CFOO(HSMHVQItempPtr, HSMHVQItempBinding, HSMHVqiNode, HSMHVtempNode);
+                    CFOO(HSMHVQBtempPtr, HSMHVQBtempBinding, HSMHVqbNode, HSMHVtempNode);
                 }
             }
         }

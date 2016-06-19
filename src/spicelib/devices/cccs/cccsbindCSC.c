@@ -39,22 +39,8 @@ CCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
-            if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-            {
-                i = here->CCCSposContBrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCCSposContBrBinding = matched ;
-                here->CCCSposContBrPtr = matched->CSC ;
-            }
-
-            if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-            {
-                i = here->CCCSnegContBrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCCSnegContBrBinding = matched ;
-                here->CCCSnegContBrPtr = matched->CSC ;
-            }
-
+            XFOO(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
+            XFOO(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
         }
     }
 
@@ -75,12 +61,8 @@ CCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
-            if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSposContBrPtr = here->CCCSposContBrBinding->CSC_Complex ;
-
-            if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSnegContBrPtr = here->CCCSnegContBrBinding->CSC_Complex ;
-
+            BFOO(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
+            BFOO(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
         }
     }
 
@@ -101,12 +83,8 @@ CCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
-            if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSposContBrPtr = here->CCCSposContBrBinding->CSC ;
-
-            if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSnegContBrPtr = here->CCCSnegContBrBinding->CSC ;
-
+            CFOO(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
+            CFOO(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
         }
     }
 

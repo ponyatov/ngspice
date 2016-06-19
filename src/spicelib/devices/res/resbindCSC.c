@@ -39,38 +39,10 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
-            if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-            {
-                i = here->RESposPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESposPosBinding = matched ;
-                here->RESposPosPtr = matched->CSC ;
-            }
-
-            if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-            {
-                i = here->RESnegNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESnegNegBinding = matched ;
-                here->RESnegNegPtr = matched->CSC ;
-            }
-
-            if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-            {
-                i = here->RESposNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESposNegBinding = matched ;
-                here->RESposNegPtr = matched->CSC ;
-            }
-
-            if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-            {
-                i = here->RESnegPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESnegPosBinding = matched ;
-                here->RESnegPosPtr = matched->CSC ;
-            }
-
+            XFOO(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
+            XFOO(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
+            XFOO(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
+            XFOO(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
         }
     }
 
@@ -91,18 +63,10 @@ RESbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
-            if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-                here->RESposPosPtr = here->RESposPosBinding->CSC_Complex ;
-
-            if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-                here->RESnegNegPtr = here->RESnegNegBinding->CSC_Complex ;
-
-            if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-                here->RESposNegPtr = here->RESposNegBinding->CSC_Complex ;
-
-            if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-                here->RESnegPosPtr = here->RESnegPosBinding->CSC_Complex ;
-
+            BFOO(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
+            BFOO(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
+            BFOO(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
+            BFOO(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
         }
     }
 
@@ -123,18 +87,10 @@ RESbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
-            if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-                here->RESposPosPtr = here->RESposPosBinding->CSC ;
-
-            if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-                here->RESnegNegPtr = here->RESnegNegBinding->CSC ;
-
-            if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-                here->RESposNegPtr = here->RESposNegBinding->CSC ;
-
-            if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-                here->RESnegPosPtr = here->RESnegPosBinding->CSC ;
-
+            CFOO(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
+            CFOO(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
+            CFOO(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
+            CFOO(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
         }
     }
 

@@ -39,46 +39,11 @@ INDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->INDinstances ; here != NULL ; here = here->INDnextInstance)
         {
-            if ((here->INDposNode != 0) && (here->INDbrEq != 0))
-            {
-                i = here->INDposIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->INDposIbrBinding = matched ;
-                here->INDposIbrPtr = matched->CSC ;
-            }
-
-            if ((here->INDnegNode != 0) && (here->INDbrEq != 0))
-            {
-                i = here->INDnegIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->INDnegIbrBinding = matched ;
-                here->INDnegIbrPtr = matched->CSC ;
-            }
-
-            if ((here->INDbrEq != 0) && (here->INDnegNode != 0))
-            {
-                i = here->INDibrNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->INDibrNegBinding = matched ;
-                here->INDibrNegPtr = matched->CSC ;
-            }
-
-            if ((here->INDbrEq != 0) && (here->INDposNode != 0))
-            {
-                i = here->INDibrPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->INDibrPosBinding = matched ;
-                here->INDibrPosPtr = matched->CSC ;
-            }
-
-            if ((here->INDbrEq != 0) && (here->INDbrEq != 0))
-            {
-                i = here->INDibrIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->INDibrIbrBinding = matched ;
-                here->INDibrIbrPtr = matched->CSC ;
-            }
-
+            XFOO(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
+            XFOO(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
+            XFOO(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
+            XFOO(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
+            XFOO(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
         }
     }
 
@@ -99,21 +64,11 @@ INDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->INDinstances ; here != NULL ; here = here->INDnextInstance)
         {
-            if ((here->INDposNode != 0) && (here->INDbrEq != 0))
-                here->INDposIbrPtr = here->INDposIbrBinding->CSC_Complex ;
-
-            if ((here->INDnegNode != 0) && (here->INDbrEq != 0))
-                here->INDnegIbrPtr = here->INDnegIbrBinding->CSC_Complex ;
-
-            if ((here->INDbrEq != 0) && (here->INDnegNode != 0))
-                here->INDibrNegPtr = here->INDibrNegBinding->CSC_Complex ;
-
-            if ((here->INDbrEq != 0) && (here->INDposNode != 0))
-                here->INDibrPosPtr = here->INDibrPosBinding->CSC_Complex ;
-
-            if ((here->INDbrEq != 0) && (here->INDbrEq != 0))
-                here->INDibrIbrPtr = here->INDibrIbrBinding->CSC_Complex ;
-
+            BFOO(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
+            BFOO(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
+            BFOO(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
+            BFOO(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
+            BFOO(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
         }
     }
 
@@ -134,21 +89,11 @@ INDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->INDinstances ; here != NULL ; here = here->INDnextInstance)
         {
-            if ((here->INDposNode != 0) && (here->INDbrEq != 0))
-                here->INDposIbrPtr = here->INDposIbrBinding->CSC ;
-
-            if ((here->INDnegNode != 0) && (here->INDbrEq != 0))
-                here->INDnegIbrPtr = here->INDnegIbrBinding->CSC ;
-
-            if ((here->INDbrEq != 0) && (here->INDnegNode != 0))
-                here->INDibrNegPtr = here->INDibrNegBinding->CSC ;
-
-            if ((here->INDbrEq != 0) && (here->INDposNode != 0))
-                here->INDibrPosPtr = here->INDibrPosBinding->CSC ;
-
-            if ((here->INDbrEq != 0) && (here->INDbrEq != 0))
-                here->INDibrIbrPtr = here->INDibrIbrBinding->CSC ;
-
+            CFOO(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
+            CFOO(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
+            CFOO(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
+            CFOO(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
+            CFOO(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
         }
     }
 

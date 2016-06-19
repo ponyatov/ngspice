@@ -39,126 +39,21 @@ HFET2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HFET2instances ; here != NULL ; here = here->HFET2nextInstance)
         {
-            if ((here->HFET2drainNode != 0) && (here->HFET2drainPrimeNode != 0))
-            {
-                i = here->HFET2drainDrainPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2drainDrainPrimeBinding = matched ;
-                here->HFET2drainDrainPrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2drainPrimeNode != 0))
-            {
-                i = here->HFET2gateDrainPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2gateDrainPrimeBinding = matched ;
-                here->HFET2gateDrainPrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2sourcePrimeNode != 0))
-            {
-                i = here->HFET2gateSourcePrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2gateSourcePrimeBinding = matched ;
-                here->HFET2gateSourcePrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2sourceNode != 0) && (here->HFET2sourcePrimeNode != 0))
-            {
-                i = here->HFET2sourceSourcePrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2sourceSourcePrimeBinding = matched ;
-                here->HFET2sourceSourcePrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2drainNode != 0))
-            {
-                i = here->HFET2drainPrimeDrainPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2drainPrimeDrainBinding = matched ;
-                here->HFET2drainPrimeDrainPtr = matched->CSC ;
-            }
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2gateNode != 0))
-            {
-                i = here->HFET2drainPrimeGatePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2drainPrimeGateBinding = matched ;
-                here->HFET2drainPrimeGatePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2sourcePrimeNode != 0))
-            {
-                i = here->HFET2drainPriHFET2ourcePrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2drainPriHFET2ourcePrimeBinding = matched ;
-                here->HFET2drainPriHFET2ourcePrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2gateNode != 0))
-            {
-                i = here->HFET2sourcePrimeGatePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2sourcePrimeGateBinding = matched ;
-                here->HFET2sourcePrimeGatePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2sourceNode != 0))
-            {
-                i = here->HFET2sourcePriHFET2ourcePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2sourcePriHFET2ourceBinding = matched ;
-                here->HFET2sourcePriHFET2ourcePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2drainPrimeNode != 0))
-            {
-                i = here->HFET2sourcePrimeDrainPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2sourcePrimeDrainPrimeBinding = matched ;
-                here->HFET2sourcePrimeDrainPrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2drainNode != 0) && (here->HFET2drainNode != 0))
-            {
-                i = here->HFET2drainDrainPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2drainDrainBinding = matched ;
-                here->HFET2drainDrainPtr = matched->CSC ;
-            }
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2gateNode != 0))
-            {
-                i = here->HFET2gateGatePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2gateGateBinding = matched ;
-                here->HFET2gateGatePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2sourceNode != 0) && (here->HFET2sourceNode != 0))
-            {
-                i = here->HFET2sourceSourcePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2sourceSourceBinding = matched ;
-                here->HFET2sourceSourcePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2drainPrimeNode != 0))
-            {
-                i = here->HFET2drainPrimeDrainPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2drainPrimeDrainPrimeBinding = matched ;
-                here->HFET2drainPrimeDrainPrimePtr = matched->CSC ;
-            }
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2sourcePrimeNode != 0))
-            {
-                i = here->HFET2sourcePriHFET2ourcePrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFET2sourcePriHFET2ourcePrimeBinding = matched ;
-                here->HFET2sourcePriHFET2ourcePrimePtr = matched->CSC ;
-            }
-
+            XFOO(HFET2drainDrainPrimePtr, HFET2drainDrainPrimeBinding, HFET2drainNode, HFET2drainPrimeNode);
+            XFOO(HFET2gateDrainPrimePtr, HFET2gateDrainPrimeBinding, HFET2gateNode, HFET2drainPrimeNode);
+            XFOO(HFET2gateSourcePrimePtr, HFET2gateSourcePrimeBinding, HFET2gateNode, HFET2sourcePrimeNode);
+            XFOO(HFET2sourceSourcePrimePtr, HFET2sourceSourcePrimeBinding, HFET2sourceNode, HFET2sourcePrimeNode);
+            XFOO(HFET2drainPrimeDrainPtr, HFET2drainPrimeDrainBinding, HFET2drainPrimeNode, HFET2drainNode);
+            XFOO(HFET2drainPrimeGatePtr, HFET2drainPrimeGateBinding, HFET2drainPrimeNode, HFET2gateNode);
+            XFOO(HFET2drainPriHFET2ourcePrimePtr, HFET2drainPriHFET2ourcePrimeBinding, HFET2drainPrimeNode, HFET2sourcePrimeNode);
+            XFOO(HFET2sourcePrimeGatePtr, HFET2sourcePrimeGateBinding, HFET2sourcePrimeNode, HFET2gateNode);
+            XFOO(HFET2sourcePriHFET2ourcePtr, HFET2sourcePriHFET2ourceBinding, HFET2sourcePrimeNode, HFET2sourceNode);
+            XFOO(HFET2sourcePrimeDrainPrimePtr, HFET2sourcePrimeDrainPrimeBinding, HFET2sourcePrimeNode, HFET2drainPrimeNode);
+            XFOO(HFET2drainDrainPtr, HFET2drainDrainBinding, HFET2drainNode, HFET2drainNode);
+            XFOO(HFET2gateGatePtr, HFET2gateGateBinding, HFET2gateNode, HFET2gateNode);
+            XFOO(HFET2sourceSourcePtr, HFET2sourceSourceBinding, HFET2sourceNode, HFET2sourceNode);
+            XFOO(HFET2drainPrimeDrainPrimePtr, HFET2drainPrimeDrainPrimeBinding, HFET2drainPrimeNode, HFET2drainPrimeNode);
+            XFOO(HFET2sourcePriHFET2ourcePrimePtr, HFET2sourcePriHFET2ourcePrimeBinding, HFET2sourcePrimeNode, HFET2sourcePrimeNode);
         }
     }
 
@@ -179,51 +74,21 @@ HFET2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HFET2instances ; here != NULL ; here = here->HFET2nextInstance)
         {
-            if ((here->HFET2drainNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2drainDrainPrimePtr = here->HFET2drainDrainPrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2gateDrainPrimePtr = here->HFET2gateDrainPrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2gateSourcePrimePtr = here->HFET2gateSourcePrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2sourceNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2sourceSourcePrimePtr = here->HFET2sourceSourcePrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2drainNode != 0))
-                here->HFET2drainPrimeDrainPtr = here->HFET2drainPrimeDrainBinding->CSC_Complex ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2gateNode != 0))
-                here->HFET2drainPrimeGatePtr = here->HFET2drainPrimeGateBinding->CSC_Complex ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2drainPriHFET2ourcePrimePtr = here->HFET2drainPriHFET2ourcePrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2gateNode != 0))
-                here->HFET2sourcePrimeGatePtr = here->HFET2sourcePrimeGateBinding->CSC_Complex ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2sourceNode != 0))
-                here->HFET2sourcePriHFET2ourcePtr = here->HFET2sourcePriHFET2ourceBinding->CSC_Complex ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2sourcePrimeDrainPrimePtr = here->HFET2sourcePrimeDrainPrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2drainNode != 0) && (here->HFET2drainNode != 0))
-                here->HFET2drainDrainPtr = here->HFET2drainDrainBinding->CSC_Complex ;
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2gateNode != 0))
-                here->HFET2gateGatePtr = here->HFET2gateGateBinding->CSC_Complex ;
-
-            if ((here->HFET2sourceNode != 0) && (here->HFET2sourceNode != 0))
-                here->HFET2sourceSourcePtr = here->HFET2sourceSourceBinding->CSC_Complex ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2drainPrimeDrainPrimePtr = here->HFET2drainPrimeDrainPrimeBinding->CSC_Complex ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2sourcePriHFET2ourcePrimePtr = here->HFET2sourcePriHFET2ourcePrimeBinding->CSC_Complex ;
-
+            BFOO(HFET2drainDrainPrimePtr, HFET2drainDrainPrimeBinding, HFET2drainNode, HFET2drainPrimeNode);
+            BFOO(HFET2gateDrainPrimePtr, HFET2gateDrainPrimeBinding, HFET2gateNode, HFET2drainPrimeNode);
+            BFOO(HFET2gateSourcePrimePtr, HFET2gateSourcePrimeBinding, HFET2gateNode, HFET2sourcePrimeNode);
+            BFOO(HFET2sourceSourcePrimePtr, HFET2sourceSourcePrimeBinding, HFET2sourceNode, HFET2sourcePrimeNode);
+            BFOO(HFET2drainPrimeDrainPtr, HFET2drainPrimeDrainBinding, HFET2drainPrimeNode, HFET2drainNode);
+            BFOO(HFET2drainPrimeGatePtr, HFET2drainPrimeGateBinding, HFET2drainPrimeNode, HFET2gateNode);
+            BFOO(HFET2drainPriHFET2ourcePrimePtr, HFET2drainPriHFET2ourcePrimeBinding, HFET2drainPrimeNode, HFET2sourcePrimeNode);
+            BFOO(HFET2sourcePrimeGatePtr, HFET2sourcePrimeGateBinding, HFET2sourcePrimeNode, HFET2gateNode);
+            BFOO(HFET2sourcePriHFET2ourcePtr, HFET2sourcePriHFET2ourceBinding, HFET2sourcePrimeNode, HFET2sourceNode);
+            BFOO(HFET2sourcePrimeDrainPrimePtr, HFET2sourcePrimeDrainPrimeBinding, HFET2sourcePrimeNode, HFET2drainPrimeNode);
+            BFOO(HFET2drainDrainPtr, HFET2drainDrainBinding, HFET2drainNode, HFET2drainNode);
+            BFOO(HFET2gateGatePtr, HFET2gateGateBinding, HFET2gateNode, HFET2gateNode);
+            BFOO(HFET2sourceSourcePtr, HFET2sourceSourceBinding, HFET2sourceNode, HFET2sourceNode);
+            BFOO(HFET2drainPrimeDrainPrimePtr, HFET2drainPrimeDrainPrimeBinding, HFET2drainPrimeNode, HFET2drainPrimeNode);
+            BFOO(HFET2sourcePriHFET2ourcePrimePtr, HFET2sourcePriHFET2ourcePrimeBinding, HFET2sourcePrimeNode, HFET2sourcePrimeNode);
         }
     }
 
@@ -244,51 +109,21 @@ HFET2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HFET2instances ; here != NULL ; here = here->HFET2nextInstance)
         {
-            if ((here->HFET2drainNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2drainDrainPrimePtr = here->HFET2drainDrainPrimeBinding->CSC ;
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2gateDrainPrimePtr = here->HFET2gateDrainPrimeBinding->CSC ;
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2gateSourcePrimePtr = here->HFET2gateSourcePrimeBinding->CSC ;
-
-            if ((here->HFET2sourceNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2sourceSourcePrimePtr = here->HFET2sourceSourcePrimeBinding->CSC ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2drainNode != 0))
-                here->HFET2drainPrimeDrainPtr = here->HFET2drainPrimeDrainBinding->CSC ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2gateNode != 0))
-                here->HFET2drainPrimeGatePtr = here->HFET2drainPrimeGateBinding->CSC ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2drainPriHFET2ourcePrimePtr = here->HFET2drainPriHFET2ourcePrimeBinding->CSC ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2gateNode != 0))
-                here->HFET2sourcePrimeGatePtr = here->HFET2sourcePrimeGateBinding->CSC ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2sourceNode != 0))
-                here->HFET2sourcePriHFET2ourcePtr = here->HFET2sourcePriHFET2ourceBinding->CSC ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2sourcePrimeDrainPrimePtr = here->HFET2sourcePrimeDrainPrimeBinding->CSC ;
-
-            if ((here->HFET2drainNode != 0) && (here->HFET2drainNode != 0))
-                here->HFET2drainDrainPtr = here->HFET2drainDrainBinding->CSC ;
-
-            if ((here->HFET2gateNode != 0) && (here->HFET2gateNode != 0))
-                here->HFET2gateGatePtr = here->HFET2gateGateBinding->CSC ;
-
-            if ((here->HFET2sourceNode != 0) && (here->HFET2sourceNode != 0))
-                here->HFET2sourceSourcePtr = here->HFET2sourceSourceBinding->CSC ;
-
-            if ((here->HFET2drainPrimeNode != 0) && (here->HFET2drainPrimeNode != 0))
-                here->HFET2drainPrimeDrainPrimePtr = here->HFET2drainPrimeDrainPrimeBinding->CSC ;
-
-            if ((here->HFET2sourcePrimeNode != 0) && (here->HFET2sourcePrimeNode != 0))
-                here->HFET2sourcePriHFET2ourcePrimePtr = here->HFET2sourcePriHFET2ourcePrimeBinding->CSC ;
-
+            CFOO(HFET2drainDrainPrimePtr, HFET2drainDrainPrimeBinding, HFET2drainNode, HFET2drainPrimeNode);
+            CFOO(HFET2gateDrainPrimePtr, HFET2gateDrainPrimeBinding, HFET2gateNode, HFET2drainPrimeNode);
+            CFOO(HFET2gateSourcePrimePtr, HFET2gateSourcePrimeBinding, HFET2gateNode, HFET2sourcePrimeNode);
+            CFOO(HFET2sourceSourcePrimePtr, HFET2sourceSourcePrimeBinding, HFET2sourceNode, HFET2sourcePrimeNode);
+            CFOO(HFET2drainPrimeDrainPtr, HFET2drainPrimeDrainBinding, HFET2drainPrimeNode, HFET2drainNode);
+            CFOO(HFET2drainPrimeGatePtr, HFET2drainPrimeGateBinding, HFET2drainPrimeNode, HFET2gateNode);
+            CFOO(HFET2drainPriHFET2ourcePrimePtr, HFET2drainPriHFET2ourcePrimeBinding, HFET2drainPrimeNode, HFET2sourcePrimeNode);
+            CFOO(HFET2sourcePrimeGatePtr, HFET2sourcePrimeGateBinding, HFET2sourcePrimeNode, HFET2gateNode);
+            CFOO(HFET2sourcePriHFET2ourcePtr, HFET2sourcePriHFET2ourceBinding, HFET2sourcePrimeNode, HFET2sourceNode);
+            CFOO(HFET2sourcePrimeDrainPrimePtr, HFET2sourcePrimeDrainPrimeBinding, HFET2sourcePrimeNode, HFET2drainPrimeNode);
+            CFOO(HFET2drainDrainPtr, HFET2drainDrainBinding, HFET2drainNode, HFET2drainNode);
+            CFOO(HFET2gateGatePtr, HFET2gateGateBinding, HFET2gateNode, HFET2gateNode);
+            CFOO(HFET2sourceSourcePtr, HFET2sourceSourceBinding, HFET2sourceNode, HFET2sourceNode);
+            CFOO(HFET2drainPrimeDrainPrimePtr, HFET2drainPrimeDrainPrimeBinding, HFET2drainPrimeNode, HFET2drainPrimeNode);
+            CFOO(HFET2sourcePriHFET2ourcePrimePtr, HFET2sourcePriHFET2ourcePrimeBinding, HFET2sourcePrimeNode, HFET2sourcePrimeNode);
         }
     }
 

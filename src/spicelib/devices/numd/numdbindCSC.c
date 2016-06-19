@@ -39,38 +39,10 @@ NUMDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMDinstances ; here != NULL ; here = here->NUMDnextInstance)
         {
-            if ((here-> NUMDposNode != 0) && (here-> NUMDposNode != 0))
-            {
-                i = here->NUMDposPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMDposPosBinding = matched ;
-                here->NUMDposPosPtr = matched->CSC ;
-            }
-
-            if ((here-> NUMDnegNode != 0) && (here-> NUMDnegNode != 0))
-            {
-                i = here->NUMDnegNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMDnegNegBinding = matched ;
-                here->NUMDnegNegPtr = matched->CSC ;
-            }
-
-            if ((here-> NUMDnegNode != 0) && (here-> NUMDposNode != 0))
-            {
-                i = here->NUMDnegPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMDnegPosBinding = matched ;
-                here->NUMDnegPosPtr = matched->CSC ;
-            }
-
-            if ((here-> NUMDposNode != 0) && (here-> NUMDnegNode != 0))
-            {
-                i = here->NUMDposNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMDposNegBinding = matched ;
-                here->NUMDposNegPtr = matched->CSC ;
-            }
-
+            XFOO(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
+            XFOO(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
+            XFOO(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
+            XFOO(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
         }
     }
 
@@ -91,18 +63,10 @@ NUMDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMDinstances ; here != NULL ; here = here->NUMDnextInstance)
         {
-            if ((here-> NUMDposNode != 0) && (here-> NUMDposNode != 0))
-                here->NUMDposPosPtr = here->NUMDposPosBinding->CSC_Complex ;
-
-            if ((here-> NUMDnegNode != 0) && (here-> NUMDnegNode != 0))
-                here->NUMDnegNegPtr = here->NUMDnegNegBinding->CSC_Complex ;
-
-            if ((here-> NUMDnegNode != 0) && (here-> NUMDposNode != 0))
-                here->NUMDnegPosPtr = here->NUMDnegPosBinding->CSC_Complex ;
-
-            if ((here-> NUMDposNode != 0) && (here-> NUMDnegNode != 0))
-                here->NUMDposNegPtr = here->NUMDposNegBinding->CSC_Complex ;
-
+            BFOO(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
+            BFOO(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
+            BFOO(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
+            BFOO(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
         }
     }
 
@@ -123,18 +87,10 @@ NUMDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMDinstances ; here != NULL ; here = here->NUMDnextInstance)
         {
-            if ((here-> NUMDposNode != 0) && (here-> NUMDposNode != 0))
-                here->NUMDposPosPtr = here->NUMDposPosBinding->CSC ;
-
-            if ((here-> NUMDnegNode != 0) && (here-> NUMDnegNode != 0))
-                here->NUMDnegNegPtr = here->NUMDnegNegBinding->CSC ;
-
-            if ((here-> NUMDnegNode != 0) && (here-> NUMDposNode != 0))
-                here->NUMDnegPosPtr = here->NUMDnegPosBinding->CSC ;
-
-            if ((here-> NUMDposNode != 0) && (here-> NUMDnegNode != 0))
-                here->NUMDposNegPtr = here->NUMDposNegBinding->CSC ;
-
+            CFOO(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
+            CFOO(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
+            CFOO(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
+            CFOO(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
         }
     }
 

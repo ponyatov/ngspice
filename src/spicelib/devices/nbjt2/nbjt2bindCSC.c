@@ -39,78 +39,15 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2colNode != 0))
-            {
-                i = here->NBJT2colColPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2colColBinding = matched ;
-                here->NBJT2colColPtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2baseNode != 0))
-            {
-                i = here->NBJT2colBasePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2colBaseBinding = matched ;
-                here->NBJT2colBasePtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2emitNode != 0))
-            {
-                i = here->NBJT2colEmitPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2colEmitBinding = matched ;
-                here->NBJT2colEmitPtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2colNode != 0))
-            {
-                i = here->NBJT2baseColPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2baseColBinding = matched ;
-                here->NBJT2baseColPtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2baseNode != 0))
-            {
-                i = here->NBJT2baseBasePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2baseBaseBinding = matched ;
-                here->NBJT2baseBasePtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2emitNode != 0))
-            {
-                i = here->NBJT2baseEmitPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2baseEmitBinding = matched ;
-                here->NBJT2baseEmitPtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2colNode != 0))
-            {
-                i = here->NBJT2emitColPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2emitColBinding = matched ;
-                here->NBJT2emitColPtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2baseNode != 0))
-            {
-                i = here->NBJT2emitBasePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2emitBaseBinding = matched ;
-                here->NBJT2emitBasePtr = matched->CSC ;
-            }
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2emitNode != 0))
-            {
-                i = here->NBJT2emitEmitPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2emitEmitBinding = matched ;
-                here->NBJT2emitEmitPtr = matched->CSC ;
-            }
-
+            XFOO(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
+            XFOO(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
+            XFOO(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
+            XFOO(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
+            XFOO(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
+            XFOO(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
+            XFOO(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
+            XFOO(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
+            XFOO(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
         }
     }
 
@@ -131,33 +68,15 @@ NBJT2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2colColPtr = here->NBJT2colColBinding->CSC_Complex ;
-
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2colBasePtr = here->NBJT2colBaseBinding->CSC_Complex ;
-
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2colEmitPtr = here->NBJT2colEmitBinding->CSC_Complex ;
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2baseColPtr = here->NBJT2baseColBinding->CSC_Complex ;
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2baseBasePtr = here->NBJT2baseBaseBinding->CSC_Complex ;
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2baseEmitPtr = here->NBJT2baseEmitBinding->CSC_Complex ;
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2emitColPtr = here->NBJT2emitColBinding->CSC_Complex ;
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2emitBasePtr = here->NBJT2emitBaseBinding->CSC_Complex ;
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2emitEmitPtr = here->NBJT2emitEmitBinding->CSC_Complex ;
-
+            BFOO(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
+            BFOO(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
+            BFOO(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
+            BFOO(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
+            BFOO(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
+            BFOO(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
+            BFOO(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
+            BFOO(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
+            BFOO(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
         }
     }
 
@@ -178,33 +97,15 @@ NBJT2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2colColPtr = here->NBJT2colColBinding->CSC ;
-
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2colBasePtr = here->NBJT2colBaseBinding->CSC ;
-
-            if ((here-> NBJT2colNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2colEmitPtr = here->NBJT2colEmitBinding->CSC ;
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2baseColPtr = here->NBJT2baseColBinding->CSC ;
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2baseBasePtr = here->NBJT2baseBaseBinding->CSC ;
-
-            if ((here-> NBJT2baseNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2baseEmitPtr = here->NBJT2baseEmitBinding->CSC ;
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2emitColPtr = here->NBJT2emitColBinding->CSC ;
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2emitBasePtr = here->NBJT2emitBaseBinding->CSC ;
-
-            if ((here-> NBJT2emitNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2emitEmitPtr = here->NBJT2emitEmitBinding->CSC ;
-
+            CFOO(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
+            CFOO(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
+            CFOO(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
+            CFOO(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
+            CFOO(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
+            CFOO(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
+            CFOO(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
+            CFOO(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
+            CFOO(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
         }
     }
 

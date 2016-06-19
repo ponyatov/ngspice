@@ -39,38 +39,10 @@ NUMD2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMD2instances ; here != NULL ; here = here->NUMD2nextInstance)
         {
-            if ((here-> NUMD2posNode != 0) && (here-> NUMD2posNode != 0))
-            {
-                i = here->NUMD2posPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMD2posPosBinding = matched ;
-                here->NUMD2posPosPtr = matched->CSC ;
-            }
-
-            if ((here-> NUMD2negNode != 0) && (here-> NUMD2negNode != 0))
-            {
-                i = here->NUMD2negNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMD2negNegBinding = matched ;
-                here->NUMD2negNegPtr = matched->CSC ;
-            }
-
-            if ((here-> NUMD2negNode != 0) && (here-> NUMD2posNode != 0))
-            {
-                i = here->NUMD2negPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMD2negPosBinding = matched ;
-                here->NUMD2negPosPtr = matched->CSC ;
-            }
-
-            if ((here-> NUMD2posNode != 0) && (here-> NUMD2negNode != 0))
-            {
-                i = here->NUMD2posNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMD2posNegBinding = matched ;
-                here->NUMD2posNegPtr = matched->CSC ;
-            }
-
+            XFOO(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
+            XFOO(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
+            XFOO(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
+            XFOO(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
         }
     }
 
@@ -91,18 +63,10 @@ NUMD2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMD2instances ; here != NULL ; here = here->NUMD2nextInstance)
         {
-            if ((here-> NUMD2posNode != 0) && (here-> NUMD2posNode != 0))
-                here->NUMD2posPosPtr = here->NUMD2posPosBinding->CSC_Complex ;
-
-            if ((here-> NUMD2negNode != 0) && (here-> NUMD2negNode != 0))
-                here->NUMD2negNegPtr = here->NUMD2negNegBinding->CSC_Complex ;
-
-            if ((here-> NUMD2negNode != 0) && (here-> NUMD2posNode != 0))
-                here->NUMD2negPosPtr = here->NUMD2negPosBinding->CSC_Complex ;
-
-            if ((here-> NUMD2posNode != 0) && (here-> NUMD2negNode != 0))
-                here->NUMD2posNegPtr = here->NUMD2posNegBinding->CSC_Complex ;
-
+            BFOO(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
+            BFOO(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
+            BFOO(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
+            BFOO(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
         }
     }
 
@@ -123,18 +87,10 @@ NUMD2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMD2instances ; here != NULL ; here = here->NUMD2nextInstance)
         {
-            if ((here-> NUMD2posNode != 0) && (here-> NUMD2posNode != 0))
-                here->NUMD2posPosPtr = here->NUMD2posPosBinding->CSC ;
-
-            if ((here-> NUMD2negNode != 0) && (here-> NUMD2negNode != 0))
-                here->NUMD2negNegPtr = here->NUMD2negNegBinding->CSC ;
-
-            if ((here-> NUMD2negNode != 0) && (here-> NUMD2posNode != 0))
-                here->NUMD2negPosPtr = here->NUMD2negPosBinding->CSC ;
-
-            if ((here-> NUMD2posNode != 0) && (here-> NUMD2negNode != 0))
-                here->NUMD2posNegPtr = here->NUMD2posNegBinding->CSC ;
-
+            CFOO(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
+            CFOO(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
+            CFOO(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
+            CFOO(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
         }
     }
 

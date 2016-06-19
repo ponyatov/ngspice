@@ -39,38 +39,10 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
-            if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-            {
-                i = here->VSRCposIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCposIbrBinding = matched ;
-                here->VSRCposIbrPtr = matched->CSC ;
-            }
-
-            if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-            {
-                i = here->VSRCnegIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCnegIbrBinding = matched ;
-                here->VSRCnegIbrPtr = matched->CSC ;
-            }
-
-            if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-            {
-                i = here->VSRCibrNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCibrNegBinding = matched ;
-                here->VSRCibrNegPtr = matched->CSC ;
-            }
-
-            if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-            {
-                i = here->VSRCibrPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCibrPosBinding = matched ;
-                here->VSRCibrPosPtr = matched->CSC ;
-            }
-
+            XFOO(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
+            XFOO(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
+            XFOO(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
+            XFOO(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
@@ -102,18 +74,10 @@ VSRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
-            if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCposIbrPtr = here->VSRCposIbrBinding->CSC_Complex ;
-
-            if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCnegIbrPtr = here->VSRCnegIbrBinding->CSC_Complex ;
-
-            if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-                here->VSRCibrNegPtr = here->VSRCibrNegBinding->CSC_Complex ;
-
-            if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-                here->VSRCibrPosPtr = here->VSRCibrPosBinding->CSC_Complex ;
-
+            BFOO(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
+            BFOO(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
+            BFOO(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
+            BFOO(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
@@ -142,18 +106,10 @@ VSRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
-            if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCposIbrPtr = here->VSRCposIbrBinding->CSC ;
-
-            if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCnegIbrPtr = here->VSRCnegIbrBinding->CSC ;
-
-            if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-                here->VSRCibrNegPtr = here->VSRCibrNegBinding->CSC ;
-
-            if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-                here->VSRCibrPosPtr = here->VSRCibrPosBinding->CSC ;
-
+            CFOO(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
+            CFOO(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
+            CFOO(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
+            CFOO(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {

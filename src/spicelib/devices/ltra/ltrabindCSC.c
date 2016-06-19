@@ -39,166 +39,26 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->LTRAinstances ; here != NULL ; here = here->LTRAnextInstance)
         {
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode1 != 0))
-            {
-                i = here->LTRAibr1Pos1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Pos1Binding = matched ;
-                here->LTRAibr1Pos1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode1 != 0))
-            {
-                i = here->LTRAibr1Neg1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Neg1Binding = matched ;
-                here->LTRAibr1Neg1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode2 != 0))
-            {
-                i = here->LTRAibr1Pos2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Pos2Binding = matched ;
-                here->LTRAibr1Pos2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode2 != 0))
-            {
-                i = here->LTRAibr1Neg2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Neg2Binding = matched ;
-                here->LTRAibr1Neg2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq1 != 0))
-            {
-                i = here->LTRAibr1Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Ibr1Binding = matched ;
-                here->LTRAibr1Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq2 != 0))
-            {
-                i = here->LTRAibr1Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Ibr2Binding = matched ;
-                here->LTRAibr1Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode1 != 0))
-            {
-                i = here->LTRAibr2Pos1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Pos1Binding = matched ;
-                here->LTRAibr2Pos1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode1 != 0))
-            {
-                i = here->LTRAibr2Neg1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Neg1Binding = matched ;
-                here->LTRAibr2Neg1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode2 != 0))
-            {
-                i = here->LTRAibr2Pos2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Pos2Binding = matched ;
-                here->LTRAibr2Pos2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode2 != 0))
-            {
-                i = here->LTRAibr2Neg2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Neg2Binding = matched ;
-                here->LTRAibr2Neg2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq1 != 0))
-            {
-                i = here->LTRAibr2Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Ibr1Binding = matched ;
-                here->LTRAibr2Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq2 != 0))
-            {
-                i = here->LTRAibr2Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Ibr2Binding = matched ;
-                here->LTRAibr2Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAposNode1 != 0) && (here-> LTRAbrEq1 != 0))
-            {
-                i = here->LTRApos1Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos1Ibr1Binding = matched ;
-                here->LTRApos1Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAnegNode1 != 0) && (here-> LTRAbrEq1 != 0))
-            {
-                i = here->LTRAneg1Ibr1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg1Ibr1Binding = matched ;
-                here->LTRAneg1Ibr1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAposNode2 != 0) && (here-> LTRAbrEq2 != 0))
-            {
-                i = here->LTRApos2Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos2Ibr2Binding = matched ;
-                here->LTRApos2Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAnegNode2 != 0) && (here-> LTRAbrEq2 != 0))
-            {
-                i = here->LTRAneg2Ibr2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg2Ibr2Binding = matched ;
-                here->LTRAneg2Ibr2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAposNode1 != 0) && (here-> LTRAposNode1 != 0))
-            {
-                i = here->LTRApos1Pos1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos1Pos1Binding = matched ;
-                here->LTRApos1Pos1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAnegNode1 != 0) && (here-> LTRAnegNode1 != 0))
-            {
-                i = here->LTRAneg1Neg1Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg1Neg1Binding = matched ;
-                here->LTRAneg1Neg1Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAposNode2 != 0) && (here-> LTRAposNode2 != 0))
-            {
-                i = here->LTRApos2Pos2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos2Pos2Binding = matched ;
-                here->LTRApos2Pos2Ptr = matched->CSC ;
-            }
-
-            if ((here-> LTRAnegNode2 != 0) && (here-> LTRAnegNode2 != 0))
-            {
-                i = here->LTRAneg2Neg2Ptr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg2Neg2Binding = matched ;
-                here->LTRAneg2Neg2Ptr = matched->CSC ;
-            }
-
+            XFOO(LTRAibr1Pos1Ptr, LTRAibr1Pos1Binding, LTRAbrEq1, LTRAposNode1);
+            XFOO(LTRAibr1Neg1Ptr, LTRAibr1Neg1Binding, LTRAbrEq1, LTRAnegNode1);
+            XFOO(LTRAibr1Pos2Ptr, LTRAibr1Pos2Binding, LTRAbrEq1, LTRAposNode2);
+            XFOO(LTRAibr1Neg2Ptr, LTRAibr1Neg2Binding, LTRAbrEq1, LTRAnegNode2);
+            XFOO(LTRAibr1Ibr1Ptr, LTRAibr1Ibr1Binding, LTRAbrEq1, LTRAbrEq1);
+            XFOO(LTRAibr1Ibr2Ptr, LTRAibr1Ibr2Binding, LTRAbrEq1, LTRAbrEq2);
+            XFOO(LTRAibr2Pos1Ptr, LTRAibr2Pos1Binding, LTRAbrEq2, LTRAposNode1);
+            XFOO(LTRAibr2Neg1Ptr, LTRAibr2Neg1Binding, LTRAbrEq2, LTRAnegNode1);
+            XFOO(LTRAibr2Pos2Ptr, LTRAibr2Pos2Binding, LTRAbrEq2, LTRAposNode2);
+            XFOO(LTRAibr2Neg2Ptr, LTRAibr2Neg2Binding, LTRAbrEq2, LTRAnegNode2);
+            XFOO(LTRAibr2Ibr1Ptr, LTRAibr2Ibr1Binding, LTRAbrEq2, LTRAbrEq1);
+            XFOO(LTRAibr2Ibr2Ptr, LTRAibr2Ibr2Binding, LTRAbrEq2, LTRAbrEq2);
+            XFOO(LTRApos1Ibr1Ptr, LTRApos1Ibr1Binding, LTRAposNode1, LTRAbrEq1);
+            XFOO(LTRAneg1Ibr1Ptr, LTRAneg1Ibr1Binding, LTRAnegNode1, LTRAbrEq1);
+            XFOO(LTRApos2Ibr2Ptr, LTRApos2Ibr2Binding, LTRAposNode2, LTRAbrEq2);
+            XFOO(LTRAneg2Ibr2Ptr, LTRAneg2Ibr2Binding, LTRAnegNode2, LTRAbrEq2);
+            XFOO(LTRApos1Pos1Ptr, LTRApos1Pos1Binding, LTRAposNode1, LTRAposNode1);
+            XFOO(LTRAneg1Neg1Ptr, LTRAneg1Neg1Binding, LTRAnegNode1, LTRAnegNode1);
+            XFOO(LTRApos2Pos2Ptr, LTRApos2Pos2Binding, LTRAposNode2, LTRAposNode2);
+            XFOO(LTRAneg2Neg2Ptr, LTRAneg2Neg2Binding, LTRAnegNode2, LTRAnegNode2);
         }
     }
 
@@ -219,66 +79,26 @@ LTRAbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->LTRAinstances ; here != NULL ; here = here->LTRAnextInstance)
         {
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr1Pos1Ptr = here->LTRAibr1Pos1Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr1Neg1Ptr = here->LTRAibr1Neg1Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr1Pos2Ptr = here->LTRAibr1Pos2Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr1Neg2Ptr = here->LTRAibr1Neg2Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr1Ibr1Ptr = here->LTRAibr1Ibr1Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr1Ibr2Ptr = here->LTRAibr1Ibr2Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr2Pos1Ptr = here->LTRAibr2Pos1Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr2Neg1Ptr = here->LTRAibr2Neg1Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr2Pos2Ptr = here->LTRAibr2Pos2Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr2Neg2Ptr = here->LTRAibr2Neg2Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr2Ibr1Ptr = here->LTRAibr2Ibr1Binding->CSC_Complex ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr2Ibr2Ptr = here->LTRAibr2Ibr2Binding->CSC_Complex ;
-
-            if ((here-> LTRAposNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRApos1Ibr1Ptr = here->LTRApos1Ibr1Binding->CSC_Complex ;
-
-            if ((here-> LTRAnegNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAneg1Ibr1Ptr = here->LTRAneg1Ibr1Binding->CSC_Complex ;
-
-            if ((here-> LTRAposNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRApos2Ibr2Ptr = here->LTRApos2Ibr2Binding->CSC_Complex ;
-
-            if ((here-> LTRAnegNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAneg2Ibr2Ptr = here->LTRAneg2Ibr2Binding->CSC_Complex ;
-
-            if ((here-> LTRAposNode1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRApos1Pos1Ptr = here->LTRApos1Pos1Binding->CSC_Complex ;
-
-            if ((here-> LTRAnegNode1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAneg1Neg1Ptr = here->LTRAneg1Neg1Binding->CSC_Complex ;
-
-            if ((here-> LTRAposNode2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRApos2Pos2Ptr = here->LTRApos2Pos2Binding->CSC_Complex ;
-
-            if ((here-> LTRAnegNode2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAneg2Neg2Ptr = here->LTRAneg2Neg2Binding->CSC_Complex ;
-
+            BFOO(LTRAibr1Pos1Ptr, LTRAibr1Pos1Binding, LTRAbrEq1, LTRAposNode1);
+            BFOO(LTRAibr1Neg1Ptr, LTRAibr1Neg1Binding, LTRAbrEq1, LTRAnegNode1);
+            BFOO(LTRAibr1Pos2Ptr, LTRAibr1Pos2Binding, LTRAbrEq1, LTRAposNode2);
+            BFOO(LTRAibr1Neg2Ptr, LTRAibr1Neg2Binding, LTRAbrEq1, LTRAnegNode2);
+            BFOO(LTRAibr1Ibr1Ptr, LTRAibr1Ibr1Binding, LTRAbrEq1, LTRAbrEq1);
+            BFOO(LTRAibr1Ibr2Ptr, LTRAibr1Ibr2Binding, LTRAbrEq1, LTRAbrEq2);
+            BFOO(LTRAibr2Pos1Ptr, LTRAibr2Pos1Binding, LTRAbrEq2, LTRAposNode1);
+            BFOO(LTRAibr2Neg1Ptr, LTRAibr2Neg1Binding, LTRAbrEq2, LTRAnegNode1);
+            BFOO(LTRAibr2Pos2Ptr, LTRAibr2Pos2Binding, LTRAbrEq2, LTRAposNode2);
+            BFOO(LTRAibr2Neg2Ptr, LTRAibr2Neg2Binding, LTRAbrEq2, LTRAnegNode2);
+            BFOO(LTRAibr2Ibr1Ptr, LTRAibr2Ibr1Binding, LTRAbrEq2, LTRAbrEq1);
+            BFOO(LTRAibr2Ibr2Ptr, LTRAibr2Ibr2Binding, LTRAbrEq2, LTRAbrEq2);
+            BFOO(LTRApos1Ibr1Ptr, LTRApos1Ibr1Binding, LTRAposNode1, LTRAbrEq1);
+            BFOO(LTRAneg1Ibr1Ptr, LTRAneg1Ibr1Binding, LTRAnegNode1, LTRAbrEq1);
+            BFOO(LTRApos2Ibr2Ptr, LTRApos2Ibr2Binding, LTRAposNode2, LTRAbrEq2);
+            BFOO(LTRAneg2Ibr2Ptr, LTRAneg2Ibr2Binding, LTRAnegNode2, LTRAbrEq2);
+            BFOO(LTRApos1Pos1Ptr, LTRApos1Pos1Binding, LTRAposNode1, LTRAposNode1);
+            BFOO(LTRAneg1Neg1Ptr, LTRAneg1Neg1Binding, LTRAnegNode1, LTRAnegNode1);
+            BFOO(LTRApos2Pos2Ptr, LTRApos2Pos2Binding, LTRAposNode2, LTRAposNode2);
+            BFOO(LTRAneg2Neg2Ptr, LTRAneg2Neg2Binding, LTRAnegNode2, LTRAnegNode2);
         }
     }
 
@@ -299,66 +119,26 @@ LTRAbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->LTRAinstances ; here != NULL ; here = here->LTRAnextInstance)
         {
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr1Pos1Ptr = here->LTRAibr1Pos1Binding->CSC ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr1Neg1Ptr = here->LTRAibr1Neg1Binding->CSC ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr1Pos2Ptr = here->LTRAibr1Pos2Binding->CSC ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr1Neg2Ptr = here->LTRAibr1Neg2Binding->CSC ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr1Ibr1Ptr = here->LTRAibr1Ibr1Binding->CSC ;
-
-            if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr1Ibr2Ptr = here->LTRAibr1Ibr2Binding->CSC ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr2Pos1Ptr = here->LTRAibr2Pos1Binding->CSC ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr2Neg1Ptr = here->LTRAibr2Neg1Binding->CSC ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr2Pos2Ptr = here->LTRAibr2Pos2Binding->CSC ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr2Neg2Ptr = here->LTRAibr2Neg2Binding->CSC ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr2Ibr1Ptr = here->LTRAibr2Ibr1Binding->CSC ;
-
-            if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr2Ibr2Ptr = here->LTRAibr2Ibr2Binding->CSC ;
-
-            if ((here-> LTRAposNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRApos1Ibr1Ptr = here->LTRApos1Ibr1Binding->CSC ;
-
-            if ((here-> LTRAnegNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAneg1Ibr1Ptr = here->LTRAneg1Ibr1Binding->CSC ;
-
-            if ((here-> LTRAposNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRApos2Ibr2Ptr = here->LTRApos2Ibr2Binding->CSC ;
-
-            if ((here-> LTRAnegNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAneg2Ibr2Ptr = here->LTRAneg2Ibr2Binding->CSC ;
-
-            if ((here-> LTRAposNode1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRApos1Pos1Ptr = here->LTRApos1Pos1Binding->CSC ;
-
-            if ((here-> LTRAnegNode1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAneg1Neg1Ptr = here->LTRAneg1Neg1Binding->CSC ;
-
-            if ((here-> LTRAposNode2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRApos2Pos2Ptr = here->LTRApos2Pos2Binding->CSC ;
-
-            if ((here-> LTRAnegNode2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAneg2Neg2Ptr = here->LTRAneg2Neg2Binding->CSC ;
-
+            CFOO(LTRAibr1Pos1Ptr, LTRAibr1Pos1Binding, LTRAbrEq1, LTRAposNode1);
+            CFOO(LTRAibr1Neg1Ptr, LTRAibr1Neg1Binding, LTRAbrEq1, LTRAnegNode1);
+            CFOO(LTRAibr1Pos2Ptr, LTRAibr1Pos2Binding, LTRAbrEq1, LTRAposNode2);
+            CFOO(LTRAibr1Neg2Ptr, LTRAibr1Neg2Binding, LTRAbrEq1, LTRAnegNode2);
+            CFOO(LTRAibr1Ibr1Ptr, LTRAibr1Ibr1Binding, LTRAbrEq1, LTRAbrEq1);
+            CFOO(LTRAibr1Ibr2Ptr, LTRAibr1Ibr2Binding, LTRAbrEq1, LTRAbrEq2);
+            CFOO(LTRAibr2Pos1Ptr, LTRAibr2Pos1Binding, LTRAbrEq2, LTRAposNode1);
+            CFOO(LTRAibr2Neg1Ptr, LTRAibr2Neg1Binding, LTRAbrEq2, LTRAnegNode1);
+            CFOO(LTRAibr2Pos2Ptr, LTRAibr2Pos2Binding, LTRAbrEq2, LTRAposNode2);
+            CFOO(LTRAibr2Neg2Ptr, LTRAibr2Neg2Binding, LTRAbrEq2, LTRAnegNode2);
+            CFOO(LTRAibr2Ibr1Ptr, LTRAibr2Ibr1Binding, LTRAbrEq2, LTRAbrEq1);
+            CFOO(LTRAibr2Ibr2Ptr, LTRAibr2Ibr2Binding, LTRAbrEq2, LTRAbrEq2);
+            CFOO(LTRApos1Ibr1Ptr, LTRApos1Ibr1Binding, LTRAposNode1, LTRAbrEq1);
+            CFOO(LTRAneg1Ibr1Ptr, LTRAneg1Ibr1Binding, LTRAnegNode1, LTRAbrEq1);
+            CFOO(LTRApos2Ibr2Ptr, LTRApos2Ibr2Binding, LTRAposNode2, LTRAbrEq2);
+            CFOO(LTRAneg2Ibr2Ptr, LTRAneg2Ibr2Binding, LTRAnegNode2, LTRAbrEq2);
+            CFOO(LTRApos1Pos1Ptr, LTRApos1Pos1Binding, LTRAposNode1, LTRAposNode1);
+            CFOO(LTRAneg1Neg1Ptr, LTRAneg1Neg1Binding, LTRAnegNode1, LTRAnegNode1);
+            CFOO(LTRApos2Pos2Ptr, LTRApos2Pos2Binding, LTRAposNode2, LTRAposNode2);
+            CFOO(LTRAneg2Neg2Ptr, LTRAneg2Neg2Binding, LTRAnegNode2, LTRAnegNode2);
         }
     }
 

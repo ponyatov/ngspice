@@ -39,38 +39,10 @@ SWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
-            if ((here-> SWposNode != 0) && (here-> SWposNode != 0))
-            {
-                i = here->SWposPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWposPosBinding = matched ;
-                here->SWposPosPtr = matched->CSC ;
-            }
-
-            if ((here-> SWposNode != 0) && (here-> SWnegNode != 0))
-            {
-                i = here->SWposNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWposNegBinding = matched ;
-                here->SWposNegPtr = matched->CSC ;
-            }
-
-            if ((here-> SWnegNode != 0) && (here-> SWposNode != 0))
-            {
-                i = here->SWnegPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWnegPosBinding = matched ;
-                here->SWnegPosPtr = matched->CSC ;
-            }
-
-            if ((here-> SWnegNode != 0) && (here-> SWnegNode != 0))
-            {
-                i = here->SWnegNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWnegNegBinding = matched ;
-                here->SWnegNegPtr = matched->CSC ;
-            }
-
+            XFOO(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
+            XFOO(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
+            XFOO(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
+            XFOO(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
         }
     }
 
@@ -91,18 +63,10 @@ SWbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
-            if ((here-> SWposNode != 0) && (here-> SWposNode != 0))
-                here->SWposPosPtr = here->SWposPosBinding->CSC_Complex ;
-
-            if ((here-> SWposNode != 0) && (here-> SWnegNode != 0))
-                here->SWposNegPtr = here->SWposNegBinding->CSC_Complex ;
-
-            if ((here-> SWnegNode != 0) && (here-> SWposNode != 0))
-                here->SWnegPosPtr = here->SWnegPosBinding->CSC_Complex ;
-
-            if ((here-> SWnegNode != 0) && (here-> SWnegNode != 0))
-                here->SWnegNegPtr = here->SWnegNegBinding->CSC_Complex ;
-
+            BFOO(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
+            BFOO(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
+            BFOO(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
+            BFOO(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
         }
     }
 
@@ -123,18 +87,10 @@ SWbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
-            if ((here-> SWposNode != 0) && (here-> SWposNode != 0))
-                here->SWposPosPtr = here->SWposPosBinding->CSC ;
-
-            if ((here-> SWposNode != 0) && (here-> SWnegNode != 0))
-                here->SWposNegPtr = here->SWposNegBinding->CSC ;
-
-            if ((here-> SWnegNode != 0) && (here-> SWposNode != 0))
-                here->SWnegPosPtr = here->SWnegPosBinding->CSC ;
-
-            if ((here-> SWnegNode != 0) && (here-> SWnegNode != 0))
-                here->SWnegNegPtr = here->SWnegNegBinding->CSC ;
-
+            CFOO(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
+            CFOO(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
+            CFOO(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
+            CFOO(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
         }
     }
 

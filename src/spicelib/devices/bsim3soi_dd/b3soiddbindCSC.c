@@ -41,104 +41,20 @@ B3SOIDDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((model->B3SOIDDshMod == 1) && (here->B3SOIDDrth0 != 0.0))
             {
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDtempNode != 0))
-                {
-                    i = here->B3SOIDDTemptempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDTemptempBinding = matched ;
-                    here->B3SOIDDTemptempPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                {
-                    i = here->B3SOIDDTempdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDTempdpBinding = matched ;
-                    here->B3SOIDDTempdpPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                {
-                    i = here->B3SOIDDTempspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDTempspBinding = matched ;
-                    here->B3SOIDDTempspPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDgNode != 0))
-                {
-                    i = here->B3SOIDDTempgPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDTempgBinding = matched ;
-                    here->B3SOIDDTempgPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDbNode != 0))
-                {
-                    i = here->B3SOIDDTempbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDTempbBinding = matched ;
-                    here->B3SOIDDTempbPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDeNode != 0))
-                {
-                    i = here->B3SOIDDTempePtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDTempeBinding = matched ;
-                    here->B3SOIDDTempePtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDtempNode != 0))
-                {
-                    i = here->B3SOIDDGtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDGtempBinding = matched ;
-                    here->B3SOIDDGtempPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDtempNode != 0))
-                {
-                    i = here->B3SOIDDDPtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDDPtempBinding = matched ;
-                    here->B3SOIDDDPtempPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDtempNode != 0))
-                {
-                    i = here->B3SOIDDSPtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDSPtempBinding = matched ;
-                    here->B3SOIDDSPtempPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDtempNode != 0))
-                {
-                    i = here->B3SOIDDEtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDEtempBinding = matched ;
-                    here->B3SOIDDEtempPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDtempNode != 0))
-                {
-                    i = here->B3SOIDDBtempPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDBtempBinding = matched ;
-                    here->B3SOIDDBtempPtr = matched->CSC ;
-                }
-
+                XFOO(B3SOIDDTemptempPtr, B3SOIDDTemptempBinding, B3SOIDDtempNode, B3SOIDDtempNode);
+                XFOO(B3SOIDDTempdpPtr, B3SOIDDTempdpBinding, B3SOIDDtempNode, B3SOIDDdNodePrime);
+                XFOO(B3SOIDDTempspPtr, B3SOIDDTempspBinding, B3SOIDDtempNode, B3SOIDDsNodePrime);
+                XFOO(B3SOIDDTempgPtr, B3SOIDDTempgBinding, B3SOIDDtempNode, B3SOIDDgNode);
+                XFOO(B3SOIDDTempbPtr, B3SOIDDTempbBinding, B3SOIDDtempNode, B3SOIDDbNode);
+                XFOO(B3SOIDDTempePtr, B3SOIDDTempeBinding, B3SOIDDtempNode, B3SOIDDeNode);
+                XFOO(B3SOIDDGtempPtr, B3SOIDDGtempBinding, B3SOIDDgNode, B3SOIDDtempNode);
+                XFOO(B3SOIDDDPtempPtr, B3SOIDDDPtempBinding, B3SOIDDdNodePrime, B3SOIDDtempNode);
+                XFOO(B3SOIDDSPtempPtr, B3SOIDDSPtempBinding, B3SOIDDsNodePrime, B3SOIDDtempNode);
+                XFOO(B3SOIDDEtempPtr, B3SOIDDEtempBinding, B3SOIDDeNode, B3SOIDDtempNode);
+                XFOO(B3SOIDDBtempPtr, B3SOIDDBtempBinding, B3SOIDDbNode, B3SOIDDtempNode);
                 if (here->B3SOIDDbodyMod == 1)
                 {
-                    if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    {
-                        i = here->B3SOIDDPtempPtr ;
-                        matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B3SOIDDPtempBinding = matched ;
-                        here->B3SOIDDPtempPtr = matched->CSC ;
-                    }
-
+                    XFOO(B3SOIDDPtempPtr, B3SOIDDPtempBinding, B3SOIDDpNode, B3SOIDDtempNode);
                 }
             }
             if (here->B3SOIDDbodyMod == 2)
@@ -146,657 +62,90 @@ B3SOIDDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             }
             else if (here->B3SOIDDbodyMod == 1)
             {
-                if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDpNode != 0))
-                {
-                    i = here->B3SOIDDBpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDBpBinding = matched ;
-                    here->B3SOIDDBpPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDbNode != 0))
-                {
-                    i = here->B3SOIDDPbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDPbBinding = matched ;
-                    here->B3SOIDDPbPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDpNode != 0))
-                {
-                    i = here->B3SOIDDPpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDPpBinding = matched ;
-                    here->B3SOIDDPpPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDgNode != 0))
-                {
-                    i = here->B3SOIDDPgPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDPgBinding = matched ;
-                    here->B3SOIDDPgPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                {
-                    i = here->B3SOIDDPdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDPdpBinding = matched ;
-                    here->B3SOIDDPdpPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                {
-                    i = here->B3SOIDDPspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDPspBinding = matched ;
-                    here->B3SOIDDPspPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDeNode != 0))
-                {
-                    i = here->B3SOIDDPePtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDPeBinding = matched ;
-                    here->B3SOIDDPePtr = matched->CSC ;
-                }
-
+                XFOO(B3SOIDDBpPtr, B3SOIDDBpBinding, B3SOIDDbNode, B3SOIDDpNode);
+                XFOO(B3SOIDDPbPtr, B3SOIDDPbBinding, B3SOIDDpNode, B3SOIDDbNode);
+                XFOO(B3SOIDDPpPtr, B3SOIDDPpBinding, B3SOIDDpNode, B3SOIDDpNode);
+                XFOO(B3SOIDDPgPtr, B3SOIDDPgBinding, B3SOIDDpNode, B3SOIDDgNode);
+                XFOO(B3SOIDDPdpPtr, B3SOIDDPdpBinding, B3SOIDDpNode, B3SOIDDdNodePrime);
+                XFOO(B3SOIDDPspPtr, B3SOIDDPspBinding, B3SOIDDpNode, B3SOIDDsNodePrime);
+                XFOO(B3SOIDDPePtr, B3SOIDDPeBinding, B3SOIDDpNode, B3SOIDDeNode);
             }
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDgNode != 0))
-            {
-                i = here->B3SOIDDEgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDEgBinding = matched ;
-                here->B3SOIDDEgPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-            {
-                i = here->B3SOIDDEdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDEdpBinding = matched ;
-                here->B3SOIDDEdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-            {
-                i = here->B3SOIDDEspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDEspBinding = matched ;
-                here->B3SOIDDEspPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDeNode != 0))
-            {
-                i = here->B3SOIDDGePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDGeBinding = matched ;
-                here->B3SOIDDGePtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDeNode != 0))
-            {
-                i = here->B3SOIDDDPePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDPeBinding = matched ;
-                here->B3SOIDDDPePtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDeNode != 0))
-            {
-                i = here->B3SOIDDSPePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSPeBinding = matched ;
-                here->B3SOIDDSPePtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDbNode != 0))
-            {
-                i = here->B3SOIDDEbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDEbBinding = matched ;
-                here->B3SOIDDEbPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDbNode != 0))
-            {
-                i = here->B3SOIDDGbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDGbBinding = matched ;
-                here->B3SOIDDGbPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDbNode != 0))
-            {
-                i = here->B3SOIDDDPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDPbBinding = matched ;
-                here->B3SOIDDDPbPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDbNode != 0))
-            {
-                i = here->B3SOIDDSPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSPbBinding = matched ;
-                here->B3SOIDDSPbPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDeNode != 0))
-            {
-                i = here->B3SOIDDBePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDBeBinding = matched ;
-                here->B3SOIDDBePtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDgNode != 0))
-            {
-                i = here->B3SOIDDBgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDBgBinding = matched ;
-                here->B3SOIDDBgPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-            {
-                i = here->B3SOIDDBdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDBdpBinding = matched ;
-                here->B3SOIDDBdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-            {
-                i = here->B3SOIDDBspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDBspBinding = matched ;
-                here->B3SOIDDBspPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDbNode != 0))
-            {
-                i = here->B3SOIDDBbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDBbBinding = matched ;
-                here->B3SOIDDBbPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDeNode != 0))
-            {
-                i = here->B3SOIDDEePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDEeBinding = matched ;
-                here->B3SOIDDEePtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDgNode != 0))
-            {
-                i = here->B3SOIDDGgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDGgBinding = matched ;
-                here->B3SOIDDGgPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-            {
-                i = here->B3SOIDDGdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDGdpBinding = matched ;
-                here->B3SOIDDGdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-            {
-                i = here->B3SOIDDGspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDGspBinding = matched ;
-                here->B3SOIDDGspPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDgNode != 0))
-            {
-                i = here->B3SOIDDDPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDPgBinding = matched ;
-                here->B3SOIDDDPgPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDdNodePrime != 0))
-            {
-                i = here->B3SOIDDDPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDPdpBinding = matched ;
-                here->B3SOIDDDPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDsNodePrime != 0))
-            {
-                i = here->B3SOIDDDPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDPspBinding = matched ;
-                here->B3SOIDDDPspPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDdNode != 0))
-            {
-                i = here->B3SOIDDDPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDPdBinding = matched ;
-                here->B3SOIDDDPdPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDgNode != 0))
-            {
-                i = here->B3SOIDDSPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSPgBinding = matched ;
-                here->B3SOIDDSPgPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDdNodePrime != 0))
-            {
-                i = here->B3SOIDDSPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSPdpBinding = matched ;
-                here->B3SOIDDSPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDsNodePrime != 0))
-            {
-                i = here->B3SOIDDSPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSPspBinding = matched ;
-                here->B3SOIDDSPspPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDsNode != 0))
-            {
-                i = here->B3SOIDDSPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSPsBinding = matched ;
-                here->B3SOIDDSPsPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNode != 0) && (here-> B3SOIDDdNode != 0))
-            {
-                i = here->B3SOIDDDdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDdBinding = matched ;
-                here->B3SOIDDDdPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDdNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-            {
-                i = here->B3SOIDDDdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDDdpBinding = matched ;
-                here->B3SOIDDDdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNode != 0) && (here-> B3SOIDDsNode != 0))
-            {
-                i = here->B3SOIDDSsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSsBinding = matched ;
-                here->B3SOIDDSsPtr = matched->CSC ;
-            }
-
-            if ((here-> B3SOIDDsNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-            {
-                i = here->B3SOIDDSspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIDDSspBinding = matched ;
-                here->B3SOIDDSspPtr = matched->CSC ;
-            }
-
+            XFOO(B3SOIDDEgPtr, B3SOIDDEgBinding, B3SOIDDeNode, B3SOIDDgNode);
+            XFOO(B3SOIDDEdpPtr, B3SOIDDEdpBinding, B3SOIDDeNode, B3SOIDDdNodePrime);
+            XFOO(B3SOIDDEspPtr, B3SOIDDEspBinding, B3SOIDDeNode, B3SOIDDsNodePrime);
+            XFOO(B3SOIDDGePtr, B3SOIDDGeBinding, B3SOIDDgNode, B3SOIDDeNode);
+            XFOO(B3SOIDDDPePtr, B3SOIDDDPeBinding, B3SOIDDdNodePrime, B3SOIDDeNode);
+            XFOO(B3SOIDDSPePtr, B3SOIDDSPeBinding, B3SOIDDsNodePrime, B3SOIDDeNode);
+            XFOO(B3SOIDDEbPtr, B3SOIDDEbBinding, B3SOIDDeNode, B3SOIDDbNode);
+            XFOO(B3SOIDDGbPtr, B3SOIDDGbBinding, B3SOIDDgNode, B3SOIDDbNode);
+            XFOO(B3SOIDDDPbPtr, B3SOIDDDPbBinding, B3SOIDDdNodePrime, B3SOIDDbNode);
+            XFOO(B3SOIDDSPbPtr, B3SOIDDSPbBinding, B3SOIDDsNodePrime, B3SOIDDbNode);
+            XFOO(B3SOIDDBePtr, B3SOIDDBeBinding, B3SOIDDbNode, B3SOIDDeNode);
+            XFOO(B3SOIDDBgPtr, B3SOIDDBgBinding, B3SOIDDbNode, B3SOIDDgNode);
+            XFOO(B3SOIDDBdpPtr, B3SOIDDBdpBinding, B3SOIDDbNode, B3SOIDDdNodePrime);
+            XFOO(B3SOIDDBspPtr, B3SOIDDBspBinding, B3SOIDDbNode, B3SOIDDsNodePrime);
+            XFOO(B3SOIDDBbPtr, B3SOIDDBbBinding, B3SOIDDbNode, B3SOIDDbNode);
+            XFOO(B3SOIDDEePtr, B3SOIDDEeBinding, B3SOIDDeNode, B3SOIDDeNode);
+            XFOO(B3SOIDDGgPtr, B3SOIDDGgBinding, B3SOIDDgNode, B3SOIDDgNode);
+            XFOO(B3SOIDDGdpPtr, B3SOIDDGdpBinding, B3SOIDDgNode, B3SOIDDdNodePrime);
+            XFOO(B3SOIDDGspPtr, B3SOIDDGspBinding, B3SOIDDgNode, B3SOIDDsNodePrime);
+            XFOO(B3SOIDDDPgPtr, B3SOIDDDPgBinding, B3SOIDDdNodePrime, B3SOIDDgNode);
+            XFOO(B3SOIDDDPdpPtr, B3SOIDDDPdpBinding, B3SOIDDdNodePrime, B3SOIDDdNodePrime);
+            XFOO(B3SOIDDDPspPtr, B3SOIDDDPspBinding, B3SOIDDdNodePrime, B3SOIDDsNodePrime);
+            XFOO(B3SOIDDDPdPtr, B3SOIDDDPdBinding, B3SOIDDdNodePrime, B3SOIDDdNode);
+            XFOO(B3SOIDDSPgPtr, B3SOIDDSPgBinding, B3SOIDDsNodePrime, B3SOIDDgNode);
+            XFOO(B3SOIDDSPdpPtr, B3SOIDDSPdpBinding, B3SOIDDsNodePrime, B3SOIDDdNodePrime);
+            XFOO(B3SOIDDSPspPtr, B3SOIDDSPspBinding, B3SOIDDsNodePrime, B3SOIDDsNodePrime);
+            XFOO(B3SOIDDSPsPtr, B3SOIDDSPsBinding, B3SOIDDsNodePrime, B3SOIDDsNode);
+            XFOO(B3SOIDDDdPtr, B3SOIDDDdBinding, B3SOIDDdNode, B3SOIDDdNode);
+            XFOO(B3SOIDDDdpPtr, B3SOIDDDdpBinding, B3SOIDDdNode, B3SOIDDdNodePrime);
+            XFOO(B3SOIDDSsPtr, B3SOIDDSsBinding, B3SOIDDsNode, B3SOIDDsNode);
+            XFOO(B3SOIDDSspPtr, B3SOIDDSspBinding, B3SOIDDsNode, B3SOIDDsNodePrime);
             if ((here->B3SOIDDdebugMod > 1) || (here->B3SOIDDdebugMod == -1))
             {
-                if ((here-> B3SOIDDvbsNode != 0) && (here-> B3SOIDDvbsNode != 0))
-                {
-                    i = here->B3SOIDDVbsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVbsBinding = matched ;
-                    here->B3SOIDDVbsPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDidsNode != 0) && (here-> B3SOIDDidsNode != 0))
-                {
-                    i = here->B3SOIDDIdsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIdsBinding = matched ;
-                    here->B3SOIDDIdsPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDicNode != 0) && (here-> B3SOIDDicNode != 0))
-                {
-                    i = here->B3SOIDDIcPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIcBinding = matched ;
-                    here->B3SOIDDIcPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDibsNode != 0) && (here-> B3SOIDDibsNode != 0))
-                {
-                    i = here->B3SOIDDIbsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIbsBinding = matched ;
-                    here->B3SOIDDIbsPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDibdNode != 0) && (here-> B3SOIDDibdNode != 0))
-                {
-                    i = here->B3SOIDDIbdPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIbdBinding = matched ;
-                    here->B3SOIDDIbdPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDiiiNode != 0) && (here-> B3SOIDDiiiNode != 0))
-                {
-                    i = here->B3SOIDDIiiPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIiiBinding = matched ;
-                    here->B3SOIDDIiiPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDigidlNode != 0) && (here-> B3SOIDDigidlNode != 0))
-                {
-                    i = here->B3SOIDDIgidlPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIgidlBinding = matched ;
-                    here->B3SOIDDIgidlPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDitunNode != 0) && (here-> B3SOIDDitunNode != 0))
-                {
-                    i = here->B3SOIDDItunPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDItunBinding = matched ;
-                    here->B3SOIDDItunPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDibpNode != 0) && (here-> B3SOIDDibpNode != 0))
-                {
-                    i = here->B3SOIDDIbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDIbpBinding = matched ;
-                    here->B3SOIDDIbpPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDabeffNode != 0) && (here-> B3SOIDDabeffNode != 0))
-                {
-                    i = here->B3SOIDDAbeffPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDAbeffBinding = matched ;
-                    here->B3SOIDDAbeffPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvbs0effNode != 0) && (here-> B3SOIDDvbs0effNode != 0))
-                {
-                    i = here->B3SOIDDVbs0effPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVbs0effBinding = matched ;
-                    here->B3SOIDDVbs0effPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvbseffNode != 0) && (here-> B3SOIDDvbseffNode != 0))
-                {
-                    i = here->B3SOIDDVbseffPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVbseffBinding = matched ;
-                    here->B3SOIDDVbseffPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDxcNode != 0) && (here-> B3SOIDDxcNode != 0))
-                {
-                    i = here->B3SOIDDXcPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDXcBinding = matched ;
-                    here->B3SOIDDXcPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDcbbNode != 0) && (here-> B3SOIDDcbbNode != 0))
-                {
-                    i = here->B3SOIDDCbbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDCbbBinding = matched ;
-                    here->B3SOIDDCbbPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDcbdNode != 0) && (here-> B3SOIDDcbdNode != 0))
-                {
-                    i = here->B3SOIDDCbdPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDCbdBinding = matched ;
-                    here->B3SOIDDCbdPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDcbgNode != 0) && (here-> B3SOIDDcbgNode != 0))
-                {
-                    i = here->B3SOIDDCbgPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDCbgBinding = matched ;
-                    here->B3SOIDDCbgPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqbNode != 0) && (here-> B3SOIDDqbNode != 0))
-                {
-                    i = here->B3SOIDDqbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDqbBinding = matched ;
-                    here->B3SOIDDqbPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqbfNode != 0) && (here-> B3SOIDDqbfNode != 0))
-                {
-                    i = here->B3SOIDDQbfPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQbfBinding = matched ;
-                    here->B3SOIDDQbfPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqjsNode != 0) && (here-> B3SOIDDqjsNode != 0))
-                {
-                    i = here->B3SOIDDQjsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQjsBinding = matched ;
-                    here->B3SOIDDQjsPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqjdNode != 0) && (here-> B3SOIDDqjdNode != 0))
-                {
-                    i = here->B3SOIDDQjdPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQjdBinding = matched ;
-                    here->B3SOIDDQjdPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDgmNode != 0) && (here-> B3SOIDDgmNode != 0))
-                {
-                    i = here->B3SOIDDGmPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDGmBinding = matched ;
-                    here->B3SOIDDGmPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDgmbsNode != 0) && (here-> B3SOIDDgmbsNode != 0))
-                {
-                    i = here->B3SOIDDGmbsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDGmbsBinding = matched ;
-                    here->B3SOIDDGmbsPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDgdsNode != 0) && (here-> B3SOIDDgdsNode != 0))
-                {
-                    i = here->B3SOIDDGdsPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDGdsBinding = matched ;
-                    here->B3SOIDDGdsPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDgmeNode != 0) && (here-> B3SOIDDgmeNode != 0))
-                {
-                    i = here->B3SOIDDGmePtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDGmeBinding = matched ;
-                    here->B3SOIDDGmePtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvbs0teffNode != 0) && (here-> B3SOIDDvbs0teffNode != 0))
-                {
-                    i = here->B3SOIDDVbs0teffPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVbs0teffBinding = matched ;
-                    here->B3SOIDDVbs0teffPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvthNode != 0) && (here-> B3SOIDDvthNode != 0))
-                {
-                    i = here->B3SOIDDVthPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVthBinding = matched ;
-                    here->B3SOIDDVthPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvgsteffNode != 0) && (here-> B3SOIDDvgsteffNode != 0))
-                {
-                    i = here->B3SOIDDVgsteffPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVgsteffBinding = matched ;
-                    here->B3SOIDDVgsteffPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDxcsatNode != 0) && (here-> B3SOIDDxcsatNode != 0))
-                {
-                    i = here->B3SOIDDXcsatPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDXcsatBinding = matched ;
-                    here->B3SOIDDXcsatPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvcscvNode != 0) && (here-> B3SOIDDvcscvNode != 0))
-                {
-                    i = here->B3SOIDDVcscvPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVcscvBinding = matched ;
-                    here->B3SOIDDVcscvPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDvdscvNode != 0) && (here-> B3SOIDDvdscvNode != 0))
-                {
-                    i = here->B3SOIDDVdscvPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDVdscvBinding = matched ;
-                    here->B3SOIDDVdscvPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDcbeNode != 0) && (here-> B3SOIDDcbeNode != 0))
-                {
-                    i = here->B3SOIDDCbePtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDCbeBinding = matched ;
-                    here->B3SOIDDCbePtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDdum1Node != 0) && (here-> B3SOIDDdum1Node != 0))
-                {
-                    i = here->B3SOIDDDum1Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDDum1Binding = matched ;
-                    here->B3SOIDDDum1Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDdum2Node != 0) && (here-> B3SOIDDdum2Node != 0))
-                {
-                    i = here->B3SOIDDDum2Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDDum2Binding = matched ;
-                    here->B3SOIDDDum2Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDdum3Node != 0) && (here-> B3SOIDDdum3Node != 0))
-                {
-                    i = here->B3SOIDDDum3Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDDum3Binding = matched ;
-                    here->B3SOIDDDum3Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDdum4Node != 0) && (here-> B3SOIDDdum4Node != 0))
-                {
-                    i = here->B3SOIDDDum4Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDDum4Binding = matched ;
-                    here->B3SOIDDDum4Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDdum5Node != 0) && (here-> B3SOIDDdum5Node != 0))
-                {
-                    i = here->B3SOIDDDum5Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDDum5Binding = matched ;
-                    here->B3SOIDDDum5Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqaccNode != 0) && (here-> B3SOIDDqaccNode != 0))
-                {
-                    i = here->B3SOIDDQaccPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQaccBinding = matched ;
-                    here->B3SOIDDQaccPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqsub0Node != 0) && (here-> B3SOIDDqsub0Node != 0))
-                {
-                    i = here->B3SOIDDQsub0Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQsub0Binding = matched ;
-                    here->B3SOIDDQsub0Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqsubs1Node != 0) && (here-> B3SOIDDqsubs1Node != 0))
-                {
-                    i = here->B3SOIDDQsubs1Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQsubs1Binding = matched ;
-                    here->B3SOIDDQsubs1Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqsubs2Node != 0) && (here-> B3SOIDDqsubs2Node != 0))
-                {
-                    i = here->B3SOIDDQsubs2Ptr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDQsubs2Binding = matched ;
-                    here->B3SOIDDQsubs2Ptr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqeNode != 0) && (here-> B3SOIDDqeNode != 0))
-                {
-                    i = here->B3SOIDDqePtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDqeBinding = matched ;
-                    here->B3SOIDDqePtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqdNode != 0) && (here-> B3SOIDDqdNode != 0))
-                {
-                    i = here->B3SOIDDqdPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDqdBinding = matched ;
-                    here->B3SOIDDqdPtr = matched->CSC ;
-                }
-
-                if ((here-> B3SOIDDqgNode != 0) && (here-> B3SOIDDqgNode != 0))
-                {
-                    i = here->B3SOIDDqgPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIDDqgBinding = matched ;
-                    here->B3SOIDDqgPtr = matched->CSC ;
-                }
-
+                XFOO(B3SOIDDVbsPtr, B3SOIDDVbsBinding, B3SOIDDvbsNode, B3SOIDDvbsNode);
+                XFOO(B3SOIDDIdsPtr, B3SOIDDIdsBinding, B3SOIDDidsNode, B3SOIDDidsNode);
+                XFOO(B3SOIDDIcPtr, B3SOIDDIcBinding, B3SOIDDicNode, B3SOIDDicNode);
+                XFOO(B3SOIDDIbsPtr, B3SOIDDIbsBinding, B3SOIDDibsNode, B3SOIDDibsNode);
+                XFOO(B3SOIDDIbdPtr, B3SOIDDIbdBinding, B3SOIDDibdNode, B3SOIDDibdNode);
+                XFOO(B3SOIDDIiiPtr, B3SOIDDIiiBinding, B3SOIDDiiiNode, B3SOIDDiiiNode);
+                XFOO(B3SOIDDIgidlPtr, B3SOIDDIgidlBinding, B3SOIDDigidlNode, B3SOIDDigidlNode);
+                XFOO(B3SOIDDItunPtr, B3SOIDDItunBinding, B3SOIDDitunNode, B3SOIDDitunNode);
+                XFOO(B3SOIDDIbpPtr, B3SOIDDIbpBinding, B3SOIDDibpNode, B3SOIDDibpNode);
+                XFOO(B3SOIDDAbeffPtr, B3SOIDDAbeffBinding, B3SOIDDabeffNode, B3SOIDDabeffNode);
+                XFOO(B3SOIDDVbs0effPtr, B3SOIDDVbs0effBinding, B3SOIDDvbs0effNode, B3SOIDDvbs0effNode);
+                XFOO(B3SOIDDVbseffPtr, B3SOIDDVbseffBinding, B3SOIDDvbseffNode, B3SOIDDvbseffNode);
+                XFOO(B3SOIDDXcPtr, B3SOIDDXcBinding, B3SOIDDxcNode, B3SOIDDxcNode);
+                XFOO(B3SOIDDCbbPtr, B3SOIDDCbbBinding, B3SOIDDcbbNode, B3SOIDDcbbNode);
+                XFOO(B3SOIDDCbdPtr, B3SOIDDCbdBinding, B3SOIDDcbdNode, B3SOIDDcbdNode);
+                XFOO(B3SOIDDCbgPtr, B3SOIDDCbgBinding, B3SOIDDcbgNode, B3SOIDDcbgNode);
+                XFOO(B3SOIDDqbPtr, B3SOIDDqbBinding, B3SOIDDqbNode, B3SOIDDqbNode);
+                XFOO(B3SOIDDQbfPtr, B3SOIDDQbfBinding, B3SOIDDqbfNode, B3SOIDDqbfNode);
+                XFOO(B3SOIDDQjsPtr, B3SOIDDQjsBinding, B3SOIDDqjsNode, B3SOIDDqjsNode);
+                XFOO(B3SOIDDQjdPtr, B3SOIDDQjdBinding, B3SOIDDqjdNode, B3SOIDDqjdNode);
+                XFOO(B3SOIDDGmPtr, B3SOIDDGmBinding, B3SOIDDgmNode, B3SOIDDgmNode);
+                XFOO(B3SOIDDGmbsPtr, B3SOIDDGmbsBinding, B3SOIDDgmbsNode, B3SOIDDgmbsNode);
+                XFOO(B3SOIDDGdsPtr, B3SOIDDGdsBinding, B3SOIDDgdsNode, B3SOIDDgdsNode);
+                XFOO(B3SOIDDGmePtr, B3SOIDDGmeBinding, B3SOIDDgmeNode, B3SOIDDgmeNode);
+                XFOO(B3SOIDDVbs0teffPtr, B3SOIDDVbs0teffBinding, B3SOIDDvbs0teffNode, B3SOIDDvbs0teffNode);
+                XFOO(B3SOIDDVthPtr, B3SOIDDVthBinding, B3SOIDDvthNode, B3SOIDDvthNode);
+                XFOO(B3SOIDDVgsteffPtr, B3SOIDDVgsteffBinding, B3SOIDDvgsteffNode, B3SOIDDvgsteffNode);
+                XFOO(B3SOIDDXcsatPtr, B3SOIDDXcsatBinding, B3SOIDDxcsatNode, B3SOIDDxcsatNode);
+                XFOO(B3SOIDDVcscvPtr, B3SOIDDVcscvBinding, B3SOIDDvcscvNode, B3SOIDDvcscvNode);
+                XFOO(B3SOIDDVdscvPtr, B3SOIDDVdscvBinding, B3SOIDDvdscvNode, B3SOIDDvdscvNode);
+                XFOO(B3SOIDDCbePtr, B3SOIDDCbeBinding, B3SOIDDcbeNode, B3SOIDDcbeNode);
+                XFOO(B3SOIDDDum1Ptr, B3SOIDDDum1Binding, B3SOIDDdum1Node, B3SOIDDdum1Node);
+                XFOO(B3SOIDDDum2Ptr, B3SOIDDDum2Binding, B3SOIDDdum2Node, B3SOIDDdum2Node);
+                XFOO(B3SOIDDDum3Ptr, B3SOIDDDum3Binding, B3SOIDDdum3Node, B3SOIDDdum3Node);
+                XFOO(B3SOIDDDum4Ptr, B3SOIDDDum4Binding, B3SOIDDdum4Node, B3SOIDDdum4Node);
+                XFOO(B3SOIDDDum5Ptr, B3SOIDDDum5Binding, B3SOIDDdum5Node, B3SOIDDdum5Node);
+                XFOO(B3SOIDDQaccPtr, B3SOIDDQaccBinding, B3SOIDDqaccNode, B3SOIDDqaccNode);
+                XFOO(B3SOIDDQsub0Ptr, B3SOIDDQsub0Binding, B3SOIDDqsub0Node, B3SOIDDqsub0Node);
+                XFOO(B3SOIDDQsubs1Ptr, B3SOIDDQsubs1Binding, B3SOIDDqsubs1Node, B3SOIDDqsubs1Node);
+                XFOO(B3SOIDDQsubs2Ptr, B3SOIDDQsubs2Binding, B3SOIDDqsubs2Node, B3SOIDDqsubs2Node);
+                XFOO(B3SOIDDqePtr, B3SOIDDqeBinding, B3SOIDDqeNode, B3SOIDDqeNode);
+                XFOO(B3SOIDDqdPtr, B3SOIDDqdBinding, B3SOIDDqdNode, B3SOIDDqdNode);
+                XFOO(B3SOIDDqgPtr, B3SOIDDqgBinding, B3SOIDDqgNode, B3SOIDDqgNode);
             }
         }
     }
@@ -820,44 +169,20 @@ B3SOIDDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((model->B3SOIDDshMod == 1) && (here->B3SOIDDrth0 != 0.0))
             {
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDTemptempPtr = here->B3SOIDDTemptempBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                    here->B3SOIDDTempdpPtr = here->B3SOIDDTempdpBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                    here->B3SOIDDTempspPtr = here->B3SOIDDTempspBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDgNode != 0))
-                    here->B3SOIDDTempgPtr = here->B3SOIDDTempgBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDbNode != 0))
-                    here->B3SOIDDTempbPtr = here->B3SOIDDTempbBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDeNode != 0))
-                    here->B3SOIDDTempePtr = here->B3SOIDDTempeBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDGtempPtr = here->B3SOIDDGtempBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDDPtempPtr = here->B3SOIDDDPtempBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDSPtempPtr = here->B3SOIDDSPtempBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDEtempPtr = here->B3SOIDDEtempBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDBtempPtr = here->B3SOIDDBtempBinding->CSC_Complex ;
-
+                BFOO(B3SOIDDTemptempPtr, B3SOIDDTemptempBinding, B3SOIDDtempNode, B3SOIDDtempNode);
+                BFOO(B3SOIDDTempdpPtr, B3SOIDDTempdpBinding, B3SOIDDtempNode, B3SOIDDdNodePrime);
+                BFOO(B3SOIDDTempspPtr, B3SOIDDTempspBinding, B3SOIDDtempNode, B3SOIDDsNodePrime);
+                BFOO(B3SOIDDTempgPtr, B3SOIDDTempgBinding, B3SOIDDtempNode, B3SOIDDgNode);
+                BFOO(B3SOIDDTempbPtr, B3SOIDDTempbBinding, B3SOIDDtempNode, B3SOIDDbNode);
+                BFOO(B3SOIDDTempePtr, B3SOIDDTempeBinding, B3SOIDDtempNode, B3SOIDDeNode);
+                BFOO(B3SOIDDGtempPtr, B3SOIDDGtempBinding, B3SOIDDgNode, B3SOIDDtempNode);
+                BFOO(B3SOIDDDPtempPtr, B3SOIDDDPtempBinding, B3SOIDDdNodePrime, B3SOIDDtempNode);
+                BFOO(B3SOIDDSPtempPtr, B3SOIDDSPtempBinding, B3SOIDDsNodePrime, B3SOIDDtempNode);
+                BFOO(B3SOIDDEtempPtr, B3SOIDDEtempBinding, B3SOIDDeNode, B3SOIDDtempNode);
+                BFOO(B3SOIDDBtempPtr, B3SOIDDBtempBinding, B3SOIDDbNode, B3SOIDDtempNode);
                 if (here->B3SOIDDbodyMod == 1)
                 {
-                    if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDtempNode != 0))
-                        here->B3SOIDDPtempPtr = here->B3SOIDDPtempBinding->CSC_Complex ;
-
+                    BFOO(B3SOIDDPtempPtr, B3SOIDDPtempBinding, B3SOIDDpNode, B3SOIDDtempNode);
                 }
             }
             if (here->B3SOIDDbodyMod == 2)
@@ -865,252 +190,90 @@ B3SOIDDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             }
             else if (here->B3SOIDDbodyMod == 1)
             {
-                if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDpNode != 0))
-                    here->B3SOIDDBpPtr = here->B3SOIDDBpBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDbNode != 0))
-                    here->B3SOIDDPbPtr = here->B3SOIDDPbBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDpNode != 0))
-                    here->B3SOIDDPpPtr = here->B3SOIDDPpBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDgNode != 0))
-                    here->B3SOIDDPgPtr = here->B3SOIDDPgBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                    here->B3SOIDDPdpPtr = here->B3SOIDDPdpBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                    here->B3SOIDDPspPtr = here->B3SOIDDPspBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDeNode != 0))
-                    here->B3SOIDDPePtr = here->B3SOIDDPeBinding->CSC_Complex ;
-
+                BFOO(B3SOIDDBpPtr, B3SOIDDBpBinding, B3SOIDDbNode, B3SOIDDpNode);
+                BFOO(B3SOIDDPbPtr, B3SOIDDPbBinding, B3SOIDDpNode, B3SOIDDbNode);
+                BFOO(B3SOIDDPpPtr, B3SOIDDPpBinding, B3SOIDDpNode, B3SOIDDpNode);
+                BFOO(B3SOIDDPgPtr, B3SOIDDPgBinding, B3SOIDDpNode, B3SOIDDgNode);
+                BFOO(B3SOIDDPdpPtr, B3SOIDDPdpBinding, B3SOIDDpNode, B3SOIDDdNodePrime);
+                BFOO(B3SOIDDPspPtr, B3SOIDDPspBinding, B3SOIDDpNode, B3SOIDDsNodePrime);
+                BFOO(B3SOIDDPePtr, B3SOIDDPeBinding, B3SOIDDpNode, B3SOIDDeNode);
             }
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDEgPtr = here->B3SOIDDEgBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDEdpPtr = here->B3SOIDDEdpBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDEspPtr = here->B3SOIDDEspBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDGePtr = here->B3SOIDDGeBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDDPePtr = here->B3SOIDDDPeBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDSPePtr = here->B3SOIDDSPeBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDEbPtr = here->B3SOIDDEbBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDGbPtr = here->B3SOIDDGbBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDDPbPtr = here->B3SOIDDDPbBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDSPbPtr = here->B3SOIDDSPbBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDBePtr = here->B3SOIDDBeBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDBgPtr = here->B3SOIDDBgBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDBdpPtr = here->B3SOIDDBdpBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDBspPtr = here->B3SOIDDBspBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDBbPtr = here->B3SOIDDBbBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDEePtr = here->B3SOIDDEeBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDGgPtr = here->B3SOIDDGgBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDGdpPtr = here->B3SOIDDGdpBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDGspPtr = here->B3SOIDDGspBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDDPgPtr = here->B3SOIDDDPgBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDDPdpPtr = here->B3SOIDDDPdpBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDDPspPtr = here->B3SOIDDDPspBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDdNode != 0))
-                here->B3SOIDDDPdPtr = here->B3SOIDDDPdBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDSPgPtr = here->B3SOIDDSPgBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDSPdpPtr = here->B3SOIDDSPdpBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDSPspPtr = here->B3SOIDDSPspBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDsNode != 0))
-                here->B3SOIDDSPsPtr = here->B3SOIDDSPsBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNode != 0) && (here-> B3SOIDDdNode != 0))
-                here->B3SOIDDDdPtr = here->B3SOIDDDdBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDdNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDDdpPtr = here->B3SOIDDDdpBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNode != 0) && (here-> B3SOIDDsNode != 0))
-                here->B3SOIDDSsPtr = here->B3SOIDDSsBinding->CSC_Complex ;
-
-            if ((here-> B3SOIDDsNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDSspPtr = here->B3SOIDDSspBinding->CSC_Complex ;
-
+            BFOO(B3SOIDDEgPtr, B3SOIDDEgBinding, B3SOIDDeNode, B3SOIDDgNode);
+            BFOO(B3SOIDDEdpPtr, B3SOIDDEdpBinding, B3SOIDDeNode, B3SOIDDdNodePrime);
+            BFOO(B3SOIDDEspPtr, B3SOIDDEspBinding, B3SOIDDeNode, B3SOIDDsNodePrime);
+            BFOO(B3SOIDDGePtr, B3SOIDDGeBinding, B3SOIDDgNode, B3SOIDDeNode);
+            BFOO(B3SOIDDDPePtr, B3SOIDDDPeBinding, B3SOIDDdNodePrime, B3SOIDDeNode);
+            BFOO(B3SOIDDSPePtr, B3SOIDDSPeBinding, B3SOIDDsNodePrime, B3SOIDDeNode);
+            BFOO(B3SOIDDEbPtr, B3SOIDDEbBinding, B3SOIDDeNode, B3SOIDDbNode);
+            BFOO(B3SOIDDGbPtr, B3SOIDDGbBinding, B3SOIDDgNode, B3SOIDDbNode);
+            BFOO(B3SOIDDDPbPtr, B3SOIDDDPbBinding, B3SOIDDdNodePrime, B3SOIDDbNode);
+            BFOO(B3SOIDDSPbPtr, B3SOIDDSPbBinding, B3SOIDDsNodePrime, B3SOIDDbNode);
+            BFOO(B3SOIDDBePtr, B3SOIDDBeBinding, B3SOIDDbNode, B3SOIDDeNode);
+            BFOO(B3SOIDDBgPtr, B3SOIDDBgBinding, B3SOIDDbNode, B3SOIDDgNode);
+            BFOO(B3SOIDDBdpPtr, B3SOIDDBdpBinding, B3SOIDDbNode, B3SOIDDdNodePrime);
+            BFOO(B3SOIDDBspPtr, B3SOIDDBspBinding, B3SOIDDbNode, B3SOIDDsNodePrime);
+            BFOO(B3SOIDDBbPtr, B3SOIDDBbBinding, B3SOIDDbNode, B3SOIDDbNode);
+            BFOO(B3SOIDDEePtr, B3SOIDDEeBinding, B3SOIDDeNode, B3SOIDDeNode);
+            BFOO(B3SOIDDGgPtr, B3SOIDDGgBinding, B3SOIDDgNode, B3SOIDDgNode);
+            BFOO(B3SOIDDGdpPtr, B3SOIDDGdpBinding, B3SOIDDgNode, B3SOIDDdNodePrime);
+            BFOO(B3SOIDDGspPtr, B3SOIDDGspBinding, B3SOIDDgNode, B3SOIDDsNodePrime);
+            BFOO(B3SOIDDDPgPtr, B3SOIDDDPgBinding, B3SOIDDdNodePrime, B3SOIDDgNode);
+            BFOO(B3SOIDDDPdpPtr, B3SOIDDDPdpBinding, B3SOIDDdNodePrime, B3SOIDDdNodePrime);
+            BFOO(B3SOIDDDPspPtr, B3SOIDDDPspBinding, B3SOIDDdNodePrime, B3SOIDDsNodePrime);
+            BFOO(B3SOIDDDPdPtr, B3SOIDDDPdBinding, B3SOIDDdNodePrime, B3SOIDDdNode);
+            BFOO(B3SOIDDSPgPtr, B3SOIDDSPgBinding, B3SOIDDsNodePrime, B3SOIDDgNode);
+            BFOO(B3SOIDDSPdpPtr, B3SOIDDSPdpBinding, B3SOIDDsNodePrime, B3SOIDDdNodePrime);
+            BFOO(B3SOIDDSPspPtr, B3SOIDDSPspBinding, B3SOIDDsNodePrime, B3SOIDDsNodePrime);
+            BFOO(B3SOIDDSPsPtr, B3SOIDDSPsBinding, B3SOIDDsNodePrime, B3SOIDDsNode);
+            BFOO(B3SOIDDDdPtr, B3SOIDDDdBinding, B3SOIDDdNode, B3SOIDDdNode);
+            BFOO(B3SOIDDDdpPtr, B3SOIDDDdpBinding, B3SOIDDdNode, B3SOIDDdNodePrime);
+            BFOO(B3SOIDDSsPtr, B3SOIDDSsBinding, B3SOIDDsNode, B3SOIDDsNode);
+            BFOO(B3SOIDDSspPtr, B3SOIDDSspBinding, B3SOIDDsNode, B3SOIDDsNodePrime);
             if ((here->B3SOIDDdebugMod > 1) || (here->B3SOIDDdebugMod == -1))
             {
-                if ((here-> B3SOIDDvbsNode != 0) && (here-> B3SOIDDvbsNode != 0))
-                    here->B3SOIDDVbsPtr = here->B3SOIDDVbsBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDidsNode != 0) && (here-> B3SOIDDidsNode != 0))
-                    here->B3SOIDDIdsPtr = here->B3SOIDDIdsBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDicNode != 0) && (here-> B3SOIDDicNode != 0))
-                    here->B3SOIDDIcPtr = here->B3SOIDDIcBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDibsNode != 0) && (here-> B3SOIDDibsNode != 0))
-                    here->B3SOIDDIbsPtr = here->B3SOIDDIbsBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDibdNode != 0) && (here-> B3SOIDDibdNode != 0))
-                    here->B3SOIDDIbdPtr = here->B3SOIDDIbdBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDiiiNode != 0) && (here-> B3SOIDDiiiNode != 0))
-                    here->B3SOIDDIiiPtr = here->B3SOIDDIiiBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDigidlNode != 0) && (here-> B3SOIDDigidlNode != 0))
-                    here->B3SOIDDIgidlPtr = here->B3SOIDDIgidlBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDitunNode != 0) && (here-> B3SOIDDitunNode != 0))
-                    here->B3SOIDDItunPtr = here->B3SOIDDItunBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDibpNode != 0) && (here-> B3SOIDDibpNode != 0))
-                    here->B3SOIDDIbpPtr = here->B3SOIDDIbpBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDabeffNode != 0) && (here-> B3SOIDDabeffNode != 0))
-                    here->B3SOIDDAbeffPtr = here->B3SOIDDAbeffBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvbs0effNode != 0) && (here-> B3SOIDDvbs0effNode != 0))
-                    here->B3SOIDDVbs0effPtr = here->B3SOIDDVbs0effBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvbseffNode != 0) && (here-> B3SOIDDvbseffNode != 0))
-                    here->B3SOIDDVbseffPtr = here->B3SOIDDVbseffBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDxcNode != 0) && (here-> B3SOIDDxcNode != 0))
-                    here->B3SOIDDXcPtr = here->B3SOIDDXcBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDcbbNode != 0) && (here-> B3SOIDDcbbNode != 0))
-                    here->B3SOIDDCbbPtr = here->B3SOIDDCbbBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDcbdNode != 0) && (here-> B3SOIDDcbdNode != 0))
-                    here->B3SOIDDCbdPtr = here->B3SOIDDCbdBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDcbgNode != 0) && (here-> B3SOIDDcbgNode != 0))
-                    here->B3SOIDDCbgPtr = here->B3SOIDDCbgBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqbNode != 0) && (here-> B3SOIDDqbNode != 0))
-                    here->B3SOIDDqbPtr = here->B3SOIDDqbBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqbfNode != 0) && (here-> B3SOIDDqbfNode != 0))
-                    here->B3SOIDDQbfPtr = here->B3SOIDDQbfBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqjsNode != 0) && (here-> B3SOIDDqjsNode != 0))
-                    here->B3SOIDDQjsPtr = here->B3SOIDDQjsBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqjdNode != 0) && (here-> B3SOIDDqjdNode != 0))
-                    here->B3SOIDDQjdPtr = here->B3SOIDDQjdBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDgmNode != 0) && (here-> B3SOIDDgmNode != 0))
-                    here->B3SOIDDGmPtr = here->B3SOIDDGmBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDgmbsNode != 0) && (here-> B3SOIDDgmbsNode != 0))
-                    here->B3SOIDDGmbsPtr = here->B3SOIDDGmbsBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDgdsNode != 0) && (here-> B3SOIDDgdsNode != 0))
-                    here->B3SOIDDGdsPtr = here->B3SOIDDGdsBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDgmeNode != 0) && (here-> B3SOIDDgmeNode != 0))
-                    here->B3SOIDDGmePtr = here->B3SOIDDGmeBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvbs0teffNode != 0) && (here-> B3SOIDDvbs0teffNode != 0))
-                    here->B3SOIDDVbs0teffPtr = here->B3SOIDDVbs0teffBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvthNode != 0) && (here-> B3SOIDDvthNode != 0))
-                    here->B3SOIDDVthPtr = here->B3SOIDDVthBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvgsteffNode != 0) && (here-> B3SOIDDvgsteffNode != 0))
-                    here->B3SOIDDVgsteffPtr = here->B3SOIDDVgsteffBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDxcsatNode != 0) && (here-> B3SOIDDxcsatNode != 0))
-                    here->B3SOIDDXcsatPtr = here->B3SOIDDXcsatBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvcscvNode != 0) && (here-> B3SOIDDvcscvNode != 0))
-                    here->B3SOIDDVcscvPtr = here->B3SOIDDVcscvBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDvdscvNode != 0) && (here-> B3SOIDDvdscvNode != 0))
-                    here->B3SOIDDVdscvPtr = here->B3SOIDDVdscvBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDcbeNode != 0) && (here-> B3SOIDDcbeNode != 0))
-                    here->B3SOIDDCbePtr = here->B3SOIDDCbeBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDdum1Node != 0) && (here-> B3SOIDDdum1Node != 0))
-                    here->B3SOIDDDum1Ptr = here->B3SOIDDDum1Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDdum2Node != 0) && (here-> B3SOIDDdum2Node != 0))
-                    here->B3SOIDDDum2Ptr = here->B3SOIDDDum2Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDdum3Node != 0) && (here-> B3SOIDDdum3Node != 0))
-                    here->B3SOIDDDum3Ptr = here->B3SOIDDDum3Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDdum4Node != 0) && (here-> B3SOIDDdum4Node != 0))
-                    here->B3SOIDDDum4Ptr = here->B3SOIDDDum4Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDdum5Node != 0) && (here-> B3SOIDDdum5Node != 0))
-                    here->B3SOIDDDum5Ptr = here->B3SOIDDDum5Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqaccNode != 0) && (here-> B3SOIDDqaccNode != 0))
-                    here->B3SOIDDQaccPtr = here->B3SOIDDQaccBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqsub0Node != 0) && (here-> B3SOIDDqsub0Node != 0))
-                    here->B3SOIDDQsub0Ptr = here->B3SOIDDQsub0Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqsubs1Node != 0) && (here-> B3SOIDDqsubs1Node != 0))
-                    here->B3SOIDDQsubs1Ptr = here->B3SOIDDQsubs1Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqsubs2Node != 0) && (here-> B3SOIDDqsubs2Node != 0))
-                    here->B3SOIDDQsubs2Ptr = here->B3SOIDDQsubs2Binding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqeNode != 0) && (here-> B3SOIDDqeNode != 0))
-                    here->B3SOIDDqePtr = here->B3SOIDDqeBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqdNode != 0) && (here-> B3SOIDDqdNode != 0))
-                    here->B3SOIDDqdPtr = here->B3SOIDDqdBinding->CSC_Complex ;
-
-                if ((here-> B3SOIDDqgNode != 0) && (here-> B3SOIDDqgNode != 0))
-                    here->B3SOIDDqgPtr = here->B3SOIDDqgBinding->CSC_Complex ;
-
+                BFOO(B3SOIDDVbsPtr, B3SOIDDVbsBinding, B3SOIDDvbsNode, B3SOIDDvbsNode);
+                BFOO(B3SOIDDIdsPtr, B3SOIDDIdsBinding, B3SOIDDidsNode, B3SOIDDidsNode);
+                BFOO(B3SOIDDIcPtr, B3SOIDDIcBinding, B3SOIDDicNode, B3SOIDDicNode);
+                BFOO(B3SOIDDIbsPtr, B3SOIDDIbsBinding, B3SOIDDibsNode, B3SOIDDibsNode);
+                BFOO(B3SOIDDIbdPtr, B3SOIDDIbdBinding, B3SOIDDibdNode, B3SOIDDibdNode);
+                BFOO(B3SOIDDIiiPtr, B3SOIDDIiiBinding, B3SOIDDiiiNode, B3SOIDDiiiNode);
+                BFOO(B3SOIDDIgidlPtr, B3SOIDDIgidlBinding, B3SOIDDigidlNode, B3SOIDDigidlNode);
+                BFOO(B3SOIDDItunPtr, B3SOIDDItunBinding, B3SOIDDitunNode, B3SOIDDitunNode);
+                BFOO(B3SOIDDIbpPtr, B3SOIDDIbpBinding, B3SOIDDibpNode, B3SOIDDibpNode);
+                BFOO(B3SOIDDAbeffPtr, B3SOIDDAbeffBinding, B3SOIDDabeffNode, B3SOIDDabeffNode);
+                BFOO(B3SOIDDVbs0effPtr, B3SOIDDVbs0effBinding, B3SOIDDvbs0effNode, B3SOIDDvbs0effNode);
+                BFOO(B3SOIDDVbseffPtr, B3SOIDDVbseffBinding, B3SOIDDvbseffNode, B3SOIDDvbseffNode);
+                BFOO(B3SOIDDXcPtr, B3SOIDDXcBinding, B3SOIDDxcNode, B3SOIDDxcNode);
+                BFOO(B3SOIDDCbbPtr, B3SOIDDCbbBinding, B3SOIDDcbbNode, B3SOIDDcbbNode);
+                BFOO(B3SOIDDCbdPtr, B3SOIDDCbdBinding, B3SOIDDcbdNode, B3SOIDDcbdNode);
+                BFOO(B3SOIDDCbgPtr, B3SOIDDCbgBinding, B3SOIDDcbgNode, B3SOIDDcbgNode);
+                BFOO(B3SOIDDqbPtr, B3SOIDDqbBinding, B3SOIDDqbNode, B3SOIDDqbNode);
+                BFOO(B3SOIDDQbfPtr, B3SOIDDQbfBinding, B3SOIDDqbfNode, B3SOIDDqbfNode);
+                BFOO(B3SOIDDQjsPtr, B3SOIDDQjsBinding, B3SOIDDqjsNode, B3SOIDDqjsNode);
+                BFOO(B3SOIDDQjdPtr, B3SOIDDQjdBinding, B3SOIDDqjdNode, B3SOIDDqjdNode);
+                BFOO(B3SOIDDGmPtr, B3SOIDDGmBinding, B3SOIDDgmNode, B3SOIDDgmNode);
+                BFOO(B3SOIDDGmbsPtr, B3SOIDDGmbsBinding, B3SOIDDgmbsNode, B3SOIDDgmbsNode);
+                BFOO(B3SOIDDGdsPtr, B3SOIDDGdsBinding, B3SOIDDgdsNode, B3SOIDDgdsNode);
+                BFOO(B3SOIDDGmePtr, B3SOIDDGmeBinding, B3SOIDDgmeNode, B3SOIDDgmeNode);
+                BFOO(B3SOIDDVbs0teffPtr, B3SOIDDVbs0teffBinding, B3SOIDDvbs0teffNode, B3SOIDDvbs0teffNode);
+                BFOO(B3SOIDDVthPtr, B3SOIDDVthBinding, B3SOIDDvthNode, B3SOIDDvthNode);
+                BFOO(B3SOIDDVgsteffPtr, B3SOIDDVgsteffBinding, B3SOIDDvgsteffNode, B3SOIDDvgsteffNode);
+                BFOO(B3SOIDDXcsatPtr, B3SOIDDXcsatBinding, B3SOIDDxcsatNode, B3SOIDDxcsatNode);
+                BFOO(B3SOIDDVcscvPtr, B3SOIDDVcscvBinding, B3SOIDDvcscvNode, B3SOIDDvcscvNode);
+                BFOO(B3SOIDDVdscvPtr, B3SOIDDVdscvBinding, B3SOIDDvdscvNode, B3SOIDDvdscvNode);
+                BFOO(B3SOIDDCbePtr, B3SOIDDCbeBinding, B3SOIDDcbeNode, B3SOIDDcbeNode);
+                BFOO(B3SOIDDDum1Ptr, B3SOIDDDum1Binding, B3SOIDDdum1Node, B3SOIDDdum1Node);
+                BFOO(B3SOIDDDum2Ptr, B3SOIDDDum2Binding, B3SOIDDdum2Node, B3SOIDDdum2Node);
+                BFOO(B3SOIDDDum3Ptr, B3SOIDDDum3Binding, B3SOIDDdum3Node, B3SOIDDdum3Node);
+                BFOO(B3SOIDDDum4Ptr, B3SOIDDDum4Binding, B3SOIDDdum4Node, B3SOIDDdum4Node);
+                BFOO(B3SOIDDDum5Ptr, B3SOIDDDum5Binding, B3SOIDDdum5Node, B3SOIDDdum5Node);
+                BFOO(B3SOIDDQaccPtr, B3SOIDDQaccBinding, B3SOIDDqaccNode, B3SOIDDqaccNode);
+                BFOO(B3SOIDDQsub0Ptr, B3SOIDDQsub0Binding, B3SOIDDqsub0Node, B3SOIDDqsub0Node);
+                BFOO(B3SOIDDQsubs1Ptr, B3SOIDDQsubs1Binding, B3SOIDDqsubs1Node, B3SOIDDqsubs1Node);
+                BFOO(B3SOIDDQsubs2Ptr, B3SOIDDQsubs2Binding, B3SOIDDqsubs2Node, B3SOIDDqsubs2Node);
+                BFOO(B3SOIDDqePtr, B3SOIDDqeBinding, B3SOIDDqeNode, B3SOIDDqeNode);
+                BFOO(B3SOIDDqdPtr, B3SOIDDqdBinding, B3SOIDDqdNode, B3SOIDDqdNode);
+                BFOO(B3SOIDDqgPtr, B3SOIDDqgBinding, B3SOIDDqgNode, B3SOIDDqgNode);
             }
         }
     }
@@ -1134,44 +297,20 @@ B3SOIDDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         {
             if ((model->B3SOIDDshMod == 1) && (here->B3SOIDDrth0 != 0.0))
             {
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDTemptempPtr = here->B3SOIDDTemptempBinding->CSC ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                    here->B3SOIDDTempdpPtr = here->B3SOIDDTempdpBinding->CSC ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                    here->B3SOIDDTempspPtr = here->B3SOIDDTempspBinding->CSC ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDgNode != 0))
-                    here->B3SOIDDTempgPtr = here->B3SOIDDTempgBinding->CSC ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDbNode != 0))
-                    here->B3SOIDDTempbPtr = here->B3SOIDDTempbBinding->CSC ;
-
-                if ((here-> B3SOIDDtempNode != 0) && (here-> B3SOIDDeNode != 0))
-                    here->B3SOIDDTempePtr = here->B3SOIDDTempeBinding->CSC ;
-
-                if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDGtempPtr = here->B3SOIDDGtempBinding->CSC ;
-
-                if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDDPtempPtr = here->B3SOIDDDPtempBinding->CSC ;
-
-                if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDSPtempPtr = here->B3SOIDDSPtempBinding->CSC ;
-
-                if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDEtempPtr = here->B3SOIDDEtempBinding->CSC ;
-
-                if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDtempNode != 0))
-                    here->B3SOIDDBtempPtr = here->B3SOIDDBtempBinding->CSC ;
-
+                CFOO(B3SOIDDTemptempPtr, B3SOIDDTemptempBinding, B3SOIDDtempNode, B3SOIDDtempNode);
+                CFOO(B3SOIDDTempdpPtr, B3SOIDDTempdpBinding, B3SOIDDtempNode, B3SOIDDdNodePrime);
+                CFOO(B3SOIDDTempspPtr, B3SOIDDTempspBinding, B3SOIDDtempNode, B3SOIDDsNodePrime);
+                CFOO(B3SOIDDTempgPtr, B3SOIDDTempgBinding, B3SOIDDtempNode, B3SOIDDgNode);
+                CFOO(B3SOIDDTempbPtr, B3SOIDDTempbBinding, B3SOIDDtempNode, B3SOIDDbNode);
+                CFOO(B3SOIDDTempePtr, B3SOIDDTempeBinding, B3SOIDDtempNode, B3SOIDDeNode);
+                CFOO(B3SOIDDGtempPtr, B3SOIDDGtempBinding, B3SOIDDgNode, B3SOIDDtempNode);
+                CFOO(B3SOIDDDPtempPtr, B3SOIDDDPtempBinding, B3SOIDDdNodePrime, B3SOIDDtempNode);
+                CFOO(B3SOIDDSPtempPtr, B3SOIDDSPtempBinding, B3SOIDDsNodePrime, B3SOIDDtempNode);
+                CFOO(B3SOIDDEtempPtr, B3SOIDDEtempBinding, B3SOIDDeNode, B3SOIDDtempNode);
+                CFOO(B3SOIDDBtempPtr, B3SOIDDBtempBinding, B3SOIDDbNode, B3SOIDDtempNode);
                 if (here->B3SOIDDbodyMod == 1)
                 {
-                    if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDtempNode != 0))
-                        here->B3SOIDDPtempPtr = here->B3SOIDDPtempBinding->CSC ;
-
+                    CFOO(B3SOIDDPtempPtr, B3SOIDDPtempBinding, B3SOIDDpNode, B3SOIDDtempNode);
                 }
             }
             if (here->B3SOIDDbodyMod == 2)
@@ -1179,252 +318,90 @@ B3SOIDDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             }
             else if (here->B3SOIDDbodyMod == 1)
             {
-                if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDpNode != 0))
-                    here->B3SOIDDBpPtr = here->B3SOIDDBpBinding->CSC ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDbNode != 0))
-                    here->B3SOIDDPbPtr = here->B3SOIDDPbBinding->CSC ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDpNode != 0))
-                    here->B3SOIDDPpPtr = here->B3SOIDDPpBinding->CSC ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDgNode != 0))
-                    here->B3SOIDDPgPtr = here->B3SOIDDPgBinding->CSC ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                    here->B3SOIDDPdpPtr = here->B3SOIDDPdpBinding->CSC ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                    here->B3SOIDDPspPtr = here->B3SOIDDPspBinding->CSC ;
-
-                if ((here-> B3SOIDDpNode != 0) && (here-> B3SOIDDeNode != 0))
-                    here->B3SOIDDPePtr = here->B3SOIDDPeBinding->CSC ;
-
+                CFOO(B3SOIDDBpPtr, B3SOIDDBpBinding, B3SOIDDbNode, B3SOIDDpNode);
+                CFOO(B3SOIDDPbPtr, B3SOIDDPbBinding, B3SOIDDpNode, B3SOIDDbNode);
+                CFOO(B3SOIDDPpPtr, B3SOIDDPpBinding, B3SOIDDpNode, B3SOIDDpNode);
+                CFOO(B3SOIDDPgPtr, B3SOIDDPgBinding, B3SOIDDpNode, B3SOIDDgNode);
+                CFOO(B3SOIDDPdpPtr, B3SOIDDPdpBinding, B3SOIDDpNode, B3SOIDDdNodePrime);
+                CFOO(B3SOIDDPspPtr, B3SOIDDPspBinding, B3SOIDDpNode, B3SOIDDsNodePrime);
+                CFOO(B3SOIDDPePtr, B3SOIDDPeBinding, B3SOIDDpNode, B3SOIDDeNode);
             }
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDEgPtr = here->B3SOIDDEgBinding->CSC ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDEdpPtr = here->B3SOIDDEdpBinding->CSC ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDEspPtr = here->B3SOIDDEspBinding->CSC ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDGePtr = here->B3SOIDDGeBinding->CSC ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDDPePtr = here->B3SOIDDDPeBinding->CSC ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDSPePtr = here->B3SOIDDSPeBinding->CSC ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDEbPtr = here->B3SOIDDEbBinding->CSC ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDGbPtr = here->B3SOIDDGbBinding->CSC ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDDPbPtr = here->B3SOIDDDPbBinding->CSC ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDSPbPtr = here->B3SOIDDSPbBinding->CSC ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDBePtr = here->B3SOIDDBeBinding->CSC ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDBgPtr = here->B3SOIDDBgBinding->CSC ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDBdpPtr = here->B3SOIDDBdpBinding->CSC ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDBspPtr = here->B3SOIDDBspBinding->CSC ;
-
-            if ((here-> B3SOIDDbNode != 0) && (here-> B3SOIDDbNode != 0))
-                here->B3SOIDDBbPtr = here->B3SOIDDBbBinding->CSC ;
-
-            if ((here-> B3SOIDDeNode != 0) && (here-> B3SOIDDeNode != 0))
-                here->B3SOIDDEePtr = here->B3SOIDDEeBinding->CSC ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDGgPtr = here->B3SOIDDGgBinding->CSC ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDGdpPtr = here->B3SOIDDGdpBinding->CSC ;
-
-            if ((here-> B3SOIDDgNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDGspPtr = here->B3SOIDDGspBinding->CSC ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDDPgPtr = here->B3SOIDDDPgBinding->CSC ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDDPdpPtr = here->B3SOIDDDPdpBinding->CSC ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDDPspPtr = here->B3SOIDDDPspBinding->CSC ;
-
-            if ((here-> B3SOIDDdNodePrime != 0) && (here-> B3SOIDDdNode != 0))
-                here->B3SOIDDDPdPtr = here->B3SOIDDDPdBinding->CSC ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDgNode != 0))
-                here->B3SOIDDSPgPtr = here->B3SOIDDSPgBinding->CSC ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDSPdpPtr = here->B3SOIDDSPdpBinding->CSC ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDSPspPtr = here->B3SOIDDSPspBinding->CSC ;
-
-            if ((here-> B3SOIDDsNodePrime != 0) && (here-> B3SOIDDsNode != 0))
-                here->B3SOIDDSPsPtr = here->B3SOIDDSPsBinding->CSC ;
-
-            if ((here-> B3SOIDDdNode != 0) && (here-> B3SOIDDdNode != 0))
-                here->B3SOIDDDdPtr = here->B3SOIDDDdBinding->CSC ;
-
-            if ((here-> B3SOIDDdNode != 0) && (here-> B3SOIDDdNodePrime != 0))
-                here->B3SOIDDDdpPtr = here->B3SOIDDDdpBinding->CSC ;
-
-            if ((here-> B3SOIDDsNode != 0) && (here-> B3SOIDDsNode != 0))
-                here->B3SOIDDSsPtr = here->B3SOIDDSsBinding->CSC ;
-
-            if ((here-> B3SOIDDsNode != 0) && (here-> B3SOIDDsNodePrime != 0))
-                here->B3SOIDDSspPtr = here->B3SOIDDSspBinding->CSC ;
-
+            CFOO(B3SOIDDEgPtr, B3SOIDDEgBinding, B3SOIDDeNode, B3SOIDDgNode);
+            CFOO(B3SOIDDEdpPtr, B3SOIDDEdpBinding, B3SOIDDeNode, B3SOIDDdNodePrime);
+            CFOO(B3SOIDDEspPtr, B3SOIDDEspBinding, B3SOIDDeNode, B3SOIDDsNodePrime);
+            CFOO(B3SOIDDGePtr, B3SOIDDGeBinding, B3SOIDDgNode, B3SOIDDeNode);
+            CFOO(B3SOIDDDPePtr, B3SOIDDDPeBinding, B3SOIDDdNodePrime, B3SOIDDeNode);
+            CFOO(B3SOIDDSPePtr, B3SOIDDSPeBinding, B3SOIDDsNodePrime, B3SOIDDeNode);
+            CFOO(B3SOIDDEbPtr, B3SOIDDEbBinding, B3SOIDDeNode, B3SOIDDbNode);
+            CFOO(B3SOIDDGbPtr, B3SOIDDGbBinding, B3SOIDDgNode, B3SOIDDbNode);
+            CFOO(B3SOIDDDPbPtr, B3SOIDDDPbBinding, B3SOIDDdNodePrime, B3SOIDDbNode);
+            CFOO(B3SOIDDSPbPtr, B3SOIDDSPbBinding, B3SOIDDsNodePrime, B3SOIDDbNode);
+            CFOO(B3SOIDDBePtr, B3SOIDDBeBinding, B3SOIDDbNode, B3SOIDDeNode);
+            CFOO(B3SOIDDBgPtr, B3SOIDDBgBinding, B3SOIDDbNode, B3SOIDDgNode);
+            CFOO(B3SOIDDBdpPtr, B3SOIDDBdpBinding, B3SOIDDbNode, B3SOIDDdNodePrime);
+            CFOO(B3SOIDDBspPtr, B3SOIDDBspBinding, B3SOIDDbNode, B3SOIDDsNodePrime);
+            CFOO(B3SOIDDBbPtr, B3SOIDDBbBinding, B3SOIDDbNode, B3SOIDDbNode);
+            CFOO(B3SOIDDEePtr, B3SOIDDEeBinding, B3SOIDDeNode, B3SOIDDeNode);
+            CFOO(B3SOIDDGgPtr, B3SOIDDGgBinding, B3SOIDDgNode, B3SOIDDgNode);
+            CFOO(B3SOIDDGdpPtr, B3SOIDDGdpBinding, B3SOIDDgNode, B3SOIDDdNodePrime);
+            CFOO(B3SOIDDGspPtr, B3SOIDDGspBinding, B3SOIDDgNode, B3SOIDDsNodePrime);
+            CFOO(B3SOIDDDPgPtr, B3SOIDDDPgBinding, B3SOIDDdNodePrime, B3SOIDDgNode);
+            CFOO(B3SOIDDDPdpPtr, B3SOIDDDPdpBinding, B3SOIDDdNodePrime, B3SOIDDdNodePrime);
+            CFOO(B3SOIDDDPspPtr, B3SOIDDDPspBinding, B3SOIDDdNodePrime, B3SOIDDsNodePrime);
+            CFOO(B3SOIDDDPdPtr, B3SOIDDDPdBinding, B3SOIDDdNodePrime, B3SOIDDdNode);
+            CFOO(B3SOIDDSPgPtr, B3SOIDDSPgBinding, B3SOIDDsNodePrime, B3SOIDDgNode);
+            CFOO(B3SOIDDSPdpPtr, B3SOIDDSPdpBinding, B3SOIDDsNodePrime, B3SOIDDdNodePrime);
+            CFOO(B3SOIDDSPspPtr, B3SOIDDSPspBinding, B3SOIDDsNodePrime, B3SOIDDsNodePrime);
+            CFOO(B3SOIDDSPsPtr, B3SOIDDSPsBinding, B3SOIDDsNodePrime, B3SOIDDsNode);
+            CFOO(B3SOIDDDdPtr, B3SOIDDDdBinding, B3SOIDDdNode, B3SOIDDdNode);
+            CFOO(B3SOIDDDdpPtr, B3SOIDDDdpBinding, B3SOIDDdNode, B3SOIDDdNodePrime);
+            CFOO(B3SOIDDSsPtr, B3SOIDDSsBinding, B3SOIDDsNode, B3SOIDDsNode);
+            CFOO(B3SOIDDSspPtr, B3SOIDDSspBinding, B3SOIDDsNode, B3SOIDDsNodePrime);
             if ((here->B3SOIDDdebugMod > 1) || (here->B3SOIDDdebugMod == -1))
             {
-                if ((here-> B3SOIDDvbsNode != 0) && (here-> B3SOIDDvbsNode != 0))
-                    here->B3SOIDDVbsPtr = here->B3SOIDDVbsBinding->CSC ;
-
-                if ((here-> B3SOIDDidsNode != 0) && (here-> B3SOIDDidsNode != 0))
-                    here->B3SOIDDIdsPtr = here->B3SOIDDIdsBinding->CSC ;
-
-                if ((here-> B3SOIDDicNode != 0) && (here-> B3SOIDDicNode != 0))
-                    here->B3SOIDDIcPtr = here->B3SOIDDIcBinding->CSC ;
-
-                if ((here-> B3SOIDDibsNode != 0) && (here-> B3SOIDDibsNode != 0))
-                    here->B3SOIDDIbsPtr = here->B3SOIDDIbsBinding->CSC ;
-
-                if ((here-> B3SOIDDibdNode != 0) && (here-> B3SOIDDibdNode != 0))
-                    here->B3SOIDDIbdPtr = here->B3SOIDDIbdBinding->CSC ;
-
-                if ((here-> B3SOIDDiiiNode != 0) && (here-> B3SOIDDiiiNode != 0))
-                    here->B3SOIDDIiiPtr = here->B3SOIDDIiiBinding->CSC ;
-
-                if ((here-> B3SOIDDigidlNode != 0) && (here-> B3SOIDDigidlNode != 0))
-                    here->B3SOIDDIgidlPtr = here->B3SOIDDIgidlBinding->CSC ;
-
-                if ((here-> B3SOIDDitunNode != 0) && (here-> B3SOIDDitunNode != 0))
-                    here->B3SOIDDItunPtr = here->B3SOIDDItunBinding->CSC ;
-
-                if ((here-> B3SOIDDibpNode != 0) && (here-> B3SOIDDibpNode != 0))
-                    here->B3SOIDDIbpPtr = here->B3SOIDDIbpBinding->CSC ;
-
-                if ((here-> B3SOIDDabeffNode != 0) && (here-> B3SOIDDabeffNode != 0))
-                    here->B3SOIDDAbeffPtr = here->B3SOIDDAbeffBinding->CSC ;
-
-                if ((here-> B3SOIDDvbs0effNode != 0) && (here-> B3SOIDDvbs0effNode != 0))
-                    here->B3SOIDDVbs0effPtr = here->B3SOIDDVbs0effBinding->CSC ;
-
-                if ((here-> B3SOIDDvbseffNode != 0) && (here-> B3SOIDDvbseffNode != 0))
-                    here->B3SOIDDVbseffPtr = here->B3SOIDDVbseffBinding->CSC ;
-
-                if ((here-> B3SOIDDxcNode != 0) && (here-> B3SOIDDxcNode != 0))
-                    here->B3SOIDDXcPtr = here->B3SOIDDXcBinding->CSC ;
-
-                if ((here-> B3SOIDDcbbNode != 0) && (here-> B3SOIDDcbbNode != 0))
-                    here->B3SOIDDCbbPtr = here->B3SOIDDCbbBinding->CSC ;
-
-                if ((here-> B3SOIDDcbdNode != 0) && (here-> B3SOIDDcbdNode != 0))
-                    here->B3SOIDDCbdPtr = here->B3SOIDDCbdBinding->CSC ;
-
-                if ((here-> B3SOIDDcbgNode != 0) && (here-> B3SOIDDcbgNode != 0))
-                    here->B3SOIDDCbgPtr = here->B3SOIDDCbgBinding->CSC ;
-
-                if ((here-> B3SOIDDqbNode != 0) && (here-> B3SOIDDqbNode != 0))
-                    here->B3SOIDDqbPtr = here->B3SOIDDqbBinding->CSC ;
-
-                if ((here-> B3SOIDDqbfNode != 0) && (here-> B3SOIDDqbfNode != 0))
-                    here->B3SOIDDQbfPtr = here->B3SOIDDQbfBinding->CSC ;
-
-                if ((here-> B3SOIDDqjsNode != 0) && (here-> B3SOIDDqjsNode != 0))
-                    here->B3SOIDDQjsPtr = here->B3SOIDDQjsBinding->CSC ;
-
-                if ((here-> B3SOIDDqjdNode != 0) && (here-> B3SOIDDqjdNode != 0))
-                    here->B3SOIDDQjdPtr = here->B3SOIDDQjdBinding->CSC ;
-
-                if ((here-> B3SOIDDgmNode != 0) && (here-> B3SOIDDgmNode != 0))
-                    here->B3SOIDDGmPtr = here->B3SOIDDGmBinding->CSC ;
-
-                if ((here-> B3SOIDDgmbsNode != 0) && (here-> B3SOIDDgmbsNode != 0))
-                    here->B3SOIDDGmbsPtr = here->B3SOIDDGmbsBinding->CSC ;
-
-                if ((here-> B3SOIDDgdsNode != 0) && (here-> B3SOIDDgdsNode != 0))
-                    here->B3SOIDDGdsPtr = here->B3SOIDDGdsBinding->CSC ;
-
-                if ((here-> B3SOIDDgmeNode != 0) && (here-> B3SOIDDgmeNode != 0))
-                    here->B3SOIDDGmePtr = here->B3SOIDDGmeBinding->CSC ;
-
-                if ((here-> B3SOIDDvbs0teffNode != 0) && (here-> B3SOIDDvbs0teffNode != 0))
-                    here->B3SOIDDVbs0teffPtr = here->B3SOIDDVbs0teffBinding->CSC ;
-
-                if ((here-> B3SOIDDvthNode != 0) && (here-> B3SOIDDvthNode != 0))
-                    here->B3SOIDDVthPtr = here->B3SOIDDVthBinding->CSC ;
-
-                if ((here-> B3SOIDDvgsteffNode != 0) && (here-> B3SOIDDvgsteffNode != 0))
-                    here->B3SOIDDVgsteffPtr = here->B3SOIDDVgsteffBinding->CSC ;
-
-                if ((here-> B3SOIDDxcsatNode != 0) && (here-> B3SOIDDxcsatNode != 0))
-                    here->B3SOIDDXcsatPtr = here->B3SOIDDXcsatBinding->CSC ;
-
-                if ((here-> B3SOIDDvcscvNode != 0) && (here-> B3SOIDDvcscvNode != 0))
-                    here->B3SOIDDVcscvPtr = here->B3SOIDDVcscvBinding->CSC ;
-
-                if ((here-> B3SOIDDvdscvNode != 0) && (here-> B3SOIDDvdscvNode != 0))
-                    here->B3SOIDDVdscvPtr = here->B3SOIDDVdscvBinding->CSC ;
-
-                if ((here-> B3SOIDDcbeNode != 0) && (here-> B3SOIDDcbeNode != 0))
-                    here->B3SOIDDCbePtr = here->B3SOIDDCbeBinding->CSC ;
-
-                if ((here-> B3SOIDDdum1Node != 0) && (here-> B3SOIDDdum1Node != 0))
-                    here->B3SOIDDDum1Ptr = here->B3SOIDDDum1Binding->CSC ;
-
-                if ((here-> B3SOIDDdum2Node != 0) && (here-> B3SOIDDdum2Node != 0))
-                    here->B3SOIDDDum2Ptr = here->B3SOIDDDum2Binding->CSC ;
-
-                if ((here-> B3SOIDDdum3Node != 0) && (here-> B3SOIDDdum3Node != 0))
-                    here->B3SOIDDDum3Ptr = here->B3SOIDDDum3Binding->CSC ;
-
-                if ((here-> B3SOIDDdum4Node != 0) && (here-> B3SOIDDdum4Node != 0))
-                    here->B3SOIDDDum4Ptr = here->B3SOIDDDum4Binding->CSC ;
-
-                if ((here-> B3SOIDDdum5Node != 0) && (here-> B3SOIDDdum5Node != 0))
-                    here->B3SOIDDDum5Ptr = here->B3SOIDDDum5Binding->CSC ;
-
-                if ((here-> B3SOIDDqaccNode != 0) && (here-> B3SOIDDqaccNode != 0))
-                    here->B3SOIDDQaccPtr = here->B3SOIDDQaccBinding->CSC ;
-
-                if ((here-> B3SOIDDqsub0Node != 0) && (here-> B3SOIDDqsub0Node != 0))
-                    here->B3SOIDDQsub0Ptr = here->B3SOIDDQsub0Binding->CSC ;
-
-                if ((here-> B3SOIDDqsubs1Node != 0) && (here-> B3SOIDDqsubs1Node != 0))
-                    here->B3SOIDDQsubs1Ptr = here->B3SOIDDQsubs1Binding->CSC ;
-
-                if ((here-> B3SOIDDqsubs2Node != 0) && (here-> B3SOIDDqsubs2Node != 0))
-                    here->B3SOIDDQsubs2Ptr = here->B3SOIDDQsubs2Binding->CSC ;
-
-                if ((here-> B3SOIDDqeNode != 0) && (here-> B3SOIDDqeNode != 0))
-                    here->B3SOIDDqePtr = here->B3SOIDDqeBinding->CSC ;
-
-                if ((here-> B3SOIDDqdNode != 0) && (here-> B3SOIDDqdNode != 0))
-                    here->B3SOIDDqdPtr = here->B3SOIDDqdBinding->CSC ;
-
-                if ((here-> B3SOIDDqgNode != 0) && (here-> B3SOIDDqgNode != 0))
-                    here->B3SOIDDqgPtr = here->B3SOIDDqgBinding->CSC ;
-
+                CFOO(B3SOIDDVbsPtr, B3SOIDDVbsBinding, B3SOIDDvbsNode, B3SOIDDvbsNode);
+                CFOO(B3SOIDDIdsPtr, B3SOIDDIdsBinding, B3SOIDDidsNode, B3SOIDDidsNode);
+                CFOO(B3SOIDDIcPtr, B3SOIDDIcBinding, B3SOIDDicNode, B3SOIDDicNode);
+                CFOO(B3SOIDDIbsPtr, B3SOIDDIbsBinding, B3SOIDDibsNode, B3SOIDDibsNode);
+                CFOO(B3SOIDDIbdPtr, B3SOIDDIbdBinding, B3SOIDDibdNode, B3SOIDDibdNode);
+                CFOO(B3SOIDDIiiPtr, B3SOIDDIiiBinding, B3SOIDDiiiNode, B3SOIDDiiiNode);
+                CFOO(B3SOIDDIgidlPtr, B3SOIDDIgidlBinding, B3SOIDDigidlNode, B3SOIDDigidlNode);
+                CFOO(B3SOIDDItunPtr, B3SOIDDItunBinding, B3SOIDDitunNode, B3SOIDDitunNode);
+                CFOO(B3SOIDDIbpPtr, B3SOIDDIbpBinding, B3SOIDDibpNode, B3SOIDDibpNode);
+                CFOO(B3SOIDDAbeffPtr, B3SOIDDAbeffBinding, B3SOIDDabeffNode, B3SOIDDabeffNode);
+                CFOO(B3SOIDDVbs0effPtr, B3SOIDDVbs0effBinding, B3SOIDDvbs0effNode, B3SOIDDvbs0effNode);
+                CFOO(B3SOIDDVbseffPtr, B3SOIDDVbseffBinding, B3SOIDDvbseffNode, B3SOIDDvbseffNode);
+                CFOO(B3SOIDDXcPtr, B3SOIDDXcBinding, B3SOIDDxcNode, B3SOIDDxcNode);
+                CFOO(B3SOIDDCbbPtr, B3SOIDDCbbBinding, B3SOIDDcbbNode, B3SOIDDcbbNode);
+                CFOO(B3SOIDDCbdPtr, B3SOIDDCbdBinding, B3SOIDDcbdNode, B3SOIDDcbdNode);
+                CFOO(B3SOIDDCbgPtr, B3SOIDDCbgBinding, B3SOIDDcbgNode, B3SOIDDcbgNode);
+                CFOO(B3SOIDDqbPtr, B3SOIDDqbBinding, B3SOIDDqbNode, B3SOIDDqbNode);
+                CFOO(B3SOIDDQbfPtr, B3SOIDDQbfBinding, B3SOIDDqbfNode, B3SOIDDqbfNode);
+                CFOO(B3SOIDDQjsPtr, B3SOIDDQjsBinding, B3SOIDDqjsNode, B3SOIDDqjsNode);
+                CFOO(B3SOIDDQjdPtr, B3SOIDDQjdBinding, B3SOIDDqjdNode, B3SOIDDqjdNode);
+                CFOO(B3SOIDDGmPtr, B3SOIDDGmBinding, B3SOIDDgmNode, B3SOIDDgmNode);
+                CFOO(B3SOIDDGmbsPtr, B3SOIDDGmbsBinding, B3SOIDDgmbsNode, B3SOIDDgmbsNode);
+                CFOO(B3SOIDDGdsPtr, B3SOIDDGdsBinding, B3SOIDDgdsNode, B3SOIDDgdsNode);
+                CFOO(B3SOIDDGmePtr, B3SOIDDGmeBinding, B3SOIDDgmeNode, B3SOIDDgmeNode);
+                CFOO(B3SOIDDVbs0teffPtr, B3SOIDDVbs0teffBinding, B3SOIDDvbs0teffNode, B3SOIDDvbs0teffNode);
+                CFOO(B3SOIDDVthPtr, B3SOIDDVthBinding, B3SOIDDvthNode, B3SOIDDvthNode);
+                CFOO(B3SOIDDVgsteffPtr, B3SOIDDVgsteffBinding, B3SOIDDvgsteffNode, B3SOIDDvgsteffNode);
+                CFOO(B3SOIDDXcsatPtr, B3SOIDDXcsatBinding, B3SOIDDxcsatNode, B3SOIDDxcsatNode);
+                CFOO(B3SOIDDVcscvPtr, B3SOIDDVcscvBinding, B3SOIDDvcscvNode, B3SOIDDvcscvNode);
+                CFOO(B3SOIDDVdscvPtr, B3SOIDDVdscvBinding, B3SOIDDvdscvNode, B3SOIDDvdscvNode);
+                CFOO(B3SOIDDCbePtr, B3SOIDDCbeBinding, B3SOIDDcbeNode, B3SOIDDcbeNode);
+                CFOO(B3SOIDDDum1Ptr, B3SOIDDDum1Binding, B3SOIDDdum1Node, B3SOIDDdum1Node);
+                CFOO(B3SOIDDDum2Ptr, B3SOIDDDum2Binding, B3SOIDDdum2Node, B3SOIDDdum2Node);
+                CFOO(B3SOIDDDum3Ptr, B3SOIDDDum3Binding, B3SOIDDdum3Node, B3SOIDDdum3Node);
+                CFOO(B3SOIDDDum4Ptr, B3SOIDDDum4Binding, B3SOIDDdum4Node, B3SOIDDdum4Node);
+                CFOO(B3SOIDDDum5Ptr, B3SOIDDDum5Binding, B3SOIDDdum5Node, B3SOIDDdum5Node);
+                CFOO(B3SOIDDQaccPtr, B3SOIDDQaccBinding, B3SOIDDqaccNode, B3SOIDDqaccNode);
+                CFOO(B3SOIDDQsub0Ptr, B3SOIDDQsub0Binding, B3SOIDDqsub0Node, B3SOIDDqsub0Node);
+                CFOO(B3SOIDDQsubs1Ptr, B3SOIDDQsubs1Binding, B3SOIDDqsubs1Node, B3SOIDDqsubs1Node);
+                CFOO(B3SOIDDQsubs2Ptr, B3SOIDDQsubs2Binding, B3SOIDDqsubs2Node, B3SOIDDqsubs2Node);
+                CFOO(B3SOIDDqePtr, B3SOIDDqeBinding, B3SOIDDqeNode, B3SOIDDqeNode);
+                CFOO(B3SOIDDqdPtr, B3SOIDDqdBinding, B3SOIDDqdNode, B3SOIDDqdNode);
+                CFOO(B3SOIDDqgPtr, B3SOIDDqgBinding, B3SOIDDqgNode, B3SOIDDqgNode);
             }
         }
     }

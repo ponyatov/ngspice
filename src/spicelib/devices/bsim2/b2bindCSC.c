@@ -39,182 +39,28 @@ B2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->B2instances ; here != NULL ; here = here->B2nextInstance)
         {
-            if ((here-> B2dNode != 0) && (here-> B2dNode != 0))
-            {
-                i = here->B2DdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DdBinding = matched ;
-                here->B2DdPtr = matched->CSC ;
-            }
-
-            if ((here-> B2gNode != 0) && (here-> B2gNode != 0))
-            {
-                i = here->B2GgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2GgBinding = matched ;
-                here->B2GgPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNode != 0) && (here-> B2sNode != 0))
-            {
-                i = here->B2SsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SsBinding = matched ;
-                here->B2SsPtr = matched->CSC ;
-            }
-
-            if ((here-> B2bNode != 0) && (here-> B2bNode != 0))
-            {
-                i = here->B2BbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2BbBinding = matched ;
-                here->B2BbPtr = matched->CSC ;
-            }
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2dNodePrime != 0))
-            {
-                i = here->B2DPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DPdpBinding = matched ;
-                here->B2DPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2sNodePrime != 0))
-            {
-                i = here->B2SPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SPspBinding = matched ;
-                here->B2SPspPtr = matched->CSC ;
-            }
-
-            if ((here-> B2dNode != 0) && (here-> B2dNodePrime != 0))
-            {
-                i = here->B2DdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DdpBinding = matched ;
-                here->B2DdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B2gNode != 0) && (here-> B2bNode != 0))
-            {
-                i = here->B2GbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2GbBinding = matched ;
-                here->B2GbPtr = matched->CSC ;
-            }
-
-            if ((here-> B2gNode != 0) && (here-> B2dNodePrime != 0))
-            {
-                i = here->B2GdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2GdpBinding = matched ;
-                here->B2GdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B2gNode != 0) && (here-> B2sNodePrime != 0))
-            {
-                i = here->B2GspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2GspBinding = matched ;
-                here->B2GspPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNode != 0) && (here-> B2sNodePrime != 0))
-            {
-                i = here->B2SspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SspBinding = matched ;
-                here->B2SspPtr = matched->CSC ;
-            }
-
-            if ((here-> B2bNode != 0) && (here-> B2dNodePrime != 0))
-            {
-                i = here->B2BdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2BdpBinding = matched ;
-                here->B2BdpPtr = matched->CSC ;
-            }
-
-            if ((here-> B2bNode != 0) && (here-> B2sNodePrime != 0))
-            {
-                i = here->B2BspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2BspBinding = matched ;
-                here->B2BspPtr = matched->CSC ;
-            }
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2sNodePrime != 0))
-            {
-                i = here->B2DPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DPspBinding = matched ;
-                here->B2DPspPtr = matched->CSC ;
-            }
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2dNode != 0))
-            {
-                i = here->B2DPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DPdBinding = matched ;
-                here->B2DPdPtr = matched->CSC ;
-            }
-
-            if ((here-> B2bNode != 0) && (here-> B2gNode != 0))
-            {
-                i = here->B2BgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2BgBinding = matched ;
-                here->B2BgPtr = matched->CSC ;
-            }
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2gNode != 0))
-            {
-                i = here->B2DPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DPgBinding = matched ;
-                here->B2DPgPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2gNode != 0))
-            {
-                i = here->B2SPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SPgBinding = matched ;
-                here->B2SPgPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2sNode != 0))
-            {
-                i = here->B2SPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SPsBinding = matched ;
-                here->B2SPsPtr = matched->CSC ;
-            }
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2bNode != 0))
-            {
-                i = here->B2DPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2DPbBinding = matched ;
-                here->B2DPbPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2bNode != 0))
-            {
-                i = here->B2SPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SPbBinding = matched ;
-                here->B2SPbPtr = matched->CSC ;
-            }
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2dNodePrime != 0))
-            {
-                i = here->B2SPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B2SPdpBinding = matched ;
-                here->B2SPdpPtr = matched->CSC ;
-            }
-
+            XFOO(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
+            XFOO(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
+            XFOO(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
+            XFOO(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
+            XFOO(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
+            XFOO(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
+            XFOO(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
+            XFOO(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
+            XFOO(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
+            XFOO(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
+            XFOO(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
+            XFOO(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
+            XFOO(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
+            XFOO(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
+            XFOO(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
+            XFOO(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
+            XFOO(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
+            XFOO(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
+            XFOO(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
+            XFOO(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
+            XFOO(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
+            XFOO(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
         }
     }
 
@@ -235,72 +81,28 @@ B2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->B2instances ; here != NULL ; here = here->B2nextInstance)
         {
-            if ((here-> B2dNode != 0) && (here-> B2dNode != 0))
-                here->B2DdPtr = here->B2DdBinding->CSC_Complex ;
-
-            if ((here-> B2gNode != 0) && (here-> B2gNode != 0))
-                here->B2GgPtr = here->B2GgBinding->CSC_Complex ;
-
-            if ((here-> B2sNode != 0) && (here-> B2sNode != 0))
-                here->B2SsPtr = here->B2SsBinding->CSC_Complex ;
-
-            if ((here-> B2bNode != 0) && (here-> B2bNode != 0))
-                here->B2BbPtr = here->B2BbBinding->CSC_Complex ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2dNodePrime != 0))
-                here->B2DPdpPtr = here->B2DPdpBinding->CSC_Complex ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2sNodePrime != 0))
-                here->B2SPspPtr = here->B2SPspBinding->CSC_Complex ;
-
-            if ((here-> B2dNode != 0) && (here-> B2dNodePrime != 0))
-                here->B2DdpPtr = here->B2DdpBinding->CSC_Complex ;
-
-            if ((here-> B2gNode != 0) && (here-> B2bNode != 0))
-                here->B2GbPtr = here->B2GbBinding->CSC_Complex ;
-
-            if ((here-> B2gNode != 0) && (here-> B2dNodePrime != 0))
-                here->B2GdpPtr = here->B2GdpBinding->CSC_Complex ;
-
-            if ((here-> B2gNode != 0) && (here-> B2sNodePrime != 0))
-                here->B2GspPtr = here->B2GspBinding->CSC_Complex ;
-
-            if ((here-> B2sNode != 0) && (here-> B2sNodePrime != 0))
-                here->B2SspPtr = here->B2SspBinding->CSC_Complex ;
-
-            if ((here-> B2bNode != 0) && (here-> B2dNodePrime != 0))
-                here->B2BdpPtr = here->B2BdpBinding->CSC_Complex ;
-
-            if ((here-> B2bNode != 0) && (here-> B2sNodePrime != 0))
-                here->B2BspPtr = here->B2BspBinding->CSC_Complex ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2sNodePrime != 0))
-                here->B2DPspPtr = here->B2DPspBinding->CSC_Complex ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2dNode != 0))
-                here->B2DPdPtr = here->B2DPdBinding->CSC_Complex ;
-
-            if ((here-> B2bNode != 0) && (here-> B2gNode != 0))
-                here->B2BgPtr = here->B2BgBinding->CSC_Complex ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2gNode != 0))
-                here->B2DPgPtr = here->B2DPgBinding->CSC_Complex ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2gNode != 0))
-                here->B2SPgPtr = here->B2SPgBinding->CSC_Complex ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2sNode != 0))
-                here->B2SPsPtr = here->B2SPsBinding->CSC_Complex ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2bNode != 0))
-                here->B2DPbPtr = here->B2DPbBinding->CSC_Complex ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2bNode != 0))
-                here->B2SPbPtr = here->B2SPbBinding->CSC_Complex ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2dNodePrime != 0))
-                here->B2SPdpPtr = here->B2SPdpBinding->CSC_Complex ;
-
+            BFOO(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
+            BFOO(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
+            BFOO(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
+            BFOO(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
+            BFOO(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
+            BFOO(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
+            BFOO(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
+            BFOO(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
+            BFOO(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
+            BFOO(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
+            BFOO(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
+            BFOO(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
+            BFOO(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
+            BFOO(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
+            BFOO(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
+            BFOO(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
+            BFOO(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
+            BFOO(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
+            BFOO(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
+            BFOO(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
+            BFOO(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
+            BFOO(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
         }
     }
 
@@ -321,72 +123,28 @@ B2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->B2instances ; here != NULL ; here = here->B2nextInstance)
         {
-            if ((here-> B2dNode != 0) && (here-> B2dNode != 0))
-                here->B2DdPtr = here->B2DdBinding->CSC ;
-
-            if ((here-> B2gNode != 0) && (here-> B2gNode != 0))
-                here->B2GgPtr = here->B2GgBinding->CSC ;
-
-            if ((here-> B2sNode != 0) && (here-> B2sNode != 0))
-                here->B2SsPtr = here->B2SsBinding->CSC ;
-
-            if ((here-> B2bNode != 0) && (here-> B2bNode != 0))
-                here->B2BbPtr = here->B2BbBinding->CSC ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2dNodePrime != 0))
-                here->B2DPdpPtr = here->B2DPdpBinding->CSC ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2sNodePrime != 0))
-                here->B2SPspPtr = here->B2SPspBinding->CSC ;
-
-            if ((here-> B2dNode != 0) && (here-> B2dNodePrime != 0))
-                here->B2DdpPtr = here->B2DdpBinding->CSC ;
-
-            if ((here-> B2gNode != 0) && (here-> B2bNode != 0))
-                here->B2GbPtr = here->B2GbBinding->CSC ;
-
-            if ((here-> B2gNode != 0) && (here-> B2dNodePrime != 0))
-                here->B2GdpPtr = here->B2GdpBinding->CSC ;
-
-            if ((here-> B2gNode != 0) && (here-> B2sNodePrime != 0))
-                here->B2GspPtr = here->B2GspBinding->CSC ;
-
-            if ((here-> B2sNode != 0) && (here-> B2sNodePrime != 0))
-                here->B2SspPtr = here->B2SspBinding->CSC ;
-
-            if ((here-> B2bNode != 0) && (here-> B2dNodePrime != 0))
-                here->B2BdpPtr = here->B2BdpBinding->CSC ;
-
-            if ((here-> B2bNode != 0) && (here-> B2sNodePrime != 0))
-                here->B2BspPtr = here->B2BspBinding->CSC ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2sNodePrime != 0))
-                here->B2DPspPtr = here->B2DPspBinding->CSC ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2dNode != 0))
-                here->B2DPdPtr = here->B2DPdBinding->CSC ;
-
-            if ((here-> B2bNode != 0) && (here-> B2gNode != 0))
-                here->B2BgPtr = here->B2BgBinding->CSC ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2gNode != 0))
-                here->B2DPgPtr = here->B2DPgBinding->CSC ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2gNode != 0))
-                here->B2SPgPtr = here->B2SPgBinding->CSC ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2sNode != 0))
-                here->B2SPsPtr = here->B2SPsBinding->CSC ;
-
-            if ((here-> B2dNodePrime != 0) && (here-> B2bNode != 0))
-                here->B2DPbPtr = here->B2DPbBinding->CSC ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2bNode != 0))
-                here->B2SPbPtr = here->B2SPbBinding->CSC ;
-
-            if ((here-> B2sNodePrime != 0) && (here-> B2dNodePrime != 0))
-                here->B2SPdpPtr = here->B2SPdpBinding->CSC ;
-
+            CFOO(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
+            CFOO(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
+            CFOO(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
+            CFOO(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
+            CFOO(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
+            CFOO(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
+            CFOO(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
+            CFOO(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
+            CFOO(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
+            CFOO(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
+            CFOO(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
+            CFOO(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
+            CFOO(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
+            CFOO(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
+            CFOO(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
+            CFOO(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
+            CFOO(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
+            CFOO(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
+            CFOO(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
+            CFOO(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
+            CFOO(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
+            CFOO(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
         }
     }
 

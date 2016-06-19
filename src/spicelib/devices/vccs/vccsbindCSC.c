@@ -39,38 +39,10 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
-            if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-            {
-                i = here->VCCSposContPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSposContPosBinding = matched ;
-                here->VCCSposContPosPtr = matched->CSC ;
-            }
-
-            if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-            {
-                i = here->VCCSposContNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSposContNegBinding = matched ;
-                here->VCCSposContNegPtr = matched->CSC ;
-            }
-
-            if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-            {
-                i = here->VCCSnegContPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSnegContPosBinding = matched ;
-                here->VCCSnegContPosPtr = matched->CSC ;
-            }
-
-            if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-            {
-                i = here->VCCSnegContNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSnegContNegBinding = matched ;
-                here->VCCSnegContNegPtr = matched->CSC ;
-            }
-
+            XFOO(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
+            XFOO(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
+            XFOO(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
+            XFOO(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
         }
     }
 
@@ -91,18 +63,10 @@ VCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
-            if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSposContPosPtr = here->VCCSposContPosBinding->CSC_Complex ;
-
-            if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSposContNegPtr = here->VCCSposContNegBinding->CSC_Complex ;
-
-            if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSnegContPosPtr = here->VCCSnegContPosBinding->CSC_Complex ;
-
-            if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSnegContNegPtr = here->VCCSnegContNegBinding->CSC_Complex ;
-
+            BFOO(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
+            BFOO(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
+            BFOO(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
+            BFOO(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
         }
     }
 
@@ -123,18 +87,10 @@ VCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
-            if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSposContPosPtr = here->VCCSposContPosBinding->CSC ;
-
-            if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSposContNegPtr = here->VCCSposContNegBinding->CSC ;
-
-            if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSnegContPosPtr = here->VCCSnegContPosBinding->CSC ;
-
-            if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSnegContNegPtr = here->VCCSnegContNegBinding->CSC ;
-
+            CFOO(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
+            CFOO(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
+            CFOO(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
+            CFOO(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
         }
     }
 

@@ -39,62 +39,13 @@ DIObindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->DIOinstances ; here != NULL ; here = here->DIOnextInstance)
         {
-            if ((here->DIOposNode != 0) && (here->DIOposPrimeNode != 0))
-            {
-                i = here->DIOposPosPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOposPosPrimeBinding = matched ;
-                here->DIOposPosPrimePtr = matched->CSC ;
-            }
-
-            if ((here->DIOnegNode != 0) && (here->DIOposPrimeNode != 0))
-            {
-                i = here->DIOnegPosPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOnegPosPrimeBinding = matched ;
-                here->DIOnegPosPrimePtr = matched->CSC ;
-            }
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOposNode != 0))
-            {
-                i = here->DIOposPrimePosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOposPrimePosBinding = matched ;
-                here->DIOposPrimePosPtr = matched->CSC ;
-            }
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOnegNode != 0))
-            {
-                i = here->DIOposPrimeNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOposPrimeNegBinding = matched ;
-                here->DIOposPrimeNegPtr = matched->CSC ;
-            }
-
-            if ((here->DIOposNode != 0) && (here->DIOposNode != 0))
-            {
-                i = here->DIOposPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOposPosBinding = matched ;
-                here->DIOposPosPtr = matched->CSC ;
-            }
-
-            if ((here->DIOnegNode != 0) && (here->DIOnegNode != 0))
-            {
-                i = here->DIOnegNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOnegNegBinding = matched ;
-                here->DIOnegNegPtr = matched->CSC ;
-            }
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOposPrimeNode != 0))
-            {
-                i = here->DIOposPrimePosPrimePtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->DIOposPrimePosPrimeBinding = matched ;
-                here->DIOposPrimePosPrimePtr = matched->CSC ;
-            }
-
+            XFOO(DIOposPosPrimePtr, DIOposPosPrimeBinding, DIOposNode, DIOposPrimeNode);
+            XFOO(DIOnegPosPrimePtr, DIOnegPosPrimeBinding, DIOnegNode, DIOposPrimeNode);
+            XFOO(DIOposPrimePosPtr, DIOposPrimePosBinding, DIOposPrimeNode, DIOposNode);
+            XFOO(DIOposPrimeNegPtr, DIOposPrimeNegBinding, DIOposPrimeNode, DIOnegNode);
+            XFOO(DIOposPosPtr, DIOposPosBinding, DIOposNode, DIOposNode);
+            XFOO(DIOnegNegPtr, DIOnegNegBinding, DIOnegNode, DIOnegNode);
+            XFOO(DIOposPrimePosPrimePtr, DIOposPrimePosPrimeBinding, DIOposPrimeNode, DIOposPrimeNode);
         }
     }
 
@@ -115,27 +66,13 @@ DIObindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->DIOinstances ; here != NULL ; here = here->DIOnextInstance)
         {
-            if ((here->DIOposNode != 0) && (here->DIOposPrimeNode != 0))
-                here->DIOposPosPrimePtr = here->DIOposPosPrimeBinding->CSC_Complex ;
-
-            if ((here->DIOnegNode != 0) && (here->DIOposPrimeNode != 0))
-                here->DIOnegPosPrimePtr = here->DIOnegPosPrimeBinding->CSC_Complex ;
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOposNode != 0))
-                here->DIOposPrimePosPtr = here->DIOposPrimePosBinding->CSC_Complex ;
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOnegNode != 0))
-                here->DIOposPrimeNegPtr = here->DIOposPrimeNegBinding->CSC_Complex ;
-
-            if ((here->DIOposNode != 0) && (here->DIOposNode != 0))
-                here->DIOposPosPtr = here->DIOposPosBinding->CSC_Complex ;
-
-            if ((here->DIOnegNode != 0) && (here->DIOnegNode != 0))
-                here->DIOnegNegPtr = here->DIOnegNegBinding->CSC_Complex ;
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOposPrimeNode != 0))
-                here->DIOposPrimePosPrimePtr = here->DIOposPrimePosPrimeBinding->CSC_Complex ;
-
+            BFOO(DIOposPosPrimePtr, DIOposPosPrimeBinding, DIOposNode, DIOposPrimeNode);
+            BFOO(DIOnegPosPrimePtr, DIOnegPosPrimeBinding, DIOnegNode, DIOposPrimeNode);
+            BFOO(DIOposPrimePosPtr, DIOposPrimePosBinding, DIOposPrimeNode, DIOposNode);
+            BFOO(DIOposPrimeNegPtr, DIOposPrimeNegBinding, DIOposPrimeNode, DIOnegNode);
+            BFOO(DIOposPosPtr, DIOposPosBinding, DIOposNode, DIOposNode);
+            BFOO(DIOnegNegPtr, DIOnegNegBinding, DIOnegNode, DIOnegNode);
+            BFOO(DIOposPrimePosPrimePtr, DIOposPrimePosPrimeBinding, DIOposPrimeNode, DIOposPrimeNode);
         }
     }
 
@@ -156,27 +93,13 @@ DIObindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->DIOinstances ; here != NULL ; here = here->DIOnextInstance)
         {
-            if ((here->DIOposNode != 0) && (here->DIOposPrimeNode != 0))
-                here->DIOposPosPrimePtr = here->DIOposPosPrimeBinding->CSC ;
-
-            if ((here->DIOnegNode != 0) && (here->DIOposPrimeNode != 0))
-                here->DIOnegPosPrimePtr = here->DIOnegPosPrimeBinding->CSC ;
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOposNode != 0))
-                here->DIOposPrimePosPtr = here->DIOposPrimePosBinding->CSC ;
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOnegNode != 0))
-                here->DIOposPrimeNegPtr = here->DIOposPrimeNegBinding->CSC ;
-
-            if ((here->DIOposNode != 0) && (here->DIOposNode != 0))
-                here->DIOposPosPtr = here->DIOposPosBinding->CSC ;
-
-            if ((here->DIOnegNode != 0) && (here->DIOnegNode != 0))
-                here->DIOnegNegPtr = here->DIOnegNegBinding->CSC ;
-
-            if ((here->DIOposPrimeNode != 0) && (here->DIOposPrimeNode != 0))
-                here->DIOposPrimePosPrimePtr = here->DIOposPrimePosPrimeBinding->CSC ;
-
+            CFOO(DIOposPosPrimePtr, DIOposPosPrimeBinding, DIOposNode, DIOposPrimeNode);
+            CFOO(DIOnegPosPrimePtr, DIOnegPosPrimeBinding, DIOnegNode, DIOposPrimeNode);
+            CFOO(DIOposPrimePosPtr, DIOposPrimePosBinding, DIOposPrimeNode, DIOposNode);
+            CFOO(DIOposPrimeNegPtr, DIOposPrimeNegBinding, DIOposPrimeNode, DIOnegNode);
+            CFOO(DIOposPosPtr, DIOposPosBinding, DIOposNode, DIOposNode);
+            CFOO(DIOnegNegPtr, DIOnegNegBinding, DIOnegNode, DIOnegNode);
+            CFOO(DIOposPrimePosPrimePtr, DIOposPrimePosPrimeBinding, DIOposPrimeNode, DIOposPrimeNode);
         }
     }
 

@@ -39,54 +39,12 @@ VCVSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCVSinstances ; here != NULL ; here = here->VCVSnextInstance)
         {
-            if ((here-> VCVSposNode != 0) && (here-> VCVSbranch != 0))
-            {
-                i = here->VCVSposIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCVSposIbrBinding = matched ;
-                here->VCVSposIbrPtr = matched->CSC ;
-            }
-
-            if ((here-> VCVSnegNode != 0) && (here-> VCVSbranch != 0))
-            {
-                i = here->VCVSnegIbrPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCVSnegIbrBinding = matched ;
-                here->VCVSnegIbrPtr = matched->CSC ;
-            }
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVSnegNode != 0))
-            {
-                i = here->VCVSibrNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCVSibrNegBinding = matched ;
-                here->VCVSibrNegPtr = matched->CSC ;
-            }
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVSposNode != 0))
-            {
-                i = here->VCVSibrPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCVSibrPosBinding = matched ;
-                here->VCVSibrPosPtr = matched->CSC ;
-            }
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVScontPosNode != 0))
-            {
-                i = here->VCVSibrContPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCVSibrContPosBinding = matched ;
-                here->VCVSibrContPosPtr = matched->CSC ;
-            }
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVScontNegNode != 0))
-            {
-                i = here->VCVSibrContNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCVSibrContNegBinding = matched ;
-                here->VCVSibrContNegPtr = matched->CSC ;
-            }
-
+            XFOO(VCVSposIbrPtr, VCVSposIbrBinding, VCVSposNode, VCVSbranch);
+            XFOO(VCVSnegIbrPtr, VCVSnegIbrBinding, VCVSnegNode, VCVSbranch);
+            XFOO(VCVSibrNegPtr, VCVSibrNegBinding, VCVSbranch, VCVSnegNode);
+            XFOO(VCVSibrPosPtr, VCVSibrPosBinding, VCVSbranch, VCVSposNode);
+            XFOO(VCVSibrContPosPtr, VCVSibrContPosBinding, VCVSbranch, VCVScontPosNode);
+            XFOO(VCVSibrContNegPtr, VCVSibrContNegBinding, VCVSbranch, VCVScontNegNode);
         }
     }
 
@@ -107,24 +65,12 @@ VCVSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCVSinstances ; here != NULL ; here = here->VCVSnextInstance)
         {
-            if ((here-> VCVSposNode != 0) && (here-> VCVSbranch != 0))
-                here->VCVSposIbrPtr = here->VCVSposIbrBinding->CSC_Complex ;
-
-            if ((here-> VCVSnegNode != 0) && (here-> VCVSbranch != 0))
-                here->VCVSnegIbrPtr = here->VCVSnegIbrBinding->CSC_Complex ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVSnegNode != 0))
-                here->VCVSibrNegPtr = here->VCVSibrNegBinding->CSC_Complex ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVSposNode != 0))
-                here->VCVSibrPosPtr = here->VCVSibrPosBinding->CSC_Complex ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVScontPosNode != 0))
-                here->VCVSibrContPosPtr = here->VCVSibrContPosBinding->CSC_Complex ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVScontNegNode != 0))
-                here->VCVSibrContNegPtr = here->VCVSibrContNegBinding->CSC_Complex ;
-
+            BFOO(VCVSposIbrPtr, VCVSposIbrBinding, VCVSposNode, VCVSbranch);
+            BFOO(VCVSnegIbrPtr, VCVSnegIbrBinding, VCVSnegNode, VCVSbranch);
+            BFOO(VCVSibrNegPtr, VCVSibrNegBinding, VCVSbranch, VCVSnegNode);
+            BFOO(VCVSibrPosPtr, VCVSibrPosBinding, VCVSbranch, VCVSposNode);
+            BFOO(VCVSibrContPosPtr, VCVSibrContPosBinding, VCVSbranch, VCVScontPosNode);
+            BFOO(VCVSibrContNegPtr, VCVSibrContNegBinding, VCVSbranch, VCVScontNegNode);
         }
     }
 
@@ -145,24 +91,12 @@ VCVSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCVSinstances ; here != NULL ; here = here->VCVSnextInstance)
         {
-            if ((here-> VCVSposNode != 0) && (here-> VCVSbranch != 0))
-                here->VCVSposIbrPtr = here->VCVSposIbrBinding->CSC ;
-
-            if ((here-> VCVSnegNode != 0) && (here-> VCVSbranch != 0))
-                here->VCVSnegIbrPtr = here->VCVSnegIbrBinding->CSC ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVSnegNode != 0))
-                here->VCVSibrNegPtr = here->VCVSibrNegBinding->CSC ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVSposNode != 0))
-                here->VCVSibrPosPtr = here->VCVSibrPosBinding->CSC ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVScontPosNode != 0))
-                here->VCVSibrContPosPtr = here->VCVSibrContPosBinding->CSC ;
-
-            if ((here-> VCVSbranch != 0) && (here-> VCVScontNegNode != 0))
-                here->VCVSibrContNegPtr = here->VCVSibrContNegBinding->CSC ;
-
+            CFOO(VCVSposIbrPtr, VCVSposIbrBinding, VCVSposNode, VCVSbranch);
+            CFOO(VCVSnegIbrPtr, VCVSnegIbrBinding, VCVSnegNode, VCVSbranch);
+            CFOO(VCVSibrNegPtr, VCVSibrNegBinding, VCVSbranch, VCVSnegNode);
+            CFOO(VCVSibrPosPtr, VCVSibrPosBinding, VCVSbranch, VCVSposNode);
+            CFOO(VCVSibrContPosPtr, VCVSibrContPosBinding, VCVSbranch, VCVScontPosNode);
+            CFOO(VCVSibrContNegPtr, VCVSibrContNegBinding, VCVSbranch, VCVScontNegNode);
         }
     }
 

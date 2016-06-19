@@ -39,371 +39,56 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HSM2instances ; here != NULL ; here = here->HSM2nextInstance)
         {
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-            {
-                i = here->HSM2DPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPbpBinding = matched ;
-                here->HSM2DPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-            {
-                i = here->HSM2SPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPbpBinding = matched ;
-                here->HSM2SPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-            {
-                i = here->HSM2GPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPbpBinding = matched ;
-                here->HSM2GPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-            {
-                i = here->HSM2BPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPdpBinding = matched ;
-                here->HSM2BPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-            {
-                i = here->HSM2BPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPspBinding = matched ;
-                here->HSM2BPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-            {
-                i = here->HSM2BPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPgpBinding = matched ;
-                here->HSM2BPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-            {
-                i = here->HSM2BPbpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPbpBinding = matched ;
-                here->HSM2BPbpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2dNode != 0) && (here-> HSM2dNode != 0))
-            {
-                i = here->HSM2DdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DdBinding = matched ;
-                here->HSM2DdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-            {
-                i = here->HSM2GPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPgpBinding = matched ;
-                here->HSM2GPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNode != 0) && (here-> HSM2sNode != 0))
-            {
-                i = here->HSM2SsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SsBinding = matched ;
-                here->HSM2SsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-            {
-                i = here->HSM2DPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPdpBinding = matched ;
-                here->HSM2DPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-            {
-                i = here->HSM2SPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPspBinding = matched ;
-                here->HSM2SPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2dNode != 0) && (here-> HSM2dNodePrime != 0))
-            {
-                i = here->HSM2DdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DdpBinding = matched ;
-                here->HSM2DdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-            {
-                i = here->HSM2GPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPdpBinding = matched ;
-                here->HSM2GPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-            {
-                i = here->HSM2GPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPspBinding = matched ;
-                here->HSM2GPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNode != 0) && (here-> HSM2sNodePrime != 0))
-            {
-                i = here->HSM2SspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SspBinding = matched ;
-                here->HSM2SspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-            {
-                i = here->HSM2DPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPspBinding = matched ;
-                here->HSM2DPspPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNode != 0))
-            {
-                i = here->HSM2DPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPdBinding = matched ;
-                here->HSM2DPdPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-            {
-                i = here->HSM2DPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPgpBinding = matched ;
-                here->HSM2DPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-            {
-                i = here->HSM2SPgpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPgpBinding = matched ;
-                here->HSM2SPgpPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNode != 0))
-            {
-                i = here->HSM2SPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPsBinding = matched ;
-                here->HSM2SPsPtr = matched->CSC ;
-            }
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-            {
-                i = here->HSM2SPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPdpBinding = matched ;
-                here->HSM2SPdpPtr = matched->CSC ;
-            }
-
+            XFOO(HSM2DPbpPtr, HSM2DPbpBinding, HSM2dNodePrime, HSM2bNodePrime);
+            XFOO(HSM2SPbpPtr, HSM2SPbpBinding, HSM2sNodePrime, HSM2bNodePrime);
+            XFOO(HSM2GPbpPtr, HSM2GPbpBinding, HSM2gNodePrime, HSM2bNodePrime);
+            XFOO(HSM2BPdpPtr, HSM2BPdpBinding, HSM2bNodePrime, HSM2dNodePrime);
+            XFOO(HSM2BPspPtr, HSM2BPspBinding, HSM2bNodePrime, HSM2sNodePrime);
+            XFOO(HSM2BPgpPtr, HSM2BPgpBinding, HSM2bNodePrime, HSM2gNodePrime);
+            XFOO(HSM2BPbpPtr, HSM2BPbpBinding, HSM2bNodePrime, HSM2bNodePrime);
+            XFOO(HSM2DdPtr, HSM2DdBinding, HSM2dNode, HSM2dNode);
+            XFOO(HSM2GPgpPtr, HSM2GPgpBinding, HSM2gNodePrime, HSM2gNodePrime);
+            XFOO(HSM2SsPtr, HSM2SsBinding, HSM2sNode, HSM2sNode);
+            XFOO(HSM2DPdpPtr, HSM2DPdpBinding, HSM2dNodePrime, HSM2dNodePrime);
+            XFOO(HSM2SPspPtr, HSM2SPspBinding, HSM2sNodePrime, HSM2sNodePrime);
+            XFOO(HSM2DdpPtr, HSM2DdpBinding, HSM2dNode, HSM2dNodePrime);
+            XFOO(HSM2GPdpPtr, HSM2GPdpBinding, HSM2gNodePrime, HSM2dNodePrime);
+            XFOO(HSM2GPspPtr, HSM2GPspBinding, HSM2gNodePrime, HSM2sNodePrime);
+            XFOO(HSM2SspPtr, HSM2SspBinding, HSM2sNode, HSM2sNodePrime);
+            XFOO(HSM2DPspPtr, HSM2DPspBinding, HSM2dNodePrime, HSM2sNodePrime);
+            XFOO(HSM2DPdPtr, HSM2DPdBinding, HSM2dNodePrime, HSM2dNode);
+            XFOO(HSM2DPgpPtr, HSM2DPgpBinding, HSM2dNodePrime, HSM2gNodePrime);
+            XFOO(HSM2SPgpPtr, HSM2SPgpBinding, HSM2sNodePrime, HSM2gNodePrime);
+            XFOO(HSM2SPsPtr, HSM2SPsBinding, HSM2sNodePrime, HSM2sNode);
+            XFOO(HSM2SPdpPtr, HSM2SPdpBinding, HSM2sNodePrime, HSM2dNodePrime);
             if (here->HSM2_corg == 1)
             {
-                if ((here-> HSM2gNode != 0) && (here-> HSM2gNode != 0))
-                {
-                    i = here->HSM2GgPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GgBinding = matched ;
-                    here->HSM2GgPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2gNodePrime != 0))
-                {
-                    i = here->HSM2GgpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GgpBinding = matched ;
-                    here->HSM2GgpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNode != 0))
-                {
-                    i = here->HSM2GPgPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GPgBinding = matched ;
-                    here->HSM2GPgPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2dNodePrime != 0))
-                {
-                    i = here->HSM2GdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GdpBinding = matched ;
-                    here->HSM2GdpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2sNodePrime != 0))
-                {
-                    i = here->HSM2GspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GspBinding = matched ;
-                    here->HSM2GspPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2bNodePrime != 0))
-                {
-                    i = here->HSM2GbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GbpBinding = matched ;
-                    here->HSM2GbpPtr = matched->CSC ;
-                }
-
+                XFOO(HSM2GgPtr, HSM2GgBinding, HSM2gNode, HSM2gNode);
+                XFOO(HSM2GgpPtr, HSM2GgpBinding, HSM2gNode, HSM2gNodePrime);
+                XFOO(HSM2GPgPtr, HSM2GPgBinding, HSM2gNodePrime, HSM2gNode);
+                XFOO(HSM2GdpPtr, HSM2GdpBinding, HSM2gNode, HSM2dNodePrime);
+                XFOO(HSM2GspPtr, HSM2GspBinding, HSM2gNode, HSM2sNodePrime);
+                XFOO(HSM2GbpPtr, HSM2GbpBinding, HSM2gNode, HSM2bNodePrime);
             }
             if (here->HSM2_corbnet == 1)
             {
-                if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dbNode != 0))
-                {
-                    i = here->HSM2DPdbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DPdbBinding = matched ;
-                    here->HSM2DPdbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sbNode != 0))
-                {
-                    i = here->HSM2SPsbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SPsbBinding = matched ;
-                    here->HSM2SPsbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2dNodePrime != 0))
-                {
-                    i = here->HSM2DBdpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBdpBinding = matched ;
-                    here->HSM2DBdpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2dbNode != 0))
-                {
-                    i = here->HSM2DBdbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBdbBinding = matched ;
-                    here->HSM2DBdbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2bNodePrime != 0))
-                {
-                    i = here->HSM2DBbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBbpBinding = matched ;
-                    here->HSM2DBbpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2bNode != 0))
-                {
-                    i = here->HSM2DBbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBbBinding = matched ;
-                    here->HSM2DBbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dbNode != 0))
-                {
-                    i = here->HSM2BPdbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BPdbBinding = matched ;
-                    here->HSM2BPdbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNode != 0))
-                {
-                    i = here->HSM2BPbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BPbBinding = matched ;
-                    here->HSM2BPbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sbNode != 0))
-                {
-                    i = here->HSM2BPsbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BPsbBinding = matched ;
-                    here->HSM2BPsbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2sNodePrime != 0))
-                {
-                    i = here->HSM2SBspPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBspBinding = matched ;
-                    here->HSM2SBspPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2bNodePrime != 0))
-                {
-                    i = here->HSM2SBbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBbpBinding = matched ;
-                    here->HSM2SBbpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2bNode != 0))
-                {
-                    i = here->HSM2SBbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBbBinding = matched ;
-                    here->HSM2SBbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2sbNode != 0))
-                {
-                    i = here->HSM2SBsbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBsbBinding = matched ;
-                    here->HSM2SBsbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2dbNode != 0))
-                {
-                    i = here->HSM2BdbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BdbBinding = matched ;
-                    here->HSM2BdbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2bNodePrime != 0))
-                {
-                    i = here->HSM2BbpPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BbpBinding = matched ;
-                    here->HSM2BbpPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2sbNode != 0))
-                {
-                    i = here->HSM2BsbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BsbBinding = matched ;
-                    here->HSM2BsbPtr = matched->CSC ;
-                }
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2bNode != 0))
-                {
-                    i = here->HSM2BbPtr ;
-                    matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BbBinding = matched ;
-                    here->HSM2BbPtr = matched->CSC ;
-                }
-
+                XFOO(HSM2DPdbPtr, HSM2DPdbBinding, HSM2dNodePrime, HSM2dbNode);
+                XFOO(HSM2SPsbPtr, HSM2SPsbBinding, HSM2sNodePrime, HSM2sbNode);
+                XFOO(HSM2DBdpPtr, HSM2DBdpBinding, HSM2dbNode, HSM2dNodePrime);
+                XFOO(HSM2DBdbPtr, HSM2DBdbBinding, HSM2dbNode, HSM2dbNode);
+                XFOO(HSM2DBbpPtr, HSM2DBbpBinding, HSM2dbNode, HSM2bNodePrime);
+                XFOO(HSM2DBbPtr, HSM2DBbBinding, HSM2dbNode, HSM2bNode);
+                XFOO(HSM2BPdbPtr, HSM2BPdbBinding, HSM2bNodePrime, HSM2dbNode);
+                XFOO(HSM2BPbPtr, HSM2BPbBinding, HSM2bNodePrime, HSM2bNode);
+                XFOO(HSM2BPsbPtr, HSM2BPsbBinding, HSM2bNodePrime, HSM2sbNode);
+                XFOO(HSM2SBspPtr, HSM2SBspBinding, HSM2sbNode, HSM2sNodePrime);
+                XFOO(HSM2SBbpPtr, HSM2SBbpBinding, HSM2sbNode, HSM2bNodePrime);
+                XFOO(HSM2SBbPtr, HSM2SBbBinding, HSM2sbNode, HSM2bNode);
+                XFOO(HSM2SBsbPtr, HSM2SBsbBinding, HSM2sbNode, HSM2sbNode);
+                XFOO(HSM2BdbPtr, HSM2BdbBinding, HSM2bNode, HSM2dbNode);
+                XFOO(HSM2BbpPtr, HSM2BbpBinding, HSM2bNode, HSM2bNodePrime);
+                XFOO(HSM2BsbPtr, HSM2BsbBinding, HSM2bNode, HSM2sbNode);
+                XFOO(HSM2BbPtr, HSM2BbBinding, HSM2bNode, HSM2bNode);
             }
         }
     }
@@ -425,146 +110,56 @@ HSM2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HSM2instances ; here != NULL ; here = here->HSM2nextInstance)
         {
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2DPbpPtr = here->HSM2DPbpBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2SPbpPtr = here->HSM2SPbpBinding->CSC_Complex ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2GPbpPtr = here->HSM2GPbpBinding->CSC_Complex ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2BPdpPtr = here->HSM2BPdpBinding->CSC_Complex ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2BPspPtr = here->HSM2BPspBinding->CSC_Complex ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2BPgpPtr = here->HSM2BPgpBinding->CSC_Complex ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2BPbpPtr = here->HSM2BPbpBinding->CSC_Complex ;
-
-            if ((here-> HSM2dNode != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DdPtr = here->HSM2DdBinding->CSC_Complex ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2GPgpPtr = here->HSM2GPgpBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNode != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SsPtr = here->HSM2SsBinding->CSC_Complex ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DPdpPtr = here->HSM2DPdpBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SPspPtr = here->HSM2SPspBinding->CSC_Complex ;
-
-            if ((here-> HSM2dNode != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DdpPtr = here->HSM2DdpBinding->CSC_Complex ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2GPdpPtr = here->HSM2GPdpBinding->CSC_Complex ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2GPspPtr = here->HSM2GPspBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNode != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SspPtr = here->HSM2SspBinding->CSC_Complex ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2DPspPtr = here->HSM2DPspBinding->CSC_Complex ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DPdPtr = here->HSM2DPdBinding->CSC_Complex ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2DPgpPtr = here->HSM2DPgpBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2SPgpPtr = here->HSM2SPgpBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SPsPtr = here->HSM2SPsBinding->CSC_Complex ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2SPdpPtr = here->HSM2SPdpBinding->CSC_Complex ;
-
+            BFOO(HSM2DPbpPtr, HSM2DPbpBinding, HSM2dNodePrime, HSM2bNodePrime);
+            BFOO(HSM2SPbpPtr, HSM2SPbpBinding, HSM2sNodePrime, HSM2bNodePrime);
+            BFOO(HSM2GPbpPtr, HSM2GPbpBinding, HSM2gNodePrime, HSM2bNodePrime);
+            BFOO(HSM2BPdpPtr, HSM2BPdpBinding, HSM2bNodePrime, HSM2dNodePrime);
+            BFOO(HSM2BPspPtr, HSM2BPspBinding, HSM2bNodePrime, HSM2sNodePrime);
+            BFOO(HSM2BPgpPtr, HSM2BPgpBinding, HSM2bNodePrime, HSM2gNodePrime);
+            BFOO(HSM2BPbpPtr, HSM2BPbpBinding, HSM2bNodePrime, HSM2bNodePrime);
+            BFOO(HSM2DdPtr, HSM2DdBinding, HSM2dNode, HSM2dNode);
+            BFOO(HSM2GPgpPtr, HSM2GPgpBinding, HSM2gNodePrime, HSM2gNodePrime);
+            BFOO(HSM2SsPtr, HSM2SsBinding, HSM2sNode, HSM2sNode);
+            BFOO(HSM2DPdpPtr, HSM2DPdpBinding, HSM2dNodePrime, HSM2dNodePrime);
+            BFOO(HSM2SPspPtr, HSM2SPspBinding, HSM2sNodePrime, HSM2sNodePrime);
+            BFOO(HSM2DdpPtr, HSM2DdpBinding, HSM2dNode, HSM2dNodePrime);
+            BFOO(HSM2GPdpPtr, HSM2GPdpBinding, HSM2gNodePrime, HSM2dNodePrime);
+            BFOO(HSM2GPspPtr, HSM2GPspBinding, HSM2gNodePrime, HSM2sNodePrime);
+            BFOO(HSM2SspPtr, HSM2SspBinding, HSM2sNode, HSM2sNodePrime);
+            BFOO(HSM2DPspPtr, HSM2DPspBinding, HSM2dNodePrime, HSM2sNodePrime);
+            BFOO(HSM2DPdPtr, HSM2DPdBinding, HSM2dNodePrime, HSM2dNode);
+            BFOO(HSM2DPgpPtr, HSM2DPgpBinding, HSM2dNodePrime, HSM2gNodePrime);
+            BFOO(HSM2SPgpPtr, HSM2SPgpBinding, HSM2sNodePrime, HSM2gNodePrime);
+            BFOO(HSM2SPsPtr, HSM2SPsBinding, HSM2sNodePrime, HSM2sNode);
+            BFOO(HSM2SPdpPtr, HSM2SPdpBinding, HSM2sNodePrime, HSM2dNodePrime);
             if (here->HSM2_corg == 1)
             {
-                if ((here-> HSM2gNode != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GgPtr = here->HSM2GgBinding->CSC_Complex ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2gNodePrime != 0))
-                    here->HSM2GgpPtr = here->HSM2GgpBinding->CSC_Complex ;
-
-                if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GPgPtr = here->HSM2GPgBinding->CSC_Complex ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2GdpPtr = here->HSM2GdpBinding->CSC_Complex ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2GspPtr = here->HSM2GspBinding->CSC_Complex ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2GbpPtr = here->HSM2GbpBinding->CSC_Complex ;
-
+                BFOO(HSM2GgPtr, HSM2GgBinding, HSM2gNode, HSM2gNode);
+                BFOO(HSM2GgpPtr, HSM2GgpBinding, HSM2gNode, HSM2gNodePrime);
+                BFOO(HSM2GPgPtr, HSM2GPgBinding, HSM2gNodePrime, HSM2gNode);
+                BFOO(HSM2GdpPtr, HSM2GdpBinding, HSM2gNode, HSM2dNodePrime);
+                BFOO(HSM2GspPtr, HSM2GspBinding, HSM2gNode, HSM2sNodePrime);
+                BFOO(HSM2GbpPtr, HSM2GbpBinding, HSM2gNode, HSM2bNodePrime);
             }
             if (here->HSM2_corbnet == 1)
             {
-                if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DPdbPtr = here->HSM2DPdbBinding->CSC_Complex ;
-
-                if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SPsbPtr = here->HSM2SPsbBinding->CSC_Complex ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2DBdpPtr = here->HSM2DBdpBinding->CSC_Complex ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DBdbPtr = here->HSM2DBdbBinding->CSC_Complex ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2DBbpPtr = here->HSM2DBbpBinding->CSC_Complex ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2DBbPtr = here->HSM2DBbBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BPdbPtr = here->HSM2BPdbBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BPbPtr = here->HSM2BPbBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BPsbPtr = here->HSM2BPsbBinding->CSC_Complex ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2SBspPtr = here->HSM2SBspBinding->CSC_Complex ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2SBbpPtr = here->HSM2SBbpBinding->CSC_Complex ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2SBbPtr = here->HSM2SBbBinding->CSC_Complex ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SBsbPtr = here->HSM2SBsbBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BdbPtr = here->HSM2BdbBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2BbpPtr = here->HSM2BbpBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BsbPtr = here->HSM2BsbBinding->CSC_Complex ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BbPtr = here->HSM2BbBinding->CSC_Complex ;
-
+                BFOO(HSM2DPdbPtr, HSM2DPdbBinding, HSM2dNodePrime, HSM2dbNode);
+                BFOO(HSM2SPsbPtr, HSM2SPsbBinding, HSM2sNodePrime, HSM2sbNode);
+                BFOO(HSM2DBdpPtr, HSM2DBdpBinding, HSM2dbNode, HSM2dNodePrime);
+                BFOO(HSM2DBdbPtr, HSM2DBdbBinding, HSM2dbNode, HSM2dbNode);
+                BFOO(HSM2DBbpPtr, HSM2DBbpBinding, HSM2dbNode, HSM2bNodePrime);
+                BFOO(HSM2DBbPtr, HSM2DBbBinding, HSM2dbNode, HSM2bNode);
+                BFOO(HSM2BPdbPtr, HSM2BPdbBinding, HSM2bNodePrime, HSM2dbNode);
+                BFOO(HSM2BPbPtr, HSM2BPbBinding, HSM2bNodePrime, HSM2bNode);
+                BFOO(HSM2BPsbPtr, HSM2BPsbBinding, HSM2bNodePrime, HSM2sbNode);
+                BFOO(HSM2SBspPtr, HSM2SBspBinding, HSM2sbNode, HSM2sNodePrime);
+                BFOO(HSM2SBbpPtr, HSM2SBbpBinding, HSM2sbNode, HSM2bNodePrime);
+                BFOO(HSM2SBbPtr, HSM2SBbBinding, HSM2sbNode, HSM2bNode);
+                BFOO(HSM2SBsbPtr, HSM2SBsbBinding, HSM2sbNode, HSM2sbNode);
+                BFOO(HSM2BdbPtr, HSM2BdbBinding, HSM2bNode, HSM2dbNode);
+                BFOO(HSM2BbpPtr, HSM2BbpBinding, HSM2bNode, HSM2bNodePrime);
+                BFOO(HSM2BsbPtr, HSM2BsbBinding, HSM2bNode, HSM2sbNode);
+                BFOO(HSM2BbPtr, HSM2BbBinding, HSM2bNode, HSM2bNode);
             }
         }
     }
@@ -586,146 +181,56 @@ HSM2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->HSM2instances ; here != NULL ; here = here->HSM2nextInstance)
         {
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2DPbpPtr = here->HSM2DPbpBinding->CSC ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2SPbpPtr = here->HSM2SPbpBinding->CSC ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2GPbpPtr = here->HSM2GPbpBinding->CSC ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2BPdpPtr = here->HSM2BPdpBinding->CSC ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2BPspPtr = here->HSM2BPspBinding->CSC ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2BPgpPtr = here->HSM2BPgpBinding->CSC ;
-
-            if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2BPbpPtr = here->HSM2BPbpBinding->CSC ;
-
-            if ((here-> HSM2dNode != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DdPtr = here->HSM2DdBinding->CSC ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2GPgpPtr = here->HSM2GPgpBinding->CSC ;
-
-            if ((here-> HSM2sNode != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SsPtr = here->HSM2SsBinding->CSC ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DPdpPtr = here->HSM2DPdpBinding->CSC ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SPspPtr = here->HSM2SPspBinding->CSC ;
-
-            if ((here-> HSM2dNode != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DdpPtr = here->HSM2DdpBinding->CSC ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2GPdpPtr = here->HSM2GPdpBinding->CSC ;
-
-            if ((here-> HSM2gNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2GPspPtr = here->HSM2GPspBinding->CSC ;
-
-            if ((here-> HSM2sNode != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SspPtr = here->HSM2SspBinding->CSC ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2DPspPtr = here->HSM2DPspBinding->CSC ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DPdPtr = here->HSM2DPdBinding->CSC ;
-
-            if ((here-> HSM2dNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2DPgpPtr = here->HSM2DPgpBinding->CSC ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2SPgpPtr = here->HSM2SPgpBinding->CSC ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SPsPtr = here->HSM2SPsBinding->CSC ;
-
-            if ((here-> HSM2sNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2SPdpPtr = here->HSM2SPdpBinding->CSC ;
-
+            CFOO(HSM2DPbpPtr, HSM2DPbpBinding, HSM2dNodePrime, HSM2bNodePrime);
+            CFOO(HSM2SPbpPtr, HSM2SPbpBinding, HSM2sNodePrime, HSM2bNodePrime);
+            CFOO(HSM2GPbpPtr, HSM2GPbpBinding, HSM2gNodePrime, HSM2bNodePrime);
+            CFOO(HSM2BPdpPtr, HSM2BPdpBinding, HSM2bNodePrime, HSM2dNodePrime);
+            CFOO(HSM2BPspPtr, HSM2BPspBinding, HSM2bNodePrime, HSM2sNodePrime);
+            CFOO(HSM2BPgpPtr, HSM2BPgpBinding, HSM2bNodePrime, HSM2gNodePrime);
+            CFOO(HSM2BPbpPtr, HSM2BPbpBinding, HSM2bNodePrime, HSM2bNodePrime);
+            CFOO(HSM2DdPtr, HSM2DdBinding, HSM2dNode, HSM2dNode);
+            CFOO(HSM2GPgpPtr, HSM2GPgpBinding, HSM2gNodePrime, HSM2gNodePrime);
+            CFOO(HSM2SsPtr, HSM2SsBinding, HSM2sNode, HSM2sNode);
+            CFOO(HSM2DPdpPtr, HSM2DPdpBinding, HSM2dNodePrime, HSM2dNodePrime);
+            CFOO(HSM2SPspPtr, HSM2SPspBinding, HSM2sNodePrime, HSM2sNodePrime);
+            CFOO(HSM2DdpPtr, HSM2DdpBinding, HSM2dNode, HSM2dNodePrime);
+            CFOO(HSM2GPdpPtr, HSM2GPdpBinding, HSM2gNodePrime, HSM2dNodePrime);
+            CFOO(HSM2GPspPtr, HSM2GPspBinding, HSM2gNodePrime, HSM2sNodePrime);
+            CFOO(HSM2SspPtr, HSM2SspBinding, HSM2sNode, HSM2sNodePrime);
+            CFOO(HSM2DPspPtr, HSM2DPspBinding, HSM2dNodePrime, HSM2sNodePrime);
+            CFOO(HSM2DPdPtr, HSM2DPdBinding, HSM2dNodePrime, HSM2dNode);
+            CFOO(HSM2DPgpPtr, HSM2DPgpBinding, HSM2dNodePrime, HSM2gNodePrime);
+            CFOO(HSM2SPgpPtr, HSM2SPgpBinding, HSM2sNodePrime, HSM2gNodePrime);
+            CFOO(HSM2SPsPtr, HSM2SPsBinding, HSM2sNodePrime, HSM2sNode);
+            CFOO(HSM2SPdpPtr, HSM2SPdpBinding, HSM2sNodePrime, HSM2dNodePrime);
             if (here->HSM2_corg == 1)
             {
-                if ((here-> HSM2gNode != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GgPtr = here->HSM2GgBinding->CSC ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2gNodePrime != 0))
-                    here->HSM2GgpPtr = here->HSM2GgpBinding->CSC ;
-
-                if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GPgPtr = here->HSM2GPgBinding->CSC ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2GdpPtr = here->HSM2GdpBinding->CSC ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2GspPtr = here->HSM2GspBinding->CSC ;
-
-                if ((here-> HSM2gNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2GbpPtr = here->HSM2GbpBinding->CSC ;
-
+                CFOO(HSM2GgPtr, HSM2GgBinding, HSM2gNode, HSM2gNode);
+                CFOO(HSM2GgpPtr, HSM2GgpBinding, HSM2gNode, HSM2gNodePrime);
+                CFOO(HSM2GPgPtr, HSM2GPgBinding, HSM2gNodePrime, HSM2gNode);
+                CFOO(HSM2GdpPtr, HSM2GdpBinding, HSM2gNode, HSM2dNodePrime);
+                CFOO(HSM2GspPtr, HSM2GspBinding, HSM2gNode, HSM2sNodePrime);
+                CFOO(HSM2GbpPtr, HSM2GbpBinding, HSM2gNode, HSM2bNodePrime);
             }
             if (here->HSM2_corbnet == 1)
             {
-                if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DPdbPtr = here->HSM2DPdbBinding->CSC ;
-
-                if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SPsbPtr = here->HSM2SPsbBinding->CSC ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2DBdpPtr = here->HSM2DBdpBinding->CSC ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DBdbPtr = here->HSM2DBdbBinding->CSC ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2DBbpPtr = here->HSM2DBbpBinding->CSC ;
-
-                if ((here-> HSM2dbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2DBbPtr = here->HSM2DBbBinding->CSC ;
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BPdbPtr = here->HSM2BPdbBinding->CSC ;
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BPbPtr = here->HSM2BPbBinding->CSC ;
-
-                if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BPsbPtr = here->HSM2BPsbBinding->CSC ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2SBspPtr = here->HSM2SBspBinding->CSC ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2SBbpPtr = here->HSM2SBbpBinding->CSC ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2SBbPtr = here->HSM2SBbBinding->CSC ;
-
-                if ((here-> HSM2sbNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SBsbPtr = here->HSM2SBsbBinding->CSC ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BdbPtr = here->HSM2BdbBinding->CSC ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2BbpPtr = here->HSM2BbpBinding->CSC ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BsbPtr = here->HSM2BsbBinding->CSC ;
-
-                if ((here-> HSM2bNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BbPtr = here->HSM2BbBinding->CSC ;
-
+                CFOO(HSM2DPdbPtr, HSM2DPdbBinding, HSM2dNodePrime, HSM2dbNode);
+                CFOO(HSM2SPsbPtr, HSM2SPsbBinding, HSM2sNodePrime, HSM2sbNode);
+                CFOO(HSM2DBdpPtr, HSM2DBdpBinding, HSM2dbNode, HSM2dNodePrime);
+                CFOO(HSM2DBdbPtr, HSM2DBdbBinding, HSM2dbNode, HSM2dbNode);
+                CFOO(HSM2DBbpPtr, HSM2DBbpBinding, HSM2dbNode, HSM2bNodePrime);
+                CFOO(HSM2DBbPtr, HSM2DBbBinding, HSM2dbNode, HSM2bNode);
+                CFOO(HSM2BPdbPtr, HSM2BPdbBinding, HSM2bNodePrime, HSM2dbNode);
+                CFOO(HSM2BPbPtr, HSM2BPbBinding, HSM2bNodePrime, HSM2bNode);
+                CFOO(HSM2BPsbPtr, HSM2BPsbBinding, HSM2bNodePrime, HSM2sbNode);
+                CFOO(HSM2SBspPtr, HSM2SBspBinding, HSM2sbNode, HSM2sNodePrime);
+                CFOO(HSM2SBbpPtr, HSM2SBbpBinding, HSM2sbNode, HSM2bNodePrime);
+                CFOO(HSM2SBbPtr, HSM2SBbBinding, HSM2sbNode, HSM2bNode);
+                CFOO(HSM2SBsbPtr, HSM2SBsbBinding, HSM2sbNode, HSM2sbNode);
+                CFOO(HSM2BdbPtr, HSM2BdbBinding, HSM2bNode, HSM2dbNode);
+                CFOO(HSM2BbpPtr, HSM2BbpBinding, HSM2bNode, HSM2bNodePrime);
+                CFOO(HSM2BsbPtr, HSM2BsbBinding, HSM2bNode, HSM2sbNode);
+                CFOO(HSM2BbPtr, HSM2BbBinding, HSM2bNode, HSM2bNode);
             }
         }
     }

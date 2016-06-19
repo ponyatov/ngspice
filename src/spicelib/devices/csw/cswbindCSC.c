@@ -39,38 +39,10 @@ CSWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CSWinstances ; here != NULL ; here = here->CSWnextInstance)
         {
-            if ((here-> CSWposNode != 0) && (here-> CSWposNode != 0))
-            {
-                i = here->CSWposPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CSWposPosBinding = matched ;
-                here->CSWposPosPtr = matched->CSC ;
-            }
-
-            if ((here-> CSWposNode != 0) && (here-> CSWnegNode != 0))
-            {
-                i = here->CSWposNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CSWposNegBinding = matched ;
-                here->CSWposNegPtr = matched->CSC ;
-            }
-
-            if ((here-> CSWnegNode != 0) && (here-> CSWposNode != 0))
-            {
-                i = here->CSWnegPosPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CSWnegPosBinding = matched ;
-                here->CSWnegPosPtr = matched->CSC ;
-            }
-
-            if ((here-> CSWnegNode != 0) && (here-> CSWnegNode != 0))
-            {
-                i = here->CSWnegNegPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CSWnegNegBinding = matched ;
-                here->CSWnegNegPtr = matched->CSC ;
-            }
-
+            XFOO(CSWposPosPtr, CSWposPosBinding, CSWposNode, CSWposNode);
+            XFOO(CSWposNegPtr, CSWposNegBinding, CSWposNode, CSWnegNode);
+            XFOO(CSWnegPosPtr, CSWnegPosBinding, CSWnegNode, CSWposNode);
+            XFOO(CSWnegNegPtr, CSWnegNegBinding, CSWnegNode, CSWnegNode);
         }
     }
 
@@ -91,18 +63,10 @@ CSWbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CSWinstances ; here != NULL ; here = here->CSWnextInstance)
         {
-            if ((here-> CSWposNode != 0) && (here-> CSWposNode != 0))
-                here->CSWposPosPtr = here->CSWposPosBinding->CSC_Complex ;
-
-            if ((here-> CSWposNode != 0) && (here-> CSWnegNode != 0))
-                here->CSWposNegPtr = here->CSWposNegBinding->CSC_Complex ;
-
-            if ((here-> CSWnegNode != 0) && (here-> CSWposNode != 0))
-                here->CSWnegPosPtr = here->CSWnegPosBinding->CSC_Complex ;
-
-            if ((here-> CSWnegNode != 0) && (here-> CSWnegNode != 0))
-                here->CSWnegNegPtr = here->CSWnegNegBinding->CSC_Complex ;
-
+            BFOO(CSWposPosPtr, CSWposPosBinding, CSWposNode, CSWposNode);
+            BFOO(CSWposNegPtr, CSWposNegBinding, CSWposNode, CSWnegNode);
+            BFOO(CSWnegPosPtr, CSWnegPosBinding, CSWnegNode, CSWposNode);
+            BFOO(CSWnegNegPtr, CSWnegNegBinding, CSWnegNode, CSWnegNode);
         }
     }
 
@@ -123,18 +87,10 @@ CSWbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CSWinstances ; here != NULL ; here = here->CSWnextInstance)
         {
-            if ((here-> CSWposNode != 0) && (here-> CSWposNode != 0))
-                here->CSWposPosPtr = here->CSWposPosBinding->CSC ;
-
-            if ((here-> CSWposNode != 0) && (here-> CSWnegNode != 0))
-                here->CSWposNegPtr = here->CSWposNegBinding->CSC ;
-
-            if ((here-> CSWnegNode != 0) && (here-> CSWposNode != 0))
-                here->CSWnegPosPtr = here->CSWnegPosBinding->CSC ;
-
-            if ((here-> CSWnegNode != 0) && (here-> CSWnegNode != 0))
-                here->CSWnegNegPtr = here->CSWnegNegBinding->CSC ;
-
+            CFOO(CSWposPosPtr, CSWposPosBinding, CSWposNode, CSWposNode);
+            CFOO(CSWposNegPtr, CSWposNegBinding, CSWposNode, CSWnegNode);
+            CFOO(CSWnegPosPtr, CSWnegPosBinding, CSWnegNode, CSWposNode);
+            CFOO(CSWnegNegPtr, CSWnegNegBinding, CSWnegNode, CSWnegNode);
         }
     }
 

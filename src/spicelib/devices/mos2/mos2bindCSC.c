@@ -39,182 +39,28 @@ MOS2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS2instances ; here != NULL ; here = here->MOS2nextInstance)
         {
-            if ((here-> MOS2dNode != 0) && (here-> MOS2dNode != 0))
-            {
-                i = here->MOS2DdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DdBinding = matched ;
-                here->MOS2DdPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2gNode != 0))
-            {
-                i = here->MOS2GgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2GgBinding = matched ;
-                here->MOS2GgPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNode != 0) && (here-> MOS2sNode != 0))
-            {
-                i = here->MOS2SsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SsBinding = matched ;
-                here->MOS2SsPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2bNode != 0))
-            {
-                i = here->MOS2BbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2BbBinding = matched ;
-                here->MOS2BbPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2dNodePrime != 0))
-            {
-                i = here->MOS2DPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DPdpBinding = matched ;
-                here->MOS2DPdpPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2sNodePrime != 0))
-            {
-                i = here->MOS2SPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SPspBinding = matched ;
-                here->MOS2SPspPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2dNode != 0) && (here-> MOS2dNodePrime != 0))
-            {
-                i = here->MOS2DdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DdpBinding = matched ;
-                here->MOS2DdpPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2bNode != 0))
-            {
-                i = here->MOS2GbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2GbBinding = matched ;
-                here->MOS2GbPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2dNodePrime != 0))
-            {
-                i = here->MOS2GdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2GdpBinding = matched ;
-                here->MOS2GdpPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2sNodePrime != 0))
-            {
-                i = here->MOS2GspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2GspBinding = matched ;
-                here->MOS2GspPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNode != 0) && (here-> MOS2sNodePrime != 0))
-            {
-                i = here->MOS2SspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SspBinding = matched ;
-                here->MOS2SspPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2dNodePrime != 0))
-            {
-                i = here->MOS2BdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2BdpBinding = matched ;
-                here->MOS2BdpPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2sNodePrime != 0))
-            {
-                i = here->MOS2BspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2BspBinding = matched ;
-                here->MOS2BspPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2sNodePrime != 0))
-            {
-                i = here->MOS2DPspPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DPspBinding = matched ;
-                here->MOS2DPspPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2dNode != 0))
-            {
-                i = here->MOS2DPdPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DPdBinding = matched ;
-                here->MOS2DPdPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2gNode != 0))
-            {
-                i = here->MOS2BgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2BgBinding = matched ;
-                here->MOS2BgPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2gNode != 0))
-            {
-                i = here->MOS2DPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DPgBinding = matched ;
-                here->MOS2DPgPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2gNode != 0))
-            {
-                i = here->MOS2SPgPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SPgBinding = matched ;
-                here->MOS2SPgPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2sNode != 0))
-            {
-                i = here->MOS2SPsPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SPsBinding = matched ;
-                here->MOS2SPsPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2bNode != 0))
-            {
-                i = here->MOS2DPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2DPbBinding = matched ;
-                here->MOS2DPbPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2bNode != 0))
-            {
-                i = here->MOS2SPbPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SPbBinding = matched ;
-                here->MOS2SPbPtr = matched->CSC ;
-            }
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2dNodePrime != 0))
-            {
-                i = here->MOS2SPdpPtr ;
-                matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS2SPdpBinding = matched ;
-                here->MOS2SPdpPtr = matched->CSC ;
-            }
-
+            XFOO(MOS2DdPtr, MOS2DdBinding, MOS2dNode, MOS2dNode);
+            XFOO(MOS2GgPtr, MOS2GgBinding, MOS2gNode, MOS2gNode);
+            XFOO(MOS2SsPtr, MOS2SsBinding, MOS2sNode, MOS2sNode);
+            XFOO(MOS2BbPtr, MOS2BbBinding, MOS2bNode, MOS2bNode);
+            XFOO(MOS2DPdpPtr, MOS2DPdpBinding, MOS2dNodePrime, MOS2dNodePrime);
+            XFOO(MOS2SPspPtr, MOS2SPspBinding, MOS2sNodePrime, MOS2sNodePrime);
+            XFOO(MOS2DdpPtr, MOS2DdpBinding, MOS2dNode, MOS2dNodePrime);
+            XFOO(MOS2GbPtr, MOS2GbBinding, MOS2gNode, MOS2bNode);
+            XFOO(MOS2GdpPtr, MOS2GdpBinding, MOS2gNode, MOS2dNodePrime);
+            XFOO(MOS2GspPtr, MOS2GspBinding, MOS2gNode, MOS2sNodePrime);
+            XFOO(MOS2SspPtr, MOS2SspBinding, MOS2sNode, MOS2sNodePrime);
+            XFOO(MOS2BdpPtr, MOS2BdpBinding, MOS2bNode, MOS2dNodePrime);
+            XFOO(MOS2BspPtr, MOS2BspBinding, MOS2bNode, MOS2sNodePrime);
+            XFOO(MOS2DPspPtr, MOS2DPspBinding, MOS2dNodePrime, MOS2sNodePrime);
+            XFOO(MOS2DPdPtr, MOS2DPdBinding, MOS2dNodePrime, MOS2dNode);
+            XFOO(MOS2BgPtr, MOS2BgBinding, MOS2bNode, MOS2gNode);
+            XFOO(MOS2DPgPtr, MOS2DPgBinding, MOS2dNodePrime, MOS2gNode);
+            XFOO(MOS2SPgPtr, MOS2SPgBinding, MOS2sNodePrime, MOS2gNode);
+            XFOO(MOS2SPsPtr, MOS2SPsBinding, MOS2sNodePrime, MOS2sNode);
+            XFOO(MOS2DPbPtr, MOS2DPbBinding, MOS2dNodePrime, MOS2bNode);
+            XFOO(MOS2SPbPtr, MOS2SPbBinding, MOS2sNodePrime, MOS2bNode);
+            XFOO(MOS2SPdpPtr, MOS2SPdpBinding, MOS2sNodePrime, MOS2dNodePrime);
         }
     }
 
@@ -235,72 +81,28 @@ MOS2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS2instances ; here != NULL ; here = here->MOS2nextInstance)
         {
-            if ((here-> MOS2dNode != 0) && (here-> MOS2dNode != 0))
-                here->MOS2DdPtr = here->MOS2DdBinding->CSC_Complex ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2gNode != 0))
-                here->MOS2GgPtr = here->MOS2GgBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNode != 0) && (here-> MOS2sNode != 0))
-                here->MOS2SsPtr = here->MOS2SsBinding->CSC_Complex ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2bNode != 0))
-                here->MOS2BbPtr = here->MOS2BbBinding->CSC_Complex ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2DPdpPtr = here->MOS2DPdpBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2SPspPtr = here->MOS2SPspBinding->CSC_Complex ;
-
-            if ((here-> MOS2dNode != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2DdpPtr = here->MOS2DdpBinding->CSC_Complex ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2bNode != 0))
-                here->MOS2GbPtr = here->MOS2GbBinding->CSC_Complex ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2GdpPtr = here->MOS2GdpBinding->CSC_Complex ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2GspPtr = here->MOS2GspBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNode != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2SspPtr = here->MOS2SspBinding->CSC_Complex ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2BdpPtr = here->MOS2BdpBinding->CSC_Complex ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2BspPtr = here->MOS2BspBinding->CSC_Complex ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2DPspPtr = here->MOS2DPspBinding->CSC_Complex ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2dNode != 0))
-                here->MOS2DPdPtr = here->MOS2DPdBinding->CSC_Complex ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2gNode != 0))
-                here->MOS2BgPtr = here->MOS2BgBinding->CSC_Complex ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2gNode != 0))
-                here->MOS2DPgPtr = here->MOS2DPgBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2gNode != 0))
-                here->MOS2SPgPtr = here->MOS2SPgBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2sNode != 0))
-                here->MOS2SPsPtr = here->MOS2SPsBinding->CSC_Complex ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2bNode != 0))
-                here->MOS2DPbPtr = here->MOS2DPbBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2bNode != 0))
-                here->MOS2SPbPtr = here->MOS2SPbBinding->CSC_Complex ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2SPdpPtr = here->MOS2SPdpBinding->CSC_Complex ;
-
+            BFOO(MOS2DdPtr, MOS2DdBinding, MOS2dNode, MOS2dNode);
+            BFOO(MOS2GgPtr, MOS2GgBinding, MOS2gNode, MOS2gNode);
+            BFOO(MOS2SsPtr, MOS2SsBinding, MOS2sNode, MOS2sNode);
+            BFOO(MOS2BbPtr, MOS2BbBinding, MOS2bNode, MOS2bNode);
+            BFOO(MOS2DPdpPtr, MOS2DPdpBinding, MOS2dNodePrime, MOS2dNodePrime);
+            BFOO(MOS2SPspPtr, MOS2SPspBinding, MOS2sNodePrime, MOS2sNodePrime);
+            BFOO(MOS2DdpPtr, MOS2DdpBinding, MOS2dNode, MOS2dNodePrime);
+            BFOO(MOS2GbPtr, MOS2GbBinding, MOS2gNode, MOS2bNode);
+            BFOO(MOS2GdpPtr, MOS2GdpBinding, MOS2gNode, MOS2dNodePrime);
+            BFOO(MOS2GspPtr, MOS2GspBinding, MOS2gNode, MOS2sNodePrime);
+            BFOO(MOS2SspPtr, MOS2SspBinding, MOS2sNode, MOS2sNodePrime);
+            BFOO(MOS2BdpPtr, MOS2BdpBinding, MOS2bNode, MOS2dNodePrime);
+            BFOO(MOS2BspPtr, MOS2BspBinding, MOS2bNode, MOS2sNodePrime);
+            BFOO(MOS2DPspPtr, MOS2DPspBinding, MOS2dNodePrime, MOS2sNodePrime);
+            BFOO(MOS2DPdPtr, MOS2DPdBinding, MOS2dNodePrime, MOS2dNode);
+            BFOO(MOS2BgPtr, MOS2BgBinding, MOS2bNode, MOS2gNode);
+            BFOO(MOS2DPgPtr, MOS2DPgBinding, MOS2dNodePrime, MOS2gNode);
+            BFOO(MOS2SPgPtr, MOS2SPgBinding, MOS2sNodePrime, MOS2gNode);
+            BFOO(MOS2SPsPtr, MOS2SPsBinding, MOS2sNodePrime, MOS2sNode);
+            BFOO(MOS2DPbPtr, MOS2DPbBinding, MOS2dNodePrime, MOS2bNode);
+            BFOO(MOS2SPbPtr, MOS2SPbBinding, MOS2sNodePrime, MOS2bNode);
+            BFOO(MOS2SPdpPtr, MOS2SPdpBinding, MOS2sNodePrime, MOS2dNodePrime);
         }
     }
 
@@ -321,72 +123,28 @@ MOS2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS2instances ; here != NULL ; here = here->MOS2nextInstance)
         {
-            if ((here-> MOS2dNode != 0) && (here-> MOS2dNode != 0))
-                here->MOS2DdPtr = here->MOS2DdBinding->CSC ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2gNode != 0))
-                here->MOS2GgPtr = here->MOS2GgBinding->CSC ;
-
-            if ((here-> MOS2sNode != 0) && (here-> MOS2sNode != 0))
-                here->MOS2SsPtr = here->MOS2SsBinding->CSC ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2bNode != 0))
-                here->MOS2BbPtr = here->MOS2BbBinding->CSC ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2DPdpPtr = here->MOS2DPdpBinding->CSC ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2SPspPtr = here->MOS2SPspBinding->CSC ;
-
-            if ((here-> MOS2dNode != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2DdpPtr = here->MOS2DdpBinding->CSC ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2bNode != 0))
-                here->MOS2GbPtr = here->MOS2GbBinding->CSC ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2GdpPtr = here->MOS2GdpBinding->CSC ;
-
-            if ((here-> MOS2gNode != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2GspPtr = here->MOS2GspBinding->CSC ;
-
-            if ((here-> MOS2sNode != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2SspPtr = here->MOS2SspBinding->CSC ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2BdpPtr = here->MOS2BdpBinding->CSC ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2BspPtr = here->MOS2BspBinding->CSC ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2sNodePrime != 0))
-                here->MOS2DPspPtr = here->MOS2DPspBinding->CSC ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2dNode != 0))
-                here->MOS2DPdPtr = here->MOS2DPdBinding->CSC ;
-
-            if ((here-> MOS2bNode != 0) && (here-> MOS2gNode != 0))
-                here->MOS2BgPtr = here->MOS2BgBinding->CSC ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2gNode != 0))
-                here->MOS2DPgPtr = here->MOS2DPgBinding->CSC ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2gNode != 0))
-                here->MOS2SPgPtr = here->MOS2SPgBinding->CSC ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2sNode != 0))
-                here->MOS2SPsPtr = here->MOS2SPsBinding->CSC ;
-
-            if ((here-> MOS2dNodePrime != 0) && (here-> MOS2bNode != 0))
-                here->MOS2DPbPtr = here->MOS2DPbBinding->CSC ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2bNode != 0))
-                here->MOS2SPbPtr = here->MOS2SPbBinding->CSC ;
-
-            if ((here-> MOS2sNodePrime != 0) && (here-> MOS2dNodePrime != 0))
-                here->MOS2SPdpPtr = here->MOS2SPdpBinding->CSC ;
-
+            CFOO(MOS2DdPtr, MOS2DdBinding, MOS2dNode, MOS2dNode);
+            CFOO(MOS2GgPtr, MOS2GgBinding, MOS2gNode, MOS2gNode);
+            CFOO(MOS2SsPtr, MOS2SsBinding, MOS2sNode, MOS2sNode);
+            CFOO(MOS2BbPtr, MOS2BbBinding, MOS2bNode, MOS2bNode);
+            CFOO(MOS2DPdpPtr, MOS2DPdpBinding, MOS2dNodePrime, MOS2dNodePrime);
+            CFOO(MOS2SPspPtr, MOS2SPspBinding, MOS2sNodePrime, MOS2sNodePrime);
+            CFOO(MOS2DdpPtr, MOS2DdpBinding, MOS2dNode, MOS2dNodePrime);
+            CFOO(MOS2GbPtr, MOS2GbBinding, MOS2gNode, MOS2bNode);
+            CFOO(MOS2GdpPtr, MOS2GdpBinding, MOS2gNode, MOS2dNodePrime);
+            CFOO(MOS2GspPtr, MOS2GspBinding, MOS2gNode, MOS2sNodePrime);
+            CFOO(MOS2SspPtr, MOS2SspBinding, MOS2sNode, MOS2sNodePrime);
+            CFOO(MOS2BdpPtr, MOS2BdpBinding, MOS2bNode, MOS2dNodePrime);
+            CFOO(MOS2BspPtr, MOS2BspBinding, MOS2bNode, MOS2sNodePrime);
+            CFOO(MOS2DPspPtr, MOS2DPspBinding, MOS2dNodePrime, MOS2sNodePrime);
+            CFOO(MOS2DPdPtr, MOS2DPdBinding, MOS2dNodePrime, MOS2dNode);
+            CFOO(MOS2BgPtr, MOS2BgBinding, MOS2bNode, MOS2gNode);
+            CFOO(MOS2DPgPtr, MOS2DPgBinding, MOS2dNodePrime, MOS2gNode);
+            CFOO(MOS2SPgPtr, MOS2SPgBinding, MOS2sNodePrime, MOS2gNode);
+            CFOO(MOS2SPsPtr, MOS2SPsBinding, MOS2sNodePrime, MOS2sNode);
+            CFOO(MOS2DPbPtr, MOS2DPbBinding, MOS2dNodePrime, MOS2bNode);
+            CFOO(MOS2SPbPtr, MOS2SPbBinding, MOS2sNodePrime, MOS2bNode);
+            CFOO(MOS2SPdpPtr, MOS2SPdpBinding, MOS2sNodePrime, MOS2dNodePrime);
         }
     }
 
