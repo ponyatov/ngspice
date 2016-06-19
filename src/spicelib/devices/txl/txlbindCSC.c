@@ -42,7 +42,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLposPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLposPosptrStructPtr = matched ;
+                here->TXLposPosBinding = matched ;
                 here->TXLposPosPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLposNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLposNegptrStructPtr = matched ;
+                here->TXLposNegBinding = matched ;
                 here->TXLposNegPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLnegPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLnegPosptrStructPtr = matched ;
+                here->TXLnegPosBinding = matched ;
                 here->TXLnegPosPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLnegNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLnegNegptrStructPtr = matched ;
+                here->TXLnegNegBinding = matched ;
                 here->TXLnegNegPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr1PosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr1PosptrStructPtr = matched ;
+                here->TXLibr1PosBinding = matched ;
                 here->TXLibr1PosPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr2NegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr2NegptrStructPtr = matched ;
+                here->TXLibr2NegBinding = matched ;
                 here->TXLibr2NegPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLnegIbr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLnegIbr2ptrStructPtr = matched ;
+                here->TXLnegIbr2Binding = matched ;
                 here->TXLnegIbr2Ptr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLposIbr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLposIbr1ptrStructPtr = matched ;
+                here->TXLposIbr1Binding = matched ;
                 here->TXLposIbr1Ptr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr1Ibr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr1Ibr1ptrStructPtr = matched ;
+                here->TXLibr1Ibr1Binding = matched ;
                 here->TXLibr1Ibr1Ptr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr2Ibr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr2Ibr2ptrStructPtr = matched ;
+                here->TXLibr2Ibr2Binding = matched ;
                 here->TXLibr2Ibr2Ptr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr1NegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr1NegptrStructPtr = matched ;
+                here->TXLibr1NegBinding = matched ;
                 here->TXLibr1NegPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr2PosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr2PosptrStructPtr = matched ;
+                here->TXLibr2PosBinding = matched ;
                 here->TXLibr2PosPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr1Ibr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr1Ibr2ptrStructPtr = matched ;
+                here->TXLibr1Ibr2Binding = matched ;
                 here->TXLibr1Ibr2Ptr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ TXLbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->TXLibr2Ibr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->TXLibr2Ibr1ptrStructPtr = matched ;
+                here->TXLibr2Ibr1Binding = matched ;
                 here->TXLibr2Ibr1Ptr = matched->CSC ;
             }
 
@@ -171,46 +171,46 @@ TXLbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->TXLinstances ; here != NULL ; here = here->TXLnextInstance)
         {
             if ((here-> TXLposNode != 0) && (here-> TXLposNode != 0))
-                here->TXLposPosPtr = here->TXLposPosptrStructPtr->CSC_Complex ;
+                here->TXLposPosPtr = here->TXLposPosBinding->CSC_Complex ;
 
             if ((here-> TXLposNode != 0) && (here-> TXLnegNode != 0))
-                here->TXLposNegPtr = here->TXLposNegptrStructPtr->CSC_Complex ;
+                here->TXLposNegPtr = here->TXLposNegBinding->CSC_Complex ;
 
             if ((here-> TXLnegNode != 0) && (here-> TXLposNode != 0))
-                here->TXLnegPosPtr = here->TXLnegPosptrStructPtr->CSC_Complex ;
+                here->TXLnegPosPtr = here->TXLnegPosBinding->CSC_Complex ;
 
             if ((here-> TXLnegNode != 0) && (here-> TXLnegNode != 0))
-                here->TXLnegNegPtr = here->TXLnegNegptrStructPtr->CSC_Complex ;
+                here->TXLnegNegPtr = here->TXLnegNegBinding->CSC_Complex ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLposNode != 0))
-                here->TXLibr1PosPtr = here->TXLibr1PosptrStructPtr->CSC_Complex ;
+                here->TXLibr1PosPtr = here->TXLibr1PosBinding->CSC_Complex ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLnegNode != 0))
-                here->TXLibr2NegPtr = here->TXLibr2NegptrStructPtr->CSC_Complex ;
+                here->TXLibr2NegPtr = here->TXLibr2NegBinding->CSC_Complex ;
 
             if ((here-> TXLnegNode != 0) && (here-> TXLibr2 != 0))
-                here->TXLnegIbr2Ptr = here->TXLnegIbr2ptrStructPtr->CSC_Complex ;
+                here->TXLnegIbr2Ptr = here->TXLnegIbr2Binding->CSC_Complex ;
 
             if ((here-> TXLposNode != 0) && (here-> TXLibr1 != 0))
-                here->TXLposIbr1Ptr = here->TXLposIbr1ptrStructPtr->CSC_Complex ;
+                here->TXLposIbr1Ptr = here->TXLposIbr1Binding->CSC_Complex ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLibr1 != 0))
-                here->TXLibr1Ibr1Ptr = here->TXLibr1Ibr1ptrStructPtr->CSC_Complex ;
+                here->TXLibr1Ibr1Ptr = here->TXLibr1Ibr1Binding->CSC_Complex ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLibr2 != 0))
-                here->TXLibr2Ibr2Ptr = here->TXLibr2Ibr2ptrStructPtr->CSC_Complex ;
+                here->TXLibr2Ibr2Ptr = here->TXLibr2Ibr2Binding->CSC_Complex ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLnegNode != 0))
-                here->TXLibr1NegPtr = here->TXLibr1NegptrStructPtr->CSC_Complex ;
+                here->TXLibr1NegPtr = here->TXLibr1NegBinding->CSC_Complex ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLposNode != 0))
-                here->TXLibr2PosPtr = here->TXLibr2PosptrStructPtr->CSC_Complex ;
+                here->TXLibr2PosPtr = here->TXLibr2PosBinding->CSC_Complex ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLibr2 != 0))
-                here->TXLibr1Ibr2Ptr = here->TXLibr1Ibr2ptrStructPtr->CSC_Complex ;
+                here->TXLibr1Ibr2Ptr = here->TXLibr1Ibr2Binding->CSC_Complex ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLibr1 != 0))
-                here->TXLibr2Ibr1Ptr = here->TXLibr2Ibr1ptrStructPtr->CSC_Complex ;
+                here->TXLibr2Ibr1Ptr = here->TXLibr2Ibr1Binding->CSC_Complex ;
 
         }
     }
@@ -233,46 +233,46 @@ TXLbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->TXLinstances ; here != NULL ; here = here->TXLnextInstance)
         {
             if ((here-> TXLposNode != 0) && (here-> TXLposNode != 0))
-                here->TXLposPosPtr = here->TXLposPosptrStructPtr->CSC ;
+                here->TXLposPosPtr = here->TXLposPosBinding->CSC ;
 
             if ((here-> TXLposNode != 0) && (here-> TXLnegNode != 0))
-                here->TXLposNegPtr = here->TXLposNegptrStructPtr->CSC ;
+                here->TXLposNegPtr = here->TXLposNegBinding->CSC ;
 
             if ((here-> TXLnegNode != 0) && (here-> TXLposNode != 0))
-                here->TXLnegPosPtr = here->TXLnegPosptrStructPtr->CSC ;
+                here->TXLnegPosPtr = here->TXLnegPosBinding->CSC ;
 
             if ((here-> TXLnegNode != 0) && (here-> TXLnegNode != 0))
-                here->TXLnegNegPtr = here->TXLnegNegptrStructPtr->CSC ;
+                here->TXLnegNegPtr = here->TXLnegNegBinding->CSC ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLposNode != 0))
-                here->TXLibr1PosPtr = here->TXLibr1PosptrStructPtr->CSC ;
+                here->TXLibr1PosPtr = here->TXLibr1PosBinding->CSC ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLnegNode != 0))
-                here->TXLibr2NegPtr = here->TXLibr2NegptrStructPtr->CSC ;
+                here->TXLibr2NegPtr = here->TXLibr2NegBinding->CSC ;
 
             if ((here-> TXLnegNode != 0) && (here-> TXLibr2 != 0))
-                here->TXLnegIbr2Ptr = here->TXLnegIbr2ptrStructPtr->CSC ;
+                here->TXLnegIbr2Ptr = here->TXLnegIbr2Binding->CSC ;
 
             if ((here-> TXLposNode != 0) && (here-> TXLibr1 != 0))
-                here->TXLposIbr1Ptr = here->TXLposIbr1ptrStructPtr->CSC ;
+                here->TXLposIbr1Ptr = here->TXLposIbr1Binding->CSC ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLibr1 != 0))
-                here->TXLibr1Ibr1Ptr = here->TXLibr1Ibr1ptrStructPtr->CSC ;
+                here->TXLibr1Ibr1Ptr = here->TXLibr1Ibr1Binding->CSC ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLibr2 != 0))
-                here->TXLibr2Ibr2Ptr = here->TXLibr2Ibr2ptrStructPtr->CSC ;
+                here->TXLibr2Ibr2Ptr = here->TXLibr2Ibr2Binding->CSC ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLnegNode != 0))
-                here->TXLibr1NegPtr = here->TXLibr1NegptrStructPtr->CSC ;
+                here->TXLibr1NegPtr = here->TXLibr1NegBinding->CSC ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLposNode != 0))
-                here->TXLibr2PosPtr = here->TXLibr2PosptrStructPtr->CSC ;
+                here->TXLibr2PosPtr = here->TXLibr2PosBinding->CSC ;
 
             if ((here-> TXLibr1 != 0) && (here-> TXLibr2 != 0))
-                here->TXLibr1Ibr2Ptr = here->TXLibr1Ibr2ptrStructPtr->CSC ;
+                here->TXLibr1Ibr2Ptr = here->TXLibr1Ibr2Binding->CSC ;
 
             if ((here-> TXLibr2 != 0) && (here-> TXLibr1 != 0))
-                here->TXLibr2Ibr1Ptr = here->TXLibr2Ibr1ptrStructPtr->CSC ;
+                here->TXLibr2Ibr1Ptr = here->TXLibr2Ibr1Binding->CSC ;
 
         }
     }

@@ -42,7 +42,7 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VCCSposContPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSposContPosptrStructPtr = matched ;
+                here->VCCSposContPosBinding = matched ;
                 here->VCCSposContPosPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VCCSposContNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSposContNegptrStructPtr = matched ;
+                here->VCCSposContNegBinding = matched ;
                 here->VCCSposContNegPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VCCSnegContPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSnegContPosptrStructPtr = matched ;
+                here->VCCSnegContPosBinding = matched ;
                 here->VCCSnegContPosPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VCCSnegContNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VCCSnegContNegptrStructPtr = matched ;
+                here->VCCSnegContNegBinding = matched ;
                 here->VCCSnegContNegPtr = matched->CSC ;
             }
 
@@ -91,16 +91,16 @@ VCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
             if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSposContPosPtr = here->VCCSposContPosptrStructPtr->CSC_Complex ;
+                here->VCCSposContPosPtr = here->VCCSposContPosBinding->CSC_Complex ;
 
             if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSposContNegPtr = here->VCCSposContNegptrStructPtr->CSC_Complex ;
+                here->VCCSposContNegPtr = here->VCCSposContNegBinding->CSC_Complex ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSnegContPosPtr = here->VCCSnegContPosptrStructPtr->CSC_Complex ;
+                here->VCCSnegContPosPtr = here->VCCSnegContPosBinding->CSC_Complex ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSnegContNegPtr = here->VCCSnegContNegptrStructPtr->CSC_Complex ;
+                here->VCCSnegContNegPtr = here->VCCSnegContNegBinding->CSC_Complex ;
 
         }
     }
@@ -123,16 +123,16 @@ VCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
             if ((here-> VCCSposNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSposContPosPtr = here->VCCSposContPosptrStructPtr->CSC ;
+                here->VCCSposContPosPtr = here->VCCSposContPosBinding->CSC ;
 
             if ((here-> VCCSposNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSposContNegPtr = here->VCCSposContNegptrStructPtr->CSC ;
+                here->VCCSposContNegPtr = here->VCCSposContNegBinding->CSC ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontPosNode != 0))
-                here->VCCSnegContPosPtr = here->VCCSnegContPosptrStructPtr->CSC ;
+                here->VCCSnegContPosPtr = here->VCCSnegContPosBinding->CSC ;
 
             if ((here-> VCCSnegNode != 0) && (here-> VCCScontNegNode != 0))
-                here->VCCSnegContNegPtr = here->VCCSnegContNegptrStructPtr->CSC ;
+                here->VCCSnegContNegPtr = here->VCCSnegContNegBinding->CSC ;
 
         }
     }

@@ -42,7 +42,7 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->RESposPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESposPosptrStructPtr = matched ;
+                here->RESposPosBinding = matched ;
                 here->RESposPosPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->RESnegNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESnegNegptrStructPtr = matched ;
+                here->RESnegNegBinding = matched ;
                 here->RESnegNegPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->RESposNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESposNegptrStructPtr = matched ;
+                here->RESposNegBinding = matched ;
                 here->RESposNegPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->RESnegPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->RESnegPosptrStructPtr = matched ;
+                here->RESnegPosBinding = matched ;
                 here->RESnegPosPtr = matched->CSC ;
             }
 
@@ -91,16 +91,16 @@ RESbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
             if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-                here->RESposPosPtr = here->RESposPosptrStructPtr->CSC_Complex ;
+                here->RESposPosPtr = here->RESposPosBinding->CSC_Complex ;
 
             if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-                here->RESnegNegPtr = here->RESnegNegptrStructPtr->CSC_Complex ;
+                here->RESnegNegPtr = here->RESnegNegBinding->CSC_Complex ;
 
             if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-                here->RESposNegPtr = here->RESposNegptrStructPtr->CSC_Complex ;
+                here->RESposNegPtr = here->RESposNegBinding->CSC_Complex ;
 
             if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-                here->RESnegPosPtr = here->RESnegPosptrStructPtr->CSC_Complex ;
+                here->RESnegPosPtr = here->RESnegPosBinding->CSC_Complex ;
 
         }
     }
@@ -123,16 +123,16 @@ RESbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
             if ((here-> RESposNode != 0) && (here-> RESposNode != 0))
-                here->RESposPosPtr = here->RESposPosptrStructPtr->CSC ;
+                here->RESposPosPtr = here->RESposPosBinding->CSC ;
 
             if ((here-> RESnegNode != 0) && (here-> RESnegNode != 0))
-                here->RESnegNegPtr = here->RESnegNegptrStructPtr->CSC ;
+                here->RESnegNegPtr = here->RESnegNegBinding->CSC ;
 
             if ((here-> RESposNode != 0) && (here-> RESnegNode != 0))
-                here->RESposNegPtr = here->RESposNegptrStructPtr->CSC ;
+                here->RESposNegPtr = here->RESposNegBinding->CSC ;
 
             if ((here-> RESnegNode != 0) && (here-> RESposNode != 0))
-                here->RESnegPosPtr = here->RESnegPosptrStructPtr->CSC ;
+                here->RESnegPosPtr = here->RESnegPosBinding->CSC ;
 
         }
     }

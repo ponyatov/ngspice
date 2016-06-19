@@ -42,7 +42,7 @@ CAPbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CAPposPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPposPosptrStructPtr = matched ;
+                here->CAPposPosBinding = matched ;
                 here->CAPposPosPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ CAPbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CAPnegNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPnegNegptrStructPtr = matched ;
+                here->CAPnegNegBinding = matched ;
                 here->CAPnegNegPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ CAPbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CAPposNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPposNegptrStructPtr = matched ;
+                here->CAPposNegBinding = matched ;
                 here->CAPposNegPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ CAPbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CAPnegPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CAPnegPosptrStructPtr = matched ;
+                here->CAPnegPosBinding = matched ;
                 here->CAPnegPosPtr = matched->CSC ;
             }
         }
@@ -90,16 +90,16 @@ CAPbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
             if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-                here->CAPposPosPtr = here->CAPposPosptrStructPtr->CSC_Complex ;
+                here->CAPposPosPtr = here->CAPposPosBinding->CSC_Complex ;
 
             if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-                here->CAPnegNegPtr = here->CAPnegNegptrStructPtr->CSC_Complex ;
+                here->CAPnegNegPtr = here->CAPnegNegBinding->CSC_Complex ;
 
             if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-                here->CAPposNegPtr = here->CAPposNegptrStructPtr->CSC_Complex ;
+                here->CAPposNegPtr = here->CAPposNegBinding->CSC_Complex ;
 
             if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-                here->CAPnegPosPtr = here->CAPnegPosptrStructPtr->CSC_Complex ;
+                here->CAPnegPosPtr = here->CAPnegPosBinding->CSC_Complex ;
 
         }
     }
@@ -122,16 +122,16 @@ CAPbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CAPinstances ; here != NULL ; here = here->CAPnextInstance)
         {
             if ((here->CAPposNode != 0) && (here->CAPposNode != 0))
-                here->CAPposPosPtr = here->CAPposPosptrStructPtr->CSC ;
+                here->CAPposPosPtr = here->CAPposPosBinding->CSC ;
 
             if ((here->CAPnegNode != 0) && (here->CAPnegNode != 0))
-                here->CAPnegNegPtr = here->CAPnegNegptrStructPtr->CSC ;
+                here->CAPnegNegPtr = here->CAPnegNegBinding->CSC ;
 
             if ((here->CAPposNode != 0) && (here->CAPnegNode != 0))
-                here->CAPposNegPtr = here->CAPposNegptrStructPtr->CSC ;
+                here->CAPposNegPtr = here->CAPposNegBinding->CSC ;
 
             if ((here->CAPnegNode != 0) && (here->CAPposNode != 0))
-                here->CAPnegPosPtr = here->CAPnegPosptrStructPtr->CSC ;
+                here->CAPnegPosPtr = here->CAPnegPosBinding->CSC ;
 
         }
     }

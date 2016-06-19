@@ -50,10 +50,10 @@ typedef struct sCSWinstance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *CSWposPosptrStructPtr ;
-    BindElement *CSWposNegptrStructPtr ;
-    BindElement *CSWnegPosptrStructPtr ;
-    BindElement *CSWnegNegptrStructPtr ;
+    BindElement *CSWposPosBinding ;
+    BindElement *CSWposNegBinding ;
+    BindElement *CSWnegPosBinding ;
+    BindElement *CSWnegNegBinding ;
 #endif
 
 } CSWinstance ;

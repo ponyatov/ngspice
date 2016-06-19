@@ -52,12 +52,12 @@ typedef struct sVCVSinstance {
             set equal to  0 if not a design parameter*/
 
 #ifdef KLU
-    BindElement *VCVSposIbrptrStructPtr ;
-    BindElement *VCVSnegIbrptrStructPtr ;
-    BindElement *VCVSibrNegptrStructPtr ;
-    BindElement *VCVSibrPosptrStructPtr ;
-    BindElement *VCVSibrContPosptrStructPtr ;
-    BindElement *VCVSibrContNegptrStructPtr ;
+    BindElement *VCVSposIbrBinding ;
+    BindElement *VCVSnegIbrBinding ;
+    BindElement *VCVSibrNegBinding ;
+    BindElement *VCVSibrPosBinding ;
+    BindElement *VCVSibrContPosBinding ;
+    BindElement *VCVSibrContNegBinding ;
 #endif
 
 } VCVSinstance ;

@@ -42,7 +42,7 @@ CCVSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCVSposIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCVSposIbrptrStructPtr = matched ;
+                here->CCVSposIbrBinding = matched ;
                 here->CCVSposIbrPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ CCVSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCVSnegIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCVSnegIbrptrStructPtr = matched ;
+                here->CCVSnegIbrBinding = matched ;
                 here->CCVSnegIbrPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ CCVSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCVSibrNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCVSibrNegptrStructPtr = matched ;
+                here->CCVSibrNegBinding = matched ;
                 here->CCVSibrNegPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ CCVSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCVSibrPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCVSibrPosptrStructPtr = matched ;
+                here->CCVSibrPosBinding = matched ;
                 here->CCVSibrPosPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ CCVSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCVSibrContBrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCVSibrContBrptrStructPtr = matched ;
+                here->CCVSibrContBrBinding = matched ;
                 here->CCVSibrContBrPtr = matched->CSC ;
             }
 
@@ -99,19 +99,19 @@ CCVSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CCVSinstances ; here != NULL ; here = here->CCVSnextInstance)
         {
             if ((here-> CCVSposNode != 0) && (here-> CCVSbranch != 0))
-                here->CCVSposIbrPtr = here->CCVSposIbrptrStructPtr->CSC_Complex ;
+                here->CCVSposIbrPtr = here->CCVSposIbrBinding->CSC_Complex ;
 
             if ((here-> CCVSnegNode != 0) && (here-> CCVSbranch != 0))
-                here->CCVSnegIbrPtr = here->CCVSnegIbrptrStructPtr->CSC_Complex ;
+                here->CCVSnegIbrPtr = here->CCVSnegIbrBinding->CSC_Complex ;
 
             if ((here-> CCVSbranch != 0) && (here-> CCVSnegNode != 0))
-                here->CCVSibrNegPtr = here->CCVSibrNegptrStructPtr->CSC_Complex ;
+                here->CCVSibrNegPtr = here->CCVSibrNegBinding->CSC_Complex ;
 
             if ((here-> CCVSbranch != 0) && (here-> CCVSposNode != 0))
-                here->CCVSibrPosPtr = here->CCVSibrPosptrStructPtr->CSC_Complex ;
+                here->CCVSibrPosPtr = here->CCVSibrPosBinding->CSC_Complex ;
 
             if ((here-> CCVSbranch != 0) && (here-> CCVScontBranch != 0))
-                here->CCVSibrContBrPtr = here->CCVSibrContBrptrStructPtr->CSC_Complex ;
+                here->CCVSibrContBrPtr = here->CCVSibrContBrBinding->CSC_Complex ;
 
         }
     }
@@ -134,19 +134,19 @@ CCVSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CCVSinstances ; here != NULL ; here = here->CCVSnextInstance)
         {
             if ((here-> CCVSposNode != 0) && (here-> CCVSbranch != 0))
-                here->CCVSposIbrPtr = here->CCVSposIbrptrStructPtr->CSC ;
+                here->CCVSposIbrPtr = here->CCVSposIbrBinding->CSC ;
 
             if ((here-> CCVSnegNode != 0) && (here-> CCVSbranch != 0))
-                here->CCVSnegIbrPtr = here->CCVSnegIbrptrStructPtr->CSC ;
+                here->CCVSnegIbrPtr = here->CCVSnegIbrBinding->CSC ;
 
             if ((here-> CCVSbranch != 0) && (here-> CCVSnegNode != 0))
-                here->CCVSibrNegPtr = here->CCVSibrNegptrStructPtr->CSC ;
+                here->CCVSibrNegPtr = here->CCVSibrNegBinding->CSC ;
 
             if ((here-> CCVSbranch != 0) && (here-> CCVSposNode != 0))
-                here->CCVSibrPosPtr = here->CCVSibrPosptrStructPtr->CSC ;
+                here->CCVSibrPosPtr = here->CCVSibrPosBinding->CSC ;
 
             if ((here-> CCVSbranch != 0) && (here-> CCVScontBranch != 0))
-                here->CCVSibrContBrPtr = here->CCVSibrContBrptrStructPtr->CSC ;
+                here->CCVSibrContBrPtr = here->CCVSibrContBrBinding->CSC ;
 
         }
     }

@@ -48,10 +48,10 @@ typedef struct sVCCSinstance {
             set equal to  0 if not a design parameter*/
 
 #ifdef KLU
-    BindElement *VCCSposContPosptrStructPtr ;
-    BindElement *VCCSposContNegptrStructPtr ;
-    BindElement *VCCSnegContPosptrStructPtr ;
-    BindElement *VCCSnegContNegptrStructPtr ;
+    BindElement *VCCSposContPosBinding ;
+    BindElement *VCCSposContNegBinding ;
+    BindElement *VCCSnegContPosBinding ;
+    BindElement *VCCSnegContNegBinding ;
 #endif
 
 } VCCSinstance ;

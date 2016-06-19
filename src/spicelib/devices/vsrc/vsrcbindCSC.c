@@ -42,7 +42,7 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VSRCposIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCposIbrptrStructPtr = matched ;
+                here->VSRCposIbrBinding = matched ;
                 here->VSRCposIbrPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VSRCnegIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCnegIbrptrStructPtr = matched ;
+                here->VSRCnegIbrBinding = matched ;
                 here->VSRCnegIbrPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VSRCibrNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCibrNegptrStructPtr = matched ;
+                here->VSRCibrNegBinding = matched ;
                 here->VSRCibrNegPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VSRCibrPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCibrPosptrStructPtr = matched ;
+                here->VSRCibrPosBinding = matched ;
                 here->VSRCibrPosPtr = matched->CSC ;
             }
 
@@ -75,7 +75,7 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VSRCibrIbrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VSRCibrIbrptrStructPtr = matched ;
+                here->VSRCibrIbrBinding = matched ;
                 if (matched != NULL)
                 {
                     here->VSRCibrIbrPtr = matched->CSC ;
@@ -102,23 +102,23 @@ VSRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
             if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCposIbrPtr = here->VSRCposIbrptrStructPtr->CSC_Complex ;
+                here->VSRCposIbrPtr = here->VSRCposIbrBinding->CSC_Complex ;
 
             if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCnegIbrPtr = here->VSRCnegIbrptrStructPtr->CSC_Complex ;
+                here->VSRCnegIbrPtr = here->VSRCnegIbrBinding->CSC_Complex ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-                here->VSRCibrNegPtr = here->VSRCibrNegptrStructPtr->CSC_Complex ;
+                here->VSRCibrNegPtr = here->VSRCibrNegBinding->CSC_Complex ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-                here->VSRCibrPosPtr = here->VSRCibrPosptrStructPtr->CSC_Complex ;
+                here->VSRCibrPosPtr = here->VSRCibrPosBinding->CSC_Complex ;
 
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
-                if (here->VSRCibrIbrptrStructPtr != NULL)
+                if (here->VSRCibrIbrBinding != NULL)
                 {
-                    here->VSRCibrIbrPtr = here->VSRCibrIbrptrStructPtr->CSC_Complex ;
+                    here->VSRCibrIbrPtr = here->VSRCibrIbrBinding->CSC_Complex ;
                 }
             }
         }
@@ -142,23 +142,23 @@ VSRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
             if ((here-> VSRCposNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCposIbrPtr = here->VSRCposIbrptrStructPtr->CSC ;
+                here->VSRCposIbrPtr = here->VSRCposIbrBinding->CSC ;
 
             if ((here-> VSRCnegNode != 0) && (here-> VSRCbranch != 0))
-                here->VSRCnegIbrPtr = here->VSRCnegIbrptrStructPtr->CSC ;
+                here->VSRCnegIbrPtr = here->VSRCnegIbrBinding->CSC ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCnegNode != 0))
-                here->VSRCibrNegPtr = here->VSRCibrNegptrStructPtr->CSC ;
+                here->VSRCibrNegPtr = here->VSRCibrNegBinding->CSC ;
 
             if ((here-> VSRCbranch != 0) && (here-> VSRCposNode != 0))
-                here->VSRCibrPosPtr = here->VSRCibrPosptrStructPtr->CSC ;
+                here->VSRCibrPosPtr = here->VSRCibrPosBinding->CSC ;
 
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
-                if (here->VSRCibrIbrptrStructPtr != NULL)
+                if (here->VSRCibrIbrBinding != NULL)
                 {
-                    here->VSRCibrIbrPtr = here->VSRCibrIbrptrStructPtr->CSC ;
+                    here->VSRCibrIbrPtr = here->VSRCibrIbrBinding->CSC ;
                 }
             }
         }

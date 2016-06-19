@@ -42,7 +42,7 @@ CCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCCSposContBrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCCSposContBrptrStructPtr = matched ;
+                here->CCCSposContBrBinding = matched ;
                 here->CCCSposContBrPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ CCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->CCCSnegContBrPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->CCCSnegContBrptrStructPtr = matched ;
+                here->CCCSnegContBrBinding = matched ;
                 here->CCCSnegContBrPtr = matched->CSC ;
             }
 
@@ -75,10 +75,10 @@ CCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
             if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSposContBrPtr = here->CCCSposContBrptrStructPtr->CSC_Complex ;
+                here->CCCSposContBrPtr = here->CCCSposContBrBinding->CSC_Complex ;
 
             if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSnegContBrPtr = here->CCCSnegContBrptrStructPtr->CSC_Complex ;
+                here->CCCSnegContBrPtr = here->CCCSnegContBrBinding->CSC_Complex ;
 
         }
     }
@@ -101,10 +101,10 @@ CCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
             if ((here->CCCSposNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSposContBrPtr = here->CCCSposContBrptrStructPtr->CSC ;
+                here->CCCSposContBrPtr = here->CCCSposContBrBinding->CSC ;
 
             if ((here->CCCSnegNode != 0) && (here->CCCScontBranch != 0))
-                here->CCCSnegContBrPtr = here->CCCSnegContBrptrStructPtr->CSC ;
+                here->CCCSnegContBrPtr = here->CCCSnegContBrBinding->CSC ;
 
         }
     }

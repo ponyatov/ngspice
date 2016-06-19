@@ -50,20 +50,20 @@ typedef struct sTXLinstance {
 	unsigned TXLlengthgiven : 1;   /* flag to indicate that instance parameter len is specified */
 
 #ifdef KLU
-    BindElement *TXLposPosptrStructPtr ;
-    BindElement *TXLposNegptrStructPtr ;
-    BindElement *TXLnegPosptrStructPtr ;
-    BindElement *TXLnegNegptrStructPtr ;
-    BindElement *TXLibr1PosptrStructPtr ;
-    BindElement *TXLibr2NegptrStructPtr ;
-    BindElement *TXLnegIbr2ptrStructPtr ;
-    BindElement *TXLposIbr1ptrStructPtr ;
-    BindElement *TXLibr1Ibr1ptrStructPtr ;
-    BindElement *TXLibr2Ibr2ptrStructPtr ;
-    BindElement *TXLibr1NegptrStructPtr ;
-    BindElement *TXLibr2PosptrStructPtr ;
-    BindElement *TXLibr1Ibr2ptrStructPtr ;
-    BindElement *TXLibr2Ibr1ptrStructPtr ;
+    BindElement *TXLposPosBinding ;
+    BindElement *TXLposNegBinding ;
+    BindElement *TXLnegPosBinding ;
+    BindElement *TXLnegNegBinding ;
+    BindElement *TXLibr1PosBinding ;
+    BindElement *TXLibr2NegBinding ;
+    BindElement *TXLnegIbr2Binding ;
+    BindElement *TXLposIbr1Binding ;
+    BindElement *TXLibr1Ibr1Binding ;
+    BindElement *TXLibr2Ibr2Binding ;
+    BindElement *TXLibr1NegBinding ;
+    BindElement *TXLibr2PosBinding ;
+    BindElement *TXLibr1Ibr2Binding ;
+    BindElement *TXLibr2Ibr1Binding ;
 #endif
 
 } TXLinstance ;

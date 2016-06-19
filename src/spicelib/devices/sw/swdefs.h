@@ -49,10 +49,10 @@ typedef struct sSWinstance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *SWposPosptrStructPtr ;
-    BindElement *SWposNegptrStructPtr ;
-    BindElement *SWnegPosptrStructPtr ;
-    BindElement *SWnegNegptrStructPtr ;
+    BindElement *SWposPosBinding ;
+    BindElement *SWposNegBinding ;
+    BindElement *SWnegPosBinding ;
+    BindElement *SWnegNegBinding ;
 #endif
 
 } SWinstance ;

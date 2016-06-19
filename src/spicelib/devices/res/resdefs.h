@@ -87,10 +87,10 @@ typedef struct sRESinstance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *RESposPosptrStructPtr ;
-    BindElement *RESnegNegptrStructPtr ;
-    BindElement *RESposNegptrStructPtr ;
-    BindElement *RESnegPosptrStructPtr ;
+    BindElement *RESposPosBinding ;
+    BindElement *RESnegNegBinding ;
+    BindElement *RESposNegBinding ;
+    BindElement *RESnegPosBinding ;
 #endif
 
 } RESinstance ;

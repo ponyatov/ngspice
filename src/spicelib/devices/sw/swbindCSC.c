@@ -42,7 +42,7 @@ SWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->SWposPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWposPosptrStructPtr = matched ;
+                here->SWposPosBinding = matched ;
                 here->SWposPosPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ SWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->SWposNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWposNegptrStructPtr = matched ;
+                here->SWposNegBinding = matched ;
                 here->SWposNegPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ SWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->SWnegPosPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWnegPosptrStructPtr = matched ;
+                here->SWnegPosBinding = matched ;
                 here->SWnegPosPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ SWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->SWnegNegPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->SWnegNegptrStructPtr = matched ;
+                here->SWnegNegBinding = matched ;
                 here->SWnegNegPtr = matched->CSC ;
             }
 
@@ -91,16 +91,16 @@ SWbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
             if ((here-> SWposNode != 0) && (here-> SWposNode != 0))
-                here->SWposPosPtr = here->SWposPosptrStructPtr->CSC_Complex ;
+                here->SWposPosPtr = here->SWposPosBinding->CSC_Complex ;
 
             if ((here-> SWposNode != 0) && (here-> SWnegNode != 0))
-                here->SWposNegPtr = here->SWposNegptrStructPtr->CSC_Complex ;
+                here->SWposNegPtr = here->SWposNegBinding->CSC_Complex ;
 
             if ((here-> SWnegNode != 0) && (here-> SWposNode != 0))
-                here->SWnegPosPtr = here->SWnegPosptrStructPtr->CSC_Complex ;
+                here->SWnegPosPtr = here->SWnegPosBinding->CSC_Complex ;
 
             if ((here-> SWnegNode != 0) && (here-> SWnegNode != 0))
-                here->SWnegNegPtr = here->SWnegNegptrStructPtr->CSC_Complex ;
+                here->SWnegNegPtr = here->SWnegNegBinding->CSC_Complex ;
 
         }
     }
@@ -123,16 +123,16 @@ SWbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
             if ((here-> SWposNode != 0) && (here-> SWposNode != 0))
-                here->SWposPosPtr = here->SWposPosptrStructPtr->CSC ;
+                here->SWposPosPtr = here->SWposPosBinding->CSC ;
 
             if ((here-> SWposNode != 0) && (here-> SWnegNode != 0))
-                here->SWposNegPtr = here->SWposNegptrStructPtr->CSC ;
+                here->SWposNegPtr = here->SWposNegBinding->CSC ;
 
             if ((here-> SWnegNode != 0) && (here-> SWposNode != 0))
-                here->SWnegPosPtr = here->SWnegPosptrStructPtr->CSC ;
+                here->SWnegPosPtr = here->SWnegPosBinding->CSC ;
 
             if ((here-> SWnegNode != 0) && (here-> SWnegNode != 0))
-                here->SWnegNegPtr = here->SWnegNegptrStructPtr->CSC ;
+                here->SWnegNegPtr = here->SWnegNegBinding->CSC ;
 
         }
     }
