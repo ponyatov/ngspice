@@ -167,28 +167,28 @@ typedef struct sBSIM1instance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *B1DdStructPtr ;
-    BindElement *B1GgStructPtr ;
-    BindElement *B1SsStructPtr ;
-    BindElement *B1BbStructPtr ;
-    BindElement *B1DPdpStructPtr ;
-    BindElement *B1SPspStructPtr ;
-    BindElement *B1DdpStructPtr ;
-    BindElement *B1GbStructPtr ;
-    BindElement *B1GdpStructPtr ;
-    BindElement *B1GspStructPtr ;
-    BindElement *B1SspStructPtr ;
-    BindElement *B1BdpStructPtr ;
-    BindElement *B1BspStructPtr ;
-    BindElement *B1DPspStructPtr ;
-    BindElement *B1DPdStructPtr ;
-    BindElement *B1BgStructPtr ;
-    BindElement *B1DPgStructPtr ;
-    BindElement *B1SPgStructPtr ;
-    BindElement *B1SPsStructPtr ;
-    BindElement *B1DPbStructPtr ;
-    BindElement *B1SPbStructPtr ;
-    BindElement *B1SPdpStructPtr ;
+    BindElement *B1DdBinding ;
+    BindElement *B1GgBinding ;
+    BindElement *B1SsBinding ;
+    BindElement *B1BbBinding ;
+    BindElement *B1DPdpBinding ;
+    BindElement *B1SPspBinding ;
+    BindElement *B1DdpBinding ;
+    BindElement *B1GbBinding ;
+    BindElement *B1GdpBinding ;
+    BindElement *B1GspBinding ;
+    BindElement *B1SspBinding ;
+    BindElement *B1BdpBinding ;
+    BindElement *B1BspBinding ;
+    BindElement *B1DPspBinding ;
+    BindElement *B1DPdBinding ;
+    BindElement *B1BgBinding ;
+    BindElement *B1DPgBinding ;
+    BindElement *B1SPgBinding ;
+    BindElement *B1SPsBinding ;
+    BindElement *B1DPbBinding ;
+    BindElement *B1SPbBinding ;
+    BindElement *B1SPdpBinding ;
 #endif
 
 } B1instance ;

@@ -42,7 +42,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainDrainPrimeStructPtr = matched ;
+                here->HFETAdrainDrainPrimeBinding = matched ;
                 here->HFETAdrainDrainPrimePtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgatePrimeDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgatePrimeDrainPrimeStructPtr = matched ;
+                here->HFETAgatePrimeDrainPrimeBinding = matched ;
                 here->HFETAgatePrimeDrainPrimePtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgatePrimeSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgatePrimeSourcePrimeStructPtr = matched ;
+                here->HFETAgatePrimeSourcePrimeBinding = matched ;
                 here->HFETAgatePrimeSourcePrimePtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourceSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourceSourcePrimeStructPtr = matched ;
+                here->HFETAsourceSourcePrimeBinding = matched ;
                 here->HFETAsourceSourcePrimePtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrimeDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrimeDrainStructPtr = matched ;
+                here->HFETAdrainPrimeDrainBinding = matched ;
                 here->HFETAdrainPrimeDrainPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrimeGatePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrimeGatePrimeStructPtr = matched ;
+                here->HFETAdrainPrimeGatePrimeBinding = matched ;
                 here->HFETAdrainPrimeGatePrimePtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrimeSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrimeSourcePrimeStructPtr = matched ;
+                here->HFETAdrainPrimeSourcePrimeBinding = matched ;
                 here->HFETAdrainPrimeSourcePrimePtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrimeGatePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrimeGatePrimeStructPtr = matched ;
+                here->HFETAsourcePrimeGatePrimeBinding = matched ;
                 here->HFETAsourcePrimeGatePrimePtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrimeSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrimeSourceStructPtr = matched ;
+                here->HFETAsourcePrimeSourceBinding = matched ;
                 here->HFETAsourcePrimeSourcePtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrimeDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrimeDrainPrimeStructPtr = matched ;
+                here->HFETAsourcePrimeDrainPrimeBinding = matched ;
                 here->HFETAsourcePrimeDrainPrimePtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainDrainStructPtr = matched ;
+                here->HFETAdrainDrainBinding = matched ;
                 here->HFETAdrainDrainPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgatePrimeGatePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgatePrimeGatePrimeStructPtr = matched ;
+                here->HFETAgatePrimeGatePrimeBinding = matched ;
                 here->HFETAgatePrimeGatePrimePtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourceSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourceSourceStructPtr = matched ;
+                here->HFETAsourceSourceBinding = matched ;
                 here->HFETAsourceSourcePtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrimeDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrimeDrainPrimeStructPtr = matched ;
+                here->HFETAdrainPrimeDrainPrimeBinding = matched ;
                 here->HFETAdrainPrimeDrainPrimePtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrimeSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrimeSourcePrimeStructPtr = matched ;
+                here->HFETAsourcePrimeSourcePrimeBinding = matched ;
                 here->HFETAsourcePrimeSourcePrimePtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrimeDrainPrmPrmPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrimeDrainPrmPrmStructPtr = matched ;
+                here->HFETAdrainPrimeDrainPrmPrmBinding = matched ;
                 here->HFETAdrainPrimeDrainPrmPrmPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrmPrmDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrmPrmDrainPrimeStructPtr = matched ;
+                here->HFETAdrainPrmPrmDrainPrimeBinding = matched ;
                 here->HFETAdrainPrmPrmDrainPrimePtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrmPrmGatePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrmPrmGatePrimeStructPtr = matched ;
+                here->HFETAdrainPrmPrmGatePrimeBinding = matched ;
                 here->HFETAdrainPrmPrmGatePrimePtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgatePrimeDrainPrmPrmPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgatePrimeDrainPrmPrmStructPtr = matched ;
+                here->HFETAgatePrimeDrainPrmPrmBinding = matched ;
                 here->HFETAgatePrimeDrainPrmPrmPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAdrainPrmPrmDrainPrmPrmPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAdrainPrmPrmDrainPrmPrmStructPtr = matched ;
+                here->HFETAdrainPrmPrmDrainPrmPrmBinding = matched ;
                 here->HFETAdrainPrmPrmDrainPrmPrmPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrimeSourcePrmPrmPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrimeSourcePrmPrmStructPtr = matched ;
+                here->HFETAsourcePrimeSourcePrmPrmBinding = matched ;
                 here->HFETAsourcePrimeSourcePrmPrmPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrmPrmSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrmPrmSourcePrimeStructPtr = matched ;
+                here->HFETAsourcePrmPrmSourcePrimeBinding = matched ;
                 here->HFETAsourcePrmPrmSourcePrimePtr = matched->CSC ;
             }
 
@@ -218,7 +218,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrmPrmGatePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrmPrmGatePrimeStructPtr = matched ;
+                here->HFETAsourcePrmPrmGatePrimeBinding = matched ;
                 here->HFETAsourcePrmPrmGatePrimePtr = matched->CSC ;
             }
 
@@ -226,7 +226,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgatePrimeSourcePrmPrmPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgatePrimeSourcePrmPrmStructPtr = matched ;
+                here->HFETAgatePrimeSourcePrmPrmBinding = matched ;
                 here->HFETAgatePrimeSourcePrmPrmPtr = matched->CSC ;
             }
 
@@ -234,7 +234,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAsourcePrmPrmSourcePrmPrmPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAsourcePrmPrmSourcePrmPrmStructPtr = matched ;
+                here->HFETAsourcePrmPrmSourcePrmPrmBinding = matched ;
                 here->HFETAsourcePrmPrmSourcePrmPrmPtr = matched->CSC ;
             }
 
@@ -242,7 +242,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgateGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgateGateStructPtr = matched ;
+                here->HFETAgateGateBinding = matched ;
                 here->HFETAgateGatePtr = matched->CSC ;
             }
 
@@ -250,7 +250,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgateGatePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgateGatePrimeStructPtr = matched ;
+                here->HFETAgateGatePrimeBinding = matched ;
                 here->HFETAgateGatePrimePtr = matched->CSC ;
             }
 
@@ -258,7 +258,7 @@ HFETAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HFETAgatePrimeGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HFETAgatePrimeGateStructPtr = matched ;
+                here->HFETAgatePrimeGateBinding = matched ;
                 here->HFETAgatePrimeGatePtr = matched->CSC ;
             }
 
@@ -283,88 +283,88 @@ HFETAbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->HFETAinstances ; here != NULL ; here = here->HFETAnextInstance)
         {
             if ((here->HFETAdrainNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAdrainDrainPrimePtr = here->HFETAdrainDrainPrimeStructPtr->CSC_Complex ;
+                here->HFETAdrainDrainPrimePtr = here->HFETAdrainDrainPrimeBinding->CSC_Complex ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAgatePrimeDrainPrimePtr = here->HFETAgatePrimeDrainPrimeStructPtr->CSC_Complex ;
+                here->HFETAgatePrimeDrainPrimePtr = here->HFETAgatePrimeDrainPrimeBinding->CSC_Complex ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAgatePrimeSourcePrimePtr = here->HFETAgatePrimeSourcePrimeStructPtr->CSC_Complex ;
+                here->HFETAgatePrimeSourcePrimePtr = here->HFETAgatePrimeSourcePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAsourceNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAsourceSourcePrimePtr = here->HFETAsourceSourcePrimeStructPtr->CSC_Complex ;
+                here->HFETAsourceSourcePrimePtr = here->HFETAsourceSourcePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAdrainNode != 0))
-                here->HFETAdrainPrimeDrainPtr = here->HFETAdrainPrimeDrainStructPtr->CSC_Complex ;
+                here->HFETAdrainPrimeDrainPtr = here->HFETAdrainPrimeDrainBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAdrainPrimeGatePrimePtr = here->HFETAdrainPrimeGatePrimeStructPtr->CSC_Complex ;
+                here->HFETAdrainPrimeGatePrimePtr = here->HFETAdrainPrimeGatePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAdrainPrimeSourcePrimePtr = here->HFETAdrainPrimeSourcePrimeStructPtr->CSC_Complex ;
+                here->HFETAdrainPrimeSourcePrimePtr = here->HFETAdrainPrimeSourcePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAsourcePrimeGatePrimePtr = here->HFETAsourcePrimeGatePrimeStructPtr->CSC_Complex ;
+                here->HFETAsourcePrimeGatePrimePtr = here->HFETAsourcePrimeGatePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAsourceNode != 0))
-                here->HFETAsourcePrimeSourcePtr = here->HFETAsourcePrimeSourceStructPtr->CSC_Complex ;
+                here->HFETAsourcePrimeSourcePtr = here->HFETAsourcePrimeSourceBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAsourcePrimeDrainPrimePtr = here->HFETAsourcePrimeDrainPrimeStructPtr->CSC_Complex ;
+                here->HFETAsourcePrimeDrainPrimePtr = here->HFETAsourcePrimeDrainPrimeBinding->CSC_Complex ;
 
             if ((here->HFETAdrainNode != 0) && (here->HFETAdrainNode != 0))
-                here->HFETAdrainDrainPtr = here->HFETAdrainDrainStructPtr->CSC_Complex ;
+                here->HFETAdrainDrainPtr = here->HFETAdrainDrainBinding->CSC_Complex ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAgatePrimeGatePrimePtr = here->HFETAgatePrimeGatePrimeStructPtr->CSC_Complex ;
+                here->HFETAgatePrimeGatePrimePtr = here->HFETAgatePrimeGatePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAsourceNode != 0) && (here->HFETAsourceNode != 0))
-                here->HFETAsourceSourcePtr = here->HFETAsourceSourceStructPtr->CSC_Complex ;
+                here->HFETAsourceSourcePtr = here->HFETAsourceSourceBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAdrainPrimeDrainPrimePtr = here->HFETAdrainPrimeDrainPrimeStructPtr->CSC_Complex ;
+                here->HFETAdrainPrimeDrainPrimePtr = here->HFETAdrainPrimeDrainPrimeBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAsourcePrimeSourcePrimePtr = here->HFETAsourcePrimeSourcePrimeStructPtr->CSC_Complex ;
+                here->HFETAsourcePrimeSourcePrimePtr = here->HFETAsourcePrimeSourcePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAdrainPrmPrmNode != 0))
-                here->HFETAdrainPrimeDrainPrmPrmPtr = here->HFETAdrainPrimeDrainPrmPrmStructPtr->CSC_Complex ;
+                here->HFETAdrainPrimeDrainPrmPrmPtr = here->HFETAdrainPrimeDrainPrmPrmBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrmPrmNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAdrainPrmPrmDrainPrimePtr = here->HFETAdrainPrmPrmDrainPrimeStructPtr->CSC_Complex ;
+                here->HFETAdrainPrmPrmDrainPrimePtr = here->HFETAdrainPrmPrmDrainPrimeBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrmPrmNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAdrainPrmPrmGatePrimePtr = here->HFETAdrainPrmPrmGatePrimeStructPtr->CSC_Complex ;
+                here->HFETAdrainPrmPrmGatePrimePtr = here->HFETAdrainPrmPrmGatePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAdrainPrmPrmNode != 0))
-                here->HFETAgatePrimeDrainPrmPrmPtr = here->HFETAgatePrimeDrainPrmPrmStructPtr->CSC_Complex ;
+                here->HFETAgatePrimeDrainPrmPrmPtr = here->HFETAgatePrimeDrainPrmPrmBinding->CSC_Complex ;
 
             if ((here->HFETAdrainPrmPrmNode != 0) && (here->HFETAdrainPrmPrmNode != 0))
-                here->HFETAdrainPrmPrmDrainPrmPrmPtr = here->HFETAdrainPrmPrmDrainPrmPrmStructPtr->CSC_Complex ;
+                here->HFETAdrainPrmPrmDrainPrmPrmPtr = here->HFETAdrainPrmPrmDrainPrmPrmBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAsourcePrmPrmNode != 0))
-                here->HFETAsourcePrimeSourcePrmPrmPtr = here->HFETAsourcePrimeSourcePrmPrmStructPtr->CSC_Complex ;
+                here->HFETAsourcePrimeSourcePrmPrmPtr = here->HFETAsourcePrimeSourcePrmPrmBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrmPrmNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAsourcePrmPrmSourcePrimePtr = here->HFETAsourcePrmPrmSourcePrimeStructPtr->CSC_Complex ;
+                here->HFETAsourcePrmPrmSourcePrimePtr = here->HFETAsourcePrmPrmSourcePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrmPrmNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAsourcePrmPrmGatePrimePtr = here->HFETAsourcePrmPrmGatePrimeStructPtr->CSC_Complex ;
+                here->HFETAsourcePrmPrmGatePrimePtr = here->HFETAsourcePrmPrmGatePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAsourcePrmPrmNode != 0))
-                here->HFETAgatePrimeSourcePrmPrmPtr = here->HFETAgatePrimeSourcePrmPrmStructPtr->CSC_Complex ;
+                here->HFETAgatePrimeSourcePrmPrmPtr = here->HFETAgatePrimeSourcePrmPrmBinding->CSC_Complex ;
 
             if ((here->HFETAsourcePrmPrmNode != 0) && (here->HFETAsourcePrmPrmNode != 0))
-                here->HFETAsourcePrmPrmSourcePrmPrmPtr = here->HFETAsourcePrmPrmSourcePrmPrmStructPtr->CSC_Complex ;
+                here->HFETAsourcePrmPrmSourcePrmPrmPtr = here->HFETAsourcePrmPrmSourcePrmPrmBinding->CSC_Complex ;
 
             if ((here->HFETAgateNode != 0) && (here->HFETAgateNode != 0))
-                here->HFETAgateGatePtr = here->HFETAgateGateStructPtr->CSC_Complex ;
+                here->HFETAgateGatePtr = here->HFETAgateGateBinding->CSC_Complex ;
 
             if ((here->HFETAgateNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAgateGatePrimePtr = here->HFETAgateGatePrimeStructPtr->CSC_Complex ;
+                here->HFETAgateGatePrimePtr = here->HFETAgateGatePrimeBinding->CSC_Complex ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAgateNode != 0))
-                here->HFETAgatePrimeGatePtr = here->HFETAgatePrimeGateStructPtr->CSC_Complex ;
+                here->HFETAgatePrimeGatePtr = here->HFETAgatePrimeGateBinding->CSC_Complex ;
 
         }
     }
@@ -387,88 +387,88 @@ HFETAbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->HFETAinstances ; here != NULL ; here = here->HFETAnextInstance)
         {
             if ((here->HFETAdrainNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAdrainDrainPrimePtr = here->HFETAdrainDrainPrimeStructPtr->CSC ;
+                here->HFETAdrainDrainPrimePtr = here->HFETAdrainDrainPrimeBinding->CSC ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAgatePrimeDrainPrimePtr = here->HFETAgatePrimeDrainPrimeStructPtr->CSC ;
+                here->HFETAgatePrimeDrainPrimePtr = here->HFETAgatePrimeDrainPrimeBinding->CSC ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAgatePrimeSourcePrimePtr = here->HFETAgatePrimeSourcePrimeStructPtr->CSC ;
+                here->HFETAgatePrimeSourcePrimePtr = here->HFETAgatePrimeSourcePrimeBinding->CSC ;
 
             if ((here->HFETAsourceNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAsourceSourcePrimePtr = here->HFETAsourceSourcePrimeStructPtr->CSC ;
+                here->HFETAsourceSourcePrimePtr = here->HFETAsourceSourcePrimeBinding->CSC ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAdrainNode != 0))
-                here->HFETAdrainPrimeDrainPtr = here->HFETAdrainPrimeDrainStructPtr->CSC ;
+                here->HFETAdrainPrimeDrainPtr = here->HFETAdrainPrimeDrainBinding->CSC ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAdrainPrimeGatePrimePtr = here->HFETAdrainPrimeGatePrimeStructPtr->CSC ;
+                here->HFETAdrainPrimeGatePrimePtr = here->HFETAdrainPrimeGatePrimeBinding->CSC ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAdrainPrimeSourcePrimePtr = here->HFETAdrainPrimeSourcePrimeStructPtr->CSC ;
+                here->HFETAdrainPrimeSourcePrimePtr = here->HFETAdrainPrimeSourcePrimeBinding->CSC ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAsourcePrimeGatePrimePtr = here->HFETAsourcePrimeGatePrimeStructPtr->CSC ;
+                here->HFETAsourcePrimeGatePrimePtr = here->HFETAsourcePrimeGatePrimeBinding->CSC ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAsourceNode != 0))
-                here->HFETAsourcePrimeSourcePtr = here->HFETAsourcePrimeSourceStructPtr->CSC ;
+                here->HFETAsourcePrimeSourcePtr = here->HFETAsourcePrimeSourceBinding->CSC ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAsourcePrimeDrainPrimePtr = here->HFETAsourcePrimeDrainPrimeStructPtr->CSC ;
+                here->HFETAsourcePrimeDrainPrimePtr = here->HFETAsourcePrimeDrainPrimeBinding->CSC ;
 
             if ((here->HFETAdrainNode != 0) && (here->HFETAdrainNode != 0))
-                here->HFETAdrainDrainPtr = here->HFETAdrainDrainStructPtr->CSC ;
+                here->HFETAdrainDrainPtr = here->HFETAdrainDrainBinding->CSC ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAgatePrimeGatePrimePtr = here->HFETAgatePrimeGatePrimeStructPtr->CSC ;
+                here->HFETAgatePrimeGatePrimePtr = here->HFETAgatePrimeGatePrimeBinding->CSC ;
 
             if ((here->HFETAsourceNode != 0) && (here->HFETAsourceNode != 0))
-                here->HFETAsourceSourcePtr = here->HFETAsourceSourceStructPtr->CSC ;
+                here->HFETAsourceSourcePtr = here->HFETAsourceSourceBinding->CSC ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAdrainPrimeDrainPrimePtr = here->HFETAdrainPrimeDrainPrimeStructPtr->CSC ;
+                here->HFETAdrainPrimeDrainPrimePtr = here->HFETAdrainPrimeDrainPrimeBinding->CSC ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAsourcePrimeSourcePrimePtr = here->HFETAsourcePrimeSourcePrimeStructPtr->CSC ;
+                here->HFETAsourcePrimeSourcePrimePtr = here->HFETAsourcePrimeSourcePrimeBinding->CSC ;
 
             if ((here->HFETAdrainPrimeNode != 0) && (here->HFETAdrainPrmPrmNode != 0))
-                here->HFETAdrainPrimeDrainPrmPrmPtr = here->HFETAdrainPrimeDrainPrmPrmStructPtr->CSC ;
+                here->HFETAdrainPrimeDrainPrmPrmPtr = here->HFETAdrainPrimeDrainPrmPrmBinding->CSC ;
 
             if ((here->HFETAdrainPrmPrmNode != 0) && (here->HFETAdrainPrimeNode != 0))
-                here->HFETAdrainPrmPrmDrainPrimePtr = here->HFETAdrainPrmPrmDrainPrimeStructPtr->CSC ;
+                here->HFETAdrainPrmPrmDrainPrimePtr = here->HFETAdrainPrmPrmDrainPrimeBinding->CSC ;
 
             if ((here->HFETAdrainPrmPrmNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAdrainPrmPrmGatePrimePtr = here->HFETAdrainPrmPrmGatePrimeStructPtr->CSC ;
+                here->HFETAdrainPrmPrmGatePrimePtr = here->HFETAdrainPrmPrmGatePrimeBinding->CSC ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAdrainPrmPrmNode != 0))
-                here->HFETAgatePrimeDrainPrmPrmPtr = here->HFETAgatePrimeDrainPrmPrmStructPtr->CSC ;
+                here->HFETAgatePrimeDrainPrmPrmPtr = here->HFETAgatePrimeDrainPrmPrmBinding->CSC ;
 
             if ((here->HFETAdrainPrmPrmNode != 0) && (here->HFETAdrainPrmPrmNode != 0))
-                here->HFETAdrainPrmPrmDrainPrmPrmPtr = here->HFETAdrainPrmPrmDrainPrmPrmStructPtr->CSC ;
+                here->HFETAdrainPrmPrmDrainPrmPrmPtr = here->HFETAdrainPrmPrmDrainPrmPrmBinding->CSC ;
 
             if ((here->HFETAsourcePrimeNode != 0) && (here->HFETAsourcePrmPrmNode != 0))
-                here->HFETAsourcePrimeSourcePrmPrmPtr = here->HFETAsourcePrimeSourcePrmPrmStructPtr->CSC ;
+                here->HFETAsourcePrimeSourcePrmPrmPtr = here->HFETAsourcePrimeSourcePrmPrmBinding->CSC ;
 
             if ((here->HFETAsourcePrmPrmNode != 0) && (here->HFETAsourcePrimeNode != 0))
-                here->HFETAsourcePrmPrmSourcePrimePtr = here->HFETAsourcePrmPrmSourcePrimeStructPtr->CSC ;
+                here->HFETAsourcePrmPrmSourcePrimePtr = here->HFETAsourcePrmPrmSourcePrimeBinding->CSC ;
 
             if ((here->HFETAsourcePrmPrmNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAsourcePrmPrmGatePrimePtr = here->HFETAsourcePrmPrmGatePrimeStructPtr->CSC ;
+                here->HFETAsourcePrmPrmGatePrimePtr = here->HFETAsourcePrmPrmGatePrimeBinding->CSC ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAsourcePrmPrmNode != 0))
-                here->HFETAgatePrimeSourcePrmPrmPtr = here->HFETAgatePrimeSourcePrmPrmStructPtr->CSC ;
+                here->HFETAgatePrimeSourcePrmPrmPtr = here->HFETAgatePrimeSourcePrmPrmBinding->CSC ;
 
             if ((here->HFETAsourcePrmPrmNode != 0) && (here->HFETAsourcePrmPrmNode != 0))
-                here->HFETAsourcePrmPrmSourcePrmPrmPtr = here->HFETAsourcePrmPrmSourcePrmPrmStructPtr->CSC ;
+                here->HFETAsourcePrmPrmSourcePrmPrmPtr = here->HFETAsourcePrmPrmSourcePrmPrmBinding->CSC ;
 
             if ((here->HFETAgateNode != 0) && (here->HFETAgateNode != 0))
-                here->HFETAgateGatePtr = here->HFETAgateGateStructPtr->CSC ;
+                here->HFETAgateGatePtr = here->HFETAgateGateBinding->CSC ;
 
             if ((here->HFETAgateNode != 0) && (here->HFETAgatePrimeNode != 0))
-                here->HFETAgateGatePrimePtr = here->HFETAgateGatePrimeStructPtr->CSC ;
+                here->HFETAgateGatePrimePtr = here->HFETAgateGatePrimeBinding->CSC ;
 
             if ((here->HFETAgatePrimeNode != 0) && (here->HFETAgateNode != 0))
-                here->HFETAgatePrimeGatePtr = here->HFETAgatePrimeGateStructPtr->CSC ;
+                here->HFETAgatePrimeGatePtr = here->HFETAgatePrimeGateBinding->CSC ;
 
         }
     }

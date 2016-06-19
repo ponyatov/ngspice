@@ -145,13 +145,13 @@ typedef struct sDIOinstance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *DIOposPosPrimeStructPtr ;
-    BindElement *DIOnegPosPrimeStructPtr ;
-    BindElement *DIOposPrimePosStructPtr ;
-    BindElement *DIOposPrimeNegStructPtr ;
-    BindElement *DIOposPosStructPtr ;
-    BindElement *DIOnegNegStructPtr ;
-    BindElement *DIOposPrimePosPrimeStructPtr ;
+    BindElement *DIOposPosPrimeBinding ;
+    BindElement *DIOnegPosPrimeBinding ;
+    BindElement *DIOposPrimePosBinding ;
+    BindElement *DIOposPrimeNegBinding ;
+    BindElement *DIOposPosBinding ;
+    BindElement *DIOnegNegBinding ;
+    BindElement *DIOposPrimePosPrimeBinding ;
 #endif
 
 } DIOinstance ;

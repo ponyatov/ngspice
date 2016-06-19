@@ -42,7 +42,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DdStructPtr = matched ;
+                here->MOS9DdBinding = matched ;
                 here->MOS9DdPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9GgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9GgStructPtr = matched ;
+                here->MOS9GgBinding = matched ;
                 here->MOS9GgPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SsStructPtr = matched ;
+                here->MOS9SsBinding = matched ;
                 here->MOS9SsPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9BbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9BbStructPtr = matched ;
+                here->MOS9BbBinding = matched ;
                 here->MOS9BbPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DPdpStructPtr = matched ;
+                here->MOS9DPdpBinding = matched ;
                 here->MOS9DPdpPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SPspStructPtr = matched ;
+                here->MOS9SPspBinding = matched ;
                 here->MOS9SPspPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DdpStructPtr = matched ;
+                here->MOS9DdpBinding = matched ;
                 here->MOS9DdpPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9GbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9GbStructPtr = matched ;
+                here->MOS9GbBinding = matched ;
                 here->MOS9GbPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9GdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9GdpStructPtr = matched ;
+                here->MOS9GdpBinding = matched ;
                 here->MOS9GdpPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9GspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9GspStructPtr = matched ;
+                here->MOS9GspBinding = matched ;
                 here->MOS9GspPtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SspStructPtr = matched ;
+                here->MOS9SspBinding = matched ;
                 here->MOS9SspPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9BdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9BdpStructPtr = matched ;
+                here->MOS9BdpBinding = matched ;
                 here->MOS9BdpPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9BspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9BspStructPtr = matched ;
+                here->MOS9BspBinding = matched ;
                 here->MOS9BspPtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DPspStructPtr = matched ;
+                here->MOS9DPspBinding = matched ;
                 here->MOS9DPspPtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DPdStructPtr = matched ;
+                here->MOS9DPdBinding = matched ;
                 here->MOS9DPdPtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9BgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9BgStructPtr = matched ;
+                here->MOS9BgBinding = matched ;
                 here->MOS9BgPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DPgStructPtr = matched ;
+                here->MOS9DPgBinding = matched ;
                 here->MOS9DPgPtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SPgStructPtr = matched ;
+                here->MOS9SPgBinding = matched ;
                 here->MOS9SPgPtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SPsStructPtr = matched ;
+                here->MOS9SPsBinding = matched ;
                 here->MOS9SPsPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9DPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9DPbStructPtr = matched ;
+                here->MOS9DPbBinding = matched ;
                 here->MOS9DPbPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SPbStructPtr = matched ;
+                here->MOS9SPbBinding = matched ;
                 here->MOS9SPbPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ MOS9bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS9SPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS9SPdpStructPtr = matched ;
+                here->MOS9SPdpBinding = matched ;
                 here->MOS9SPdpPtr = matched->CSC ;
             }
 
@@ -235,70 +235,70 @@ MOS9bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MOS9instances ; here != NULL ; here = here->MOS9nextInstance)
         {
             if ((here-> MOS9dNode != 0) && (here-> MOS9dNode != 0))
-                here->MOS9DdPtr = here->MOS9DdStructPtr->CSC_Complex ;
+                here->MOS9DdPtr = here->MOS9DdBinding->CSC_Complex ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9gNode != 0))
-                here->MOS9GgPtr = here->MOS9GgStructPtr->CSC_Complex ;
+                here->MOS9GgPtr = here->MOS9GgBinding->CSC_Complex ;
 
             if ((here-> MOS9sNode != 0) && (here-> MOS9sNode != 0))
-                here->MOS9SsPtr = here->MOS9SsStructPtr->CSC_Complex ;
+                here->MOS9SsPtr = here->MOS9SsBinding->CSC_Complex ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9bNode != 0))
-                here->MOS9BbPtr = here->MOS9BbStructPtr->CSC_Complex ;
+                here->MOS9BbPtr = here->MOS9BbBinding->CSC_Complex ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9DPdpPtr = here->MOS9DPdpStructPtr->CSC_Complex ;
+                here->MOS9DPdpPtr = here->MOS9DPdpBinding->CSC_Complex ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9SPspPtr = here->MOS9SPspStructPtr->CSC_Complex ;
+                here->MOS9SPspPtr = here->MOS9SPspBinding->CSC_Complex ;
 
             if ((here-> MOS9dNode != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9DdpPtr = here->MOS9DdpStructPtr->CSC_Complex ;
+                here->MOS9DdpPtr = here->MOS9DdpBinding->CSC_Complex ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9bNode != 0))
-                here->MOS9GbPtr = here->MOS9GbStructPtr->CSC_Complex ;
+                here->MOS9GbPtr = here->MOS9GbBinding->CSC_Complex ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9GdpPtr = here->MOS9GdpStructPtr->CSC_Complex ;
+                here->MOS9GdpPtr = here->MOS9GdpBinding->CSC_Complex ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9GspPtr = here->MOS9GspStructPtr->CSC_Complex ;
+                here->MOS9GspPtr = here->MOS9GspBinding->CSC_Complex ;
 
             if ((here-> MOS9sNode != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9SspPtr = here->MOS9SspStructPtr->CSC_Complex ;
+                here->MOS9SspPtr = here->MOS9SspBinding->CSC_Complex ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9BdpPtr = here->MOS9BdpStructPtr->CSC_Complex ;
+                here->MOS9BdpPtr = here->MOS9BdpBinding->CSC_Complex ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9BspPtr = here->MOS9BspStructPtr->CSC_Complex ;
+                here->MOS9BspPtr = here->MOS9BspBinding->CSC_Complex ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9DPspPtr = here->MOS9DPspStructPtr->CSC_Complex ;
+                here->MOS9DPspPtr = here->MOS9DPspBinding->CSC_Complex ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9dNode != 0))
-                here->MOS9DPdPtr = here->MOS9DPdStructPtr->CSC_Complex ;
+                here->MOS9DPdPtr = here->MOS9DPdBinding->CSC_Complex ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9gNode != 0))
-                here->MOS9BgPtr = here->MOS9BgStructPtr->CSC_Complex ;
+                here->MOS9BgPtr = here->MOS9BgBinding->CSC_Complex ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9gNode != 0))
-                here->MOS9DPgPtr = here->MOS9DPgStructPtr->CSC_Complex ;
+                here->MOS9DPgPtr = here->MOS9DPgBinding->CSC_Complex ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9gNode != 0))
-                here->MOS9SPgPtr = here->MOS9SPgStructPtr->CSC_Complex ;
+                here->MOS9SPgPtr = here->MOS9SPgBinding->CSC_Complex ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9sNode != 0))
-                here->MOS9SPsPtr = here->MOS9SPsStructPtr->CSC_Complex ;
+                here->MOS9SPsPtr = here->MOS9SPsBinding->CSC_Complex ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9bNode != 0))
-                here->MOS9DPbPtr = here->MOS9DPbStructPtr->CSC_Complex ;
+                here->MOS9DPbPtr = here->MOS9DPbBinding->CSC_Complex ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9bNode != 0))
-                here->MOS9SPbPtr = here->MOS9SPbStructPtr->CSC_Complex ;
+                here->MOS9SPbPtr = here->MOS9SPbBinding->CSC_Complex ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9SPdpPtr = here->MOS9SPdpStructPtr->CSC_Complex ;
+                here->MOS9SPdpPtr = here->MOS9SPdpBinding->CSC_Complex ;
 
         }
     }
@@ -321,70 +321,70 @@ MOS9bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MOS9instances ; here != NULL ; here = here->MOS9nextInstance)
         {
             if ((here-> MOS9dNode != 0) && (here-> MOS9dNode != 0))
-                here->MOS9DdPtr = here->MOS9DdStructPtr->CSC ;
+                here->MOS9DdPtr = here->MOS9DdBinding->CSC ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9gNode != 0))
-                here->MOS9GgPtr = here->MOS9GgStructPtr->CSC ;
+                here->MOS9GgPtr = here->MOS9GgBinding->CSC ;
 
             if ((here-> MOS9sNode != 0) && (here-> MOS9sNode != 0))
-                here->MOS9SsPtr = here->MOS9SsStructPtr->CSC ;
+                here->MOS9SsPtr = here->MOS9SsBinding->CSC ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9bNode != 0))
-                here->MOS9BbPtr = here->MOS9BbStructPtr->CSC ;
+                here->MOS9BbPtr = here->MOS9BbBinding->CSC ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9DPdpPtr = here->MOS9DPdpStructPtr->CSC ;
+                here->MOS9DPdpPtr = here->MOS9DPdpBinding->CSC ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9SPspPtr = here->MOS9SPspStructPtr->CSC ;
+                here->MOS9SPspPtr = here->MOS9SPspBinding->CSC ;
 
             if ((here-> MOS9dNode != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9DdpPtr = here->MOS9DdpStructPtr->CSC ;
+                here->MOS9DdpPtr = here->MOS9DdpBinding->CSC ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9bNode != 0))
-                here->MOS9GbPtr = here->MOS9GbStructPtr->CSC ;
+                here->MOS9GbPtr = here->MOS9GbBinding->CSC ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9GdpPtr = here->MOS9GdpStructPtr->CSC ;
+                here->MOS9GdpPtr = here->MOS9GdpBinding->CSC ;
 
             if ((here-> MOS9gNode != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9GspPtr = here->MOS9GspStructPtr->CSC ;
+                here->MOS9GspPtr = here->MOS9GspBinding->CSC ;
 
             if ((here-> MOS9sNode != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9SspPtr = here->MOS9SspStructPtr->CSC ;
+                here->MOS9SspPtr = here->MOS9SspBinding->CSC ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9BdpPtr = here->MOS9BdpStructPtr->CSC ;
+                here->MOS9BdpPtr = here->MOS9BdpBinding->CSC ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9BspPtr = here->MOS9BspStructPtr->CSC ;
+                here->MOS9BspPtr = here->MOS9BspBinding->CSC ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9sNodePrime != 0))
-                here->MOS9DPspPtr = here->MOS9DPspStructPtr->CSC ;
+                here->MOS9DPspPtr = here->MOS9DPspBinding->CSC ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9dNode != 0))
-                here->MOS9DPdPtr = here->MOS9DPdStructPtr->CSC ;
+                here->MOS9DPdPtr = here->MOS9DPdBinding->CSC ;
 
             if ((here-> MOS9bNode != 0) && (here-> MOS9gNode != 0))
-                here->MOS9BgPtr = here->MOS9BgStructPtr->CSC ;
+                here->MOS9BgPtr = here->MOS9BgBinding->CSC ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9gNode != 0))
-                here->MOS9DPgPtr = here->MOS9DPgStructPtr->CSC ;
+                here->MOS9DPgPtr = here->MOS9DPgBinding->CSC ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9gNode != 0))
-                here->MOS9SPgPtr = here->MOS9SPgStructPtr->CSC ;
+                here->MOS9SPgPtr = here->MOS9SPgBinding->CSC ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9sNode != 0))
-                here->MOS9SPsPtr = here->MOS9SPsStructPtr->CSC ;
+                here->MOS9SPsPtr = here->MOS9SPsBinding->CSC ;
 
             if ((here-> MOS9dNodePrime != 0) && (here-> MOS9bNode != 0))
-                here->MOS9DPbPtr = here->MOS9DPbStructPtr->CSC ;
+                here->MOS9DPbPtr = here->MOS9DPbBinding->CSC ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9bNode != 0))
-                here->MOS9SPbPtr = here->MOS9SPbStructPtr->CSC ;
+                here->MOS9SPbPtr = here->MOS9SPbBinding->CSC ;
 
             if ((here-> MOS9sNodePrime != 0) && (here-> MOS9dNodePrime != 0))
-                here->MOS9SPdpPtr = here->MOS9SPdpStructPtr->CSC ;
+                here->MOS9SPdpPtr = here->MOS9SPdpBinding->CSC ;
 
         }
     }

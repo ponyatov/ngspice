@@ -42,7 +42,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSdrainDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSdrainDrainStructPtr = matched ;
+                here->NUMOSdrainDrainBinding = matched ;
                 here->NUMOSdrainDrainPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSdrainSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSdrainSourceStructPtr = matched ;
+                here->NUMOSdrainSourceBinding = matched ;
                 here->NUMOSdrainSourcePtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSdrainGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSdrainGateStructPtr = matched ;
+                here->NUMOSdrainGateBinding = matched ;
                 here->NUMOSdrainGatePtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSdrainBulkPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSdrainBulkStructPtr = matched ;
+                here->NUMOSdrainBulkBinding = matched ;
                 here->NUMOSdrainBulkPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSsourceDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSsourceDrainStructPtr = matched ;
+                here->NUMOSsourceDrainBinding = matched ;
                 here->NUMOSsourceDrainPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSsourceSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSsourceSourceStructPtr = matched ;
+                here->NUMOSsourceSourceBinding = matched ;
                 here->NUMOSsourceSourcePtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSsourceGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSsourceGateStructPtr = matched ;
+                here->NUMOSsourceGateBinding = matched ;
                 here->NUMOSsourceGatePtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSsourceBulkPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSsourceBulkStructPtr = matched ;
+                here->NUMOSsourceBulkBinding = matched ;
                 here->NUMOSsourceBulkPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSgateDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSgateDrainStructPtr = matched ;
+                here->NUMOSgateDrainBinding = matched ;
                 here->NUMOSgateDrainPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSgateSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSgateSourceStructPtr = matched ;
+                here->NUMOSgateSourceBinding = matched ;
                 here->NUMOSgateSourcePtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSgateGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSgateGateStructPtr = matched ;
+                here->NUMOSgateGateBinding = matched ;
                 here->NUMOSgateGatePtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSgateBulkPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSgateBulkStructPtr = matched ;
+                here->NUMOSgateBulkBinding = matched ;
                 here->NUMOSgateBulkPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSbulkDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSbulkDrainStructPtr = matched ;
+                here->NUMOSbulkDrainBinding = matched ;
                 here->NUMOSbulkDrainPtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSbulkSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSbulkSourceStructPtr = matched ;
+                here->NUMOSbulkSourceBinding = matched ;
                 here->NUMOSbulkSourcePtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSbulkGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSbulkGateStructPtr = matched ;
+                here->NUMOSbulkGateBinding = matched ;
                 here->NUMOSbulkGatePtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ NUMOSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NUMOSbulkBulkPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NUMOSbulkBulkStructPtr = matched ;
+                here->NUMOSbulkBulkBinding = matched ;
                 here->NUMOSbulkBulkPtr = matched->CSC ;
             }
 
@@ -187,52 +187,52 @@ NUMOSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->NUMOSinstances ; here != NULL ; here = here->NUMOSnextInstance)
         {
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSdrainDrainPtr = here->NUMOSdrainDrainStructPtr->CSC_Complex ;
+                here->NUMOSdrainDrainPtr = here->NUMOSdrainDrainBinding->CSC_Complex ;
 
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSdrainSourcePtr = here->NUMOSdrainSourceStructPtr->CSC_Complex ;
+                here->NUMOSdrainSourcePtr = here->NUMOSdrainSourceBinding->CSC_Complex ;
 
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSdrainGatePtr = here->NUMOSdrainGateStructPtr->CSC_Complex ;
+                here->NUMOSdrainGatePtr = here->NUMOSdrainGateBinding->CSC_Complex ;
 
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSdrainBulkPtr = here->NUMOSdrainBulkStructPtr->CSC_Complex ;
+                here->NUMOSdrainBulkPtr = here->NUMOSdrainBulkBinding->CSC_Complex ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSsourceDrainPtr = here->NUMOSsourceDrainStructPtr->CSC_Complex ;
+                here->NUMOSsourceDrainPtr = here->NUMOSsourceDrainBinding->CSC_Complex ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSsourceSourcePtr = here->NUMOSsourceSourceStructPtr->CSC_Complex ;
+                here->NUMOSsourceSourcePtr = here->NUMOSsourceSourceBinding->CSC_Complex ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSsourceGatePtr = here->NUMOSsourceGateStructPtr->CSC_Complex ;
+                here->NUMOSsourceGatePtr = here->NUMOSsourceGateBinding->CSC_Complex ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSsourceBulkPtr = here->NUMOSsourceBulkStructPtr->CSC_Complex ;
+                here->NUMOSsourceBulkPtr = here->NUMOSsourceBulkBinding->CSC_Complex ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSgateDrainPtr = here->NUMOSgateDrainStructPtr->CSC_Complex ;
+                here->NUMOSgateDrainPtr = here->NUMOSgateDrainBinding->CSC_Complex ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSgateSourcePtr = here->NUMOSgateSourceStructPtr->CSC_Complex ;
+                here->NUMOSgateSourcePtr = here->NUMOSgateSourceBinding->CSC_Complex ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSgateGatePtr = here->NUMOSgateGateStructPtr->CSC_Complex ;
+                here->NUMOSgateGatePtr = here->NUMOSgateGateBinding->CSC_Complex ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSgateBulkPtr = here->NUMOSgateBulkStructPtr->CSC_Complex ;
+                here->NUMOSgateBulkPtr = here->NUMOSgateBulkBinding->CSC_Complex ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSbulkDrainPtr = here->NUMOSbulkDrainStructPtr->CSC_Complex ;
+                here->NUMOSbulkDrainPtr = here->NUMOSbulkDrainBinding->CSC_Complex ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSbulkSourcePtr = here->NUMOSbulkSourceStructPtr->CSC_Complex ;
+                here->NUMOSbulkSourcePtr = here->NUMOSbulkSourceBinding->CSC_Complex ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSbulkGatePtr = here->NUMOSbulkGateStructPtr->CSC_Complex ;
+                here->NUMOSbulkGatePtr = here->NUMOSbulkGateBinding->CSC_Complex ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSbulkBulkPtr = here->NUMOSbulkBulkStructPtr->CSC_Complex ;
+                here->NUMOSbulkBulkPtr = here->NUMOSbulkBulkBinding->CSC_Complex ;
 
         }
     }
@@ -255,52 +255,52 @@ NUMOSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->NUMOSinstances ; here != NULL ; here = here->NUMOSnextInstance)
         {
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSdrainDrainPtr = here->NUMOSdrainDrainStructPtr->CSC ;
+                here->NUMOSdrainDrainPtr = here->NUMOSdrainDrainBinding->CSC ;
 
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSdrainSourcePtr = here->NUMOSdrainSourceStructPtr->CSC ;
+                here->NUMOSdrainSourcePtr = here->NUMOSdrainSourceBinding->CSC ;
 
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSdrainGatePtr = here->NUMOSdrainGateStructPtr->CSC ;
+                here->NUMOSdrainGatePtr = here->NUMOSdrainGateBinding->CSC ;
 
             if ((here-> NUMOSdrainNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSdrainBulkPtr = here->NUMOSdrainBulkStructPtr->CSC ;
+                here->NUMOSdrainBulkPtr = here->NUMOSdrainBulkBinding->CSC ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSsourceDrainPtr = here->NUMOSsourceDrainStructPtr->CSC ;
+                here->NUMOSsourceDrainPtr = here->NUMOSsourceDrainBinding->CSC ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSsourceSourcePtr = here->NUMOSsourceSourceStructPtr->CSC ;
+                here->NUMOSsourceSourcePtr = here->NUMOSsourceSourceBinding->CSC ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSsourceGatePtr = here->NUMOSsourceGateStructPtr->CSC ;
+                here->NUMOSsourceGatePtr = here->NUMOSsourceGateBinding->CSC ;
 
             if ((here-> NUMOSsourceNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSsourceBulkPtr = here->NUMOSsourceBulkStructPtr->CSC ;
+                here->NUMOSsourceBulkPtr = here->NUMOSsourceBulkBinding->CSC ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSgateDrainPtr = here->NUMOSgateDrainStructPtr->CSC ;
+                here->NUMOSgateDrainPtr = here->NUMOSgateDrainBinding->CSC ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSgateSourcePtr = here->NUMOSgateSourceStructPtr->CSC ;
+                here->NUMOSgateSourcePtr = here->NUMOSgateSourceBinding->CSC ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSgateGatePtr = here->NUMOSgateGateStructPtr->CSC ;
+                here->NUMOSgateGatePtr = here->NUMOSgateGateBinding->CSC ;
 
             if ((here-> NUMOSgateNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSgateBulkPtr = here->NUMOSgateBulkStructPtr->CSC ;
+                here->NUMOSgateBulkPtr = here->NUMOSgateBulkBinding->CSC ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSdrainNode != 0))
-                here->NUMOSbulkDrainPtr = here->NUMOSbulkDrainStructPtr->CSC ;
+                here->NUMOSbulkDrainPtr = here->NUMOSbulkDrainBinding->CSC ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSsourceNode != 0))
-                here->NUMOSbulkSourcePtr = here->NUMOSbulkSourceStructPtr->CSC ;
+                here->NUMOSbulkSourcePtr = here->NUMOSbulkSourceBinding->CSC ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSgateNode != 0))
-                here->NUMOSbulkGatePtr = here->NUMOSbulkGateStructPtr->CSC ;
+                here->NUMOSbulkGatePtr = here->NUMOSbulkGateBinding->CSC ;
 
             if ((here-> NUMOSbulkNode != 0) && (here-> NUMOSbulkNode != 0))
-                here->NUMOSbulkBulkPtr = here->NUMOSbulkBulkStructPtr->CSC ;
+                here->NUMOSbulkBulkPtr = here->NUMOSbulkBulkBinding->CSC ;
 
         }
     }

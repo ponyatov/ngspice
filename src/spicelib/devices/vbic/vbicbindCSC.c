@@ -42,7 +42,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCollPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCollStructPtr = matched ;
+                here->VBICcollCollBinding = matched ;
                 here->VBICcollCollPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBaseStructPtr = matched ;
+                here->VBICbaseBaseBinding = matched ;
                 here->VBICbaseBasePtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEmitStructPtr = matched ;
+                here->VBICemitEmitBinding = matched ;
                 here->VBICemitEmitPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSubsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSubsStructPtr = matched ;
+                here->VBICsubsSubsBinding = matched ;
                 here->VBICsubsSubsPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCXCollCXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCXCollCXStructPtr = matched ;
+                here->VBICcollCXCollCXBinding = matched ;
                 here->VBICcollCXCollCXPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCICollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCICollCIStructPtr = matched ;
+                here->VBICcollCICollCIBinding = matched ;
                 here->VBICcollCICollCIPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXBaseBXStructPtr = matched ;
+                here->VBICbaseBXBaseBXBinding = matched ;
                 here->VBICbaseBXBaseBXPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBIBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBIBaseBIStructPtr = matched ;
+                here->VBICbaseBIBaseBIBinding = matched ;
                 here->VBICbaseBIBaseBIPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEIEmitEIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEIEmitEIStructPtr = matched ;
+                here->VBICemitEIEmitEIBinding = matched ;
                 here->VBICemitEIEmitEIPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBPBaseBPPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBPBaseBPStructPtr = matched ;
+                here->VBICbaseBPBaseBPBinding = matched ;
                 here->VBICbaseBPBaseBPPtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSISubsSIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSISubsSIStructPtr = matched ;
+                here->VBICsubsSISubsSIBinding = matched ;
                 here->VBICsubsSISubsSIPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseEmitStructPtr = matched ;
+                here->VBICbaseEmitBinding = matched ;
                 here->VBICbaseEmitPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitBaseStructPtr = matched ;
+                here->VBICemitBaseBinding = matched ;
                 here->VBICemitBasePtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseCollPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseCollStructPtr = matched ;
+                here->VBICbaseCollBinding = matched ;
                 here->VBICbaseCollPtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollBaseStructPtr = matched ;
+                here->VBICcollBaseBinding = matched ;
                 here->VBICcollBasePtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCollCXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCollCXStructPtr = matched ;
+                here->VBICcollCollCXBinding = matched ;
                 here->VBICcollCollCXPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBaseBXStructPtr = matched ;
+                here->VBICbaseBaseBXBinding = matched ;
                 here->VBICbaseBaseBXPtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEmitEIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEmitEIStructPtr = matched ;
+                here->VBICemitEmitEIBinding = matched ;
                 here->VBICemitEmitEIPtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSubsSIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSubsSIStructPtr = matched ;
+                here->VBICsubsSubsSIBinding = matched ;
                 here->VBICsubsSubsSIPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCXCollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCXCollCIStructPtr = matched ;
+                here->VBICcollCXCollCIBinding = matched ;
                 here->VBICcollCXCollCIPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCXBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCXBaseBXStructPtr = matched ;
+                here->VBICcollCXBaseBXBinding = matched ;
                 here->VBICcollCXBaseBXPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCXBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCXBaseBIStructPtr = matched ;
+                here->VBICcollCXBaseBIBinding = matched ;
                 here->VBICcollCXBaseBIPtr = matched->CSC ;
             }
 
@@ -218,7 +218,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCXBaseBPPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCXBaseBPStructPtr = matched ;
+                here->VBICcollCXBaseBPBinding = matched ;
                 here->VBICcollCXBaseBPPtr = matched->CSC ;
             }
 
@@ -226,7 +226,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCIBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCIBaseBIStructPtr = matched ;
+                here->VBICcollCIBaseBIBinding = matched ;
                 here->VBICcollCIBaseBIPtr = matched->CSC ;
             }
 
@@ -234,7 +234,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCIEmitEIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCIEmitEIStructPtr = matched ;
+                here->VBICcollCIEmitEIBinding = matched ;
                 here->VBICcollCIEmitEIPtr = matched->CSC ;
             }
 
@@ -242,7 +242,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXBaseBIStructPtr = matched ;
+                here->VBICbaseBXBaseBIBinding = matched ;
                 here->VBICbaseBXBaseBIPtr = matched->CSC ;
             }
 
@@ -250,7 +250,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXEmitEIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXEmitEIStructPtr = matched ;
+                here->VBICbaseBXEmitEIBinding = matched ;
                 here->VBICbaseBXEmitEIPtr = matched->CSC ;
             }
 
@@ -258,7 +258,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXBaseBPPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXBaseBPStructPtr = matched ;
+                here->VBICbaseBXBaseBPBinding = matched ;
                 here->VBICbaseBXBaseBPPtr = matched->CSC ;
             }
 
@@ -266,7 +266,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXSubsSIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXSubsSIStructPtr = matched ;
+                here->VBICbaseBXSubsSIBinding = matched ;
                 here->VBICbaseBXSubsSIPtr = matched->CSC ;
             }
 
@@ -274,7 +274,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBIEmitEIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBIEmitEIStructPtr = matched ;
+                here->VBICbaseBIEmitEIBinding = matched ;
                 here->VBICbaseBIEmitEIPtr = matched->CSC ;
             }
 
@@ -282,7 +282,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBPSubsSIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBPSubsSIStructPtr = matched ;
+                here->VBICbaseBPSubsSIBinding = matched ;
                 here->VBICbaseBPSubsSIPtr = matched->CSC ;
             }
 
@@ -290,7 +290,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCXCollPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCXCollStructPtr = matched ;
+                here->VBICcollCXCollBinding = matched ;
                 here->VBICcollCXCollPtr = matched->CSC ;
             }
 
@@ -298,7 +298,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXBaseStructPtr = matched ;
+                here->VBICbaseBXBaseBinding = matched ;
                 here->VBICbaseBXBasePtr = matched->CSC ;
             }
 
@@ -306,7 +306,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEIEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEIEmitStructPtr = matched ;
+                here->VBICemitEIEmitBinding = matched ;
                 here->VBICemitEIEmitPtr = matched->CSC ;
             }
 
@@ -314,7 +314,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSISubsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSISubsStructPtr = matched ;
+                here->VBICsubsSISubsBinding = matched ;
                 here->VBICsubsSISubsPtr = matched->CSC ;
             }
 
@@ -322,7 +322,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICcollCICollCXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICcollCICollCXStructPtr = matched ;
+                here->VBICcollCICollCXBinding = matched ;
                 here->VBICcollCICollCXPtr = matched->CSC ;
             }
 
@@ -330,7 +330,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBICollCXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBICollCXStructPtr = matched ;
+                here->VBICbaseBICollCXBinding = matched ;
                 here->VBICbaseBICollCXPtr = matched->CSC ;
             }
 
@@ -338,7 +338,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBPCollCXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBPCollCXStructPtr = matched ;
+                here->VBICbaseBPCollCXBinding = matched ;
                 here->VBICbaseBPCollCXPtr = matched->CSC ;
             }
 
@@ -346,7 +346,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBXCollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBXCollCIStructPtr = matched ;
+                here->VBICbaseBXCollCIBinding = matched ;
                 here->VBICbaseBXCollCIPtr = matched->CSC ;
             }
 
@@ -354,7 +354,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBICollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBICollCIStructPtr = matched ;
+                here->VBICbaseBICollCIBinding = matched ;
                 here->VBICbaseBICollCIPtr = matched->CSC ;
             }
 
@@ -362,7 +362,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEICollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEICollCIStructPtr = matched ;
+                here->VBICemitEICollCIBinding = matched ;
                 here->VBICemitEICollCIPtr = matched->CSC ;
             }
 
@@ -370,7 +370,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBPCollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBPCollCIStructPtr = matched ;
+                here->VBICbaseBPCollCIBinding = matched ;
                 here->VBICbaseBPCollCIPtr = matched->CSC ;
             }
 
@@ -378,7 +378,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBIBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBIBaseBXStructPtr = matched ;
+                here->VBICbaseBIBaseBXBinding = matched ;
                 here->VBICbaseBIBaseBXPtr = matched->CSC ;
             }
 
@@ -386,7 +386,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEIBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEIBaseBXStructPtr = matched ;
+                here->VBICemitEIBaseBXBinding = matched ;
                 here->VBICemitEIBaseBXPtr = matched->CSC ;
             }
 
@@ -394,7 +394,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBPBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBPBaseBXStructPtr = matched ;
+                here->VBICbaseBPBaseBXBinding = matched ;
                 here->VBICbaseBPBaseBXPtr = matched->CSC ;
             }
 
@@ -402,7 +402,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSIBaseBXPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSIBaseBXStructPtr = matched ;
+                here->VBICsubsSIBaseBXBinding = matched ;
                 here->VBICsubsSIBaseBXPtr = matched->CSC ;
             }
 
@@ -410,7 +410,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICemitEIBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICemitEIBaseBIStructPtr = matched ;
+                here->VBICemitEIBaseBIBinding = matched ;
                 here->VBICemitEIBaseBIPtr = matched->CSC ;
             }
 
@@ -418,7 +418,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICbaseBPBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICbaseBPBaseBIStructPtr = matched ;
+                here->VBICbaseBPBaseBIBinding = matched ;
                 here->VBICbaseBPBaseBIPtr = matched->CSC ;
             }
 
@@ -426,7 +426,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSICollCIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSICollCIStructPtr = matched ;
+                here->VBICsubsSICollCIBinding = matched ;
                 here->VBICsubsSICollCIPtr = matched->CSC ;
             }
 
@@ -434,7 +434,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSIBaseBIPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSIBaseBIStructPtr = matched ;
+                here->VBICsubsSIBaseBIBinding = matched ;
                 here->VBICsubsSIBaseBIPtr = matched->CSC ;
             }
 
@@ -442,7 +442,7 @@ VBICbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->VBICsubsSIBaseBPPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->VBICsubsSIBaseBPStructPtr = matched ;
+                here->VBICsubsSIBaseBPBinding = matched ;
                 here->VBICsubsSIBaseBPPtr = matched->CSC ;
             }
 
@@ -467,157 +467,157 @@ VBICbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VBICinstances ; here != NULL ; here = here->VBICnextInstance)
         {
             if ((here->VBICcollNode != 0) && (here->VBICcollNode != 0))
-                here->VBICcollCollPtr = here->VBICcollCollStructPtr->CSC_Complex ;
+                here->VBICcollCollPtr = here->VBICcollCollBinding->CSC_Complex ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICbaseBasePtr = here->VBICbaseBaseStructPtr->CSC_Complex ;
+                here->VBICbaseBasePtr = here->VBICbaseBaseBinding->CSC_Complex ;
 
             if ((here->VBICemitNode != 0) && (here->VBICemitNode != 0))
-                here->VBICemitEmitPtr = here->VBICemitEmitStructPtr->CSC_Complex ;
+                here->VBICemitEmitPtr = here->VBICemitEmitBinding->CSC_Complex ;
 
             if ((here->VBICsubsNode != 0) && (here->VBICsubsNode != 0))
-                here->VBICsubsSubsPtr = here->VBICsubsSubsStructPtr->CSC_Complex ;
+                here->VBICsubsSubsPtr = here->VBICsubsSubsBinding->CSC_Complex ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICcollCXCollCXPtr = here->VBICcollCXCollCXStructPtr->CSC_Complex ;
+                here->VBICcollCXCollCXPtr = here->VBICcollCXCollCXBinding->CSC_Complex ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICcollCICollCIPtr = here->VBICcollCICollCIStructPtr->CSC_Complex ;
+                here->VBICcollCICollCIPtr = here->VBICcollCICollCIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBXBaseBXPtr = here->VBICbaseBXBaseBXStructPtr->CSC_Complex ;
+                here->VBICbaseBXBaseBXPtr = here->VBICbaseBXBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICbaseBIBaseBIPtr = here->VBICbaseBIBaseBIStructPtr->CSC_Complex ;
+                here->VBICbaseBIBaseBIPtr = here->VBICbaseBIBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICemitEINode != 0))
-                here->VBICemitEIEmitEIPtr = here->VBICemitEIEmitEIStructPtr->CSC_Complex ;
+                here->VBICemitEIEmitEIPtr = here->VBICemitEIEmitEIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICbaseBPBaseBPPtr = here->VBICbaseBPBaseBPStructPtr->CSC_Complex ;
+                here->VBICbaseBPBaseBPPtr = here->VBICbaseBPBaseBPBinding->CSC_Complex ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICsubsSISubsSIPtr = here->VBICsubsSISubsSIStructPtr->CSC_Complex ;
+                here->VBICsubsSISubsSIPtr = here->VBICsubsSISubsSIBinding->CSC_Complex ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICemitNode != 0))
-                here->VBICbaseEmitPtr = here->VBICbaseEmitStructPtr->CSC_Complex ;
+                here->VBICbaseEmitPtr = here->VBICbaseEmitBinding->CSC_Complex ;
 
             if ((here->VBICemitNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICemitBasePtr = here->VBICemitBaseStructPtr->CSC_Complex ;
+                here->VBICemitBasePtr = here->VBICemitBaseBinding->CSC_Complex ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICcollNode != 0))
-                here->VBICbaseCollPtr = here->VBICbaseCollStructPtr->CSC_Complex ;
+                here->VBICbaseCollPtr = here->VBICbaseCollBinding->CSC_Complex ;
 
             if ((here->VBICcollNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICcollBasePtr = here->VBICcollBaseStructPtr->CSC_Complex ;
+                here->VBICcollBasePtr = here->VBICcollBaseBinding->CSC_Complex ;
 
             if ((here->VBICcollNode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICcollCollCXPtr = here->VBICcollCollCXStructPtr->CSC_Complex ;
+                here->VBICcollCollCXPtr = here->VBICcollCollCXBinding->CSC_Complex ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBaseBXPtr = here->VBICbaseBaseBXStructPtr->CSC_Complex ;
+                here->VBICbaseBaseBXPtr = here->VBICbaseBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICemitNode != 0) && (here->VBICemitEINode != 0))
-                here->VBICemitEmitEIPtr = here->VBICemitEmitEIStructPtr->CSC_Complex ;
+                here->VBICemitEmitEIPtr = here->VBICemitEmitEIBinding->CSC_Complex ;
 
             if ((here->VBICsubsNode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICsubsSubsSIPtr = here->VBICsubsSubsSIStructPtr->CSC_Complex ;
+                here->VBICsubsSubsSIPtr = here->VBICsubsSubsSIBinding->CSC_Complex ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICcollCINode != 0))
-                here->VBICcollCXCollCIPtr = here->VBICcollCXCollCIStructPtr->CSC_Complex ;
+                here->VBICcollCXCollCIPtr = here->VBICcollCXCollCIBinding->CSC_Complex ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICcollCXBaseBXPtr = here->VBICcollCXBaseBXStructPtr->CSC_Complex ;
+                here->VBICcollCXBaseBXPtr = here->VBICcollCXBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICcollCXBaseBIPtr = here->VBICcollCXBaseBIStructPtr->CSC_Complex ;
+                here->VBICcollCXBaseBIPtr = here->VBICcollCXBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICcollCXBaseBPPtr = here->VBICcollCXBaseBPStructPtr->CSC_Complex ;
+                here->VBICcollCXBaseBPPtr = here->VBICcollCXBaseBPBinding->CSC_Complex ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICcollCIBaseBIPtr = here->VBICcollCIBaseBIStructPtr->CSC_Complex ;
+                here->VBICcollCIBaseBIPtr = here->VBICcollCIBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICemitEINode != 0))
-                here->VBICcollCIEmitEIPtr = here->VBICcollCIEmitEIStructPtr->CSC_Complex ;
+                here->VBICcollCIEmitEIPtr = here->VBICcollCIEmitEIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICbaseBXBaseBIPtr = here->VBICbaseBXBaseBIStructPtr->CSC_Complex ;
+                here->VBICbaseBXBaseBIPtr = here->VBICbaseBXBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICemitEINode != 0))
-                here->VBICbaseBXEmitEIPtr = here->VBICbaseBXEmitEIStructPtr->CSC_Complex ;
+                here->VBICbaseBXEmitEIPtr = here->VBICbaseBXEmitEIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICbaseBXBaseBPPtr = here->VBICbaseBXBaseBPStructPtr->CSC_Complex ;
+                here->VBICbaseBXBaseBPPtr = here->VBICbaseBXBaseBPBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICbaseBXSubsSIPtr = here->VBICbaseBXSubsSIStructPtr->CSC_Complex ;
+                here->VBICbaseBXSubsSIPtr = here->VBICbaseBXSubsSIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICemitEINode != 0))
-                here->VBICbaseBIEmitEIPtr = here->VBICbaseBIEmitEIStructPtr->CSC_Complex ;
+                here->VBICbaseBIEmitEIPtr = here->VBICbaseBIEmitEIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICbaseBPSubsSIPtr = here->VBICbaseBPSubsSIStructPtr->CSC_Complex ;
+                here->VBICbaseBPSubsSIPtr = here->VBICbaseBPSubsSIBinding->CSC_Complex ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICcollNode != 0))
-                here->VBICcollCXCollPtr = here->VBICcollCXCollStructPtr->CSC_Complex ;
+                here->VBICcollCXCollPtr = here->VBICcollCXCollBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICbaseBXBasePtr = here->VBICbaseBXBaseStructPtr->CSC_Complex ;
+                here->VBICbaseBXBasePtr = here->VBICbaseBXBaseBinding->CSC_Complex ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICemitNode != 0))
-                here->VBICemitEIEmitPtr = here->VBICemitEIEmitStructPtr->CSC_Complex ;
+                here->VBICemitEIEmitPtr = here->VBICemitEIEmitBinding->CSC_Complex ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICsubsNode != 0))
-                here->VBICsubsSISubsPtr = here->VBICsubsSISubsStructPtr->CSC_Complex ;
+                here->VBICsubsSISubsPtr = here->VBICsubsSISubsBinding->CSC_Complex ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICcollCICollCXPtr = here->VBICcollCICollCXStructPtr->CSC_Complex ;
+                here->VBICcollCICollCXPtr = here->VBICcollCICollCXBinding->CSC_Complex ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICbaseBICollCXPtr = here->VBICbaseBICollCXStructPtr->CSC_Complex ;
+                here->VBICbaseBICollCXPtr = here->VBICbaseBICollCXBinding->CSC_Complex ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICbaseBPCollCXPtr = here->VBICbaseBPCollCXStructPtr->CSC_Complex ;
+                here->VBICbaseBPCollCXPtr = here->VBICbaseBPCollCXBinding->CSC_Complex ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICcollCINode != 0))
-                here->VBICbaseBXCollCIPtr = here->VBICbaseBXCollCIStructPtr->CSC_Complex ;
+                here->VBICbaseBXCollCIPtr = here->VBICbaseBXCollCIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICbaseBICollCIPtr = here->VBICbaseBICollCIStructPtr->CSC_Complex ;
+                here->VBICbaseBICollCIPtr = here->VBICbaseBICollCIBinding->CSC_Complex ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICemitEICollCIPtr = here->VBICemitEICollCIStructPtr->CSC_Complex ;
+                here->VBICemitEICollCIPtr = here->VBICemitEICollCIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICcollCINode != 0))
-                here->VBICbaseBPCollCIPtr = here->VBICbaseBPCollCIStructPtr->CSC_Complex ;
+                here->VBICbaseBPCollCIPtr = here->VBICbaseBPCollCIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBIBaseBXPtr = here->VBICbaseBIBaseBXStructPtr->CSC_Complex ;
+                here->VBICbaseBIBaseBXPtr = here->VBICbaseBIBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICemitEIBaseBXPtr = here->VBICemitEIBaseBXStructPtr->CSC_Complex ;
+                here->VBICemitEIBaseBXPtr = here->VBICemitEIBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBPBaseBXPtr = here->VBICbaseBPBaseBXStructPtr->CSC_Complex ;
+                here->VBICbaseBPBaseBXPtr = here->VBICbaseBPBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICsubsSIBaseBXPtr = here->VBICsubsSIBaseBXStructPtr->CSC_Complex ;
+                here->VBICsubsSIBaseBXPtr = here->VBICsubsSIBaseBXBinding->CSC_Complex ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICemitEIBaseBIPtr = here->VBICemitEIBaseBIStructPtr->CSC_Complex ;
+                here->VBICemitEIBaseBIPtr = here->VBICemitEIBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICbaseBPBaseBIPtr = here->VBICbaseBPBaseBIStructPtr->CSC_Complex ;
+                here->VBICbaseBPBaseBIPtr = here->VBICbaseBPBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICsubsSICollCIPtr = here->VBICsubsSICollCIStructPtr->CSC_Complex ;
+                here->VBICsubsSICollCIPtr = here->VBICsubsSICollCIBinding->CSC_Complex ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICsubsSIBaseBIPtr = here->VBICsubsSIBaseBIStructPtr->CSC_Complex ;
+                here->VBICsubsSIBaseBIPtr = here->VBICsubsSIBaseBIBinding->CSC_Complex ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICsubsSIBaseBPPtr = here->VBICsubsSIBaseBPStructPtr->CSC_Complex ;
+                here->VBICsubsSIBaseBPPtr = here->VBICsubsSIBaseBPBinding->CSC_Complex ;
 
         }
     }
@@ -640,157 +640,157 @@ VBICbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->VBICinstances ; here != NULL ; here = here->VBICnextInstance)
         {
             if ((here->VBICcollNode != 0) && (here->VBICcollNode != 0))
-                here->VBICcollCollPtr = here->VBICcollCollStructPtr->CSC ;
+                here->VBICcollCollPtr = here->VBICcollCollBinding->CSC ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICbaseBasePtr = here->VBICbaseBaseStructPtr->CSC ;
+                here->VBICbaseBasePtr = here->VBICbaseBaseBinding->CSC ;
 
             if ((here->VBICemitNode != 0) && (here->VBICemitNode != 0))
-                here->VBICemitEmitPtr = here->VBICemitEmitStructPtr->CSC ;
+                here->VBICemitEmitPtr = here->VBICemitEmitBinding->CSC ;
 
             if ((here->VBICsubsNode != 0) && (here->VBICsubsNode != 0))
-                here->VBICsubsSubsPtr = here->VBICsubsSubsStructPtr->CSC ;
+                here->VBICsubsSubsPtr = here->VBICsubsSubsBinding->CSC ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICcollCXCollCXPtr = here->VBICcollCXCollCXStructPtr->CSC ;
+                here->VBICcollCXCollCXPtr = here->VBICcollCXCollCXBinding->CSC ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICcollCICollCIPtr = here->VBICcollCICollCIStructPtr->CSC ;
+                here->VBICcollCICollCIPtr = here->VBICcollCICollCIBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBXBaseBXPtr = here->VBICbaseBXBaseBXStructPtr->CSC ;
+                here->VBICbaseBXBaseBXPtr = here->VBICbaseBXBaseBXBinding->CSC ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICbaseBIBaseBIPtr = here->VBICbaseBIBaseBIStructPtr->CSC ;
+                here->VBICbaseBIBaseBIPtr = here->VBICbaseBIBaseBIBinding->CSC ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICemitEINode != 0))
-                here->VBICemitEIEmitEIPtr = here->VBICemitEIEmitEIStructPtr->CSC ;
+                here->VBICemitEIEmitEIPtr = here->VBICemitEIEmitEIBinding->CSC ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICbaseBPBaseBPPtr = here->VBICbaseBPBaseBPStructPtr->CSC ;
+                here->VBICbaseBPBaseBPPtr = here->VBICbaseBPBaseBPBinding->CSC ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICsubsSISubsSIPtr = here->VBICsubsSISubsSIStructPtr->CSC ;
+                here->VBICsubsSISubsSIPtr = here->VBICsubsSISubsSIBinding->CSC ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICemitNode != 0))
-                here->VBICbaseEmitPtr = here->VBICbaseEmitStructPtr->CSC ;
+                here->VBICbaseEmitPtr = here->VBICbaseEmitBinding->CSC ;
 
             if ((here->VBICemitNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICemitBasePtr = here->VBICemitBaseStructPtr->CSC ;
+                here->VBICemitBasePtr = here->VBICemitBaseBinding->CSC ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICcollNode != 0))
-                here->VBICbaseCollPtr = here->VBICbaseCollStructPtr->CSC ;
+                here->VBICbaseCollPtr = here->VBICbaseCollBinding->CSC ;
 
             if ((here->VBICcollNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICcollBasePtr = here->VBICcollBaseStructPtr->CSC ;
+                here->VBICcollBasePtr = here->VBICcollBaseBinding->CSC ;
 
             if ((here->VBICcollNode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICcollCollCXPtr = here->VBICcollCollCXStructPtr->CSC ;
+                here->VBICcollCollCXPtr = here->VBICcollCollCXBinding->CSC ;
 
             if ((here->VBICbaseNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBaseBXPtr = here->VBICbaseBaseBXStructPtr->CSC ;
+                here->VBICbaseBaseBXPtr = here->VBICbaseBaseBXBinding->CSC ;
 
             if ((here->VBICemitNode != 0) && (here->VBICemitEINode != 0))
-                here->VBICemitEmitEIPtr = here->VBICemitEmitEIStructPtr->CSC ;
+                here->VBICemitEmitEIPtr = here->VBICemitEmitEIBinding->CSC ;
 
             if ((here->VBICsubsNode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICsubsSubsSIPtr = here->VBICsubsSubsSIStructPtr->CSC ;
+                here->VBICsubsSubsSIPtr = here->VBICsubsSubsSIBinding->CSC ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICcollCINode != 0))
-                here->VBICcollCXCollCIPtr = here->VBICcollCXCollCIStructPtr->CSC ;
+                here->VBICcollCXCollCIPtr = here->VBICcollCXCollCIBinding->CSC ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICcollCXBaseBXPtr = here->VBICcollCXBaseBXStructPtr->CSC ;
+                here->VBICcollCXBaseBXPtr = here->VBICcollCXBaseBXBinding->CSC ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICcollCXBaseBIPtr = here->VBICcollCXBaseBIStructPtr->CSC ;
+                here->VBICcollCXBaseBIPtr = here->VBICcollCXBaseBIBinding->CSC ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICcollCXBaseBPPtr = here->VBICcollCXBaseBPStructPtr->CSC ;
+                here->VBICcollCXBaseBPPtr = here->VBICcollCXBaseBPBinding->CSC ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICcollCIBaseBIPtr = here->VBICcollCIBaseBIStructPtr->CSC ;
+                here->VBICcollCIBaseBIPtr = here->VBICcollCIBaseBIBinding->CSC ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICemitEINode != 0))
-                here->VBICcollCIEmitEIPtr = here->VBICcollCIEmitEIStructPtr->CSC ;
+                here->VBICcollCIEmitEIPtr = here->VBICcollCIEmitEIBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICbaseBXBaseBIPtr = here->VBICbaseBXBaseBIStructPtr->CSC ;
+                here->VBICbaseBXBaseBIPtr = here->VBICbaseBXBaseBIBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICemitEINode != 0))
-                here->VBICbaseBXEmitEIPtr = here->VBICbaseBXEmitEIStructPtr->CSC ;
+                here->VBICbaseBXEmitEIPtr = here->VBICbaseBXEmitEIBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICbaseBXBaseBPPtr = here->VBICbaseBXBaseBPStructPtr->CSC ;
+                here->VBICbaseBXBaseBPPtr = here->VBICbaseBXBaseBPBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICbaseBXSubsSIPtr = here->VBICbaseBXSubsSIStructPtr->CSC ;
+                here->VBICbaseBXSubsSIPtr = here->VBICbaseBXSubsSIBinding->CSC ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICemitEINode != 0))
-                here->VBICbaseBIEmitEIPtr = here->VBICbaseBIEmitEIStructPtr->CSC ;
+                here->VBICbaseBIEmitEIPtr = here->VBICbaseBIEmitEIBinding->CSC ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICsubsSINode != 0))
-                here->VBICbaseBPSubsSIPtr = here->VBICbaseBPSubsSIStructPtr->CSC ;
+                here->VBICbaseBPSubsSIPtr = here->VBICbaseBPSubsSIBinding->CSC ;
 
             if ((here->VBICcollCXNode != 0) && (here->VBICcollNode != 0))
-                here->VBICcollCXCollPtr = here->VBICcollCXCollStructPtr->CSC ;
+                here->VBICcollCXCollPtr = here->VBICcollCXCollBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICbaseNode != 0))
-                here->VBICbaseBXBasePtr = here->VBICbaseBXBaseStructPtr->CSC ;
+                here->VBICbaseBXBasePtr = here->VBICbaseBXBaseBinding->CSC ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICemitNode != 0))
-                here->VBICemitEIEmitPtr = here->VBICemitEIEmitStructPtr->CSC ;
+                here->VBICemitEIEmitPtr = here->VBICemitEIEmitBinding->CSC ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICsubsNode != 0))
-                here->VBICsubsSISubsPtr = here->VBICsubsSISubsStructPtr->CSC ;
+                here->VBICsubsSISubsPtr = here->VBICsubsSISubsBinding->CSC ;
 
             if ((here->VBICcollCINode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICcollCICollCXPtr = here->VBICcollCICollCXStructPtr->CSC ;
+                here->VBICcollCICollCXPtr = here->VBICcollCICollCXBinding->CSC ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICbaseBICollCXPtr = here->VBICbaseBICollCXStructPtr->CSC ;
+                here->VBICbaseBICollCXPtr = here->VBICbaseBICollCXBinding->CSC ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICcollCXNode != 0))
-                here->VBICbaseBPCollCXPtr = here->VBICbaseBPCollCXStructPtr->CSC ;
+                here->VBICbaseBPCollCXPtr = here->VBICbaseBPCollCXBinding->CSC ;
 
             if ((here->VBICbaseBXNode != 0) && (here->VBICcollCINode != 0))
-                here->VBICbaseBXCollCIPtr = here->VBICbaseBXCollCIStructPtr->CSC ;
+                here->VBICbaseBXCollCIPtr = here->VBICbaseBXCollCIBinding->CSC ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICbaseBICollCIPtr = here->VBICbaseBICollCIStructPtr->CSC ;
+                here->VBICbaseBICollCIPtr = here->VBICbaseBICollCIBinding->CSC ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICemitEICollCIPtr = here->VBICemitEICollCIStructPtr->CSC ;
+                here->VBICemitEICollCIPtr = here->VBICemitEICollCIBinding->CSC ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICcollCINode != 0))
-                here->VBICbaseBPCollCIPtr = here->VBICbaseBPCollCIStructPtr->CSC ;
+                here->VBICbaseBPCollCIPtr = here->VBICbaseBPCollCIBinding->CSC ;
 
             if ((here->VBICbaseBINode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBIBaseBXPtr = here->VBICbaseBIBaseBXStructPtr->CSC ;
+                here->VBICbaseBIBaseBXPtr = here->VBICbaseBIBaseBXBinding->CSC ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICemitEIBaseBXPtr = here->VBICemitEIBaseBXStructPtr->CSC ;
+                here->VBICemitEIBaseBXPtr = here->VBICemitEIBaseBXBinding->CSC ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICbaseBPBaseBXPtr = here->VBICbaseBPBaseBXStructPtr->CSC ;
+                here->VBICbaseBPBaseBXPtr = here->VBICbaseBPBaseBXBinding->CSC ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICbaseBXNode != 0))
-                here->VBICsubsSIBaseBXPtr = here->VBICsubsSIBaseBXStructPtr->CSC ;
+                here->VBICsubsSIBaseBXPtr = here->VBICsubsSIBaseBXBinding->CSC ;
 
             if ((here->VBICemitEINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICemitEIBaseBIPtr = here->VBICemitEIBaseBIStructPtr->CSC ;
+                here->VBICemitEIBaseBIPtr = here->VBICemitEIBaseBIBinding->CSC ;
 
             if ((here->VBICbaseBPNode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICbaseBPBaseBIPtr = here->VBICbaseBPBaseBIStructPtr->CSC ;
+                here->VBICbaseBPBaseBIPtr = here->VBICbaseBPBaseBIBinding->CSC ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICcollCINode != 0))
-                here->VBICsubsSICollCIPtr = here->VBICsubsSICollCIStructPtr->CSC ;
+                here->VBICsubsSICollCIPtr = here->VBICsubsSICollCIBinding->CSC ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICbaseBINode != 0))
-                here->VBICsubsSIBaseBIPtr = here->VBICsubsSIBaseBIStructPtr->CSC ;
+                here->VBICsubsSIBaseBIPtr = here->VBICsubsSIBaseBIBinding->CSC ;
 
             if ((here->VBICsubsSINode != 0) && (here->VBICbaseBPNode != 0))
-                here->VBICsubsSIBaseBPPtr = here->VBICsubsSIBaseBPStructPtr->CSC ;
+                here->VBICsubsSIBaseBPPtr = here->VBICsubsSIBaseBPBinding->CSC ;
 
         }
     }

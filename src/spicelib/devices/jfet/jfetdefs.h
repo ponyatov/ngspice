@@ -150,21 +150,21 @@ typedef struct sJFETinstance {
     double JFETtBeta;   /* temperature adjusted beta */
 
 #ifdef KLU
-    BindElement *JFETdrainDrainPrimeStructPtr ;
-    BindElement *JFETgateDrainPrimeStructPtr ;
-    BindElement *JFETgateSourcePrimeStructPtr ;
-    BindElement *JFETsourceSourcePrimeStructPtr ;
-    BindElement *JFETdrainPrimeDrainStructPtr ;
-    BindElement *JFETdrainPrimeGateStructPtr ;
-    BindElement *JFETdrainPrimeSourcePrimeStructPtr ;
-    BindElement *JFETsourcePrimeGateStructPtr ;
-    BindElement *JFETsourcePrimeSourceStructPtr ;
-    BindElement *JFETsourcePrimeDrainPrimeStructPtr ;
-    BindElement *JFETdrainDrainStructPtr ;
-    BindElement *JFETgateGateStructPtr ;
-    BindElement *JFETsourceSourceStructPtr ;
-    BindElement *JFETdrainPrimeDrainPrimeStructPtr ;
-    BindElement *JFETsourcePrimeSourcePrimeStructPtr ;
+    BindElement *JFETdrainDrainPrimeBinding ;
+    BindElement *JFETgateDrainPrimeBinding ;
+    BindElement *JFETgateSourcePrimeBinding ;
+    BindElement *JFETsourceSourcePrimeBinding ;
+    BindElement *JFETdrainPrimeDrainBinding ;
+    BindElement *JFETdrainPrimeGateBinding ;
+    BindElement *JFETdrainPrimeSourcePrimeBinding ;
+    BindElement *JFETsourcePrimeGateBinding ;
+    BindElement *JFETsourcePrimeSourceBinding ;
+    BindElement *JFETsourcePrimeDrainPrimeBinding ;
+    BindElement *JFETdrainDrainBinding ;
+    BindElement *JFETgateGateBinding ;
+    BindElement *JFETsourceSourceBinding ;
+    BindElement *JFETdrainPrimeDrainPrimeBinding ;
+    BindElement *JFETsourcePrimeSourcePrimeBinding ;
 #endif
 
 } JFETinstance ;

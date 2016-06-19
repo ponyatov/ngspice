@@ -44,7 +44,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOITemptempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOITemptempStructPtr = matched ;
+                    here->B4SOITemptempBinding = matched ;
                     here->B4SOITemptempPtr = matched->CSC ;
                 }
 
@@ -52,7 +52,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOITempdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOITempdpStructPtr = matched ;
+                    here->B4SOITempdpBinding = matched ;
                     here->B4SOITempdpPtr = matched->CSC ;
                 }
 
@@ -60,7 +60,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOITempspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOITempspStructPtr = matched ;
+                    here->B4SOITempspBinding = matched ;
                     here->B4SOITempspPtr = matched->CSC ;
                 }
 
@@ -68,7 +68,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOITempgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOITempgStructPtr = matched ;
+                    here->B4SOITempgBinding = matched ;
                     here->B4SOITempgPtr = matched->CSC ;
                 }
 
@@ -76,7 +76,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOITempbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOITempbStructPtr = matched ;
+                    here->B4SOITempbBinding = matched ;
                     here->B4SOITempbPtr = matched->CSC ;
                 }
 
@@ -84,7 +84,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGtempStructPtr = matched ;
+                    here->B4SOIGtempBinding = matched ;
                     here->B4SOIGtempPtr = matched->CSC ;
                 }
 
@@ -92,7 +92,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDPtempStructPtr = matched ;
+                    here->B4SOIDPtempBinding = matched ;
                     here->B4SOIDPtempPtr = matched->CSC ;
                 }
 
@@ -100,7 +100,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISPtempStructPtr = matched ;
+                    here->B4SOISPtempBinding = matched ;
                     here->B4SOISPtempPtr = matched->CSC ;
                 }
 
@@ -108,7 +108,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIEtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIEtempStructPtr = matched ;
+                    here->B4SOIEtempBinding = matched ;
                     here->B4SOIEtempPtr = matched->CSC ;
                 }
 
@@ -116,7 +116,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBtempStructPtr = matched ;
+                    here->B4SOIBtempBinding = matched ;
                     here->B4SOIBtempPtr = matched->CSC ;
                 }
 
@@ -126,7 +126,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B4SOIPtempPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B4SOIPtempStructPtr = matched ;
+                        here->B4SOIPtempBinding = matched ;
                         here->B4SOIPtempPtr = matched->CSC ;
                     }
 
@@ -137,7 +137,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B4SOITempePtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B4SOITempeStructPtr = matched ;
+                        here->B4SOITempeBinding = matched ;
                         here->B4SOITempePtr = matched->CSC ;
                     }
 
@@ -152,7 +152,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBpStructPtr = matched ;
+                    here->B4SOIBpBinding = matched ;
                     here->B4SOIBpPtr = matched->CSC ;
                 }
 
@@ -160,7 +160,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIPbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIPbStructPtr = matched ;
+                    here->B4SOIPbBinding = matched ;
                     here->B4SOIPbPtr = matched->CSC ;
                 }
 
@@ -168,7 +168,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIPpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIPpStructPtr = matched ;
+                    here->B4SOIPpBinding = matched ;
                     here->B4SOIPpPtr = matched->CSC ;
                 }
 
@@ -176,7 +176,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIPgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIPgStructPtr = matched ;
+                    here->B4SOIPgBinding = matched ;
                     here->B4SOIPgPtr = matched->CSC ;
                 }
 
@@ -184,7 +184,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGpStructPtr = matched ;
+                    here->B4SOIGpBinding = matched ;
                     here->B4SOIGpPtr = matched->CSC ;
                 }
 
@@ -195,7 +195,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGEgePtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGEgeStructPtr = matched ;
+                    here->B4SOIGEgeBinding = matched ;
                     here->B4SOIGEgePtr = matched->CSC ;
                 }
 
@@ -203,7 +203,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGEgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGEgStructPtr = matched ;
+                    here->B4SOIGEgBinding = matched ;
                     here->B4SOIGEgPtr = matched->CSC ;
                 }
 
@@ -211,7 +211,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGgePtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGgeStructPtr = matched ;
+                    here->B4SOIGgeBinding = matched ;
                     here->B4SOIGgePtr = matched->CSC ;
                 }
 
@@ -219,7 +219,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGEdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGEdpStructPtr = matched ;
+                    here->B4SOIGEdpBinding = matched ;
                     here->B4SOIGEdpPtr = matched->CSC ;
                 }
 
@@ -227,7 +227,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGEspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGEspStructPtr = matched ;
+                    here->B4SOIGEspBinding = matched ;
                     here->B4SOIGEspPtr = matched->CSC ;
                 }
 
@@ -237,7 +237,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B4SOIGEbPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B4SOIGEbStructPtr = matched ;
+                        here->B4SOIGEbBinding = matched ;
                         here->B4SOIGEbPtr = matched->CSC ;
                     }
 
@@ -246,7 +246,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGMdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGMdpStructPtr = matched ;
+                    here->B4SOIGMdpBinding = matched ;
                     here->B4SOIGMdpPtr = matched->CSC ;
                 }
 
@@ -254,7 +254,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGMgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGMgStructPtr = matched ;
+                    here->B4SOIGMgBinding = matched ;
                     here->B4SOIGMgPtr = matched->CSC ;
                 }
 
@@ -262,7 +262,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGMgmPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGMgmStructPtr = matched ;
+                    here->B4SOIGMgmBinding = matched ;
                     here->B4SOIGMgmPtr = matched->CSC ;
                 }
 
@@ -270,7 +270,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGMgePtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGMgeStructPtr = matched ;
+                    here->B4SOIGMgeBinding = matched ;
                     here->B4SOIGMgePtr = matched->CSC ;
                 }
 
@@ -278,7 +278,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGMspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGMspStructPtr = matched ;
+                    here->B4SOIGMspBinding = matched ;
                     here->B4SOIGMspPtr = matched->CSC ;
                 }
 
@@ -288,7 +288,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B4SOIGMbPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B4SOIGMbStructPtr = matched ;
+                        here->B4SOIGMbBinding = matched ;
                         here->B4SOIGMbPtr = matched->CSC ;
                     }
 
@@ -297,7 +297,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGMePtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGMeStructPtr = matched ;
+                    here->B4SOIGMeBinding = matched ;
                     here->B4SOIGMePtr = matched->CSC ;
                 }
 
@@ -305,7 +305,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDPgmPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDPgmStructPtr = matched ;
+                    here->B4SOIDPgmBinding = matched ;
                     here->B4SOIDPgmPtr = matched->CSC ;
                 }
 
@@ -313,7 +313,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGgmPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGgmStructPtr = matched ;
+                    here->B4SOIGgmBinding = matched ;
                     here->B4SOIGgmPtr = matched->CSC ;
                 }
 
@@ -321,7 +321,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGEgmPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGEgmStructPtr = matched ;
+                    here->B4SOIGEgmBinding = matched ;
                     here->B4SOIGEgmPtr = matched->CSC ;
                 }
 
@@ -329,7 +329,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISPgmPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISPgmStructPtr = matched ;
+                    here->B4SOISPgmBinding = matched ;
                     here->B4SOISPgmPtr = matched->CSC ;
                 }
 
@@ -337,7 +337,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIEgmPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIEgmStructPtr = matched ;
+                    here->B4SOIEgmBinding = matched ;
                     here->B4SOIEgmPtr = matched->CSC ;
                 }
 
@@ -348,7 +348,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIEbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIEbStructPtr = matched ;
+                    here->B4SOIEbBinding = matched ;
                     here->B4SOIEbPtr = matched->CSC ;
                 }
 
@@ -356,7 +356,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGbStructPtr = matched ;
+                    here->B4SOIGbBinding = matched ;
                     here->B4SOIGbPtr = matched->CSC ;
                 }
 
@@ -364,7 +364,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDPbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDPbStructPtr = matched ;
+                    here->B4SOIDPbBinding = matched ;
                     here->B4SOIDPbPtr = matched->CSC ;
                 }
 
@@ -372,7 +372,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISPbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISPbStructPtr = matched ;
+                    here->B4SOISPbBinding = matched ;
                     here->B4SOISPbPtr = matched->CSC ;
                 }
 
@@ -380,7 +380,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBePtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBeStructPtr = matched ;
+                    here->B4SOIBeBinding = matched ;
                     here->B4SOIBePtr = matched->CSC ;
                 }
 
@@ -388,7 +388,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBgStructPtr = matched ;
+                    here->B4SOIBgBinding = matched ;
                     here->B4SOIBgPtr = matched->CSC ;
                 }
 
@@ -396,7 +396,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBdpStructPtr = matched ;
+                    here->B4SOIBdpBinding = matched ;
                     here->B4SOIBdpPtr = matched->CSC ;
                 }
 
@@ -404,7 +404,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBspStructPtr = matched ;
+                    here->B4SOIBspBinding = matched ;
                     here->B4SOIBspPtr = matched->CSC ;
                 }
 
@@ -412,7 +412,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBbStructPtr = matched ;
+                    here->B4SOIBbBinding = matched ;
                     here->B4SOIBbPtr = matched->CSC ;
                 }
 
@@ -421,7 +421,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIEgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIEgStructPtr = matched ;
+                here->B4SOIEgBinding = matched ;
                 here->B4SOIEgPtr = matched->CSC ;
             }
 
@@ -429,7 +429,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIEdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIEdpStructPtr = matched ;
+                here->B4SOIEdpBinding = matched ;
                 here->B4SOIEdpPtr = matched->CSC ;
             }
 
@@ -437,7 +437,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIEspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIEspStructPtr = matched ;
+                here->B4SOIEspBinding = matched ;
                 here->B4SOIEspPtr = matched->CSC ;
             }
 
@@ -445,7 +445,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIGePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIGeStructPtr = matched ;
+                here->B4SOIGeBinding = matched ;
                 here->B4SOIGePtr = matched->CSC ;
             }
 
@@ -453,7 +453,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDPePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDPeStructPtr = matched ;
+                here->B4SOIDPeBinding = matched ;
                 here->B4SOIDPePtr = matched->CSC ;
             }
 
@@ -461,7 +461,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISPePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISPeStructPtr = matched ;
+                here->B4SOISPeBinding = matched ;
                 here->B4SOISPePtr = matched->CSC ;
             }
 
@@ -469,7 +469,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIEePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIEeStructPtr = matched ;
+                here->B4SOIEeBinding = matched ;
                 here->B4SOIEePtr = matched->CSC ;
             }
 
@@ -477,7 +477,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIGgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIGgStructPtr = matched ;
+                here->B4SOIGgBinding = matched ;
                 here->B4SOIGgPtr = matched->CSC ;
             }
 
@@ -485,7 +485,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIGdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIGdpStructPtr = matched ;
+                here->B4SOIGdpBinding = matched ;
                 here->B4SOIGdpPtr = matched->CSC ;
             }
 
@@ -493,7 +493,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIGspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIGspStructPtr = matched ;
+                here->B4SOIGspBinding = matched ;
                 here->B4SOIGspPtr = matched->CSC ;
             }
 
@@ -501,7 +501,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDPgStructPtr = matched ;
+                here->B4SOIDPgBinding = matched ;
                 here->B4SOIDPgPtr = matched->CSC ;
             }
 
@@ -509,7 +509,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDPdpStructPtr = matched ;
+                here->B4SOIDPdpBinding = matched ;
                 here->B4SOIDPdpPtr = matched->CSC ;
             }
 
@@ -517,7 +517,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDPspStructPtr = matched ;
+                here->B4SOIDPspBinding = matched ;
                 here->B4SOIDPspPtr = matched->CSC ;
             }
 
@@ -525,7 +525,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDPdStructPtr = matched ;
+                here->B4SOIDPdBinding = matched ;
                 here->B4SOIDPdPtr = matched->CSC ;
             }
 
@@ -533,7 +533,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISPgStructPtr = matched ;
+                here->B4SOISPgBinding = matched ;
                 here->B4SOISPgPtr = matched->CSC ;
             }
 
@@ -541,7 +541,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISPdpStructPtr = matched ;
+                here->B4SOISPdpBinding = matched ;
                 here->B4SOISPdpPtr = matched->CSC ;
             }
 
@@ -549,7 +549,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISPspStructPtr = matched ;
+                here->B4SOISPspBinding = matched ;
                 here->B4SOISPspPtr = matched->CSC ;
             }
 
@@ -557,7 +557,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISPsStructPtr = matched ;
+                here->B4SOISPsBinding = matched ;
                 here->B4SOISPsPtr = matched->CSC ;
             }
 
@@ -565,7 +565,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDdStructPtr = matched ;
+                here->B4SOIDdBinding = matched ;
                 here->B4SOIDdPtr = matched->CSC ;
             }
 
@@ -573,7 +573,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOIDdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOIDdpStructPtr = matched ;
+                here->B4SOIDdpBinding = matched ;
                 here->B4SOIDdpPtr = matched->CSC ;
             }
 
@@ -581,7 +581,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISsStructPtr = matched ;
+                here->B4SOISsBinding = matched ;
                 here->B4SOISsPtr = matched->CSC ;
             }
 
@@ -589,7 +589,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B4SOISspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B4SOISspStructPtr = matched ;
+                here->B4SOISspBinding = matched ;
                 here->B4SOISspPtr = matched->CSC ;
             }
 
@@ -599,7 +599,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDPdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDPdbStructPtr = matched ;
+                    here->B4SOIDPdbBinding = matched ;
                     here->B4SOIDPdbPtr = matched->CSC ;
                 }
 
@@ -607,7 +607,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISPsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISPsbStructPtr = matched ;
+                    here->B4SOISPsbBinding = matched ;
                     here->B4SOISPsbPtr = matched->CSC ;
                 }
 
@@ -615,7 +615,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDBdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDBdpStructPtr = matched ;
+                    here->B4SOIDBdpBinding = matched ;
                     here->B4SOIDBdpPtr = matched->CSC ;
                 }
 
@@ -623,7 +623,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDBdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDBdbStructPtr = matched ;
+                    here->B4SOIDBdbBinding = matched ;
                     here->B4SOIDBdbPtr = matched->CSC ;
                 }
 
@@ -631,7 +631,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDBbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDBbStructPtr = matched ;
+                    here->B4SOIDBbBinding = matched ;
                     here->B4SOIDBbPtr = matched->CSC ;
                 }
 
@@ -639,7 +639,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISBspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISBspStructPtr = matched ;
+                    here->B4SOISBspBinding = matched ;
                     here->B4SOISBspPtr = matched->CSC ;
                 }
 
@@ -647,7 +647,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISBsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISBsbStructPtr = matched ;
+                    here->B4SOISBsbBinding = matched ;
                     here->B4SOISBsbPtr = matched->CSC ;
                 }
 
@@ -655,7 +655,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISBbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISBbStructPtr = matched ;
+                    here->B4SOISBbBinding = matched ;
                     here->B4SOISBbPtr = matched->CSC ;
                 }
 
@@ -663,7 +663,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBdbStructPtr = matched ;
+                    here->B4SOIBdbBinding = matched ;
                     here->B4SOIBdbPtr = matched->CSC ;
                 }
 
@@ -671,7 +671,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIBsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIBsbStructPtr = matched ;
+                    here->B4SOIBsbBinding = matched ;
                     here->B4SOIBsbPtr = matched->CSC ;
                 }
 
@@ -682,7 +682,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDgStructPtr = matched ;
+                    here->B4SOIDgBinding = matched ;
                     here->B4SOIDgPtr = matched->CSC ;
                 }
 
@@ -690,7 +690,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIDspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIDspStructPtr = matched ;
+                    here->B4SOIDspBinding = matched ;
                     here->B4SOIDspPtr = matched->CSC ;
                 }
 
@@ -698,7 +698,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISdpStructPtr = matched ;
+                    here->B4SOISdpBinding = matched ;
                     here->B4SOISdpPtr = matched->CSC ;
                 }
 
@@ -706,7 +706,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOISgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOISgStructPtr = matched ;
+                    here->B4SOISgBinding = matched ;
                     here->B4SOISgPtr = matched->CSC ;
                 }
 
@@ -716,7 +716,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B4SOIDbPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B4SOIDbStructPtr = matched ;
+                        here->B4SOIDbBinding = matched ;
                         here->B4SOIDbPtr = matched->CSC ;
                     }
 
@@ -724,7 +724,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B4SOISbPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B4SOISbStructPtr = matched ;
+                        here->B4SOISbBinding = matched ;
                         here->B4SOISbPtr = matched->CSC ;
                     }
 
@@ -736,7 +736,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIVbsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIVbsStructPtr = matched ;
+                    here->B4SOIVbsBinding = matched ;
                     here->B4SOIVbsPtr = matched->CSC ;
                 }
 
@@ -744,7 +744,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIdsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIdsStructPtr = matched ;
+                    here->B4SOIIdsBinding = matched ;
                     here->B4SOIIdsPtr = matched->CSC ;
                 }
 
@@ -752,7 +752,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIcPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIcStructPtr = matched ;
+                    here->B4SOIIcBinding = matched ;
                     here->B4SOIIcPtr = matched->CSC ;
                 }
 
@@ -760,7 +760,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIbsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIbsStructPtr = matched ;
+                    here->B4SOIIbsBinding = matched ;
                     here->B4SOIIbsPtr = matched->CSC ;
                 }
 
@@ -768,7 +768,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIbdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIbdStructPtr = matched ;
+                    here->B4SOIIbdBinding = matched ;
                     here->B4SOIIbdPtr = matched->CSC ;
                 }
 
@@ -776,7 +776,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIiiPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIiiStructPtr = matched ;
+                    here->B4SOIIiiBinding = matched ;
                     here->B4SOIIiiPtr = matched->CSC ;
                 }
 
@@ -784,7 +784,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIgStructPtr = matched ;
+                    here->B4SOIIgBinding = matched ;
                     here->B4SOIIgPtr = matched->CSC ;
                 }
 
@@ -792,7 +792,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGiggPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGiggStructPtr = matched ;
+                    here->B4SOIGiggBinding = matched ;
                     here->B4SOIGiggPtr = matched->CSC ;
                 }
 
@@ -800,7 +800,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGigdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGigdStructPtr = matched ;
+                    here->B4SOIGigdBinding = matched ;
                     here->B4SOIGigdPtr = matched->CSC ;
                 }
 
@@ -808,7 +808,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIGigbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIGigbStructPtr = matched ;
+                    here->B4SOIGigbBinding = matched ;
                     here->B4SOIGigbPtr = matched->CSC ;
                 }
 
@@ -816,7 +816,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIgidlPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIgidlStructPtr = matched ;
+                    here->B4SOIIgidlBinding = matched ;
                     here->B4SOIIgidlPtr = matched->CSC ;
                 }
 
@@ -824,7 +824,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIItunPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIItunStructPtr = matched ;
+                    here->B4SOIItunBinding = matched ;
                     here->B4SOIItunPtr = matched->CSC ;
                 }
 
@@ -832,7 +832,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIIbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIIbpStructPtr = matched ;
+                    here->B4SOIIbpBinding = matched ;
                     here->B4SOIIbpPtr = matched->CSC ;
                 }
 
@@ -840,7 +840,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOICbbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOICbbStructPtr = matched ;
+                    here->B4SOICbbBinding = matched ;
                     here->B4SOICbbPtr = matched->CSC ;
                 }
 
@@ -848,7 +848,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOICbdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOICbdStructPtr = matched ;
+                    here->B4SOICbdBinding = matched ;
                     here->B4SOICbdPtr = matched->CSC ;
                 }
 
@@ -856,7 +856,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOICbgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOICbgStructPtr = matched ;
+                    here->B4SOICbgBinding = matched ;
                     here->B4SOICbgPtr = matched->CSC ;
                 }
 
@@ -864,7 +864,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIQbfPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIQbfStructPtr = matched ;
+                    here->B4SOIQbfBinding = matched ;
                     here->B4SOIQbfPtr = matched->CSC ;
                 }
 
@@ -872,7 +872,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIQjsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIQjsStructPtr = matched ;
+                    here->B4SOIQjsBinding = matched ;
                     here->B4SOIQjsPtr = matched->CSC ;
                 }
 
@@ -880,7 +880,7 @@ B4SOIbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B4SOIQjdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B4SOIQjdStructPtr = matched ;
+                    here->B4SOIQjdBinding = matched ;
                     here->B4SOIQjdPtr = matched->CSC ;
                 }
 
@@ -908,45 +908,45 @@ B4SOIbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             if ((model->B4SOIshMod == 1) && (here->B4SOIrth0 != 0.0))
             {
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOITemptempPtr = here->B4SOITemptempStructPtr->CSC_Complex ;
+                    here->B4SOITemptempPtr = here->B4SOITemptempBinding->CSC_Complex ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOITempdpPtr = here->B4SOITempdpStructPtr->CSC_Complex ;
+                    here->B4SOITempdpPtr = here->B4SOITempdpBinding->CSC_Complex ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOITempspPtr = here->B4SOITempspStructPtr->CSC_Complex ;
+                    here->B4SOITempspPtr = here->B4SOITempspBinding->CSC_Complex ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOITempgPtr = here->B4SOITempgStructPtr->CSC_Complex ;
+                    here->B4SOITempgPtr = here->B4SOITempgBinding->CSC_Complex ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOITempbPtr = here->B4SOITempbStructPtr->CSC_Complex ;
+                    here->B4SOITempbPtr = here->B4SOITempbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIGtempPtr = here->B4SOIGtempStructPtr->CSC_Complex ;
+                    here->B4SOIGtempPtr = here->B4SOIGtempBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIDPtempPtr = here->B4SOIDPtempStructPtr->CSC_Complex ;
+                    here->B4SOIDPtempPtr = here->B4SOIDPtempBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOISPtempPtr = here->B4SOISPtempStructPtr->CSC_Complex ;
+                    here->B4SOISPtempPtr = here->B4SOISPtempBinding->CSC_Complex ;
 
                 if ((here-> B4SOIeNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIEtempPtr = here->B4SOIEtempStructPtr->CSC_Complex ;
+                    here->B4SOIEtempPtr = here->B4SOIEtempBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIBtempPtr = here->B4SOIBtempStructPtr->CSC_Complex ;
+                    here->B4SOIBtempPtr = here->B4SOIBtempBinding->CSC_Complex ;
 
                 if (here->B4SOIbodyMod == 1)
                 {
                     if ((here-> B4SOIpNode != 0) && (here-> B4SOItempNode != 0))
-                        here->B4SOIPtempPtr = here->B4SOIPtempStructPtr->CSC_Complex ;
+                        here->B4SOIPtempPtr = here->B4SOIPtempBinding->CSC_Complex ;
 
                 }
                 if (here->B4SOIsoiMod != 0)
                 {
                     if ((here-> B4SOItempNode != 0) && (here-> B4SOIeNode != 0))
-                        here->B4SOITempePtr = here->B4SOITempeStructPtr->CSC_Complex ;
+                        here->B4SOITempePtr = here->B4SOITempeBinding->CSC_Complex ;
 
                 }
             }
@@ -956,295 +956,295 @@ B4SOIbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             else if (here->B4SOIbodyMod == 1)
             {
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIpNode != 0))
-                    here->B4SOIBpPtr = here->B4SOIBpStructPtr->CSC_Complex ;
+                    here->B4SOIBpPtr = here->B4SOIBpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIpNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIPbPtr = here->B4SOIPbStructPtr->CSC_Complex ;
+                    here->B4SOIPbPtr = here->B4SOIPbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIpNode != 0) && (here-> B4SOIpNode != 0))
-                    here->B4SOIPpPtr = here->B4SOIPpStructPtr->CSC_Complex ;
+                    here->B4SOIPpPtr = here->B4SOIPpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIpNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIPgPtr = here->B4SOIPgStructPtr->CSC_Complex ;
+                    here->B4SOIPgPtr = here->B4SOIPgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIpNode != 0))
-                    here->B4SOIGpPtr = here->B4SOIGpStructPtr->CSC_Complex ;
+                    here->B4SOIGpPtr = here->B4SOIGpBinding->CSC_Complex ;
 
             }
             if (here->B4SOIrgateMod != 0)
             {
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIgNodeExt != 0))
-                    here->B4SOIGEgePtr = here->B4SOIGEgeStructPtr->CSC_Complex ;
+                    here->B4SOIGEgePtr = here->B4SOIGEgeBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIGEgPtr = here->B4SOIGEgStructPtr->CSC_Complex ;
+                    here->B4SOIGEgPtr = here->B4SOIGEgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIgNodeExt != 0))
-                    here->B4SOIGgePtr = here->B4SOIGgeStructPtr->CSC_Complex ;
+                    here->B4SOIGgePtr = here->B4SOIGgeBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIGEdpPtr = here->B4SOIGEdpStructPtr->CSC_Complex ;
+                    here->B4SOIGEdpPtr = here->B4SOIGEdpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIGEspPtr = here->B4SOIGEspStructPtr->CSC_Complex ;
+                    here->B4SOIGEspPtr = here->B4SOIGEspBinding->CSC_Complex ;
 
                 if (here->B4SOIsoiMod != 2)
                 {
                     if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOIGEbPtr = here->B4SOIGEbStructPtr->CSC_Complex ;
+                        here->B4SOIGEbPtr = here->B4SOIGEbBinding->CSC_Complex ;
 
                 }
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIGMdpPtr = here->B4SOIGMdpStructPtr->CSC_Complex ;
+                    here->B4SOIGMdpPtr = here->B4SOIGMdpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIGMgPtr = here->B4SOIGMgStructPtr->CSC_Complex ;
+                    here->B4SOIGMgPtr = here->B4SOIGMgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIGMgmPtr = here->B4SOIGMgmStructPtr->CSC_Complex ;
+                    here->B4SOIGMgmPtr = here->B4SOIGMgmBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIgNodeExt != 0))
-                    here->B4SOIGMgePtr = here->B4SOIGMgeStructPtr->CSC_Complex ;
+                    here->B4SOIGMgePtr = here->B4SOIGMgeBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIGMspPtr = here->B4SOIGMspStructPtr->CSC_Complex ;
+                    here->B4SOIGMspPtr = here->B4SOIGMspBinding->CSC_Complex ;
 
                 if (here->B4SOIsoiMod != 2)
                 {
                     if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOIGMbPtr = here->B4SOIGMbStructPtr->CSC_Complex ;
+                        here->B4SOIGMbPtr = here->B4SOIGMbBinding->CSC_Complex ;
 
                 }
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIeNode != 0))
-                    here->B4SOIGMePtr = here->B4SOIGMeStructPtr->CSC_Complex ;
+                    here->B4SOIGMePtr = here->B4SOIGMeBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIDPgmPtr = here->B4SOIDPgmStructPtr->CSC_Complex ;
+                    here->B4SOIDPgmPtr = here->B4SOIDPgmBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIGgmPtr = here->B4SOIGgmStructPtr->CSC_Complex ;
+                    here->B4SOIGgmPtr = here->B4SOIGgmBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIGEgmPtr = here->B4SOIGEgmStructPtr->CSC_Complex ;
+                    here->B4SOIGEgmPtr = here->B4SOIGEgmBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOISPgmPtr = here->B4SOISPgmStructPtr->CSC_Complex ;
+                    here->B4SOISPgmPtr = here->B4SOISPgmBinding->CSC_Complex ;
 
                 if ((here-> B4SOIeNode != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIEgmPtr = here->B4SOIEgmStructPtr->CSC_Complex ;
+                    here->B4SOIEgmPtr = here->B4SOIEgmBinding->CSC_Complex ;
 
             }
             if (here->B4SOIsoiMod != 2) /* v3.2 */
             {
                 if ((here-> B4SOIeNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIEbPtr = here->B4SOIEbStructPtr->CSC_Complex ;
+                    here->B4SOIEbPtr = here->B4SOIEbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIGbPtr = here->B4SOIGbStructPtr->CSC_Complex ;
+                    here->B4SOIGbPtr = here->B4SOIGbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIDPbPtr = here->B4SOIDPbStructPtr->CSC_Complex ;
+                    here->B4SOIDPbPtr = here->B4SOIDPbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOISPbPtr = here->B4SOISPbStructPtr->CSC_Complex ;
+                    here->B4SOISPbPtr = here->B4SOISPbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIeNode != 0))
-                    here->B4SOIBePtr = here->B4SOIBeStructPtr->CSC_Complex ;
+                    here->B4SOIBePtr = here->B4SOIBeBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIBgPtr = here->B4SOIBgStructPtr->CSC_Complex ;
+                    here->B4SOIBgPtr = here->B4SOIBgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIBdpPtr = here->B4SOIBdpStructPtr->CSC_Complex ;
+                    here->B4SOIBdpPtr = here->B4SOIBdpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIBspPtr = here->B4SOIBspStructPtr->CSC_Complex ;
+                    here->B4SOIBspPtr = here->B4SOIBspBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIBbPtr = here->B4SOIBbStructPtr->CSC_Complex ;
+                    here->B4SOIBbPtr = here->B4SOIBbBinding->CSC_Complex ;
 
             }
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOIEgPtr = here->B4SOIEgStructPtr->CSC_Complex ;
+                here->B4SOIEgPtr = here->B4SOIEgBinding->CSC_Complex ;
 
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIEdpPtr = here->B4SOIEdpStructPtr->CSC_Complex ;
+                here->B4SOIEdpPtr = here->B4SOIEdpBinding->CSC_Complex ;
 
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOIEspPtr = here->B4SOIEspStructPtr->CSC_Complex ;
+                here->B4SOIEspPtr = here->B4SOIEspBinding->CSC_Complex ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOIGePtr = here->B4SOIGeStructPtr->CSC_Complex ;
+                here->B4SOIGePtr = here->B4SOIGeBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOIDPePtr = here->B4SOIDPeStructPtr->CSC_Complex ;
+                here->B4SOIDPePtr = here->B4SOIDPeBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOISPePtr = here->B4SOISPeStructPtr->CSC_Complex ;
+                here->B4SOISPePtr = here->B4SOISPeBinding->CSC_Complex ;
 
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOIEePtr = here->B4SOIEeStructPtr->CSC_Complex ;
+                here->B4SOIEePtr = here->B4SOIEeBinding->CSC_Complex ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOIGgPtr = here->B4SOIGgStructPtr->CSC_Complex ;
+                here->B4SOIGgPtr = here->B4SOIGgBinding->CSC_Complex ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIGdpPtr = here->B4SOIGdpStructPtr->CSC_Complex ;
+                here->B4SOIGdpPtr = here->B4SOIGdpBinding->CSC_Complex ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOIGspPtr = here->B4SOIGspStructPtr->CSC_Complex ;
+                here->B4SOIGspPtr = here->B4SOIGspBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOIDPgPtr = here->B4SOIDPgStructPtr->CSC_Complex ;
+                here->B4SOIDPgPtr = here->B4SOIDPgBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIDPdpPtr = here->B4SOIDPdpStructPtr->CSC_Complex ;
+                here->B4SOIDPdpPtr = here->B4SOIDPdpBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOIDPspPtr = here->B4SOIDPspStructPtr->CSC_Complex ;
+                here->B4SOIDPspPtr = here->B4SOIDPspBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIdNode != 0))
-                here->B4SOIDPdPtr = here->B4SOIDPdStructPtr->CSC_Complex ;
+                here->B4SOIDPdPtr = here->B4SOIDPdBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOISPgPtr = here->B4SOISPgStructPtr->CSC_Complex ;
+                here->B4SOISPgPtr = here->B4SOISPgBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOISPdpPtr = here->B4SOISPdpStructPtr->CSC_Complex ;
+                here->B4SOISPdpPtr = here->B4SOISPdpBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOISPspPtr = here->B4SOISPspStructPtr->CSC_Complex ;
+                here->B4SOISPspPtr = here->B4SOISPspBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIsNode != 0))
-                here->B4SOISPsPtr = here->B4SOISPsStructPtr->CSC_Complex ;
+                here->B4SOISPsPtr = here->B4SOISPsBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNode != 0) && (here-> B4SOIdNode != 0))
-                here->B4SOIDdPtr = here->B4SOIDdStructPtr->CSC_Complex ;
+                here->B4SOIDdPtr = here->B4SOIDdBinding->CSC_Complex ;
 
             if ((here-> B4SOIdNode != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIDdpPtr = here->B4SOIDdpStructPtr->CSC_Complex ;
+                here->B4SOIDdpPtr = here->B4SOIDdpBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNode != 0) && (here-> B4SOIsNode != 0))
-                here->B4SOISsPtr = here->B4SOISsStructPtr->CSC_Complex ;
+                here->B4SOISsPtr = here->B4SOISsBinding->CSC_Complex ;
 
             if ((here-> B4SOIsNode != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOISspPtr = here->B4SOISspStructPtr->CSC_Complex ;
+                here->B4SOISspPtr = here->B4SOISspBinding->CSC_Complex ;
 
             if (here->B4SOIrbodyMod == 1)
             {
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIdbNode != 0))
-                    here->B4SOIDPdbPtr = here->B4SOIDPdbStructPtr->CSC_Complex ;
+                    here->B4SOIDPdbPtr = here->B4SOIDPdbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIsbNode != 0))
-                    here->B4SOISPsbPtr = here->B4SOISPsbStructPtr->CSC_Complex ;
+                    here->B4SOISPsbPtr = here->B4SOISPsbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdbNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIDBdpPtr = here->B4SOIDBdpStructPtr->CSC_Complex ;
+                    here->B4SOIDBdpPtr = here->B4SOIDBdpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdbNode != 0) && (here-> B4SOIdbNode != 0))
-                    here->B4SOIDBdbPtr = here->B4SOIDBdbStructPtr->CSC_Complex ;
+                    here->B4SOIDBdbPtr = here->B4SOIDBdbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdbNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIDBbPtr = here->B4SOIDBbStructPtr->CSC_Complex ;
+                    here->B4SOIDBbPtr = here->B4SOIDBbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsbNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOISBspPtr = here->B4SOISBspStructPtr->CSC_Complex ;
+                    here->B4SOISBspPtr = here->B4SOISBspBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsbNode != 0) && (here-> B4SOIsbNode != 0))
-                    here->B4SOISBsbPtr = here->B4SOISBsbStructPtr->CSC_Complex ;
+                    here->B4SOISBsbPtr = here->B4SOISBsbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsbNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOISBbPtr = here->B4SOISBbStructPtr->CSC_Complex ;
+                    here->B4SOISBbPtr = here->B4SOISBbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIdbNode != 0))
-                    here->B4SOIBdbPtr = here->B4SOIBdbStructPtr->CSC_Complex ;
+                    here->B4SOIBdbPtr = here->B4SOIBdbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIsbNode != 0))
-                    here->B4SOIBsbPtr = here->B4SOIBsbStructPtr->CSC_Complex ;
+                    here->B4SOIBsbPtr = here->B4SOIBsbBinding->CSC_Complex ;
 
             }
             if (model->B4SOIrdsMod)
             {
                 if ((here-> B4SOIdNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIDgPtr = here->B4SOIDgStructPtr->CSC_Complex ;
+                    here->B4SOIDgPtr = here->B4SOIDgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIdNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIDspPtr = here->B4SOIDspStructPtr->CSC_Complex ;
+                    here->B4SOIDspPtr = here->B4SOIDspBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOISdpPtr = here->B4SOISdpStructPtr->CSC_Complex ;
+                    here->B4SOISdpPtr = here->B4SOISdpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIsNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOISgPtr = here->B4SOISgStructPtr->CSC_Complex ;
+                    here->B4SOISgPtr = here->B4SOISgBinding->CSC_Complex ;
 
                 if (model->B4SOIsoiMod != 2)
                 {
                     if ((here-> B4SOIdNode != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOIDbPtr = here->B4SOIDbStructPtr->CSC_Complex ;
+                        here->B4SOIDbPtr = here->B4SOIDbBinding->CSC_Complex ;
 
                     if ((here-> B4SOIsNode != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOISbPtr = here->B4SOISbStructPtr->CSC_Complex ;
+                        here->B4SOISbPtr = here->B4SOISbBinding->CSC_Complex ;
 
                 }
             }
             if (here->B4SOIdebugMod != 0)
             {
                 if ((here-> B4SOIvbsNode != 0) && (here-> B4SOIvbsNode != 0))
-                    here->B4SOIVbsPtr = here->B4SOIVbsStructPtr->CSC_Complex ;
+                    here->B4SOIVbsPtr = here->B4SOIVbsBinding->CSC_Complex ;
 
                 if ((here-> B4SOIidsNode != 0) && (here-> B4SOIidsNode != 0))
-                    here->B4SOIIdsPtr = here->B4SOIIdsStructPtr->CSC_Complex ;
+                    here->B4SOIIdsPtr = here->B4SOIIdsBinding->CSC_Complex ;
 
                 if ((here-> B4SOIicNode != 0) && (here-> B4SOIicNode != 0))
-                    here->B4SOIIcPtr = here->B4SOIIcStructPtr->CSC_Complex ;
+                    here->B4SOIIcPtr = here->B4SOIIcBinding->CSC_Complex ;
 
                 if ((here-> B4SOIibsNode != 0) && (here-> B4SOIibsNode != 0))
-                    here->B4SOIIbsPtr = here->B4SOIIbsStructPtr->CSC_Complex ;
+                    here->B4SOIIbsPtr = here->B4SOIIbsBinding->CSC_Complex ;
 
                 if ((here-> B4SOIibdNode != 0) && (here-> B4SOIibdNode != 0))
-                    here->B4SOIIbdPtr = here->B4SOIIbdStructPtr->CSC_Complex ;
+                    here->B4SOIIbdPtr = here->B4SOIIbdBinding->CSC_Complex ;
 
                 if ((here-> B4SOIiiiNode != 0) && (here-> B4SOIiiiNode != 0))
-                    here->B4SOIIiiPtr = here->B4SOIIiiStructPtr->CSC_Complex ;
+                    here->B4SOIIiiPtr = here->B4SOIIiiBinding->CSC_Complex ;
 
                 if ((here-> B4SOIigNode != 0) && (here-> B4SOIigNode != 0))
-                    here->B4SOIIgPtr = here->B4SOIIgStructPtr->CSC_Complex ;
+                    here->B4SOIIgPtr = here->B4SOIIgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgiggNode != 0) && (here-> B4SOIgiggNode != 0))
-                    here->B4SOIGiggPtr = here->B4SOIGiggStructPtr->CSC_Complex ;
+                    here->B4SOIGiggPtr = here->B4SOIGiggBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgigdNode != 0) && (here-> B4SOIgigdNode != 0))
-                    here->B4SOIGigdPtr = here->B4SOIGigdStructPtr->CSC_Complex ;
+                    here->B4SOIGigdPtr = here->B4SOIGigdBinding->CSC_Complex ;
 
                 if ((here-> B4SOIgigbNode != 0) && (here-> B4SOIgigbNode != 0))
-                    here->B4SOIGigbPtr = here->B4SOIGigbStructPtr->CSC_Complex ;
+                    here->B4SOIGigbPtr = here->B4SOIGigbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIigidlNode != 0) && (here-> B4SOIigidlNode != 0))
-                    here->B4SOIIgidlPtr = here->B4SOIIgidlStructPtr->CSC_Complex ;
+                    here->B4SOIIgidlPtr = here->B4SOIIgidlBinding->CSC_Complex ;
 
                 if ((here-> B4SOIitunNode != 0) && (here-> B4SOIitunNode != 0))
-                    here->B4SOIItunPtr = here->B4SOIItunStructPtr->CSC_Complex ;
+                    here->B4SOIItunPtr = here->B4SOIItunBinding->CSC_Complex ;
 
                 if ((here-> B4SOIibpNode != 0) && (here-> B4SOIibpNode != 0))
-                    here->B4SOIIbpPtr = here->B4SOIIbpStructPtr->CSC_Complex ;
+                    here->B4SOIIbpPtr = here->B4SOIIbpBinding->CSC_Complex ;
 
                 if ((here-> B4SOIcbbNode != 0) && (here-> B4SOIcbbNode != 0))
-                    here->B4SOICbbPtr = here->B4SOICbbStructPtr->CSC_Complex ;
+                    here->B4SOICbbPtr = here->B4SOICbbBinding->CSC_Complex ;
 
                 if ((here-> B4SOIcbdNode != 0) && (here-> B4SOIcbdNode != 0))
-                    here->B4SOICbdPtr = here->B4SOICbdStructPtr->CSC_Complex ;
+                    here->B4SOICbdPtr = here->B4SOICbdBinding->CSC_Complex ;
 
                 if ((here-> B4SOIcbgNode != 0) && (here-> B4SOIcbgNode != 0))
-                    here->B4SOICbgPtr = here->B4SOICbgStructPtr->CSC_Complex ;
+                    here->B4SOICbgPtr = here->B4SOICbgBinding->CSC_Complex ;
 
                 if ((here-> B4SOIqbfNode != 0) && (here-> B4SOIqbfNode != 0))
-                    here->B4SOIQbfPtr = here->B4SOIQbfStructPtr->CSC_Complex ;
+                    here->B4SOIQbfPtr = here->B4SOIQbfBinding->CSC_Complex ;
 
                 if ((here-> B4SOIqjsNode != 0) && (here-> B4SOIqjsNode != 0))
-                    here->B4SOIQjsPtr = here->B4SOIQjsStructPtr->CSC_Complex ;
+                    here->B4SOIQjsPtr = here->B4SOIQjsBinding->CSC_Complex ;
 
                 if ((here-> B4SOIqjdNode != 0) && (here-> B4SOIqjdNode != 0))
-                    here->B4SOIQjdPtr = here->B4SOIQjdStructPtr->CSC_Complex ;
+                    here->B4SOIQjdPtr = here->B4SOIQjdBinding->CSC_Complex ;
 
             }
         }
@@ -1270,45 +1270,45 @@ B4SOIbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             if ((model->B4SOIshMod == 1) && (here->B4SOIrth0 != 0.0))
             {
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOITemptempPtr = here->B4SOITemptempStructPtr->CSC ;
+                    here->B4SOITemptempPtr = here->B4SOITemptempBinding->CSC ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOITempdpPtr = here->B4SOITempdpStructPtr->CSC ;
+                    here->B4SOITempdpPtr = here->B4SOITempdpBinding->CSC ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOITempspPtr = here->B4SOITempspStructPtr->CSC ;
+                    here->B4SOITempspPtr = here->B4SOITempspBinding->CSC ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOITempgPtr = here->B4SOITempgStructPtr->CSC ;
+                    here->B4SOITempgPtr = here->B4SOITempgBinding->CSC ;
 
                 if ((here-> B4SOItempNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOITempbPtr = here->B4SOITempbStructPtr->CSC ;
+                    here->B4SOITempbPtr = here->B4SOITempbBinding->CSC ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIGtempPtr = here->B4SOIGtempStructPtr->CSC ;
+                    here->B4SOIGtempPtr = here->B4SOIGtempBinding->CSC ;
 
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIDPtempPtr = here->B4SOIDPtempStructPtr->CSC ;
+                    here->B4SOIDPtempPtr = here->B4SOIDPtempBinding->CSC ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOISPtempPtr = here->B4SOISPtempStructPtr->CSC ;
+                    here->B4SOISPtempPtr = here->B4SOISPtempBinding->CSC ;
 
                 if ((here-> B4SOIeNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIEtempPtr = here->B4SOIEtempStructPtr->CSC ;
+                    here->B4SOIEtempPtr = here->B4SOIEtempBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOItempNode != 0))
-                    here->B4SOIBtempPtr = here->B4SOIBtempStructPtr->CSC ;
+                    here->B4SOIBtempPtr = here->B4SOIBtempBinding->CSC ;
 
                 if (here->B4SOIbodyMod == 1)
                 {
                     if ((here-> B4SOIpNode != 0) && (here-> B4SOItempNode != 0))
-                        here->B4SOIPtempPtr = here->B4SOIPtempStructPtr->CSC ;
+                        here->B4SOIPtempPtr = here->B4SOIPtempBinding->CSC ;
 
                 }
                 if (here->B4SOIsoiMod != 0)
                 {
                     if ((here-> B4SOItempNode != 0) && (here-> B4SOIeNode != 0))
-                        here->B4SOITempePtr = here->B4SOITempeStructPtr->CSC ;
+                        here->B4SOITempePtr = here->B4SOITempeBinding->CSC ;
 
                 }
             }
@@ -1318,295 +1318,295 @@ B4SOIbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             else if (here->B4SOIbodyMod == 1)
             {
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIpNode != 0))
-                    here->B4SOIBpPtr = here->B4SOIBpStructPtr->CSC ;
+                    here->B4SOIBpPtr = here->B4SOIBpBinding->CSC ;
 
                 if ((here-> B4SOIpNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIPbPtr = here->B4SOIPbStructPtr->CSC ;
+                    here->B4SOIPbPtr = here->B4SOIPbBinding->CSC ;
 
                 if ((here-> B4SOIpNode != 0) && (here-> B4SOIpNode != 0))
-                    here->B4SOIPpPtr = here->B4SOIPpStructPtr->CSC ;
+                    here->B4SOIPpPtr = here->B4SOIPpBinding->CSC ;
 
                 if ((here-> B4SOIpNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIPgPtr = here->B4SOIPgStructPtr->CSC ;
+                    here->B4SOIPgPtr = here->B4SOIPgBinding->CSC ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIpNode != 0))
-                    here->B4SOIGpPtr = here->B4SOIGpStructPtr->CSC ;
+                    here->B4SOIGpPtr = here->B4SOIGpBinding->CSC ;
 
             }
             if (here->B4SOIrgateMod != 0)
             {
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIgNodeExt != 0))
-                    here->B4SOIGEgePtr = here->B4SOIGEgeStructPtr->CSC ;
+                    here->B4SOIGEgePtr = here->B4SOIGEgeBinding->CSC ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIGEgPtr = here->B4SOIGEgStructPtr->CSC ;
+                    here->B4SOIGEgPtr = here->B4SOIGEgBinding->CSC ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIgNodeExt != 0))
-                    here->B4SOIGgePtr = here->B4SOIGgeStructPtr->CSC ;
+                    here->B4SOIGgePtr = here->B4SOIGgeBinding->CSC ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIGEdpPtr = here->B4SOIGEdpStructPtr->CSC ;
+                    here->B4SOIGEdpPtr = here->B4SOIGEdpBinding->CSC ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIGEspPtr = here->B4SOIGEspStructPtr->CSC ;
+                    here->B4SOIGEspPtr = here->B4SOIGEspBinding->CSC ;
 
                 if (here->B4SOIsoiMod != 2)
                 {
                     if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOIGEbPtr = here->B4SOIGEbStructPtr->CSC ;
+                        here->B4SOIGEbPtr = here->B4SOIGEbBinding->CSC ;
 
                 }
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIGMdpPtr = here->B4SOIGMdpStructPtr->CSC ;
+                    here->B4SOIGMdpPtr = here->B4SOIGMdpBinding->CSC ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIGMgPtr = here->B4SOIGMgStructPtr->CSC ;
+                    here->B4SOIGMgPtr = here->B4SOIGMgBinding->CSC ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIGMgmPtr = here->B4SOIGMgmStructPtr->CSC ;
+                    here->B4SOIGMgmPtr = here->B4SOIGMgmBinding->CSC ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIgNodeExt != 0))
-                    here->B4SOIGMgePtr = here->B4SOIGMgeStructPtr->CSC ;
+                    here->B4SOIGMgePtr = here->B4SOIGMgeBinding->CSC ;
 
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIGMspPtr = here->B4SOIGMspStructPtr->CSC ;
+                    here->B4SOIGMspPtr = here->B4SOIGMspBinding->CSC ;
 
                 if (here->B4SOIsoiMod != 2)
                 {
                     if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOIGMbPtr = here->B4SOIGMbStructPtr->CSC ;
+                        here->B4SOIGMbPtr = here->B4SOIGMbBinding->CSC ;
 
                 }
                 if ((here-> B4SOIgNodeMid != 0) && (here-> B4SOIeNode != 0))
-                    here->B4SOIGMePtr = here->B4SOIGMeStructPtr->CSC ;
+                    here->B4SOIGMePtr = here->B4SOIGMeBinding->CSC ;
 
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIDPgmPtr = here->B4SOIDPgmStructPtr->CSC ;
+                    here->B4SOIDPgmPtr = here->B4SOIDPgmBinding->CSC ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIGgmPtr = here->B4SOIGgmStructPtr->CSC ;
+                    here->B4SOIGgmPtr = here->B4SOIGgmBinding->CSC ;
 
                 if ((here-> B4SOIgNodeExt != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIGEgmPtr = here->B4SOIGEgmStructPtr->CSC ;
+                    here->B4SOIGEgmPtr = here->B4SOIGEgmBinding->CSC ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOISPgmPtr = here->B4SOISPgmStructPtr->CSC ;
+                    here->B4SOISPgmPtr = here->B4SOISPgmBinding->CSC ;
 
                 if ((here-> B4SOIeNode != 0) && (here-> B4SOIgNodeMid != 0))
-                    here->B4SOIEgmPtr = here->B4SOIEgmStructPtr->CSC ;
+                    here->B4SOIEgmPtr = here->B4SOIEgmBinding->CSC ;
 
             }
             if (here->B4SOIsoiMod != 2) /* v3.2 */
             {
                 if ((here-> B4SOIeNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIEbPtr = here->B4SOIEbStructPtr->CSC ;
+                    here->B4SOIEbPtr = here->B4SOIEbBinding->CSC ;
 
                 if ((here-> B4SOIgNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIGbPtr = here->B4SOIGbStructPtr->CSC ;
+                    here->B4SOIGbPtr = here->B4SOIGbBinding->CSC ;
 
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIDPbPtr = here->B4SOIDPbStructPtr->CSC ;
+                    here->B4SOIDPbPtr = here->B4SOIDPbBinding->CSC ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOISPbPtr = here->B4SOISPbStructPtr->CSC ;
+                    here->B4SOISPbPtr = here->B4SOISPbBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIeNode != 0))
-                    here->B4SOIBePtr = here->B4SOIBeStructPtr->CSC ;
+                    here->B4SOIBePtr = here->B4SOIBeBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIBgPtr = here->B4SOIBgStructPtr->CSC ;
+                    here->B4SOIBgPtr = here->B4SOIBgBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIBdpPtr = here->B4SOIBdpStructPtr->CSC ;
+                    here->B4SOIBdpPtr = here->B4SOIBdpBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIBspPtr = here->B4SOIBspStructPtr->CSC ;
+                    here->B4SOIBspPtr = here->B4SOIBspBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIBbPtr = here->B4SOIBbStructPtr->CSC ;
+                    here->B4SOIBbPtr = here->B4SOIBbBinding->CSC ;
 
             }
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOIEgPtr = here->B4SOIEgStructPtr->CSC ;
+                here->B4SOIEgPtr = here->B4SOIEgBinding->CSC ;
 
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIEdpPtr = here->B4SOIEdpStructPtr->CSC ;
+                here->B4SOIEdpPtr = here->B4SOIEdpBinding->CSC ;
 
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOIEspPtr = here->B4SOIEspStructPtr->CSC ;
+                here->B4SOIEspPtr = here->B4SOIEspBinding->CSC ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOIGePtr = here->B4SOIGeStructPtr->CSC ;
+                here->B4SOIGePtr = here->B4SOIGeBinding->CSC ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOIDPePtr = here->B4SOIDPeStructPtr->CSC ;
+                here->B4SOIDPePtr = here->B4SOIDPeBinding->CSC ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOISPePtr = here->B4SOISPeStructPtr->CSC ;
+                here->B4SOISPePtr = here->B4SOISPeBinding->CSC ;
 
             if ((here-> B4SOIeNode != 0) && (here-> B4SOIeNode != 0))
-                here->B4SOIEePtr = here->B4SOIEeStructPtr->CSC ;
+                here->B4SOIEePtr = here->B4SOIEeBinding->CSC ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOIGgPtr = here->B4SOIGgStructPtr->CSC ;
+                here->B4SOIGgPtr = here->B4SOIGgBinding->CSC ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIGdpPtr = here->B4SOIGdpStructPtr->CSC ;
+                here->B4SOIGdpPtr = here->B4SOIGdpBinding->CSC ;
 
             if ((here-> B4SOIgNode != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOIGspPtr = here->B4SOIGspStructPtr->CSC ;
+                here->B4SOIGspPtr = here->B4SOIGspBinding->CSC ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOIDPgPtr = here->B4SOIDPgStructPtr->CSC ;
+                here->B4SOIDPgPtr = here->B4SOIDPgBinding->CSC ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIDPdpPtr = here->B4SOIDPdpStructPtr->CSC ;
+                here->B4SOIDPdpPtr = here->B4SOIDPdpBinding->CSC ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOIDPspPtr = here->B4SOIDPspStructPtr->CSC ;
+                here->B4SOIDPspPtr = here->B4SOIDPspBinding->CSC ;
 
             if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIdNode != 0))
-                here->B4SOIDPdPtr = here->B4SOIDPdStructPtr->CSC ;
+                here->B4SOIDPdPtr = here->B4SOIDPdBinding->CSC ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIgNode != 0))
-                here->B4SOISPgPtr = here->B4SOISPgStructPtr->CSC ;
+                here->B4SOISPgPtr = here->B4SOISPgBinding->CSC ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOISPdpPtr = here->B4SOISPdpStructPtr->CSC ;
+                here->B4SOISPdpPtr = here->B4SOISPdpBinding->CSC ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOISPspPtr = here->B4SOISPspStructPtr->CSC ;
+                here->B4SOISPspPtr = here->B4SOISPspBinding->CSC ;
 
             if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIsNode != 0))
-                here->B4SOISPsPtr = here->B4SOISPsStructPtr->CSC ;
+                here->B4SOISPsPtr = here->B4SOISPsBinding->CSC ;
 
             if ((here-> B4SOIdNode != 0) && (here-> B4SOIdNode != 0))
-                here->B4SOIDdPtr = here->B4SOIDdStructPtr->CSC ;
+                here->B4SOIDdPtr = here->B4SOIDdBinding->CSC ;
 
             if ((here-> B4SOIdNode != 0) && (here-> B4SOIdNodePrime != 0))
-                here->B4SOIDdpPtr = here->B4SOIDdpStructPtr->CSC ;
+                here->B4SOIDdpPtr = here->B4SOIDdpBinding->CSC ;
 
             if ((here-> B4SOIsNode != 0) && (here-> B4SOIsNode != 0))
-                here->B4SOISsPtr = here->B4SOISsStructPtr->CSC ;
+                here->B4SOISsPtr = here->B4SOISsBinding->CSC ;
 
             if ((here-> B4SOIsNode != 0) && (here-> B4SOIsNodePrime != 0))
-                here->B4SOISspPtr = here->B4SOISspStructPtr->CSC ;
+                here->B4SOISspPtr = here->B4SOISspBinding->CSC ;
 
             if (here->B4SOIrbodyMod == 1)
             {
                 if ((here-> B4SOIdNodePrime != 0) && (here-> B4SOIdbNode != 0))
-                    here->B4SOIDPdbPtr = here->B4SOIDPdbStructPtr->CSC ;
+                    here->B4SOIDPdbPtr = here->B4SOIDPdbBinding->CSC ;
 
                 if ((here-> B4SOIsNodePrime != 0) && (here-> B4SOIsbNode != 0))
-                    here->B4SOISPsbPtr = here->B4SOISPsbStructPtr->CSC ;
+                    here->B4SOISPsbPtr = here->B4SOISPsbBinding->CSC ;
 
                 if ((here-> B4SOIdbNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOIDBdpPtr = here->B4SOIDBdpStructPtr->CSC ;
+                    here->B4SOIDBdpPtr = here->B4SOIDBdpBinding->CSC ;
 
                 if ((here-> B4SOIdbNode != 0) && (here-> B4SOIdbNode != 0))
-                    here->B4SOIDBdbPtr = here->B4SOIDBdbStructPtr->CSC ;
+                    here->B4SOIDBdbPtr = here->B4SOIDBdbBinding->CSC ;
 
                 if ((here-> B4SOIdbNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOIDBbPtr = here->B4SOIDBbStructPtr->CSC ;
+                    here->B4SOIDBbPtr = here->B4SOIDBbBinding->CSC ;
 
                 if ((here-> B4SOIsbNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOISBspPtr = here->B4SOISBspStructPtr->CSC ;
+                    here->B4SOISBspPtr = here->B4SOISBspBinding->CSC ;
 
                 if ((here-> B4SOIsbNode != 0) && (here-> B4SOIsbNode != 0))
-                    here->B4SOISBsbPtr = here->B4SOISBsbStructPtr->CSC ;
+                    here->B4SOISBsbPtr = here->B4SOISBsbBinding->CSC ;
 
                 if ((here-> B4SOIsbNode != 0) && (here-> B4SOIbNode != 0))
-                    here->B4SOISBbPtr = here->B4SOISBbStructPtr->CSC ;
+                    here->B4SOISBbPtr = here->B4SOISBbBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIdbNode != 0))
-                    here->B4SOIBdbPtr = here->B4SOIBdbStructPtr->CSC ;
+                    here->B4SOIBdbPtr = here->B4SOIBdbBinding->CSC ;
 
                 if ((here-> B4SOIbNode != 0) && (here-> B4SOIsbNode != 0))
-                    here->B4SOIBsbPtr = here->B4SOIBsbStructPtr->CSC ;
+                    here->B4SOIBsbPtr = here->B4SOIBsbBinding->CSC ;
 
             }
             if (model->B4SOIrdsMod)
             {
                 if ((here-> B4SOIdNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOIDgPtr = here->B4SOIDgStructPtr->CSC ;
+                    here->B4SOIDgPtr = here->B4SOIDgBinding->CSC ;
 
                 if ((here-> B4SOIdNode != 0) && (here-> B4SOIsNodePrime != 0))
-                    here->B4SOIDspPtr = here->B4SOIDspStructPtr->CSC ;
+                    here->B4SOIDspPtr = here->B4SOIDspBinding->CSC ;
 
                 if ((here-> B4SOIsNode != 0) && (here-> B4SOIdNodePrime != 0))
-                    here->B4SOISdpPtr = here->B4SOISdpStructPtr->CSC ;
+                    here->B4SOISdpPtr = here->B4SOISdpBinding->CSC ;
 
                 if ((here-> B4SOIsNode != 0) && (here-> B4SOIgNode != 0))
-                    here->B4SOISgPtr = here->B4SOISgStructPtr->CSC ;
+                    here->B4SOISgPtr = here->B4SOISgBinding->CSC ;
 
                 if (model->B4SOIsoiMod != 2)
                 {
                     if ((here-> B4SOIdNode != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOIDbPtr = here->B4SOIDbStructPtr->CSC ;
+                        here->B4SOIDbPtr = here->B4SOIDbBinding->CSC ;
 
                     if ((here-> B4SOIsNode != 0) && (here-> B4SOIbNode != 0))
-                        here->B4SOISbPtr = here->B4SOISbStructPtr->CSC ;
+                        here->B4SOISbPtr = here->B4SOISbBinding->CSC ;
 
                 }
             }
             if (here->B4SOIdebugMod != 0)
             {
                 if ((here-> B4SOIvbsNode != 0) && (here-> B4SOIvbsNode != 0))
-                    here->B4SOIVbsPtr = here->B4SOIVbsStructPtr->CSC ;
+                    here->B4SOIVbsPtr = here->B4SOIVbsBinding->CSC ;
 
                 if ((here-> B4SOIidsNode != 0) && (here-> B4SOIidsNode != 0))
-                    here->B4SOIIdsPtr = here->B4SOIIdsStructPtr->CSC ;
+                    here->B4SOIIdsPtr = here->B4SOIIdsBinding->CSC ;
 
                 if ((here-> B4SOIicNode != 0) && (here-> B4SOIicNode != 0))
-                    here->B4SOIIcPtr = here->B4SOIIcStructPtr->CSC ;
+                    here->B4SOIIcPtr = here->B4SOIIcBinding->CSC ;
 
                 if ((here-> B4SOIibsNode != 0) && (here-> B4SOIibsNode != 0))
-                    here->B4SOIIbsPtr = here->B4SOIIbsStructPtr->CSC ;
+                    here->B4SOIIbsPtr = here->B4SOIIbsBinding->CSC ;
 
                 if ((here-> B4SOIibdNode != 0) && (here-> B4SOIibdNode != 0))
-                    here->B4SOIIbdPtr = here->B4SOIIbdStructPtr->CSC ;
+                    here->B4SOIIbdPtr = here->B4SOIIbdBinding->CSC ;
 
                 if ((here-> B4SOIiiiNode != 0) && (here-> B4SOIiiiNode != 0))
-                    here->B4SOIIiiPtr = here->B4SOIIiiStructPtr->CSC ;
+                    here->B4SOIIiiPtr = here->B4SOIIiiBinding->CSC ;
 
                 if ((here-> B4SOIigNode != 0) && (here-> B4SOIigNode != 0))
-                    here->B4SOIIgPtr = here->B4SOIIgStructPtr->CSC ;
+                    here->B4SOIIgPtr = here->B4SOIIgBinding->CSC ;
 
                 if ((here-> B4SOIgiggNode != 0) && (here-> B4SOIgiggNode != 0))
-                    here->B4SOIGiggPtr = here->B4SOIGiggStructPtr->CSC ;
+                    here->B4SOIGiggPtr = here->B4SOIGiggBinding->CSC ;
 
                 if ((here-> B4SOIgigdNode != 0) && (here-> B4SOIgigdNode != 0))
-                    here->B4SOIGigdPtr = here->B4SOIGigdStructPtr->CSC ;
+                    here->B4SOIGigdPtr = here->B4SOIGigdBinding->CSC ;
 
                 if ((here-> B4SOIgigbNode != 0) && (here-> B4SOIgigbNode != 0))
-                    here->B4SOIGigbPtr = here->B4SOIGigbStructPtr->CSC ;
+                    here->B4SOIGigbPtr = here->B4SOIGigbBinding->CSC ;
 
                 if ((here-> B4SOIigidlNode != 0) && (here-> B4SOIigidlNode != 0))
-                    here->B4SOIIgidlPtr = here->B4SOIIgidlStructPtr->CSC ;
+                    here->B4SOIIgidlPtr = here->B4SOIIgidlBinding->CSC ;
 
                 if ((here-> B4SOIitunNode != 0) && (here-> B4SOIitunNode != 0))
-                    here->B4SOIItunPtr = here->B4SOIItunStructPtr->CSC ;
+                    here->B4SOIItunPtr = here->B4SOIItunBinding->CSC ;
 
                 if ((here-> B4SOIibpNode != 0) && (here-> B4SOIibpNode != 0))
-                    here->B4SOIIbpPtr = here->B4SOIIbpStructPtr->CSC ;
+                    here->B4SOIIbpPtr = here->B4SOIIbpBinding->CSC ;
 
                 if ((here-> B4SOIcbbNode != 0) && (here-> B4SOIcbbNode != 0))
-                    here->B4SOICbbPtr = here->B4SOICbbStructPtr->CSC ;
+                    here->B4SOICbbPtr = here->B4SOICbbBinding->CSC ;
 
                 if ((here-> B4SOIcbdNode != 0) && (here-> B4SOIcbdNode != 0))
-                    here->B4SOICbdPtr = here->B4SOICbdStructPtr->CSC ;
+                    here->B4SOICbdPtr = here->B4SOICbdBinding->CSC ;
 
                 if ((here-> B4SOIcbgNode != 0) && (here-> B4SOIcbgNode != 0))
-                    here->B4SOICbgPtr = here->B4SOICbgStructPtr->CSC ;
+                    here->B4SOICbgPtr = here->B4SOICbgBinding->CSC ;
 
                 if ((here-> B4SOIqbfNode != 0) && (here-> B4SOIqbfNode != 0))
-                    here->B4SOIQbfPtr = here->B4SOIQbfStructPtr->CSC ;
+                    here->B4SOIQbfPtr = here->B4SOIQbfBinding->CSC ;
 
                 if ((here-> B4SOIqjsNode != 0) && (here-> B4SOIqjsNode != 0))
-                    here->B4SOIQjsPtr = here->B4SOIQjsStructPtr->CSC ;
+                    here->B4SOIQjsPtr = here->B4SOIQjsBinding->CSC ;
 
                 if ((here-> B4SOIqjdNode != 0) && (here-> B4SOIqjdNode != 0))
-                    here->B4SOIQjdPtr = here->B4SOIQjdStructPtr->CSC ;
+                    here->B4SOIQjdPtr = here->B4SOIQjdBinding->CSC ;
 
             }
         }

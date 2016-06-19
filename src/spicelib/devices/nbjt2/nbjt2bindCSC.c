@@ -42,7 +42,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2colColPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2colColStructPtr = matched ;
+                here->NBJT2colColBinding = matched ;
                 here->NBJT2colColPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2colBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2colBaseStructPtr = matched ;
+                here->NBJT2colBaseBinding = matched ;
                 here->NBJT2colBasePtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2colEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2colEmitStructPtr = matched ;
+                here->NBJT2colEmitBinding = matched ;
                 here->NBJT2colEmitPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2baseColPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2baseColStructPtr = matched ;
+                here->NBJT2baseColBinding = matched ;
                 here->NBJT2baseColPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2baseBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2baseBaseStructPtr = matched ;
+                here->NBJT2baseBaseBinding = matched ;
                 here->NBJT2baseBasePtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2baseEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2baseEmitStructPtr = matched ;
+                here->NBJT2baseEmitBinding = matched ;
                 here->NBJT2baseEmitPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2emitColPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2emitColStructPtr = matched ;
+                here->NBJT2emitColBinding = matched ;
                 here->NBJT2emitColPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2emitBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2emitBaseStructPtr = matched ;
+                here->NBJT2emitBaseBinding = matched ;
                 here->NBJT2emitBasePtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJT2emitEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJT2emitEmitStructPtr = matched ;
+                here->NBJT2emitEmitBinding = matched ;
                 here->NBJT2emitEmitPtr = matched->CSC ;
             }
 
@@ -131,31 +131,31 @@ NBJT2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
             if ((here-> NBJT2colNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2colColPtr = here->NBJT2colColStructPtr->CSC_Complex ;
+                here->NBJT2colColPtr = here->NBJT2colColBinding->CSC_Complex ;
 
             if ((here-> NBJT2colNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2colBasePtr = here->NBJT2colBaseStructPtr->CSC_Complex ;
+                here->NBJT2colBasePtr = here->NBJT2colBaseBinding->CSC_Complex ;
 
             if ((here-> NBJT2colNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2colEmitPtr = here->NBJT2colEmitStructPtr->CSC_Complex ;
+                here->NBJT2colEmitPtr = here->NBJT2colEmitBinding->CSC_Complex ;
 
             if ((here-> NBJT2baseNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2baseColPtr = here->NBJT2baseColStructPtr->CSC_Complex ;
+                here->NBJT2baseColPtr = here->NBJT2baseColBinding->CSC_Complex ;
 
             if ((here-> NBJT2baseNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2baseBasePtr = here->NBJT2baseBaseStructPtr->CSC_Complex ;
+                here->NBJT2baseBasePtr = here->NBJT2baseBaseBinding->CSC_Complex ;
 
             if ((here-> NBJT2baseNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2baseEmitPtr = here->NBJT2baseEmitStructPtr->CSC_Complex ;
+                here->NBJT2baseEmitPtr = here->NBJT2baseEmitBinding->CSC_Complex ;
 
             if ((here-> NBJT2emitNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2emitColPtr = here->NBJT2emitColStructPtr->CSC_Complex ;
+                here->NBJT2emitColPtr = here->NBJT2emitColBinding->CSC_Complex ;
 
             if ((here-> NBJT2emitNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2emitBasePtr = here->NBJT2emitBaseStructPtr->CSC_Complex ;
+                here->NBJT2emitBasePtr = here->NBJT2emitBaseBinding->CSC_Complex ;
 
             if ((here-> NBJT2emitNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2emitEmitPtr = here->NBJT2emitEmitStructPtr->CSC_Complex ;
+                here->NBJT2emitEmitPtr = here->NBJT2emitEmitBinding->CSC_Complex ;
 
         }
     }
@@ -178,31 +178,31 @@ NBJT2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
             if ((here-> NBJT2colNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2colColPtr = here->NBJT2colColStructPtr->CSC ;
+                here->NBJT2colColPtr = here->NBJT2colColBinding->CSC ;
 
             if ((here-> NBJT2colNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2colBasePtr = here->NBJT2colBaseStructPtr->CSC ;
+                here->NBJT2colBasePtr = here->NBJT2colBaseBinding->CSC ;
 
             if ((here-> NBJT2colNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2colEmitPtr = here->NBJT2colEmitStructPtr->CSC ;
+                here->NBJT2colEmitPtr = here->NBJT2colEmitBinding->CSC ;
 
             if ((here-> NBJT2baseNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2baseColPtr = here->NBJT2baseColStructPtr->CSC ;
+                here->NBJT2baseColPtr = here->NBJT2baseColBinding->CSC ;
 
             if ((here-> NBJT2baseNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2baseBasePtr = here->NBJT2baseBaseStructPtr->CSC ;
+                here->NBJT2baseBasePtr = here->NBJT2baseBaseBinding->CSC ;
 
             if ((here-> NBJT2baseNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2baseEmitPtr = here->NBJT2baseEmitStructPtr->CSC ;
+                here->NBJT2baseEmitPtr = here->NBJT2baseEmitBinding->CSC ;
 
             if ((here-> NBJT2emitNode != 0) && (here-> NBJT2colNode != 0))
-                here->NBJT2emitColPtr = here->NBJT2emitColStructPtr->CSC ;
+                here->NBJT2emitColPtr = here->NBJT2emitColBinding->CSC ;
 
             if ((here-> NBJT2emitNode != 0) && (here-> NBJT2baseNode != 0))
-                here->NBJT2emitBasePtr = here->NBJT2emitBaseStructPtr->CSC ;
+                here->NBJT2emitBasePtr = here->NBJT2emitBaseBinding->CSC ;
 
             if ((here-> NBJT2emitNode != 0) && (here-> NBJT2emitNode != 0))
-                here->NBJT2emitEmitPtr = here->NBJT2emitEmitStructPtr->CSC ;
+                here->NBJT2emitEmitPtr = here->NBJT2emitEmitBinding->CSC ;
 
         }
     }

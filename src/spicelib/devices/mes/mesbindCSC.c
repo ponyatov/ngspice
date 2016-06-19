@@ -42,7 +42,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESdrainDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESdrainDrainPrimeStructPtr = matched ;
+                here->MESdrainDrainPrimeBinding = matched ;
                 here->MESdrainDrainPrimePtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESgateDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESgateDrainPrimeStructPtr = matched ;
+                here->MESgateDrainPrimeBinding = matched ;
                 here->MESgateDrainPrimePtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESgateSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESgateSourcePrimeStructPtr = matched ;
+                here->MESgateSourcePrimeBinding = matched ;
                 here->MESgateSourcePrimePtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESsourceSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESsourceSourcePrimeStructPtr = matched ;
+                here->MESsourceSourcePrimeBinding = matched ;
                 here->MESsourceSourcePrimePtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESdrainPrimeDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESdrainPrimeDrainStructPtr = matched ;
+                here->MESdrainPrimeDrainBinding = matched ;
                 here->MESdrainPrimeDrainPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESdrainPrimeGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESdrainPrimeGateStructPtr = matched ;
+                here->MESdrainPrimeGateBinding = matched ;
                 here->MESdrainPrimeGatePtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESdrainPrimeSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESdrainPrimeSourcePrimeStructPtr = matched ;
+                here->MESdrainPrimeSourcePrimeBinding = matched ;
                 here->MESdrainPrimeSourcePrimePtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESsourcePrimeGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESsourcePrimeGateStructPtr = matched ;
+                here->MESsourcePrimeGateBinding = matched ;
                 here->MESsourcePrimeGatePtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESsourcePrimeSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESsourcePrimeSourceStructPtr = matched ;
+                here->MESsourcePrimeSourceBinding = matched ;
                 here->MESsourcePrimeSourcePtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESsourcePrimeDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESsourcePrimeDrainPrimeStructPtr = matched ;
+                here->MESsourcePrimeDrainPrimeBinding = matched ;
                 here->MESsourcePrimeDrainPrimePtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESdrainDrainPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESdrainDrainStructPtr = matched ;
+                here->MESdrainDrainBinding = matched ;
                 here->MESdrainDrainPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESgateGatePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESgateGateStructPtr = matched ;
+                here->MESgateGateBinding = matched ;
                 here->MESgateGatePtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESsourceSourcePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESsourceSourceStructPtr = matched ;
+                here->MESsourceSourceBinding = matched ;
                 here->MESsourceSourcePtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESdrainPrimeDrainPrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESdrainPrimeDrainPrimeStructPtr = matched ;
+                here->MESdrainPrimeDrainPrimeBinding = matched ;
                 here->MESdrainPrimeDrainPrimePtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ MESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MESsourcePrimeSourcePrimePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MESsourcePrimeSourcePrimeStructPtr = matched ;
+                here->MESsourcePrimeSourcePrimeBinding = matched ;
                 here->MESsourcePrimeSourcePrimePtr = matched->CSC ;
             }
 
@@ -179,49 +179,49 @@ MESbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MESinstances ; here != NULL ; here = here->MESnextInstance)
         {
             if ((here->MESdrainNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESdrainDrainPrimePtr = here->MESdrainDrainPrimeStructPtr->CSC_Complex ;
+                here->MESdrainDrainPrimePtr = here->MESdrainDrainPrimeBinding->CSC_Complex ;
 
             if ((here->MESgateNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESgateDrainPrimePtr = here->MESgateDrainPrimeStructPtr->CSC_Complex ;
+                here->MESgateDrainPrimePtr = here->MESgateDrainPrimeBinding->CSC_Complex ;
 
             if ((here->MESgateNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESgateSourcePrimePtr = here->MESgateSourcePrimeStructPtr->CSC_Complex ;
+                here->MESgateSourcePrimePtr = here->MESgateSourcePrimeBinding->CSC_Complex ;
 
             if ((here->MESsourceNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESsourceSourcePrimePtr = here->MESsourceSourcePrimeStructPtr->CSC_Complex ;
+                here->MESsourceSourcePrimePtr = here->MESsourceSourcePrimeBinding->CSC_Complex ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESdrainNode != 0))
-                here->MESdrainPrimeDrainPtr = here->MESdrainPrimeDrainStructPtr->CSC_Complex ;
+                here->MESdrainPrimeDrainPtr = here->MESdrainPrimeDrainBinding->CSC_Complex ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESgateNode != 0))
-                here->MESdrainPrimeGatePtr = here->MESdrainPrimeGateStructPtr->CSC_Complex ;
+                here->MESdrainPrimeGatePtr = here->MESdrainPrimeGateBinding->CSC_Complex ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESdrainPrimeSourcePrimePtr = here->MESdrainPrimeSourcePrimeStructPtr->CSC_Complex ;
+                here->MESdrainPrimeSourcePrimePtr = here->MESdrainPrimeSourcePrimeBinding->CSC_Complex ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESgateNode != 0))
-                here->MESsourcePrimeGatePtr = here->MESsourcePrimeGateStructPtr->CSC_Complex ;
+                here->MESsourcePrimeGatePtr = here->MESsourcePrimeGateBinding->CSC_Complex ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESsourceNode != 0))
-                here->MESsourcePrimeSourcePtr = here->MESsourcePrimeSourceStructPtr->CSC_Complex ;
+                here->MESsourcePrimeSourcePtr = here->MESsourcePrimeSourceBinding->CSC_Complex ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESsourcePrimeDrainPrimePtr = here->MESsourcePrimeDrainPrimeStructPtr->CSC_Complex ;
+                here->MESsourcePrimeDrainPrimePtr = here->MESsourcePrimeDrainPrimeBinding->CSC_Complex ;
 
             if ((here->MESdrainNode != 0) && (here->MESdrainNode != 0))
-                here->MESdrainDrainPtr = here->MESdrainDrainStructPtr->CSC_Complex ;
+                here->MESdrainDrainPtr = here->MESdrainDrainBinding->CSC_Complex ;
 
             if ((here->MESgateNode != 0) && (here->MESgateNode != 0))
-                here->MESgateGatePtr = here->MESgateGateStructPtr->CSC_Complex ;
+                here->MESgateGatePtr = here->MESgateGateBinding->CSC_Complex ;
 
             if ((here->MESsourceNode != 0) && (here->MESsourceNode != 0))
-                here->MESsourceSourcePtr = here->MESsourceSourceStructPtr->CSC_Complex ;
+                here->MESsourceSourcePtr = here->MESsourceSourceBinding->CSC_Complex ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESdrainPrimeDrainPrimePtr = here->MESdrainPrimeDrainPrimeStructPtr->CSC_Complex ;
+                here->MESdrainPrimeDrainPrimePtr = here->MESdrainPrimeDrainPrimeBinding->CSC_Complex ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESsourcePrimeSourcePrimePtr = here->MESsourcePrimeSourcePrimeStructPtr->CSC_Complex ;
+                here->MESsourcePrimeSourcePrimePtr = here->MESsourcePrimeSourcePrimeBinding->CSC_Complex ;
 
         }
     }
@@ -244,49 +244,49 @@ MESbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MESinstances ; here != NULL ; here = here->MESnextInstance)
         {
             if ((here->MESdrainNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESdrainDrainPrimePtr = here->MESdrainDrainPrimeStructPtr->CSC ;
+                here->MESdrainDrainPrimePtr = here->MESdrainDrainPrimeBinding->CSC ;
 
             if ((here->MESgateNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESgateDrainPrimePtr = here->MESgateDrainPrimeStructPtr->CSC ;
+                here->MESgateDrainPrimePtr = here->MESgateDrainPrimeBinding->CSC ;
 
             if ((here->MESgateNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESgateSourcePrimePtr = here->MESgateSourcePrimeStructPtr->CSC ;
+                here->MESgateSourcePrimePtr = here->MESgateSourcePrimeBinding->CSC ;
 
             if ((here->MESsourceNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESsourceSourcePrimePtr = here->MESsourceSourcePrimeStructPtr->CSC ;
+                here->MESsourceSourcePrimePtr = here->MESsourceSourcePrimeBinding->CSC ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESdrainNode != 0))
-                here->MESdrainPrimeDrainPtr = here->MESdrainPrimeDrainStructPtr->CSC ;
+                here->MESdrainPrimeDrainPtr = here->MESdrainPrimeDrainBinding->CSC ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESgateNode != 0))
-                here->MESdrainPrimeGatePtr = here->MESdrainPrimeGateStructPtr->CSC ;
+                here->MESdrainPrimeGatePtr = here->MESdrainPrimeGateBinding->CSC ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESdrainPrimeSourcePrimePtr = here->MESdrainPrimeSourcePrimeStructPtr->CSC ;
+                here->MESdrainPrimeSourcePrimePtr = here->MESdrainPrimeSourcePrimeBinding->CSC ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESgateNode != 0))
-                here->MESsourcePrimeGatePtr = here->MESsourcePrimeGateStructPtr->CSC ;
+                here->MESsourcePrimeGatePtr = here->MESsourcePrimeGateBinding->CSC ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESsourceNode != 0))
-                here->MESsourcePrimeSourcePtr = here->MESsourcePrimeSourceStructPtr->CSC ;
+                here->MESsourcePrimeSourcePtr = here->MESsourcePrimeSourceBinding->CSC ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESsourcePrimeDrainPrimePtr = here->MESsourcePrimeDrainPrimeStructPtr->CSC ;
+                here->MESsourcePrimeDrainPrimePtr = here->MESsourcePrimeDrainPrimeBinding->CSC ;
 
             if ((here->MESdrainNode != 0) && (here->MESdrainNode != 0))
-                here->MESdrainDrainPtr = here->MESdrainDrainStructPtr->CSC ;
+                here->MESdrainDrainPtr = here->MESdrainDrainBinding->CSC ;
 
             if ((here->MESgateNode != 0) && (here->MESgateNode != 0))
-                here->MESgateGatePtr = here->MESgateGateStructPtr->CSC ;
+                here->MESgateGatePtr = here->MESgateGateBinding->CSC ;
 
             if ((here->MESsourceNode != 0) && (here->MESsourceNode != 0))
-                here->MESsourceSourcePtr = here->MESsourceSourceStructPtr->CSC ;
+                here->MESsourceSourcePtr = here->MESsourceSourceBinding->CSC ;
 
             if ((here->MESdrainPrimeNode != 0) && (here->MESdrainPrimeNode != 0))
-                here->MESdrainPrimeDrainPrimePtr = here->MESdrainPrimeDrainPrimeStructPtr->CSC ;
+                here->MESdrainPrimeDrainPrimePtr = here->MESdrainPrimeDrainPrimeBinding->CSC ;
 
             if ((here->MESsourcePrimeNode != 0) && (here->MESsourcePrimeNode != 0))
-                here->MESsourcePrimeSourcePrimePtr = here->MESsourcePrimeSourcePrimeStructPtr->CSC ;
+                here->MESsourcePrimeSourcePrimePtr = here->MESsourcePrimeSourcePrimeBinding->CSC ;
 
         }
     }

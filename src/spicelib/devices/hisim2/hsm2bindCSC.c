@@ -42,7 +42,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPbpStructPtr = matched ;
+                here->HSM2DPbpBinding = matched ;
                 here->HSM2DPbpPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPbpStructPtr = matched ;
+                here->HSM2SPbpBinding = matched ;
                 here->HSM2SPbpPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2GPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPbpStructPtr = matched ;
+                here->HSM2GPbpBinding = matched ;
                 here->HSM2GPbpPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2BPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPdpStructPtr = matched ;
+                here->HSM2BPdpBinding = matched ;
                 here->HSM2BPdpPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2BPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPspStructPtr = matched ;
+                here->HSM2BPspBinding = matched ;
                 here->HSM2BPspPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2BPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPgpStructPtr = matched ;
+                here->HSM2BPgpBinding = matched ;
                 here->HSM2BPgpPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2BPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2BPbpStructPtr = matched ;
+                here->HSM2BPbpBinding = matched ;
                 here->HSM2BPbpPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DdStructPtr = matched ;
+                here->HSM2DdBinding = matched ;
                 here->HSM2DdPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2GPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPgpStructPtr = matched ;
+                here->HSM2GPgpBinding = matched ;
                 here->HSM2GPgpPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SsStructPtr = matched ;
+                here->HSM2SsBinding = matched ;
                 here->HSM2SsPtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPdpStructPtr = matched ;
+                here->HSM2DPdpBinding = matched ;
                 here->HSM2DPdpPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPspStructPtr = matched ;
+                here->HSM2SPspBinding = matched ;
                 here->HSM2SPspPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DdpStructPtr = matched ;
+                here->HSM2DdpBinding = matched ;
                 here->HSM2DdpPtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2GPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPdpStructPtr = matched ;
+                here->HSM2GPdpBinding = matched ;
                 here->HSM2GPdpPtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2GPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2GPspStructPtr = matched ;
+                here->HSM2GPspBinding = matched ;
                 here->HSM2GPspPtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SspStructPtr = matched ;
+                here->HSM2SspBinding = matched ;
                 here->HSM2SspPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPspStructPtr = matched ;
+                here->HSM2DPspBinding = matched ;
                 here->HSM2DPspPtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPdStructPtr = matched ;
+                here->HSM2DPdBinding = matched ;
                 here->HSM2DPdPtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2DPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2DPgpStructPtr = matched ;
+                here->HSM2DPgpBinding = matched ;
                 here->HSM2DPgpPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPgpStructPtr = matched ;
+                here->HSM2SPgpBinding = matched ;
                 here->HSM2SPgpPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPsStructPtr = matched ;
+                here->HSM2SPsBinding = matched ;
                 here->HSM2SPsPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSM2SPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSM2SPdpStructPtr = matched ;
+                here->HSM2SPdpBinding = matched ;
                 here->HSM2SPdpPtr = matched->CSC ;
             }
 
@@ -220,7 +220,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2GgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GgStructPtr = matched ;
+                    here->HSM2GgBinding = matched ;
                     here->HSM2GgPtr = matched->CSC ;
                 }
 
@@ -228,7 +228,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2GgpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GgpStructPtr = matched ;
+                    here->HSM2GgpBinding = matched ;
                     here->HSM2GgpPtr = matched->CSC ;
                 }
 
@@ -236,7 +236,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2GPgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GPgStructPtr = matched ;
+                    here->HSM2GPgBinding = matched ;
                     here->HSM2GPgPtr = matched->CSC ;
                 }
 
@@ -244,7 +244,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2GdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GdpStructPtr = matched ;
+                    here->HSM2GdpBinding = matched ;
                     here->HSM2GdpPtr = matched->CSC ;
                 }
 
@@ -252,7 +252,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2GspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GspStructPtr = matched ;
+                    here->HSM2GspBinding = matched ;
                     here->HSM2GspPtr = matched->CSC ;
                 }
 
@@ -260,7 +260,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2GbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2GbpStructPtr = matched ;
+                    here->HSM2GbpBinding = matched ;
                     here->HSM2GbpPtr = matched->CSC ;
                 }
 
@@ -271,7 +271,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2DPdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DPdbStructPtr = matched ;
+                    here->HSM2DPdbBinding = matched ;
                     here->HSM2DPdbPtr = matched->CSC ;
                 }
 
@@ -279,7 +279,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2SPsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SPsbStructPtr = matched ;
+                    here->HSM2SPsbBinding = matched ;
                     here->HSM2SPsbPtr = matched->CSC ;
                 }
 
@@ -287,7 +287,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2DBdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBdpStructPtr = matched ;
+                    here->HSM2DBdpBinding = matched ;
                     here->HSM2DBdpPtr = matched->CSC ;
                 }
 
@@ -295,7 +295,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2DBdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBdbStructPtr = matched ;
+                    here->HSM2DBdbBinding = matched ;
                     here->HSM2DBdbPtr = matched->CSC ;
                 }
 
@@ -303,7 +303,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2DBbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBbpStructPtr = matched ;
+                    here->HSM2DBbpBinding = matched ;
                     here->HSM2DBbpPtr = matched->CSC ;
                 }
 
@@ -311,7 +311,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2DBbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2DBbStructPtr = matched ;
+                    here->HSM2DBbBinding = matched ;
                     here->HSM2DBbPtr = matched->CSC ;
                 }
 
@@ -319,7 +319,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BPdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BPdbStructPtr = matched ;
+                    here->HSM2BPdbBinding = matched ;
                     here->HSM2BPdbPtr = matched->CSC ;
                 }
 
@@ -327,7 +327,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BPbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BPbStructPtr = matched ;
+                    here->HSM2BPbBinding = matched ;
                     here->HSM2BPbPtr = matched->CSC ;
                 }
 
@@ -335,7 +335,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BPsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BPsbStructPtr = matched ;
+                    here->HSM2BPsbBinding = matched ;
                     here->HSM2BPsbPtr = matched->CSC ;
                 }
 
@@ -343,7 +343,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2SBspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBspStructPtr = matched ;
+                    here->HSM2SBspBinding = matched ;
                     here->HSM2SBspPtr = matched->CSC ;
                 }
 
@@ -351,7 +351,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2SBbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBbpStructPtr = matched ;
+                    here->HSM2SBbpBinding = matched ;
                     here->HSM2SBbpPtr = matched->CSC ;
                 }
 
@@ -359,7 +359,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2SBbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBbStructPtr = matched ;
+                    here->HSM2SBbBinding = matched ;
                     here->HSM2SBbPtr = matched->CSC ;
                 }
 
@@ -367,7 +367,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2SBsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2SBsbStructPtr = matched ;
+                    here->HSM2SBsbBinding = matched ;
                     here->HSM2SBsbPtr = matched->CSC ;
                 }
 
@@ -375,7 +375,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BdbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BdbStructPtr = matched ;
+                    here->HSM2BdbBinding = matched ;
                     here->HSM2BdbPtr = matched->CSC ;
                 }
 
@@ -383,7 +383,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BbpStructPtr = matched ;
+                    here->HSM2BbpBinding = matched ;
                     here->HSM2BbpPtr = matched->CSC ;
                 }
 
@@ -391,7 +391,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BsbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BsbStructPtr = matched ;
+                    here->HSM2BsbBinding = matched ;
                     here->HSM2BsbPtr = matched->CSC ;
                 }
 
@@ -399,7 +399,7 @@ HSM2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSM2BbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSM2BbStructPtr = matched ;
+                    here->HSM2BbBinding = matched ;
                     here->HSM2BbPtr = matched->CSC ;
                 }
 
@@ -425,144 +425,144 @@ HSM2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->HSM2instances ; here != NULL ; here = here->HSM2nextInstance)
         {
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2DPbpPtr = here->HSM2DPbpStructPtr->CSC_Complex ;
+                here->HSM2DPbpPtr = here->HSM2DPbpBinding->CSC_Complex ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2SPbpPtr = here->HSM2SPbpStructPtr->CSC_Complex ;
+                here->HSM2SPbpPtr = here->HSM2SPbpBinding->CSC_Complex ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2GPbpPtr = here->HSM2GPbpStructPtr->CSC_Complex ;
+                here->HSM2GPbpPtr = here->HSM2GPbpBinding->CSC_Complex ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2BPdpPtr = here->HSM2BPdpStructPtr->CSC_Complex ;
+                here->HSM2BPdpPtr = here->HSM2BPdpBinding->CSC_Complex ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2BPspPtr = here->HSM2BPspStructPtr->CSC_Complex ;
+                here->HSM2BPspPtr = here->HSM2BPspBinding->CSC_Complex ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2BPgpPtr = here->HSM2BPgpStructPtr->CSC_Complex ;
+                here->HSM2BPgpPtr = here->HSM2BPgpBinding->CSC_Complex ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2BPbpPtr = here->HSM2BPbpStructPtr->CSC_Complex ;
+                here->HSM2BPbpPtr = here->HSM2BPbpBinding->CSC_Complex ;
 
             if ((here-> HSM2dNode != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DdPtr = here->HSM2DdStructPtr->CSC_Complex ;
+                here->HSM2DdPtr = here->HSM2DdBinding->CSC_Complex ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2GPgpPtr = here->HSM2GPgpStructPtr->CSC_Complex ;
+                here->HSM2GPgpPtr = here->HSM2GPgpBinding->CSC_Complex ;
 
             if ((here-> HSM2sNode != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SsPtr = here->HSM2SsStructPtr->CSC_Complex ;
+                here->HSM2SsPtr = here->HSM2SsBinding->CSC_Complex ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DPdpPtr = here->HSM2DPdpStructPtr->CSC_Complex ;
+                here->HSM2DPdpPtr = here->HSM2DPdpBinding->CSC_Complex ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SPspPtr = here->HSM2SPspStructPtr->CSC_Complex ;
+                here->HSM2SPspPtr = here->HSM2SPspBinding->CSC_Complex ;
 
             if ((here-> HSM2dNode != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DdpPtr = here->HSM2DdpStructPtr->CSC_Complex ;
+                here->HSM2DdpPtr = here->HSM2DdpBinding->CSC_Complex ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2GPdpPtr = here->HSM2GPdpStructPtr->CSC_Complex ;
+                here->HSM2GPdpPtr = here->HSM2GPdpBinding->CSC_Complex ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2GPspPtr = here->HSM2GPspStructPtr->CSC_Complex ;
+                here->HSM2GPspPtr = here->HSM2GPspBinding->CSC_Complex ;
 
             if ((here-> HSM2sNode != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SspPtr = here->HSM2SspStructPtr->CSC_Complex ;
+                here->HSM2SspPtr = here->HSM2SspBinding->CSC_Complex ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2DPspPtr = here->HSM2DPspStructPtr->CSC_Complex ;
+                here->HSM2DPspPtr = here->HSM2DPspBinding->CSC_Complex ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DPdPtr = here->HSM2DPdStructPtr->CSC_Complex ;
+                here->HSM2DPdPtr = here->HSM2DPdBinding->CSC_Complex ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2DPgpPtr = here->HSM2DPgpStructPtr->CSC_Complex ;
+                here->HSM2DPgpPtr = here->HSM2DPgpBinding->CSC_Complex ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2SPgpPtr = here->HSM2SPgpStructPtr->CSC_Complex ;
+                here->HSM2SPgpPtr = here->HSM2SPgpBinding->CSC_Complex ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SPsPtr = here->HSM2SPsStructPtr->CSC_Complex ;
+                here->HSM2SPsPtr = here->HSM2SPsBinding->CSC_Complex ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2SPdpPtr = here->HSM2SPdpStructPtr->CSC_Complex ;
+                here->HSM2SPdpPtr = here->HSM2SPdpBinding->CSC_Complex ;
 
             if (here->HSM2_corg == 1)
             {
                 if ((here-> HSM2gNode != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GgPtr = here->HSM2GgStructPtr->CSC_Complex ;
+                    here->HSM2GgPtr = here->HSM2GgBinding->CSC_Complex ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2gNodePrime != 0))
-                    here->HSM2GgpPtr = here->HSM2GgpStructPtr->CSC_Complex ;
+                    here->HSM2GgpPtr = here->HSM2GgpBinding->CSC_Complex ;
 
                 if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GPgPtr = here->HSM2GPgStructPtr->CSC_Complex ;
+                    here->HSM2GPgPtr = here->HSM2GPgBinding->CSC_Complex ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2GdpPtr = here->HSM2GdpStructPtr->CSC_Complex ;
+                    here->HSM2GdpPtr = here->HSM2GdpBinding->CSC_Complex ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2GspPtr = here->HSM2GspStructPtr->CSC_Complex ;
+                    here->HSM2GspPtr = here->HSM2GspBinding->CSC_Complex ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2GbpPtr = here->HSM2GbpStructPtr->CSC_Complex ;
+                    here->HSM2GbpPtr = here->HSM2GbpBinding->CSC_Complex ;
 
             }
             if (here->HSM2_corbnet == 1)
             {
                 if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DPdbPtr = here->HSM2DPdbStructPtr->CSC_Complex ;
+                    here->HSM2DPdbPtr = here->HSM2DPdbBinding->CSC_Complex ;
 
                 if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SPsbPtr = here->HSM2SPsbStructPtr->CSC_Complex ;
+                    here->HSM2SPsbPtr = here->HSM2SPsbBinding->CSC_Complex ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2DBdpPtr = here->HSM2DBdpStructPtr->CSC_Complex ;
+                    here->HSM2DBdpPtr = here->HSM2DBdpBinding->CSC_Complex ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DBdbPtr = here->HSM2DBdbStructPtr->CSC_Complex ;
+                    here->HSM2DBdbPtr = here->HSM2DBdbBinding->CSC_Complex ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2DBbpPtr = here->HSM2DBbpStructPtr->CSC_Complex ;
+                    here->HSM2DBbpPtr = here->HSM2DBbpBinding->CSC_Complex ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2DBbPtr = here->HSM2DBbStructPtr->CSC_Complex ;
+                    here->HSM2DBbPtr = here->HSM2DBbBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BPdbPtr = here->HSM2BPdbStructPtr->CSC_Complex ;
+                    here->HSM2BPdbPtr = here->HSM2BPdbBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BPbPtr = here->HSM2BPbStructPtr->CSC_Complex ;
+                    here->HSM2BPbPtr = here->HSM2BPbBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BPsbPtr = here->HSM2BPsbStructPtr->CSC_Complex ;
+                    here->HSM2BPsbPtr = here->HSM2BPsbBinding->CSC_Complex ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2SBspPtr = here->HSM2SBspStructPtr->CSC_Complex ;
+                    here->HSM2SBspPtr = here->HSM2SBspBinding->CSC_Complex ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2SBbpPtr = here->HSM2SBbpStructPtr->CSC_Complex ;
+                    here->HSM2SBbpPtr = here->HSM2SBbpBinding->CSC_Complex ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2SBbPtr = here->HSM2SBbStructPtr->CSC_Complex ;
+                    here->HSM2SBbPtr = here->HSM2SBbBinding->CSC_Complex ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SBsbPtr = here->HSM2SBsbStructPtr->CSC_Complex ;
+                    here->HSM2SBsbPtr = here->HSM2SBsbBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BdbPtr = here->HSM2BdbStructPtr->CSC_Complex ;
+                    here->HSM2BdbPtr = here->HSM2BdbBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2BbpPtr = here->HSM2BbpStructPtr->CSC_Complex ;
+                    here->HSM2BbpPtr = here->HSM2BbpBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BsbPtr = here->HSM2BsbStructPtr->CSC_Complex ;
+                    here->HSM2BsbPtr = here->HSM2BsbBinding->CSC_Complex ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BbPtr = here->HSM2BbStructPtr->CSC_Complex ;
+                    here->HSM2BbPtr = here->HSM2BbBinding->CSC_Complex ;
 
             }
         }
@@ -586,144 +586,144 @@ HSM2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->HSM2instances ; here != NULL ; here = here->HSM2nextInstance)
         {
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2DPbpPtr = here->HSM2DPbpStructPtr->CSC ;
+                here->HSM2DPbpPtr = here->HSM2DPbpBinding->CSC ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2SPbpPtr = here->HSM2SPbpStructPtr->CSC ;
+                here->HSM2SPbpPtr = here->HSM2SPbpBinding->CSC ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2GPbpPtr = here->HSM2GPbpStructPtr->CSC ;
+                here->HSM2GPbpPtr = here->HSM2GPbpBinding->CSC ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2BPdpPtr = here->HSM2BPdpStructPtr->CSC ;
+                here->HSM2BPdpPtr = here->HSM2BPdpBinding->CSC ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2BPspPtr = here->HSM2BPspStructPtr->CSC ;
+                here->HSM2BPspPtr = here->HSM2BPspBinding->CSC ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2BPgpPtr = here->HSM2BPgpStructPtr->CSC ;
+                here->HSM2BPgpPtr = here->HSM2BPgpBinding->CSC ;
 
             if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNodePrime != 0))
-                here->HSM2BPbpPtr = here->HSM2BPbpStructPtr->CSC ;
+                here->HSM2BPbpPtr = here->HSM2BPbpBinding->CSC ;
 
             if ((here-> HSM2dNode != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DdPtr = here->HSM2DdStructPtr->CSC ;
+                here->HSM2DdPtr = here->HSM2DdBinding->CSC ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2GPgpPtr = here->HSM2GPgpStructPtr->CSC ;
+                here->HSM2GPgpPtr = here->HSM2GPgpBinding->CSC ;
 
             if ((here-> HSM2sNode != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SsPtr = here->HSM2SsStructPtr->CSC ;
+                here->HSM2SsPtr = here->HSM2SsBinding->CSC ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DPdpPtr = here->HSM2DPdpStructPtr->CSC ;
+                here->HSM2DPdpPtr = here->HSM2DPdpBinding->CSC ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SPspPtr = here->HSM2SPspStructPtr->CSC ;
+                here->HSM2SPspPtr = here->HSM2SPspBinding->CSC ;
 
             if ((here-> HSM2dNode != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2DdpPtr = here->HSM2DdpStructPtr->CSC ;
+                here->HSM2DdpPtr = here->HSM2DdpBinding->CSC ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2GPdpPtr = here->HSM2GPdpStructPtr->CSC ;
+                here->HSM2GPdpPtr = here->HSM2GPdpBinding->CSC ;
 
             if ((here-> HSM2gNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2GPspPtr = here->HSM2GPspStructPtr->CSC ;
+                here->HSM2GPspPtr = here->HSM2GPspBinding->CSC ;
 
             if ((here-> HSM2sNode != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2SspPtr = here->HSM2SspStructPtr->CSC ;
+                here->HSM2SspPtr = here->HSM2SspBinding->CSC ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2sNodePrime != 0))
-                here->HSM2DPspPtr = here->HSM2DPspStructPtr->CSC ;
+                here->HSM2DPspPtr = here->HSM2DPspBinding->CSC ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dNode != 0))
-                here->HSM2DPdPtr = here->HSM2DPdStructPtr->CSC ;
+                here->HSM2DPdPtr = here->HSM2DPdBinding->CSC ;
 
             if ((here-> HSM2dNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2DPgpPtr = here->HSM2DPgpStructPtr->CSC ;
+                here->HSM2DPgpPtr = here->HSM2DPgpBinding->CSC ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2gNodePrime != 0))
-                here->HSM2SPgpPtr = here->HSM2SPgpStructPtr->CSC ;
+                here->HSM2SPgpPtr = here->HSM2SPgpBinding->CSC ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sNode != 0))
-                here->HSM2SPsPtr = here->HSM2SPsStructPtr->CSC ;
+                here->HSM2SPsPtr = here->HSM2SPsBinding->CSC ;
 
             if ((here-> HSM2sNodePrime != 0) && (here-> HSM2dNodePrime != 0))
-                here->HSM2SPdpPtr = here->HSM2SPdpStructPtr->CSC ;
+                here->HSM2SPdpPtr = here->HSM2SPdpBinding->CSC ;
 
             if (here->HSM2_corg == 1)
             {
                 if ((here-> HSM2gNode != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GgPtr = here->HSM2GgStructPtr->CSC ;
+                    here->HSM2GgPtr = here->HSM2GgBinding->CSC ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2gNodePrime != 0))
-                    here->HSM2GgpPtr = here->HSM2GgpStructPtr->CSC ;
+                    here->HSM2GgpPtr = here->HSM2GgpBinding->CSC ;
 
                 if ((here-> HSM2gNodePrime != 0) && (here-> HSM2gNode != 0))
-                    here->HSM2GPgPtr = here->HSM2GPgStructPtr->CSC ;
+                    here->HSM2GPgPtr = here->HSM2GPgBinding->CSC ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2GdpPtr = here->HSM2GdpStructPtr->CSC ;
+                    here->HSM2GdpPtr = here->HSM2GdpBinding->CSC ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2GspPtr = here->HSM2GspStructPtr->CSC ;
+                    here->HSM2GspPtr = here->HSM2GspBinding->CSC ;
 
                 if ((here-> HSM2gNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2GbpPtr = here->HSM2GbpStructPtr->CSC ;
+                    here->HSM2GbpPtr = here->HSM2GbpBinding->CSC ;
 
             }
             if (here->HSM2_corbnet == 1)
             {
                 if ((here-> HSM2dNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DPdbPtr = here->HSM2DPdbStructPtr->CSC ;
+                    here->HSM2DPdbPtr = here->HSM2DPdbBinding->CSC ;
 
                 if ((here-> HSM2sNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SPsbPtr = here->HSM2SPsbStructPtr->CSC ;
+                    here->HSM2SPsbPtr = here->HSM2SPsbBinding->CSC ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2dNodePrime != 0))
-                    here->HSM2DBdpPtr = here->HSM2DBdpStructPtr->CSC ;
+                    here->HSM2DBdpPtr = here->HSM2DBdpBinding->CSC ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2DBdbPtr = here->HSM2DBdbStructPtr->CSC ;
+                    here->HSM2DBdbPtr = here->HSM2DBdbBinding->CSC ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2DBbpPtr = here->HSM2DBbpStructPtr->CSC ;
+                    here->HSM2DBbpPtr = here->HSM2DBbpBinding->CSC ;
 
                 if ((here-> HSM2dbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2DBbPtr = here->HSM2DBbStructPtr->CSC ;
+                    here->HSM2DBbPtr = here->HSM2DBbBinding->CSC ;
 
                 if ((here-> HSM2bNodePrime != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BPdbPtr = here->HSM2BPdbStructPtr->CSC ;
+                    here->HSM2BPdbPtr = here->HSM2BPdbBinding->CSC ;
 
                 if ((here-> HSM2bNodePrime != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BPbPtr = here->HSM2BPbStructPtr->CSC ;
+                    here->HSM2BPbPtr = here->HSM2BPbBinding->CSC ;
 
                 if ((here-> HSM2bNodePrime != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BPsbPtr = here->HSM2BPsbStructPtr->CSC ;
+                    here->HSM2BPsbPtr = here->HSM2BPsbBinding->CSC ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2sNodePrime != 0))
-                    here->HSM2SBspPtr = here->HSM2SBspStructPtr->CSC ;
+                    here->HSM2SBspPtr = here->HSM2SBspBinding->CSC ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2SBbpPtr = here->HSM2SBbpStructPtr->CSC ;
+                    here->HSM2SBbpPtr = here->HSM2SBbpBinding->CSC ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2SBbPtr = here->HSM2SBbStructPtr->CSC ;
+                    here->HSM2SBbPtr = here->HSM2SBbBinding->CSC ;
 
                 if ((here-> HSM2sbNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2SBsbPtr = here->HSM2SBsbStructPtr->CSC ;
+                    here->HSM2SBsbPtr = here->HSM2SBsbBinding->CSC ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2dbNode != 0))
-                    here->HSM2BdbPtr = here->HSM2BdbStructPtr->CSC ;
+                    here->HSM2BdbPtr = here->HSM2BdbBinding->CSC ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2bNodePrime != 0))
-                    here->HSM2BbpPtr = here->HSM2BbpStructPtr->CSC ;
+                    here->HSM2BbpPtr = here->HSM2BbpBinding->CSC ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2sbNode != 0))
-                    here->HSM2BsbPtr = here->HSM2BsbStructPtr->CSC ;
+                    here->HSM2BsbPtr = here->HSM2BsbBinding->CSC ;
 
                 if ((here-> HSM2bNode != 0) && (here-> HSM2bNode != 0))
-                    here->HSM2BbPtr = here->HSM2BbStructPtr->CSC ;
+                    here->HSM2BbPtr = here->HSM2BbBinding->CSC ;
 
             }
         }

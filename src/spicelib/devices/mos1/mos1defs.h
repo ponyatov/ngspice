@@ -265,28 +265,28 @@ typedef struct sMOS1instance {
 #define MOS1dphibd_dw MOS1sens + 69
 
 #ifdef KLU
-    BindElement *MOS1DdStructPtr ;
-    BindElement *MOS1GgStructPtr ;
-    BindElement *MOS1SsStructPtr ;
-    BindElement *MOS1BbStructPtr ;
-    BindElement *MOS1DPdpStructPtr ;
-    BindElement *MOS1SPspStructPtr ;
-    BindElement *MOS1DdpStructPtr ;
-    BindElement *MOS1GbStructPtr ;
-    BindElement *MOS1GdpStructPtr ;
-    BindElement *MOS1GspStructPtr ;
-    BindElement *MOS1SspStructPtr ;
-    BindElement *MOS1BdpStructPtr ;
-    BindElement *MOS1BspStructPtr ;
-    BindElement *MOS1DPspStructPtr ;
-    BindElement *MOS1DPdStructPtr ;
-    BindElement *MOS1BgStructPtr ;
-    BindElement *MOS1DPgStructPtr ;
-    BindElement *MOS1SPgStructPtr ;
-    BindElement *MOS1SPsStructPtr ;
-    BindElement *MOS1DPbStructPtr ;
-    BindElement *MOS1SPbStructPtr ;
-    BindElement *MOS1SPdpStructPtr ;
+    BindElement *MOS1DdBinding ;
+    BindElement *MOS1GgBinding ;
+    BindElement *MOS1SsBinding ;
+    BindElement *MOS1BbBinding ;
+    BindElement *MOS1DPdpBinding ;
+    BindElement *MOS1SPspBinding ;
+    BindElement *MOS1DdpBinding ;
+    BindElement *MOS1GbBinding ;
+    BindElement *MOS1GdpBinding ;
+    BindElement *MOS1GspBinding ;
+    BindElement *MOS1SspBinding ;
+    BindElement *MOS1BdpBinding ;
+    BindElement *MOS1BspBinding ;
+    BindElement *MOS1DPspBinding ;
+    BindElement *MOS1DPdBinding ;
+    BindElement *MOS1BgBinding ;
+    BindElement *MOS1DPgBinding ;
+    BindElement *MOS1SPgBinding ;
+    BindElement *MOS1SPsBinding ;
+    BindElement *MOS1DPbBinding ;
+    BindElement *MOS1SPbBinding ;
+    BindElement *MOS1SPdpBinding ;
 #endif
 
 } MOS1instance ;

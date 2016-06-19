@@ -85,15 +85,15 @@ typedef struct sNBJTinstance {
   unsigned NBJTtempGiven:1;	/* flag to indicate if temp was given */
 
 #ifdef KLU
-    BindElement *NBJTcolColStructPtr ;
-    BindElement *NBJTbaseBaseStructPtr ;
-    BindElement *NBJTemitEmitStructPtr ;
-    BindElement *NBJTcolBaseStructPtr ;
-    BindElement *NBJTcolEmitStructPtr ;
-    BindElement *NBJTbaseColStructPtr ;
-    BindElement *NBJTbaseEmitStructPtr ;
-    BindElement *NBJTemitColStructPtr ;
-    BindElement *NBJTemitBaseStructPtr ;
+    BindElement *NBJTcolColBinding ;
+    BindElement *NBJTbaseBaseBinding ;
+    BindElement *NBJTemitEmitBinding ;
+    BindElement *NBJTcolBaseBinding ;
+    BindElement *NBJTcolEmitBinding ;
+    BindElement *NBJTbaseColBinding ;
+    BindElement *NBJTbaseEmitBinding ;
+    BindElement *NBJTemitColBinding ;
+    BindElement *NBJTemitBaseBinding ;
 #endif
 
 } NBJTinstance;

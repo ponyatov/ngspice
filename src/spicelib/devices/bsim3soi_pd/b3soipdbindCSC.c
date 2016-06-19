@@ -44,7 +44,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDTemptempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDTemptempStructPtr = matched ;
+                    here->B3SOIPDTemptempBinding = matched ;
                     here->B3SOIPDTemptempPtr = matched->CSC ;
                 }
 
@@ -52,7 +52,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDTempdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDTempdpStructPtr = matched ;
+                    here->B3SOIPDTempdpBinding = matched ;
                     here->B3SOIPDTempdpPtr = matched->CSC ;
                 }
 
@@ -60,7 +60,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDTempspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDTempspStructPtr = matched ;
+                    here->B3SOIPDTempspBinding = matched ;
                     here->B3SOIPDTempspPtr = matched->CSC ;
                 }
 
@@ -68,7 +68,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDTempgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDTempgStructPtr = matched ;
+                    here->B3SOIPDTempgBinding = matched ;
                     here->B3SOIPDTempgPtr = matched->CSC ;
                 }
 
@@ -76,7 +76,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDTempbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDTempbStructPtr = matched ;
+                    here->B3SOIPDTempbBinding = matched ;
                     here->B3SOIPDTempbPtr = matched->CSC ;
                 }
 
@@ -84,7 +84,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDGtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDGtempStructPtr = matched ;
+                    here->B3SOIPDGtempBinding = matched ;
                     here->B3SOIPDGtempPtr = matched->CSC ;
                 }
 
@@ -92,7 +92,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDDPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDDPtempStructPtr = matched ;
+                    here->B3SOIPDDPtempBinding = matched ;
                     here->B3SOIPDDPtempPtr = matched->CSC ;
                 }
 
@@ -100,7 +100,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDSPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDSPtempStructPtr = matched ;
+                    here->B3SOIPDSPtempBinding = matched ;
                     here->B3SOIPDSPtempPtr = matched->CSC ;
                 }
 
@@ -108,7 +108,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDEtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDEtempStructPtr = matched ;
+                    here->B3SOIPDEtempBinding = matched ;
                     here->B3SOIPDEtempPtr = matched->CSC ;
                 }
 
@@ -116,7 +116,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDBtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDBtempStructPtr = matched ;
+                    here->B3SOIPDBtempBinding = matched ;
                     here->B3SOIPDBtempPtr = matched->CSC ;
                 }
 
@@ -126,7 +126,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->B3SOIPDPtempPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->B3SOIPDPtempStructPtr = matched ;
+                        here->B3SOIPDPtempBinding = matched ;
                         here->B3SOIPDPtempPtr = matched->CSC ;
                     }
 
@@ -141,7 +141,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDBpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDBpStructPtr = matched ;
+                    here->B3SOIPDBpBinding = matched ;
                     here->B3SOIPDBpPtr = matched->CSC ;
                 }
 
@@ -149,7 +149,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDPbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDPbStructPtr = matched ;
+                    here->B3SOIPDPbBinding = matched ;
                     here->B3SOIPDPbPtr = matched->CSC ;
                 }
 
@@ -157,7 +157,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDPpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDPpStructPtr = matched ;
+                    here->B3SOIPDPpBinding = matched ;
                     here->B3SOIPDPpPtr = matched->CSC ;
                 }
 
@@ -166,7 +166,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDEbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDEbStructPtr = matched ;
+                here->B3SOIPDEbBinding = matched ;
                 here->B3SOIPDEbPtr = matched->CSC ;
             }
 
@@ -174,7 +174,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDGbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDGbStructPtr = matched ;
+                here->B3SOIPDGbBinding = matched ;
                 here->B3SOIPDGbPtr = matched->CSC ;
             }
 
@@ -182,7 +182,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDPbStructPtr = matched ;
+                here->B3SOIPDDPbBinding = matched ;
                 here->B3SOIPDDPbPtr = matched->CSC ;
             }
 
@@ -190,7 +190,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSPbStructPtr = matched ;
+                here->B3SOIPDSPbBinding = matched ;
                 here->B3SOIPDSPbPtr = matched->CSC ;
             }
 
@@ -198,7 +198,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDBePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDBeStructPtr = matched ;
+                here->B3SOIPDBeBinding = matched ;
                 here->B3SOIPDBePtr = matched->CSC ;
             }
 
@@ -206,7 +206,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDBgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDBgStructPtr = matched ;
+                here->B3SOIPDBgBinding = matched ;
                 here->B3SOIPDBgPtr = matched->CSC ;
             }
 
@@ -214,7 +214,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDBdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDBdpStructPtr = matched ;
+                here->B3SOIPDBdpBinding = matched ;
                 here->B3SOIPDBdpPtr = matched->CSC ;
             }
 
@@ -222,7 +222,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDBspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDBspStructPtr = matched ;
+                here->B3SOIPDBspBinding = matched ;
                 here->B3SOIPDBspPtr = matched->CSC ;
             }
 
@@ -230,7 +230,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDBbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDBbStructPtr = matched ;
+                here->B3SOIPDBbBinding = matched ;
                 here->B3SOIPDBbPtr = matched->CSC ;
             }
 
@@ -238,7 +238,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDEgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDEgStructPtr = matched ;
+                here->B3SOIPDEgBinding = matched ;
                 here->B3SOIPDEgPtr = matched->CSC ;
             }
 
@@ -246,7 +246,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDEdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDEdpStructPtr = matched ;
+                here->B3SOIPDEdpBinding = matched ;
                 here->B3SOIPDEdpPtr = matched->CSC ;
             }
 
@@ -254,7 +254,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDEspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDEspStructPtr = matched ;
+                here->B3SOIPDEspBinding = matched ;
                 here->B3SOIPDEspPtr = matched->CSC ;
             }
 
@@ -262,7 +262,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDGePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDGeStructPtr = matched ;
+                here->B3SOIPDGeBinding = matched ;
                 here->B3SOIPDGePtr = matched->CSC ;
             }
 
@@ -270,7 +270,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDPePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDPeStructPtr = matched ;
+                here->B3SOIPDDPeBinding = matched ;
                 here->B3SOIPDDPePtr = matched->CSC ;
             }
 
@@ -278,7 +278,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSPePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSPeStructPtr = matched ;
+                here->B3SOIPDSPeBinding = matched ;
                 here->B3SOIPDSPePtr = matched->CSC ;
             }
 
@@ -286,7 +286,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDEePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDEeStructPtr = matched ;
+                here->B3SOIPDEeBinding = matched ;
                 here->B3SOIPDEePtr = matched->CSC ;
             }
 
@@ -294,7 +294,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDGgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDGgStructPtr = matched ;
+                here->B3SOIPDGgBinding = matched ;
                 here->B3SOIPDGgPtr = matched->CSC ;
             }
 
@@ -302,7 +302,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDGdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDGdpStructPtr = matched ;
+                here->B3SOIPDGdpBinding = matched ;
                 here->B3SOIPDGdpPtr = matched->CSC ;
             }
 
@@ -310,7 +310,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDGspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDGspStructPtr = matched ;
+                here->B3SOIPDGspBinding = matched ;
                 here->B3SOIPDGspPtr = matched->CSC ;
             }
 
@@ -318,7 +318,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDPgStructPtr = matched ;
+                here->B3SOIPDDPgBinding = matched ;
                 here->B3SOIPDDPgPtr = matched->CSC ;
             }
 
@@ -326,7 +326,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDPdpStructPtr = matched ;
+                here->B3SOIPDDPdpBinding = matched ;
                 here->B3SOIPDDPdpPtr = matched->CSC ;
             }
 
@@ -334,7 +334,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDPspStructPtr = matched ;
+                here->B3SOIPDDPspBinding = matched ;
                 here->B3SOIPDDPspPtr = matched->CSC ;
             }
 
@@ -342,7 +342,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDPdStructPtr = matched ;
+                here->B3SOIPDDPdBinding = matched ;
                 here->B3SOIPDDPdPtr = matched->CSC ;
             }
 
@@ -350,7 +350,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSPgStructPtr = matched ;
+                here->B3SOIPDSPgBinding = matched ;
                 here->B3SOIPDSPgPtr = matched->CSC ;
             }
 
@@ -358,7 +358,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSPdpStructPtr = matched ;
+                here->B3SOIPDSPdpBinding = matched ;
                 here->B3SOIPDSPdpPtr = matched->CSC ;
             }
 
@@ -366,7 +366,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSPspStructPtr = matched ;
+                here->B3SOIPDSPspBinding = matched ;
                 here->B3SOIPDSPspPtr = matched->CSC ;
             }
 
@@ -374,7 +374,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSPsStructPtr = matched ;
+                here->B3SOIPDSPsBinding = matched ;
                 here->B3SOIPDSPsPtr = matched->CSC ;
             }
 
@@ -382,7 +382,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDdStructPtr = matched ;
+                here->B3SOIPDDdBinding = matched ;
                 here->B3SOIPDDdPtr = matched->CSC ;
             }
 
@@ -390,7 +390,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDDdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDDdpStructPtr = matched ;
+                here->B3SOIPDDdpBinding = matched ;
                 here->B3SOIPDDdpPtr = matched->CSC ;
             }
 
@@ -398,7 +398,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSsStructPtr = matched ;
+                here->B3SOIPDSsBinding = matched ;
                 here->B3SOIPDSsPtr = matched->CSC ;
             }
 
@@ -406,7 +406,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->B3SOIPDSspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->B3SOIPDSspStructPtr = matched ;
+                here->B3SOIPDSspBinding = matched ;
                 here->B3SOIPDSspPtr = matched->CSC ;
             }
 
@@ -416,7 +416,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDVbsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDVbsStructPtr = matched ;
+                    here->B3SOIPDVbsBinding = matched ;
                     here->B3SOIPDVbsPtr = matched->CSC ;
                 }
 
@@ -424,7 +424,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIdsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIdsStructPtr = matched ;
+                    here->B3SOIPDIdsBinding = matched ;
                     here->B3SOIPDIdsPtr = matched->CSC ;
                 }
 
@@ -432,7 +432,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIcPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIcStructPtr = matched ;
+                    here->B3SOIPDIcBinding = matched ;
                     here->B3SOIPDIcPtr = matched->CSC ;
                 }
 
@@ -440,7 +440,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIbsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIbsStructPtr = matched ;
+                    here->B3SOIPDIbsBinding = matched ;
                     here->B3SOIPDIbsPtr = matched->CSC ;
                 }
 
@@ -448,7 +448,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIbdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIbdStructPtr = matched ;
+                    here->B3SOIPDIbdBinding = matched ;
                     here->B3SOIPDIbdPtr = matched->CSC ;
                 }
 
@@ -456,7 +456,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIiiPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIiiStructPtr = matched ;
+                    here->B3SOIPDIiiBinding = matched ;
                     here->B3SOIPDIiiPtr = matched->CSC ;
                 }
 
@@ -464,7 +464,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIgStructPtr = matched ;
+                    here->B3SOIPDIgBinding = matched ;
                     here->B3SOIPDIgPtr = matched->CSC ;
                 }
 
@@ -472,7 +472,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDGiggPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDGiggStructPtr = matched ;
+                    here->B3SOIPDGiggBinding = matched ;
                     here->B3SOIPDGiggPtr = matched->CSC ;
                 }
 
@@ -480,7 +480,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDGigdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDGigdStructPtr = matched ;
+                    here->B3SOIPDGigdBinding = matched ;
                     here->B3SOIPDGigdPtr = matched->CSC ;
                 }
 
@@ -488,7 +488,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDGigbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDGigbStructPtr = matched ;
+                    here->B3SOIPDGigbBinding = matched ;
                     here->B3SOIPDGigbPtr = matched->CSC ;
                 }
 
@@ -496,7 +496,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIgidlPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIgidlStructPtr = matched ;
+                    here->B3SOIPDIgidlBinding = matched ;
                     here->B3SOIPDIgidlPtr = matched->CSC ;
                 }
 
@@ -504,7 +504,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDItunPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDItunStructPtr = matched ;
+                    here->B3SOIPDItunBinding = matched ;
                     here->B3SOIPDItunPtr = matched->CSC ;
                 }
 
@@ -512,7 +512,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDIbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDIbpStructPtr = matched ;
+                    here->B3SOIPDIbpBinding = matched ;
                     here->B3SOIPDIbpPtr = matched->CSC ;
                 }
 
@@ -520,7 +520,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDCbbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDCbbStructPtr = matched ;
+                    here->B3SOIPDCbbBinding = matched ;
                     here->B3SOIPDCbbPtr = matched->CSC ;
                 }
 
@@ -528,7 +528,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDCbdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDCbdStructPtr = matched ;
+                    here->B3SOIPDCbdBinding = matched ;
                     here->B3SOIPDCbdPtr = matched->CSC ;
                 }
 
@@ -536,7 +536,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDCbgPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDCbgStructPtr = matched ;
+                    here->B3SOIPDCbgBinding = matched ;
                     here->B3SOIPDCbgPtr = matched->CSC ;
                 }
 
@@ -544,7 +544,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDQbfPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDQbfStructPtr = matched ;
+                    here->B3SOIPDQbfBinding = matched ;
                     here->B3SOIPDQbfPtr = matched->CSC ;
                 }
 
@@ -552,7 +552,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDQjsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDQjsStructPtr = matched ;
+                    here->B3SOIPDQjsBinding = matched ;
                     here->B3SOIPDQjsPtr = matched->CSC ;
                 }
 
@@ -560,7 +560,7 @@ B3SOIPDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->B3SOIPDQjdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->B3SOIPDQjdStructPtr = matched ;
+                    here->B3SOIPDQjdBinding = matched ;
                     here->B3SOIPDQjdPtr = matched->CSC ;
                 }
 
@@ -588,39 +588,39 @@ B3SOIPDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             if ((model->B3SOIPDshMod == 1) && (here->B3SOIPDrth0 != 0.0))
             {
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDTemptempPtr = here->B3SOIPDTemptempStructPtr->CSC_Complex ;
+                    here->B3SOIPDTemptempPtr = here->B3SOIPDTemptempBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                    here->B3SOIPDTempdpPtr = here->B3SOIPDTempdpStructPtr->CSC_Complex ;
+                    here->B3SOIPDTempdpPtr = here->B3SOIPDTempdpBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                    here->B3SOIPDTempspPtr = here->B3SOIPDTempspStructPtr->CSC_Complex ;
+                    here->B3SOIPDTempspPtr = here->B3SOIPDTempspBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDgNode != 0))
-                    here->B3SOIPDTempgPtr = here->B3SOIPDTempgStructPtr->CSC_Complex ;
+                    here->B3SOIPDTempgPtr = here->B3SOIPDTempgBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDbNode != 0))
-                    here->B3SOIPDTempbPtr = here->B3SOIPDTempbStructPtr->CSC_Complex ;
+                    here->B3SOIPDTempbPtr = here->B3SOIPDTempbBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDGtempPtr = here->B3SOIPDGtempStructPtr->CSC_Complex ;
+                    here->B3SOIPDGtempPtr = here->B3SOIPDGtempBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDDPtempPtr = here->B3SOIPDDPtempStructPtr->CSC_Complex ;
+                    here->B3SOIPDDPtempPtr = here->B3SOIPDDPtempBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDSPtempPtr = here->B3SOIPDSPtempStructPtr->CSC_Complex ;
+                    here->B3SOIPDSPtempPtr = here->B3SOIPDSPtempBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDEtempPtr = here->B3SOIPDEtempStructPtr->CSC_Complex ;
+                    here->B3SOIPDEtempPtr = here->B3SOIPDEtempBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDBtempPtr = here->B3SOIPDBtempStructPtr->CSC_Complex ;
+                    here->B3SOIPDBtempPtr = here->B3SOIPDBtempBinding->CSC_Complex ;
 
                 if (here->B3SOIPDbodyMod == 1)
                 {
                     if ((here-> B3SOIPDpNode != 0) && (here-> B3SOIPDtempNode != 0))
-                        here->B3SOIPDPtempPtr = here->B3SOIPDPtempStructPtr->CSC_Complex ;
+                        here->B3SOIPDPtempPtr = here->B3SOIPDPtempBinding->CSC_Complex ;
 
                 }
             }
@@ -630,166 +630,166 @@ B3SOIPDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
             else if (here->B3SOIPDbodyMod == 1)
             {
                 if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDpNode != 0))
-                    here->B3SOIPDBpPtr = here->B3SOIPDBpStructPtr->CSC_Complex ;
+                    here->B3SOIPDBpPtr = here->B3SOIPDBpBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDpNode != 0) && (here-> B3SOIPDbNode != 0))
-                    here->B3SOIPDPbPtr = here->B3SOIPDPbStructPtr->CSC_Complex ;
+                    here->B3SOIPDPbPtr = here->B3SOIPDPbBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDpNode != 0) && (here-> B3SOIPDpNode != 0))
-                    here->B3SOIPDPpPtr = here->B3SOIPDPpStructPtr->CSC_Complex ;
+                    here->B3SOIPDPpPtr = here->B3SOIPDPpBinding->CSC_Complex ;
 
             }
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDEbPtr = here->B3SOIPDEbStructPtr->CSC_Complex ;
+                here->B3SOIPDEbPtr = here->B3SOIPDEbBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDGbPtr = here->B3SOIPDGbStructPtr->CSC_Complex ;
+                here->B3SOIPDGbPtr = here->B3SOIPDGbBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDDPbPtr = here->B3SOIPDDPbStructPtr->CSC_Complex ;
+                here->B3SOIPDDPbPtr = here->B3SOIPDDPbBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDSPbPtr = here->B3SOIPDSPbStructPtr->CSC_Complex ;
+                here->B3SOIPDSPbPtr = here->B3SOIPDSPbBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDBePtr = here->B3SOIPDBeStructPtr->CSC_Complex ;
+                here->B3SOIPDBePtr = here->B3SOIPDBeBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDBgPtr = here->B3SOIPDBgStructPtr->CSC_Complex ;
+                here->B3SOIPDBgPtr = here->B3SOIPDBgBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDBdpPtr = here->B3SOIPDBdpStructPtr->CSC_Complex ;
+                here->B3SOIPDBdpPtr = here->B3SOIPDBdpBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDBspPtr = here->B3SOIPDBspStructPtr->CSC_Complex ;
+                here->B3SOIPDBspPtr = here->B3SOIPDBspBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDBbPtr = here->B3SOIPDBbStructPtr->CSC_Complex ;
+                here->B3SOIPDBbPtr = here->B3SOIPDBbBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDEgPtr = here->B3SOIPDEgStructPtr->CSC_Complex ;
+                here->B3SOIPDEgPtr = here->B3SOIPDEgBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDEdpPtr = here->B3SOIPDEdpStructPtr->CSC_Complex ;
+                here->B3SOIPDEdpPtr = here->B3SOIPDEdpBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDEspPtr = here->B3SOIPDEspStructPtr->CSC_Complex ;
+                here->B3SOIPDEspPtr = here->B3SOIPDEspBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDGePtr = here->B3SOIPDGeStructPtr->CSC_Complex ;
+                here->B3SOIPDGePtr = here->B3SOIPDGeBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDDPePtr = here->B3SOIPDDPeStructPtr->CSC_Complex ;
+                here->B3SOIPDDPePtr = here->B3SOIPDDPeBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDSPePtr = here->B3SOIPDSPeStructPtr->CSC_Complex ;
+                here->B3SOIPDSPePtr = here->B3SOIPDSPeBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDEePtr = here->B3SOIPDEeStructPtr->CSC_Complex ;
+                here->B3SOIPDEePtr = here->B3SOIPDEeBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDGgPtr = here->B3SOIPDGgStructPtr->CSC_Complex ;
+                here->B3SOIPDGgPtr = here->B3SOIPDGgBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDGdpPtr = here->B3SOIPDGdpStructPtr->CSC_Complex ;
+                here->B3SOIPDGdpPtr = here->B3SOIPDGdpBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDGspPtr = here->B3SOIPDGspStructPtr->CSC_Complex ;
+                here->B3SOIPDGspPtr = here->B3SOIPDGspBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDDPgPtr = here->B3SOIPDDPgStructPtr->CSC_Complex ;
+                here->B3SOIPDDPgPtr = here->B3SOIPDDPgBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDDPdpPtr = here->B3SOIPDDPdpStructPtr->CSC_Complex ;
+                here->B3SOIPDDPdpPtr = here->B3SOIPDDPdpBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDDPspPtr = here->B3SOIPDDPspStructPtr->CSC_Complex ;
+                here->B3SOIPDDPspPtr = here->B3SOIPDDPspBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDdNode != 0))
-                here->B3SOIPDDPdPtr = here->B3SOIPDDPdStructPtr->CSC_Complex ;
+                here->B3SOIPDDPdPtr = here->B3SOIPDDPdBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDSPgPtr = here->B3SOIPDSPgStructPtr->CSC_Complex ;
+                here->B3SOIPDSPgPtr = here->B3SOIPDSPgBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDSPdpPtr = here->B3SOIPDSPdpStructPtr->CSC_Complex ;
+                here->B3SOIPDSPdpPtr = here->B3SOIPDSPdpBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDSPspPtr = here->B3SOIPDSPspStructPtr->CSC_Complex ;
+                here->B3SOIPDSPspPtr = here->B3SOIPDSPspBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDsNode != 0))
-                here->B3SOIPDSPsPtr = here->B3SOIPDSPsStructPtr->CSC_Complex ;
+                here->B3SOIPDSPsPtr = here->B3SOIPDSPsBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNode != 0) && (here-> B3SOIPDdNode != 0))
-                here->B3SOIPDDdPtr = here->B3SOIPDDdStructPtr->CSC_Complex ;
+                here->B3SOIPDDdPtr = here->B3SOIPDDdBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDdNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDDdpPtr = here->B3SOIPDDdpStructPtr->CSC_Complex ;
+                here->B3SOIPDDdpPtr = here->B3SOIPDDdpBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNode != 0) && (here-> B3SOIPDsNode != 0))
-                here->B3SOIPDSsPtr = here->B3SOIPDSsStructPtr->CSC_Complex ;
+                here->B3SOIPDSsPtr = here->B3SOIPDSsBinding->CSC_Complex ;
 
             if ((here-> B3SOIPDsNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDSspPtr = here->B3SOIPDSspStructPtr->CSC_Complex ;
+                here->B3SOIPDSspPtr = here->B3SOIPDSspBinding->CSC_Complex ;
 
             if (here->B3SOIPDdebugMod != 0)
             {
                 if ((here-> B3SOIPDvbsNode != 0) && (here-> B3SOIPDvbsNode != 0))
-                    here->B3SOIPDVbsPtr = here->B3SOIPDVbsStructPtr->CSC_Complex ;
+                    here->B3SOIPDVbsPtr = here->B3SOIPDVbsBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDidsNode != 0) && (here-> B3SOIPDidsNode != 0))
-                    here->B3SOIPDIdsPtr = here->B3SOIPDIdsStructPtr->CSC_Complex ;
+                    here->B3SOIPDIdsPtr = here->B3SOIPDIdsBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDicNode != 0) && (here-> B3SOIPDicNode != 0))
-                    here->B3SOIPDIcPtr = here->B3SOIPDIcStructPtr->CSC_Complex ;
+                    here->B3SOIPDIcPtr = here->B3SOIPDIcBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDibsNode != 0) && (here-> B3SOIPDibsNode != 0))
-                    here->B3SOIPDIbsPtr = here->B3SOIPDIbsStructPtr->CSC_Complex ;
+                    here->B3SOIPDIbsPtr = here->B3SOIPDIbsBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDibdNode != 0) && (here-> B3SOIPDibdNode != 0))
-                    here->B3SOIPDIbdPtr = here->B3SOIPDIbdStructPtr->CSC_Complex ;
+                    here->B3SOIPDIbdPtr = here->B3SOIPDIbdBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDiiiNode != 0) && (here-> B3SOIPDiiiNode != 0))
-                    here->B3SOIPDIiiPtr = here->B3SOIPDIiiStructPtr->CSC_Complex ;
+                    here->B3SOIPDIiiPtr = here->B3SOIPDIiiBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDigNode != 0) && (here-> B3SOIPDigNode != 0))
-                    here->B3SOIPDIgPtr = here->B3SOIPDIgStructPtr->CSC_Complex ;
+                    here->B3SOIPDIgPtr = here->B3SOIPDIgBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDgiggNode != 0) && (here-> B3SOIPDgiggNode != 0))
-                    here->B3SOIPDGiggPtr = here->B3SOIPDGiggStructPtr->CSC_Complex ;
+                    here->B3SOIPDGiggPtr = here->B3SOIPDGiggBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDgigdNode != 0) && (here-> B3SOIPDgigdNode != 0))
-                    here->B3SOIPDGigdPtr = here->B3SOIPDGigdStructPtr->CSC_Complex ;
+                    here->B3SOIPDGigdPtr = here->B3SOIPDGigdBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDgigbNode != 0) && (here-> B3SOIPDgigbNode != 0))
-                    here->B3SOIPDGigbPtr = here->B3SOIPDGigbStructPtr->CSC_Complex ;
+                    here->B3SOIPDGigbPtr = here->B3SOIPDGigbBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDigidlNode != 0) && (here-> B3SOIPDigidlNode != 0))
-                    here->B3SOIPDIgidlPtr = here->B3SOIPDIgidlStructPtr->CSC_Complex ;
+                    here->B3SOIPDIgidlPtr = here->B3SOIPDIgidlBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDitunNode != 0) && (here-> B3SOIPDitunNode != 0))
-                    here->B3SOIPDItunPtr = here->B3SOIPDItunStructPtr->CSC_Complex ;
+                    here->B3SOIPDItunPtr = here->B3SOIPDItunBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDibpNode != 0) && (here-> B3SOIPDibpNode != 0))
-                    here->B3SOIPDIbpPtr = here->B3SOIPDIbpStructPtr->CSC_Complex ;
+                    here->B3SOIPDIbpPtr = here->B3SOIPDIbpBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDcbbNode != 0) && (here-> B3SOIPDcbbNode != 0))
-                    here->B3SOIPDCbbPtr = here->B3SOIPDCbbStructPtr->CSC_Complex ;
+                    here->B3SOIPDCbbPtr = here->B3SOIPDCbbBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDcbdNode != 0) && (here-> B3SOIPDcbdNode != 0))
-                    here->B3SOIPDCbdPtr = here->B3SOIPDCbdStructPtr->CSC_Complex ;
+                    here->B3SOIPDCbdPtr = here->B3SOIPDCbdBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDcbgNode != 0) && (here-> B3SOIPDcbgNode != 0))
-                    here->B3SOIPDCbgPtr = here->B3SOIPDCbgStructPtr->CSC_Complex ;
+                    here->B3SOIPDCbgPtr = here->B3SOIPDCbgBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDqbfNode != 0) && (here-> B3SOIPDqbfNode != 0))
-                    here->B3SOIPDQbfPtr = here->B3SOIPDQbfStructPtr->CSC_Complex ;
+                    here->B3SOIPDQbfPtr = here->B3SOIPDQbfBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDqjsNode != 0) && (here-> B3SOIPDqjsNode != 0))
-                    here->B3SOIPDQjsPtr = here->B3SOIPDQjsStructPtr->CSC_Complex ;
+                    here->B3SOIPDQjsPtr = here->B3SOIPDQjsBinding->CSC_Complex ;
 
                 if ((here-> B3SOIPDqjdNode != 0) && (here-> B3SOIPDqjdNode != 0))
-                    here->B3SOIPDQjdPtr = here->B3SOIPDQjdStructPtr->CSC_Complex ;
+                    here->B3SOIPDQjdPtr = here->B3SOIPDQjdBinding->CSC_Complex ;
 
             }
         }
@@ -815,39 +815,39 @@ B3SOIPDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             if ((model->B3SOIPDshMod == 1) && (here->B3SOIPDrth0 != 0.0))
             {
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDTemptempPtr = here->B3SOIPDTemptempStructPtr->CSC ;
+                    here->B3SOIPDTemptempPtr = here->B3SOIPDTemptempBinding->CSC ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                    here->B3SOIPDTempdpPtr = here->B3SOIPDTempdpStructPtr->CSC ;
+                    here->B3SOIPDTempdpPtr = here->B3SOIPDTempdpBinding->CSC ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                    here->B3SOIPDTempspPtr = here->B3SOIPDTempspStructPtr->CSC ;
+                    here->B3SOIPDTempspPtr = here->B3SOIPDTempspBinding->CSC ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDgNode != 0))
-                    here->B3SOIPDTempgPtr = here->B3SOIPDTempgStructPtr->CSC ;
+                    here->B3SOIPDTempgPtr = here->B3SOIPDTempgBinding->CSC ;
 
                 if ((here-> B3SOIPDtempNode != 0) && (here-> B3SOIPDbNode != 0))
-                    here->B3SOIPDTempbPtr = here->B3SOIPDTempbStructPtr->CSC ;
+                    here->B3SOIPDTempbPtr = here->B3SOIPDTempbBinding->CSC ;
 
                 if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDGtempPtr = here->B3SOIPDGtempStructPtr->CSC ;
+                    here->B3SOIPDGtempPtr = here->B3SOIPDGtempBinding->CSC ;
 
                 if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDDPtempPtr = here->B3SOIPDDPtempStructPtr->CSC ;
+                    here->B3SOIPDDPtempPtr = here->B3SOIPDDPtempBinding->CSC ;
 
                 if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDSPtempPtr = here->B3SOIPDSPtempStructPtr->CSC ;
+                    here->B3SOIPDSPtempPtr = here->B3SOIPDSPtempBinding->CSC ;
 
                 if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDEtempPtr = here->B3SOIPDEtempStructPtr->CSC ;
+                    here->B3SOIPDEtempPtr = here->B3SOIPDEtempBinding->CSC ;
 
                 if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDtempNode != 0))
-                    here->B3SOIPDBtempPtr = here->B3SOIPDBtempStructPtr->CSC ;
+                    here->B3SOIPDBtempPtr = here->B3SOIPDBtempBinding->CSC ;
 
                 if (here->B3SOIPDbodyMod == 1)
                 {
                     if ((here-> B3SOIPDpNode != 0) && (here-> B3SOIPDtempNode != 0))
-                        here->B3SOIPDPtempPtr = here->B3SOIPDPtempStructPtr->CSC ;
+                        here->B3SOIPDPtempPtr = here->B3SOIPDPtempBinding->CSC ;
 
                 }
             }
@@ -857,166 +857,166 @@ B3SOIPDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
             else if (here->B3SOIPDbodyMod == 1)
             {
                 if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDpNode != 0))
-                    here->B3SOIPDBpPtr = here->B3SOIPDBpStructPtr->CSC ;
+                    here->B3SOIPDBpPtr = here->B3SOIPDBpBinding->CSC ;
 
                 if ((here-> B3SOIPDpNode != 0) && (here-> B3SOIPDbNode != 0))
-                    here->B3SOIPDPbPtr = here->B3SOIPDPbStructPtr->CSC ;
+                    here->B3SOIPDPbPtr = here->B3SOIPDPbBinding->CSC ;
 
                 if ((here-> B3SOIPDpNode != 0) && (here-> B3SOIPDpNode != 0))
-                    here->B3SOIPDPpPtr = here->B3SOIPDPpStructPtr->CSC ;
+                    here->B3SOIPDPpPtr = here->B3SOIPDPpBinding->CSC ;
 
             }
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDEbPtr = here->B3SOIPDEbStructPtr->CSC ;
+                here->B3SOIPDEbPtr = here->B3SOIPDEbBinding->CSC ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDGbPtr = here->B3SOIPDGbStructPtr->CSC ;
+                here->B3SOIPDGbPtr = here->B3SOIPDGbBinding->CSC ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDDPbPtr = here->B3SOIPDDPbStructPtr->CSC ;
+                here->B3SOIPDDPbPtr = here->B3SOIPDDPbBinding->CSC ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDSPbPtr = here->B3SOIPDSPbStructPtr->CSC ;
+                here->B3SOIPDSPbPtr = here->B3SOIPDSPbBinding->CSC ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDBePtr = here->B3SOIPDBeStructPtr->CSC ;
+                here->B3SOIPDBePtr = here->B3SOIPDBeBinding->CSC ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDBgPtr = here->B3SOIPDBgStructPtr->CSC ;
+                here->B3SOIPDBgPtr = here->B3SOIPDBgBinding->CSC ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDBdpPtr = here->B3SOIPDBdpStructPtr->CSC ;
+                here->B3SOIPDBdpPtr = here->B3SOIPDBdpBinding->CSC ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDBspPtr = here->B3SOIPDBspStructPtr->CSC ;
+                here->B3SOIPDBspPtr = here->B3SOIPDBspBinding->CSC ;
 
             if ((here-> B3SOIPDbNode != 0) && (here-> B3SOIPDbNode != 0))
-                here->B3SOIPDBbPtr = here->B3SOIPDBbStructPtr->CSC ;
+                here->B3SOIPDBbPtr = here->B3SOIPDBbBinding->CSC ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDEgPtr = here->B3SOIPDEgStructPtr->CSC ;
+                here->B3SOIPDEgPtr = here->B3SOIPDEgBinding->CSC ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDEdpPtr = here->B3SOIPDEdpStructPtr->CSC ;
+                here->B3SOIPDEdpPtr = here->B3SOIPDEdpBinding->CSC ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDEspPtr = here->B3SOIPDEspStructPtr->CSC ;
+                here->B3SOIPDEspPtr = here->B3SOIPDEspBinding->CSC ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDGePtr = here->B3SOIPDGeStructPtr->CSC ;
+                here->B3SOIPDGePtr = here->B3SOIPDGeBinding->CSC ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDDPePtr = here->B3SOIPDDPeStructPtr->CSC ;
+                here->B3SOIPDDPePtr = here->B3SOIPDDPeBinding->CSC ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDSPePtr = here->B3SOIPDSPeStructPtr->CSC ;
+                here->B3SOIPDSPePtr = here->B3SOIPDSPeBinding->CSC ;
 
             if ((here-> B3SOIPDeNode != 0) && (here-> B3SOIPDeNode != 0))
-                here->B3SOIPDEePtr = here->B3SOIPDEeStructPtr->CSC ;
+                here->B3SOIPDEePtr = here->B3SOIPDEeBinding->CSC ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDGgPtr = here->B3SOIPDGgStructPtr->CSC ;
+                here->B3SOIPDGgPtr = here->B3SOIPDGgBinding->CSC ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDGdpPtr = here->B3SOIPDGdpStructPtr->CSC ;
+                here->B3SOIPDGdpPtr = here->B3SOIPDGdpBinding->CSC ;
 
             if ((here-> B3SOIPDgNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDGspPtr = here->B3SOIPDGspStructPtr->CSC ;
+                here->B3SOIPDGspPtr = here->B3SOIPDGspBinding->CSC ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDDPgPtr = here->B3SOIPDDPgStructPtr->CSC ;
+                here->B3SOIPDDPgPtr = here->B3SOIPDDPgBinding->CSC ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDDPdpPtr = here->B3SOIPDDPdpStructPtr->CSC ;
+                here->B3SOIPDDPdpPtr = here->B3SOIPDDPdpBinding->CSC ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDDPspPtr = here->B3SOIPDDPspStructPtr->CSC ;
+                here->B3SOIPDDPspPtr = here->B3SOIPDDPspBinding->CSC ;
 
             if ((here-> B3SOIPDdNodePrime != 0) && (here-> B3SOIPDdNode != 0))
-                here->B3SOIPDDPdPtr = here->B3SOIPDDPdStructPtr->CSC ;
+                here->B3SOIPDDPdPtr = here->B3SOIPDDPdBinding->CSC ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDgNode != 0))
-                here->B3SOIPDSPgPtr = here->B3SOIPDSPgStructPtr->CSC ;
+                here->B3SOIPDSPgPtr = here->B3SOIPDSPgBinding->CSC ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDSPdpPtr = here->B3SOIPDSPdpStructPtr->CSC ;
+                here->B3SOIPDSPdpPtr = here->B3SOIPDSPdpBinding->CSC ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDSPspPtr = here->B3SOIPDSPspStructPtr->CSC ;
+                here->B3SOIPDSPspPtr = here->B3SOIPDSPspBinding->CSC ;
 
             if ((here-> B3SOIPDsNodePrime != 0) && (here-> B3SOIPDsNode != 0))
-                here->B3SOIPDSPsPtr = here->B3SOIPDSPsStructPtr->CSC ;
+                here->B3SOIPDSPsPtr = here->B3SOIPDSPsBinding->CSC ;
 
             if ((here-> B3SOIPDdNode != 0) && (here-> B3SOIPDdNode != 0))
-                here->B3SOIPDDdPtr = here->B3SOIPDDdStructPtr->CSC ;
+                here->B3SOIPDDdPtr = here->B3SOIPDDdBinding->CSC ;
 
             if ((here-> B3SOIPDdNode != 0) && (here-> B3SOIPDdNodePrime != 0))
-                here->B3SOIPDDdpPtr = here->B3SOIPDDdpStructPtr->CSC ;
+                here->B3SOIPDDdpPtr = here->B3SOIPDDdpBinding->CSC ;
 
             if ((here-> B3SOIPDsNode != 0) && (here-> B3SOIPDsNode != 0))
-                here->B3SOIPDSsPtr = here->B3SOIPDSsStructPtr->CSC ;
+                here->B3SOIPDSsPtr = here->B3SOIPDSsBinding->CSC ;
 
             if ((here-> B3SOIPDsNode != 0) && (here-> B3SOIPDsNodePrime != 0))
-                here->B3SOIPDSspPtr = here->B3SOIPDSspStructPtr->CSC ;
+                here->B3SOIPDSspPtr = here->B3SOIPDSspBinding->CSC ;
 
             if (here->B3SOIPDdebugMod != 0)
             {
                 if ((here-> B3SOIPDvbsNode != 0) && (here-> B3SOIPDvbsNode != 0))
-                    here->B3SOIPDVbsPtr = here->B3SOIPDVbsStructPtr->CSC ;
+                    here->B3SOIPDVbsPtr = here->B3SOIPDVbsBinding->CSC ;
 
                 if ((here-> B3SOIPDidsNode != 0) && (here-> B3SOIPDidsNode != 0))
-                    here->B3SOIPDIdsPtr = here->B3SOIPDIdsStructPtr->CSC ;
+                    here->B3SOIPDIdsPtr = here->B3SOIPDIdsBinding->CSC ;
 
                 if ((here-> B3SOIPDicNode != 0) && (here-> B3SOIPDicNode != 0))
-                    here->B3SOIPDIcPtr = here->B3SOIPDIcStructPtr->CSC ;
+                    here->B3SOIPDIcPtr = here->B3SOIPDIcBinding->CSC ;
 
                 if ((here-> B3SOIPDibsNode != 0) && (here-> B3SOIPDibsNode != 0))
-                    here->B3SOIPDIbsPtr = here->B3SOIPDIbsStructPtr->CSC ;
+                    here->B3SOIPDIbsPtr = here->B3SOIPDIbsBinding->CSC ;
 
                 if ((here-> B3SOIPDibdNode != 0) && (here-> B3SOIPDibdNode != 0))
-                    here->B3SOIPDIbdPtr = here->B3SOIPDIbdStructPtr->CSC ;
+                    here->B3SOIPDIbdPtr = here->B3SOIPDIbdBinding->CSC ;
 
                 if ((here-> B3SOIPDiiiNode != 0) && (here-> B3SOIPDiiiNode != 0))
-                    here->B3SOIPDIiiPtr = here->B3SOIPDIiiStructPtr->CSC ;
+                    here->B3SOIPDIiiPtr = here->B3SOIPDIiiBinding->CSC ;
 
                 if ((here-> B3SOIPDigNode != 0) && (here-> B3SOIPDigNode != 0))
-                    here->B3SOIPDIgPtr = here->B3SOIPDIgStructPtr->CSC ;
+                    here->B3SOIPDIgPtr = here->B3SOIPDIgBinding->CSC ;
 
                 if ((here-> B3SOIPDgiggNode != 0) && (here-> B3SOIPDgiggNode != 0))
-                    here->B3SOIPDGiggPtr = here->B3SOIPDGiggStructPtr->CSC ;
+                    here->B3SOIPDGiggPtr = here->B3SOIPDGiggBinding->CSC ;
 
                 if ((here-> B3SOIPDgigdNode != 0) && (here-> B3SOIPDgigdNode != 0))
-                    here->B3SOIPDGigdPtr = here->B3SOIPDGigdStructPtr->CSC ;
+                    here->B3SOIPDGigdPtr = here->B3SOIPDGigdBinding->CSC ;
 
                 if ((here-> B3SOIPDgigbNode != 0) && (here-> B3SOIPDgigbNode != 0))
-                    here->B3SOIPDGigbPtr = here->B3SOIPDGigbStructPtr->CSC ;
+                    here->B3SOIPDGigbPtr = here->B3SOIPDGigbBinding->CSC ;
 
                 if ((here-> B3SOIPDigidlNode != 0) && (here-> B3SOIPDigidlNode != 0))
-                    here->B3SOIPDIgidlPtr = here->B3SOIPDIgidlStructPtr->CSC ;
+                    here->B3SOIPDIgidlPtr = here->B3SOIPDIgidlBinding->CSC ;
 
                 if ((here-> B3SOIPDitunNode != 0) && (here-> B3SOIPDitunNode != 0))
-                    here->B3SOIPDItunPtr = here->B3SOIPDItunStructPtr->CSC ;
+                    here->B3SOIPDItunPtr = here->B3SOIPDItunBinding->CSC ;
 
                 if ((here-> B3SOIPDibpNode != 0) && (here-> B3SOIPDibpNode != 0))
-                    here->B3SOIPDIbpPtr = here->B3SOIPDIbpStructPtr->CSC ;
+                    here->B3SOIPDIbpPtr = here->B3SOIPDIbpBinding->CSC ;
 
                 if ((here-> B3SOIPDcbbNode != 0) && (here-> B3SOIPDcbbNode != 0))
-                    here->B3SOIPDCbbPtr = here->B3SOIPDCbbStructPtr->CSC ;
+                    here->B3SOIPDCbbPtr = here->B3SOIPDCbbBinding->CSC ;
 
                 if ((here-> B3SOIPDcbdNode != 0) && (here-> B3SOIPDcbdNode != 0))
-                    here->B3SOIPDCbdPtr = here->B3SOIPDCbdStructPtr->CSC ;
+                    here->B3SOIPDCbdPtr = here->B3SOIPDCbdBinding->CSC ;
 
                 if ((here-> B3SOIPDcbgNode != 0) && (here-> B3SOIPDcbgNode != 0))
-                    here->B3SOIPDCbgPtr = here->B3SOIPDCbgStructPtr->CSC ;
+                    here->B3SOIPDCbgPtr = here->B3SOIPDCbgBinding->CSC ;
 
                 if ((here-> B3SOIPDqbfNode != 0) && (here-> B3SOIPDqbfNode != 0))
-                    here->B3SOIPDQbfPtr = here->B3SOIPDQbfStructPtr->CSC ;
+                    here->B3SOIPDQbfPtr = here->B3SOIPDQbfBinding->CSC ;
 
                 if ((here-> B3SOIPDqjsNode != 0) && (here-> B3SOIPDqjsNode != 0))
-                    here->B3SOIPDQjsPtr = here->B3SOIPDQjsStructPtr->CSC ;
+                    here->B3SOIPDQjsPtr = here->B3SOIPDQjsBinding->CSC ;
 
                 if ((here-> B3SOIPDqjdNode != 0) && (here-> B3SOIPDqjdNode != 0))
-                    here->B3SOIPDQjdPtr = here->B3SOIPDQjdStructPtr->CSC ;
+                    here->B3SOIPDQjdPtr = here->B3SOIPDQjdBinding->CSC ;
 
             }
         }

@@ -42,7 +42,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTcolColPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTcolColStructPtr = matched ;
+                here->NBJTcolColBinding = matched ;
                 here->NBJTcolColPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTbaseBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTbaseBaseStructPtr = matched ;
+                here->NBJTbaseBaseBinding = matched ;
                 here->NBJTbaseBasePtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTemitEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTemitEmitStructPtr = matched ;
+                here->NBJTemitEmitBinding = matched ;
                 here->NBJTemitEmitPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTcolBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTcolBaseStructPtr = matched ;
+                here->NBJTcolBaseBinding = matched ;
                 here->NBJTcolBasePtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTcolEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTcolEmitStructPtr = matched ;
+                here->NBJTcolEmitBinding = matched ;
                 here->NBJTcolEmitPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTbaseColPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTbaseColStructPtr = matched ;
+                here->NBJTbaseColBinding = matched ;
                 here->NBJTbaseColPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTbaseEmitPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTbaseEmitStructPtr = matched ;
+                here->NBJTbaseEmitBinding = matched ;
                 here->NBJTbaseEmitPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTemitColPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTemitColStructPtr = matched ;
+                here->NBJTemitColBinding = matched ;
                 here->NBJTemitColPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->NBJTemitBasePtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->NBJTemitBaseStructPtr = matched ;
+                here->NBJTemitBaseBinding = matched ;
                 here->NBJTemitBasePtr = matched->CSC ;
             }
 
@@ -131,31 +131,31 @@ NBJTbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->NBJTinstances ; here != NULL ; here = here->NBJTnextInstance)
         {
             if ((here-> NBJTcolNode != 0) && (here-> NBJTcolNode != 0))
-                here->NBJTcolColPtr = here->NBJTcolColStructPtr->CSC_Complex ;
+                here->NBJTcolColPtr = here->NBJTcolColBinding->CSC_Complex ;
 
             if ((here-> NBJTbaseNode != 0) && (here-> NBJTbaseNode != 0))
-                here->NBJTbaseBasePtr = here->NBJTbaseBaseStructPtr->CSC_Complex ;
+                here->NBJTbaseBasePtr = here->NBJTbaseBaseBinding->CSC_Complex ;
 
             if ((here-> NBJTemitNode != 0) && (here-> NBJTemitNode != 0))
-                here->NBJTemitEmitPtr = here->NBJTemitEmitStructPtr->CSC_Complex ;
+                here->NBJTemitEmitPtr = here->NBJTemitEmitBinding->CSC_Complex ;
 
             if ((here-> NBJTcolNode != 0) && (here-> NBJTbaseNode != 0))
-                here->NBJTcolBasePtr = here->NBJTcolBaseStructPtr->CSC_Complex ;
+                here->NBJTcolBasePtr = here->NBJTcolBaseBinding->CSC_Complex ;
 
             if ((here-> NBJTcolNode != 0) && (here-> NBJTemitNode != 0))
-                here->NBJTcolEmitPtr = here->NBJTcolEmitStructPtr->CSC_Complex ;
+                here->NBJTcolEmitPtr = here->NBJTcolEmitBinding->CSC_Complex ;
 
             if ((here-> NBJTbaseNode != 0) && (here-> NBJTcolNode != 0))
-                here->NBJTbaseColPtr = here->NBJTbaseColStructPtr->CSC_Complex ;
+                here->NBJTbaseColPtr = here->NBJTbaseColBinding->CSC_Complex ;
 
             if ((here-> NBJTbaseNode != 0) && (here-> NBJTemitNode != 0))
-                here->NBJTbaseEmitPtr = here->NBJTbaseEmitStructPtr->CSC_Complex ;
+                here->NBJTbaseEmitPtr = here->NBJTbaseEmitBinding->CSC_Complex ;
 
             if ((here-> NBJTemitNode != 0) && (here-> NBJTcolNode != 0))
-                here->NBJTemitColPtr = here->NBJTemitColStructPtr->CSC_Complex ;
+                here->NBJTemitColPtr = here->NBJTemitColBinding->CSC_Complex ;
 
             if ((here-> NBJTemitNode != 0) && (here-> NBJTbaseNode != 0))
-                here->NBJTemitBasePtr = here->NBJTemitBaseStructPtr->CSC_Complex ;
+                here->NBJTemitBasePtr = here->NBJTemitBaseBinding->CSC_Complex ;
 
         }
     }
@@ -178,31 +178,31 @@ NBJTbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->NBJTinstances ; here != NULL ; here = here->NBJTnextInstance)
         {
             if ((here-> NBJTcolNode != 0) && (here-> NBJTcolNode != 0))
-                here->NBJTcolColPtr = here->NBJTcolColStructPtr->CSC ;
+                here->NBJTcolColPtr = here->NBJTcolColBinding->CSC ;
 
             if ((here-> NBJTbaseNode != 0) && (here-> NBJTbaseNode != 0))
-                here->NBJTbaseBasePtr = here->NBJTbaseBaseStructPtr->CSC ;
+                here->NBJTbaseBasePtr = here->NBJTbaseBaseBinding->CSC ;
 
             if ((here-> NBJTemitNode != 0) && (here-> NBJTemitNode != 0))
-                here->NBJTemitEmitPtr = here->NBJTemitEmitStructPtr->CSC ;
+                here->NBJTemitEmitPtr = here->NBJTemitEmitBinding->CSC ;
 
             if ((here-> NBJTcolNode != 0) && (here-> NBJTbaseNode != 0))
-                here->NBJTcolBasePtr = here->NBJTcolBaseStructPtr->CSC ;
+                here->NBJTcolBasePtr = here->NBJTcolBaseBinding->CSC ;
 
             if ((here-> NBJTcolNode != 0) && (here-> NBJTemitNode != 0))
-                here->NBJTcolEmitPtr = here->NBJTcolEmitStructPtr->CSC ;
+                here->NBJTcolEmitPtr = here->NBJTcolEmitBinding->CSC ;
 
             if ((here-> NBJTbaseNode != 0) && (here-> NBJTcolNode != 0))
-                here->NBJTbaseColPtr = here->NBJTbaseColStructPtr->CSC ;
+                here->NBJTbaseColPtr = here->NBJTbaseColBinding->CSC ;
 
             if ((here-> NBJTbaseNode != 0) && (here-> NBJTemitNode != 0))
-                here->NBJTbaseEmitPtr = here->NBJTbaseEmitStructPtr->CSC ;
+                here->NBJTbaseEmitPtr = here->NBJTbaseEmitBinding->CSC ;
 
             if ((here-> NBJTemitNode != 0) && (here-> NBJTcolNode != 0))
-                here->NBJTemitColPtr = here->NBJTemitColStructPtr->CSC ;
+                here->NBJTemitColPtr = here->NBJTemitColBinding->CSC ;
 
             if ((here-> NBJTemitNode != 0) && (here-> NBJTbaseNode != 0))
-                here->NBJTemitBasePtr = here->NBJTemitBaseStructPtr->CSC ;
+                here->NBJTemitBasePtr = here->NBJTemitBaseBinding->CSC ;
 
         }
     }

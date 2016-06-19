@@ -42,7 +42,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DdStructPtr = matched ;
+                here->MOS1DdBinding = matched ;
                 here->MOS1DdPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1GgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1GgStructPtr = matched ;
+                here->MOS1GgBinding = matched ;
                 here->MOS1GgPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SsStructPtr = matched ;
+                here->MOS1SsBinding = matched ;
                 here->MOS1SsPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1BbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1BbStructPtr = matched ;
+                here->MOS1BbBinding = matched ;
                 here->MOS1BbPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DPdpStructPtr = matched ;
+                here->MOS1DPdpBinding = matched ;
                 here->MOS1DPdpPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SPspStructPtr = matched ;
+                here->MOS1SPspBinding = matched ;
                 here->MOS1SPspPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DdpStructPtr = matched ;
+                here->MOS1DdpBinding = matched ;
                 here->MOS1DdpPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1GbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1GbStructPtr = matched ;
+                here->MOS1GbBinding = matched ;
                 here->MOS1GbPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1GdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1GdpStructPtr = matched ;
+                here->MOS1GdpBinding = matched ;
                 here->MOS1GdpPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1GspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1GspStructPtr = matched ;
+                here->MOS1GspBinding = matched ;
                 here->MOS1GspPtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SspStructPtr = matched ;
+                here->MOS1SspBinding = matched ;
                 here->MOS1SspPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1BdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1BdpStructPtr = matched ;
+                here->MOS1BdpBinding = matched ;
                 here->MOS1BdpPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1BspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1BspStructPtr = matched ;
+                here->MOS1BspBinding = matched ;
                 here->MOS1BspPtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DPspStructPtr = matched ;
+                here->MOS1DPspBinding = matched ;
                 here->MOS1DPspPtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DPdStructPtr = matched ;
+                here->MOS1DPdBinding = matched ;
                 here->MOS1DPdPtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1BgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1BgStructPtr = matched ;
+                here->MOS1BgBinding = matched ;
                 here->MOS1BgPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DPgStructPtr = matched ;
+                here->MOS1DPgBinding = matched ;
                 here->MOS1DPgPtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SPgStructPtr = matched ;
+                here->MOS1SPgBinding = matched ;
                 here->MOS1SPgPtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SPsStructPtr = matched ;
+                here->MOS1SPsBinding = matched ;
                 here->MOS1SPsPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1DPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1DPbStructPtr = matched ;
+                here->MOS1DPbBinding = matched ;
                 here->MOS1DPbPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SPbStructPtr = matched ;
+                here->MOS1SPbBinding = matched ;
                 here->MOS1SPbPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ MOS1bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS1SPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS1SPdpStructPtr = matched ;
+                here->MOS1SPdpBinding = matched ;
                 here->MOS1SPdpPtr = matched->CSC ;
             }
 
@@ -235,70 +235,70 @@ MOS1bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MOS1instances ; here != NULL ; here = here->MOS1nextInstance)
         {
             if ((here->MOS1dNode != 0) && (here->MOS1dNode != 0))
-                here->MOS1DdPtr = here->MOS1DdStructPtr->CSC_Complex ;
+                here->MOS1DdPtr = here->MOS1DdBinding->CSC_Complex ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1gNode != 0))
-                here->MOS1GgPtr = here->MOS1GgStructPtr->CSC_Complex ;
+                here->MOS1GgPtr = here->MOS1GgBinding->CSC_Complex ;
 
             if ((here->MOS1sNode != 0) && (here->MOS1sNode != 0))
-                here->MOS1SsPtr = here->MOS1SsStructPtr->CSC_Complex ;
+                here->MOS1SsPtr = here->MOS1SsBinding->CSC_Complex ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1bNode != 0))
-                here->MOS1BbPtr = here->MOS1BbStructPtr->CSC_Complex ;
+                here->MOS1BbPtr = here->MOS1BbBinding->CSC_Complex ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1DPdpPtr = here->MOS1DPdpStructPtr->CSC_Complex ;
+                here->MOS1DPdpPtr = here->MOS1DPdpBinding->CSC_Complex ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1SPspPtr = here->MOS1SPspStructPtr->CSC_Complex ;
+                here->MOS1SPspPtr = here->MOS1SPspBinding->CSC_Complex ;
 
             if ((here->MOS1dNode != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1DdpPtr = here->MOS1DdpStructPtr->CSC_Complex ;
+                here->MOS1DdpPtr = here->MOS1DdpBinding->CSC_Complex ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1bNode != 0))
-                here->MOS1GbPtr = here->MOS1GbStructPtr->CSC_Complex ;
+                here->MOS1GbPtr = here->MOS1GbBinding->CSC_Complex ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1GdpPtr = here->MOS1GdpStructPtr->CSC_Complex ;
+                here->MOS1GdpPtr = here->MOS1GdpBinding->CSC_Complex ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1GspPtr = here->MOS1GspStructPtr->CSC_Complex ;
+                here->MOS1GspPtr = here->MOS1GspBinding->CSC_Complex ;
 
             if ((here->MOS1sNode != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1SspPtr = here->MOS1SspStructPtr->CSC_Complex ;
+                here->MOS1SspPtr = here->MOS1SspBinding->CSC_Complex ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1BdpPtr = here->MOS1BdpStructPtr->CSC_Complex ;
+                here->MOS1BdpPtr = here->MOS1BdpBinding->CSC_Complex ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1BspPtr = here->MOS1BspStructPtr->CSC_Complex ;
+                here->MOS1BspPtr = here->MOS1BspBinding->CSC_Complex ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1DPspPtr = here->MOS1DPspStructPtr->CSC_Complex ;
+                here->MOS1DPspPtr = here->MOS1DPspBinding->CSC_Complex ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1dNode != 0))
-                here->MOS1DPdPtr = here->MOS1DPdStructPtr->CSC_Complex ;
+                here->MOS1DPdPtr = here->MOS1DPdBinding->CSC_Complex ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1gNode != 0))
-                here->MOS1BgPtr = here->MOS1BgStructPtr->CSC_Complex ;
+                here->MOS1BgPtr = here->MOS1BgBinding->CSC_Complex ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1gNode != 0))
-                here->MOS1DPgPtr = here->MOS1DPgStructPtr->CSC_Complex ;
+                here->MOS1DPgPtr = here->MOS1DPgBinding->CSC_Complex ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1gNode != 0))
-                here->MOS1SPgPtr = here->MOS1SPgStructPtr->CSC_Complex ;
+                here->MOS1SPgPtr = here->MOS1SPgBinding->CSC_Complex ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1sNode != 0))
-                here->MOS1SPsPtr = here->MOS1SPsStructPtr->CSC_Complex ;
+                here->MOS1SPsPtr = here->MOS1SPsBinding->CSC_Complex ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1bNode != 0))
-                here->MOS1DPbPtr = here->MOS1DPbStructPtr->CSC_Complex ;
+                here->MOS1DPbPtr = here->MOS1DPbBinding->CSC_Complex ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1bNode != 0))
-                here->MOS1SPbPtr = here->MOS1SPbStructPtr->CSC_Complex ;
+                here->MOS1SPbPtr = here->MOS1SPbBinding->CSC_Complex ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1SPdpPtr = here->MOS1SPdpStructPtr->CSC_Complex ;
+                here->MOS1SPdpPtr = here->MOS1SPdpBinding->CSC_Complex ;
 
         }
     }
@@ -321,70 +321,70 @@ MOS1bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MOS1instances ; here != NULL ; here = here->MOS1nextInstance)
         {
             if ((here->MOS1dNode != 0) && (here->MOS1dNode != 0))
-                here->MOS1DdPtr = here->MOS1DdStructPtr->CSC ;
+                here->MOS1DdPtr = here->MOS1DdBinding->CSC ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1gNode != 0))
-                here->MOS1GgPtr = here->MOS1GgStructPtr->CSC ;
+                here->MOS1GgPtr = here->MOS1GgBinding->CSC ;
 
             if ((here->MOS1sNode != 0) && (here->MOS1sNode != 0))
-                here->MOS1SsPtr = here->MOS1SsStructPtr->CSC ;
+                here->MOS1SsPtr = here->MOS1SsBinding->CSC ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1bNode != 0))
-                here->MOS1BbPtr = here->MOS1BbStructPtr->CSC ;
+                here->MOS1BbPtr = here->MOS1BbBinding->CSC ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1DPdpPtr = here->MOS1DPdpStructPtr->CSC ;
+                here->MOS1DPdpPtr = here->MOS1DPdpBinding->CSC ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1SPspPtr = here->MOS1SPspStructPtr->CSC ;
+                here->MOS1SPspPtr = here->MOS1SPspBinding->CSC ;
 
             if ((here->MOS1dNode != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1DdpPtr = here->MOS1DdpStructPtr->CSC ;
+                here->MOS1DdpPtr = here->MOS1DdpBinding->CSC ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1bNode != 0))
-                here->MOS1GbPtr = here->MOS1GbStructPtr->CSC ;
+                here->MOS1GbPtr = here->MOS1GbBinding->CSC ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1GdpPtr = here->MOS1GdpStructPtr->CSC ;
+                here->MOS1GdpPtr = here->MOS1GdpBinding->CSC ;
 
             if ((here->MOS1gNode != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1GspPtr = here->MOS1GspStructPtr->CSC ;
+                here->MOS1GspPtr = here->MOS1GspBinding->CSC ;
 
             if ((here->MOS1sNode != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1SspPtr = here->MOS1SspStructPtr->CSC ;
+                here->MOS1SspPtr = here->MOS1SspBinding->CSC ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1BdpPtr = here->MOS1BdpStructPtr->CSC ;
+                here->MOS1BdpPtr = here->MOS1BdpBinding->CSC ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1BspPtr = here->MOS1BspStructPtr->CSC ;
+                here->MOS1BspPtr = here->MOS1BspBinding->CSC ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1sNodePrime != 0))
-                here->MOS1DPspPtr = here->MOS1DPspStructPtr->CSC ;
+                here->MOS1DPspPtr = here->MOS1DPspBinding->CSC ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1dNode != 0))
-                here->MOS1DPdPtr = here->MOS1DPdStructPtr->CSC ;
+                here->MOS1DPdPtr = here->MOS1DPdBinding->CSC ;
 
             if ((here->MOS1bNode != 0) && (here->MOS1gNode != 0))
-                here->MOS1BgPtr = here->MOS1BgStructPtr->CSC ;
+                here->MOS1BgPtr = here->MOS1BgBinding->CSC ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1gNode != 0))
-                here->MOS1DPgPtr = here->MOS1DPgStructPtr->CSC ;
+                here->MOS1DPgPtr = here->MOS1DPgBinding->CSC ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1gNode != 0))
-                here->MOS1SPgPtr = here->MOS1SPgStructPtr->CSC ;
+                here->MOS1SPgPtr = here->MOS1SPgBinding->CSC ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1sNode != 0))
-                here->MOS1SPsPtr = here->MOS1SPsStructPtr->CSC ;
+                here->MOS1SPsPtr = here->MOS1SPsBinding->CSC ;
 
             if ((here->MOS1dNodePrime != 0) && (here->MOS1bNode != 0))
-                here->MOS1DPbPtr = here->MOS1DPbStructPtr->CSC ;
+                here->MOS1DPbPtr = here->MOS1DPbBinding->CSC ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1bNode != 0))
-                here->MOS1SPbPtr = here->MOS1SPbStructPtr->CSC ;
+                here->MOS1SPbPtr = here->MOS1SPbBinding->CSC ;
 
             if ((here->MOS1sNodePrime != 0) && (here->MOS1dNodePrime != 0))
-                here->MOS1SPdpPtr = here->MOS1SPdpStructPtr->CSC ;
+                here->MOS1SPdpPtr = here->MOS1SPdpBinding->CSC ;
 
         }
     }

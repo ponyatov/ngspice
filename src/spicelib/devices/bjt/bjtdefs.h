@@ -284,30 +284,30 @@ typedef struct sBJTinstance {
 /* the above to avoid allocating memory when it is not needed */
 
 #ifdef KLU
-    BindElement *BJTcolColPrimeStructPtr ;
-    BindElement *BJTbaseBasePrimeStructPtr ;
-    BindElement *BJTemitEmitPrimeStructPtr ;
-    BindElement *BJTcolPrimeColStructPtr ;
-    BindElement *BJTcolPrimeBasePrimeStructPtr ;
-    BindElement *BJTcolPrimeEmitPrimeStructPtr ;
-    BindElement *BJTbasePrimeBaseStructPtr ;
-    BindElement *BJTbasePrimeColPrimeStructPtr ;
-    BindElement *BJTbasePrimeEmitPrimeStructPtr ;
-    BindElement *BJTemitPrimeEmitStructPtr ;
-    BindElement *BJTemitPrimeColPrimeStructPtr ;
-    BindElement *BJTemitPrimeBasePrimeStructPtr ;
-    BindElement *BJTcolColStructPtr ;
-    BindElement *BJTbaseBaseStructPtr ;
-    BindElement *BJTemitEmitStructPtr ;
-    BindElement *BJTcolPrimeColPrimeStructPtr ;
-    BindElement *BJTbasePrimeBasePrimeStructPtr ;
-    BindElement *BJTemitPrimeEmitPrimeStructPtr ;
-    BindElement *BJTsubstSubstStructPtr ;
-    BindElement *BJTsubstConSubstStructPtr ;
-    BindElement *BJTsubstSubstConStructPtr ;
-    BindElement *BJTsubstConSubstConStructPtr ;
-    BindElement *BJTbaseColPrimeStructPtr ;
-    BindElement *BJTcolPrimeBaseStructPtr ;
+    BindElement *BJTcolColPrimeBinding ;
+    BindElement *BJTbaseBasePrimeBinding ;
+    BindElement *BJTemitEmitPrimeBinding ;
+    BindElement *BJTcolPrimeColBinding ;
+    BindElement *BJTcolPrimeBasePrimeBinding ;
+    BindElement *BJTcolPrimeEmitPrimeBinding ;
+    BindElement *BJTbasePrimeBaseBinding ;
+    BindElement *BJTbasePrimeColPrimeBinding ;
+    BindElement *BJTbasePrimeEmitPrimeBinding ;
+    BindElement *BJTemitPrimeEmitBinding ;
+    BindElement *BJTemitPrimeColPrimeBinding ;
+    BindElement *BJTemitPrimeBasePrimeBinding ;
+    BindElement *BJTcolColBinding ;
+    BindElement *BJTbaseBaseBinding ;
+    BindElement *BJTemitEmitBinding ;
+    BindElement *BJTcolPrimeColPrimeBinding ;
+    BindElement *BJTbasePrimeBasePrimeBinding ;
+    BindElement *BJTemitPrimeEmitPrimeBinding ;
+    BindElement *BJTsubstSubstBinding ;
+    BindElement *BJTsubstConSubstBinding ;
+    BindElement *BJTsubstSubstConBinding ;
+    BindElement *BJTsubstConSubstConBinding ;
+    BindElement *BJTbaseColPrimeBinding ;
+    BindElement *BJTcolPrimeBaseBinding ;
 #endif
 
 } BJTinstance ;

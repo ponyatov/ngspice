@@ -177,28 +177,28 @@ typedef struct sBSIM2instance {
 #define B2numStates 35           
 
 #ifdef KLU
-    BindElement *B2DdStructPtr ;
-    BindElement *B2GgStructPtr ;
-    BindElement *B2SsStructPtr ;
-    BindElement *B2BbStructPtr ;
-    BindElement *B2DPdpStructPtr ;
-    BindElement *B2SPspStructPtr ;
-    BindElement *B2DdpStructPtr ;
-    BindElement *B2GbStructPtr ;
-    BindElement *B2GdpStructPtr ;
-    BindElement *B2GspStructPtr ;
-    BindElement *B2SspStructPtr ;
-    BindElement *B2BdpStructPtr ;
-    BindElement *B2BspStructPtr ;
-    BindElement *B2DPspStructPtr ;
-    BindElement *B2DPdStructPtr ;
-    BindElement *B2BgStructPtr ;
-    BindElement *B2DPgStructPtr ;
-    BindElement *B2SPgStructPtr ;
-    BindElement *B2SPsStructPtr ;
-    BindElement *B2DPbStructPtr ;
-    BindElement *B2SPbStructPtr ;
-    BindElement *B2SPdpStructPtr ;
+    BindElement *B2DdBinding ;
+    BindElement *B2GgBinding ;
+    BindElement *B2SsBinding ;
+    BindElement *B2BbBinding ;
+    BindElement *B2DPdpBinding ;
+    BindElement *B2SPspBinding ;
+    BindElement *B2DdpBinding ;
+    BindElement *B2GbBinding ;
+    BindElement *B2GdpBinding ;
+    BindElement *B2GspBinding ;
+    BindElement *B2SspBinding ;
+    BindElement *B2BdpBinding ;
+    BindElement *B2BspBinding ;
+    BindElement *B2DPspBinding ;
+    BindElement *B2DPdBinding ;
+    BindElement *B2BgBinding ;
+    BindElement *B2DPgBinding ;
+    BindElement *B2SPgBinding ;
+    BindElement *B2SPsBinding ;
+    BindElement *B2DPbBinding ;
+    BindElement *B2SPbBinding ;
+    BindElement *B2SPdpBinding ;
 #endif
 
 } B2instance ;

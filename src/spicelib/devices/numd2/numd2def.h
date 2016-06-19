@@ -66,10 +66,10 @@ typedef struct sNUMD2instance {
   unsigned NUMD2printGiven:1;	/* flag to indicate if print was specified */
 
 #ifdef KLU
-    BindElement *NUMD2posPosStructPtr ;
-    BindElement *NUMD2negNegStructPtr ;
-    BindElement *NUMD2negPosStructPtr ;
-    BindElement *NUMD2posNegStructPtr ;
+    BindElement *NUMD2posPosBinding ;
+    BindElement *NUMD2negNegBinding ;
+    BindElement *NUMD2negPosBinding ;
+    BindElement *NUMD2posNegBinding ;
 #endif
 
 } NUMD2instance;

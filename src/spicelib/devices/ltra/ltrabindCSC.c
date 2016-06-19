@@ -42,7 +42,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr1Pos1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Pos1StructPtr = matched ;
+                here->LTRAibr1Pos1Binding = matched ;
                 here->LTRAibr1Pos1Ptr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr1Neg1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Neg1StructPtr = matched ;
+                here->LTRAibr1Neg1Binding = matched ;
                 here->LTRAibr1Neg1Ptr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr1Pos2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Pos2StructPtr = matched ;
+                here->LTRAibr1Pos2Binding = matched ;
                 here->LTRAibr1Pos2Ptr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr1Neg2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Neg2StructPtr = matched ;
+                here->LTRAibr1Neg2Binding = matched ;
                 here->LTRAibr1Neg2Ptr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr1Ibr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Ibr1StructPtr = matched ;
+                here->LTRAibr1Ibr1Binding = matched ;
                 here->LTRAibr1Ibr1Ptr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr1Ibr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr1Ibr2StructPtr = matched ;
+                here->LTRAibr1Ibr2Binding = matched ;
                 here->LTRAibr1Ibr2Ptr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr2Pos1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Pos1StructPtr = matched ;
+                here->LTRAibr2Pos1Binding = matched ;
                 here->LTRAibr2Pos1Ptr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr2Neg1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Neg1StructPtr = matched ;
+                here->LTRAibr2Neg1Binding = matched ;
                 here->LTRAibr2Neg1Ptr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr2Pos2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Pos2StructPtr = matched ;
+                here->LTRAibr2Pos2Binding = matched ;
                 here->LTRAibr2Pos2Ptr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr2Neg2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Neg2StructPtr = matched ;
+                here->LTRAibr2Neg2Binding = matched ;
                 here->LTRAibr2Neg2Ptr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr2Ibr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Ibr1StructPtr = matched ;
+                here->LTRAibr2Ibr1Binding = matched ;
                 here->LTRAibr2Ibr1Ptr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAibr2Ibr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAibr2Ibr2StructPtr = matched ;
+                here->LTRAibr2Ibr2Binding = matched ;
                 here->LTRAibr2Ibr2Ptr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRApos1Ibr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos1Ibr1StructPtr = matched ;
+                here->LTRApos1Ibr1Binding = matched ;
                 here->LTRApos1Ibr1Ptr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAneg1Ibr1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg1Ibr1StructPtr = matched ;
+                here->LTRAneg1Ibr1Binding = matched ;
                 here->LTRAneg1Ibr1Ptr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRApos2Ibr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos2Ibr2StructPtr = matched ;
+                here->LTRApos2Ibr2Binding = matched ;
                 here->LTRApos2Ibr2Ptr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAneg2Ibr2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg2Ibr2StructPtr = matched ;
+                here->LTRAneg2Ibr2Binding = matched ;
                 here->LTRAneg2Ibr2Ptr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRApos1Pos1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos1Pos1StructPtr = matched ;
+                here->LTRApos1Pos1Binding = matched ;
                 here->LTRApos1Pos1Ptr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAneg1Neg1Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg1Neg1StructPtr = matched ;
+                here->LTRAneg1Neg1Binding = matched ;
                 here->LTRAneg1Neg1Ptr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRApos2Pos2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRApos2Pos2StructPtr = matched ;
+                here->LTRApos2Pos2Binding = matched ;
                 here->LTRApos2Pos2Ptr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ LTRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->LTRAneg2Neg2Ptr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->LTRAneg2Neg2StructPtr = matched ;
+                here->LTRAneg2Neg2Binding = matched ;
                 here->LTRAneg2Neg2Ptr = matched->CSC ;
             }
 
@@ -219,64 +219,64 @@ LTRAbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->LTRAinstances ; here != NULL ; here = here->LTRAnextInstance)
         {
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr1Pos1Ptr = here->LTRAibr1Pos1StructPtr->CSC_Complex ;
+                here->LTRAibr1Pos1Ptr = here->LTRAibr1Pos1Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr1Neg1Ptr = here->LTRAibr1Neg1StructPtr->CSC_Complex ;
+                here->LTRAibr1Neg1Ptr = here->LTRAibr1Neg1Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr1Pos2Ptr = here->LTRAibr1Pos2StructPtr->CSC_Complex ;
+                here->LTRAibr1Pos2Ptr = here->LTRAibr1Pos2Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr1Neg2Ptr = here->LTRAibr1Neg2StructPtr->CSC_Complex ;
+                here->LTRAibr1Neg2Ptr = here->LTRAibr1Neg2Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr1Ibr1Ptr = here->LTRAibr1Ibr1StructPtr->CSC_Complex ;
+                here->LTRAibr1Ibr1Ptr = here->LTRAibr1Ibr1Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr1Ibr2Ptr = here->LTRAibr1Ibr2StructPtr->CSC_Complex ;
+                here->LTRAibr1Ibr2Ptr = here->LTRAibr1Ibr2Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr2Pos1Ptr = here->LTRAibr2Pos1StructPtr->CSC_Complex ;
+                here->LTRAibr2Pos1Ptr = here->LTRAibr2Pos1Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr2Neg1Ptr = here->LTRAibr2Neg1StructPtr->CSC_Complex ;
+                here->LTRAibr2Neg1Ptr = here->LTRAibr2Neg1Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr2Pos2Ptr = here->LTRAibr2Pos2StructPtr->CSC_Complex ;
+                here->LTRAibr2Pos2Ptr = here->LTRAibr2Pos2Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr2Neg2Ptr = here->LTRAibr2Neg2StructPtr->CSC_Complex ;
+                here->LTRAibr2Neg2Ptr = here->LTRAibr2Neg2Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr2Ibr1Ptr = here->LTRAibr2Ibr1StructPtr->CSC_Complex ;
+                here->LTRAibr2Ibr1Ptr = here->LTRAibr2Ibr1Binding->CSC_Complex ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr2Ibr2Ptr = here->LTRAibr2Ibr2StructPtr->CSC_Complex ;
+                here->LTRAibr2Ibr2Ptr = here->LTRAibr2Ibr2Binding->CSC_Complex ;
 
             if ((here-> LTRAposNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRApos1Ibr1Ptr = here->LTRApos1Ibr1StructPtr->CSC_Complex ;
+                here->LTRApos1Ibr1Ptr = here->LTRApos1Ibr1Binding->CSC_Complex ;
 
             if ((here-> LTRAnegNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAneg1Ibr1Ptr = here->LTRAneg1Ibr1StructPtr->CSC_Complex ;
+                here->LTRAneg1Ibr1Ptr = here->LTRAneg1Ibr1Binding->CSC_Complex ;
 
             if ((here-> LTRAposNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRApos2Ibr2Ptr = here->LTRApos2Ibr2StructPtr->CSC_Complex ;
+                here->LTRApos2Ibr2Ptr = here->LTRApos2Ibr2Binding->CSC_Complex ;
 
             if ((here-> LTRAnegNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAneg2Ibr2Ptr = here->LTRAneg2Ibr2StructPtr->CSC_Complex ;
+                here->LTRAneg2Ibr2Ptr = here->LTRAneg2Ibr2Binding->CSC_Complex ;
 
             if ((here-> LTRAposNode1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRApos1Pos1Ptr = here->LTRApos1Pos1StructPtr->CSC_Complex ;
+                here->LTRApos1Pos1Ptr = here->LTRApos1Pos1Binding->CSC_Complex ;
 
             if ((here-> LTRAnegNode1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAneg1Neg1Ptr = here->LTRAneg1Neg1StructPtr->CSC_Complex ;
+                here->LTRAneg1Neg1Ptr = here->LTRAneg1Neg1Binding->CSC_Complex ;
 
             if ((here-> LTRAposNode2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRApos2Pos2Ptr = here->LTRApos2Pos2StructPtr->CSC_Complex ;
+                here->LTRApos2Pos2Ptr = here->LTRApos2Pos2Binding->CSC_Complex ;
 
             if ((here-> LTRAnegNode2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAneg2Neg2Ptr = here->LTRAneg2Neg2StructPtr->CSC_Complex ;
+                here->LTRAneg2Neg2Ptr = here->LTRAneg2Neg2Binding->CSC_Complex ;
 
         }
     }
@@ -299,64 +299,64 @@ LTRAbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->LTRAinstances ; here != NULL ; here = here->LTRAnextInstance)
         {
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr1Pos1Ptr = here->LTRAibr1Pos1StructPtr->CSC ;
+                here->LTRAibr1Pos1Ptr = here->LTRAibr1Pos1Binding->CSC ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr1Neg1Ptr = here->LTRAibr1Neg1StructPtr->CSC ;
+                here->LTRAibr1Neg1Ptr = here->LTRAibr1Neg1Binding->CSC ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr1Pos2Ptr = here->LTRAibr1Pos2StructPtr->CSC ;
+                here->LTRAibr1Pos2Ptr = here->LTRAibr1Pos2Binding->CSC ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr1Neg2Ptr = here->LTRAibr1Neg2StructPtr->CSC ;
+                here->LTRAibr1Neg2Ptr = here->LTRAibr1Neg2Binding->CSC ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr1Ibr1Ptr = here->LTRAibr1Ibr1StructPtr->CSC ;
+                here->LTRAibr1Ibr1Ptr = here->LTRAibr1Ibr1Binding->CSC ;
 
             if ((here-> LTRAbrEq1 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr1Ibr2Ptr = here->LTRAibr1Ibr2StructPtr->CSC ;
+                here->LTRAibr1Ibr2Ptr = here->LTRAibr1Ibr2Binding->CSC ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRAibr2Pos1Ptr = here->LTRAibr2Pos1StructPtr->CSC ;
+                here->LTRAibr2Pos1Ptr = here->LTRAibr2Pos1Binding->CSC ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAibr2Neg1Ptr = here->LTRAibr2Neg1StructPtr->CSC ;
+                here->LTRAibr2Neg1Ptr = here->LTRAibr2Neg1Binding->CSC ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRAibr2Pos2Ptr = here->LTRAibr2Pos2StructPtr->CSC ;
+                here->LTRAibr2Pos2Ptr = here->LTRAibr2Pos2Binding->CSC ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAibr2Neg2Ptr = here->LTRAibr2Neg2StructPtr->CSC ;
+                here->LTRAibr2Neg2Ptr = here->LTRAibr2Neg2Binding->CSC ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAibr2Ibr1Ptr = here->LTRAibr2Ibr1StructPtr->CSC ;
+                here->LTRAibr2Ibr1Ptr = here->LTRAibr2Ibr1Binding->CSC ;
 
             if ((here-> LTRAbrEq2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAibr2Ibr2Ptr = here->LTRAibr2Ibr2StructPtr->CSC ;
+                here->LTRAibr2Ibr2Ptr = here->LTRAibr2Ibr2Binding->CSC ;
 
             if ((here-> LTRAposNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRApos1Ibr1Ptr = here->LTRApos1Ibr1StructPtr->CSC ;
+                here->LTRApos1Ibr1Ptr = here->LTRApos1Ibr1Binding->CSC ;
 
             if ((here-> LTRAnegNode1 != 0) && (here-> LTRAbrEq1 != 0))
-                here->LTRAneg1Ibr1Ptr = here->LTRAneg1Ibr1StructPtr->CSC ;
+                here->LTRAneg1Ibr1Ptr = here->LTRAneg1Ibr1Binding->CSC ;
 
             if ((here-> LTRAposNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRApos2Ibr2Ptr = here->LTRApos2Ibr2StructPtr->CSC ;
+                here->LTRApos2Ibr2Ptr = here->LTRApos2Ibr2Binding->CSC ;
 
             if ((here-> LTRAnegNode2 != 0) && (here-> LTRAbrEq2 != 0))
-                here->LTRAneg2Ibr2Ptr = here->LTRAneg2Ibr2StructPtr->CSC ;
+                here->LTRAneg2Ibr2Ptr = here->LTRAneg2Ibr2Binding->CSC ;
 
             if ((here-> LTRAposNode1 != 0) && (here-> LTRAposNode1 != 0))
-                here->LTRApos1Pos1Ptr = here->LTRApos1Pos1StructPtr->CSC ;
+                here->LTRApos1Pos1Ptr = here->LTRApos1Pos1Binding->CSC ;
 
             if ((here-> LTRAnegNode1 != 0) && (here-> LTRAnegNode1 != 0))
-                here->LTRAneg1Neg1Ptr = here->LTRAneg1Neg1StructPtr->CSC ;
+                here->LTRAneg1Neg1Ptr = here->LTRAneg1Neg1Binding->CSC ;
 
             if ((here-> LTRAposNode2 != 0) && (here-> LTRAposNode2 != 0))
-                here->LTRApos2Pos2Ptr = here->LTRApos2Pos2StructPtr->CSC ;
+                here->LTRApos2Pos2Ptr = here->LTRApos2Pos2Binding->CSC ;
 
             if ((here-> LTRAnegNode2 != 0) && (here-> LTRAnegNode2 != 0))
-                here->LTRAneg2Neg2Ptr = here->LTRAneg2Neg2StructPtr->CSC ;
+                here->LTRAneg2Neg2Ptr = here->LTRAneg2Neg2Binding->CSC ;
 
         }
     }

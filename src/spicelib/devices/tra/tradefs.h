@@ -82,28 +82,28 @@ typedef struct sTRAinstance {
     unsigned TRAabstolGiven:1;  /* flag to ind. absolute deriv. tol. given */
 
 #ifdef KLU
-    BindElement *TRAibr1Ibr2StructPtr ;
-    BindElement *TRAibr1Int1StructPtr ;
-    BindElement *TRAibr1Neg1StructPtr ;
-    BindElement *TRAibr1Neg2StructPtr ;
-    BindElement *TRAibr1Pos2StructPtr ;
-    BindElement *TRAibr2Ibr1StructPtr ;
-    BindElement *TRAibr2Int2StructPtr ;
-    BindElement *TRAibr2Neg1StructPtr ;
-    BindElement *TRAibr2Neg2StructPtr ;
-    BindElement *TRAibr2Pos1StructPtr ;
-    BindElement *TRAint1Ibr1StructPtr ;
-    BindElement *TRAint1Int1StructPtr ;
-    BindElement *TRAint1Pos1StructPtr ;
-    BindElement *TRAint2Ibr2StructPtr ;
-    BindElement *TRAint2Int2StructPtr ;
-    BindElement *TRAint2Pos2StructPtr ;
-    BindElement *TRAneg1Ibr1StructPtr ;
-    BindElement *TRAneg2Ibr2StructPtr ;
-    BindElement *TRApos1Int1StructPtr ;
-    BindElement *TRApos1Pos1StructPtr ;
-    BindElement *TRApos2Int2StructPtr ;
-    BindElement *TRApos2Pos2StructPtr ;
+    BindElement *TRAibr1Ibr2Binding ;
+    BindElement *TRAibr1Int1Binding ;
+    BindElement *TRAibr1Neg1Binding ;
+    BindElement *TRAibr1Neg2Binding ;
+    BindElement *TRAibr1Pos2Binding ;
+    BindElement *TRAibr2Ibr1Binding ;
+    BindElement *TRAibr2Int2Binding ;
+    BindElement *TRAibr2Neg1Binding ;
+    BindElement *TRAibr2Neg2Binding ;
+    BindElement *TRAibr2Pos1Binding ;
+    BindElement *TRAint1Ibr1Binding ;
+    BindElement *TRAint1Int1Binding ;
+    BindElement *TRAint1Pos1Binding ;
+    BindElement *TRAint2Ibr2Binding ;
+    BindElement *TRAint2Int2Binding ;
+    BindElement *TRAint2Pos2Binding ;
+    BindElement *TRAneg1Ibr1Binding ;
+    BindElement *TRAneg2Ibr2Binding ;
+    BindElement *TRApos1Int1Binding ;
+    BindElement *TRApos1Pos1Binding ;
+    BindElement *TRApos2Int2Binding ;
+    BindElement *TRApos2Pos2Binding ;
 #endif
 
 } TRAinstance ;

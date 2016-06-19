@@ -69,26 +69,26 @@ typedef struct sLTRAinstance {
     unsigned LTRAicC2Given : 1;  /* flag to ind. init. current at port 2 given */
 
 #ifdef KLU
-    BindElement *LTRAibr1Pos1StructPtr ;
-    BindElement *LTRAibr1Neg1StructPtr ;
-    BindElement *LTRAibr1Pos2StructPtr ;
-    BindElement *LTRAibr1Neg2StructPtr ;
-    BindElement *LTRAibr1Ibr1StructPtr ;
-    BindElement *LTRAibr1Ibr2StructPtr ;
-    BindElement *LTRAibr2Pos1StructPtr ;
-    BindElement *LTRAibr2Neg1StructPtr ;
-    BindElement *LTRAibr2Pos2StructPtr ;
-    BindElement *LTRAibr2Neg2StructPtr ;
-    BindElement *LTRAibr2Ibr1StructPtr ;
-    BindElement *LTRAibr2Ibr2StructPtr ;
-    BindElement *LTRApos1Ibr1StructPtr ;
-    BindElement *LTRAneg1Ibr1StructPtr ;
-    BindElement *LTRApos2Ibr2StructPtr ;
-    BindElement *LTRAneg2Ibr2StructPtr ;
-    BindElement *LTRApos1Pos1StructPtr ;
-    BindElement *LTRAneg1Neg1StructPtr ;
-    BindElement *LTRApos2Pos2StructPtr ;
-    BindElement *LTRAneg2Neg2StructPtr ;
+    BindElement *LTRAibr1Pos1Binding ;
+    BindElement *LTRAibr1Neg1Binding ;
+    BindElement *LTRAibr1Pos2Binding ;
+    BindElement *LTRAibr1Neg2Binding ;
+    BindElement *LTRAibr1Ibr1Binding ;
+    BindElement *LTRAibr1Ibr2Binding ;
+    BindElement *LTRAibr2Pos1Binding ;
+    BindElement *LTRAibr2Neg1Binding ;
+    BindElement *LTRAibr2Pos2Binding ;
+    BindElement *LTRAibr2Neg2Binding ;
+    BindElement *LTRAibr2Ibr1Binding ;
+    BindElement *LTRAibr2Ibr2Binding ;
+    BindElement *LTRApos1Ibr1Binding ;
+    BindElement *LTRAneg1Ibr1Binding ;
+    BindElement *LTRApos2Ibr2Binding ;
+    BindElement *LTRAneg2Ibr2Binding ;
+    BindElement *LTRApos1Pos1Binding ;
+    BindElement *LTRAneg1Neg1Binding ;
+    BindElement *LTRApos2Pos2Binding ;
+    BindElement *LTRAneg2Neg2Binding ;
 #endif
 
 } LTRAinstance ;

@@ -140,8 +140,8 @@ int  MUTsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
 #ifdef KLU
-    BindElement *MUTbr1br2StructPtr ;
-    BindElement *MUTbr2br1StructPtr ;
+    BindElement *MUTbr1br2Binding ;
+    BindElement *MUTbr2br1Binding ;
 #endif
 
 } MUTinstance ;

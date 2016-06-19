@@ -116,22 +116,22 @@ typedef struct sNUMOSinstance {
   unsigned NUMOStempGiven:1;	/* flag to indicate temp was given */
 
 #ifdef KLU
-    BindElement *NUMOSdrainDrainStructPtr ;
-    BindElement *NUMOSdrainSourceStructPtr ;
-    BindElement *NUMOSdrainGateStructPtr ;
-    BindElement *NUMOSdrainBulkStructPtr ;
-    BindElement *NUMOSsourceDrainStructPtr ;
-    BindElement *NUMOSsourceSourceStructPtr ;
-    BindElement *NUMOSsourceGateStructPtr ;
-    BindElement *NUMOSsourceBulkStructPtr ;
-    BindElement *NUMOSgateDrainStructPtr ;
-    BindElement *NUMOSgateSourceStructPtr ;
-    BindElement *NUMOSgateGateStructPtr ;
-    BindElement *NUMOSgateBulkStructPtr ;
-    BindElement *NUMOSbulkDrainStructPtr ;
-    BindElement *NUMOSbulkSourceStructPtr ;
-    BindElement *NUMOSbulkGateStructPtr ;
-    BindElement *NUMOSbulkBulkStructPtr ;
+    BindElement *NUMOSdrainDrainBinding ;
+    BindElement *NUMOSdrainSourceBinding ;
+    BindElement *NUMOSdrainGateBinding ;
+    BindElement *NUMOSdrainBulkBinding ;
+    BindElement *NUMOSsourceDrainBinding ;
+    BindElement *NUMOSsourceSourceBinding ;
+    BindElement *NUMOSsourceGateBinding ;
+    BindElement *NUMOSsourceBulkBinding ;
+    BindElement *NUMOSgateDrainBinding ;
+    BindElement *NUMOSgateSourceBinding ;
+    BindElement *NUMOSgateGateBinding ;
+    BindElement *NUMOSgateBulkBinding ;
+    BindElement *NUMOSbulkDrainBinding ;
+    BindElement *NUMOSbulkSourceBinding ;
+    BindElement *NUMOSbulkGateBinding ;
+    BindElement *NUMOSbulkBulkBinding ;
 #endif
 
 } NUMOSinstance;

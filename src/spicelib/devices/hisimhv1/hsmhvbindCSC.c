@@ -42,7 +42,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPbpStructPtr = matched ;
+                here->HSMHVDPbpBinding = matched ;
                 here->HSMHVDPbpPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPbpStructPtr = matched ;
+                here->HSMHVSPbpBinding = matched ;
                 here->HSMHVSPbpPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPbpStructPtr = matched ;
+                here->HSMHVGPbpBinding = matched ;
                 here->HSMHVGPbpPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPdStructPtr = matched ;
+                here->HSMHVBPdBinding = matched ;
                 here->HSMHVBPdPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPsStructPtr = matched ;
+                here->HSMHVBPsBinding = matched ;
                 here->HSMHVBPsPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPdpStructPtr = matched ;
+                here->HSMHVBPdpBinding = matched ;
                 here->HSMHVBPdpPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPspStructPtr = matched ;
+                here->HSMHVBPspBinding = matched ;
                 here->HSMHVBPspPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPgpStructPtr = matched ;
+                here->HSMHVBPgpBinding = matched ;
                 here->HSMHVBPgpPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPbpStructPtr = matched ;
+                here->HSMHVBPbpBinding = matched ;
                 here->HSMHVBPbpPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDdStructPtr = matched ;
+                here->HSMHVDdBinding = matched ;
                 here->HSMHVDdPtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPgpStructPtr = matched ;
+                here->HSMHVGPgpBinding = matched ;
                 here->HSMHVGPgpPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSsStructPtr = matched ;
+                here->HSMHVSsBinding = matched ;
                 here->HSMHVSsPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPdpStructPtr = matched ;
+                here->HSMHVDPdpBinding = matched ;
                 here->HSMHVDPdpPtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPspStructPtr = matched ;
+                here->HSMHVSPspBinding = matched ;
                 here->HSMHVSPspPtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDdpStructPtr = matched ;
+                here->HSMHVDdpBinding = matched ;
                 here->HSMHVDdpPtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPdpStructPtr = matched ;
+                here->HSMHVGPdpBinding = matched ;
                 here->HSMHVGPdpPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPspStructPtr = matched ;
+                here->HSMHVGPspBinding = matched ;
                 here->HSMHVGPspPtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSspStructPtr = matched ;
+                here->HSMHVSspBinding = matched ;
                 here->HSMHVSspPtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPspStructPtr = matched ;
+                here->HSMHVDPspBinding = matched ;
                 here->HSMHVDPspPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPdStructPtr = matched ;
+                here->HSMHVDPdBinding = matched ;
                 here->HSMHVDPdPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPgpStructPtr = matched ;
+                here->HSMHVDPgpBinding = matched ;
                 here->HSMHVDPgpPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSPgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPgpStructPtr = matched ;
+                here->HSMHVSPgpBinding = matched ;
                 here->HSMHVSPgpPtr = matched->CSC ;
             }
 
@@ -218,7 +218,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPsStructPtr = matched ;
+                here->HSMHVSPsBinding = matched ;
                 here->HSMHVSPsPtr = matched->CSC ;
             }
 
@@ -226,7 +226,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPdpStructPtr = matched ;
+                here->HSMHVSPdpBinding = matched ;
                 here->HSMHVSPdpPtr = matched->CSC ;
             }
 
@@ -234,7 +234,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGgStructPtr = matched ;
+                here->HSMHVGgBinding = matched ;
                 here->HSMHVGgPtr = matched->CSC ;
             }
 
@@ -242,7 +242,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGgpStructPtr = matched ;
+                here->HSMHVGgpBinding = matched ;
                 here->HSMHVGgpPtr = matched->CSC ;
             }
 
@@ -250,7 +250,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPgStructPtr = matched ;
+                here->HSMHVGPgBinding = matched ;
                 here->HSMHVGPgPtr = matched->CSC ;
             }
 
@@ -258,7 +258,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDdbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDdbStructPtr = matched ;
+                here->HSMHVDdbBinding = matched ;
                 here->HSMHVDdbPtr = matched->CSC ;
             }
 
@@ -266,7 +266,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSsbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSsbStructPtr = matched ;
+                here->HSMHVSsbBinding = matched ;
                 here->HSMHVSsbPtr = matched->CSC ;
             }
 
@@ -274,7 +274,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDBdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDBdStructPtr = matched ;
+                here->HSMHVDBdBinding = matched ;
                 here->HSMHVDBdPtr = matched->CSC ;
             }
 
@@ -282,7 +282,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDBdbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDBdbStructPtr = matched ;
+                here->HSMHVDBdbBinding = matched ;
                 here->HSMHVDBdbPtr = matched->CSC ;
             }
 
@@ -290,7 +290,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDBbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDBbpStructPtr = matched ;
+                here->HSMHVDBbpBinding = matched ;
                 here->HSMHVDBbpPtr = matched->CSC ;
             }
 
@@ -298,7 +298,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPdbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPdbStructPtr = matched ;
+                here->HSMHVBPdbBinding = matched ;
                 here->HSMHVBPdbPtr = matched->CSC ;
             }
 
@@ -306,7 +306,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPbStructPtr = matched ;
+                here->HSMHVBPbBinding = matched ;
                 here->HSMHVBPbPtr = matched->CSC ;
             }
 
@@ -314,7 +314,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBPsbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBPsbStructPtr = matched ;
+                here->HSMHVBPsbBinding = matched ;
                 here->HSMHVBPsbPtr = matched->CSC ;
             }
 
@@ -322,7 +322,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSBsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSBsStructPtr = matched ;
+                here->HSMHVSBsBinding = matched ;
                 here->HSMHVSBsPtr = matched->CSC ;
             }
 
@@ -330,7 +330,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSBbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSBbpStructPtr = matched ;
+                here->HSMHVSBbpBinding = matched ;
                 here->HSMHVSBbpPtr = matched->CSC ;
             }
 
@@ -338,7 +338,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSBsbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSBsbStructPtr = matched ;
+                here->HSMHVSBsbBinding = matched ;
                 here->HSMHVSBsbPtr = matched->CSC ;
             }
 
@@ -346,7 +346,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBbpStructPtr = matched ;
+                here->HSMHVBbpBinding = matched ;
                 here->HSMHVBbpPtr = matched->CSC ;
             }
 
@@ -354,7 +354,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVBbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVBbStructPtr = matched ;
+                here->HSMHVBbBinding = matched ;
                 here->HSMHVBbPtr = matched->CSC ;
             }
 
@@ -362,7 +362,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDgpStructPtr = matched ;
+                here->HSMHVDgpBinding = matched ;
                 here->HSMHVDgpPtr = matched->CSC ;
             }
 
@@ -370,7 +370,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDsStructPtr = matched ;
+                here->HSMHVDsBinding = matched ;
                 here->HSMHVDsPtr = matched->CSC ;
             }
 
@@ -378,7 +378,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDbpStructPtr = matched ;
+                here->HSMHVDbpBinding = matched ;
                 here->HSMHVDbpPtr = matched->CSC ;
             }
 
@@ -386,7 +386,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDspStructPtr = matched ;
+                here->HSMHVDspBinding = matched ;
                 here->HSMHVDspPtr = matched->CSC ;
             }
 
@@ -394,7 +394,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVDPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVDPsStructPtr = matched ;
+                here->HSMHVDPsBinding = matched ;
                 here->HSMHVDPsPtr = matched->CSC ;
             }
 
@@ -402,7 +402,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSgpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSgpStructPtr = matched ;
+                here->HSMHVSgpBinding = matched ;
                 here->HSMHVSgpPtr = matched->CSC ;
             }
 
@@ -410,7 +410,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSdStructPtr = matched ;
+                here->HSMHVSdBinding = matched ;
                 here->HSMHVSdPtr = matched->CSC ;
             }
 
@@ -418,7 +418,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSbpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSbpStructPtr = matched ;
+                here->HSMHVSbpBinding = matched ;
                 here->HSMHVSbpPtr = matched->CSC ;
             }
 
@@ -426,7 +426,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSdpStructPtr = matched ;
+                here->HSMHVSdpBinding = matched ;
                 here->HSMHVSdpPtr = matched->CSC ;
             }
 
@@ -434,7 +434,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVSPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVSPdStructPtr = matched ;
+                here->HSMHVSPdBinding = matched ;
                 here->HSMHVSPdPtr = matched->CSC ;
             }
 
@@ -442,7 +442,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPdStructPtr = matched ;
+                here->HSMHVGPdBinding = matched ;
                 here->HSMHVGPdPtr = matched->CSC ;
             }
 
@@ -450,7 +450,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->HSMHVGPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->HSMHVGPsStructPtr = matched ;
+                here->HSMHVGPsBinding = matched ;
                 here->HSMHVGPsPtr = matched->CSC ;
             }
 
@@ -460,7 +460,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVDsubPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDsubStructPtr = matched ;
+                    here->HSMHVDsubBinding = matched ;
                     here->HSMHVDsubPtr = matched->CSC ;
                 }
 
@@ -468,7 +468,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVDPsubPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDPsubStructPtr = matched ;
+                    here->HSMHVDPsubBinding = matched ;
                     here->HSMHVDPsubPtr = matched->CSC ;
                 }
 
@@ -476,7 +476,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVSsubPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSsubStructPtr = matched ;
+                    here->HSMHVSsubBinding = matched ;
                     here->HSMHVSsubPtr = matched->CSC ;
                 }
 
@@ -484,7 +484,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVSPsubPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSPsubStructPtr = matched ;
+                    here->HSMHVSPsubBinding = matched ;
                     here->HSMHVSPsubPtr = matched->CSC ;
                 }
 
@@ -495,7 +495,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTemptempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTemptempStructPtr = matched ;
+                    here->HSMHVTemptempBinding = matched ;
                     here->HSMHVTemptempPtr = matched->CSC ;
                 }
 
@@ -503,7 +503,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTempdPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempdStructPtr = matched ;
+                    here->HSMHVTempdBinding = matched ;
                     here->HSMHVTempdPtr = matched->CSC ;
                 }
 
@@ -511,7 +511,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTempdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempdpStructPtr = matched ;
+                    here->HSMHVTempdpBinding = matched ;
                     here->HSMHVTempdpPtr = matched->CSC ;
                 }
 
@@ -519,7 +519,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTempsPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempsStructPtr = matched ;
+                    here->HSMHVTempsBinding = matched ;
                     here->HSMHVTempsPtr = matched->CSC ;
                 }
 
@@ -527,7 +527,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTempspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempspStructPtr = matched ;
+                    here->HSMHVTempspBinding = matched ;
                     here->HSMHVTempspPtr = matched->CSC ;
                 }
 
@@ -535,7 +535,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVDPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDPtempStructPtr = matched ;
+                    here->HSMHVDPtempBinding = matched ;
                     here->HSMHVDPtempPtr = matched->CSC ;
                 }
 
@@ -543,7 +543,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVSPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSPtempStructPtr = matched ;
+                    here->HSMHVSPtempBinding = matched ;
                     here->HSMHVSPtempPtr = matched->CSC ;
                 }
 
@@ -551,7 +551,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTempgpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempgpStructPtr = matched ;
+                    here->HSMHVTempgpBinding = matched ;
                     here->HSMHVTempgpPtr = matched->CSC ;
                 }
 
@@ -559,7 +559,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVTempbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVTempbpStructPtr = matched ;
+                    here->HSMHVTempbpBinding = matched ;
                     here->HSMHVTempbpPtr = matched->CSC ;
                 }
 
@@ -567,7 +567,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVGPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVGPtempStructPtr = matched ;
+                    here->HSMHVGPtempBinding = matched ;
                     here->HSMHVGPtempPtr = matched->CSC ;
                 }
 
@@ -575,7 +575,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVBPtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVBPtempStructPtr = matched ;
+                    here->HSMHVBPtempBinding = matched ;
                     here->HSMHVBPtempPtr = matched->CSC ;
                 }
 
@@ -583,7 +583,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVDBtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDBtempStructPtr = matched ;
+                    here->HSMHVDBtempBinding = matched ;
                     here->HSMHVDBtempPtr = matched->CSC ;
                 }
 
@@ -591,7 +591,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVSBtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSBtempStructPtr = matched ;
+                    here->HSMHVSBtempBinding = matched ;
                     here->HSMHVSBtempPtr = matched->CSC ;
                 }
 
@@ -599,7 +599,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVDtempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDtempStructPtr = matched ;
+                    here->HSMHVDtempBinding = matched ;
                     here->HSMHVDtempPtr = matched->CSC ;
                 }
 
@@ -607,7 +607,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVStempPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVStempStructPtr = matched ;
+                    here->HSMHVStempBinding = matched ;
                     here->HSMHVStempPtr = matched->CSC ;
                 }
 
@@ -618,7 +618,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVDPqiPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVDPqiStructPtr = matched ;
+                    here->HSMHVDPqiBinding = matched ;
                     here->HSMHVDPqiPtr = matched->CSC ;
                 }
 
@@ -626,7 +626,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVGPqiPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVGPqiStructPtr = matched ;
+                    here->HSMHVGPqiBinding = matched ;
                     here->HSMHVGPqiPtr = matched->CSC ;
                 }
 
@@ -634,7 +634,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVGPqbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVGPqbStructPtr = matched ;
+                    here->HSMHVGPqbBinding = matched ;
                     here->HSMHVGPqbPtr = matched->CSC ;
                 }
 
@@ -642,7 +642,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVSPqiPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVSPqiStructPtr = matched ;
+                    here->HSMHVSPqiBinding = matched ;
                     here->HSMHVSPqiPtr = matched->CSC ;
                 }
 
@@ -650,7 +650,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVBPqbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVBPqbStructPtr = matched ;
+                    here->HSMHVBPqbBinding = matched ;
                     here->HSMHVBPqbPtr = matched->CSC ;
                 }
 
@@ -658,7 +658,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQIdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIdpStructPtr = matched ;
+                    here->HSMHVQIdpBinding = matched ;
                     here->HSMHVQIdpPtr = matched->CSC ;
                 }
 
@@ -666,7 +666,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQIgpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIgpStructPtr = matched ;
+                    here->HSMHVQIgpBinding = matched ;
                     here->HSMHVQIgpPtr = matched->CSC ;
                 }
 
@@ -674,7 +674,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQIspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIspStructPtr = matched ;
+                    here->HSMHVQIspBinding = matched ;
                     here->HSMHVQIspPtr = matched->CSC ;
                 }
 
@@ -682,7 +682,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQIbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIbpStructPtr = matched ;
+                    here->HSMHVQIbpBinding = matched ;
                     here->HSMHVQIbpPtr = matched->CSC ;
                 }
 
@@ -690,7 +690,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQIqiPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQIqiStructPtr = matched ;
+                    here->HSMHVQIqiBinding = matched ;
                     here->HSMHVQIqiPtr = matched->CSC ;
                 }
 
@@ -698,7 +698,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQBdpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBdpStructPtr = matched ;
+                    here->HSMHVQBdpBinding = matched ;
                     here->HSMHVQBdpPtr = matched->CSC ;
                 }
 
@@ -706,7 +706,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQBgpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBgpStructPtr = matched ;
+                    here->HSMHVQBgpBinding = matched ;
                     here->HSMHVQBgpPtr = matched->CSC ;
                 }
 
@@ -714,7 +714,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQBspPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBspStructPtr = matched ;
+                    here->HSMHVQBspBinding = matched ;
                     here->HSMHVQBspPtr = matched->CSC ;
                 }
 
@@ -722,7 +722,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQBbpPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBbpStructPtr = matched ;
+                    here->HSMHVQBbpBinding = matched ;
                     here->HSMHVQBbpPtr = matched->CSC ;
                 }
 
@@ -730,7 +730,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                 {
                     i = here->HSMHVQBqbPtr ;
                     matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                    here->HSMHVQBqbStructPtr = matched ;
+                    here->HSMHVQBqbBinding = matched ;
                     here->HSMHVQBqbPtr = matched->CSC ;
                 }
 
@@ -740,7 +740,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->HSMHVQItempPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->HSMHVQItempStructPtr = matched ;
+                        here->HSMHVQItempBinding = matched ;
                         here->HSMHVQItempPtr = matched->CSC ;
                     }
 
@@ -748,7 +748,7 @@ HSMHVbindCSC (GENmodel *inModel, CKTcircuit *ckt)
                     {
                         i = here->HSMHVQBtempPtr ;
                         matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                        here->HSMHVQBtempStructPtr = matched ;
+                        here->HSMHVQBtempBinding = matched ;
                         here->HSMHVQBtempPtr = matched->CSC ;
                     }
 
@@ -775,278 +775,278 @@ HSMHVbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->HSMHVinstances ; here != NULL ; here = here->HSMHVnextInstance)
         {
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDPbpPtr = here->HSMHVDPbpStructPtr->CSC_Complex ;
+                here->HSMHVDPbpPtr = here->HSMHVDPbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSPbpPtr = here->HSMHVSPbpStructPtr->CSC_Complex ;
+                here->HSMHVSPbpPtr = here->HSMHVSPbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVGPbpPtr = here->HSMHVGPbpStructPtr->CSC_Complex ;
+                here->HSMHVGPbpPtr = here->HSMHVGPbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVBPdPtr = here->HSMHVBPdStructPtr->CSC_Complex ;
+                here->HSMHVBPdPtr = here->HSMHVBPdBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVBPsPtr = here->HSMHVBPsStructPtr->CSC_Complex ;
+                here->HSMHVBPsPtr = here->HSMHVBPsBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVBPdpPtr = here->HSMHVBPdpStructPtr->CSC_Complex ;
+                here->HSMHVBPdpPtr = here->HSMHVBPdpBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVBPspPtr = here->HSMHVBPspStructPtr->CSC_Complex ;
+                here->HSMHVBPspPtr = here->HSMHVBPspBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVBPgpPtr = here->HSMHVBPgpStructPtr->CSC_Complex ;
+                here->HSMHVBPgpPtr = here->HSMHVBPgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBPbpPtr = here->HSMHVBPbpStructPtr->CSC_Complex ;
+                here->HSMHVBPbpPtr = here->HSMHVBPbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDdPtr = here->HSMHVDdStructPtr->CSC_Complex ;
+                here->HSMHVDdPtr = here->HSMHVDdBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGPgpPtr = here->HSMHVGPgpStructPtr->CSC_Complex ;
+                here->HSMHVGPgpPtr = here->HSMHVGPgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSsPtr = here->HSMHVSsStructPtr->CSC_Complex ;
+                here->HSMHVSsPtr = here->HSMHVSsBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDPdpPtr = here->HSMHVDPdpStructPtr->CSC_Complex ;
+                here->HSMHVDPdpPtr = here->HSMHVDPdpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSPspPtr = here->HSMHVSPspStructPtr->CSC_Complex ;
+                here->HSMHVSPspPtr = here->HSMHVSPspBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDdpPtr = here->HSMHVDdpStructPtr->CSC_Complex ;
+                here->HSMHVDdpPtr = here->HSMHVDdpBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVGPdpPtr = here->HSMHVGPdpStructPtr->CSC_Complex ;
+                here->HSMHVGPdpPtr = here->HSMHVGPdpBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVGPspPtr = here->HSMHVGPspStructPtr->CSC_Complex ;
+                here->HSMHVGPspPtr = here->HSMHVGPspBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSspPtr = here->HSMHVSspStructPtr->CSC_Complex ;
+                here->HSMHVSspPtr = here->HSMHVSspBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDPspPtr = here->HSMHVDPspStructPtr->CSC_Complex ;
+                here->HSMHVDPspPtr = here->HSMHVDPspBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDPdPtr = here->HSMHVDPdStructPtr->CSC_Complex ;
+                here->HSMHVDPdPtr = here->HSMHVDPdBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDPgpPtr = here->HSMHVDPgpStructPtr->CSC_Complex ;
+                here->HSMHVDPgpPtr = here->HSMHVDPgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSPgpPtr = here->HSMHVSPgpStructPtr->CSC_Complex ;
+                here->HSMHVSPgpPtr = here->HSMHVSPgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSPsPtr = here->HSMHVSPsStructPtr->CSC_Complex ;
+                here->HSMHVSPsPtr = here->HSMHVSPsBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSPdpPtr = here->HSMHVSPdpStructPtr->CSC_Complex ;
+                here->HSMHVSPdpPtr = here->HSMHVSPdpBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGgPtr = here->HSMHVGgStructPtr->CSC_Complex ;
+                here->HSMHVGgPtr = here->HSMHVGgBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGgpPtr = here->HSMHVGgpStructPtr->CSC_Complex ;
+                here->HSMHVGgpPtr = here->HSMHVGgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGPgPtr = here->HSMHVGPgStructPtr->CSC_Complex ;
+                here->HSMHVGPgPtr = here->HSMHVGPgBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDdbPtr = here->HSMHVDdbStructPtr->CSC_Complex ;
+                here->HSMHVDdbPtr = here->HSMHVDdbBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSsbPtr = here->HSMHVSsbStructPtr->CSC_Complex ;
+                here->HSMHVSsbPtr = here->HSMHVSsbBinding->CSC_Complex ;
 
             if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDBdPtr = here->HSMHVDBdStructPtr->CSC_Complex ;
+                here->HSMHVDBdPtr = here->HSMHVDBdBinding->CSC_Complex ;
 
             if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDBdbPtr = here->HSMHVDBdbStructPtr->CSC_Complex ;
+                here->HSMHVDBdbPtr = here->HSMHVDBdbBinding->CSC_Complex ;
 
             if ((here-> HSMHVdbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDBbpPtr = here->HSMHVDBbpStructPtr->CSC_Complex ;
+                here->HSMHVDBbpPtr = here->HSMHVDBbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVBPdbPtr = here->HSMHVBPdbStructPtr->CSC_Complex ;
+                here->HSMHVBPdbPtr = here->HSMHVBPdbBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBPbPtr = here->HSMHVBPbStructPtr->CSC_Complex ;
+                here->HSMHVBPbPtr = here->HSMHVBPbBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVBPsbPtr = here->HSMHVBPsbStructPtr->CSC_Complex ;
+                here->HSMHVBPsbPtr = here->HSMHVBPsbBinding->CSC_Complex ;
 
             if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSBsPtr = here->HSMHVSBsStructPtr->CSC_Complex ;
+                here->HSMHVSBsPtr = here->HSMHVSBsBinding->CSC_Complex ;
 
             if ((here-> HSMHVsbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSBbpPtr = here->HSMHVSBbpStructPtr->CSC_Complex ;
+                here->HSMHVSBbpPtr = here->HSMHVSBbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSBsbPtr = here->HSMHVSBsbStructPtr->CSC_Complex ;
+                here->HSMHVSBsbPtr = here->HSMHVSBsbBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBbpPtr = here->HSMHVBbpStructPtr->CSC_Complex ;
+                here->HSMHVBbpPtr = here->HSMHVBbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBbPtr = here->HSMHVBbStructPtr->CSC_Complex ;
+                here->HSMHVBbPtr = here->HSMHVBbBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDgpPtr = here->HSMHVDgpStructPtr->CSC_Complex ;
+                here->HSMHVDgpPtr = here->HSMHVDgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDsPtr = here->HSMHVDsStructPtr->CSC_Complex ;
+                here->HSMHVDsPtr = here->HSMHVDsBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDbpPtr = here->HSMHVDbpStructPtr->CSC_Complex ;
+                here->HSMHVDbpPtr = here->HSMHVDbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDspPtr = here->HSMHVDspStructPtr->CSC_Complex ;
+                here->HSMHVDspPtr = here->HSMHVDspBinding->CSC_Complex ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDPsPtr = here->HSMHVDPsStructPtr->CSC_Complex ;
+                here->HSMHVDPsPtr = here->HSMHVDPsBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSgpPtr = here->HSMHVSgpStructPtr->CSC_Complex ;
+                here->HSMHVSgpPtr = here->HSMHVSgpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSdPtr = here->HSMHVSdStructPtr->CSC_Complex ;
+                here->HSMHVSdPtr = here->HSMHVSdBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSbpPtr = here->HSMHVSbpStructPtr->CSC_Complex ;
+                here->HSMHVSbpPtr = here->HSMHVSbpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSdpPtr = here->HSMHVSdpStructPtr->CSC_Complex ;
+                here->HSMHVSdpPtr = here->HSMHVSdpBinding->CSC_Complex ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSPdPtr = here->HSMHVSPdStructPtr->CSC_Complex ;
+                here->HSMHVSPdPtr = here->HSMHVSPdBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVGPdPtr = here->HSMHVGPdStructPtr->CSC_Complex ;
+                here->HSMHVGPdPtr = here->HSMHVGPdBinding->CSC_Complex ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVGPsPtr = here->HSMHVGPsStructPtr->CSC_Complex ;
+                here->HSMHVGPsPtr = here->HSMHVGPsBinding->CSC_Complex ;
 
             if (here->HSMHVsubNode > 0)
             {
                 if ((here-> HSMHVdNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDsubPtr = here->HSMHVDsubStructPtr->CSC_Complex ;
+                    here->HSMHVDsubPtr = here->HSMHVDsubBinding->CSC_Complex ;
 
                 if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDPsubPtr = here->HSMHVDPsubStructPtr->CSC_Complex ;
+                    here->HSMHVDPsubPtr = here->HSMHVDPsubBinding->CSC_Complex ;
 
                 if ((here-> HSMHVsNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSsubPtr = here->HSMHVSsubStructPtr->CSC_Complex ;
+                    here->HSMHVSsubPtr = here->HSMHVSsubBinding->CSC_Complex ;
 
                 if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSPsubPtr = here->HSMHVSPsubStructPtr->CSC_Complex ;
+                    here->HSMHVSPsubPtr = here->HSMHVSPsubBinding->CSC_Complex ;
 
             }
             if (here->HSMHV_coselfheat > 0)
             {
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVTemptempPtr = here->HSMHVTemptempStructPtr->CSC_Complex ;
+                    here->HSMHVTemptempPtr = here->HSMHVTemptempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNode != 0))
-                    here->HSMHVTempdPtr = here->HSMHVTempdStructPtr->CSC_Complex ;
+                    here->HSMHVTempdPtr = here->HSMHVTempdBinding->CSC_Complex ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVTempdpPtr = here->HSMHVTempdpStructPtr->CSC_Complex ;
+                    here->HSMHVTempdpPtr = here->HSMHVTempdpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNode != 0))
-                    here->HSMHVTempsPtr = here->HSMHVTempsStructPtr->CSC_Complex ;
+                    here->HSMHVTempsPtr = here->HSMHVTempsBinding->CSC_Complex ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVTempspPtr = here->HSMHVTempspStructPtr->CSC_Complex ;
+                    here->HSMHVTempspPtr = here->HSMHVTempspBinding->CSC_Complex ;
 
                 if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDPtempPtr = here->HSMHVDPtempStructPtr->CSC_Complex ;
+                    here->HSMHVDPtempPtr = here->HSMHVDPtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSPtempPtr = here->HSMHVSPtempStructPtr->CSC_Complex ;
+                    here->HSMHVSPtempPtr = here->HSMHVSPtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVTempgpPtr = here->HSMHVTempgpStructPtr->CSC_Complex ;
+                    here->HSMHVTempgpPtr = here->HSMHVTempgpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVTempbpPtr = here->HSMHVTempbpStructPtr->CSC_Complex ;
+                    here->HSMHVTempbpPtr = here->HSMHVTempbpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVGPtempPtr = here->HSMHVGPtempStructPtr->CSC_Complex ;
+                    here->HSMHVGPtempPtr = here->HSMHVGPtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVBPtempPtr = here->HSMHVBPtempStructPtr->CSC_Complex ;
+                    here->HSMHVBPtempPtr = here->HSMHVBPtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVdbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDBtempPtr = here->HSMHVDBtempStructPtr->CSC_Complex ;
+                    here->HSMHVDBtempPtr = here->HSMHVDBtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVsbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSBtempPtr = here->HSMHVSBtempStructPtr->CSC_Complex ;
+                    here->HSMHVSBtempPtr = here->HSMHVSBtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVdNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDtempPtr = here->HSMHVDtempStructPtr->CSC_Complex ;
+                    here->HSMHVDtempPtr = here->HSMHVDtempBinding->CSC_Complex ;
 
                 if ((here-> HSMHVsNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVStempPtr = here->HSMHVStempStructPtr->CSC_Complex ;
+                    here->HSMHVStempPtr = here->HSMHVStempBinding->CSC_Complex ;
 
             }
             if (model->HSMHV_conqs)
             {
                 if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVDPqiPtr = here->HSMHVDPqiStructPtr->CSC_Complex ;
+                    here->HSMHVDPqiPtr = here->HSMHVDPqiBinding->CSC_Complex ;
 
                 if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVGPqiPtr = here->HSMHVGPqiStructPtr->CSC_Complex ;
+                    here->HSMHVGPqiPtr = here->HSMHVGPqiBinding->CSC_Complex ;
 
                 if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVGPqbPtr = here->HSMHVGPqbStructPtr->CSC_Complex ;
+                    here->HSMHVGPqbPtr = here->HSMHVGPqbBinding->CSC_Complex ;
 
                 if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVSPqiPtr = here->HSMHVSPqiStructPtr->CSC_Complex ;
+                    here->HSMHVSPqiPtr = here->HSMHVSPqiBinding->CSC_Complex ;
 
                 if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVBPqbPtr = here->HSMHVBPqbStructPtr->CSC_Complex ;
+                    here->HSMHVBPqbPtr = here->HSMHVBPqbBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQIdpPtr = here->HSMHVQIdpStructPtr->CSC_Complex ;
+                    here->HSMHVQIdpPtr = here->HSMHVQIdpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQIgpPtr = here->HSMHVQIgpStructPtr->CSC_Complex ;
+                    here->HSMHVQIgpPtr = here->HSMHVQIgpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQIspPtr = here->HSMHVQIspStructPtr->CSC_Complex ;
+                    here->HSMHVQIspPtr = here->HSMHVQIspBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQIbpPtr = here->HSMHVQIbpStructPtr->CSC_Complex ;
+                    here->HSMHVQIbpPtr = here->HSMHVQIbpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVQIqiPtr = here->HSMHVQIqiStructPtr->CSC_Complex ;
+                    here->HSMHVQIqiPtr = here->HSMHVQIqiBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQBdpPtr = here->HSMHVQBdpStructPtr->CSC_Complex ;
+                    here->HSMHVQBdpPtr = here->HSMHVQBdpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQBgpPtr = here->HSMHVQBgpStructPtr->CSC_Complex ;
+                    here->HSMHVQBgpPtr = here->HSMHVQBgpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQBspPtr = here->HSMHVQBspStructPtr->CSC_Complex ;
+                    here->HSMHVQBspPtr = here->HSMHVQBspBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQBbpPtr = here->HSMHVQBbpStructPtr->CSC_Complex ;
+                    here->HSMHVQBbpPtr = here->HSMHVQBbpBinding->CSC_Complex ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVQBqbPtr = here->HSMHVQBqbStructPtr->CSC_Complex ;
+                    here->HSMHVQBqbPtr = here->HSMHVQBqbBinding->CSC_Complex ;
 
                 if (here->HSMHV_coselfheat > 0)
                 {
                     if ((here-> HSMHVqiNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQItempPtr = here->HSMHVQItempStructPtr->CSC_Complex ;
+                        here->HSMHVQItempPtr = here->HSMHVQItempBinding->CSC_Complex ;
 
                     if ((here-> HSMHVqbNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQBtempPtr = here->HSMHVQBtempStructPtr->CSC_Complex ;
+                        here->HSMHVQBtempPtr = here->HSMHVQBtempBinding->CSC_Complex ;
 
                 }
             }
@@ -1071,278 +1071,278 @@ HSMHVbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->HSMHVinstances ; here != NULL ; here = here->HSMHVnextInstance)
         {
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDPbpPtr = here->HSMHVDPbpStructPtr->CSC ;
+                here->HSMHVDPbpPtr = here->HSMHVDPbpBinding->CSC ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSPbpPtr = here->HSMHVSPbpStructPtr->CSC ;
+                here->HSMHVSPbpPtr = here->HSMHVSPbpBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVGPbpPtr = here->HSMHVGPbpStructPtr->CSC ;
+                here->HSMHVGPbpPtr = here->HSMHVGPbpBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVBPdPtr = here->HSMHVBPdStructPtr->CSC ;
+                here->HSMHVBPdPtr = here->HSMHVBPdBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVBPsPtr = here->HSMHVBPsStructPtr->CSC ;
+                here->HSMHVBPsPtr = here->HSMHVBPsBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVBPdpPtr = here->HSMHVBPdpStructPtr->CSC ;
+                here->HSMHVBPdpPtr = here->HSMHVBPdpBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVBPspPtr = here->HSMHVBPspStructPtr->CSC ;
+                here->HSMHVBPspPtr = here->HSMHVBPspBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVBPgpPtr = here->HSMHVBPgpStructPtr->CSC ;
+                here->HSMHVBPgpPtr = here->HSMHVBPgpBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBPbpPtr = here->HSMHVBPbpStructPtr->CSC ;
+                here->HSMHVBPbpPtr = here->HSMHVBPbpBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDdPtr = here->HSMHVDdStructPtr->CSC ;
+                here->HSMHVDdPtr = here->HSMHVDdBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGPgpPtr = here->HSMHVGPgpStructPtr->CSC ;
+                here->HSMHVGPgpPtr = here->HSMHVGPgpBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSsPtr = here->HSMHVSsStructPtr->CSC ;
+                here->HSMHVSsPtr = here->HSMHVSsBinding->CSC ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDPdpPtr = here->HSMHVDPdpStructPtr->CSC ;
+                here->HSMHVDPdpPtr = here->HSMHVDPdpBinding->CSC ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSPspPtr = here->HSMHVSPspStructPtr->CSC ;
+                here->HSMHVSPspPtr = here->HSMHVSPspBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVDdpPtr = here->HSMHVDdpStructPtr->CSC ;
+                here->HSMHVDdpPtr = here->HSMHVDdpBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVGPdpPtr = here->HSMHVGPdpStructPtr->CSC ;
+                here->HSMHVGPdpPtr = here->HSMHVGPdpBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVGPspPtr = here->HSMHVGPspStructPtr->CSC ;
+                here->HSMHVGPspPtr = here->HSMHVGPspBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVSspPtr = here->HSMHVSspStructPtr->CSC ;
+                here->HSMHVSspPtr = here->HSMHVSspBinding->CSC ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDPspPtr = here->HSMHVDPspStructPtr->CSC ;
+                here->HSMHVDPspPtr = here->HSMHVDPspBinding->CSC ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDPdPtr = here->HSMHVDPdStructPtr->CSC ;
+                here->HSMHVDPdPtr = here->HSMHVDPdBinding->CSC ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDPgpPtr = here->HSMHVDPgpStructPtr->CSC ;
+                here->HSMHVDPgpPtr = here->HSMHVDPgpBinding->CSC ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSPgpPtr = here->HSMHVSPgpStructPtr->CSC ;
+                here->HSMHVSPgpPtr = here->HSMHVSPgpBinding->CSC ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSPsPtr = here->HSMHVSPsStructPtr->CSC ;
+                here->HSMHVSPsPtr = here->HSMHVSPsBinding->CSC ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSPdpPtr = here->HSMHVSPdpStructPtr->CSC ;
+                here->HSMHVSPdpPtr = here->HSMHVSPdpBinding->CSC ;
 
             if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGgPtr = here->HSMHVGgStructPtr->CSC ;
+                here->HSMHVGgPtr = here->HSMHVGgBinding->CSC ;
 
             if ((here-> HSMHVgNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVGgpPtr = here->HSMHVGgpStructPtr->CSC ;
+                here->HSMHVGgpPtr = here->HSMHVGgpBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVgNode != 0))
-                here->HSMHVGPgPtr = here->HSMHVGPgStructPtr->CSC ;
+                here->HSMHVGPgPtr = here->HSMHVGPgBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDdbPtr = here->HSMHVDdbStructPtr->CSC ;
+                here->HSMHVDdbPtr = here->HSMHVDdbBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSsbPtr = here->HSMHVSsbStructPtr->CSC ;
+                here->HSMHVSsbPtr = here->HSMHVSsbBinding->CSC ;
 
             if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVDBdPtr = here->HSMHVDBdStructPtr->CSC ;
+                here->HSMHVDBdPtr = here->HSMHVDBdBinding->CSC ;
 
             if ((here-> HSMHVdbNode != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVDBdbPtr = here->HSMHVDBdbStructPtr->CSC ;
+                here->HSMHVDBdbPtr = here->HSMHVDBdbBinding->CSC ;
 
             if ((here-> HSMHVdbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDBbpPtr = here->HSMHVDBbpStructPtr->CSC ;
+                here->HSMHVDBbpPtr = here->HSMHVDBbpBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVdbNode != 0))
-                here->HSMHVBPdbPtr = here->HSMHVBPdbStructPtr->CSC ;
+                here->HSMHVBPdbPtr = here->HSMHVBPdbBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBPbPtr = here->HSMHVBPbStructPtr->CSC ;
+                here->HSMHVBPbPtr = here->HSMHVBPbBinding->CSC ;
 
             if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVBPsbPtr = here->HSMHVBPsbStructPtr->CSC ;
+                here->HSMHVBPsbPtr = here->HSMHVBPsbBinding->CSC ;
 
             if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVSBsPtr = here->HSMHVSBsStructPtr->CSC ;
+                here->HSMHVSBsPtr = here->HSMHVSBsBinding->CSC ;
 
             if ((here-> HSMHVsbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSBbpPtr = here->HSMHVSBbpStructPtr->CSC ;
+                here->HSMHVSBbpPtr = here->HSMHVSBbpBinding->CSC ;
 
             if ((here-> HSMHVsbNode != 0) && (here-> HSMHVsbNode != 0))
-                here->HSMHVSBsbPtr = here->HSMHVSBsbStructPtr->CSC ;
+                here->HSMHVSBsbPtr = here->HSMHVSBsbBinding->CSC ;
 
             if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVBbpPtr = here->HSMHVBbpStructPtr->CSC ;
+                here->HSMHVBbpPtr = here->HSMHVBbpBinding->CSC ;
 
             if ((here-> HSMHVbNode != 0) && (here-> HSMHVbNode != 0))
-                here->HSMHVBbPtr = here->HSMHVBbStructPtr->CSC ;
+                here->HSMHVBbPtr = here->HSMHVBbBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVDgpPtr = here->HSMHVDgpStructPtr->CSC ;
+                here->HSMHVDgpPtr = here->HSMHVDgpBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDsPtr = here->HSMHVDsStructPtr->CSC ;
+                here->HSMHVDsPtr = here->HSMHVDsBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVDbpPtr = here->HSMHVDbpStructPtr->CSC ;
+                here->HSMHVDbpPtr = here->HSMHVDbpBinding->CSC ;
 
             if ((here-> HSMHVdNode != 0) && (here-> HSMHVsNodePrime != 0))
-                here->HSMHVDspPtr = here->HSMHVDspStructPtr->CSC ;
+                here->HSMHVDspPtr = here->HSMHVDspBinding->CSC ;
 
             if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVDPsPtr = here->HSMHVDPsStructPtr->CSC ;
+                here->HSMHVDPsPtr = here->HSMHVDPsBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVgNodePrime != 0))
-                here->HSMHVSgpPtr = here->HSMHVSgpStructPtr->CSC ;
+                here->HSMHVSgpPtr = here->HSMHVSgpBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSdPtr = here->HSMHVSdStructPtr->CSC ;
+                here->HSMHVSdPtr = here->HSMHVSdBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVbNodePrime != 0))
-                here->HSMHVSbpPtr = here->HSMHVSbpStructPtr->CSC ;
+                here->HSMHVSbpPtr = here->HSMHVSbpBinding->CSC ;
 
             if ((here-> HSMHVsNode != 0) && (here-> HSMHVdNodePrime != 0))
-                here->HSMHVSdpPtr = here->HSMHVSdpStructPtr->CSC ;
+                here->HSMHVSdpPtr = here->HSMHVSdpBinding->CSC ;
 
             if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVSPdPtr = here->HSMHVSPdStructPtr->CSC ;
+                here->HSMHVSPdPtr = here->HSMHVSPdBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVdNode != 0))
-                here->HSMHVGPdPtr = here->HSMHVGPdStructPtr->CSC ;
+                here->HSMHVGPdPtr = here->HSMHVGPdBinding->CSC ;
 
             if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVsNode != 0))
-                here->HSMHVGPsPtr = here->HSMHVGPsStructPtr->CSC ;
+                here->HSMHVGPsPtr = here->HSMHVGPsBinding->CSC ;
 
             if (here->HSMHVsubNode > 0)
             {
                 if ((here-> HSMHVdNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDsubPtr = here->HSMHVDsubStructPtr->CSC ;
+                    here->HSMHVDsubPtr = here->HSMHVDsubBinding->CSC ;
 
                 if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVDPsubPtr = here->HSMHVDPsubStructPtr->CSC ;
+                    here->HSMHVDPsubPtr = here->HSMHVDPsubBinding->CSC ;
 
                 if ((here-> HSMHVsNode != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSsubPtr = here->HSMHVSsubStructPtr->CSC ;
+                    here->HSMHVSsubPtr = here->HSMHVSsubBinding->CSC ;
 
                 if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVsubNode != 0))
-                    here->HSMHVSPsubPtr = here->HSMHVSPsubStructPtr->CSC ;
+                    here->HSMHVSPsubPtr = here->HSMHVSPsubBinding->CSC ;
 
             }
             if (here->HSMHV_coselfheat > 0)
             {
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVTemptempPtr = here->HSMHVTemptempStructPtr->CSC ;
+                    here->HSMHVTemptempPtr = here->HSMHVTemptempBinding->CSC ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNode != 0))
-                    here->HSMHVTempdPtr = here->HSMHVTempdStructPtr->CSC ;
+                    here->HSMHVTempdPtr = here->HSMHVTempdBinding->CSC ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVTempdpPtr = here->HSMHVTempdpStructPtr->CSC ;
+                    here->HSMHVTempdpPtr = here->HSMHVTempdpBinding->CSC ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNode != 0))
-                    here->HSMHVTempsPtr = here->HSMHVTempsStructPtr->CSC ;
+                    here->HSMHVTempsPtr = here->HSMHVTempsBinding->CSC ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVTempspPtr = here->HSMHVTempspStructPtr->CSC ;
+                    here->HSMHVTempspPtr = here->HSMHVTempspBinding->CSC ;
 
                 if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDPtempPtr = here->HSMHVDPtempStructPtr->CSC ;
+                    here->HSMHVDPtempPtr = here->HSMHVDPtempBinding->CSC ;
 
                 if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSPtempPtr = here->HSMHVSPtempStructPtr->CSC ;
+                    here->HSMHVSPtempPtr = here->HSMHVSPtempBinding->CSC ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVTempgpPtr = here->HSMHVTempgpStructPtr->CSC ;
+                    here->HSMHVTempgpPtr = here->HSMHVTempgpBinding->CSC ;
 
                 if ((here-> HSMHVtempNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVTempbpPtr = here->HSMHVTempbpStructPtr->CSC ;
+                    here->HSMHVTempbpPtr = here->HSMHVTempbpBinding->CSC ;
 
                 if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVGPtempPtr = here->HSMHVGPtempStructPtr->CSC ;
+                    here->HSMHVGPtempPtr = here->HSMHVGPtempBinding->CSC ;
 
                 if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVBPtempPtr = here->HSMHVBPtempStructPtr->CSC ;
+                    here->HSMHVBPtempPtr = here->HSMHVBPtempBinding->CSC ;
 
                 if ((here-> HSMHVdbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDBtempPtr = here->HSMHVDBtempStructPtr->CSC ;
+                    here->HSMHVDBtempPtr = here->HSMHVDBtempBinding->CSC ;
 
                 if ((here-> HSMHVsbNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVSBtempPtr = here->HSMHVSBtempStructPtr->CSC ;
+                    here->HSMHVSBtempPtr = here->HSMHVSBtempBinding->CSC ;
 
                 if ((here-> HSMHVdNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVDtempPtr = here->HSMHVDtempStructPtr->CSC ;
+                    here->HSMHVDtempPtr = here->HSMHVDtempBinding->CSC ;
 
                 if ((here-> HSMHVsNode != 0) && (here-> HSMHVtempNode != 0))
-                    here->HSMHVStempPtr = here->HSMHVStempStructPtr->CSC ;
+                    here->HSMHVStempPtr = here->HSMHVStempBinding->CSC ;
 
             }
             if (model->HSMHV_conqs)
             {
                 if ((here-> HSMHVdNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVDPqiPtr = here->HSMHVDPqiStructPtr->CSC ;
+                    here->HSMHVDPqiPtr = here->HSMHVDPqiBinding->CSC ;
 
                 if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVGPqiPtr = here->HSMHVGPqiStructPtr->CSC ;
+                    here->HSMHVGPqiPtr = here->HSMHVGPqiBinding->CSC ;
 
                 if ((here-> HSMHVgNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVGPqbPtr = here->HSMHVGPqbStructPtr->CSC ;
+                    here->HSMHVGPqbPtr = here->HSMHVGPqbBinding->CSC ;
 
                 if ((here-> HSMHVsNodePrime != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVSPqiPtr = here->HSMHVSPqiStructPtr->CSC ;
+                    here->HSMHVSPqiPtr = here->HSMHVSPqiBinding->CSC ;
 
                 if ((here-> HSMHVbNodePrime != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVBPqbPtr = here->HSMHVBPqbStructPtr->CSC ;
+                    here->HSMHVBPqbPtr = here->HSMHVBPqbBinding->CSC ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQIdpPtr = here->HSMHVQIdpStructPtr->CSC ;
+                    here->HSMHVQIdpPtr = here->HSMHVQIdpBinding->CSC ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQIgpPtr = here->HSMHVQIgpStructPtr->CSC ;
+                    here->HSMHVQIgpPtr = here->HSMHVQIgpBinding->CSC ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQIspPtr = here->HSMHVQIspStructPtr->CSC ;
+                    here->HSMHVQIspPtr = here->HSMHVQIspBinding->CSC ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQIbpPtr = here->HSMHVQIbpStructPtr->CSC ;
+                    here->HSMHVQIbpPtr = here->HSMHVQIbpBinding->CSC ;
 
                 if ((here-> HSMHVqiNode != 0) && (here-> HSMHVqiNode != 0))
-                    here->HSMHVQIqiPtr = here->HSMHVQIqiStructPtr->CSC ;
+                    here->HSMHVQIqiPtr = here->HSMHVQIqiBinding->CSC ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVdNodePrime != 0))
-                    here->HSMHVQBdpPtr = here->HSMHVQBdpStructPtr->CSC ;
+                    here->HSMHVQBdpPtr = here->HSMHVQBdpBinding->CSC ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVgNodePrime != 0))
-                    here->HSMHVQBgpPtr = here->HSMHVQBgpStructPtr->CSC ;
+                    here->HSMHVQBgpPtr = here->HSMHVQBgpBinding->CSC ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVsNodePrime != 0))
-                    here->HSMHVQBspPtr = here->HSMHVQBspStructPtr->CSC ;
+                    here->HSMHVQBspPtr = here->HSMHVQBspBinding->CSC ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVbNodePrime != 0))
-                    here->HSMHVQBbpPtr = here->HSMHVQBbpStructPtr->CSC ;
+                    here->HSMHVQBbpPtr = here->HSMHVQBbpBinding->CSC ;
 
                 if ((here-> HSMHVqbNode != 0) && (here-> HSMHVqbNode != 0))
-                    here->HSMHVQBqbPtr = here->HSMHVQBqbStructPtr->CSC ;
+                    here->HSMHVQBqbPtr = here->HSMHVQBqbBinding->CSC ;
 
                 if (here->HSMHV_coselfheat > 0)
                 {
                     if ((here-> HSMHVqiNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQItempPtr = here->HSMHVQItempStructPtr->CSC ;
+                        here->HSMHVQItempPtr = here->HSMHVQItempBinding->CSC ;
 
                     if ((here-> HSMHVqbNode != 0) && (here-> HSMHVtempNode != 0))
-                        here->HSMHVQBtempPtr = here->HSMHVQBtempStructPtr->CSC ;
+                        here->HSMHVQBtempPtr = here->HSMHVQBtempBinding->CSC ;
 
                 }
             }

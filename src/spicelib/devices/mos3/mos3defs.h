@@ -267,28 +267,28 @@ typedef struct sMOS3instance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *MOS3DdStructPtr ;
-    BindElement *MOS3GgStructPtr ;
-    BindElement *MOS3SsStructPtr ;
-    BindElement *MOS3BbStructPtr ;
-    BindElement *MOS3DPdpStructPtr ;
-    BindElement *MOS3SPspStructPtr ;
-    BindElement *MOS3DdpStructPtr ;
-    BindElement *MOS3GbStructPtr ;
-    BindElement *MOS3GdpStructPtr ;
-    BindElement *MOS3GspStructPtr ;
-    BindElement *MOS3SspStructPtr ;
-    BindElement *MOS3BdpStructPtr ;
-    BindElement *MOS3BspStructPtr ;
-    BindElement *MOS3DPspStructPtr ;
-    BindElement *MOS3DPdStructPtr ;
-    BindElement *MOS3BgStructPtr ;
-    BindElement *MOS3DPgStructPtr ;
-    BindElement *MOS3SPgStructPtr ;
-    BindElement *MOS3SPsStructPtr ;
-    BindElement *MOS3DPbStructPtr ;
-    BindElement *MOS3SPbStructPtr ;
-    BindElement *MOS3SPdpStructPtr ;
+    BindElement *MOS3DdBinding ;
+    BindElement *MOS3GgBinding ;
+    BindElement *MOS3SsBinding ;
+    BindElement *MOS3BbBinding ;
+    BindElement *MOS3DPdpBinding ;
+    BindElement *MOS3SPspBinding ;
+    BindElement *MOS3DdpBinding ;
+    BindElement *MOS3GbBinding ;
+    BindElement *MOS3GdpBinding ;
+    BindElement *MOS3GspBinding ;
+    BindElement *MOS3SspBinding ;
+    BindElement *MOS3BdpBinding ;
+    BindElement *MOS3BspBinding ;
+    BindElement *MOS3DPspBinding ;
+    BindElement *MOS3DPdBinding ;
+    BindElement *MOS3BgBinding ;
+    BindElement *MOS3DPgBinding ;
+    BindElement *MOS3SPgBinding ;
+    BindElement *MOS3SPsBinding ;
+    BindElement *MOS3DPbBinding ;
+    BindElement *MOS3SPbBinding ;
+    BindElement *MOS3SPdpBinding ;
 #endif
 
 } MOS3instance ;

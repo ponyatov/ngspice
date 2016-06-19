@@ -196,28 +196,28 @@ typedef struct sMOS6instance {
 #define MOS6dphibd_dw MOS6sens + 69
 
 #ifdef KLU
-    BindElement *MOS6DdStructPtr ;
-    BindElement *MOS6GgStructPtr ;
-    BindElement *MOS6SsStructPtr ;
-    BindElement *MOS6BbStructPtr ;
-    BindElement *MOS6DPdpStructPtr ;
-    BindElement *MOS6SPspStructPtr ;
-    BindElement *MOS6DdpStructPtr ;
-    BindElement *MOS6GbStructPtr ;
-    BindElement *MOS6GdpStructPtr ;
-    BindElement *MOS6GspStructPtr ;
-    BindElement *MOS6SspStructPtr ;
-    BindElement *MOS6BdpStructPtr ;
-    BindElement *MOS6BspStructPtr ;
-    BindElement *MOS6DPspStructPtr ;
-    BindElement *MOS6DPdStructPtr ;
-    BindElement *MOS6BgStructPtr ;
-    BindElement *MOS6DPgStructPtr ;
-    BindElement *MOS6SPgStructPtr ;
-    BindElement *MOS6SPsStructPtr ;
-    BindElement *MOS6DPbStructPtr ;
-    BindElement *MOS6SPbStructPtr ;
-    BindElement *MOS6SPdpStructPtr ;
+    BindElement *MOS6DdBinding ;
+    BindElement *MOS6GgBinding ;
+    BindElement *MOS6SsBinding ;
+    BindElement *MOS6BbBinding ;
+    BindElement *MOS6DPdpBinding ;
+    BindElement *MOS6SPspBinding ;
+    BindElement *MOS6DdpBinding ;
+    BindElement *MOS6GbBinding ;
+    BindElement *MOS6GdpBinding ;
+    BindElement *MOS6GspBinding ;
+    BindElement *MOS6SspBinding ;
+    BindElement *MOS6BdpBinding ;
+    BindElement *MOS6BspBinding ;
+    BindElement *MOS6DPspBinding ;
+    BindElement *MOS6DPdBinding ;
+    BindElement *MOS6BgBinding ;
+    BindElement *MOS6DPgBinding ;
+    BindElement *MOS6SPgBinding ;
+    BindElement *MOS6SPsBinding ;
+    BindElement *MOS6DPbBinding ;
+    BindElement *MOS6SPbBinding ;
+    BindElement *MOS6SPdpBinding ;
 #endif
 
 } MOS6instance ;

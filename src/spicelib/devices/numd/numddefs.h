@@ -64,10 +64,10 @@ typedef struct sNUMDinstance {
   unsigned NUMDprintGiven:1;	/* flag to indicate if print was specified */
 
 #ifdef KLU
-    BindElement *NUMDposPosStructPtr ;
-    BindElement *NUMDnegNegStructPtr ;
-    BindElement *NUMDnegPosStructPtr ;
-    BindElement *NUMDposNegStructPtr ;
+    BindElement *NUMDposPosBinding ;
+    BindElement *NUMDnegNegBinding ;
+    BindElement *NUMDnegPosBinding ;
+    BindElement *NUMDposNegBinding ;
 #endif
 
 } NUMDinstance;

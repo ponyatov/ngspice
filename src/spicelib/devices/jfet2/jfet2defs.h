@@ -156,21 +156,21 @@ typedef struct sJFET2instance {
     double JFET2alpha;       /* capacitance model transition parameter */
 
 #ifdef KLU
-    BindElement *JFET2drainDrainPrimeStructPtr ;
-    BindElement *JFET2gateDrainPrimeStructPtr ;
-    BindElement *JFET2gateSourcePrimeStructPtr ;
-    BindElement *JFET2sourceSourcePrimeStructPtr ;
-    BindElement *JFET2drainPrimeDrainStructPtr ;
-    BindElement *JFET2drainPrimeGateStructPtr ;
-    BindElement *JFET2drainPrimeSourcePrimeStructPtr ;
-    BindElement *JFET2sourcePrimeGateStructPtr ;
-    BindElement *JFET2sourcePrimeSourceStructPtr ;
-    BindElement *JFET2sourcePrimeDrainPrimeStructPtr ;
-    BindElement *JFET2drainDrainStructPtr ;
-    BindElement *JFET2gateGateStructPtr ;
-    BindElement *JFET2sourceSourceStructPtr ;
-    BindElement *JFET2drainPrimeDrainPrimeStructPtr ;
-    BindElement *JFET2sourcePrimeSourcePrimeStructPtr ;
+    BindElement *JFET2drainDrainPrimeBinding ;
+    BindElement *JFET2gateDrainPrimeBinding ;
+    BindElement *JFET2gateSourcePrimeBinding ;
+    BindElement *JFET2sourceSourcePrimeBinding ;
+    BindElement *JFET2drainPrimeDrainBinding ;
+    BindElement *JFET2drainPrimeGateBinding ;
+    BindElement *JFET2drainPrimeSourcePrimeBinding ;
+    BindElement *JFET2sourcePrimeGateBinding ;
+    BindElement *JFET2sourcePrimeSourceBinding ;
+    BindElement *JFET2sourcePrimeDrainPrimeBinding ;
+    BindElement *JFET2drainDrainBinding ;
+    BindElement *JFET2gateGateBinding ;
+    BindElement *JFET2sourceSourceBinding ;
+    BindElement *JFET2drainPrimeDrainPrimeBinding ;
+    BindElement *JFET2sourcePrimeSourcePrimeBinding ;
 #endif
 
 } JFET2instance ;

@@ -142,21 +142,21 @@ int MESmode;
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *MESdrainDrainPrimeStructPtr ;
-    BindElement *MESgateDrainPrimeStructPtr ;
-    BindElement *MESgateSourcePrimeStructPtr ;
-    BindElement *MESsourceSourcePrimeStructPtr ;
-    BindElement *MESdrainPrimeDrainStructPtr ;
-    BindElement *MESdrainPrimeGateStructPtr ;
-    BindElement *MESdrainPrimeSourcePrimeStructPtr ;
-    BindElement *MESsourcePrimeGateStructPtr ;
-    BindElement *MESsourcePrimeSourceStructPtr ;
-    BindElement *MESsourcePrimeDrainPrimeStructPtr ;
-    BindElement *MESdrainDrainStructPtr ;
-    BindElement *MESgateGateStructPtr ;
-    BindElement *MESsourceSourceStructPtr ;
-    BindElement *MESdrainPrimeDrainPrimeStructPtr ;
-    BindElement *MESsourcePrimeSourcePrimeStructPtr ;
+    BindElement *MESdrainDrainPrimeBinding ;
+    BindElement *MESgateDrainPrimeBinding ;
+    BindElement *MESgateSourcePrimeBinding ;
+    BindElement *MESsourceSourcePrimeBinding ;
+    BindElement *MESdrainPrimeDrainBinding ;
+    BindElement *MESdrainPrimeGateBinding ;
+    BindElement *MESdrainPrimeSourcePrimeBinding ;
+    BindElement *MESsourcePrimeGateBinding ;
+    BindElement *MESsourcePrimeSourceBinding ;
+    BindElement *MESsourcePrimeDrainPrimeBinding ;
+    BindElement *MESdrainDrainBinding ;
+    BindElement *MESgateGateBinding ;
+    BindElement *MESsourceSourceBinding ;
+    BindElement *MESdrainPrimeDrainPrimeBinding ;
+    BindElement *MESsourcePrimeSourcePrimeBinding ;
 #endif
 
 } MESinstance ;

@@ -42,7 +42,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DdStructPtr = matched ;
+                here->MOS6DdBinding = matched ;
                 here->MOS6DdPtr = matched->CSC ;
             }
 
@@ -50,7 +50,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6GgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6GgStructPtr = matched ;
+                here->MOS6GgBinding = matched ;
                 here->MOS6GgPtr = matched->CSC ;
             }
 
@@ -58,7 +58,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SsStructPtr = matched ;
+                here->MOS6SsBinding = matched ;
                 here->MOS6SsPtr = matched->CSC ;
             }
 
@@ -66,7 +66,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6BbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6BbStructPtr = matched ;
+                here->MOS6BbBinding = matched ;
                 here->MOS6BbPtr = matched->CSC ;
             }
 
@@ -74,7 +74,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DPdpStructPtr = matched ;
+                here->MOS6DPdpBinding = matched ;
                 here->MOS6DPdpPtr = matched->CSC ;
             }
 
@@ -82,7 +82,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SPspStructPtr = matched ;
+                here->MOS6SPspBinding = matched ;
                 here->MOS6SPspPtr = matched->CSC ;
             }
 
@@ -90,7 +90,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DdpStructPtr = matched ;
+                here->MOS6DdpBinding = matched ;
                 here->MOS6DdpPtr = matched->CSC ;
             }
 
@@ -98,7 +98,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6GbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6GbStructPtr = matched ;
+                here->MOS6GbBinding = matched ;
                 here->MOS6GbPtr = matched->CSC ;
             }
 
@@ -106,7 +106,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6GdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6GdpStructPtr = matched ;
+                here->MOS6GdpBinding = matched ;
                 here->MOS6GdpPtr = matched->CSC ;
             }
 
@@ -114,7 +114,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6GspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6GspStructPtr = matched ;
+                here->MOS6GspBinding = matched ;
                 here->MOS6GspPtr = matched->CSC ;
             }
 
@@ -122,7 +122,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SspStructPtr = matched ;
+                here->MOS6SspBinding = matched ;
                 here->MOS6SspPtr = matched->CSC ;
             }
 
@@ -130,7 +130,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6BdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6BdpStructPtr = matched ;
+                here->MOS6BdpBinding = matched ;
                 here->MOS6BdpPtr = matched->CSC ;
             }
 
@@ -138,7 +138,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6BspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6BspStructPtr = matched ;
+                here->MOS6BspBinding = matched ;
                 here->MOS6BspPtr = matched->CSC ;
             }
 
@@ -146,7 +146,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DPspPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DPspStructPtr = matched ;
+                here->MOS6DPspBinding = matched ;
                 here->MOS6DPspPtr = matched->CSC ;
             }
 
@@ -154,7 +154,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DPdPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DPdStructPtr = matched ;
+                here->MOS6DPdBinding = matched ;
                 here->MOS6DPdPtr = matched->CSC ;
             }
 
@@ -162,7 +162,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6BgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6BgStructPtr = matched ;
+                here->MOS6BgBinding = matched ;
                 here->MOS6BgPtr = matched->CSC ;
             }
 
@@ -170,7 +170,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DPgStructPtr = matched ;
+                here->MOS6DPgBinding = matched ;
                 here->MOS6DPgPtr = matched->CSC ;
             }
 
@@ -178,7 +178,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SPgPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SPgStructPtr = matched ;
+                here->MOS6SPgBinding = matched ;
                 here->MOS6SPgPtr = matched->CSC ;
             }
 
@@ -186,7 +186,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SPsPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SPsStructPtr = matched ;
+                here->MOS6SPsBinding = matched ;
                 here->MOS6SPsPtr = matched->CSC ;
             }
 
@@ -194,7 +194,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6DPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6DPbStructPtr = matched ;
+                here->MOS6DPbBinding = matched ;
                 here->MOS6DPbPtr = matched->CSC ;
             }
 
@@ -202,7 +202,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SPbPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SPbStructPtr = matched ;
+                here->MOS6SPbBinding = matched ;
                 here->MOS6SPbPtr = matched->CSC ;
             }
 
@@ -210,7 +210,7 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
             {
                 i = here->MOS6SPdpPtr ;
                 matched = (BindElement *) bsearch (&i, BindStruct, nz, sizeof(BindElement), BindCompare) ;
-                here->MOS6SPdpStructPtr = matched ;
+                here->MOS6SPdpBinding = matched ;
                 here->MOS6SPdpPtr = matched->CSC ;
             }
         }
@@ -234,70 +234,70 @@ MOS6bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MOS6instances ; here != NULL ; here = here->MOS6nextInstance)
         {
             if ((here->MOS6dNode != 0) && (here->MOS6dNode != 0))
-                here->MOS6DdPtr = here->MOS6DdStructPtr->CSC_Complex ;
+                here->MOS6DdPtr = here->MOS6DdBinding->CSC_Complex ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6gNode != 0))
-                here->MOS6GgPtr = here->MOS6GgStructPtr->CSC_Complex ;
+                here->MOS6GgPtr = here->MOS6GgBinding->CSC_Complex ;
 
             if ((here->MOS6sNode != 0) && (here->MOS6sNode != 0))
-                here->MOS6SsPtr = here->MOS6SsStructPtr->CSC_Complex ;
+                here->MOS6SsPtr = here->MOS6SsBinding->CSC_Complex ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6bNode != 0))
-                here->MOS6BbPtr = here->MOS6BbStructPtr->CSC_Complex ;
+                here->MOS6BbPtr = here->MOS6BbBinding->CSC_Complex ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6DPdpPtr = here->MOS6DPdpStructPtr->CSC_Complex ;
+                here->MOS6DPdpPtr = here->MOS6DPdpBinding->CSC_Complex ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6SPspPtr = here->MOS6SPspStructPtr->CSC_Complex ;
+                here->MOS6SPspPtr = here->MOS6SPspBinding->CSC_Complex ;
 
             if ((here->MOS6dNode != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6DdpPtr = here->MOS6DdpStructPtr->CSC_Complex ;
+                here->MOS6DdpPtr = here->MOS6DdpBinding->CSC_Complex ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6bNode != 0))
-                here->MOS6GbPtr = here->MOS6GbStructPtr->CSC_Complex ;
+                here->MOS6GbPtr = here->MOS6GbBinding->CSC_Complex ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6GdpPtr = here->MOS6GdpStructPtr->CSC_Complex ;
+                here->MOS6GdpPtr = here->MOS6GdpBinding->CSC_Complex ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6GspPtr = here->MOS6GspStructPtr->CSC_Complex ;
+                here->MOS6GspPtr = here->MOS6GspBinding->CSC_Complex ;
 
             if ((here->MOS6sNode != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6SspPtr = here->MOS6SspStructPtr->CSC_Complex ;
+                here->MOS6SspPtr = here->MOS6SspBinding->CSC_Complex ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6BdpPtr = here->MOS6BdpStructPtr->CSC_Complex ;
+                here->MOS6BdpPtr = here->MOS6BdpBinding->CSC_Complex ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6BspPtr = here->MOS6BspStructPtr->CSC_Complex ;
+                here->MOS6BspPtr = here->MOS6BspBinding->CSC_Complex ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6DPspPtr = here->MOS6DPspStructPtr->CSC_Complex ;
+                here->MOS6DPspPtr = here->MOS6DPspBinding->CSC_Complex ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6dNode != 0))
-                here->MOS6DPdPtr = here->MOS6DPdStructPtr->CSC_Complex ;
+                here->MOS6DPdPtr = here->MOS6DPdBinding->CSC_Complex ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6gNode != 0))
-                here->MOS6BgPtr = here->MOS6BgStructPtr->CSC_Complex ;
+                here->MOS6BgPtr = here->MOS6BgBinding->CSC_Complex ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6gNode != 0))
-                here->MOS6DPgPtr = here->MOS6DPgStructPtr->CSC_Complex ;
+                here->MOS6DPgPtr = here->MOS6DPgBinding->CSC_Complex ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6gNode != 0))
-                here->MOS6SPgPtr = here->MOS6SPgStructPtr->CSC_Complex ;
+                here->MOS6SPgPtr = here->MOS6SPgBinding->CSC_Complex ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6sNode != 0))
-                here->MOS6SPsPtr = here->MOS6SPsStructPtr->CSC_Complex ;
+                here->MOS6SPsPtr = here->MOS6SPsBinding->CSC_Complex ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6bNode != 0))
-                here->MOS6DPbPtr = here->MOS6DPbStructPtr->CSC_Complex ;
+                here->MOS6DPbPtr = here->MOS6DPbBinding->CSC_Complex ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6bNode != 0))
-                here->MOS6SPbPtr = here->MOS6SPbStructPtr->CSC_Complex ;
+                here->MOS6SPbPtr = here->MOS6SPbBinding->CSC_Complex ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6SPdpPtr = here->MOS6SPdpStructPtr->CSC_Complex ;
+                here->MOS6SPdpPtr = here->MOS6SPdpBinding->CSC_Complex ;
         }
     }
 
@@ -319,70 +319,70 @@ MOS6bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         for (here = model->MOS6instances ; here != NULL ; here = here->MOS6nextInstance)
         {
             if ((here->MOS6dNode != 0) && (here->MOS6dNode != 0))
-                here->MOS6DdPtr = here->MOS6DdStructPtr->CSC ;
+                here->MOS6DdPtr = here->MOS6DdBinding->CSC ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6gNode != 0))
-                here->MOS6GgPtr = here->MOS6GgStructPtr->CSC ;
+                here->MOS6GgPtr = here->MOS6GgBinding->CSC ;
 
             if ((here->MOS6sNode != 0) && (here->MOS6sNode != 0))
-                here->MOS6SsPtr = here->MOS6SsStructPtr->CSC ;
+                here->MOS6SsPtr = here->MOS6SsBinding->CSC ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6bNode != 0))
-                here->MOS6BbPtr = here->MOS6BbStructPtr->CSC ;
+                here->MOS6BbPtr = here->MOS6BbBinding->CSC ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6DPdpPtr = here->MOS6DPdpStructPtr->CSC ;
+                here->MOS6DPdpPtr = here->MOS6DPdpBinding->CSC ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6SPspPtr = here->MOS6SPspStructPtr->CSC ;
+                here->MOS6SPspPtr = here->MOS6SPspBinding->CSC ;
 
             if ((here->MOS6dNode != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6DdpPtr = here->MOS6DdpStructPtr->CSC ;
+                here->MOS6DdpPtr = here->MOS6DdpBinding->CSC ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6bNode != 0))
-                here->MOS6GbPtr = here->MOS6GbStructPtr->CSC ;
+                here->MOS6GbPtr = here->MOS6GbBinding->CSC ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6GdpPtr = here->MOS6GdpStructPtr->CSC ;
+                here->MOS6GdpPtr = here->MOS6GdpBinding->CSC ;
 
             if ((here->MOS6gNode != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6GspPtr = here->MOS6GspStructPtr->CSC ;
+                here->MOS6GspPtr = here->MOS6GspBinding->CSC ;
 
             if ((here->MOS6sNode != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6SspPtr = here->MOS6SspStructPtr->CSC ;
+                here->MOS6SspPtr = here->MOS6SspBinding->CSC ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6BdpPtr = here->MOS6BdpStructPtr->CSC ;
+                here->MOS6BdpPtr = here->MOS6BdpBinding->CSC ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6BspPtr = here->MOS6BspStructPtr->CSC ;
+                here->MOS6BspPtr = here->MOS6BspBinding->CSC ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6sNodePrime != 0))
-                here->MOS6DPspPtr = here->MOS6DPspStructPtr->CSC ;
+                here->MOS6DPspPtr = here->MOS6DPspBinding->CSC ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6dNode != 0))
-                here->MOS6DPdPtr = here->MOS6DPdStructPtr->CSC ;
+                here->MOS6DPdPtr = here->MOS6DPdBinding->CSC ;
 
             if ((here->MOS6bNode != 0) && (here->MOS6gNode != 0))
-                here->MOS6BgPtr = here->MOS6BgStructPtr->CSC ;
+                here->MOS6BgPtr = here->MOS6BgBinding->CSC ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6gNode != 0))
-                here->MOS6DPgPtr = here->MOS6DPgStructPtr->CSC ;
+                here->MOS6DPgPtr = here->MOS6DPgBinding->CSC ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6gNode != 0))
-                here->MOS6SPgPtr = here->MOS6SPgStructPtr->CSC ;
+                here->MOS6SPgPtr = here->MOS6SPgBinding->CSC ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6sNode != 0))
-                here->MOS6SPsPtr = here->MOS6SPsStructPtr->CSC ;
+                here->MOS6SPsPtr = here->MOS6SPsBinding->CSC ;
 
             if ((here->MOS6dNodePrime != 0) && (here->MOS6bNode != 0))
-                here->MOS6DPbPtr = here->MOS6DPbStructPtr->CSC ;
+                here->MOS6DPbPtr = here->MOS6DPbBinding->CSC ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6bNode != 0))
-                here->MOS6SPbPtr = here->MOS6SPbStructPtr->CSC ;
+                here->MOS6SPbPtr = here->MOS6SPbBinding->CSC ;
 
             if ((here->MOS6sNodePrime != 0) && (here->MOS6dNodePrime != 0))
-                here->MOS6SPdpPtr = here->MOS6SPdpStructPtr->CSC ;
+                here->MOS6SPdpPtr = here->MOS6SPdpBinding->CSC ;
         }
     }
 

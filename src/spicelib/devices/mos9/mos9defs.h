@@ -269,28 +269,28 @@ typedef struct sMOS9instance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *MOS9DdStructPtr ;
-    BindElement *MOS9GgStructPtr ;
-    BindElement *MOS9SsStructPtr ;
-    BindElement *MOS9BbStructPtr ;
-    BindElement *MOS9DPdpStructPtr ;
-    BindElement *MOS9SPspStructPtr ;
-    BindElement *MOS9DdpStructPtr ;
-    BindElement *MOS9GbStructPtr ;
-    BindElement *MOS9GdpStructPtr ;
-    BindElement *MOS9GspStructPtr ;
-    BindElement *MOS9SspStructPtr ;
-    BindElement *MOS9BdpStructPtr ;
-    BindElement *MOS9BspStructPtr ;
-    BindElement *MOS9DPspStructPtr ;
-    BindElement *MOS9DPdStructPtr ;
-    BindElement *MOS9BgStructPtr ;
-    BindElement *MOS9DPgStructPtr ;
-    BindElement *MOS9SPgStructPtr ;
-    BindElement *MOS9SPsStructPtr ;
-    BindElement *MOS9DPbStructPtr ;
-    BindElement *MOS9SPbStructPtr ;
-    BindElement *MOS9SPdpStructPtr ;
+    BindElement *MOS9DdBinding ;
+    BindElement *MOS9GgBinding ;
+    BindElement *MOS9SsBinding ;
+    BindElement *MOS9BbBinding ;
+    BindElement *MOS9DPdpBinding ;
+    BindElement *MOS9SPspBinding ;
+    BindElement *MOS9DdpBinding ;
+    BindElement *MOS9GbBinding ;
+    BindElement *MOS9GdpBinding ;
+    BindElement *MOS9GspBinding ;
+    BindElement *MOS9SspBinding ;
+    BindElement *MOS9BdpBinding ;
+    BindElement *MOS9BspBinding ;
+    BindElement *MOS9DPspBinding ;
+    BindElement *MOS9DPdBinding ;
+    BindElement *MOS9BgBinding ;
+    BindElement *MOS9DPgBinding ;
+    BindElement *MOS9SPgBinding ;
+    BindElement *MOS9SPsBinding ;
+    BindElement *MOS9DPbBinding ;
+    BindElement *MOS9SPbBinding ;
+    BindElement *MOS9SPdpBinding ;
 #endif
 
 } MOS9instance ;

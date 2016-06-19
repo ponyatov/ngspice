@@ -268,28 +268,28 @@ typedef struct sMOS2instance {
 #endif /* NONOISE */
 
 #ifdef KLU
-    BindElement *MOS2DdStructPtr ;
-    BindElement *MOS2GgStructPtr ;
-    BindElement *MOS2SsStructPtr ;
-    BindElement *MOS2BbStructPtr ;
-    BindElement *MOS2DPdpStructPtr ;
-    BindElement *MOS2SPspStructPtr ;
-    BindElement *MOS2DdpStructPtr ;
-    BindElement *MOS2GbStructPtr ;
-    BindElement *MOS2GdpStructPtr ;
-    BindElement *MOS2GspStructPtr ;
-    BindElement *MOS2SspStructPtr ;
-    BindElement *MOS2BdpStructPtr ;
-    BindElement *MOS2BspStructPtr ;
-    BindElement *MOS2DPspStructPtr ;
-    BindElement *MOS2DPdStructPtr ;
-    BindElement *MOS2BgStructPtr ;
-    BindElement *MOS2DPgStructPtr ;
-    BindElement *MOS2SPgStructPtr ;
-    BindElement *MOS2SPsStructPtr ;
-    BindElement *MOS2DPbStructPtr ;
-    BindElement *MOS2SPbStructPtr ;
-    BindElement *MOS2SPdpStructPtr ;
+    BindElement *MOS2DdBinding ;
+    BindElement *MOS2GgBinding ;
+    BindElement *MOS2SsBinding ;
+    BindElement *MOS2BbBinding ;
+    BindElement *MOS2DPdpBinding ;
+    BindElement *MOS2SPspBinding ;
+    BindElement *MOS2DdpBinding ;
+    BindElement *MOS2GbBinding ;
+    BindElement *MOS2GdpBinding ;
+    BindElement *MOS2GspBinding ;
+    BindElement *MOS2SspBinding ;
+    BindElement *MOS2BdpBinding ;
+    BindElement *MOS2BspBinding ;
+    BindElement *MOS2DPspBinding ;
+    BindElement *MOS2DPdBinding ;
+    BindElement *MOS2BgBinding ;
+    BindElement *MOS2DPgBinding ;
+    BindElement *MOS2SPgBinding ;
+    BindElement *MOS2SPsBinding ;
+    BindElement *MOS2DPbBinding ;
+    BindElement *MOS2SPbBinding ;
+    BindElement *MOS2SPdpBinding ;
 #endif
 
 } MOS2instance ;
