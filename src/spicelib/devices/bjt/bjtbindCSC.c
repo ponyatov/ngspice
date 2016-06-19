@@ -39,29 +39,29 @@ BJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->BJTinstances ; here != NULL ; here = here->BJTnextInstance)
         {
-            XFOO(BJTcolColPrimePtr, BJTcolColPrimeBinding, BJTcolNode, BJTcolPrimeNode);
-            XFOO(BJTbaseBasePrimePtr, BJTbaseBasePrimeBinding, BJTbaseNode, BJTbasePrimeNode);
-            XFOO(BJTemitEmitPrimePtr, BJTemitEmitPrimeBinding, BJTemitNode, BJTemitPrimeNode);
-            XFOO(BJTcolPrimeColPtr, BJTcolPrimeColBinding, BJTcolPrimeNode, BJTcolNode);
-            XFOO(BJTcolPrimeBasePrimePtr, BJTcolPrimeBasePrimeBinding, BJTcolPrimeNode, BJTbasePrimeNode);
-            XFOO(BJTcolPrimeEmitPrimePtr, BJTcolPrimeEmitPrimeBinding, BJTcolPrimeNode, BJTemitPrimeNode);
-            XFOO(BJTbasePrimeBasePtr, BJTbasePrimeBaseBinding, BJTbasePrimeNode, BJTbaseNode);
-            XFOO(BJTbasePrimeColPrimePtr, BJTbasePrimeColPrimeBinding, BJTbasePrimeNode, BJTcolPrimeNode);
-            XFOO(BJTbasePrimeEmitPrimePtr, BJTbasePrimeEmitPrimeBinding, BJTbasePrimeNode, BJTemitPrimeNode);
-            XFOO(BJTemitPrimeEmitPtr, BJTemitPrimeEmitBinding, BJTemitPrimeNode, BJTemitNode);
-            XFOO(BJTemitPrimeColPrimePtr, BJTemitPrimeColPrimeBinding, BJTemitPrimeNode, BJTcolPrimeNode);
-            XFOO(BJTemitPrimeBasePrimePtr, BJTemitPrimeBasePrimeBinding, BJTemitPrimeNode, BJTbasePrimeNode);
-            XFOO(BJTcolColPtr, BJTcolColBinding, BJTcolNode, BJTcolNode);
-            XFOO(BJTbaseBasePtr, BJTbaseBaseBinding, BJTbaseNode, BJTbaseNode);
-            XFOO(BJTemitEmitPtr, BJTemitEmitBinding, BJTemitNode, BJTemitNode);
-            XFOO(BJTcolPrimeColPrimePtr, BJTcolPrimeColPrimeBinding, BJTcolPrimeNode, BJTcolPrimeNode);
-            XFOO(BJTbasePrimeBasePrimePtr, BJTbasePrimeBasePrimeBinding, BJTbasePrimeNode, BJTbasePrimeNode);
-            XFOO(BJTemitPrimeEmitPrimePtr, BJTemitPrimeEmitPrimeBinding, BJTemitPrimeNode, BJTemitPrimeNode);
-            XFOO(BJTsubstSubstPtr, BJTsubstSubstBinding, BJTsubstNode, BJTsubstNode);
-            XFOO(BJTsubstConSubstPtr, BJTsubstConSubstBinding, BJTsubstConNode, BJTsubstNode);
-            XFOO(BJTsubstSubstConPtr, BJTsubstSubstConBinding, BJTsubstNode, BJTsubstConNode);
-            XFOO(BJTbaseColPrimePtr, BJTbaseColPrimeBinding, BJTbaseNode, BJTcolPrimeNode);
-            XFOO(BJTcolPrimeBasePtr, BJTcolPrimeBaseBinding, BJTcolPrimeNode, BJTbaseNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolColPrimePtr, BJTcolColPrimeBinding, BJTcolNode, BJTcolPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTbaseBasePrimePtr, BJTbaseBasePrimeBinding, BJTbaseNode, BJTbasePrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTemitEmitPrimePtr, BJTemitEmitPrimeBinding, BJTemitNode, BJTemitPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolPrimeColPtr, BJTcolPrimeColBinding, BJTcolPrimeNode, BJTcolNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolPrimeBasePrimePtr, BJTcolPrimeBasePrimeBinding, BJTcolPrimeNode, BJTbasePrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolPrimeEmitPrimePtr, BJTcolPrimeEmitPrimeBinding, BJTcolPrimeNode, BJTemitPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTbasePrimeBasePtr, BJTbasePrimeBaseBinding, BJTbasePrimeNode, BJTbaseNode);
+            CREATE_KLU_BINDING_TABLE(BJTbasePrimeColPrimePtr, BJTbasePrimeColPrimeBinding, BJTbasePrimeNode, BJTcolPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTbasePrimeEmitPrimePtr, BJTbasePrimeEmitPrimeBinding, BJTbasePrimeNode, BJTemitPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTemitPrimeEmitPtr, BJTemitPrimeEmitBinding, BJTemitPrimeNode, BJTemitNode);
+            CREATE_KLU_BINDING_TABLE(BJTemitPrimeColPrimePtr, BJTemitPrimeColPrimeBinding, BJTemitPrimeNode, BJTcolPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTemitPrimeBasePrimePtr, BJTemitPrimeBasePrimeBinding, BJTemitPrimeNode, BJTbasePrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolColPtr, BJTcolColBinding, BJTcolNode, BJTcolNode);
+            CREATE_KLU_BINDING_TABLE(BJTbaseBasePtr, BJTbaseBaseBinding, BJTbaseNode, BJTbaseNode);
+            CREATE_KLU_BINDING_TABLE(BJTemitEmitPtr, BJTemitEmitBinding, BJTemitNode, BJTemitNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolPrimeColPrimePtr, BJTcolPrimeColPrimeBinding, BJTcolPrimeNode, BJTcolPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTbasePrimeBasePrimePtr, BJTbasePrimeBasePrimeBinding, BJTbasePrimeNode, BJTbasePrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTemitPrimeEmitPrimePtr, BJTemitPrimeEmitPrimeBinding, BJTemitPrimeNode, BJTemitPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTsubstSubstPtr, BJTsubstSubstBinding, BJTsubstNode, BJTsubstNode);
+            CREATE_KLU_BINDING_TABLE(BJTsubstConSubstPtr, BJTsubstConSubstBinding, BJTsubstConNode, BJTsubstNode);
+            CREATE_KLU_BINDING_TABLE(BJTsubstSubstConPtr, BJTsubstSubstConBinding, BJTsubstNode, BJTsubstConNode);
+            CREATE_KLU_BINDING_TABLE(BJTbaseColPrimePtr, BJTbaseColPrimeBinding, BJTbaseNode, BJTcolPrimeNode);
+            CREATE_KLU_BINDING_TABLE(BJTcolPrimeBasePtr, BJTcolPrimeBaseBinding, BJTcolPrimeNode, BJTbaseNode);
         }
     }
 
@@ -82,29 +82,29 @@ BJTbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->BJTinstances ; here != NULL ; here = here->BJTnextInstance)
         {
-            BFOO(BJTcolColPrimePtr, BJTcolColPrimeBinding, BJTcolNode, BJTcolPrimeNode);
-            BFOO(BJTbaseBasePrimePtr, BJTbaseBasePrimeBinding, BJTbaseNode, BJTbasePrimeNode);
-            BFOO(BJTemitEmitPrimePtr, BJTemitEmitPrimeBinding, BJTemitNode, BJTemitPrimeNode);
-            BFOO(BJTcolPrimeColPtr, BJTcolPrimeColBinding, BJTcolPrimeNode, BJTcolNode);
-            BFOO(BJTcolPrimeBasePrimePtr, BJTcolPrimeBasePrimeBinding, BJTcolPrimeNode, BJTbasePrimeNode);
-            BFOO(BJTcolPrimeEmitPrimePtr, BJTcolPrimeEmitPrimeBinding, BJTcolPrimeNode, BJTemitPrimeNode);
-            BFOO(BJTbasePrimeBasePtr, BJTbasePrimeBaseBinding, BJTbasePrimeNode, BJTbaseNode);
-            BFOO(BJTbasePrimeColPrimePtr, BJTbasePrimeColPrimeBinding, BJTbasePrimeNode, BJTcolPrimeNode);
-            BFOO(BJTbasePrimeEmitPrimePtr, BJTbasePrimeEmitPrimeBinding, BJTbasePrimeNode, BJTemitPrimeNode);
-            BFOO(BJTemitPrimeEmitPtr, BJTemitPrimeEmitBinding, BJTemitPrimeNode, BJTemitNode);
-            BFOO(BJTemitPrimeColPrimePtr, BJTemitPrimeColPrimeBinding, BJTemitPrimeNode, BJTcolPrimeNode);
-            BFOO(BJTemitPrimeBasePrimePtr, BJTemitPrimeBasePrimeBinding, BJTemitPrimeNode, BJTbasePrimeNode);
-            BFOO(BJTcolColPtr, BJTcolColBinding, BJTcolNode, BJTcolNode);
-            BFOO(BJTbaseBasePtr, BJTbaseBaseBinding, BJTbaseNode, BJTbaseNode);
-            BFOO(BJTemitEmitPtr, BJTemitEmitBinding, BJTemitNode, BJTemitNode);
-            BFOO(BJTcolPrimeColPrimePtr, BJTcolPrimeColPrimeBinding, BJTcolPrimeNode, BJTcolPrimeNode);
-            BFOO(BJTbasePrimeBasePrimePtr, BJTbasePrimeBasePrimeBinding, BJTbasePrimeNode, BJTbasePrimeNode);
-            BFOO(BJTemitPrimeEmitPrimePtr, BJTemitPrimeEmitPrimeBinding, BJTemitPrimeNode, BJTemitPrimeNode);
-            BFOO(BJTsubstSubstPtr, BJTsubstSubstBinding, BJTsubstNode, BJTsubstNode);
-            BFOO(BJTsubstConSubstPtr, BJTsubstConSubstBinding, BJTsubstConNode, BJTsubstNode);
-            BFOO(BJTsubstSubstConPtr, BJTsubstSubstConBinding, BJTsubstNode, BJTsubstConNode);
-            BFOO(BJTbaseColPrimePtr, BJTbaseColPrimeBinding, BJTbaseNode, BJTcolPrimeNode);
-            BFOO(BJTcolPrimeBasePtr, BJTcolPrimeBaseBinding, BJTcolPrimeNode, BJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolColPrimePtr, BJTcolColPrimeBinding, BJTcolNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbaseBasePrimePtr, BJTbaseBasePrimeBinding, BJTbaseNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTemitEmitPrimePtr, BJTemitEmitPrimeBinding, BJTemitNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolPrimeColPtr, BJTcolPrimeColBinding, BJTcolPrimeNode, BJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolPrimeBasePrimePtr, BJTcolPrimeBasePrimeBinding, BJTcolPrimeNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolPrimeEmitPrimePtr, BJTcolPrimeEmitPrimeBinding, BJTcolPrimeNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbasePrimeBasePtr, BJTbasePrimeBaseBinding, BJTbasePrimeNode, BJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbasePrimeColPrimePtr, BJTbasePrimeColPrimeBinding, BJTbasePrimeNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbasePrimeEmitPrimePtr, BJTbasePrimeEmitPrimeBinding, BJTbasePrimeNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTemitPrimeEmitPtr, BJTemitPrimeEmitBinding, BJTemitPrimeNode, BJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTemitPrimeColPrimePtr, BJTemitPrimeColPrimeBinding, BJTemitPrimeNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTemitPrimeBasePrimePtr, BJTemitPrimeBasePrimeBinding, BJTemitPrimeNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolColPtr, BJTcolColBinding, BJTcolNode, BJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbaseBasePtr, BJTbaseBaseBinding, BJTbaseNode, BJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTemitEmitPtr, BJTemitEmitBinding, BJTemitNode, BJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolPrimeColPrimePtr, BJTcolPrimeColPrimeBinding, BJTcolPrimeNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbasePrimeBasePrimePtr, BJTbasePrimeBasePrimeBinding, BJTbasePrimeNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTemitPrimeEmitPrimePtr, BJTemitPrimeEmitPrimeBinding, BJTemitPrimeNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTsubstSubstPtr, BJTsubstSubstBinding, BJTsubstNode, BJTsubstNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTsubstConSubstPtr, BJTsubstConSubstBinding, BJTsubstConNode, BJTsubstNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTsubstSubstConPtr, BJTsubstSubstConBinding, BJTsubstNode, BJTsubstConNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTbaseColPrimePtr, BJTbaseColPrimeBinding, BJTbaseNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(BJTcolPrimeBasePtr, BJTcolPrimeBaseBinding, BJTcolPrimeNode, BJTbaseNode);
         }
     }
 
@@ -125,29 +125,29 @@ BJTbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->BJTinstances ; here != NULL ; here = here->BJTnextInstance)
         {
-            CFOO(BJTcolColPrimePtr, BJTcolColPrimeBinding, BJTcolNode, BJTcolPrimeNode);
-            CFOO(BJTbaseBasePrimePtr, BJTbaseBasePrimeBinding, BJTbaseNode, BJTbasePrimeNode);
-            CFOO(BJTemitEmitPrimePtr, BJTemitEmitPrimeBinding, BJTemitNode, BJTemitPrimeNode);
-            CFOO(BJTcolPrimeColPtr, BJTcolPrimeColBinding, BJTcolPrimeNode, BJTcolNode);
-            CFOO(BJTcolPrimeBasePrimePtr, BJTcolPrimeBasePrimeBinding, BJTcolPrimeNode, BJTbasePrimeNode);
-            CFOO(BJTcolPrimeEmitPrimePtr, BJTcolPrimeEmitPrimeBinding, BJTcolPrimeNode, BJTemitPrimeNode);
-            CFOO(BJTbasePrimeBasePtr, BJTbasePrimeBaseBinding, BJTbasePrimeNode, BJTbaseNode);
-            CFOO(BJTbasePrimeColPrimePtr, BJTbasePrimeColPrimeBinding, BJTbasePrimeNode, BJTcolPrimeNode);
-            CFOO(BJTbasePrimeEmitPrimePtr, BJTbasePrimeEmitPrimeBinding, BJTbasePrimeNode, BJTemitPrimeNode);
-            CFOO(BJTemitPrimeEmitPtr, BJTemitPrimeEmitBinding, BJTemitPrimeNode, BJTemitNode);
-            CFOO(BJTemitPrimeColPrimePtr, BJTemitPrimeColPrimeBinding, BJTemitPrimeNode, BJTcolPrimeNode);
-            CFOO(BJTemitPrimeBasePrimePtr, BJTemitPrimeBasePrimeBinding, BJTemitPrimeNode, BJTbasePrimeNode);
-            CFOO(BJTcolColPtr, BJTcolColBinding, BJTcolNode, BJTcolNode);
-            CFOO(BJTbaseBasePtr, BJTbaseBaseBinding, BJTbaseNode, BJTbaseNode);
-            CFOO(BJTemitEmitPtr, BJTemitEmitBinding, BJTemitNode, BJTemitNode);
-            CFOO(BJTcolPrimeColPrimePtr, BJTcolPrimeColPrimeBinding, BJTcolPrimeNode, BJTcolPrimeNode);
-            CFOO(BJTbasePrimeBasePrimePtr, BJTbasePrimeBasePrimeBinding, BJTbasePrimeNode, BJTbasePrimeNode);
-            CFOO(BJTemitPrimeEmitPrimePtr, BJTemitPrimeEmitPrimeBinding, BJTemitPrimeNode, BJTemitPrimeNode);
-            CFOO(BJTsubstSubstPtr, BJTsubstSubstBinding, BJTsubstNode, BJTsubstNode);
-            CFOO(BJTsubstConSubstPtr, BJTsubstConSubstBinding, BJTsubstConNode, BJTsubstNode);
-            CFOO(BJTsubstSubstConPtr, BJTsubstSubstConBinding, BJTsubstNode, BJTsubstConNode);
-            CFOO(BJTbaseColPrimePtr, BJTbaseColPrimeBinding, BJTbaseNode, BJTcolPrimeNode);
-            CFOO(BJTcolPrimeBasePtr, BJTcolPrimeBaseBinding, BJTcolPrimeNode, BJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolColPrimePtr, BJTcolColPrimeBinding, BJTcolNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbaseBasePrimePtr, BJTbaseBasePrimeBinding, BJTbaseNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTemitEmitPrimePtr, BJTemitEmitPrimeBinding, BJTemitNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolPrimeColPtr, BJTcolPrimeColBinding, BJTcolPrimeNode, BJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolPrimeBasePrimePtr, BJTcolPrimeBasePrimeBinding, BJTcolPrimeNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolPrimeEmitPrimePtr, BJTcolPrimeEmitPrimeBinding, BJTcolPrimeNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbasePrimeBasePtr, BJTbasePrimeBaseBinding, BJTbasePrimeNode, BJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbasePrimeColPrimePtr, BJTbasePrimeColPrimeBinding, BJTbasePrimeNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbasePrimeEmitPrimePtr, BJTbasePrimeEmitPrimeBinding, BJTbasePrimeNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTemitPrimeEmitPtr, BJTemitPrimeEmitBinding, BJTemitPrimeNode, BJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTemitPrimeColPrimePtr, BJTemitPrimeColPrimeBinding, BJTemitPrimeNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTemitPrimeBasePrimePtr, BJTemitPrimeBasePrimeBinding, BJTemitPrimeNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolColPtr, BJTcolColBinding, BJTcolNode, BJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbaseBasePtr, BJTbaseBaseBinding, BJTbaseNode, BJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTemitEmitPtr, BJTemitEmitBinding, BJTemitNode, BJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolPrimeColPrimePtr, BJTcolPrimeColPrimeBinding, BJTcolPrimeNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbasePrimeBasePrimePtr, BJTbasePrimeBasePrimeBinding, BJTbasePrimeNode, BJTbasePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTemitPrimeEmitPrimePtr, BJTemitPrimeEmitPrimeBinding, BJTemitPrimeNode, BJTemitPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTsubstSubstPtr, BJTsubstSubstBinding, BJTsubstNode, BJTsubstNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTsubstConSubstPtr, BJTsubstConSubstBinding, BJTsubstConNode, BJTsubstNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTsubstSubstConPtr, BJTsubstSubstConBinding, BJTsubstNode, BJTsubstConNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTbaseColPrimePtr, BJTbaseColPrimeBinding, BJTbaseNode, BJTcolPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(BJTcolPrimeBasePtr, BJTcolPrimeBaseBinding, BJTcolPrimeNode, BJTbaseNode);
         }
     }
 

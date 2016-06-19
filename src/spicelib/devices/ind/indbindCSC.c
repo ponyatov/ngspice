@@ -39,11 +39,11 @@ INDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->INDinstances ; here != NULL ; here = here->INDnextInstance)
         {
-            XFOO(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
-            XFOO(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
-            XFOO(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
-            XFOO(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
-            XFOO(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
+            CREATE_KLU_BINDING_TABLE(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
+            CREATE_KLU_BINDING_TABLE(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
+            CREATE_KLU_BINDING_TABLE(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
+            CREATE_KLU_BINDING_TABLE(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
+            CREATE_KLU_BINDING_TABLE(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
         }
     }
 
@@ -64,11 +64,11 @@ INDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->INDinstances ; here != NULL ; here = here->INDnextInstance)
         {
-            BFOO(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
-            BFOO(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
-            BFOO(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
-            BFOO(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
-            BFOO(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
         }
     }
 
@@ -89,11 +89,11 @@ INDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->INDinstances ; here != NULL ; here = here->INDnextInstance)
         {
-            CFOO(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
-            CFOO(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
-            CFOO(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
-            CFOO(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
-            CFOO(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(INDposIbrPtr, INDposIbrBinding, INDposNode, INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(INDnegIbrPtr, INDnegIbrBinding, INDnegNode, INDbrEq);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(INDibrNegPtr, INDibrNegBinding, INDbrEq, INDnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(INDibrPosPtr, INDibrPosBinding, INDbrEq, INDposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(INDibrIbrPtr, INDibrIbrBinding, INDbrEq, INDbrEq);
         }
     }
 

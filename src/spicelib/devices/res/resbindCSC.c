@@ -39,10 +39,10 @@ RESbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
-            XFOO(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
-            XFOO(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
-            XFOO(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
-            XFOO(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
+            CREATE_KLU_BINDING_TABLE(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
+            CREATE_KLU_BINDING_TABLE(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
+            CREATE_KLU_BINDING_TABLE(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
+            CREATE_KLU_BINDING_TABLE(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
         }
     }
 
@@ -63,10 +63,10 @@ RESbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
-            BFOO(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
-            BFOO(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
-            BFOO(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
-            BFOO(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
         }
     }
 
@@ -87,10 +87,10 @@ RESbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->RESinstances ; here != NULL ; here = here->RESnextInstance)
         {
-            CFOO(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
-            CFOO(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
-            CFOO(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
-            CFOO(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(RESposPosPtr, RESposPosBinding, RESposNode, RESposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(RESnegNegPtr, RESnegNegBinding, RESnegNode, RESnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(RESposNegPtr, RESposNegBinding, RESposNode, RESnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(RESnegPosPtr, RESnegPosBinding, RESnegNode, RESposNode);
         }
     }
 

@@ -39,15 +39,15 @@ NBJT2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
-            XFOO(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
-            XFOO(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
-            XFOO(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
-            XFOO(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
-            XFOO(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
-            XFOO(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
-            XFOO(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
-            XFOO(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
-            XFOO(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
+            CREATE_KLU_BINDING_TABLE(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
         }
     }
 
@@ -68,15 +68,15 @@ NBJT2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
-            BFOO(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
-            BFOO(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
-            BFOO(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
-            BFOO(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
-            BFOO(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
-            BFOO(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
-            BFOO(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
-            BFOO(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
-            BFOO(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
         }
     }
 
@@ -97,15 +97,15 @@ NBJT2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJT2instances ; here != NULL ; here = here->NBJT2nextInstance)
         {
-            CFOO(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
-            CFOO(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
-            CFOO(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
-            CFOO(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
-            CFOO(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
-            CFOO(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
-            CFOO(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
-            CFOO(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
-            CFOO(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2colColPtr, NBJT2colColBinding, NBJT2colNode, NBJT2colNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2colBasePtr, NBJT2colBaseBinding, NBJT2colNode, NBJT2baseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2colEmitPtr, NBJT2colEmitBinding, NBJT2colNode, NBJT2emitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2baseColPtr, NBJT2baseColBinding, NBJT2baseNode, NBJT2colNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2baseBasePtr, NBJT2baseBaseBinding, NBJT2baseNode, NBJT2baseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2baseEmitPtr, NBJT2baseEmitBinding, NBJT2baseNode, NBJT2emitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2emitColPtr, NBJT2emitColBinding, NBJT2emitNode, NBJT2colNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2emitBasePtr, NBJT2emitBaseBinding, NBJT2emitNode, NBJT2baseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJT2emitEmitPtr, NBJT2emitEmitBinding, NBJT2emitNode, NBJT2emitNode);
         }
     }
 

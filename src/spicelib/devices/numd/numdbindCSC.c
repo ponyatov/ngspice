@@ -39,10 +39,10 @@ NUMDbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMDinstances ; here != NULL ; here = here->NUMDnextInstance)
         {
-            XFOO(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
-            XFOO(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
-            XFOO(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
-            XFOO(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
+            CREATE_KLU_BINDING_TABLE(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
+            CREATE_KLU_BINDING_TABLE(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
+            CREATE_KLU_BINDING_TABLE(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
+            CREATE_KLU_BINDING_TABLE(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
         }
     }
 
@@ -63,10 +63,10 @@ NUMDbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMDinstances ; here != NULL ; here = here->NUMDnextInstance)
         {
-            BFOO(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
-            BFOO(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
-            BFOO(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
-            BFOO(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
         }
     }
 
@@ -87,10 +87,10 @@ NUMDbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMDinstances ; here != NULL ; here = here->NUMDnextInstance)
         {
-            CFOO(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
-            CFOO(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
-            CFOO(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
-            CFOO(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMDposPosPtr, NUMDposPosBinding, NUMDposNode, NUMDposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMDnegNegPtr, NUMDnegNegBinding, NUMDnegNode, NUMDnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMDnegPosPtr, NUMDnegPosBinding, NUMDnegNode, NUMDposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMDposNegPtr, NUMDposNegBinding, NUMDposNode, NUMDnegNode);
         }
     }
 

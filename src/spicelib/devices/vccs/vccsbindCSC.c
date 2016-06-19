@@ -39,10 +39,10 @@ VCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
-            XFOO(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
-            XFOO(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
-            XFOO(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
-            XFOO(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
+            CREATE_KLU_BINDING_TABLE(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
+            CREATE_KLU_BINDING_TABLE(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
+            CREATE_KLU_BINDING_TABLE(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
+            CREATE_KLU_BINDING_TABLE(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
         }
     }
 
@@ -63,10 +63,10 @@ VCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
-            BFOO(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
-            BFOO(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
-            BFOO(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
-            BFOO(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
         }
     }
 
@@ -87,10 +87,10 @@ VCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VCCSinstances ; here != NULL ; here = here->VCCSnextInstance)
         {
-            CFOO(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
-            CFOO(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
-            CFOO(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
-            CFOO(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VCCSposContPosPtr, VCCSposContPosBinding, VCCSposNode, VCCScontPosNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VCCSposContNegPtr, VCCSposContNegBinding, VCCSposNode, VCCScontNegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VCCSnegContPosPtr, VCCSnegContPosBinding, VCCSnegNode, VCCScontPosNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VCCSnegContNegPtr, VCCSnegContNegBinding, VCCSnegNode, VCCScontNegNode);
         }
     }
 

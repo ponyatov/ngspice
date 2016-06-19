@@ -39,10 +39,10 @@ VSRCbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
-            XFOO(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
-            XFOO(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
-            XFOO(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
-            XFOO(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
+            CREATE_KLU_BINDING_TABLE(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
+            CREATE_KLU_BINDING_TABLE(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
+            CREATE_KLU_BINDING_TABLE(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
+            CREATE_KLU_BINDING_TABLE(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
@@ -74,10 +74,10 @@ VSRCbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
-            BFOO(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
-            BFOO(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
-            BFOO(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
-            BFOO(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {
@@ -106,10 +106,10 @@ VSRCbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->VSRCinstances ; here != NULL ; here = here->VSRCnextInstance)
         {
-            CFOO(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
-            CFOO(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
-            CFOO(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
-            CFOO(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VSRCposIbrPtr, VSRCposIbrBinding, VSRCposNode, VSRCbranch);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VSRCnegIbrPtr, VSRCnegIbrBinding, VSRCnegNode, VSRCbranch);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VSRCibrNegPtr, VSRCibrNegBinding, VSRCbranch, VSRCnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(VSRCibrPosPtr, VSRCibrPosBinding, VSRCbranch, VSRCposNode);
             /* Pole-Zero Analysis */
             if ((here-> VSRCbranch != 0) && (here-> VSRCbranch != 0))
             {

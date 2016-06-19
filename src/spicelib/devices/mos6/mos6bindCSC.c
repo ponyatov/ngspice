@@ -39,28 +39,28 @@ MOS6bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS6instances ; here != NULL ; here = here->MOS6nextInstance)
         {
-            XFOO(MOS6DdPtr, MOS6DdBinding, MOS6dNode, MOS6dNode);
-            XFOO(MOS6GgPtr, MOS6GgBinding, MOS6gNode, MOS6gNode);
-            XFOO(MOS6SsPtr, MOS6SsBinding, MOS6sNode, MOS6sNode);
-            XFOO(MOS6BbPtr, MOS6BbBinding, MOS6bNode, MOS6bNode);
-            XFOO(MOS6DPdpPtr, MOS6DPdpBinding, MOS6dNodePrime, MOS6dNodePrime);
-            XFOO(MOS6SPspPtr, MOS6SPspBinding, MOS6sNodePrime, MOS6sNodePrime);
-            XFOO(MOS6DdpPtr, MOS6DdpBinding, MOS6dNode, MOS6dNodePrime);
-            XFOO(MOS6GbPtr, MOS6GbBinding, MOS6gNode, MOS6bNode);
-            XFOO(MOS6GdpPtr, MOS6GdpBinding, MOS6gNode, MOS6dNodePrime);
-            XFOO(MOS6GspPtr, MOS6GspBinding, MOS6gNode, MOS6sNodePrime);
-            XFOO(MOS6SspPtr, MOS6SspBinding, MOS6sNode, MOS6sNodePrime);
-            XFOO(MOS6BdpPtr, MOS6BdpBinding, MOS6bNode, MOS6dNodePrime);
-            XFOO(MOS6BspPtr, MOS6BspBinding, MOS6bNode, MOS6sNodePrime);
-            XFOO(MOS6DPspPtr, MOS6DPspBinding, MOS6dNodePrime, MOS6sNodePrime);
-            XFOO(MOS6DPdPtr, MOS6DPdBinding, MOS6dNodePrime, MOS6dNode);
-            XFOO(MOS6BgPtr, MOS6BgBinding, MOS6bNode, MOS6gNode);
-            XFOO(MOS6DPgPtr, MOS6DPgBinding, MOS6dNodePrime, MOS6gNode);
-            XFOO(MOS6SPgPtr, MOS6SPgBinding, MOS6sNodePrime, MOS6gNode);
-            XFOO(MOS6SPsPtr, MOS6SPsBinding, MOS6sNodePrime, MOS6sNode);
-            XFOO(MOS6DPbPtr, MOS6DPbBinding, MOS6dNodePrime, MOS6bNode);
-            XFOO(MOS6SPbPtr, MOS6SPbBinding, MOS6sNodePrime, MOS6bNode);
-            XFOO(MOS6SPdpPtr, MOS6SPdpBinding, MOS6sNodePrime, MOS6dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6DdPtr, MOS6DdBinding, MOS6dNode, MOS6dNode);
+            CREATE_KLU_BINDING_TABLE(MOS6GgPtr, MOS6GgBinding, MOS6gNode, MOS6gNode);
+            CREATE_KLU_BINDING_TABLE(MOS6SsPtr, MOS6SsBinding, MOS6sNode, MOS6sNode);
+            CREATE_KLU_BINDING_TABLE(MOS6BbPtr, MOS6BbBinding, MOS6bNode, MOS6bNode);
+            CREATE_KLU_BINDING_TABLE(MOS6DPdpPtr, MOS6DPdpBinding, MOS6dNodePrime, MOS6dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6SPspPtr, MOS6SPspBinding, MOS6sNodePrime, MOS6sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6DdpPtr, MOS6DdpBinding, MOS6dNode, MOS6dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6GbPtr, MOS6GbBinding, MOS6gNode, MOS6bNode);
+            CREATE_KLU_BINDING_TABLE(MOS6GdpPtr, MOS6GdpBinding, MOS6gNode, MOS6dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6GspPtr, MOS6GspBinding, MOS6gNode, MOS6sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6SspPtr, MOS6SspBinding, MOS6sNode, MOS6sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6BdpPtr, MOS6BdpBinding, MOS6bNode, MOS6dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6BspPtr, MOS6BspBinding, MOS6bNode, MOS6sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6DPspPtr, MOS6DPspBinding, MOS6dNodePrime, MOS6sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS6DPdPtr, MOS6DPdBinding, MOS6dNodePrime, MOS6dNode);
+            CREATE_KLU_BINDING_TABLE(MOS6BgPtr, MOS6BgBinding, MOS6bNode, MOS6gNode);
+            CREATE_KLU_BINDING_TABLE(MOS6DPgPtr, MOS6DPgBinding, MOS6dNodePrime, MOS6gNode);
+            CREATE_KLU_BINDING_TABLE(MOS6SPgPtr, MOS6SPgBinding, MOS6sNodePrime, MOS6gNode);
+            CREATE_KLU_BINDING_TABLE(MOS6SPsPtr, MOS6SPsBinding, MOS6sNodePrime, MOS6sNode);
+            CREATE_KLU_BINDING_TABLE(MOS6DPbPtr, MOS6DPbBinding, MOS6dNodePrime, MOS6bNode);
+            CREATE_KLU_BINDING_TABLE(MOS6SPbPtr, MOS6SPbBinding, MOS6sNodePrime, MOS6bNode);
+            CREATE_KLU_BINDING_TABLE(MOS6SPdpPtr, MOS6SPdpBinding, MOS6sNodePrime, MOS6dNodePrime);
         }
     }
 
@@ -81,28 +81,28 @@ MOS6bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS6instances ; here != NULL ; here = here->MOS6nextInstance)
         {
-            BFOO(MOS6DdPtr, MOS6DdBinding, MOS6dNode, MOS6dNode);
-            BFOO(MOS6GgPtr, MOS6GgBinding, MOS6gNode, MOS6gNode);
-            BFOO(MOS6SsPtr, MOS6SsBinding, MOS6sNode, MOS6sNode);
-            BFOO(MOS6BbPtr, MOS6BbBinding, MOS6bNode, MOS6bNode);
-            BFOO(MOS6DPdpPtr, MOS6DPdpBinding, MOS6dNodePrime, MOS6dNodePrime);
-            BFOO(MOS6SPspPtr, MOS6SPspBinding, MOS6sNodePrime, MOS6sNodePrime);
-            BFOO(MOS6DdpPtr, MOS6DdpBinding, MOS6dNode, MOS6dNodePrime);
-            BFOO(MOS6GbPtr, MOS6GbBinding, MOS6gNode, MOS6bNode);
-            BFOO(MOS6GdpPtr, MOS6GdpBinding, MOS6gNode, MOS6dNodePrime);
-            BFOO(MOS6GspPtr, MOS6GspBinding, MOS6gNode, MOS6sNodePrime);
-            BFOO(MOS6SspPtr, MOS6SspBinding, MOS6sNode, MOS6sNodePrime);
-            BFOO(MOS6BdpPtr, MOS6BdpBinding, MOS6bNode, MOS6dNodePrime);
-            BFOO(MOS6BspPtr, MOS6BspBinding, MOS6bNode, MOS6sNodePrime);
-            BFOO(MOS6DPspPtr, MOS6DPspBinding, MOS6dNodePrime, MOS6sNodePrime);
-            BFOO(MOS6DPdPtr, MOS6DPdBinding, MOS6dNodePrime, MOS6dNode);
-            BFOO(MOS6BgPtr, MOS6BgBinding, MOS6bNode, MOS6gNode);
-            BFOO(MOS6DPgPtr, MOS6DPgBinding, MOS6dNodePrime, MOS6gNode);
-            BFOO(MOS6SPgPtr, MOS6SPgBinding, MOS6sNodePrime, MOS6gNode);
-            BFOO(MOS6SPsPtr, MOS6SPsBinding, MOS6sNodePrime, MOS6sNode);
-            BFOO(MOS6DPbPtr, MOS6DPbBinding, MOS6dNodePrime, MOS6bNode);
-            BFOO(MOS6SPbPtr, MOS6SPbBinding, MOS6sNodePrime, MOS6bNode);
-            BFOO(MOS6SPdpPtr, MOS6SPdpBinding, MOS6sNodePrime, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DdPtr, MOS6DdBinding, MOS6dNode, MOS6dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6GgPtr, MOS6GgBinding, MOS6gNode, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SsPtr, MOS6SsBinding, MOS6sNode, MOS6sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6BbPtr, MOS6BbBinding, MOS6bNode, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DPdpPtr, MOS6DPdpBinding, MOS6dNodePrime, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SPspPtr, MOS6SPspBinding, MOS6sNodePrime, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DdpPtr, MOS6DdpBinding, MOS6dNode, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6GbPtr, MOS6GbBinding, MOS6gNode, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6GdpPtr, MOS6GdpBinding, MOS6gNode, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6GspPtr, MOS6GspBinding, MOS6gNode, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SspPtr, MOS6SspBinding, MOS6sNode, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6BdpPtr, MOS6BdpBinding, MOS6bNode, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6BspPtr, MOS6BspBinding, MOS6bNode, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DPspPtr, MOS6DPspBinding, MOS6dNodePrime, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DPdPtr, MOS6DPdBinding, MOS6dNodePrime, MOS6dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6BgPtr, MOS6BgBinding, MOS6bNode, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DPgPtr, MOS6DPgBinding, MOS6dNodePrime, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SPgPtr, MOS6SPgBinding, MOS6sNodePrime, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SPsPtr, MOS6SPsBinding, MOS6sNodePrime, MOS6sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6DPbPtr, MOS6DPbBinding, MOS6dNodePrime, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SPbPtr, MOS6SPbBinding, MOS6sNodePrime, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS6SPdpPtr, MOS6SPdpBinding, MOS6sNodePrime, MOS6dNodePrime);
         }
     }
 
@@ -123,28 +123,28 @@ MOS6bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS6instances ; here != NULL ; here = here->MOS6nextInstance)
         {
-            CFOO(MOS6DdPtr, MOS6DdBinding, MOS6dNode, MOS6dNode);
-            CFOO(MOS6GgPtr, MOS6GgBinding, MOS6gNode, MOS6gNode);
-            CFOO(MOS6SsPtr, MOS6SsBinding, MOS6sNode, MOS6sNode);
-            CFOO(MOS6BbPtr, MOS6BbBinding, MOS6bNode, MOS6bNode);
-            CFOO(MOS6DPdpPtr, MOS6DPdpBinding, MOS6dNodePrime, MOS6dNodePrime);
-            CFOO(MOS6SPspPtr, MOS6SPspBinding, MOS6sNodePrime, MOS6sNodePrime);
-            CFOO(MOS6DdpPtr, MOS6DdpBinding, MOS6dNode, MOS6dNodePrime);
-            CFOO(MOS6GbPtr, MOS6GbBinding, MOS6gNode, MOS6bNode);
-            CFOO(MOS6GdpPtr, MOS6GdpBinding, MOS6gNode, MOS6dNodePrime);
-            CFOO(MOS6GspPtr, MOS6GspBinding, MOS6gNode, MOS6sNodePrime);
-            CFOO(MOS6SspPtr, MOS6SspBinding, MOS6sNode, MOS6sNodePrime);
-            CFOO(MOS6BdpPtr, MOS6BdpBinding, MOS6bNode, MOS6dNodePrime);
-            CFOO(MOS6BspPtr, MOS6BspBinding, MOS6bNode, MOS6sNodePrime);
-            CFOO(MOS6DPspPtr, MOS6DPspBinding, MOS6dNodePrime, MOS6sNodePrime);
-            CFOO(MOS6DPdPtr, MOS6DPdBinding, MOS6dNodePrime, MOS6dNode);
-            CFOO(MOS6BgPtr, MOS6BgBinding, MOS6bNode, MOS6gNode);
-            CFOO(MOS6DPgPtr, MOS6DPgBinding, MOS6dNodePrime, MOS6gNode);
-            CFOO(MOS6SPgPtr, MOS6SPgBinding, MOS6sNodePrime, MOS6gNode);
-            CFOO(MOS6SPsPtr, MOS6SPsBinding, MOS6sNodePrime, MOS6sNode);
-            CFOO(MOS6DPbPtr, MOS6DPbBinding, MOS6dNodePrime, MOS6bNode);
-            CFOO(MOS6SPbPtr, MOS6SPbBinding, MOS6sNodePrime, MOS6bNode);
-            CFOO(MOS6SPdpPtr, MOS6SPdpBinding, MOS6sNodePrime, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DdPtr, MOS6DdBinding, MOS6dNode, MOS6dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6GgPtr, MOS6GgBinding, MOS6gNode, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SsPtr, MOS6SsBinding, MOS6sNode, MOS6sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6BbPtr, MOS6BbBinding, MOS6bNode, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DPdpPtr, MOS6DPdpBinding, MOS6dNodePrime, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SPspPtr, MOS6SPspBinding, MOS6sNodePrime, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DdpPtr, MOS6DdpBinding, MOS6dNode, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6GbPtr, MOS6GbBinding, MOS6gNode, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6GdpPtr, MOS6GdpBinding, MOS6gNode, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6GspPtr, MOS6GspBinding, MOS6gNode, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SspPtr, MOS6SspBinding, MOS6sNode, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6BdpPtr, MOS6BdpBinding, MOS6bNode, MOS6dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6BspPtr, MOS6BspBinding, MOS6bNode, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DPspPtr, MOS6DPspBinding, MOS6dNodePrime, MOS6sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DPdPtr, MOS6DPdBinding, MOS6dNodePrime, MOS6dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6BgPtr, MOS6BgBinding, MOS6bNode, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DPgPtr, MOS6DPgBinding, MOS6dNodePrime, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SPgPtr, MOS6SPgBinding, MOS6sNodePrime, MOS6gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SPsPtr, MOS6SPsBinding, MOS6sNodePrime, MOS6sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6DPbPtr, MOS6DPbBinding, MOS6dNodePrime, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SPbPtr, MOS6SPbBinding, MOS6sNodePrime, MOS6bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS6SPdpPtr, MOS6SPdpBinding, MOS6sNodePrime, MOS6dNodePrime);
         }
     }
 

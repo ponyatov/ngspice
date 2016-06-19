@@ -39,28 +39,28 @@ TRAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->TRAinstances ; here != NULL ; here = here->TRAnextInstance)
         {
-            XFOO(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
-            XFOO(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
-            XFOO(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
-            XFOO(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
-            XFOO(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
-            XFOO(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
-            XFOO(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
-            XFOO(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
-            XFOO(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
-            XFOO(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
-            XFOO(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
-            XFOO(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
-            XFOO(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
-            XFOO(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
-            XFOO(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
-            XFOO(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
-            XFOO(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
-            XFOO(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
-            XFOO(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
-            XFOO(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
-            XFOO(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
-            XFOO(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
+            CREATE_KLU_BINDING_TABLE(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
+            CREATE_KLU_BINDING_TABLE(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
+            CREATE_KLU_BINDING_TABLE(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
+            CREATE_KLU_BINDING_TABLE(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
+            CREATE_KLU_BINDING_TABLE(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
+            CREATE_KLU_BINDING_TABLE(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
+            CREATE_KLU_BINDING_TABLE(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
+            CREATE_KLU_BINDING_TABLE(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
+            CREATE_KLU_BINDING_TABLE(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
+            CREATE_KLU_BINDING_TABLE(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
+            CREATE_KLU_BINDING_TABLE(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
+            CREATE_KLU_BINDING_TABLE(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
+            CREATE_KLU_BINDING_TABLE(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
+            CREATE_KLU_BINDING_TABLE(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
+            CREATE_KLU_BINDING_TABLE(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
+            CREATE_KLU_BINDING_TABLE(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
+            CREATE_KLU_BINDING_TABLE(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
+            CREATE_KLU_BINDING_TABLE(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
+            CREATE_KLU_BINDING_TABLE(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
+            CREATE_KLU_BINDING_TABLE(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
+            CREATE_KLU_BINDING_TABLE(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
+            CREATE_KLU_BINDING_TABLE(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
         }
     }
 
@@ -81,28 +81,28 @@ TRAbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->TRAinstances ; here != NULL ; here = here->TRAnextInstance)
         {
-            BFOO(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
-            BFOO(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
-            BFOO(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
-            BFOO(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
-            BFOO(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
-            BFOO(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
-            BFOO(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
-            BFOO(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
-            BFOO(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
-            BFOO(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
-            BFOO(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
-            BFOO(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
-            BFOO(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
-            BFOO(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
-            BFOO(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
-            BFOO(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
-            BFOO(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
-            BFOO(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
-            BFOO(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
-            BFOO(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
-            BFOO(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
-            BFOO(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
         }
     }
 
@@ -123,28 +123,28 @@ TRAbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->TRAinstances ; here != NULL ; here = here->TRAnextInstance)
         {
-            CFOO(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
-            CFOO(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
-            CFOO(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
-            CFOO(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
-            CFOO(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
-            CFOO(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
-            CFOO(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
-            CFOO(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
-            CFOO(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
-            CFOO(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
-            CFOO(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
-            CFOO(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
-            CFOO(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
-            CFOO(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
-            CFOO(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
-            CFOO(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
-            CFOO(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
-            CFOO(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
-            CFOO(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
-            CFOO(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
-            CFOO(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
-            CFOO(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr1Ibr2Ptr, TRAibr1Ibr2Binding, TRAbrEq1, TRAbrEq2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr1Int1Ptr, TRAibr1Int1Binding, TRAbrEq1, TRAintNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr1Neg1Ptr, TRAibr1Neg1Binding, TRAbrEq1, TRAnegNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr1Neg2Ptr, TRAibr1Neg2Binding, TRAbrEq1, TRAnegNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr1Pos2Ptr, TRAibr1Pos2Binding, TRAbrEq1, TRAposNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr2Ibr1Ptr, TRAibr2Ibr1Binding, TRAbrEq2, TRAbrEq1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr2Int2Ptr, TRAibr2Int2Binding, TRAbrEq2, TRAintNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr2Neg1Ptr, TRAibr2Neg1Binding, TRAbrEq2, TRAnegNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr2Neg2Ptr, TRAibr2Neg2Binding, TRAbrEq2, TRAnegNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAibr2Pos1Ptr, TRAibr2Pos1Binding, TRAbrEq2, TRAposNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAint1Ibr1Ptr, TRAint1Ibr1Binding, TRAintNode1, TRAbrEq1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAint1Int1Ptr, TRAint1Int1Binding, TRAintNode1, TRAintNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAint1Pos1Ptr, TRAint1Pos1Binding, TRAintNode1, TRAposNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAint2Ibr2Ptr, TRAint2Ibr2Binding, TRAintNode2, TRAbrEq2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAint2Int2Ptr, TRAint2Int2Binding, TRAintNode2, TRAintNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAint2Pos2Ptr, TRAint2Pos2Binding, TRAintNode2, TRAposNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAneg1Ibr1Ptr, TRAneg1Ibr1Binding, TRAnegNode1, TRAbrEq1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRAneg2Ibr2Ptr, TRAneg2Ibr2Binding, TRAnegNode2, TRAbrEq2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRApos1Int1Ptr, TRApos1Int1Binding, TRAposNode1, TRAintNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRApos1Pos1Ptr, TRApos1Pos1Binding, TRAposNode1, TRAposNode1);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRApos2Int2Ptr, TRApos2Int2Binding, TRAposNode2, TRAintNode2);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(TRApos2Pos2Ptr, TRApos2Pos2Binding, TRAposNode2, TRAposNode2);
         }
     }
 

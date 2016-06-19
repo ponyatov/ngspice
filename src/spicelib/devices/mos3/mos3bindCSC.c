@@ -39,28 +39,28 @@ MOS3bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS3instances ; here != NULL ; here = here->MOS3nextInstance)
         {
-            XFOO(MOS3DdPtr, MOS3DdBinding, MOS3dNode, MOS3dNode);
-            XFOO(MOS3GgPtr, MOS3GgBinding, MOS3gNode, MOS3gNode);
-            XFOO(MOS3SsPtr, MOS3SsBinding, MOS3sNode, MOS3sNode);
-            XFOO(MOS3BbPtr, MOS3BbBinding, MOS3bNode, MOS3bNode);
-            XFOO(MOS3DPdpPtr, MOS3DPdpBinding, MOS3dNodePrime, MOS3dNodePrime);
-            XFOO(MOS3SPspPtr, MOS3SPspBinding, MOS3sNodePrime, MOS3sNodePrime);
-            XFOO(MOS3DdpPtr, MOS3DdpBinding, MOS3dNode, MOS3dNodePrime);
-            XFOO(MOS3GbPtr, MOS3GbBinding, MOS3gNode, MOS3bNode);
-            XFOO(MOS3GdpPtr, MOS3GdpBinding, MOS3gNode, MOS3dNodePrime);
-            XFOO(MOS3GspPtr, MOS3GspBinding, MOS3gNode, MOS3sNodePrime);
-            XFOO(MOS3SspPtr, MOS3SspBinding, MOS3sNode, MOS3sNodePrime);
-            XFOO(MOS3BdpPtr, MOS3BdpBinding, MOS3bNode, MOS3dNodePrime);
-            XFOO(MOS3BspPtr, MOS3BspBinding, MOS3bNode, MOS3sNodePrime);
-            XFOO(MOS3DPspPtr, MOS3DPspBinding, MOS3dNodePrime, MOS3sNodePrime);
-            XFOO(MOS3DPdPtr, MOS3DPdBinding, MOS3dNodePrime, MOS3dNode);
-            XFOO(MOS3BgPtr, MOS3BgBinding, MOS3bNode, MOS3gNode);
-            XFOO(MOS3DPgPtr, MOS3DPgBinding, MOS3dNodePrime, MOS3gNode);
-            XFOO(MOS3SPgPtr, MOS3SPgBinding, MOS3sNodePrime, MOS3gNode);
-            XFOO(MOS3SPsPtr, MOS3SPsBinding, MOS3sNodePrime, MOS3sNode);
-            XFOO(MOS3DPbPtr, MOS3DPbBinding, MOS3dNodePrime, MOS3bNode);
-            XFOO(MOS3SPbPtr, MOS3SPbBinding, MOS3sNodePrime, MOS3bNode);
-            XFOO(MOS3SPdpPtr, MOS3SPdpBinding, MOS3sNodePrime, MOS3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3DdPtr, MOS3DdBinding, MOS3dNode, MOS3dNode);
+            CREATE_KLU_BINDING_TABLE(MOS3GgPtr, MOS3GgBinding, MOS3gNode, MOS3gNode);
+            CREATE_KLU_BINDING_TABLE(MOS3SsPtr, MOS3SsBinding, MOS3sNode, MOS3sNode);
+            CREATE_KLU_BINDING_TABLE(MOS3BbPtr, MOS3BbBinding, MOS3bNode, MOS3bNode);
+            CREATE_KLU_BINDING_TABLE(MOS3DPdpPtr, MOS3DPdpBinding, MOS3dNodePrime, MOS3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3SPspPtr, MOS3SPspBinding, MOS3sNodePrime, MOS3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3DdpPtr, MOS3DdpBinding, MOS3dNode, MOS3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3GbPtr, MOS3GbBinding, MOS3gNode, MOS3bNode);
+            CREATE_KLU_BINDING_TABLE(MOS3GdpPtr, MOS3GdpBinding, MOS3gNode, MOS3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3GspPtr, MOS3GspBinding, MOS3gNode, MOS3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3SspPtr, MOS3SspBinding, MOS3sNode, MOS3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3BdpPtr, MOS3BdpBinding, MOS3bNode, MOS3dNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3BspPtr, MOS3BspBinding, MOS3bNode, MOS3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3DPspPtr, MOS3DPspBinding, MOS3dNodePrime, MOS3sNodePrime);
+            CREATE_KLU_BINDING_TABLE(MOS3DPdPtr, MOS3DPdBinding, MOS3dNodePrime, MOS3dNode);
+            CREATE_KLU_BINDING_TABLE(MOS3BgPtr, MOS3BgBinding, MOS3bNode, MOS3gNode);
+            CREATE_KLU_BINDING_TABLE(MOS3DPgPtr, MOS3DPgBinding, MOS3dNodePrime, MOS3gNode);
+            CREATE_KLU_BINDING_TABLE(MOS3SPgPtr, MOS3SPgBinding, MOS3sNodePrime, MOS3gNode);
+            CREATE_KLU_BINDING_TABLE(MOS3SPsPtr, MOS3SPsBinding, MOS3sNodePrime, MOS3sNode);
+            CREATE_KLU_BINDING_TABLE(MOS3DPbPtr, MOS3DPbBinding, MOS3dNodePrime, MOS3bNode);
+            CREATE_KLU_BINDING_TABLE(MOS3SPbPtr, MOS3SPbBinding, MOS3sNodePrime, MOS3bNode);
+            CREATE_KLU_BINDING_TABLE(MOS3SPdpPtr, MOS3SPdpBinding, MOS3sNodePrime, MOS3dNodePrime);
         }
     }
 
@@ -81,28 +81,28 @@ MOS3bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS3instances ; here != NULL ; here = here->MOS3nextInstance)
         {
-            BFOO(MOS3DdPtr, MOS3DdBinding, MOS3dNode, MOS3dNode);
-            BFOO(MOS3GgPtr, MOS3GgBinding, MOS3gNode, MOS3gNode);
-            BFOO(MOS3SsPtr, MOS3SsBinding, MOS3sNode, MOS3sNode);
-            BFOO(MOS3BbPtr, MOS3BbBinding, MOS3bNode, MOS3bNode);
-            BFOO(MOS3DPdpPtr, MOS3DPdpBinding, MOS3dNodePrime, MOS3dNodePrime);
-            BFOO(MOS3SPspPtr, MOS3SPspBinding, MOS3sNodePrime, MOS3sNodePrime);
-            BFOO(MOS3DdpPtr, MOS3DdpBinding, MOS3dNode, MOS3dNodePrime);
-            BFOO(MOS3GbPtr, MOS3GbBinding, MOS3gNode, MOS3bNode);
-            BFOO(MOS3GdpPtr, MOS3GdpBinding, MOS3gNode, MOS3dNodePrime);
-            BFOO(MOS3GspPtr, MOS3GspBinding, MOS3gNode, MOS3sNodePrime);
-            BFOO(MOS3SspPtr, MOS3SspBinding, MOS3sNode, MOS3sNodePrime);
-            BFOO(MOS3BdpPtr, MOS3BdpBinding, MOS3bNode, MOS3dNodePrime);
-            BFOO(MOS3BspPtr, MOS3BspBinding, MOS3bNode, MOS3sNodePrime);
-            BFOO(MOS3DPspPtr, MOS3DPspBinding, MOS3dNodePrime, MOS3sNodePrime);
-            BFOO(MOS3DPdPtr, MOS3DPdBinding, MOS3dNodePrime, MOS3dNode);
-            BFOO(MOS3BgPtr, MOS3BgBinding, MOS3bNode, MOS3gNode);
-            BFOO(MOS3DPgPtr, MOS3DPgBinding, MOS3dNodePrime, MOS3gNode);
-            BFOO(MOS3SPgPtr, MOS3SPgBinding, MOS3sNodePrime, MOS3gNode);
-            BFOO(MOS3SPsPtr, MOS3SPsBinding, MOS3sNodePrime, MOS3sNode);
-            BFOO(MOS3DPbPtr, MOS3DPbBinding, MOS3dNodePrime, MOS3bNode);
-            BFOO(MOS3SPbPtr, MOS3SPbBinding, MOS3sNodePrime, MOS3bNode);
-            BFOO(MOS3SPdpPtr, MOS3SPdpBinding, MOS3sNodePrime, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DdPtr, MOS3DdBinding, MOS3dNode, MOS3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3GgPtr, MOS3GgBinding, MOS3gNode, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SsPtr, MOS3SsBinding, MOS3sNode, MOS3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3BbPtr, MOS3BbBinding, MOS3bNode, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DPdpPtr, MOS3DPdpBinding, MOS3dNodePrime, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SPspPtr, MOS3SPspBinding, MOS3sNodePrime, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DdpPtr, MOS3DdpBinding, MOS3dNode, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3GbPtr, MOS3GbBinding, MOS3gNode, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3GdpPtr, MOS3GdpBinding, MOS3gNode, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3GspPtr, MOS3GspBinding, MOS3gNode, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SspPtr, MOS3SspBinding, MOS3sNode, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3BdpPtr, MOS3BdpBinding, MOS3bNode, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3BspPtr, MOS3BspBinding, MOS3bNode, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DPspPtr, MOS3DPspBinding, MOS3dNodePrime, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DPdPtr, MOS3DPdBinding, MOS3dNodePrime, MOS3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3BgPtr, MOS3BgBinding, MOS3bNode, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DPgPtr, MOS3DPgBinding, MOS3dNodePrime, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SPgPtr, MOS3SPgBinding, MOS3sNodePrime, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SPsPtr, MOS3SPsBinding, MOS3sNodePrime, MOS3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3DPbPtr, MOS3DPbBinding, MOS3dNodePrime, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SPbPtr, MOS3SPbBinding, MOS3sNodePrime, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MOS3SPdpPtr, MOS3SPdpBinding, MOS3sNodePrime, MOS3dNodePrime);
         }
     }
 
@@ -123,28 +123,28 @@ MOS3bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MOS3instances ; here != NULL ; here = here->MOS3nextInstance)
         {
-            CFOO(MOS3DdPtr, MOS3DdBinding, MOS3dNode, MOS3dNode);
-            CFOO(MOS3GgPtr, MOS3GgBinding, MOS3gNode, MOS3gNode);
-            CFOO(MOS3SsPtr, MOS3SsBinding, MOS3sNode, MOS3sNode);
-            CFOO(MOS3BbPtr, MOS3BbBinding, MOS3bNode, MOS3bNode);
-            CFOO(MOS3DPdpPtr, MOS3DPdpBinding, MOS3dNodePrime, MOS3dNodePrime);
-            CFOO(MOS3SPspPtr, MOS3SPspBinding, MOS3sNodePrime, MOS3sNodePrime);
-            CFOO(MOS3DdpPtr, MOS3DdpBinding, MOS3dNode, MOS3dNodePrime);
-            CFOO(MOS3GbPtr, MOS3GbBinding, MOS3gNode, MOS3bNode);
-            CFOO(MOS3GdpPtr, MOS3GdpBinding, MOS3gNode, MOS3dNodePrime);
-            CFOO(MOS3GspPtr, MOS3GspBinding, MOS3gNode, MOS3sNodePrime);
-            CFOO(MOS3SspPtr, MOS3SspBinding, MOS3sNode, MOS3sNodePrime);
-            CFOO(MOS3BdpPtr, MOS3BdpBinding, MOS3bNode, MOS3dNodePrime);
-            CFOO(MOS3BspPtr, MOS3BspBinding, MOS3bNode, MOS3sNodePrime);
-            CFOO(MOS3DPspPtr, MOS3DPspBinding, MOS3dNodePrime, MOS3sNodePrime);
-            CFOO(MOS3DPdPtr, MOS3DPdBinding, MOS3dNodePrime, MOS3dNode);
-            CFOO(MOS3BgPtr, MOS3BgBinding, MOS3bNode, MOS3gNode);
-            CFOO(MOS3DPgPtr, MOS3DPgBinding, MOS3dNodePrime, MOS3gNode);
-            CFOO(MOS3SPgPtr, MOS3SPgBinding, MOS3sNodePrime, MOS3gNode);
-            CFOO(MOS3SPsPtr, MOS3SPsBinding, MOS3sNodePrime, MOS3sNode);
-            CFOO(MOS3DPbPtr, MOS3DPbBinding, MOS3dNodePrime, MOS3bNode);
-            CFOO(MOS3SPbPtr, MOS3SPbBinding, MOS3sNodePrime, MOS3bNode);
-            CFOO(MOS3SPdpPtr, MOS3SPdpBinding, MOS3sNodePrime, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DdPtr, MOS3DdBinding, MOS3dNode, MOS3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3GgPtr, MOS3GgBinding, MOS3gNode, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SsPtr, MOS3SsBinding, MOS3sNode, MOS3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3BbPtr, MOS3BbBinding, MOS3bNode, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DPdpPtr, MOS3DPdpBinding, MOS3dNodePrime, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SPspPtr, MOS3SPspBinding, MOS3sNodePrime, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DdpPtr, MOS3DdpBinding, MOS3dNode, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3GbPtr, MOS3GbBinding, MOS3gNode, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3GdpPtr, MOS3GdpBinding, MOS3gNode, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3GspPtr, MOS3GspBinding, MOS3gNode, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SspPtr, MOS3SspBinding, MOS3sNode, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3BdpPtr, MOS3BdpBinding, MOS3bNode, MOS3dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3BspPtr, MOS3BspBinding, MOS3bNode, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DPspPtr, MOS3DPspBinding, MOS3dNodePrime, MOS3sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DPdPtr, MOS3DPdBinding, MOS3dNodePrime, MOS3dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3BgPtr, MOS3BgBinding, MOS3bNode, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DPgPtr, MOS3DPgBinding, MOS3dNodePrime, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SPgPtr, MOS3SPgBinding, MOS3sNodePrime, MOS3gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SPsPtr, MOS3SPsBinding, MOS3sNodePrime, MOS3sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3DPbPtr, MOS3DPbBinding, MOS3dNodePrime, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SPbPtr, MOS3SPbBinding, MOS3sNodePrime, MOS3bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MOS3SPdpPtr, MOS3SPdpBinding, MOS3sNodePrime, MOS3dNodePrime);
         }
     }
 

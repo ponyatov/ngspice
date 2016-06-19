@@ -39,34 +39,34 @@ MESAbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MESAinstances ; here != NULL ; here = here->MESAnextInstance)
         {
-            XFOO(MESAdrainDrainPtr, MESAdrainDrainBinding, MESAdrainNode, MESAdrainNode);
-            XFOO(MESAdrainPrimeDrainPrimePtr, MESAdrainPrimeDrainPrimeBinding, MESAdrainPrimeNode, MESAdrainPrimeNode);
-            XFOO(MESAdrainPrmPrmDrainPrmPrmPtr, MESAdrainPrmPrmDrainPrmPrmBinding, MESAdrainPrmPrmNode, MESAdrainPrmPrmNode);
-            XFOO(MESAgateGatePtr, MESAgateGateBinding, MESAgateNode, MESAgateNode);
-            XFOO(MESAgatePrimeGatePrimePtr, MESAgatePrimeGatePrimeBinding, MESAgatePrimeNode, MESAgatePrimeNode);
-            XFOO(MESAsourceSourcePtr, MESAsourceSourceBinding, MESAsourceNode, MESAsourceNode);
-            XFOO(MESAsourcePrimeSourcePrimePtr, MESAsourcePrimeSourcePrimeBinding, MESAsourcePrimeNode, MESAsourcePrimeNode);
-            XFOO(MESAsourcePrmPrmSourcePrmPrmPtr, MESAsourcePrmPrmSourcePrmPrmBinding, MESAsourcePrmPrmNode, MESAsourcePrmPrmNode);
-            XFOO(MESAdrainDrainPrimePtr, MESAdrainDrainPrimeBinding, MESAdrainNode, MESAdrainPrimeNode);
-            XFOO(MESAdrainPrimeDrainPtr, MESAdrainPrimeDrainBinding, MESAdrainPrimeNode, MESAdrainNode);
-            XFOO(MESAgatePrimeDrainPrimePtr, MESAgatePrimeDrainPrimeBinding, MESAgatePrimeNode, MESAdrainPrimeNode);
-            XFOO(MESAdrainPrimeGatePrimePtr, MESAdrainPrimeGatePrimeBinding, MESAdrainPrimeNode, MESAgatePrimeNode);
-            XFOO(MESAgatePrimeSourcePrimePtr, MESAgatePrimeSourcePrimeBinding, MESAgatePrimeNode, MESAsourcePrimeNode);
-            XFOO(MESAsourcePrimeGatePrimePtr, MESAsourcePrimeGatePrimeBinding, MESAsourcePrimeNode, MESAgatePrimeNode);
-            XFOO(MESAsourceSourcePrimePtr, MESAsourceSourcePrimeBinding, MESAsourceNode, MESAsourcePrimeNode);
-            XFOO(MESAsourcePrimeSourcePtr, MESAsourcePrimeSourceBinding, MESAsourcePrimeNode, MESAsourceNode);
-            XFOO(MESAdrainPrimeSourcePrimePtr, MESAdrainPrimeSourcePrimeBinding, MESAdrainPrimeNode, MESAsourcePrimeNode);
-            XFOO(MESAsourcePrimeDrainPrimePtr, MESAsourcePrimeDrainPrimeBinding, MESAsourcePrimeNode, MESAdrainPrimeNode);
-            XFOO(MESAgatePrimeGatePtr, MESAgatePrimeGateBinding, MESAgatePrimeNode, MESAgateNode);
-            XFOO(MESAgateGatePrimePtr, MESAgateGatePrimeBinding, MESAgateNode, MESAgatePrimeNode);
-            XFOO(MESAsourcePrmPrmSourcePrimePtr, MESAsourcePrmPrmSourcePrimeBinding, MESAsourcePrmPrmNode, MESAsourcePrimeNode);
-            XFOO(MESAsourcePrimeSourcePrmPrmPtr, MESAsourcePrimeSourcePrmPrmBinding, MESAsourcePrimeNode, MESAsourcePrmPrmNode);
-            XFOO(MESAsourcePrmPrmGatePrimePtr, MESAsourcePrmPrmGatePrimeBinding, MESAsourcePrmPrmNode, MESAgatePrimeNode);
-            XFOO(MESAgatePrimeSourcePrmPrmPtr, MESAgatePrimeSourcePrmPrmBinding, MESAgatePrimeNode, MESAsourcePrmPrmNode);
-            XFOO(MESAdrainPrmPrmDrainPrimePtr, MESAdrainPrmPrmDrainPrimeBinding, MESAdrainPrmPrmNode, MESAdrainPrimeNode);
-            XFOO(MESAdrainPrimeDrainPrmPrmPtr, MESAdrainPrimeDrainPrmPrmBinding, MESAdrainPrimeNode, MESAdrainPrmPrmNode);
-            XFOO(MESAdrainPrmPrmGatePrimePtr, MESAdrainPrmPrmGatePrimeBinding, MESAdrainPrmPrmNode, MESAgatePrimeNode);
-            XFOO(MESAgatePrimeDrainPrmPrmPtr, MESAgatePrimeDrainPrmPrmBinding, MESAgatePrimeNode, MESAdrainPrmPrmNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainDrainPtr, MESAdrainDrainBinding, MESAdrainNode, MESAdrainNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrimeDrainPrimePtr, MESAdrainPrimeDrainPrimeBinding, MESAdrainPrimeNode, MESAdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrmPrmDrainPrmPrmPtr, MESAdrainPrmPrmDrainPrmPrmBinding, MESAdrainPrmPrmNode, MESAdrainPrmPrmNode);
+            CREATE_KLU_BINDING_TABLE(MESAgateGatePtr, MESAgateGateBinding, MESAgateNode, MESAgateNode);
+            CREATE_KLU_BINDING_TABLE(MESAgatePrimeGatePrimePtr, MESAgatePrimeGatePrimeBinding, MESAgatePrimeNode, MESAgatePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourceSourcePtr, MESAsourceSourceBinding, MESAsourceNode, MESAsourceNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrimeSourcePrimePtr, MESAsourcePrimeSourcePrimeBinding, MESAsourcePrimeNode, MESAsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrmPrmSourcePrmPrmPtr, MESAsourcePrmPrmSourcePrmPrmBinding, MESAsourcePrmPrmNode, MESAsourcePrmPrmNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainDrainPrimePtr, MESAdrainDrainPrimeBinding, MESAdrainNode, MESAdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrimeDrainPtr, MESAdrainPrimeDrainBinding, MESAdrainPrimeNode, MESAdrainNode);
+            CREATE_KLU_BINDING_TABLE(MESAgatePrimeDrainPrimePtr, MESAgatePrimeDrainPrimeBinding, MESAgatePrimeNode, MESAdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrimeGatePrimePtr, MESAdrainPrimeGatePrimeBinding, MESAdrainPrimeNode, MESAgatePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAgatePrimeSourcePrimePtr, MESAgatePrimeSourcePrimeBinding, MESAgatePrimeNode, MESAsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrimeGatePrimePtr, MESAsourcePrimeGatePrimeBinding, MESAsourcePrimeNode, MESAgatePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourceSourcePrimePtr, MESAsourceSourcePrimeBinding, MESAsourceNode, MESAsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrimeSourcePtr, MESAsourcePrimeSourceBinding, MESAsourcePrimeNode, MESAsourceNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrimeSourcePrimePtr, MESAdrainPrimeSourcePrimeBinding, MESAdrainPrimeNode, MESAsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrimeDrainPrimePtr, MESAsourcePrimeDrainPrimeBinding, MESAsourcePrimeNode, MESAdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAgatePrimeGatePtr, MESAgatePrimeGateBinding, MESAgatePrimeNode, MESAgateNode);
+            CREATE_KLU_BINDING_TABLE(MESAgateGatePrimePtr, MESAgateGatePrimeBinding, MESAgateNode, MESAgatePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrmPrmSourcePrimePtr, MESAsourcePrmPrmSourcePrimeBinding, MESAsourcePrmPrmNode, MESAsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrimeSourcePrmPrmPtr, MESAsourcePrimeSourcePrmPrmBinding, MESAsourcePrimeNode, MESAsourcePrmPrmNode);
+            CREATE_KLU_BINDING_TABLE(MESAsourcePrmPrmGatePrimePtr, MESAsourcePrmPrmGatePrimeBinding, MESAsourcePrmPrmNode, MESAgatePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAgatePrimeSourcePrmPrmPtr, MESAgatePrimeSourcePrmPrmBinding, MESAgatePrimeNode, MESAsourcePrmPrmNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrmPrmDrainPrimePtr, MESAdrainPrmPrmDrainPrimeBinding, MESAdrainPrmPrmNode, MESAdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrimeDrainPrmPrmPtr, MESAdrainPrimeDrainPrmPrmBinding, MESAdrainPrimeNode, MESAdrainPrmPrmNode);
+            CREATE_KLU_BINDING_TABLE(MESAdrainPrmPrmGatePrimePtr, MESAdrainPrmPrmGatePrimeBinding, MESAdrainPrmPrmNode, MESAgatePrimeNode);
+            CREATE_KLU_BINDING_TABLE(MESAgatePrimeDrainPrmPrmPtr, MESAgatePrimeDrainPrmPrmBinding, MESAgatePrimeNode, MESAdrainPrmPrmNode);
         }
     }
 
@@ -87,34 +87,34 @@ MESAbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MESAinstances ; here != NULL ; here = here->MESAnextInstance)
         {
-            BFOO(MESAdrainDrainPtr, MESAdrainDrainBinding, MESAdrainNode, MESAdrainNode);
-            BFOO(MESAdrainPrimeDrainPrimePtr, MESAdrainPrimeDrainPrimeBinding, MESAdrainPrimeNode, MESAdrainPrimeNode);
-            BFOO(MESAdrainPrmPrmDrainPrmPrmPtr, MESAdrainPrmPrmDrainPrmPrmBinding, MESAdrainPrmPrmNode, MESAdrainPrmPrmNode);
-            BFOO(MESAgateGatePtr, MESAgateGateBinding, MESAgateNode, MESAgateNode);
-            BFOO(MESAgatePrimeGatePrimePtr, MESAgatePrimeGatePrimeBinding, MESAgatePrimeNode, MESAgatePrimeNode);
-            BFOO(MESAsourceSourcePtr, MESAsourceSourceBinding, MESAsourceNode, MESAsourceNode);
-            BFOO(MESAsourcePrimeSourcePrimePtr, MESAsourcePrimeSourcePrimeBinding, MESAsourcePrimeNode, MESAsourcePrimeNode);
-            BFOO(MESAsourcePrmPrmSourcePrmPrmPtr, MESAsourcePrmPrmSourcePrmPrmBinding, MESAsourcePrmPrmNode, MESAsourcePrmPrmNode);
-            BFOO(MESAdrainDrainPrimePtr, MESAdrainDrainPrimeBinding, MESAdrainNode, MESAdrainPrimeNode);
-            BFOO(MESAdrainPrimeDrainPtr, MESAdrainPrimeDrainBinding, MESAdrainPrimeNode, MESAdrainNode);
-            BFOO(MESAgatePrimeDrainPrimePtr, MESAgatePrimeDrainPrimeBinding, MESAgatePrimeNode, MESAdrainPrimeNode);
-            BFOO(MESAdrainPrimeGatePrimePtr, MESAdrainPrimeGatePrimeBinding, MESAdrainPrimeNode, MESAgatePrimeNode);
-            BFOO(MESAgatePrimeSourcePrimePtr, MESAgatePrimeSourcePrimeBinding, MESAgatePrimeNode, MESAsourcePrimeNode);
-            BFOO(MESAsourcePrimeGatePrimePtr, MESAsourcePrimeGatePrimeBinding, MESAsourcePrimeNode, MESAgatePrimeNode);
-            BFOO(MESAsourceSourcePrimePtr, MESAsourceSourcePrimeBinding, MESAsourceNode, MESAsourcePrimeNode);
-            BFOO(MESAsourcePrimeSourcePtr, MESAsourcePrimeSourceBinding, MESAsourcePrimeNode, MESAsourceNode);
-            BFOO(MESAdrainPrimeSourcePrimePtr, MESAdrainPrimeSourcePrimeBinding, MESAdrainPrimeNode, MESAsourcePrimeNode);
-            BFOO(MESAsourcePrimeDrainPrimePtr, MESAsourcePrimeDrainPrimeBinding, MESAsourcePrimeNode, MESAdrainPrimeNode);
-            BFOO(MESAgatePrimeGatePtr, MESAgatePrimeGateBinding, MESAgatePrimeNode, MESAgateNode);
-            BFOO(MESAgateGatePrimePtr, MESAgateGatePrimeBinding, MESAgateNode, MESAgatePrimeNode);
-            BFOO(MESAsourcePrmPrmSourcePrimePtr, MESAsourcePrmPrmSourcePrimeBinding, MESAsourcePrmPrmNode, MESAsourcePrimeNode);
-            BFOO(MESAsourcePrimeSourcePrmPrmPtr, MESAsourcePrimeSourcePrmPrmBinding, MESAsourcePrimeNode, MESAsourcePrmPrmNode);
-            BFOO(MESAsourcePrmPrmGatePrimePtr, MESAsourcePrmPrmGatePrimeBinding, MESAsourcePrmPrmNode, MESAgatePrimeNode);
-            BFOO(MESAgatePrimeSourcePrmPrmPtr, MESAgatePrimeSourcePrmPrmBinding, MESAgatePrimeNode, MESAsourcePrmPrmNode);
-            BFOO(MESAdrainPrmPrmDrainPrimePtr, MESAdrainPrmPrmDrainPrimeBinding, MESAdrainPrmPrmNode, MESAdrainPrimeNode);
-            BFOO(MESAdrainPrimeDrainPrmPrmPtr, MESAdrainPrimeDrainPrmPrmBinding, MESAdrainPrimeNode, MESAdrainPrmPrmNode);
-            BFOO(MESAdrainPrmPrmGatePrimePtr, MESAdrainPrmPrmGatePrimeBinding, MESAdrainPrmPrmNode, MESAgatePrimeNode);
-            BFOO(MESAgatePrimeDrainPrmPrmPtr, MESAgatePrimeDrainPrmPrmBinding, MESAgatePrimeNode, MESAdrainPrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainDrainPtr, MESAdrainDrainBinding, MESAdrainNode, MESAdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrimeDrainPrimePtr, MESAdrainPrimeDrainPrimeBinding, MESAdrainPrimeNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrmPrmDrainPrmPrmPtr, MESAdrainPrmPrmDrainPrmPrmBinding, MESAdrainPrmPrmNode, MESAdrainPrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgateGatePtr, MESAgateGateBinding, MESAgateNode, MESAgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgatePrimeGatePrimePtr, MESAgatePrimeGatePrimeBinding, MESAgatePrimeNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourceSourcePtr, MESAsourceSourceBinding, MESAsourceNode, MESAsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrimeSourcePrimePtr, MESAsourcePrimeSourcePrimeBinding, MESAsourcePrimeNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrmPrmSourcePrmPrmPtr, MESAsourcePrmPrmSourcePrmPrmBinding, MESAsourcePrmPrmNode, MESAsourcePrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainDrainPrimePtr, MESAdrainDrainPrimeBinding, MESAdrainNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrimeDrainPtr, MESAdrainPrimeDrainBinding, MESAdrainPrimeNode, MESAdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgatePrimeDrainPrimePtr, MESAgatePrimeDrainPrimeBinding, MESAgatePrimeNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrimeGatePrimePtr, MESAdrainPrimeGatePrimeBinding, MESAdrainPrimeNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgatePrimeSourcePrimePtr, MESAgatePrimeSourcePrimeBinding, MESAgatePrimeNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrimeGatePrimePtr, MESAsourcePrimeGatePrimeBinding, MESAsourcePrimeNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourceSourcePrimePtr, MESAsourceSourcePrimeBinding, MESAsourceNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrimeSourcePtr, MESAsourcePrimeSourceBinding, MESAsourcePrimeNode, MESAsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrimeSourcePrimePtr, MESAdrainPrimeSourcePrimeBinding, MESAdrainPrimeNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrimeDrainPrimePtr, MESAsourcePrimeDrainPrimeBinding, MESAsourcePrimeNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgatePrimeGatePtr, MESAgatePrimeGateBinding, MESAgatePrimeNode, MESAgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgateGatePrimePtr, MESAgateGatePrimeBinding, MESAgateNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrmPrmSourcePrimePtr, MESAsourcePrmPrmSourcePrimeBinding, MESAsourcePrmPrmNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrimeSourcePrmPrmPtr, MESAsourcePrimeSourcePrmPrmBinding, MESAsourcePrimeNode, MESAsourcePrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAsourcePrmPrmGatePrimePtr, MESAsourcePrmPrmGatePrimeBinding, MESAsourcePrmPrmNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgatePrimeSourcePrmPrmPtr, MESAgatePrimeSourcePrmPrmBinding, MESAgatePrimeNode, MESAsourcePrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrmPrmDrainPrimePtr, MESAdrainPrmPrmDrainPrimeBinding, MESAdrainPrmPrmNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrimeDrainPrmPrmPtr, MESAdrainPrimeDrainPrmPrmBinding, MESAdrainPrimeNode, MESAdrainPrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAdrainPrmPrmGatePrimePtr, MESAdrainPrmPrmGatePrimeBinding, MESAdrainPrmPrmNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(MESAgatePrimeDrainPrmPrmPtr, MESAgatePrimeDrainPrmPrmBinding, MESAgatePrimeNode, MESAdrainPrmPrmNode);
         }
     }
 
@@ -135,34 +135,34 @@ MESAbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->MESAinstances ; here != NULL ; here = here->MESAnextInstance)
         {
-            CFOO(MESAdrainDrainPtr, MESAdrainDrainBinding, MESAdrainNode, MESAdrainNode);
-            CFOO(MESAdrainPrimeDrainPrimePtr, MESAdrainPrimeDrainPrimeBinding, MESAdrainPrimeNode, MESAdrainPrimeNode);
-            CFOO(MESAdrainPrmPrmDrainPrmPrmPtr, MESAdrainPrmPrmDrainPrmPrmBinding, MESAdrainPrmPrmNode, MESAdrainPrmPrmNode);
-            CFOO(MESAgateGatePtr, MESAgateGateBinding, MESAgateNode, MESAgateNode);
-            CFOO(MESAgatePrimeGatePrimePtr, MESAgatePrimeGatePrimeBinding, MESAgatePrimeNode, MESAgatePrimeNode);
-            CFOO(MESAsourceSourcePtr, MESAsourceSourceBinding, MESAsourceNode, MESAsourceNode);
-            CFOO(MESAsourcePrimeSourcePrimePtr, MESAsourcePrimeSourcePrimeBinding, MESAsourcePrimeNode, MESAsourcePrimeNode);
-            CFOO(MESAsourcePrmPrmSourcePrmPrmPtr, MESAsourcePrmPrmSourcePrmPrmBinding, MESAsourcePrmPrmNode, MESAsourcePrmPrmNode);
-            CFOO(MESAdrainDrainPrimePtr, MESAdrainDrainPrimeBinding, MESAdrainNode, MESAdrainPrimeNode);
-            CFOO(MESAdrainPrimeDrainPtr, MESAdrainPrimeDrainBinding, MESAdrainPrimeNode, MESAdrainNode);
-            CFOO(MESAgatePrimeDrainPrimePtr, MESAgatePrimeDrainPrimeBinding, MESAgatePrimeNode, MESAdrainPrimeNode);
-            CFOO(MESAdrainPrimeGatePrimePtr, MESAdrainPrimeGatePrimeBinding, MESAdrainPrimeNode, MESAgatePrimeNode);
-            CFOO(MESAgatePrimeSourcePrimePtr, MESAgatePrimeSourcePrimeBinding, MESAgatePrimeNode, MESAsourcePrimeNode);
-            CFOO(MESAsourcePrimeGatePrimePtr, MESAsourcePrimeGatePrimeBinding, MESAsourcePrimeNode, MESAgatePrimeNode);
-            CFOO(MESAsourceSourcePrimePtr, MESAsourceSourcePrimeBinding, MESAsourceNode, MESAsourcePrimeNode);
-            CFOO(MESAsourcePrimeSourcePtr, MESAsourcePrimeSourceBinding, MESAsourcePrimeNode, MESAsourceNode);
-            CFOO(MESAdrainPrimeSourcePrimePtr, MESAdrainPrimeSourcePrimeBinding, MESAdrainPrimeNode, MESAsourcePrimeNode);
-            CFOO(MESAsourcePrimeDrainPrimePtr, MESAsourcePrimeDrainPrimeBinding, MESAsourcePrimeNode, MESAdrainPrimeNode);
-            CFOO(MESAgatePrimeGatePtr, MESAgatePrimeGateBinding, MESAgatePrimeNode, MESAgateNode);
-            CFOO(MESAgateGatePrimePtr, MESAgateGatePrimeBinding, MESAgateNode, MESAgatePrimeNode);
-            CFOO(MESAsourcePrmPrmSourcePrimePtr, MESAsourcePrmPrmSourcePrimeBinding, MESAsourcePrmPrmNode, MESAsourcePrimeNode);
-            CFOO(MESAsourcePrimeSourcePrmPrmPtr, MESAsourcePrimeSourcePrmPrmBinding, MESAsourcePrimeNode, MESAsourcePrmPrmNode);
-            CFOO(MESAsourcePrmPrmGatePrimePtr, MESAsourcePrmPrmGatePrimeBinding, MESAsourcePrmPrmNode, MESAgatePrimeNode);
-            CFOO(MESAgatePrimeSourcePrmPrmPtr, MESAgatePrimeSourcePrmPrmBinding, MESAgatePrimeNode, MESAsourcePrmPrmNode);
-            CFOO(MESAdrainPrmPrmDrainPrimePtr, MESAdrainPrmPrmDrainPrimeBinding, MESAdrainPrmPrmNode, MESAdrainPrimeNode);
-            CFOO(MESAdrainPrimeDrainPrmPrmPtr, MESAdrainPrimeDrainPrmPrmBinding, MESAdrainPrimeNode, MESAdrainPrmPrmNode);
-            CFOO(MESAdrainPrmPrmGatePrimePtr, MESAdrainPrmPrmGatePrimeBinding, MESAdrainPrmPrmNode, MESAgatePrimeNode);
-            CFOO(MESAgatePrimeDrainPrmPrmPtr, MESAgatePrimeDrainPrmPrmBinding, MESAgatePrimeNode, MESAdrainPrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainDrainPtr, MESAdrainDrainBinding, MESAdrainNode, MESAdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrimeDrainPrimePtr, MESAdrainPrimeDrainPrimeBinding, MESAdrainPrimeNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrmPrmDrainPrmPrmPtr, MESAdrainPrmPrmDrainPrmPrmBinding, MESAdrainPrmPrmNode, MESAdrainPrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgateGatePtr, MESAgateGateBinding, MESAgateNode, MESAgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgatePrimeGatePrimePtr, MESAgatePrimeGatePrimeBinding, MESAgatePrimeNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourceSourcePtr, MESAsourceSourceBinding, MESAsourceNode, MESAsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrimeSourcePrimePtr, MESAsourcePrimeSourcePrimeBinding, MESAsourcePrimeNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrmPrmSourcePrmPrmPtr, MESAsourcePrmPrmSourcePrmPrmBinding, MESAsourcePrmPrmNode, MESAsourcePrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainDrainPrimePtr, MESAdrainDrainPrimeBinding, MESAdrainNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrimeDrainPtr, MESAdrainPrimeDrainBinding, MESAdrainPrimeNode, MESAdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgatePrimeDrainPrimePtr, MESAgatePrimeDrainPrimeBinding, MESAgatePrimeNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrimeGatePrimePtr, MESAdrainPrimeGatePrimeBinding, MESAdrainPrimeNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgatePrimeSourcePrimePtr, MESAgatePrimeSourcePrimeBinding, MESAgatePrimeNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrimeGatePrimePtr, MESAsourcePrimeGatePrimeBinding, MESAsourcePrimeNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourceSourcePrimePtr, MESAsourceSourcePrimeBinding, MESAsourceNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrimeSourcePtr, MESAsourcePrimeSourceBinding, MESAsourcePrimeNode, MESAsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrimeSourcePrimePtr, MESAdrainPrimeSourcePrimeBinding, MESAdrainPrimeNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrimeDrainPrimePtr, MESAsourcePrimeDrainPrimeBinding, MESAsourcePrimeNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgatePrimeGatePtr, MESAgatePrimeGateBinding, MESAgatePrimeNode, MESAgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgateGatePrimePtr, MESAgateGatePrimeBinding, MESAgateNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrmPrmSourcePrimePtr, MESAsourcePrmPrmSourcePrimeBinding, MESAsourcePrmPrmNode, MESAsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrimeSourcePrmPrmPtr, MESAsourcePrimeSourcePrmPrmBinding, MESAsourcePrimeNode, MESAsourcePrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAsourcePrmPrmGatePrimePtr, MESAsourcePrmPrmGatePrimeBinding, MESAsourcePrmPrmNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgatePrimeSourcePrmPrmPtr, MESAgatePrimeSourcePrmPrmBinding, MESAgatePrimeNode, MESAsourcePrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrmPrmDrainPrimePtr, MESAdrainPrmPrmDrainPrimeBinding, MESAdrainPrmPrmNode, MESAdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrimeDrainPrmPrmPtr, MESAdrainPrimeDrainPrmPrmBinding, MESAdrainPrimeNode, MESAdrainPrmPrmNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAdrainPrmPrmGatePrimePtr, MESAdrainPrmPrmGatePrimeBinding, MESAdrainPrmPrmNode, MESAgatePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(MESAgatePrimeDrainPrmPrmPtr, MESAgatePrimeDrainPrmPrmBinding, MESAgatePrimeNode, MESAdrainPrmPrmNode);
         }
     }
 

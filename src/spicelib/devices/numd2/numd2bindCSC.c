@@ -39,10 +39,10 @@ NUMD2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMD2instances ; here != NULL ; here = here->NUMD2nextInstance)
         {
-            XFOO(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
-            XFOO(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
-            XFOO(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
-            XFOO(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
+            CREATE_KLU_BINDING_TABLE(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
+            CREATE_KLU_BINDING_TABLE(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
+            CREATE_KLU_BINDING_TABLE(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
+            CREATE_KLU_BINDING_TABLE(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
         }
     }
 
@@ -63,10 +63,10 @@ NUMD2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMD2instances ; here != NULL ; here = here->NUMD2nextInstance)
         {
-            BFOO(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
-            BFOO(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
-            BFOO(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
-            BFOO(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
         }
     }
 
@@ -87,10 +87,10 @@ NUMD2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NUMD2instances ; here != NULL ; here = here->NUMD2nextInstance)
         {
-            CFOO(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
-            CFOO(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
-            CFOO(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
-            CFOO(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMD2posPosPtr, NUMD2posPosBinding, NUMD2posNode, NUMD2posNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMD2negNegPtr, NUMD2negNegBinding, NUMD2negNode, NUMD2negNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMD2negPosPtr, NUMD2negPosBinding, NUMD2negNode, NUMD2posNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NUMD2posNegPtr, NUMD2posNegBinding, NUMD2posNode, NUMD2negNode);
         }
     }
 

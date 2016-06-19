@@ -39,8 +39,8 @@ CCCSbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
-            XFOO(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
-            XFOO(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
+            CREATE_KLU_BINDING_TABLE(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
+            CREATE_KLU_BINDING_TABLE(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
         }
     }
 
@@ -61,8 +61,8 @@ CCCSbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
-            BFOO(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
-            BFOO(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
         }
     }
 
@@ -83,8 +83,8 @@ CCCSbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->CCCSinstances ; here != NULL ; here = here->CCCSnextInstance)
         {
-            CFOO(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
-            CFOO(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(CCCSposContBrPtr, CCCSposContBrBinding, CCCSposNode, CCCScontBranch);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(CCCSnegContBrPtr, CCCSnegContBrBinding, CCCSnegNode, CCCScontBranch);
         }
     }
 

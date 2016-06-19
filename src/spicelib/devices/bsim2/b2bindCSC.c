@@ -39,28 +39,28 @@ B2bindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->B2instances ; here != NULL ; here = here->B2nextInstance)
         {
-            XFOO(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
-            XFOO(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
-            XFOO(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
-            XFOO(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
-            XFOO(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
-            XFOO(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
-            XFOO(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
-            XFOO(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
-            XFOO(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
-            XFOO(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
-            XFOO(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
-            XFOO(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
-            XFOO(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
-            XFOO(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
-            XFOO(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
-            XFOO(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
-            XFOO(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
-            XFOO(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
-            XFOO(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
-            XFOO(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
-            XFOO(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
-            XFOO(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
+            CREATE_KLU_BINDING_TABLE(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
+            CREATE_KLU_BINDING_TABLE(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
+            CREATE_KLU_BINDING_TABLE(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
+            CREATE_KLU_BINDING_TABLE(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
+            CREATE_KLU_BINDING_TABLE(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
+            CREATE_KLU_BINDING_TABLE(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
+            CREATE_KLU_BINDING_TABLE(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
+            CREATE_KLU_BINDING_TABLE(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
+            CREATE_KLU_BINDING_TABLE(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
+            CREATE_KLU_BINDING_TABLE(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
+            CREATE_KLU_BINDING_TABLE(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
+            CREATE_KLU_BINDING_TABLE(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
+            CREATE_KLU_BINDING_TABLE(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
         }
     }
 
@@ -81,28 +81,28 @@ B2bindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->B2instances ; here != NULL ; here = here->B2nextInstance)
         {
-            BFOO(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
-            BFOO(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
-            BFOO(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
-            BFOO(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
-            BFOO(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
-            BFOO(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
-            BFOO(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
-            BFOO(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
-            BFOO(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
-            BFOO(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
-            BFOO(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
-            BFOO(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
-            BFOO(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
-            BFOO(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
-            BFOO(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
-            BFOO(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
-            BFOO(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
-            BFOO(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
-            BFOO(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
-            BFOO(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
-            BFOO(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
-            BFOO(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
         }
     }
 
@@ -123,28 +123,28 @@ B2bindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->B2instances ; here != NULL ; here = here->B2nextInstance)
         {
-            CFOO(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
-            CFOO(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
-            CFOO(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
-            CFOO(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
-            CFOO(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
-            CFOO(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
-            CFOO(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
-            CFOO(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
-            CFOO(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
-            CFOO(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
-            CFOO(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
-            CFOO(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
-            CFOO(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
-            CFOO(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
-            CFOO(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
-            CFOO(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
-            CFOO(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
-            CFOO(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
-            CFOO(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
-            CFOO(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
-            CFOO(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
-            CFOO(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DdPtr, B2DdBinding, B2dNode, B2dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2GgPtr, B2GgBinding, B2gNode, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SsPtr, B2SsBinding, B2sNode, B2sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2BbPtr, B2BbBinding, B2bNode, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DPdpPtr, B2DPdpBinding, B2dNodePrime, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SPspPtr, B2SPspBinding, B2sNodePrime, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DdpPtr, B2DdpBinding, B2dNode, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2GbPtr, B2GbBinding, B2gNode, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2GdpPtr, B2GdpBinding, B2gNode, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2GspPtr, B2GspBinding, B2gNode, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SspPtr, B2SspBinding, B2sNode, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2BdpPtr, B2BdpBinding, B2bNode, B2dNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2BspPtr, B2BspBinding, B2bNode, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DPspPtr, B2DPspBinding, B2dNodePrime, B2sNodePrime);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DPdPtr, B2DPdBinding, B2dNodePrime, B2dNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2BgPtr, B2BgBinding, B2bNode, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DPgPtr, B2DPgBinding, B2dNodePrime, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SPgPtr, B2SPgBinding, B2sNodePrime, B2gNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SPsPtr, B2SPsBinding, B2sNodePrime, B2sNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2DPbPtr, B2DPbBinding, B2dNodePrime, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SPbPtr, B2SPbBinding, B2sNodePrime, B2bNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(B2SPdpPtr, B2SPdpBinding, B2sNodePrime, B2dNodePrime);
         }
     }
 

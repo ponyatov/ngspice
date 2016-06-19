@@ -39,21 +39,21 @@ JFETbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->JFETinstances ; here != NULL ; here = here->JFETnextInstance)
         {
-            XFOO(JFETdrainDrainPrimePtr, JFETdrainDrainPrimeBinding, JFETdrainNode, JFETdrainPrimeNode);
-            XFOO(JFETgateDrainPrimePtr, JFETgateDrainPrimeBinding, JFETgateNode, JFETdrainPrimeNode);
-            XFOO(JFETgateSourcePrimePtr, JFETgateSourcePrimeBinding, JFETgateNode, JFETsourcePrimeNode);
-            XFOO(JFETsourceSourcePrimePtr, JFETsourceSourcePrimeBinding, JFETsourceNode, JFETsourcePrimeNode);
-            XFOO(JFETdrainPrimeDrainPtr, JFETdrainPrimeDrainBinding, JFETdrainPrimeNode, JFETdrainNode);
-            XFOO(JFETdrainPrimeGatePtr, JFETdrainPrimeGateBinding, JFETdrainPrimeNode, JFETgateNode);
-            XFOO(JFETdrainPrimeSourcePrimePtr, JFETdrainPrimeSourcePrimeBinding, JFETdrainPrimeNode, JFETsourcePrimeNode);
-            XFOO(JFETsourcePrimeGatePtr, JFETsourcePrimeGateBinding, JFETsourcePrimeNode, JFETgateNode);
-            XFOO(JFETsourcePrimeSourcePtr, JFETsourcePrimeSourceBinding, JFETsourcePrimeNode, JFETsourceNode);
-            XFOO(JFETsourcePrimeDrainPrimePtr, JFETsourcePrimeDrainPrimeBinding, JFETsourcePrimeNode, JFETdrainPrimeNode);
-            XFOO(JFETdrainDrainPtr, JFETdrainDrainBinding, JFETdrainNode, JFETdrainNode);
-            XFOO(JFETgateGatePtr, JFETgateGateBinding, JFETgateNode, JFETgateNode);
-            XFOO(JFETsourceSourcePtr, JFETsourceSourceBinding, JFETsourceNode, JFETsourceNode);
-            XFOO(JFETdrainPrimeDrainPrimePtr, JFETdrainPrimeDrainPrimeBinding, JFETdrainPrimeNode, JFETdrainPrimeNode);
-            XFOO(JFETsourcePrimeSourcePrimePtr, JFETsourcePrimeSourcePrimeBinding, JFETsourcePrimeNode, JFETsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETdrainDrainPrimePtr, JFETdrainDrainPrimeBinding, JFETdrainNode, JFETdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETgateDrainPrimePtr, JFETgateDrainPrimeBinding, JFETgateNode, JFETdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETgateSourcePrimePtr, JFETgateSourcePrimeBinding, JFETgateNode, JFETsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETsourceSourcePrimePtr, JFETsourceSourcePrimeBinding, JFETsourceNode, JFETsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETdrainPrimeDrainPtr, JFETdrainPrimeDrainBinding, JFETdrainPrimeNode, JFETdrainNode);
+            CREATE_KLU_BINDING_TABLE(JFETdrainPrimeGatePtr, JFETdrainPrimeGateBinding, JFETdrainPrimeNode, JFETgateNode);
+            CREATE_KLU_BINDING_TABLE(JFETdrainPrimeSourcePrimePtr, JFETdrainPrimeSourcePrimeBinding, JFETdrainPrimeNode, JFETsourcePrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETsourcePrimeGatePtr, JFETsourcePrimeGateBinding, JFETsourcePrimeNode, JFETgateNode);
+            CREATE_KLU_BINDING_TABLE(JFETsourcePrimeSourcePtr, JFETsourcePrimeSourceBinding, JFETsourcePrimeNode, JFETsourceNode);
+            CREATE_KLU_BINDING_TABLE(JFETsourcePrimeDrainPrimePtr, JFETsourcePrimeDrainPrimeBinding, JFETsourcePrimeNode, JFETdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETdrainDrainPtr, JFETdrainDrainBinding, JFETdrainNode, JFETdrainNode);
+            CREATE_KLU_BINDING_TABLE(JFETgateGatePtr, JFETgateGateBinding, JFETgateNode, JFETgateNode);
+            CREATE_KLU_BINDING_TABLE(JFETsourceSourcePtr, JFETsourceSourceBinding, JFETsourceNode, JFETsourceNode);
+            CREATE_KLU_BINDING_TABLE(JFETdrainPrimeDrainPrimePtr, JFETdrainPrimeDrainPrimeBinding, JFETdrainPrimeNode, JFETdrainPrimeNode);
+            CREATE_KLU_BINDING_TABLE(JFETsourcePrimeSourcePrimePtr, JFETsourcePrimeSourcePrimeBinding, JFETsourcePrimeNode, JFETsourcePrimeNode);
         }
     }
 
@@ -74,21 +74,21 @@ JFETbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->JFETinstances ; here != NULL ; here = here->JFETnextInstance)
         {
-            BFOO(JFETdrainDrainPrimePtr, JFETdrainDrainPrimeBinding, JFETdrainNode, JFETdrainPrimeNode);
-            BFOO(JFETgateDrainPrimePtr, JFETgateDrainPrimeBinding, JFETgateNode, JFETdrainPrimeNode);
-            BFOO(JFETgateSourcePrimePtr, JFETgateSourcePrimeBinding, JFETgateNode, JFETsourcePrimeNode);
-            BFOO(JFETsourceSourcePrimePtr, JFETsourceSourcePrimeBinding, JFETsourceNode, JFETsourcePrimeNode);
-            BFOO(JFETdrainPrimeDrainPtr, JFETdrainPrimeDrainBinding, JFETdrainPrimeNode, JFETdrainNode);
-            BFOO(JFETdrainPrimeGatePtr, JFETdrainPrimeGateBinding, JFETdrainPrimeNode, JFETgateNode);
-            BFOO(JFETdrainPrimeSourcePrimePtr, JFETdrainPrimeSourcePrimeBinding, JFETdrainPrimeNode, JFETsourcePrimeNode);
-            BFOO(JFETsourcePrimeGatePtr, JFETsourcePrimeGateBinding, JFETsourcePrimeNode, JFETgateNode);
-            BFOO(JFETsourcePrimeSourcePtr, JFETsourcePrimeSourceBinding, JFETsourcePrimeNode, JFETsourceNode);
-            BFOO(JFETsourcePrimeDrainPrimePtr, JFETsourcePrimeDrainPrimeBinding, JFETsourcePrimeNode, JFETdrainPrimeNode);
-            BFOO(JFETdrainDrainPtr, JFETdrainDrainBinding, JFETdrainNode, JFETdrainNode);
-            BFOO(JFETgateGatePtr, JFETgateGateBinding, JFETgateNode, JFETgateNode);
-            BFOO(JFETsourceSourcePtr, JFETsourceSourceBinding, JFETsourceNode, JFETsourceNode);
-            BFOO(JFETdrainPrimeDrainPrimePtr, JFETdrainPrimeDrainPrimeBinding, JFETdrainPrimeNode, JFETdrainPrimeNode);
-            BFOO(JFETsourcePrimeSourcePrimePtr, JFETsourcePrimeSourcePrimeBinding, JFETsourcePrimeNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETdrainDrainPrimePtr, JFETdrainDrainPrimeBinding, JFETdrainNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETgateDrainPrimePtr, JFETgateDrainPrimeBinding, JFETgateNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETgateSourcePrimePtr, JFETgateSourcePrimeBinding, JFETgateNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETsourceSourcePrimePtr, JFETsourceSourcePrimeBinding, JFETsourceNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETdrainPrimeDrainPtr, JFETdrainPrimeDrainBinding, JFETdrainPrimeNode, JFETdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETdrainPrimeGatePtr, JFETdrainPrimeGateBinding, JFETdrainPrimeNode, JFETgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETdrainPrimeSourcePrimePtr, JFETdrainPrimeSourcePrimeBinding, JFETdrainPrimeNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETsourcePrimeGatePtr, JFETsourcePrimeGateBinding, JFETsourcePrimeNode, JFETgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETsourcePrimeSourcePtr, JFETsourcePrimeSourceBinding, JFETsourcePrimeNode, JFETsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETsourcePrimeDrainPrimePtr, JFETsourcePrimeDrainPrimeBinding, JFETsourcePrimeNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETdrainDrainPtr, JFETdrainDrainBinding, JFETdrainNode, JFETdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETgateGatePtr, JFETgateGateBinding, JFETgateNode, JFETgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETsourceSourcePtr, JFETsourceSourceBinding, JFETsourceNode, JFETsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETdrainPrimeDrainPrimePtr, JFETdrainPrimeDrainPrimeBinding, JFETdrainPrimeNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(JFETsourcePrimeSourcePrimePtr, JFETsourcePrimeSourcePrimeBinding, JFETsourcePrimeNode, JFETsourcePrimeNode);
         }
     }
 
@@ -109,21 +109,21 @@ JFETbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->JFETinstances ; here != NULL ; here = here->JFETnextInstance)
         {
-            CFOO(JFETdrainDrainPrimePtr, JFETdrainDrainPrimeBinding, JFETdrainNode, JFETdrainPrimeNode);
-            CFOO(JFETgateDrainPrimePtr, JFETgateDrainPrimeBinding, JFETgateNode, JFETdrainPrimeNode);
-            CFOO(JFETgateSourcePrimePtr, JFETgateSourcePrimeBinding, JFETgateNode, JFETsourcePrimeNode);
-            CFOO(JFETsourceSourcePrimePtr, JFETsourceSourcePrimeBinding, JFETsourceNode, JFETsourcePrimeNode);
-            CFOO(JFETdrainPrimeDrainPtr, JFETdrainPrimeDrainBinding, JFETdrainPrimeNode, JFETdrainNode);
-            CFOO(JFETdrainPrimeGatePtr, JFETdrainPrimeGateBinding, JFETdrainPrimeNode, JFETgateNode);
-            CFOO(JFETdrainPrimeSourcePrimePtr, JFETdrainPrimeSourcePrimeBinding, JFETdrainPrimeNode, JFETsourcePrimeNode);
-            CFOO(JFETsourcePrimeGatePtr, JFETsourcePrimeGateBinding, JFETsourcePrimeNode, JFETgateNode);
-            CFOO(JFETsourcePrimeSourcePtr, JFETsourcePrimeSourceBinding, JFETsourcePrimeNode, JFETsourceNode);
-            CFOO(JFETsourcePrimeDrainPrimePtr, JFETsourcePrimeDrainPrimeBinding, JFETsourcePrimeNode, JFETdrainPrimeNode);
-            CFOO(JFETdrainDrainPtr, JFETdrainDrainBinding, JFETdrainNode, JFETdrainNode);
-            CFOO(JFETgateGatePtr, JFETgateGateBinding, JFETgateNode, JFETgateNode);
-            CFOO(JFETsourceSourcePtr, JFETsourceSourceBinding, JFETsourceNode, JFETsourceNode);
-            CFOO(JFETdrainPrimeDrainPrimePtr, JFETdrainPrimeDrainPrimeBinding, JFETdrainPrimeNode, JFETdrainPrimeNode);
-            CFOO(JFETsourcePrimeSourcePrimePtr, JFETsourcePrimeSourcePrimeBinding, JFETsourcePrimeNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETdrainDrainPrimePtr, JFETdrainDrainPrimeBinding, JFETdrainNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETgateDrainPrimePtr, JFETgateDrainPrimeBinding, JFETgateNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETgateSourcePrimePtr, JFETgateSourcePrimeBinding, JFETgateNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETsourceSourcePrimePtr, JFETsourceSourcePrimeBinding, JFETsourceNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETdrainPrimeDrainPtr, JFETdrainPrimeDrainBinding, JFETdrainPrimeNode, JFETdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETdrainPrimeGatePtr, JFETdrainPrimeGateBinding, JFETdrainPrimeNode, JFETgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETdrainPrimeSourcePrimePtr, JFETdrainPrimeSourcePrimeBinding, JFETdrainPrimeNode, JFETsourcePrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETsourcePrimeGatePtr, JFETsourcePrimeGateBinding, JFETsourcePrimeNode, JFETgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETsourcePrimeSourcePtr, JFETsourcePrimeSourceBinding, JFETsourcePrimeNode, JFETsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETsourcePrimeDrainPrimePtr, JFETsourcePrimeDrainPrimeBinding, JFETsourcePrimeNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETdrainDrainPtr, JFETdrainDrainBinding, JFETdrainNode, JFETdrainNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETgateGatePtr, JFETgateGateBinding, JFETgateNode, JFETgateNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETsourceSourcePtr, JFETsourceSourceBinding, JFETsourceNode, JFETsourceNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETdrainPrimeDrainPrimePtr, JFETdrainPrimeDrainPrimeBinding, JFETdrainPrimeNode, JFETdrainPrimeNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(JFETsourcePrimeSourcePrimePtr, JFETsourcePrimeSourcePrimeBinding, JFETsourcePrimeNode, JFETsourcePrimeNode);
         }
     }
 

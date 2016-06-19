@@ -39,15 +39,15 @@ NBJTbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJTinstances ; here != NULL ; here = here->NBJTnextInstance)
         {
-            XFOO(NBJTcolColPtr, NBJTcolColBinding, NBJTcolNode, NBJTcolNode);
-            XFOO(NBJTbaseBasePtr, NBJTbaseBaseBinding, NBJTbaseNode, NBJTbaseNode);
-            XFOO(NBJTemitEmitPtr, NBJTemitEmitBinding, NBJTemitNode, NBJTemitNode);
-            XFOO(NBJTcolBasePtr, NBJTcolBaseBinding, NBJTcolNode, NBJTbaseNode);
-            XFOO(NBJTcolEmitPtr, NBJTcolEmitBinding, NBJTcolNode, NBJTemitNode);
-            XFOO(NBJTbaseColPtr, NBJTbaseColBinding, NBJTbaseNode, NBJTcolNode);
-            XFOO(NBJTbaseEmitPtr, NBJTbaseEmitBinding, NBJTbaseNode, NBJTemitNode);
-            XFOO(NBJTemitColPtr, NBJTemitColBinding, NBJTemitNode, NBJTcolNode);
-            XFOO(NBJTemitBasePtr, NBJTemitBaseBinding, NBJTemitNode, NBJTbaseNode);
+            CREATE_KLU_BINDING_TABLE(NBJTcolColPtr, NBJTcolColBinding, NBJTcolNode, NBJTcolNode);
+            CREATE_KLU_BINDING_TABLE(NBJTbaseBasePtr, NBJTbaseBaseBinding, NBJTbaseNode, NBJTbaseNode);
+            CREATE_KLU_BINDING_TABLE(NBJTemitEmitPtr, NBJTemitEmitBinding, NBJTemitNode, NBJTemitNode);
+            CREATE_KLU_BINDING_TABLE(NBJTcolBasePtr, NBJTcolBaseBinding, NBJTcolNode, NBJTbaseNode);
+            CREATE_KLU_BINDING_TABLE(NBJTcolEmitPtr, NBJTcolEmitBinding, NBJTcolNode, NBJTemitNode);
+            CREATE_KLU_BINDING_TABLE(NBJTbaseColPtr, NBJTbaseColBinding, NBJTbaseNode, NBJTcolNode);
+            CREATE_KLU_BINDING_TABLE(NBJTbaseEmitPtr, NBJTbaseEmitBinding, NBJTbaseNode, NBJTemitNode);
+            CREATE_KLU_BINDING_TABLE(NBJTemitColPtr, NBJTemitColBinding, NBJTemitNode, NBJTcolNode);
+            CREATE_KLU_BINDING_TABLE(NBJTemitBasePtr, NBJTemitBaseBinding, NBJTemitNode, NBJTbaseNode);
         }
     }
 
@@ -68,15 +68,15 @@ NBJTbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJTinstances ; here != NULL ; here = here->NBJTnextInstance)
         {
-            BFOO(NBJTcolColPtr, NBJTcolColBinding, NBJTcolNode, NBJTcolNode);
-            BFOO(NBJTbaseBasePtr, NBJTbaseBaseBinding, NBJTbaseNode, NBJTbaseNode);
-            BFOO(NBJTemitEmitPtr, NBJTemitEmitBinding, NBJTemitNode, NBJTemitNode);
-            BFOO(NBJTcolBasePtr, NBJTcolBaseBinding, NBJTcolNode, NBJTbaseNode);
-            BFOO(NBJTcolEmitPtr, NBJTcolEmitBinding, NBJTcolNode, NBJTemitNode);
-            BFOO(NBJTbaseColPtr, NBJTbaseColBinding, NBJTbaseNode, NBJTcolNode);
-            BFOO(NBJTbaseEmitPtr, NBJTbaseEmitBinding, NBJTbaseNode, NBJTemitNode);
-            BFOO(NBJTemitColPtr, NBJTemitColBinding, NBJTemitNode, NBJTcolNode);
-            BFOO(NBJTemitBasePtr, NBJTemitBaseBinding, NBJTemitNode, NBJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTcolColPtr, NBJTcolColBinding, NBJTcolNode, NBJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTbaseBasePtr, NBJTbaseBaseBinding, NBJTbaseNode, NBJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTemitEmitPtr, NBJTemitEmitBinding, NBJTemitNode, NBJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTcolBasePtr, NBJTcolBaseBinding, NBJTcolNode, NBJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTcolEmitPtr, NBJTcolEmitBinding, NBJTcolNode, NBJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTbaseColPtr, NBJTbaseColBinding, NBJTbaseNode, NBJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTbaseEmitPtr, NBJTbaseEmitBinding, NBJTbaseNode, NBJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTemitColPtr, NBJTemitColBinding, NBJTemitNode, NBJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(NBJTemitBasePtr, NBJTemitBaseBinding, NBJTemitNode, NBJTbaseNode);
         }
     }
 
@@ -97,15 +97,15 @@ NBJTbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->NBJTinstances ; here != NULL ; here = here->NBJTnextInstance)
         {
-            CFOO(NBJTcolColPtr, NBJTcolColBinding, NBJTcolNode, NBJTcolNode);
-            CFOO(NBJTbaseBasePtr, NBJTbaseBaseBinding, NBJTbaseNode, NBJTbaseNode);
-            CFOO(NBJTemitEmitPtr, NBJTemitEmitBinding, NBJTemitNode, NBJTemitNode);
-            CFOO(NBJTcolBasePtr, NBJTcolBaseBinding, NBJTcolNode, NBJTbaseNode);
-            CFOO(NBJTcolEmitPtr, NBJTcolEmitBinding, NBJTcolNode, NBJTemitNode);
-            CFOO(NBJTbaseColPtr, NBJTbaseColBinding, NBJTbaseNode, NBJTcolNode);
-            CFOO(NBJTbaseEmitPtr, NBJTbaseEmitBinding, NBJTbaseNode, NBJTemitNode);
-            CFOO(NBJTemitColPtr, NBJTemitColBinding, NBJTemitNode, NBJTcolNode);
-            CFOO(NBJTemitBasePtr, NBJTemitBaseBinding, NBJTemitNode, NBJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTcolColPtr, NBJTcolColBinding, NBJTcolNode, NBJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTbaseBasePtr, NBJTbaseBaseBinding, NBJTbaseNode, NBJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTemitEmitPtr, NBJTemitEmitBinding, NBJTemitNode, NBJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTcolBasePtr, NBJTcolBaseBinding, NBJTcolNode, NBJTbaseNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTcolEmitPtr, NBJTcolEmitBinding, NBJTcolNode, NBJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTbaseColPtr, NBJTbaseColBinding, NBJTbaseNode, NBJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTbaseEmitPtr, NBJTbaseEmitBinding, NBJTbaseNode, NBJTemitNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTemitColPtr, NBJTemitColBinding, NBJTemitNode, NBJTcolNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(NBJTemitBasePtr, NBJTemitBaseBinding, NBJTemitNode, NBJTbaseNode);
         }
     }
 

@@ -39,10 +39,10 @@ SWbindCSC (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
-            XFOO(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
-            XFOO(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
-            XFOO(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
-            XFOO(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
+            CREATE_KLU_BINDING_TABLE(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
+            CREATE_KLU_BINDING_TABLE(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
+            CREATE_KLU_BINDING_TABLE(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
+            CREATE_KLU_BINDING_TABLE(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
         }
     }
 
@@ -63,10 +63,10 @@ SWbindCSCComplex (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
-            BFOO(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
-            BFOO(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
-            BFOO(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
-            BFOO(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_COMPLEX(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
         }
     }
 
@@ -87,10 +87,10 @@ SWbindCSCComplexToReal (GENmodel *inModel, CKTcircuit *ckt)
         /* loop through all the instances of the model */
         for (here = model->SWinstances ; here != NULL ; here = here->SWnextInstance)
         {
-            CFOO(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
-            CFOO(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
-            CFOO(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
-            CFOO(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SWposPosPtr, SWposPosBinding, SWposNode, SWposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SWposNegPtr, SWposNegBinding, SWposNode, SWnegNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SWnegPosPtr, SWnegPosBinding, SWnegNode, SWposNode);
+            CONVERT_KLU_BINDING_TABLE_TO_REAL(SWnegNegPtr, SWnegNegBinding, SWnegNode, SWnegNode);
         }
     }
 
