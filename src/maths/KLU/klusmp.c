@@ -711,7 +711,7 @@ spDeterminant_KLU (SMPmatrix *Matrix, int *pExponent, RealNumber *pDeterminant, 
         {
             CMPLX_NEGATE (cDeterminant) ;
         }
-        
+
         *pDeterminant = cDeterminant.Real ;
         *piDeterminant = cDeterminant.Imag ;
 
@@ -994,7 +994,7 @@ SMPcZeroCol (SMPmatrix *eMatrix, int Col)
     } else {
         for (Element = Matrix->FirstInCol [Col] ; Element != NULL ; Element = Element->NextInCol)
         {
-	    Element->Real = 0.0 ;
+            Element->Real = 0.0 ;
             Element->Imag = 0.0 ;
         }
         return spError (Matrix) ;
