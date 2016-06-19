@@ -363,7 +363,7 @@ SMPcaSolve (SMPmatrix *Matrix, double RHS[], double iRHS[], double Spare[], doub
         {
             iRHS [*(pExtOrder)] = Matrix->CKTkluIntermediate_Complex [i] ;
             RHS [*(pExtOrder--)] = Matrix->CKTkluIntermediate_Complex [i - 1] ;
-        }   
+        }
     } else {
         spSolveTransposed (Matrix->SPmatrix, RHS, RHS, iRHS, iRHS) ;
     }
