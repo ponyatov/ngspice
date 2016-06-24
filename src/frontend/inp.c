@@ -360,7 +360,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
     tfree(dir_name);
 
     /* if nothing came back from inp_readall, just close fp and return to caller */
-    if (!deck) {        /* MW. We must close fp always when returning */
+    if (!deck) {
         if (!intfile)
             fclose(fp);
         return;
@@ -371,10 +371,11 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
         comfile = TRUE;
 
     if (!comfile) {
+        /* Extract the .option lines from the deck into 'options',
+           and remove them from the deck. */
         options = inp_getopts(deck);
-
+        /* copy a deck before subckt substitution. */ 
         realdeck = inp_deckcopy(deck);
-
         /* Save the title before INPgetTitle gets it. */
         tt = copy(deck->li_line);
         if (!deck->li_next)
