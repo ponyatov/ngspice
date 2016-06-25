@@ -507,15 +507,6 @@ stupcase(char *s)
 }
 
 
-/*****  pointer tricks: app won't use naked malloc(), free() ****/
-
-void
-dispose(void *p)
-{
-    if (p != NULL)
-        free(p);
-}
-
 
 void *
 new(size_t sz)
