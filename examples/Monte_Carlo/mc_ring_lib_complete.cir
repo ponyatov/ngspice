@@ -49,9 +49,7 @@ cout  buf ss 0.2pF
 * input file (batch mode))
 * Chose the transistors for XMP1 and XMN1 according to the library
 *.lib "jc_usage.l" MC_LIB
-*.lib "D:\Software\Spice\various\lib-test\c018bcd_gen2_v1d1_usage.l" MC_LIB
-*.lib "..\..\..\..\various\lib-test\c018bcd_gen2_v1d1_usage.l" MC_LIB
-.lib "..\..\..\various\lib-test\c018bcd_gen2_v1d1_usage.l" MC_LIB
+.lib "..\..\..\various\lib-test\my_usage.l" MC_LIB
 *.lib "x_usage.l" MC_LIB
 
 * or use the BSIM3 model with internal parameters except Vth0
