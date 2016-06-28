@@ -2,7 +2,8 @@
 * Example script for Monte Carlo with commercial HSPICE-compatible libraries
 * The circuit in mc_ring_circ.net is a 25-stage inverter ring oscillator.
 * Add your library to mc_ring_circ.net and choose transistors accordingly.
-* A simple BSIM3 inverter R.O. serves as an MC example.
+* Add the source file and the library path.
+* A simple BSIM3 inverter R.O. serves as an MC example wtihout need for a library.
 .control
 begin
   let mc_runs = 100             $ number of runs for monte carlo
