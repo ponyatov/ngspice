@@ -53,6 +53,7 @@ extern double drand(void);
 static char *upper(register char *string);
 static bool doedit(char *filename);
 static struct line *com_options = NULL;
+static struct line *mc_deck = NULL;
 static void cktislinear(CKTcircuit *ckt, struct line *deck);
 static void dotifeval(struct line *deck);
 static int inp_parse_temper(struct line *deck);
@@ -320,7 +321,6 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
     FILE *lastin, *lastout, *lasterr;
     double temperature_value;
 
-    static struct line *mc_deck;
     double startTime, endTime;
 
 #ifdef HAS_PROGREP
