@@ -1003,7 +1003,7 @@ typedef struct sBSIM3v32model
     unsigned  BSIM3v32rscGiven   :1;
     unsigned  BSIM3v32wmltGiven   :1;
 
-    unsigned  BSIM3v32lmltGiven : 1;
+    unsigned  BSIM3v32lmltGiven :1;
 
     /* Length dependence */
     unsigned  BSIM3v32lcdscGiven   :1;
