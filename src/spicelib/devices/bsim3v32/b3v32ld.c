@@ -42,21 +42,21 @@ BSIM3v32load (GENmodel *inModel, CKTcircuit *ckt)
 #ifdef USE_OMP
     int idx;
     BSIM3v32model *model = (BSIM3v32model*)inModel;
-    int good = 0;
+    int error = 0;
     BSIM3v32instance **InstArray;
     InstArray = model->BSIM3v32InstanceArray;
 
 #pragma omp parallel for
     for (idx = 0; idx < model->BSIM3v32InstCount; idx++) {
         BSIM3v32instance *here = InstArray[idx];
-        int local_good = BSIM3v32LoadOMP(here, ckt);
-        if (local_good)
-            good = local_good;
+        int local_error = BSIM3v32LoadOMP(here, ckt);
+        if (local_error)
+            error = local_error;
     }
 
     BSIM3v32LoadRhsMat(inModel, ckt);
 
-    return good;
+    return error;
 }
 
 
