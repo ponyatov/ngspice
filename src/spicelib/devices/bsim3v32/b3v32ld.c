@@ -1,4 +1,4 @@
-/****BSIM3v32v3.2.4, Released by Xuemei Xi 12/21/2001 ****/
+/**** BSIM3v3.2.4, Released by Xuemei Xi 12/21/2001 ****/
 
 /**********
  * Copyright 2001 Regents of the University of California. All rights reserved.
