@@ -45,7 +45,7 @@ cout  buf ss 0.2pF
 
  *** Model library files.
 * Add your library here (full path required, or path relative to path
-* of ngspice executable (interactive mode), or relative to path of 
+* of ngspice executable (interactive mode), or relative to path of
 * input file (batch mode))
 * Chose the transistors for XMP1 and XMN1 according to the library
 *.lib "jc_usage.l" MC_LIB
@@ -78,7 +78,7 @@ cout  buf ss 0.2pF
   let seeds = mc_runs + 2
   set rndseed = "$&seeds"
   unlet seeds
- 
+
   save buf                        $ we just need buf, save memory by more than 10x
 
 * run the simulation loop
@@ -208,6 +208,4 @@ end
 *  quit
 .endc
 
-
 .end
-

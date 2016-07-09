@@ -913,10 +913,11 @@ dump_symbols(dico_t *dico)
     nupa_list_params(stderr);
 }
 
-/* Store dicoS for each circuit loaded. 
+
+/* Store dicoS for each circuit loaded.
    The return value will be stored in ft_curckt->ci_dicos.
    We need to keep dicoS because it may be used by measure. */
-int    
+int
 nupa_add_dicoslist(void)
 {
     int i;
@@ -925,18 +926,21 @@ nupa_add_dicoslist(void)
             dicos_list[i] = dicoS;
             break;
         }
+
     return (i);
 }
 
+
 /* remove dicoS from list if circuit is removed */
-void   
+void
 nupa_rem_dicoslist(int ir)
 {
     dicos_list[ir] = NULL;
 }
 
+
 /* change dicoS to the active circuit */
-void   
+void
 nupa_set_dicoslist(int ir)
 {
     dicoS = dicos_list[ir];

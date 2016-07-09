@@ -172,11 +172,11 @@ ChargeComputationNeeded =
                  ? 1 : 0;
 #ifndef USE_OMP
 for (; model != NULL; model = model->BSIM3v32nextModel)
-{   for (here = model->BSIM3v32instances; here != NULL;
-        here = here->BSIM3v32nextInstance)
-    {
+{    for (here = model->BSIM3v32instances; here != NULL;
+          here = here->BSIM3v32nextInstance)
+     {
 #endif
-          Check = 1;
+               Check = 1;
           ByPass = 0;
           pParam = here->pParam;
           if ((ckt->CKTmode & MODEINITSMSIG))
@@ -3285,6 +3285,7 @@ line900:
            }
 
           m = here->BSIM3v32m;
+
 #ifdef USE_OMP
           here->BSIM3v32rhsG = m * ceqqg;
           here->BSIM3v32rhsB = m * (ceqbs + ceqbd + ceqqb);
@@ -3302,6 +3303,7 @@ line900:
           if (here->BSIM3v32nqsMod)
             *(ckt->CKTrhs + here->BSIM3v32qNode) += m * (cqcheq - cqdef);
 #endif
+
           /*
            *  load y matrix
            */
@@ -3412,6 +3414,7 @@ line900:
               *(here->BSIM3v32QbPtr) += m * (ggtb - gcqbb);
             }
 #endif
+
 line1000:  ;
 
 #ifndef USE_OMP

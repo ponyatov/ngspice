@@ -314,25 +314,25 @@ gettok(char **s)
 int
 gettok_nc(char **s)
 {
-	char c;
-	int paren;
+    char c;
+    int paren;
 
-	paren = 0;
-	*s = skip_ws(*s);
-	if (!**s)
-		return (1);
-	while ((c = **s) != '\0' && !isspace_c(c)) {
-		if (c == '(')
-			paren += 1;
-		else if (c == ')')
-			paren -= 1;
-		else if (c == ',' && paren < 1)
-			break;
-		(*s)++;
-	}
-	while (isspace_c(**s) || **s == ',')
-		(*s)++;
-	return (0);
+    paren = 0;
+    *s = skip_ws(*s);
+    if (!**s)
+        return (1);
+    while ((c = **s) != '\0' && !isspace_c(c)) {
+        if (c == '(')
+            paren += 1;
+        else if (c == ')')
+            paren -= 1;
+        else if (c == ',' && paren < 1)
+            break;
+        (*s)++;
+    }
+    while (isspace_c(**s) || **s == ',')
+        (*s)++;
+    return (0);
 }
 
 

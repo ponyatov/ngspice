@@ -41,6 +41,7 @@ Author: 1985 Wayne A. Christopher
 #include "numparam/numpaif.h"
 #include "ngspice/stringskip.h"
 
+
 extern double gauss0(void);
 extern double drand(void);
 
@@ -374,7 +375,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
         /* Extract the .option lines from the deck into 'options',
            and remove them from the deck. */
         options = inp_getopts(deck);
-        /* copy a deck before subckt substitution. */ 
+        /* copy a deck before subckt substitution. */
         realdeck = inp_deckcopy(deck);
         /* Save the title before INPgetTitle gets it. */
         tt = copy(deck->li_line);
@@ -1758,6 +1759,7 @@ agauss(double nominal_val, double abs_variation, double sigma)
     return (nominal_val + stdvar * gauss0());
 }
 
+
 static double
 gauss(double nominal_val, double rel_variation, double sigma)
 {
@@ -1798,7 +1800,7 @@ limit(double nominal_val, double abs_variation)
  * return form agauss would result.
  * So we have to do the following in each B-line:
  * check for agauss(x,y,z), and replace it by a suitable return value
- * of agauss() 
+ * of agauss()
  * agauss may also occur in .param lines, which have to be treated as well
  */
 

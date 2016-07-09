@@ -78,7 +78,7 @@ CKTcircuit *ckt)
     }
 
     BSIM4v5LoadRhsMat(inModel, ckt);
-    
+
     return error;
 }
 
@@ -89,6 +89,7 @@ BSIM4v5model *model = here->BSIM4v5modPtr;
 BSIM4v5model *model = (BSIM4v5model*)inModel;
 BSIM4v5instance *here;
 #endif
+
 double ceqgstot, dgstot_dvd, dgstot_dvg, dgstot_dvs, dgstot_dvb;
 double ceqgdtot, dgdtot_dvd, dgdtot_dvg, dgdtot_dvs, dgdtot_dvb;
 double gstot, gstotd, gstotg, gstots, gstotb, gspr, Rs, Rd;
@@ -4579,19 +4580,19 @@ line900:
        if (!here->BSIM4v5rbodyMod)
        {   here->BSIM4v5rhsbPrime = m * (ceqbd + ceqbs - ceqjd
                                                         - ceqjs - ceqqb + Ibtoteq);
-           here->BSIM4v5rhssPrime = m * (ceqdrn - ceqbs + ceqjs 
+           here->BSIM4v5rhssPrime = m * (ceqdrn - ceqbs + ceqjs
                               + ceqqg + ceqqb + ceqqd + ceqqgmid - ceqgstot + Istoteq);
         }
         else
         {   here->BSIM4v5rhsdb = m * (ceqjd + ceqqjd);
             here->BSIM4v5rhsbPrime = m * (ceqbd + ceqbs - ceqqb + Ibtoteq);
             here->BSIM4v5rhssb = m * (ceqjs + ceqqjs);
-            here->BSIM4v5rhssPrime = m * (ceqdrn - ceqbs + ceqjs + ceqqd 
+            here->BSIM4v5rhssPrime = m * (ceqdrn - ceqbs + ceqjs + ceqqd
                 + ceqqg + ceqqb + ceqqjd + ceqqjs + ceqqgmid - ceqgstot + Istoteq);
         }
 
         if (model->BSIM4v5rdsMod)
-        {   here->BSIM4v5rhsd = m * ceqgdtot; 
+        {   here->BSIM4v5rhsd = m * ceqgdtot;
             here->BSIM4v5rhss = m * ceqgstot;
         }
 
@@ -4630,6 +4631,7 @@ line900:
                *(ckt->CKTrhs + here->BSIM4v5qNode) += m * (cqcheq - cqdef);
 #endif
 
+
            /*
             *  Loading matrix
             */
@@ -4651,6 +4653,7 @@ line900:
 	   geltd = here->BSIM4v5grgeltd;
 
            T1 = qdef * here->BSIM4v5gtau;
+
 #ifdef USE_OMP
        if (here->BSIM4v5rgateMod == 1)
        {   here->BSIM4v5_1 = m * geltd;
@@ -4661,12 +4664,12 @@ line900:
            here->BSIM4v5_6 = m * (gcgsb - ggts + gIgtots);
            here->BSIM4v5_7 = m * (gcgbb - ggtb + gIgtotb);
        } /* WDLiu: gcrg already subtracted from all gcrgg below */
-       else if (here->BSIM4v5rgateMod == 2)        
+       else if (here->BSIM4v5rgateMod == 2)
        {   here->BSIM4v5_8 = m * gcrg;
            here->BSIM4v5_9 = m * gcrgg;
            here->BSIM4v5_10 = m * gcrgd;
            here->BSIM4v5_11 = m * gcrgs;
-           here->BSIM4v5_12 = m * gcrgb;        
+           here->BSIM4v5_12 = m * gcrgb;
 
            here->BSIM4v5_13 = m * gcrg;
            here->BSIM4v5_14 = m * (gcggb  - gcrgg - ggtg + gIgtotg);
@@ -4773,7 +4776,7 @@ line900:
            here->BSIM4v5_79 = m * (here->BSIM4v5gbs - gcsbsb);
 
            here->BSIM4v5_80 = m * (gcdbdb - here->BSIM4v5gbd);
-           here->BSIM4v5_81 = m * (here->BSIM4v5gbd - gcdbdb 
+           here->BSIM4v5_81 = m * (here->BSIM4v5gbd - gcdbdb
                           + here->BSIM4v5grbpd + here->BSIM4v5grbdb);
            here->BSIM4v5_82 = m * here->BSIM4v5grbpd;
            here->BSIM4v5_83 = m * here->BSIM4v5grbdb;
@@ -4781,14 +4784,14 @@ line900:
            here->BSIM4v5_84 = m * here->BSIM4v5grbpd;
            here->BSIM4v5_85 = m * here->BSIM4v5grbpb;
            here->BSIM4v5_86 = m * here->BSIM4v5grbps;
-           here->BSIM4v5_87 = m * (here->BSIM4v5grbpd + here->BSIM4v5grbps 
+           here->BSIM4v5_87 = m * (here->BSIM4v5grbpd + here->BSIM4v5grbps
                           + here->BSIM4v5grbpb);
-           /* WDLiu: (gcbbb - here->BSIM4v5gbbs) already added to BPbpPtr */        
+           /* WDLiu: (gcbbb - here->BSIM4v5gbbs) already added to BPbpPtr */
 
            here->BSIM4v5_88 = m * (gcsbsb - here->BSIM4v5gbs);
            here->BSIM4v5_89 = m * here->BSIM4v5grbps;
            here->BSIM4v5_90 = m * here->BSIM4v5grbsb;
-           here->BSIM4v5_91 = m * (here->BSIM4v5gbs - gcsbsb 
+           here->BSIM4v5_91 = m * (here->BSIM4v5gbs - gcsbsb
                           + here->BSIM4v5grbps + here->BSIM4v5grbsb);
 
            here->BSIM4v5_92 = m * here->BSIM4v5grbdb;
@@ -4981,6 +4984,7 @@ line1000:  ;
 return(OK);
 }
 
+
 #ifdef USE_OMP
 void BSIM4v5LoadRhsMat(GENmodel *inModel, CKTcircuit *ckt)
 {
@@ -5015,7 +5019,7 @@ void BSIM4v5LoadRhsMat(GENmodel *inModel, CKTcircuit *ckt)
            }
 
            if (model->BSIM4v5rdsMod)
-           {   (*(ckt->CKTrhs + here->BSIM4v5dNode) -= here->BSIM4v5rhsd); 
+           {   (*(ckt->CKTrhs + here->BSIM4v5dNode) -= here->BSIM4v5rhsd);
                (*(ckt->CKTrhs + here->BSIM4v5sNode) += here->BSIM4v5rhss);
            }
 
@@ -5033,12 +5037,12 @@ void BSIM4v5LoadRhsMat(GENmodel *inModel, CKTcircuit *ckt)
                (*(here->BSIM4v5GPspPtr) += here->BSIM4v5_6);
                (*(here->BSIM4v5GPbpPtr) += here->BSIM4v5_7);
            }
-           else if (here->BSIM4v5rgateMod == 2)        
+           else if (here->BSIM4v5rgateMod == 2)
            {   (*(here->BSIM4v5GEgePtr) += here->BSIM4v5_8);
                (*(here->BSIM4v5GEgpPtr) += here->BSIM4v5_9);
                (*(here->BSIM4v5GEdpPtr) += here->BSIM4v5_10);
                (*(here->BSIM4v5GEspPtr) += here->BSIM4v5_11);
-               (*(here->BSIM4v5GEbpPtr) += here->BSIM4v5_12);        
+               (*(here->BSIM4v5GEbpPtr) += here->BSIM4v5_12);
 
                (*(here->BSIM4v5GPgePtr) -= here->BSIM4v5_13);
                (*(here->BSIM4v5GPgpPtr) += here->BSIM4v5_14);
@@ -5169,8 +5173,6 @@ void BSIM4v5LoadRhsMat(GENmodel *inModel, CKTcircuit *ckt)
 }
 
 #endif
-
-
 
 
 /* function to compute poly depletion effect */

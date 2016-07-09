@@ -6234,8 +6234,8 @@ inp_fix_agauss_in_param(struct line *deck, char *fcn)
             }
 
             /* .param lines with `,' separated multiple parameters
-            *    must have been split in inp_split_multi_param_lines()
-            */
+             *   must have been split in inp_split_multi_param_lines()
+             */
 
             if (find_assignment(equal_ptr + 1)) {
                 fprintf(stderr, "ERROR: internal error on line '%s'!\n", curr_line);
@@ -6710,9 +6710,9 @@ inp_meas_current(struct line *deck)
 }
 
 
-/* scan through deck and add level information to all struct line 
+/* scan through deck and add level information to all struct line
  * depending on nested subcircuits */
-static void 
+static void
 inp_add_levels(struct line *deck)
 {
     struct line *card,  *card_prev = deck;
@@ -6770,6 +6770,7 @@ inp_add_levels(struct line *deck)
     }
 }
 
+
 /* return TRUE if element is within scope of model */
 bool
 inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[])
@@ -6787,6 +6788,7 @@ inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[])
     return FALSE;
 }
 
+
 /* not yet checked.
  * Question: how to express overloading a sub at a lower level ? */
 bool
@@ -6801,6 +6803,7 @@ inp_check_scope_sub(unsigned short x_level[], unsigned short subckt_level[])
             return TRUE;
     return FALSE;
 }
+
 
 /* model type as input, element identifier as output */
 static char
@@ -6847,6 +6850,7 @@ inp_get_elem_ident(char *type)
         return 'a';
 }
 
+
 /* linked list of models, includes use info */
 struct modellist
 {
@@ -6865,6 +6869,7 @@ inp_rem_unused_models(struct line *deck)
     int nested, i;
     struct modellist *modn;
     int skip_control = 0;
+
     /* create a list of .model */
     for (card = deck; card; card = card->li_next) {
 
@@ -6987,6 +6992,7 @@ inp_rem_unused_models(struct line *deck)
 nextcard:
         ;
     }
+
     /* discard all unused models */
     for (modn = modl; modn; modn = modn->next)
         if (modn->used == FALSE)

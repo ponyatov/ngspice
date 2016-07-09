@@ -22,7 +22,6 @@ BSIM3v32ask (CKTcircuit *ckt, GENinstance *inst, int which, IFvalue *value,
           IFvalue *select)
 {
 BSIM3v32instance *here = (BSIM3v32instance*)inst;
-
 BSIM3v32model *model = here->BSIM3v32modPtr; /* for lmlt */
 
     NG_IGNORE(select);

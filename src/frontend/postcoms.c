@@ -872,13 +872,14 @@ killplot(struct plot *pl)
         throwaway(pl->pl_ccom);
 
     if (pl->pl_env)
-		free_struct_variable(pl->pl_env);
-	if (pl->pl_lookup_table)
-		nghash_free(pl->pl_lookup_table, NULL, NULL);
+        free_struct_variable(pl->pl_env);
+    if (pl->pl_lookup_table)
+        nghash_free(pl->pl_lookup_table, NULL, NULL);
     tfree(pl);
 }
 
-/* shared ngspice: remove plot 'const' upon 'quit' 
+
+/* shared ngspice: remove plot 'const' upon 'quit'
    constanplot is not dynamically allocated on the heap */
 void
 destroy_const_plot(void)
@@ -895,10 +896,10 @@ destroy_const_plot(void)
     if (pl->pl_ccom)
         throwaway(pl->pl_ccom);
 
-	if (pl->pl_env)
-		free_struct_variable(pl->pl_env);
-	if (pl->pl_lookup_table)
-		nghash_free(pl->pl_lookup_table, NULL, NULL);
+    if (pl->pl_env)
+        free_struct_variable(pl->pl_env);
+    if (pl->pl_lookup_table)
+        nghash_free(pl->pl_lookup_table, NULL, NULL);
 }
 
 

@@ -121,7 +121,7 @@ plot v(18) 1000*(-I(vdd)) ylimit -1 6
 +tpbsw   = 0.005        tcjsw   = 0.001        tpbswg  = 0.005        tcjswg  = 0.001
 +xtis    = 3            xtid    = 3
 +dmcg    = 0e-006       dmci    = 0e-006       dmdg    = 0e-006       dmcgt   = 0e-007
-+dwj     = 0e-008     	xgw     = 0e-007       xgl     = 0e-008
++dwj     = 0e-008       xgw     = 0e-007       xgl     = 0e-008
 +rshg    = 0.4          gbmin   = 1e-010       rbpb    = 5            rbpd    = 15
 +rbps    = 15           rbdb    = 15           rbsb    = 15           ngcon   = 1
 *
@@ -180,7 +180,7 @@ plot v(18) 1000*(-I(vdd)) ylimit -1 6
 +tpbsw   = 0.005        tcjsw   = 0.001        tpbswg  = 0.005        tcjswg  = 0.001
 +xtis    = 3            xtid    = 3
 +dmcg    = 0e-006       dmci    = 0e-006       dmdg    = 0e-006       dmcgt   = 0e-007
-+dwj     = 0e-008     	xgw     = 0e-007       xgl     = 0e-008
++dwj     = 0e-008       xgw     = 0e-007       xgl     = 0e-008
 +rshg    = 0.4          gbmin   = 1e-010       rbpb    = 5            rbpd    = 15
 +rbps    = 15           rbdb    = 15           rbsb    = 15           ngcon   = 1
 

@@ -43,7 +43,7 @@ cout  buf ss 0.2pF
 
  *** Model library files.
 * Add your library here
-* Chose the transistors for XMP1 and XMN1 accordingly 
+* Chose the transistors for XMP1 and XMN1 accordingly
 *.lib "jc_usage.l" MC_LIB
 *.lib "my_ts_usage.l" MC_LIB
 *.lib "x_usage.l" MC_LIB
@@ -54,4 +54,3 @@ cout  buf ss 0.2pF
 .model n1 NMOS version=3.3.0 Level=8 Vth0=agauss(0.6, 0.1, 3)
 
 .end
-
