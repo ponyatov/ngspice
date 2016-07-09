@@ -61,7 +61,7 @@ BSIM3v32load (GENmodel *inModel, CKTcircuit *ckt)
 
 
 int BSIM3v32LoadOMP(BSIM3v32instance *here, CKTcircuit *ckt) {
-    BSIM3v32model *model;
+    BSIM3v32model *model = here->BSIM3v32modPtr;
 #else
 BSIM3v32model *model = (BSIM3v32model*)inModel;
 BSIM3v32instance *here;
@@ -164,10 +164,6 @@ double m;
 
 struct bsim3v32SizeDependParam *pParam;
 int ByPass, Check, ChargeComputationNeeded, error;
-
-#ifdef USE_OMP
-model = here->BSIM3v32modPtr;
-#endif
 
 ScalingFactor = 1.0e-9;
 ChargeComputationNeeded =
