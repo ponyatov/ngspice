@@ -6178,11 +6178,13 @@ inp_fix_agauss_in_param(struct line *deck, char *fcn)
     for (j = 0; j < 16; j++)
         sub_count[j] = 0;
 
-    /* first pass: determine all .param with agauss inside and replace by .func
-    .param xxx1 = 'agauss(x,y,z) * 25'
-    will become
-    .func xxx1() 'agauss(x,y,z) * 25'
-    */
+    /* first pass:
+     *   determine all .param with agauss inside and replace by .func
+     *   convert
+     *     .param xxx1 = 'agauss(x,y,z) * 25'
+     *   to
+     *     .func xxx1() 'agauss(x,y,z) * 25'
+     */
     card = deck;
     for (; card; card = card->li_next) {
 
@@ -6269,10 +6271,11 @@ inp_fix_agauss_in_param(struct line *deck, char *fcn)
         }
     }
 
-    /* second pass */
-    /* for each .func entry in `funcs' start the insertion operation:
-    search each line from the deck which has the suitable subcircuit nesting data.
-    for tokens xxx equalling the funcname, replace xxx by xxx().
+    /* second pass:
+     *   for each .func entry in `funcs' start the insertion operation:
+     *      search each line from the deck which has the suitable
+     *      subcircuit nesting data.
+     *   for tokens xxx equalling the funcname, replace xxx by xxx().
      */
 
     for (f = funcs; f; f = f->next) {

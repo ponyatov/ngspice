@@ -362,8 +362,7 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
 	}
 
 	/* If option numdgt is set, use it for printout precision.
-	   Else 8 digits are printed.
-	*/
+	   Else 8 digits are printed. */
 	if (cp_numdgt > 0)
 		preci = cp_numdgt;
 	
