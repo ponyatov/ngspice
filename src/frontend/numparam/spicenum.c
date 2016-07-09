@@ -920,23 +920,24 @@ int
 nupa_add_dicoslist(void)
 {
     int i;
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < 100; i++)
         if (dicos_list[i] == NULL) {
             dicos_list[i] = dicoS;
             break;
         }
-    }
     return (i);
 }
 
 /* remove dicoS from list if circuit is removed */
 void   
-nupa_rem_dicoslist(int ir) {
+nupa_rem_dicoslist(int ir)
+{
     dicos_list[ir] = NULL;
 }
 
 /* change dicoS to the active circuit */
 void   
-nupa_set_dicoslist(int ir) {
+nupa_set_dicoslist(int ir)
+{
     dicoS = dicos_list[ir];
 }

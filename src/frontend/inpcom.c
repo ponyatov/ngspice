@@ -6771,7 +6771,8 @@ inp_add_levels(struct line *deck)
 }
 
 /* return TRUE if element is within scope of model */
-bool inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[])
+bool
+inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[])
 {
     int i;
     /* model at top level, accessible from all devices */
@@ -6788,7 +6789,8 @@ bool inp_check_scope_mod(unsigned short elem_level[], unsigned short mod_level[]
 
 /* not yet checked.
  * Question: how to express overloading a sub at a lower level ? */
-bool inp_check_scope_sub(unsigned short x_level[], unsigned short subckt_level[])
+bool
+inp_check_scope_sub(unsigned short x_level[], unsigned short subckt_level[])
 {
     int i;
     /* subcircuit at top level, accessible from all x lines */
