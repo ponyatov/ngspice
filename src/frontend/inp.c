@@ -352,7 +352,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
         if (mc_deck)
             deck = inp_deckcopy(mc_deck);
         else {
-            fprintf(stderr, "Error: No circuit loaded, cannot copy internally using mc_source \n");
+            fprintf(stderr, "Error: No circuit loaded, cannot copy internally using mc_source\n");
             controlled_exit(1);
         }
     }
