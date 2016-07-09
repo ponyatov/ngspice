@@ -181,10 +181,10 @@ xx_new_line(struct line *next, char *line, int linenum, int linenum_orig, unsign
     x->li_linenum = linenum;
     x->li_linenum_orig = linenum_orig;
     if (level == NULL)
-        for (i = 0; i < 10; i++)
+        for (i = 0; i < NESTINGDEPTH; i++)
             x->level[i] = 0;
     else
-        for (i = 0; i < 10; i++)
+        for (i = 0; i < NESTINGDEPTH; i++)
             x->level[i] = level[i];
     return x;
 }
@@ -5896,7 +5896,7 @@ tprint(struct line *t, int numb)
             fprintf(fd, "%6d  %6d  %s", tmp->li_linenum_orig, tmp->li_linenum, tmp->li_line);
             fprintf(fd, "  level: ");
             int i;
-            for (i = 0; i < 10; i++) {
+            for (i = 0; i < NESTINGDEPTH; i++) {
                 fprintf(fd, "%3d", tmp->level[i]);
             }
             fprintf(fd, "\n");
