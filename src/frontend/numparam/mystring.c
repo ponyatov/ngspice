@@ -508,20 +508,6 @@ stupcase(char *s)
 
 
 
-void *
-new(size_t sz)
-{
-    void *p = tmalloc(sz);
-
-    if (p == NULL) {            /* fatal error */
-        printf(" new() failure. Program halted.\n");
-        controlled_exit(EXIT_FAILURE);
-    }
-
-    return p;
-}
-
-
 /***** elementary math *******/
 
 double
