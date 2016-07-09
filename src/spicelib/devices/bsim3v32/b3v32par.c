@@ -23,8 +23,6 @@ BSIM3v32param (int param, IFvalue *value, GENinstance *inst, IFvalue *select)
 
     BSIM3v32instance *here = (BSIM3v32instance*)inst;
 
-    BSIM3v32model *model = here->BSIM3v32modPtr; /* for lmlt */
-
     NG_IGNORE(select);
 
     if (!cp_getvar("scale", CP_REAL, &scale))
@@ -36,7 +34,7 @@ BSIM3v32param (int param, IFvalue *value, GENinstance *inst, IFvalue *select)
             here->BSIM3v32wGiven = TRUE;
             break;
         case BSIM3v32_L:
-            here->BSIM3v32l = value->rValue*scale*model->BSIM3v32lmlt;
+            here->BSIM3v32l = value->rValue*scale;
             here->BSIM3v32lGiven = TRUE;
             break;
         case BSIM3v32_M:

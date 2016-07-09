@@ -1047,6 +1047,11 @@ BSIM3v32instance **InstArray;
             {   here->BSIM3v32qNode = 0;
             }
 
+            /* Channel length scaling with lmlt model parameter */
+
+            if (model->BSIM3v32lmltGiven)
+                here->BSIM3v32l *= model->BSIM3v32lmlt;
+
         /* set Sparse Matrix Pointers */
 
 /* macro to make elements with built in test for out of memory */
