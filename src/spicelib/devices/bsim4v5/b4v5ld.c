@@ -4988,7 +4988,7 @@ return(OK);
 #ifdef USE_OMP
 void BSIM4v5LoadRhsMat(GENmodel *inModel, CKTcircuit *ckt)
 {
-    unsigned int InstCount, idx;
+    int InstCount, idx;
     BSIM4v5instance **InstArray;
     BSIM4v5instance *here;
     BSIM4v5model *model = (BSIM4v5model*)inModel;

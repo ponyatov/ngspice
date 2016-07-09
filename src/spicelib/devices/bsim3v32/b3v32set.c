@@ -39,7 +39,7 @@ CKTnode *tmpNode;
 IFuid tmpName;
 
 #ifdef USE_OMP
-unsigned int idx, InstCount;
+int idx, InstCount;
 BSIM3v32instance **InstArray;
 #endif
 

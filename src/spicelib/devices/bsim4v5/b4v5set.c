@@ -53,7 +53,7 @@ double Rtot, DMCGeff, DMCIeff, DMDGeff;
 JOB   *job;
 
 #ifdef USE_OMP
-unsigned int idx, InstCount;
+int idx, InstCount;
 BSIM4v5instance **InstArray;
 #endif
 
