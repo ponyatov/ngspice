@@ -3742,6 +3742,10 @@ get_number_terminals(char *c)
             name[i] = gettok_instance(&c);
             if (strstr(name[i], "off") || strchr(name[i], '='))
                 j++;
+#ifdef CIDER
+            if (strstr(name[i], "save") || strstr(name[i], "print"))
+                j++;
+#endif
             /* If we have IC=VBE, VCE instead of IC=VBE,VCE we need to inc j */
             if ((comma = strchr(name[i], ',')) != NULL && (*(++comma) == '\0'))
                 j++;
@@ -6826,11 +6830,15 @@ inp_get_elem_ident(char *type)
         return 'd';
     else if (cieq(type, "numd"))
         return 'd';
+    else if (cieq(type, "numd2"))
+        return 'd';
     else if (cieq(type, "npn"))
         return 'q';
     else if (cieq(type, "pnp"))
         return 'q';
     else if (cieq(type, "nbjt"))
+        return 'q';
+    else if (cieq(type, "nbjt2"))
         return 'q';
     else if (cieq(type, "njf"))
         return 'j';
