@@ -526,10 +526,11 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
 
         inp_remove_excess_ws(working);
 
-
+//        tprint(working, tpr++);
         comment_out_unused_subckt_models(working);
+//        tprint(working, tpr++);
         inp_rem_unused_models(working);
-
+//        tprint(working, tpr++);
         subckt_params_to_param(working);
 
         rv . line_number = inp_split_multi_param_lines(working, rv . line_number);
@@ -547,9 +548,9 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         inp_fix_param_values(working);
 
         inp_reorder_params(subckt_w_params, cc);
-//        tprint(working, tpr++);
+
         inp_fix_inst_calls_for_numparam(subckt_w_params, working);
-//        tprint(working, tpr++);
+
         delete_names(subckt_w_params);
         subckt_w_params = NULL;
 
@@ -6819,11 +6820,17 @@ inp_get_elem_ident(char *type)
         return 'm';
     else if (cieq(type, "pmos"))
         return 'm';
+    else if (cieq(type, "numos"))
+        return 'm';
     else if (cieq(type, "d"))
+        return 'd';
+    else if (cieq(type, "numd"))
         return 'd';
     else if (cieq(type, "npn"))
         return 'q';
     else if (cieq(type, "pnp"))
+        return 'q';
+    else if (cieq(type, "nbjt"))
         return 'q';
     else if (cieq(type, "njf"))
         return 'j';
