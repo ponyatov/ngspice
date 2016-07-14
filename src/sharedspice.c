@@ -1638,8 +1638,7 @@ int sh_ExecutePerLoop(void)
 
 /* declared outside of sh_vecinit to allow deleting */
 static int veccount = 0;
-static pvecinfo *pvc = NULL;
-
+static pvecinfoall pvca = NULL;
 /* called once for a new plot from beginPlot() in outitf.c,
    after the vectors in ngspice for this plot have been set.
    Transfers vector information to the caller via callback datinitfcn()
@@ -1648,7 +1647,7 @@ int sh_vecinit(runDesc *run)
 {
     struct dvec *d, *ds;
     int i;
-    static pvecinfoall pvca = NULL;
+    static pvecinfo *pvc = NULL;
 
     /* return immediately if callback not wanted */
     if (nodatainitwanted)
@@ -1723,16 +1722,22 @@ void
 sh_delvecs(void)
 {
     int i;
-    if (pvc) {
-        for (i = 0; i < veccount; i++)
-            tfree(pvc[i]);
-        tfree(pvc);
+    if (pvca) {
+        if (pvca->vecs) {
+            for (i = 0; i < pvca->veccount; i++)
+                tfree(pvca->vecs[i]);
+            tfree(pvca->vecs);
+        }
+        tfree(pvca);
     }
     if (curvecvalsall) {
         for (i = 0; i < veccount; i++)
             tfree(curvecvalsall->vecsa[i]);
         tfree(curvecvalsall->vecsa);
+        tfree(curvecvalsall);
     }
+    if (allvecs)
+        tfree(allvecs);
 }
 
 
