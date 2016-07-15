@@ -1187,6 +1187,57 @@ com_edit(wordlist *wl)
     }
 }
 
+/* alter a parameter, then call mc_source
+   global .param: alterparam pname=pval
+   subckt param:  alterparam subcktname pname=vpval
+   Changes params in mc_deck */
+void
+com_alterparam(wordlist *wl)
+{
+    struct line *dd;
+    char *pname, *pval, *tmp, *subcktname = NULL, *linein, *linefree, *s;
+
+    if (!mc_deck) {
+        fprintf(cp_err, "Error: No internal deck available\n");
+        return;
+    }
+    linefree = wl_flatten(wl);
+    linein = skip_ws(linefree);
+    s = tmp = gettok_char(&linein, '=', FALSE, FALSE);
+    *linein++; /*pass '='*/
+    pval = gettok(&linein);
+    subcktname = gettok(&tmp);
+    pname = gettok(&tmp);
+    if (!pname) {
+        pname = subcktname;
+        subcktname = NULL;
+    }
+    tfree(linefree);
+    tfree(s);
+    for (dd = mc_deck->li_next; dd; dd = dd->li_next) {
+        char *curr_line = dd->li_line;
+        if (subcktname) {
+
+            tfree(subcktname);
+        }
+        else {
+            if (ciprefix(".param", curr_line)) {
+                gettok_nc(&curr_line); /*skip .param*/
+                char *name = gettok_char(&curr_line, '=', FALSE, FALSE);
+                if eq(name, pname) {
+                    curr_line = dd->li_line;
+                    char * start = gettok_char(&curr_line, '=', TRUE, FALSE);
+                    tfree(dd->li_line);
+                    dd->li_line = tprintf("%s%s", start, pval);
+                    tfree(start);
+                }
+                tfree(name);
+            }
+        }
+    }
+    tfree(pval);
+    tfree(pname);
+}
 
 static bool
 doedit(char *filename)
