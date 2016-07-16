@@ -101,7 +101,7 @@ struct CKTcircuit {
     int CKTorder;               /* the integration method order */
     int CKTmaxOrder;            /* maximum integration method order */
     int CKTintegrateMethod;     /* the integration method to be used */
-    double CKTxmu;              /* trapezoidal, order=2, xmu coefficient */
+    double CKTxmu;              /* for trapezoidal method */
 
 /* known integration methods */
 #define TRAPEZOIDAL 1

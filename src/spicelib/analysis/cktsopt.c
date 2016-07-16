@@ -268,7 +268,7 @@ static IFparm OPTtbl[] = {
  { "lvltim", 0, IF_INTEGER,"Type of timestep control" },
  { "method", OPT_METHOD, IF_SET|IF_STRING,"Integration method" },
  { "maxord", OPT_MAXORD, IF_SET|IF_INTEGER,"Maximum integration order" },
- { "xmu", OPT_XMU, IF_SET|IF_REAL,"Trapezoidal method, order=2, xmu coefficient" },
+ { "xmu", OPT_XMU, IF_SET|IF_REAL,"Coefficient for trapezoidal method" },
  { "defm", OPT_DEFM,IF_SET|IF_REAL,"Default MOSfet Multiplier" },
  { "defl", OPT_DEFL,IF_SET|IF_REAL,"Default MOSfet length" },
  { "defw", OPT_DEFW,IF_SET|IF_REAL,"Default MOSfet width" },
