@@ -1196,6 +1196,7 @@ com_alterparam(wordlist *wl)
 {
     struct line *dd;
     char *pname, *pval, *tmp, *subcktname = NULL, *linein, *linefree, *s;
+    bool found = FALSE;
 
     if (!mc_deck) {
         fprintf(cp_err, "Error: No internal deck available\n");
@@ -1204,9 +1205,21 @@ com_alterparam(wordlist *wl)
     linefree = wl_flatten(wl);
     linein = skip_ws(linefree);
     s = tmp = gettok_char(&linein, '=', FALSE, FALSE);
+    if (!s) {
+        fprintf(cp_err, "\nError: Wrong format in line 'alterparam %s'\n   command 'alterparam' skipped\n", linefree);
+        tfree(linefree);
+        return;
+    }
     *linein++; /*pass '='*/
     pval = gettok(&linein);
     subcktname = gettok(&tmp);
+    if ((!pval) || (!subcktname)) {
+        fprintf(cp_err, "\nError: Wrong format in line 'alterparam %s'\n   command 'alterparam' skipped\n", linefree);
+        tfree(pval);
+        tfree(subcktname);
+        tfree(linefree);
+        return;
+    }
     pname = gettok(&tmp);
     if (!pname) {
         pname = subcktname;
@@ -1229,12 +1242,15 @@ com_alterparam(wordlist *wl)
                     char * start = gettok_char(&curr_line, '=', TRUE, FALSE);
                     tfree(dd->li_line);
                     dd->li_line = tprintf("%s%s", start, pval);
+                    found = TRUE;
                     tfree(start);
                 }
                 tfree(name);
             }
         }
     }
+    if (!found)
+        fprintf(cp_err, "\nError: parameter '%s' not found,\n   command 'alterparam' skipped\n", pname);
     tfree(pval);
     tfree(pname);
 }
