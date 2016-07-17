@@ -638,20 +638,7 @@ vec_get(const char *vec_name)
             }
         }
 
-        tfree(vv->va_name);
-        /* If vv is of type list, we also have to free the vV_list */
-        if (vv->va_type == CP_LIST) {
-            struct variable *vtmp = vv->va_V.vV_list;
-            if(vtmp)
-                for (;;) {
-                    struct variable *vtmpn = vtmp->va_next;
-                    tfree(vtmp);
-                    vtmp = vtmpn;
-                    if (!vtmp)
-                        break;
-                }
-        }
-        tfree(vv);
+        free_struct_variable(vv);
         tfree(wd);
         vec_new(d);
         tfree(whole);
