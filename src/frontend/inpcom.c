@@ -6996,8 +6996,10 @@ inp_rem_unused_models(struct line *deck)
                                 /* repeat for binning models, leave immediately after lowest possible level matches */
                             }
                         }
-                        if (got_a_model)
+                        if (got_a_model) {
+                            tfree(elem_model_name);
                             goto nextcard;
+                        }
                     }
                 }
             }
