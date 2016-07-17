@@ -425,7 +425,6 @@ INPparseNumMod( CKTcircuit* ckt, INPmodel *model, INPtables *tab, char **errMess
             INPgetTok(&line,&parm,1);
             if (!*parm)
                 break;
-            // info possibly uninitialized
             idx = INPfindParm(parm, info->cardParms, info->numParms);
             if (idx == E_MISSING) {
                 /* parm not found */
