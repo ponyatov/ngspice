@@ -3255,6 +3255,9 @@ inp_expand_macro_in_str(struct function_env *env, char *str)
         tfree(macro_str);
 
         search_ptr = str = close_paren_ptr + 1;
+
+        for (i = 0; i < num_params; i++)
+            tfree(params[i]);
     }
 
     if (curr_str == NULL) {
@@ -3271,8 +3274,6 @@ inp_expand_macro_in_str(struct function_env *env, char *str)
 
     tfree(orig_str);
     // printf("%s: --> \"%s\"\n", __FUNCTION__, curr_str);
-    for (i = 0; i < num_params; i++)
-        tfree(params[i]);
 
     return curr_str;
 }
