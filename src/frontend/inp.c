@@ -1189,10 +1189,11 @@ com_edit(wordlist *wl)
     }
 }
 
-/* alter a parameter, then call mc_source
-   global .param: alterparam pname=pval
+/* alter a parameter, either
    subckt param:  alterparam subcktname pname=vpval
-   Changes params in mc_deck */
+   global .param: alterparam pname=pval
+   Changes params in mc_deck
+   To become effective, 'mc_source' has to be called after 'alterparam'*/
 void
 com_alterparam(wordlist *wl)
 {
@@ -1231,10 +1232,69 @@ com_alterparam(wordlist *wl)
     tfree(s);
     for (dd = mc_deck->li_next; dd; dd = dd->li_next) {
         char *curr_line = dd->li_line;
+        /*alterparam subcktname pname=vpval
+          Parameters from within subcircuit are no longer .param lines, but have been added to
+          the .subckt line as pname=paval and to the x line as pval. pval in the x line takes
+          precedence when subciruit is called, so has to be replaced here.
+          Find subcircuit with subcktname.
+          After params: Count the number of parameters (notok) until parameter pname is found. 
+          When found, search for x-line with subcktname.
+          Replace parameter value number notok by pval. */
         if (subcktname) {
-
-            tfree(subcktname);
-        }
+            /* find subcircuit */
+            if (ciprefix(".subckt", curr_line)) {
+                gettok_nc(&curr_line); /*skip .subckt*/
+                char *sname = gettok(&curr_line);
+                if (eq(sname, subcktname)) {
+                    tfree(sname);
+                    curr_line = strstr(curr_line, "params:");
+                    curr_line = skip_non_ws(curr_line); /*skip params:*/
+                    /* string to search for */
+                    char *pname_eq = tprintf("%s=", pname);
+                    int notok = 0;
+                    while (*curr_line) {
+                        char *token = gettok(&curr_line);
+                        if (ciprefix(pname_eq, token)) {
+                            tfree(token);
+                            found = TRUE;
+                            break;
+                        }
+                        notok++;
+                        tfree(token);
+                    }
+                    if (found) {
+                        /* find x line with same subcircuit name */
+                        struct line *xx;
+                        char *bsubb = tprintf(" %s ", subcktname);
+                        for (xx = mc_deck->li_next; xx; xx = xx->li_next) {
+                            char *xline = xx->li_line;
+                            if (*xline == 'x') {
+                                xline = strstr(xline, bsubb);
+                                if (xline) {
+                                    gettok_nc(&xline); /*skip subcktname*/
+                                    int ii;
+                                    for (ii = 0; ii < notok; ii++)
+                                        gettok_nc(&xline); /*skip parameter values*/
+                                    char *beg = copy_substring(xx->li_line, xline);
+                                    gettok_nc(&xline); /*skip parameter value to be replaced*/
+                                    char *newline = tprintf("%s %s %s", beg, pval, xline);
+                                    tfree(xx->li_line);
+                                    xx->li_line = newline;
+                                    tfree(beg);
+                                }
+                                else
+                                    continue;
+                            }
+                        }
+                    }
+                }
+                else {
+                    tfree(sname);
+                    continue;
+                }
+            }
+        } /*subcktname*/
+        /*alterparam pname=vpval*/
         else {
             if (ciprefix(".param", curr_line)) {
                 gettok_nc(&curr_line); /*skip .param*/
