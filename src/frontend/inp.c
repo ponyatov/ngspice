@@ -1713,22 +1713,20 @@ Then check, if commands 'save' or '.save' are alraedy there. If not, add
 '.save all'.
 Then the deck is scanned for known devices, and their current vectors in form of
 @q1[ib] are added to new .save lines in wl_first. */
-static void inp_savecurrents(struct line *deck, struct line *options, wordlist **wl, wordlist *con)
+static void
+inp_savecurrents(struct line *deck, struct line *options, wordlist **wl, wordlist *con)
 {
-    struct line *tmp_deck, *tmp_line;
-    char beg;
-    char *devname = NULL, *devline, *newline;
-    bool goon = FALSE, havesave = FALSE;
+    struct line *tmp_deck;
+    bool havesave = FALSE;
     wordlist *tmpword;
 
     /* check if option 'savecurrents' is set */
-    for (tmp_line = options; tmp_line; tmp_line = tmp_line->li_next)
-        if (strstr(tmp_line->li_line, "savecurrents")) {
-            goon = TRUE;
+    for (; options; options = options->li_next)
+        if (strstr(options->li_line, "savecurrents"))
             break;
-        }
-    if (!goon)
+    if (!options)
         return;
+
     /* check if we have a 'save' command in the .control section */
     for (tmpword = con; tmpword; tmpword = tmpword->wl_next)
         if(prefix("save", tmpword->wl_word)) {
@@ -1761,17 +1759,14 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
     We currently serve bipolars, resistors, MOS1, capacitors, inductors,
     controlled current sources. Others may follow. */
     for (tmp_deck = deck->li_next; tmp_deck; tmp_deck = tmp_deck->li_next){
-       beg = *(tmp_deck->li_line);
-       if ((beg == '*') || (beg == '.'))
-           continue;
-       switch (beg) {
+       char *devname, *devline, *newline;
+       switch (tmp_deck->li_line[0]) {
            case 'm':
                devline = tmp_deck->li_line;
                devname = gettok(&devline);
                /* .save @q1[id] @q1[is] @q1[ig] @q1[ib] */
                newline = tprintf(".save @%s[id] @%s[is] @%s[ig] @%s[ib]",
                    devname, devname, devname, devname);
-               wl_append_word(NULL, wl, newline);
                break;
            case 'j':
                devline = tmp_deck->li_line;
@@ -1779,7 +1774,6 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
                /* .save @q1[id] @q1[is] @q1[ig] @q1[igd] */
                newline = tprintf(".save @%s[id] @%s[is] @%s[ig] @%s[igd]",
                    devname, devname, devname, devname);
-               wl_append_word(NULL, wl, newline);
                break;
            case 'q':
                devline = tmp_deck->li_line;
@@ -1787,14 +1781,12 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
                /* .save @q1[ic] @q1[ie] @q1[ib] @q1[is] */
                newline = tprintf(".save @%s[ic] @%s[ie] @%s[ib] @%s[is]",
                    devname, devname, devname, devname);
-               wl_append_word(NULL, wl, newline);
                break;
            case 'd':
                devline = tmp_deck->li_line;
                devname = gettok(&devline);
                /* .save @d1[id] */
                newline = tprintf(".save @%s[id]", devname);
-               wl_append_word(NULL, wl, newline);
                break;
            case 'r':
            case 'c':
@@ -1808,18 +1800,17 @@ static void inp_savecurrents(struct line *deck, struct line *options, wordlist *
                devname = gettok(&devline);
                /* .save @r1[i] */
                newline = tprintf(".save @%s[i]", devname);
-               wl_append_word(NULL, wl, newline);
                break;
            case 'i':
                devline = tmp_deck->li_line;
                devname = gettok(&devline);
                /* .save @i1[current] */
                newline = tprintf(".save @%s[current]", devname);
-               wl_append_word(NULL, wl, newline);
                break;
            default:
-               ;
+               continue;
        }
+       wl_append_word(NULL, wl, newline);
        tfree(devname);
     }
     while((*wl)->wl_prev)
