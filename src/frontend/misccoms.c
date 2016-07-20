@@ -40,7 +40,6 @@ static int  confirm_quit(void);
 extern void sh_delete_myvec(void);
 extern void sh_delvecs(void);
 #endif
-extern void mc_free(void);
 
 void
 com_quit(wordlist *wl)
