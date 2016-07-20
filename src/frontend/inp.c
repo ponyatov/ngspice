@@ -1315,6 +1315,7 @@ com_alterparam(wordlist *wl)
         fprintf(cp_err, "\nError: parameter '%s' not found,\n   command 'alterparam' skipped\n", pname);
     tfree(pval);
     tfree(pname);
+    tfree(subcktname);
 }
 
 static bool
