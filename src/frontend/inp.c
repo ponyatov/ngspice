@@ -1262,6 +1262,7 @@ com_alterparam(wordlist *wl)
                         notok++;
                         tfree(token);
                     }
+                    tfree(pname_eq);
                     if (found) {
                         /* find x line with same subcircuit name */
                         struct line *xx;
@@ -1286,6 +1287,7 @@ com_alterparam(wordlist *wl)
                                     continue;
                             }
                         }
+                        tfree(bsubb);
                     }
                 }
                 else {
