@@ -123,15 +123,22 @@ ASRCsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 int
 ASRCunsetup(GENmodel *inModel, CKTcircuit *ckt)
 {
-    ASRCmodel *model = (ASRCmodel *) inModel;
+    ASRCmodel *model = (ASRCmodel *)inModel;
     ASRCinstance *here;
 
     for (; model; model = model->ASRCnextModel)
-        for (here = model->ASRCinstances; here; here = here->ASRCnextInstance)
+        for (here = model->ASRCinstances; here; here = here->ASRCnextInstance) {
             if (here->ASRCbranch) {
                 CKTdltNNum(ckt, here->ASRCbranch);
                 here->ASRCbranch = 0;
             }
+            /* unsetup is always followed by setup with TMALLOC for pointers below.
+               setup will be called repeatedly on the same instances 'here' if op,
+               tran, dc etc. are repeated in a loop. So we need to free the pointers before.*/
+            FREE(here->ASRCposptr);
+            FREE(here->ASRCvars);
+            FREE(here->ASRCacValues);
+        }
 
     return OK;
 }
