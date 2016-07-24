@@ -32,6 +32,9 @@ ASRCdestroy(GENmodel **model)
         nextmod = mod->ASRCnextModel;
         FREE(mod);
     }
+    FREE(asrc_vals);
+    FREE(asrc_derivs);
+    asrc_nvals = 0;
 
     *model = NULL;
 }
