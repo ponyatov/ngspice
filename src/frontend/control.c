@@ -276,8 +276,8 @@ static char *
 doblock(struct control *bl, int *num)
 {
     struct control *ch, *cn = NULL;
-    wordlist *wl;
-    char *i;
+    wordlist *wl, *wltmp;
+    char *i, *wlword;
     int nn;
 
     nn = *num + 1; /*CDHW this is a guess... CDHW*/
@@ -449,9 +449,8 @@ doblock(struct control *bl, int *num)
         break;
 
     case CO_FOREACH:
-        for (wl = cp_variablesubst(cp_bquote(cp_doglob(wl_copy(bl->co_text))));
-             wl;
-             wl = wl->wl_next) {
+        wltmp = cp_variablesubst(cp_bquote(cp_doglob(wl_copy(bl->co_text))));
+        for (wl = wltmp; wl; wl = wl->wl_next) {
             cp_vset(bl->co_foreachvar, CP_STRING, wl->wl_word);
             for (ch = bl->co_children; ch; ch = cn) {
                 cn = ch->co_next;
@@ -485,6 +484,7 @@ doblock(struct control *bl, int *num)
                 }
             }
         }
+        wl_free(wltmp);
         break;
 
     case CO_BREAK:
@@ -508,9 +508,10 @@ doblock(struct control *bl, int *num)
         }
 
     case CO_GOTO:
-        wl = cp_variablesubst(cp_bquote(cp_doglob(
-                                            wl_copy(bl->co_text)))); /*CDHW Leak ? CDHW*/
-        return (wl->wl_word);
+        wl = cp_variablesubst(cp_bquote(cp_doglob(wl_copy(bl->co_text))));
+        wlword = copy(wl->wl_word);
+        wl_free(wl);
+        return (wlword);
 
     case CO_LABEL:
         /* Do nothing. */
