@@ -507,7 +507,6 @@ stupcase(char *s)
 }
 
 
-
 /***** elementary math *******/
 
 double

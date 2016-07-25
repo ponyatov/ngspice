@@ -5,7 +5,7 @@ testing loops
 .param rr = 10k
 
 R1 r2 0 r = {rr + 40*TEMPER}
-V1 r2 0 1 
+V1 r2 0 1
 
 .control
 *create a new plot as our base plot
@@ -41,7 +41,7 @@ let indexp = 0
 foreach pvar 9.5k 10k 10.5k
   let indexv = 0
   alterparam rr = $pvar
-  let pvect[indexp] = $pvar 
+  let pvect[indexp] = $pvar
   mc_source
   foreach var -40 -20 0 20 40
     set temp = $var
@@ -49,7 +49,7 @@ foreach pvar 9.5k 10k 10.5k
     *store name of the actual dc plot
     set dcplotname = $curplot
     * back to the base plot
-    setplot $plotname  
+    setplot $plotname
     let result[indexv][indexp] = {$dcplotname}.v1#branch
     let tvect[indexv] = $var
     if indexv = 0
@@ -72,7 +72,7 @@ let indexplot = indexplot + 1
 end
 
 
-plot 
+plot
 +result[0][0] result[1][0] result[2][0] result[3][0] result[4][0]
 +result[0][1] result[1][1] result[2][1] result[3][1] result[4][1]
 +result[0][2] result[1][2] result[2][2] result[3][2] result[4][2]
@@ -112,7 +112,7 @@ settype temp-sweep tvect
 setscale tvect
 
 * current through v1 versus temperature
-plot 
+plot
 +result1[0][0] result1[1][0] result1[2][0]
 +result1[0][1] result1[1][1] result1[2][1]
 +result1[0][2] result1[1][2] result1[2][2]
@@ -160,7 +160,7 @@ settype impedance pvect
 setscale pvect
 
 * current through v1 versus parameter rr
-plot 
+plot
 +result2[0][0] result2[1][0] result2[2][0] result2[3][0] result2[4][0] result2[5][0]
 +result2[0][1] result2[1][1] result2[2][1] result2[3][1] result2[4][1] result2[5][1]
 +result2[0][2] result2[1][2] result2[2][2] result2[3][2] result2[4][2] result2[5][2]

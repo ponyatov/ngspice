@@ -656,7 +656,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
             static char *statfcn[] = { "agauss", "gauss", "aunif", "unif", "limit" };
             int ii;
             for (ii = 0; ii < 5; ii++)
-                eval_agauss(deck, statfcn[ii]);*/
+                eval_agauss(deck, statfcn[ii]); */
 
             /* If user wants all currents saved (.options savecurrents), add .save
             to wl_first with all terminal currents available on selected devices */
@@ -1194,7 +1194,7 @@ com_edit(wordlist *wl)
    subckt param:  alterparam subcktname pname=vpval
    global .param: alterparam pname=pval
    Changes params in mc_deck
-   To become effective, 'mc_source' has to be called after 'alterparam'*/
+   To become effective, 'mc_source' has to be called after 'alterparam' */
 void
 com_alterparam(wordlist *wl)
 {
@@ -1217,7 +1217,7 @@ com_alterparam(wordlist *wl)
     linein++; /* skip the '=' */
     pval = gettok(&linein);
     subcktname = gettok(&tmp);
-    if ((!pval) || (!subcktname)) {
+    if (!pval || !subcktname) {
         fprintf(cp_err, "\nError: Wrong format in line 'alterparam %s'\n   command 'alterparam' skipped\n", linefree);
         tfree(pval);
         tfree(subcktname);
@@ -1233,23 +1233,24 @@ com_alterparam(wordlist *wl)
     tfree(s);
     for (dd = mc_deck->li_next; dd; dd = dd->li_next) {
         char *curr_line = dd->li_line;
-        /*alterparam subcktname pname=vpval
-          Parameters from within subcircuit are no longer .param lines, but have been added to
-          the .subckt line as pname=paval and to the x line as pval. pval in the x line takes
-          precedence when subciruit is called, so has to be replaced here.
-          Find subcircuit with subcktname.
-          After params: Count the number of parameters (notok) until parameter pname is found.
-          When found, search for x-line with subcktname.
-          Replace parameter value number notok by pval. */
+        /* alterparam subcktname pname=vpval
+           Parameters from within subcircuit are no longer .param lines, but have been added to
+           the .subckt line as pname=paval and to the x line as pval. pval in the x line takes
+           precedence when subciruit is called, so has to be replaced here.
+           Find subcircuit with subcktname.
+           After params: Count the number of parameters (notok) until parameter pname is found.
+           When found, search for x-line with subcktname.
+           Replace parameter value number notok by pval.
+        */
         if (subcktname) {
             /* find subcircuit */
             if (ciprefix(".subckt", curr_line)) {
-                gettok_nc(&curr_line); /*skip .subckt*/
+                gettok_nc(&curr_line); /* skip .subckt */
                 char *sname = gettok(&curr_line);
                 if (eq(sname, subcktname)) {
                     tfree(sname);
                     curr_line = strstr(curr_line, "params:");
-                    curr_line = skip_non_ws(curr_line); /*skip params:*/
+                    curr_line = skip_non_ws(curr_line); /* skip params: */
                     /* string to search for */
                     char *pname_eq = tprintf("%s=", pname);
                     int notok = 0;
@@ -1273,12 +1274,12 @@ com_alterparam(wordlist *wl)
                             if (*xline == 'x') {
                                 xline = strstr(xline, bsubb);
                                 if (xline) {
-                                    gettok_nc(&xline); /*skip subcktname*/
+                                    gettok_nc(&xline); /* skip subcktname */
                                     int ii;
                                     for (ii = 0; ii < notok; ii++)
-                                        gettok_nc(&xline); /*skip parameter values*/
+                                        gettok_nc(&xline); /* skip parameter values */
                                     char *beg = copy_substring(xx->li_line, xline);
-                                    gettok_nc(&xline); /*skip parameter value to be replaced*/
+                                    gettok_nc(&xline); /* skip parameter value to be replaced */
                                     char *newline = tprintf("%s %s %s", beg, pval, xline);
                                     tfree(xx->li_line);
                                     xx->li_line = newline;
@@ -1296,11 +1297,11 @@ com_alterparam(wordlist *wl)
                     continue;
                 }
             }
-        } /*subcktname*/
-        /*alterparam pname=vpval*/
+        } /* subcktname */
+        /* alterparam pname=vpval */
         else {
             if (ciprefix(".param", curr_line)) {
-                gettok_nc(&curr_line); /*skip .param*/
+                gettok_nc(&curr_line); /* skip .param */
                 char *name = gettok_char(&curr_line, '=', FALSE, FALSE);
                 if (eq(name, pname)) {
                     curr_line = dd->li_line;

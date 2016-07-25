@@ -78,8 +78,10 @@ CKTdestroy(CKTcircuit *ckt)
     nghash_free(ckt->DEVnameHash, NULL, NULL);
     nghash_free(ckt->MODnameHash, NULL, NULL);
     FREE(ckt);
+
 #ifdef XSPICE
     g_mif_info.ckt = NULL;
 #endif
+
     return(OK);
 }
