@@ -651,14 +651,14 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
                 inp_parse_temper(deck);
 
             /* replace agauss(x,y,z) in each b-line by suitable value */
-            /* FIXME: This is for the local param setting (not yet implemented in 
-            inp_fix_agauss_in_param() for model parameters according to HSPICE manual) 
+            /* FIXME: This is for the local param setting (not yet implemented in
+            inp_fix_agauss_in_param() for model parameters according to HSPICE manual)
             static char *statfcn[] = { "agauss", "gauss", "aunif", "unif", "limit" };
             int ii;
             for (ii = 0; ii < 5; ii++)
                 eval_agauss(deck, statfcn[ii]);*/
 
-            /* If user wants all currents saved (.options savecurrents), add .save 
+            /* If user wants all currents saved (.options savecurrents), add .save
             to wl_first with all terminal currents available on selected devices */
             inp_savecurrents(deck, options, &wl_first, controls);
 
@@ -1189,6 +1189,7 @@ com_edit(wordlist *wl)
     }
 }
 
+
 /* alter a parameter, either
    subckt param:  alterparam subcktname pname=vpval
    global .param: alterparam pname=pval
@@ -1237,7 +1238,7 @@ com_alterparam(wordlist *wl)
           the .subckt line as pname=paval and to the x line as pval. pval in the x line takes
           precedence when subciruit is called, so has to be replaced here.
           Find subcircuit with subcktname.
-          After params: Count the number of parameters (notok) until parameter pname is found. 
+          After params: Count the number of parameters (notok) until parameter pname is found.
           When found, search for x-line with subcktname.
           Replace parameter value number notok by pval. */
         if (subcktname) {
@@ -1301,9 +1302,9 @@ com_alterparam(wordlist *wl)
             if (ciprefix(".param", curr_line)) {
                 gettok_nc(&curr_line); /*skip .param*/
                 char *name = gettok_char(&curr_line, '=', FALSE, FALSE);
-                if eq(name, pname) {
+                if (eq(name, pname)) {
                     curr_line = dd->li_line;
-                    char * start = gettok_char(&curr_line, '=', TRUE, FALSE);
+                    char *start = gettok_char(&curr_line, '=', TRUE, FALSE);
                     tfree(dd->li_line);
                     dd->li_line = tprintf("%s%s", start, pval);
                     found = TRUE;
@@ -1319,6 +1320,7 @@ com_alterparam(wordlist *wl)
     tfree(pname);
     tfree(subcktname);
 }
+
 
 static bool
 doedit(char *filename)
