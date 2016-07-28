@@ -462,9 +462,11 @@ doblock(struct control *bl, int *num)
 
                 case BROKEN:    /* Break. */
                     if (nn < 2) {
+                        wl_free(wltmp);
                         return (NORMAL_STR);
                     } else {
                         *num = nn - 1;
+                        wl_free(wltmp);
                         return (BROKEN_STR);
                     }
 
@@ -474,13 +476,16 @@ doblock(struct control *bl, int *num)
                         break;
                     } else {
                         *num = nn - 1;
+                        wl_free(wltmp);
                         return (CONTINUED_STR);
                     }
 
                 default:
                     cn = findlabel(i, bl->co_children);
-                    if (!cn)
+                    if (!cn) {
+                        wl_free(wltmp);
                         return (i);
+                    }
                 }
             }
         }
@@ -509,7 +514,8 @@ doblock(struct control *bl, int *num)
 
     case CO_GOTO:
         wl = cp_variablesubst(cp_bquote(cp_doglob(wl_copy(bl->co_text))));
-        wlword = copy(wl->wl_word);
+        wlword = wl->wl_word;
+        wl->wl_word = NULL;
         wl_free(wl);
         return (wlword);
 
