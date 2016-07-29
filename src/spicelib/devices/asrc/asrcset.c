@@ -123,7 +123,7 @@ ASRCsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 int
 ASRCunsetup(GENmodel *inModel, CKTcircuit *ckt)
 {
-    ASRCmodel *model = (ASRCmodel *)inModel;
+    ASRCmodel *model = (ASRCmodel *) inModel;
     ASRCinstance *here;
 
     for (; model; model = model->ASRCnextModel)
