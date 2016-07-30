@@ -132,9 +132,6 @@ ASRCunsetup(GENmodel *inModel, CKTcircuit *ckt)
                 CKTdltNNum(ckt, here->ASRCbranch);
                 here->ASRCbranch = 0;
             }
-            /* unsetup is always followed by setup with TMALLOC for pointers below.
-               setup will be called repeatedly on the same instances 'here' if op,
-               tran, dc etc. are repeated in a loop. So we need to free the pointers before.*/
             FREE(here->ASRCposptr);
             FREE(here->ASRCvars);
             FREE(here->ASRCacValues);

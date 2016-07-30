@@ -141,7 +141,7 @@ static void replace_token(char *string, char *token, int where, int total);
 static void inp_add_series_resistor(struct line *deck);
 static void subckt_params_to_param(struct line *deck);
 static void inp_fix_temper_in_param(struct line *deck);
-static void inp_fix_agauss_in_param(struct line *deck, char * fcn);
+static void inp_fix_agauss_in_param(struct line *deck, char *fcn);
 
 static char *inp_spawn_brace(char *s);
 
@@ -2838,7 +2838,7 @@ inp_fix_inst_calls_for_numparam(struct names *subckt_w_params, struct line *deck
                                         break;
                                 }
 
-                                if ((!found_param_match) && (inp_check_scope_sub(c->level, d->level))){
+                                if (!found_param_match && inp_check_scope_sub(c->level, d->level)) {
                                     // comment out .subckt and continue
                                     while (d != NULL && !ciprefix(".ends", d->li_line)) {
                                         *(d->li_line) = '*';

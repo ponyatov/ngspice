@@ -354,7 +354,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
         if (deck && ciprefix("*ng_script", deck->li_line))
             comfile = TRUE;
         /* save a copy of the deck for later reloading with 'mc_source' */
-        if(!comfile)
+        if (!comfile)
             mc_deck = inp_deckcopy_oc(deck);
     }
     /* inp_spsource() called with *fp == NULL: we want to reload circuit for MC simulation */
