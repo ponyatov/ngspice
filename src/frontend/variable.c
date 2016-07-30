@@ -1044,6 +1044,7 @@ cp_remvar_all(void)
     cp_usrvars(&uv1, &uv2);
 
     free_struct_variable(variables);
+    variables = NULL;
     free_struct_variable(uv1);
     free_struct_variable(uv2);
 }
