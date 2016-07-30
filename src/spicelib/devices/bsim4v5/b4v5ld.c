@@ -4901,7 +4901,8 @@ line900:
            (*(here->BSIM4v5BPdpPtr) += m * (gcbdb - gjbd + gbbdp - gIbtotd));
            (*(here->BSIM4v5BPgpPtr) += m * (gcbgb - here->BSIM4v5gbgs - gIbtotg));
            (*(here->BSIM4v5BPspPtr) += m * (gcbsb - gjbs + gbbsp - gIbtots));
-           (*(here->BSIM4v5BPbpPtr) += m * (gjbd + gjbs + gcbbb - here->BSIM4v5gbbs - gIbtotb));
+           (*(here->BSIM4v5BPbpPtr) += m * (gjbd + gjbs + gcbbb - here->BSIM4v5gbbs
+				   - gIbtotb));
 
            ggidld = here->BSIM4v5ggidld;
            ggidlg = here->BSIM4v5ggidlg;
