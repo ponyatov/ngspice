@@ -343,6 +343,7 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
             if (v->v_scale->v_length != maxlen) {
                 fprintf(stderr, "Error: Option 'singlescale' not possible.\n");
                 fprintf(stderr, "       Vectors %s and %s have different lengths!\n", vecs->v_name, v->v_name);
+                fprintf(stderr, "       No data written to %s!\n\n", filename);
                 return;
             }
     }
