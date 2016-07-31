@@ -338,19 +338,12 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
     if (numVecs == 0)
         return;
 
-    /* Open the output data file. */
-    if ((file_data = fopen(filename_data, appendwrite ? "a" : "w")) == NULL) {
-        perror(filename);
-        return;
-    }
-
     /* print scale vector only once */
     if (singlescale) {
         /* check if all vectors have equal scale length */
         maxlen = vecs->v_length; /* first length of vector read */
         for (v = vecs; v; v = v->v_link2)
             if (v->v_scale->v_length != maxlen) {
-                fclose(file_data);
                 fprintf(stderr, "Error: Option 'singlescale' not possible.\n");
                 fprintf(stderr, "       Vectors %s and %s have different lengths!\n", vecs->v_name, v->v_name);
                 return;
@@ -360,6 +353,12 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
         /* find maximum scale length from all vectors */
         for (v = vecs; v; v = v->v_link2)
             maxlen = max(v->v_scale->v_length, maxlen);
+    }
+
+    /* Open the output data file. */
+    if ((file_data = fopen(filename_data, appendwrite ? "a" : "w")) == NULL) {
+        perror(filename);
+        return;
     }
 
     /* If option numdgt is set, use it for printout precision.
