@@ -42,7 +42,7 @@ Author: 1985 Wayne A. Christopher
 #include "ngspice/stringskip.h"
 
 
-extern double gauss0(void);
+extern double gauss1(void);
 extern double drand(void);
 
 #define line_free(line, flag)                   \
@@ -1874,7 +1874,7 @@ agauss(double nominal_val, double abs_variation, double sigma)
 {
     double stdvar;
     stdvar = abs_variation / sigma;
-    return (nominal_val + stdvar * gauss0());
+    return (nominal_val + stdvar * gauss1());
 }
 
 
@@ -1883,7 +1883,7 @@ gauss(double nominal_val, double rel_variation, double sigma)
 {
     double stdvar;
     stdvar = nominal_val * rel_variation / sigma;
-    return (nominal_val + stdvar * gauss0());
+    return (nominal_val + stdvar * gauss1());
 }
 
 

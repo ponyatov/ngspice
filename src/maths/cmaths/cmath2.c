@@ -26,6 +26,7 @@ Author: 1985 Wayne A. Christopher, U. C. Berkeley CAD Group
 extern void checkseed(void); /* seed random or set by 'set rndseed=value'*/
 extern double drand(void);  /* from randnumb.c */
 extern double gauss0(void);  /* from randnumb.c */
+extern double gauss1(void);  /* from randnumb.c */
 extern int poisson(double);  /* from randnumb.c */
 extern double exprand(double);  /* from randnumb.c */
 
@@ -304,7 +305,7 @@ cx_sgauss(void *data, short int type, int length, int *newlength, short int *new
         d = alloc_d(length);
         *newtype = VF_REAL;
         for (i = 0; i < length; i++) {
-            d[i] = gauss0();
+            d[i] = gauss1();
         }
         return ((void *) d);
     }
