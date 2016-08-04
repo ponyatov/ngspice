@@ -82,12 +82,12 @@ initw(void)
     unsigned i;
     double totsqr, nomsqr;
     unsigned int coa;
-
+#ifdef HasMain
     /* initialize the uniform generator */
     srand((unsigned int) getpid());
     // srand(17);
     TausSeed();
-
+#endif
     ScaleGauss = 1.;
     newpools = 1;
 

@@ -205,7 +205,9 @@ extern void OUTerrorf(int, const char *fmt, ...);
 
 extern int OUTattributes(runDesc *, IFuid, int, IFvalue *);
 
+/* initialize random number generators */
 extern void initw(void);
+extern void checkseed(void);
 
 IFfrontEnd nutmeginfo = {
     IFnewUid,
@@ -888,8 +890,9 @@ main(int argc, char **argv)
 
     cp_program = ft_sim->simulator;
 
-    srand((unsigned int) getpid());
-    TausSeed();
+    int ii = getpid();
+    cp_vset("rndseed", CP_NUM, &ii);
+    checkseed();
 
     /* --- Process command line options --- */
     for (;;) {
@@ -1189,15 +1192,7 @@ main(int argc, char **argv)
             fprintf(cp_out, "SoS %f, seed value: %ld\n", renormalize(), rseed);
         }
 #elif defined(WaGauss)
-        {
-            unsigned int rseed = 66;
-            if (!cp_getvar("rndseed", CP_NUM, &rseed)) {
-                time_t acttime = time(NULL);
-                rseed = (unsigned int) acttime;
-            }
-            srand(rseed);
-            initw();
-        }
+        initw();
 #endif
 
         if (!ft_servermode) {
