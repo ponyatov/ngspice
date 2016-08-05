@@ -20,6 +20,7 @@
 #include <math.h>
 #include "ngspice/wallace.h"
 #include "ngspice/FastNorm3.h"
+#include "ngspice/randnumb.h"
 
 #define POOLSIZE 4096
 #define LPOOLSIZE 12
@@ -42,10 +43,6 @@ static unsigned n = POOLSIZE;
 static double chi1, chi2; /* chi^2 correction values */
 static unsigned int newpools;
 
-extern double drand(void);
-extern unsigned int CombLCGTausInt(void);
-extern void TausSeed(void);
-extern unsigned int CombLCGTausInt2(void);
 
 
 void

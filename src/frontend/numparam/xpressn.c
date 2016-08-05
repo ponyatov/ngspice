@@ -14,10 +14,8 @@
 #include "../frontend/variable.h"
 #include "ngspice/compatmode.h"
 
-
 /* random numbers in /maths/misc/randnumb.c */
-extern double gauss1(void);
-extern double drand(void);
+#include "ngspice/randnumb.h"
 
 /************ keywords ************/
 

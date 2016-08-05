@@ -40,10 +40,7 @@ Author: 1985 Wayne A. Christopher
 
 #include "numparam/numpaif.h"
 #include "ngspice/stringskip.h"
-
-
-extern double gauss1(void);
-extern double drand(void);
+#include "ngspice/randnumb.h"
 
 #define line_free(line, flag)                   \
     do {                                        \
