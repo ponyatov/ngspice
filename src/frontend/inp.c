@@ -302,6 +302,50 @@ mc_free(void)
     line_free_x(mc_deck, TRUE);
 }
 
+/* check for .option seed=[val|random] and set the random number generator */
+void
+eval_seed_opt(struct line *deck)
+{
+    struct line *card;
+    static bool has_seed = false;
+
+    for (card = deck; card; card = card->li_next) {
+        char *line = card->li_line;
+        if (*line == '*')
+            continue;
+        if (ciprefix(".option", line) || ciprefix("option", line)) {
+            char *begtok = strstr(line, "seed=");
+            if (begtok)
+                begtok = &begtok[5]; /*skip seed=*/
+            if (begtok) {
+                if (has_seed)
+                    fprintf(cp_err, "Warning: Multiple 'option seed=val|random' found!\n");
+                char *token = gettok(&begtok);
+                /* option seed=random */
+                if (eq(token, "random") || eq(token, "{random}")) {
+                    time_t acttime = time(NULL);
+                    /* get random value from time in seconds since 1.1.1970 */
+                    int rseed = (int)(acttime - 1470000000);
+                    cp_vset("rndseed", CP_NUM, &rseed);
+                    com_sseed(NULL);
+                    has_seed = true;
+                }
+                /* option seed=val*/
+                else {
+                    int sr = atoi(token);
+                    if (sr <= 0)
+                        fprintf(cp_err, "Warning: Cannot convert 'option seed=%s' to seed value, skipped!\n", token);
+                    else {
+                        cp_vset("rndseed", CP_NUM, &sr);
+                        com_sseed(NULL);
+                        has_seed = true;
+                    }
+                }
+                tfree(token);
+            }
+        }
+    }
+}
 
 /* The routine to source a spice input deck. We read the deck in, take
  * out the front-end commands, and create a CKT structure. Also we
@@ -342,6 +386,8 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
        or fp == NULL, intfile == TRUE: load circarray */
     if ((fp) || intfile) {
         deck = inp_readall(fp, dir_name, comfile, intfile);
+        /* here we check for .option seed=[val|random] and set the random number generator */
+        eval_seed_opt(deck);
         /* files starting with *ng_script are user supplied command files */
         if (deck && ciprefix("*ng_script", deck->li_line))
             comfile = TRUE;
