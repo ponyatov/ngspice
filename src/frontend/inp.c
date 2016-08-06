@@ -307,7 +307,7 @@ void
 eval_seed_opt(struct line *deck)
 {
     struct line *card;
-    static bool has_seed = false;
+    static bool has_seed = FALSE;
 
     for (card = deck; card; card = card->li_next) {
         char *line = card->li_line;
@@ -328,7 +328,7 @@ eval_seed_opt(struct line *deck)
                     int rseed = (int)(acttime - 1470000000);
                     cp_vset("rndseed", CP_NUM, &rseed);
                     com_sseed(NULL);
-                    has_seed = true;
+                    has_seed = TRUE;
                 }
                 /* option seed=val*/
                 else {
@@ -338,7 +338,7 @@ eval_seed_opt(struct line *deck)
                     else {
                         cp_vset("rndseed", CP_NUM, &sr);
                         com_sseed(NULL);
-                        has_seed = true;
+                        has_seed = TRUE;
                     }
                 }
                 tfree(token);
