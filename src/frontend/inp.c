@@ -347,10 +347,8 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
             comfile = TRUE;
         /* save a copy of the deck for later reloading with 'mc_source' */
         if (deck && !comfile) {
-            if (mc_deck) {
-                line_free_x(mc_deck, TRUE);
-                mc_deck = NULL;
-            }
+            if (mc_deck)
+                mc_free();
             mc_deck = inp_deckcopy_oc(deck);
         }
     }
