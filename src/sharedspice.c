@@ -60,6 +60,7 @@ myfputc(int inp, FILE* f)
 
 #include "ngspice/ngspice.h"
 #include "misc/misc_time.h"
+#include "ngspice/randnumb.h"
 
 /*Use Windows threads if on W32 without pthreads*/
 #ifndef HAVE_LIBPTHREAD
@@ -582,9 +583,10 @@ ngSpice_Init(SendChar* printfcn, SendStat* statusfcn, ControlledExit* ngspiceexi
     /* program name*/
     cp_program = ft_sim->simulator;
 
-    int ii = getpid();
+    /* initialze random number generator with seed = 1 */
+    int ii = 1;
     cp_vset("rndseed", CP_NUM, &ii);
-    checkseed();
+    com_sseed(NULL);
 
     /*parameter fetcher, used in show, alter, altermod */
     if_getparam = spif_getparam_special;
