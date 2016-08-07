@@ -307,7 +307,7 @@ void
 eval_seed_opt(struct line *deck)
 {
     struct line *card;
-    static bool has_seed = FALSE;
+    bool has_seed = FALSE;
 
     for (card = deck; card; card = card->li_next) {
         char *line = card->li_line;
