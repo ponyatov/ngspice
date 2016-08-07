@@ -74,6 +74,7 @@ double drand(void);
 double gauss0(void);
 void rgauss(double* py1, double* py2);
 int poisson(double);
+static bool seedinfo = FALSE;
 
 
 /* Check if a seed has been set by the command 'set rndseed=value'
@@ -321,5 +322,12 @@ com_sseed(wordlist *wl)
             TausSeed();
             cp_vset("rndseed", CP_NUM, &newseed);
         }
-    printf("\nSeed value for random number generator is set to %d\n", newseed);
+    if(seedinfo)
+        printf("\nSeed value for random number generator is set to %d\n", newseed);
+}
+
+void
+setseedinfo(void)
+{
+    seedinfo = TRUE;
 }
