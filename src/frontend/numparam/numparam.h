@@ -27,6 +27,7 @@ typedef struct entry_s {
     int  ivl;                   /* int value or string buffer index */
     char *sbbase;               /* string buffer base address if any */
     struct entry_s *pointer;    /* pointer chain */
+    unsigned short levelinfo[10];
 } entry_t;
 
 
@@ -53,7 +54,7 @@ typedef struct {                /* the input scanner data structure */
 void initdico(dico_t *);
 int donedico(dico_t *);
 void dico_free_entry(entry_t *);
-bool defsubckt(dico_t *, char *s, int w, char categ);
+bool defsubckt(dico_t *, char *s, int w, char categ, unsigned short level[]);
 int findsubckt(dico_t *, char *s, SPICE_DSTRINGPTR subname);
 bool nupa_substitute(dico_t *, char *s, char *r, bool err);
 bool nupa_assignment(dico_t *, char *s, char mode);
@@ -61,5 +62,5 @@ bool nupa_subcktcall(dico_t *, char *s, char *x, bool err);
 void nupa_subcktexit(dico_t *);
 dico_t *nupa_fetchinstance(void);
 char getidtype(dico_t *, char *s);
-entry_t *attrib(dico_t *, NGHASHPTR htable, char *t, char op);
+entry_t *attrib(dico_t *, NGHASHPTR htable, char *t, char op, unsigned short level[]);
 void del_attrib(void *);

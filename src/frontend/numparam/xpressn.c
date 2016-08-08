@@ -420,7 +420,7 @@ fetchnumentry(dico_t *dico, char *s, bool *perr)
 /*******  writing dictionary entries *********/
 
 entry_t *
-attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op)
+attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op, unsigned short levelinfo[])
 {
     /* seek or attribute dico entry number for string t.
        Option  op='N' : force a new entry, if tos>level and old is  valid.
@@ -435,10 +435,14 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op)
     }
 
     if (!entry) {
+        int i;
         entry = TMALLOC(entry_t, 1);
         entry->symbol = strdup(t);
         entry->tp = '?';      /* signal Unknown */
         entry->level = dico->stack_depth;
+        if(levelinfo)
+            for (i = 0; i< 10; i++)
+                entry->levelinfo[i] = levelinfo[i];
         nghash_insert(htable_p, t, entry);
     }
 
@@ -469,7 +473,8 @@ nupa_define(dico_t *dico,
        char tpe,                /* type marker */
        double z,                /* float value if any */
        int w,                   /* integer value if any */
-       char *base)              /* string pointer if any */
+       char *base,              /* string pointer if any */
+       unsigned short level[])  /* level info */
 {
     /*define t as real or integer,
       opcode= 'N' impose a new item under local conditions.
@@ -490,7 +495,7 @@ nupa_define(dico_t *dico,
 
     htable_p = dico->symbols[dico->stack_depth];
 
-    entry = attrib(dico, htable_p, t, op);
+    entry = attrib(dico, htable_p, t, op, level);
     err = 0;
 
     if (!entry) {
@@ -521,10 +526,35 @@ nupa_define(dico_t *dico,
             if (entry->level < dico->stack_depth)
                 warn = message(dico, "%s:%d overwritten.\n", t, entry->level);
 
-        } else
-            /* error message for redefinition of symbols */
-//            message(dico, "%s is already used,\n cannot be redefined\n", t);
-            fprintf(stderr,"Warning: %s is already used,\n cannot be redefined\n", t);
+        }
+        else
+        {
+            /* FIXME: beeter do this recursively in a new function */
+            /* No new entry defined, but previous entry with same name returned
+            from function attrib(), compare levels, if not equal, o.k. (for now) */
+            unsigned short newlevel[10];
+            unsigned short oldlevel[10];
+            int i;
+            for (i = 0; i < 10; i++) {
+                newlevel[i] = level[i];
+                oldlevel[i] = entry->levelinfo[i];
+            }
+            /* top level */
+            if ((newlevel[0] > 0) && (oldlevel[0] > 0)
+                && (newlevel[1] == 0) && (oldlevel[1] == 0))
+                fprintf(stderr, "Warning: %s is already used,\n cannot be redefined\n", t);
+            /* second level */
+            else if ((newlevel[0] > 0) && (oldlevel[0] == newlevel[0])
+                && (newlevel[1] > 0) && (oldlevel[1] > 1)
+                && (newlevel[2] == 0) && (oldlevel[2] == 0))
+                fprintf(stderr, "Warning: %s is already used,\n cannot be redefined\n", t);
+            /* third level */
+            else if ((newlevel[0] > 0) && (oldlevel[0] == newlevel[0])
+                && (newlevel[1] > 0) && (oldlevel[1] == newlevel[1])
+                && (newlevel[2] > 0) && (oldlevel[2] > 1)
+                && (newlevel[3] == 0) && (oldlevel[3] == 0))
+                fprintf(stderr, "Warning: %s is already used,\n cannot be redefined\n", t);
+        }
     }
 
     return err;
@@ -532,7 +562,7 @@ nupa_define(dico_t *dico,
 
 
 bool
-defsubckt(dico_t *dico, char *s, int w, char categ)
+defsubckt(dico_t *dico, char *s, int w, char categ, unsigned short level[])
 /* called on 1st pass of spice source code,
    to enter subcircuit (categ=U) and model (categ=O) names
 */
@@ -561,7 +591,7 @@ defsubckt(dico_t *dico, char *s, int w, char categ)
         SPICE_DSTRING ustr;     /* temp user string */
         spice_dstring_init(&ustr);
         pscopy_up(&ustr, s, i, j - i);
-        err = nupa_define(dico, spice_dstring_value(&ustr), ' ', categ, 0.0, w, NULL);
+        err = nupa_define(dico, spice_dstring_value(&ustr), ' ', categ, 0.0, w, NULL, level);
         spice_dstring_free(&ustr);
     } else {
         err = message(dico, "Subcircuit or Model without name.\n");
@@ -1532,7 +1562,7 @@ nupa_assignment(dico_t *dico, char *s, char mode)
             }
 
             err = nupa_define(dico, spice_dstring_value(&tstr), mode /* was ' ' */ ,
-                         dtype, rval, wval, NULL);
+                         dtype, rval, wval, NULL, NULL);
             error = error || err;
         }
 
