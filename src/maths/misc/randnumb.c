@@ -42,6 +42,7 @@ Copyright 2008 Holger Vogt
 #include "ngspice/ngspice.h"
 #include "ngspice/cpdefs.h"
 #include "ngspice/ftedefs.h"
+#include "ngspice/randnumb.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -65,15 +66,8 @@ static unsigned LGCS(unsigned *state, unsigned A1, unsigned A2);
 
 double CombLCGTaus(void);
 float  CombLCGTaus2(void);
-unsigned int CombLCGTausInt(void);
-unsigned int CombLCGTausInt2(void);
-double exprand(double);
 
-void checkseed(void);
-double drand(void);
-double gauss0(void);
 void rgauss(double* py1, double* py2);
-int poisson(double);
 static bool seedinfo = FALSE;
 
 
