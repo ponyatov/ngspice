@@ -242,7 +242,7 @@ message(dico_t *dico, const char *fmt, ...)
 void
 initdico(dico_t *dico)
 {
-    int asize = 10;           /* default allocation depth of the synbol stack */
+    int asize = NESTINGDEPTH;           /* default allocation depth of the synbol stack */
     COMPATMODE_T compat_mode;
 
     spice_dstring_init(&(dico->option));
@@ -441,7 +441,7 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op, unsigned short leveli
         entry->tp = '?';      /* signal Unknown */
         entry->level = dico->stack_depth;
         if(levelinfo)
-            for (i = 0; i< 10; i++)
+            for (i = 0; i< NESTINGDEPTH; i++)
                 entry->levelinfo[i] = levelinfo[i];
         nghash_insert(htable_p, t, entry);
     }
@@ -532,10 +532,10 @@ nupa_define(dico_t *dico,
             /* FIXME: beeter do this recursively in a new function */
             /* No new entry defined, but previous entry with same name returned
             from function attrib(), compare levels, if not equal, o.k. (for now) */
-            unsigned short newlevel[10];
-            unsigned short oldlevel[10];
+            unsigned short newlevel[NESTINGDEPTH];
+            unsigned short oldlevel[NESTINGDEPTH];
             int i;
-            for (i = 0; i < 10; i++) {
+            for (i = 0; i < NESTINGDEPTH; i++) {
                 newlevel[i] = level[i];
                 oldlevel[i] = entry->levelinfo[i];
             }
