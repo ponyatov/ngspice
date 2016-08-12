@@ -6864,6 +6864,10 @@ inp_get_elem_ident(char *type)
         return 'z';
     else if (cieq(type, "pmf"))
         return 'z';
+    else if (cieq(type, "nhfet"))
+        return 'z';
+    else if (cieq(type, "phfet"))
+        return 'z';
     else if (cieq(type, "sw"))
         return 's';
     else if (cieq(type, "csw"))
