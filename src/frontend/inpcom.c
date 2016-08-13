@@ -1334,7 +1334,7 @@ inp_chk_for_multi_in_vcvs(struct line *c, int *line_number)
 #ifndef XSPICE
                 fprintf(stderr,
                         "\nError: XSPICE is required to run the 'multi-input pwl' option in line %d\n",
-                        line_number);
+                        *line_number);
                 fprintf(stderr, "  %s\n", line);
                 fprintf(stderr, "\nSee manual chapt. 31 for installation instructions\n");
                 controlled_exit(EXIT_BAD);
