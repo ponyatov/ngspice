@@ -14,6 +14,7 @@
 #include "../frontend/variable.h"
 #include "ngspice/compatmode.h"
 
+
 /* random numbers in /maths/misc/randnumb.c */
 #include "ngspice/randnumb.h"
 
@@ -427,7 +428,7 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op, unsigned short leveli
     */
     entry_t *entry;             /* symbol table entry */
 
-    entry = (entry_t *)nghash_find(htable_p, t);
+    entry = (entry_t *) nghash_find(htable_p, t);
     if (entry && (op == 'N') &&
         (entry->level < dico->stack_depth) && (entry->tp != '?'))
     {

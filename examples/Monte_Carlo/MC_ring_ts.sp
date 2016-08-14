@@ -29,7 +29,7 @@ begin
 
   echo source the input file
 * Path of your circuit file and library file here
-*  set sourcepath = ( D:\Spice_general\tests\lib-test\jts\ D:\Spice_general\tests\lib-test\ts14\ D:\Spice_general\tests\lib-test\x-fab\orig\xh018\lpmos )
+* set sourcepath = ( D:\Spice_general\tests\lib-test\jts\ D:\Spice_general\tests\lib-test\ts14\ D:\Spice_general\tests\lib-test\x-fab\orig\xh018\lpmos )
   set sourcepath = ( D:\Spice_general\ngspice\examples\Monte_Carlo )
 * source with file name of your circuit file
   source mc_ring_circ.net

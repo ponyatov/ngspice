@@ -42,6 +42,7 @@ Author: 1985 Wayne A. Christopher
 #include "ngspice/stringskip.h"
 #include "ngspice/randnumb.h"
 
+
 #define line_free(line, flag)                   \
     do {                                        \
         line_free_x(line, flag);                \
@@ -302,6 +303,7 @@ mc_free(void)
     line_free_x(mc_deck, TRUE);
 }
 
+
 /* check for .option seed=[val|random] and set the random number generator */
 void
 eval_seed_opt(struct line *deck)
@@ -350,6 +352,7 @@ eval_seed_opt(struct line *deck)
     }
 }
 
+
 /* The routine to source a spice input deck. We read the deck in, take
  * out the front-end commands, and create a CKT structure. Also we
  * filter out the following cards: .save, .width, .four, .print, and
@@ -377,7 +380,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
     double startTime, endTime;
 
 #ifdef HAS_PROGREP
-    if(!comfile)
+    if (!comfile)
         SetAnalyse("Source Deck", 0);
 #endif
 
@@ -389,6 +392,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
        or fp == NULL, intfile == TRUE: load circarray */
     if ((fp) || intfile) {
         deck = inp_readall(fp, dir_name, comfile, intfile);
+
         /* here we check for .option seed=[val|random] and set the random number generator */
         eval_seed_opt(deck);
         /* files starting with *ng_script are user supplied command files */
@@ -428,8 +432,10 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
         /* Extract the .option lines from the deck into 'options',
            and remove them from the deck. */
         options = inp_getopts(deck);
+
         /* copy a deck before subckt substitution. */
         realdeck = inp_deckcopy(deck);
+
         /* Save the title before INPgetTitle gets it. */
         tt = copy(deck->li_line);
         if (!deck->li_next)
@@ -1066,7 +1072,6 @@ inp_dodeck(
     ct->ci_name = tt;
     ct->ci_deck = deck;
     ct->ci_options = options;
-
     if (deck->li_actual)
         ct->ci_origdeck = deck->li_actual;
     else
@@ -1078,7 +1083,7 @@ inp_dodeck(
     ct->ci_commands = end;
     ct->ci_dicos = nupa_add_dicoslist();
     if (filename) {
-        if(reuse)
+        if (reuse)
             tfree(ct->ci_filename);
         ct->ci_filename = copy(filename);
     }
@@ -1137,12 +1142,14 @@ inp_dodeck(
 #endif
 }
 
+
 void
 com_mc_source(wordlist *wl)
 {
     NG_IGNORE(wl);
     inp_spsource(NULL, FALSE, NULL, FALSE);
 }
+
 
 /* Edit and re-load the current input deck.  Note that if these
  * commands are used on a non-unix machine, they will leave spice.tmp
@@ -1506,6 +1513,7 @@ cktislinear(CKTcircuit *ckt, struct line *deck)
    Last line of the array has to get the value NULL */
 char **circarray;
 
+
 /* called by int ngSpice_Circ(): copy line by line to circarray, if line == NULL
    (sent after last entry), then finish.
    called by com_circbyline(): lines are entered manually. If a circuit is entered,
@@ -1521,7 +1529,7 @@ create_circbyline(char *line)
     static bool is_script = FALSE;
     FILE *fp = NULL;
 
-    if (line &&(linec == 0))
+    if (line && (linec == 0))
         is_script = ciprefix("*ng_script", line);
     if (!circarray)
         circarray = TMALLOC(char*, memlen);
@@ -1534,7 +1542,7 @@ create_circbyline(char *line)
     }
 
     if (linec < memlen) {
-        if ((is_script && ciprefix(".endc", line))  ||
+        if ((is_script && ciprefix(".endc", line)) ||
            (ciprefix(".end", line) && (line[4] == '\0' || isspace_c(line[4])))) {
             circarray[linec] = NULL;
             inp_spsource(fp, is_script, "", TRUE);

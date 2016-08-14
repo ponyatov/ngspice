@@ -58,6 +58,7 @@ char *last_used_rawfile = NULL;
  * command "setcirc <n>"
  *   switch to circuit number <n>
  */
+
 void
 com_scirc(wordlist *wl)
 {

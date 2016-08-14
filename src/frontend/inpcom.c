@@ -180,12 +180,14 @@ xx_new_line(struct line *next, char *line, int linenum, int linenum_orig, unsign
     x->li_line = line;
     x->li_linenum = linenum;
     x->li_linenum_orig = linenum_orig;
+
     if (level == NULL)
         for (i = 0; i < NESTINGDEPTH; i++)
             x->level[i] = 0;
     else
         for (i = 0; i < NESTINGDEPTH; i++)
             x->level[i] = level[i];
+
     return x;
 }
 
@@ -521,16 +523,17 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         delete_libs();
 
         inp_add_levels(working);
-
         inp_fix_for_numparam(subckt_w_params, working);
 
-        inp_remove_excess_ws(working);
 
-//        tprint(working, tpr++);
+        inp_remove_excess_ws(working);
+//      tprint(working, tpr++);
+
         comment_out_unused_subckt_models(working);
-//        tprint(working, tpr++);
+//      tprint(working, tpr++);
         inp_rem_unused_models(working);
-//        tprint(working, tpr++);
+//      tprint(working, tpr++);
+
         subckt_params_to_param(working);
 
         rv . line_number = inp_split_multi_param_lines(working, rv . line_number);
@@ -548,7 +551,6 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
         inp_fix_param_values(working);
 
         inp_reorder_params(subckt_w_params, cc);
-
         inp_fix_inst_calls_for_numparam(subckt_w_params, working);
 
         delete_names(subckt_w_params);

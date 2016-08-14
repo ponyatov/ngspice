@@ -172,6 +172,7 @@ extern int SIMinit(IFfrontEnd *frontEnd, IFsimulator **simulator);
 extern wordlist *cp_varwl(struct variable *var);
 extern void create_circbyline(char *line);
 
+
 /*The current run (to get variable names, etc)*/
 static runDesc *cur_run;
 
@@ -689,12 +690,14 @@ bot:
     return 0;
 }
 
+
 /* to be called upon 'quit' */
 void
 sh_delete_myvec(void)
 {
     tfree(myvec);
 }
+
 
 /* retrieve a ngspice command from caller and run it
 immediately */
@@ -1634,9 +1637,12 @@ int sh_ExecutePerLoop(void)
     return 0;
 }
 
+
 /* declared outside of sh_vecinit to allow deleting */
 static int veccount = 0;
 static pvecinfoall pvca = NULL;
+
+
 /* called once for a new plot from beginPlot() in outitf.c,
    after the vectors in ngspice for this plot have been set.
    Transfers vector information to the caller via callback datinitfcn()
@@ -1715,6 +1721,7 @@ int sh_vecinit(runDesc *run)
     }
     return 0;
 }
+
 
 void
 sh_delvecs(void)

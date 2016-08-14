@@ -46,6 +46,7 @@ extern void sh_delvecs(void);
 extern RETSIGTYPE sigsegv(void);
 #endif
 
+
 void
 com_quit(wordlist *wl)
 {
@@ -125,10 +126,12 @@ com_quit(wordlist *wl)
 
     destroy_const_plot();
     spice_destroy_devices();
+
 #ifdef SHARED_MODULE
     sh_delete_myvec();
     sh_delvecs();
 #endif
+
     mc_free();
     cp_remvar_all();
     if (Infile_Path)

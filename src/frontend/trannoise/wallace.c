@@ -44,7 +44,6 @@ static double chi1, chi2; /* chi^2 correction values */
 static unsigned int newpools;
 
 
-
 void
 PolarGauss(double* py1, double* py2)
 {
@@ -79,12 +78,14 @@ initw(void)
     unsigned i;
     double totsqr, nomsqr;
     unsigned int coa;
+
 #ifdef HasMain
     /* initialize the uniform generator */
     srand((unsigned int) getpid());
     // srand(17);
     TausSeed();
 #endif
+
     ScaleGauss = 1.;
     newpools = 1;
 

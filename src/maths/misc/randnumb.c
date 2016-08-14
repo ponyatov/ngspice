@@ -221,6 +221,7 @@ double gauss0(void)
   }
 }
 
+
 /***  gauss  ***
   to be reproducible, we just use one value per pass */
 double gauss1(void)
@@ -235,6 +236,7 @@ double gauss1(void)
     fac = sqrt(-2.0 * log(r) / r);
     return v2 * fac;
 }
+
 
 /* Polar form of the Box-Muller generator for Gaussian distributed
    random variates.
@@ -286,6 +288,7 @@ double exprand(double mean)
     return expval;
 }
 
+
 /* seed random number generators immediately
 * command "setseed"
 *   take value of variable rndseed as seed
@@ -316,9 +319,11 @@ com_sseed(wordlist *wl)
             TausSeed();
             cp_vset("rndseed", CP_NUM, &newseed);
         }
-    if(seedinfo)
+
+    if (seedinfo)
         printf("\nSeed value for random number generator is set to %d\n", newseed);
 }
+
 
 void
 setseedinfo(void)
