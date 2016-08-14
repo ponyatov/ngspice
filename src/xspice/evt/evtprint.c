@@ -139,7 +139,7 @@ void EVTprint(
         return;
     }
     if(nargs > EPRINT_MAXARGS) {
-        fprintf(cp_err, "ERROR - eprint currently limited to 32 arguments\n");
+        fprintf(cp_err, "ERROR - eprint currently limited to %d arguments\n", EPRINT_MAXARGS);
         return;
     }
 
@@ -422,7 +422,6 @@ get_vcdval(char *xspiceval, char **newval)
 {
     int i, err;
     double retval;
-    char buf[80];
 
     static char *map[] = {
         "0s", "1s", "Us",
@@ -449,8 +448,7 @@ get_vcdval(char *xspiceval, char **newval)
         *newval = copy("unknown");
         return 2;
     }
-    sprintf(buf, "%.16g", retval);
-    *newval = copy(buf);
+    *newval = tprintf("%.16g", retval);
     return 1;
 }
 
@@ -500,18 +498,15 @@ EVTprintvcd(wordlist *wl)
 
     /* Count the number of arguments to the command */
     nargs = 0;
-    w = wl;
-    while (w) {
+    for (w = wl; w; w = w->wl_next)
         nargs++;
-        w = w->wl_next;
-    }
 
     if (nargs < 1) {
         printf("Usage: eprvcd <node1> <node2> ...\n");
         return;
     }
     if (nargs > EPRINT_MAXARGS) {
-        fprintf(cp_err, "ERROR - eprvcd currently limited to 93 arguments\n");
+        fprintf(cp_err, "ERROR - eprvcd currently limited to %d arguments\n", EPRINT_MAXARGS);
         return;
     }
 
@@ -566,26 +561,26 @@ EVTprintvcd(wordlist *wl)
     out_printf("$version %s %s $end\n", ft_sim->simulator, ft_sim->version);
 
     /* get the sim time resolution */
-    char *order;
-    double divi;
+    char *unit;
+    double scale;
     double tstop = ckt->CKTfinalTime;
-    if (tstop < 1.0E-8) {
-        order = "f";
-        divi = 1.0e-15;
+    if (tstop < 1e-8) {
+        unit = "fs";
+        scale = 1e15;
     }
-    else if (tstop < 1.0E-5) {
-        order = "p";
-        divi = 1.0e-12;
+    else if (tstop < 1e-5) {
+        unit = "ps";
+        scale = 1e12;
     }
-    else if (tstop < 1.0E-2) {
-        order = "n";
-        divi = 1.0e-9;
+    else if (tstop < 1e-2) {
+        unit = "ns";
+        scale = 1e9;
     }
     else {
-        order = "u";
-        divi = 1.0e-6;
+        unit = "us";
+        scale = 1e6;
     }
-    out_printf("$timescale 1 %ss $end\n", order);
+    out_printf("$timescale 1 %s $end\n", unit);
 
     /* Scan the node data. Go for printing using $dumpvars
        for the initial values.  Also, determine if there is
@@ -594,13 +589,13 @@ EVTprintvcd(wordlist *wl)
     next_step = 1e30;
     for (i = 0; i < nargs; i++) {
         step = node_data[i]->step;
-        (*(g_evt_udn_info[udn_index[i]]->print_val))
+        g_evt_udn_info[udn_index[i]]->print_val
             (node_data[i]->node_value, "all", &value);
         old_node_value[i] = node_value[i] = value;
         node_data[i] = node_data[i]->next;
         if (node_data[i]) {
             more = MIF_TRUE;
-            if (node_data[i]->step < next_step)
+            if (next_step > node_data[i]->step)
                 next_step = node_data[i]->step;
         }
     }
@@ -619,7 +614,7 @@ EVTprintvcd(wordlist *wl)
 
     out_printf("$enddefinitions $end\n");
 
-    out_printf("#%d\n", (int)(step/divi));
+    out_printf("#%d\n", (int)(step * scale));
     /* first set of data for initialization
        or if only op has been calculated */
     out_printf("$dumpvars\n");
@@ -642,27 +637,23 @@ EVTprintvcd(wordlist *wl)
         this_step = next_step;
         next_step = 1e30;
 
-        for (i = 0; i < nargs; i++) {
-
+        for (i = 0; i < nargs; i++)
             if (node_data[i]) {
                 if (node_data[i]->step == this_step) {
-                    (*(g_evt_udn_info[udn_index[i]]->print_val))
+                    g_evt_udn_info[udn_index[i]]->print_val
                         (node_data[i]->node_value, "all", &value);
                     node_value[i] = value;
                     node_data[i] = node_data[i]->next;
                 }
                 if (node_data[i]) {
                     more = MIF_TRUE;
-                    if (node_data[i]->step < next_step)
+                    if (next_step > node_data[i]->step)
                         next_step = node_data[i]->step;
                 }
-
-            } /* end if node_data not NULL */
-
-        } /* end for number of args */
+            }
 
         /* timestamp */
-        out_printf("#%d\n", (int)(this_step / divi));
+        out_printf("#%d\n", (int)(this_step * scale));
         /* print only values that have changed */
         for (i = 0; i < nargs; i++) {
             if (!eq(old_node_value[i], node_value[i])) {
@@ -677,5 +668,6 @@ EVTprintvcd(wordlist *wl)
             }
         }
     } /* end while there is more data */
+
     out_printf("\n\n");
 }
