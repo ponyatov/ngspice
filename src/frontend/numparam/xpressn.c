@@ -527,12 +527,10 @@ nupa_define(dico_t *dico,
             if (entry->level < dico->stack_depth)
                 warn = message(dico, "%s:%d overwritten.\n", t, entry->level);
 
-        }
-        else
-        {
-            /* FIXME: beeter do this recursively in a new function */
+        } else {
+            /* FIXME: better do this recursively in a new function */
             /* No new entry defined, but previous entry with same name returned
-            from function attrib(), compare levels, if not equal, o.k. (for now) */
+               from function attrib(), compare levels, if not equal, o.k. (for now) */
             unsigned short newlevel[NESTINGDEPTH];
             unsigned short oldlevel[NESTINGDEPTH];
             int i;

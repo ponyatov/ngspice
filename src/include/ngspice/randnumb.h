@@ -1,5 +1,5 @@
-#ifndef ngspice_COM_SSEED_H
-#define ngspice_COM_SSEED_H
+#ifndef ngspice_RANDNUMB_H
+#define ngspice_RANDNUMB_H
 
 #include "ngspice/wordlist.h"
 extern void com_sseed(wordlist *wl);

@@ -390,7 +390,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
     startTime = seconds();
     /* inp_source() called with fp: load from file
        or fp == NULL, intfile == TRUE: load circarray */
-    if ((fp) || intfile) {
+    if (fp || intfile) {
         deck = inp_readall(fp, dir_name, comfile, intfile);
 
         /* here we check for .option seed=[val|random] and set the random number generator */
@@ -2021,7 +2021,7 @@ eval_agauss(struct line *deck, char *fcn)
             continue;
         }
 
-        if ((*curr_line != 'b') && (!ciprefix(".param", curr_line)))
+        if ((*curr_line != 'b') && !ciprefix(".param", curr_line))
             continue;
 
         while ((ap = search_identifier(curr_line, fcn, curr_line)) != NULL) {

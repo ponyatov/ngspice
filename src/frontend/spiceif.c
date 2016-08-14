@@ -735,8 +735,9 @@ spif_getparam_special(CKTcircuit *ckt, char **name, char *param, int ind, int do
         if (pv) {
             vv = parmtovar(pv, opt);
             /* free only for VSRC and ISRC because they are definitely TMALLOCed,
-            when numValue as length of vector > 0. All others will cause harm. */
-            if ((pv->v.vec.rVec) && (pv->v.numValue > 0) && ((typecode == 49) || (typecode == 30)))
+               when numValue as length of vector > 0.
+               All others will cause harm. */
+            if (pv->v.vec.rVec && (pv->v.numValue > 0) && ((typecode == 49) || (typecode == 30)))
                 tfree(pv->v.vec.rVec);
         }
         return (vv);

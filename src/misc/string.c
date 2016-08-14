@@ -41,7 +41,9 @@ copy(const char *str)
 }
 
 
-/* copy a substring from a string, from *str to *end, including *str, excluding *end */
+/* copy a substring from a string, from *str to *end
+ *   including *str, excluding *end
+ */
 char *
 copy_substring(const char *str, const char *end)
 {

@@ -889,7 +889,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
                 /* lower case for all other lines */
                 for (s = buffer; *s && (*s != '\n'); s++)
                     *s = tolower_c(*s);
-            } else if ((ciprefix("plot", buffer)) || (ciprefix("hardcopy", buffer))) {
+            } else if (ciprefix("plot", buffer) || ciprefix("hardcopy", buffer)) {
                 /* lower case excluded for tokens following title, xlabel, ylabel.
                  * tokens may contain spaces, then they have to be enclosed in quotes.
                  * keywords and tokens have to be separated by spaces. */
@@ -1521,8 +1521,8 @@ inp_add_control_section(struct line *deck, int *line_number)
 }
 
 
-/* look for shell-style end-of-line continuation '\\',
- * If found, replace by double space ' ' and return TRUE */
+/* look for shell-style end-of-line continuation '\\'
+ *   replace with space when found and return TRUE */
 static bool
 chk_for_line_continuation(char *line)
 {
@@ -5906,10 +5906,10 @@ inp_poly_err(struct line *card)
 #endif
 
 
-/* Used for debugging: add
- * tprint(working);
- * manually in between lines 490 and 560 of this file
- * to obtain an printout to file tprint-out.txt of the actual deck */
+/* Used for debugging, you may add
+ *   tprint(working);
+ * somewhere in function inp_readall() of this file to have
+ *  a printout of the actual deck saved to file tprint-out.txt */
 void
 tprint(struct line *t, int numb)
 {
@@ -6428,12 +6428,12 @@ inp_new_func(char *funcname, char *funcbody, struct line *card,
 
     /* replace line in deck */
     new_str = tprintf(".func %s() %s", funcname, funcbody);
-/*
+#if 0
     if (*funcbody == '{')
         new_str = tprintf(".func %s() %s", funcname, funcbody);
     else
         new_str = tprintf(".func %s() {%s}", funcname, funcbody);
-*/
+#endif
     card->li_next = xx_new_line(card->li_next, new_str, 0, card->li_linenum, card->level);
     *card->li_line = '*';
 
