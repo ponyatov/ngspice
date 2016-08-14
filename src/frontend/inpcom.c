@@ -5940,6 +5940,7 @@ tprint(struct line *t, int numb)
         if (*(tmp->li_line) != '*')
             fprintf(fd, "%s\n",tmp->li_line);
     fclose(fd);
+    tfree(filename);
 }
 
 
