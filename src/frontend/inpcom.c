@@ -181,12 +181,12 @@ xx_new_line(struct line *next, char *line, int linenum, int linenum_orig, unsign
     x->li_linenum = linenum;
     x->li_linenum_orig = linenum_orig;
 
-    if (level == NULL)
-        for (i = 0; i < NESTINGDEPTH; i++)
-            x->level[i] = 0;
-    else
+    if (level)
         for (i = 0; i < NESTINGDEPTH; i++)
             x->level[i] = level[i];
+    else
+        for (i = 0; i < NESTINGDEPTH; i++)
+            x->level[i] = 0;
 
     return x;
 }
