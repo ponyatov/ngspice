@@ -1651,7 +1651,7 @@ int sh_vecinit(runDesc *run)
 {
     struct dvec *d, *ds;
     int i;
-    static pvecinfo *pvc = NULL;
+    pvecinfo *pvc = NULL;
 
     /* return immediately if callback not wanted */
     if (nodatainitwanted)
