@@ -308,17 +308,18 @@ com_sseed(wordlist *wl)
         srand((unsigned int)newseed);
         TausSeed();
     }
-    else
-        if ((sscanf(wl->wl_word, " %d ", &newseed) != 1) || (newseed <= 0) || (newseed > INT_MAX)) {
-            fprintf(cp_err, "\nWarning: Cannot use %s as seed!\n", wl->wl_word);
-            fprintf(cp_err, "    Command 'setseed %s' ignored.\n\n", wl->wl_word);
-            return;
-        }
-        else {
-            srand((unsigned int)newseed);
-            TausSeed();
-            cp_vset("rndseed", CP_NUM, &newseed);
-        }
+    else if ((sscanf(wl->wl_word, " %d ", &newseed) != 1) ||
+             (newseed <= 0) || (newseed > INT_MAX))
+    {
+        fprintf(cp_err, "\nWarning: Cannot use %s as seed!\n", wl->wl_word);
+        fprintf(cp_err, "    Command 'setseed %s' ignored.\n\n", wl->wl_word);
+        return;
+    }
+    else {
+        srand((unsigned int)newseed);
+        TausSeed();
+        cp_vset("rndseed", CP_NUM, &newseed);
+    }
 
     if (seedinfo)
         printf("\nSeed value for random number generator is set to %d\n", newseed);
