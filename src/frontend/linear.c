@@ -22,22 +22,12 @@ Author: 1985 Wayne A. Christopher, U. C. Berkeley CAD Group
 void
 com_linearize(wordlist *wl)
 {
-    double tstart=0., tstop=0., tstep=0., d;
+    double tstart, tstop, tstep, d;
     struct plot *new, *old;
     struct dvec *newtime, *v;
     struct dvec *oldtime;
     int len, i;
-    bool nopar = FALSE;
 
-    /* check if circuit is loaded and TSTART, TSTOP, TSTEP are available*/
-    if (!ft_curckt || !ft_curckt->ci_ckt ||
-        !if_tranparams(ft_curckt, &tstart, &tstop, &tstep)) {
-        fprintf(cp_err,
-                "Warning: Can't get transient parameters from circuit.\n");
-        fprintf(cp_err,
-            "         Use transient analysis scale vector data instead.\n");
-        nopar = TRUE;
-    }
     if (!plot_cur || !plot_cur->pl_dvecs || !plot_cur->pl_scale) {
         fprintf(cp_err, "Error: no vectors available\n");
         return;
@@ -51,9 +41,14 @@ com_linearize(wordlist *wl)
         fprintf(cp_err, "Error: plot must be a transient analysis\n");
         return;
     }
-    /* if no circuit is loaded, but vectors are available, obtain
+    /* check if circuit is loaded and TSTART, TSTOP, TSTEP are available
+       if no circuit is loaded, but vectors are available, obtain
        start, stop, step data from scale vector */
-    if (nopar) {
+    if (!ft_curckt || !ft_curckt->ci_ckt ||
+        !if_tranparams(ft_curckt, &tstart, &tstop, &tstep)) {
+        fprintf(cp_err,
+                "Warning: Can't get transient parameters from circuit.\n"
+                "         Use transient analysis scale vector data instead.\n");
         int length = plot_cur->pl_scale->v_length;
         if (length < 1) {
             fprintf(cp_err, "Error: no data in vector\n");
