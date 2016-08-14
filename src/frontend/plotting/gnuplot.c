@@ -317,7 +317,6 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
 {
     FILE *file_data;
     struct dvec *v, *scale = NULL;
-    double xval;
     int i, numVecs, maxlen = 0, preci = 8;
     bool appendwrite, singlescale = FALSE, prscale = TRUE, vecnames = FALSE;
 
@@ -377,16 +376,13 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
         for (v = vecs; v; v = v->v_link2) {
             scale = v->v_scale;
             /* If wr_singlescale is set, print scale name only in first column */
-            if (isreal(v)) {
-                if (prscale)
-                    fprintf(file_data, " %-*s", preci + 7, scale->v_name);
+            if (prscale)
+                fprintf(file_data, " %-*s", preci + 7, scale->v_name);
+
+            if (isreal(v))
                 fprintf(file_data, " %-*s", preci + 7, v->v_name);
-            }
-            else {
-                if (prscale)
-                    fprintf(file_data, " %-*s", preci + 7, scale->v_name);
+            else
                 fprintf(file_data, " %-*s %-*s", preci + 7, v->v_name, preci + 7, v->v_name);
-            }
             if (singlescale)
                 /* the following names are printed without scale vector names */
                 prscale = FALSE;
@@ -399,33 +395,28 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
         /* print scale from the first vector, then only if wr_singlescale is not set */
         for (v = vecs; v; v = v->v_link2) {
             scale = v->v_scale;
+            /* if no more scale and value data, just print spaces */
             if (i >= scale->v_length) {
-                /* if no more scale and value data, just print spaces */
-                if (isreal(v)) {
-                    if (prscale)
-                        fprintf(file_data, "%*s", preci + 8, "");
+                if (prscale)
                     fprintf(file_data, "%*s", preci + 8, "");
-                }
-                else {
-                    if (prscale)
-                        fprintf(file_data, "%*s", preci + 8, "");
+
+                if (isreal(v))
+                    fprintf(file_data, "%*s", preci + 8, "");
+                else
                     fprintf(file_data, "%*s", 2 * (preci + 8), "");
-                }
             }
             else {
-                xval = isreal(scale) ?
-                    scale->v_realdata[i] : realpart(scale->v_compdata[i]);
+                if (prscale) {
+                    double xval = isreal(scale)
+                        ? scale->v_realdata[i]
+                        : realpart(scale->v_compdata[i]);
+                    fprintf(file_data, "% .*e ", preci, xval);
+                }
 
-                if (isreal(v)) {
-                    if (prscale)
-                        fprintf(file_data, "% .*e ", preci, xval);
+                if (isreal(v))
                     fprintf(file_data, "% .*e ", preci, v->v_realdata[i]);
-                }
-                else {
-                    if (prscale)
-                        fprintf(file_data, "% .*e ", preci, xval);
+                else
                     fprintf(file_data, "% .*e % .*e ", preci, realpart(v->v_compdata[i]), preci, imagpart(v->v_compdata[i]));
-                }
             }
             if (singlescale)
                 /* the following vectors are printed without scale vector */
