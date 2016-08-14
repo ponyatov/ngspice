@@ -447,14 +447,14 @@ static LRESULT CALLBACK MainWindowProc( HWND hwnd, UINT uMsg, WPARAM wParam, LPA
         /* Put Spice commmand "Quit" to end the program into the text buffer */
         PostSpiceCommand( "quit");
 
-		/* work around a segmentation fault during LONGJMP(jbuf, 1) from 
-		   signal_handler.c:93 in Windows 10 upon WM_CLOSE:
-		   upon seg fault directly go to com_quit via cp_evloop.
+        /* work around a segmentation fault during LONGJMP(jbuf, 1) from
+           signal_handler.c:93 in Windows 10 upon WM_CLOSE:
+           upon seg fault directly go to com_quit via cp_evloop.
            To avoid potential loop, singnal will be reset in com_quit */
-	    signal(SIGSEGV, (void (*)(int))cp_evloop(NULL));
+        signal(SIGSEGV, (void (*)(int))cp_evloop(NULL));
 
         /* If simulation is running, set a breakpoint */ 
-        raise (SIGINT);
+        raise (SIGINT);   
         return 0;
 
     case WM_SIZE:

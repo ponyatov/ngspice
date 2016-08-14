@@ -57,16 +57,16 @@ com_quit(wordlist *wl)
         !cp_getvar("askquit", CP_BOOL, NULL);
 
     /* work around a segmentation fault during LONGJMP(jbuf, 1) from
-    signal_handler.c:93 in Windows 10 upon WM_CLOSE:
-    upon seg fault directly go to com_quit via cp_evloop.
-    See winmain.c, WM_CLOSE */
+       signal_handler.c:93 in Windows 10 upon WM_CLOSE:
+       upon seg fault directly go to com_quit via cp_evloop.
+       See winmain.c, WM_CLOSE */
 #ifdef HAS_WINGUI
 #ifdef NGDEBUG
     /* use standard signalling */
     signal(SIGSEGV, SIG_DFL);
 #else
     /* Restore original signal: Allow a comment and graceful shutdown after seg fault.
-       Prevents loop if segfault occurs in com_quit and signal function has been 
+       Prevents loop if segfault occurs in com_quit and signal function has been
        set to cp_evloop */
     signal(SIGSEGV, (SIGNAL_FUNCTION)sigsegv);
 #endif

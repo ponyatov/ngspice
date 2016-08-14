@@ -242,7 +242,7 @@ message(dico_t *dico, const char *fmt, ...)
 void
 initdico(dico_t *dico)
 {
-    int asize = NESTINGDEPTH;           /* default allocation depth of the synbol stack */
+    int asize = NESTINGDEPTH; /* default allocation depth of the synbol stack */
     COMPATMODE_T compat_mode;
 
     spice_dstring_init(&(dico->option));
@@ -440,8 +440,8 @@ attrib(dico_t *dico, NGHASHPTR htable_p, char *t, char op, unsigned short leveli
         entry->symbol = strdup(t);
         entry->tp = '?';      /* signal Unknown */
         entry->level = dico->stack_depth;
-        if(levelinfo)
-            for (i = 0; i< NESTINGDEPTH; i++)
+        if (levelinfo)
+            for (i = 0; i < NESTINGDEPTH; i++)
                 entry->levelinfo[i] = levelinfo[i];
         nghash_insert(htable_p, t, entry);
     }
