@@ -171,8 +171,6 @@ extern void DevInit(void);
 extern int SIMinit(IFfrontEnd *frontEnd, IFsimulator **simulator);
 extern wordlist *cp_varwl(struct variable *var);
 extern void create_circbyline(char *line);
-extern void initw(void);
-extern void checkseed(void);
 
 /*The current run (to get variable names, etc)*/
 static runDesc *cur_run;
