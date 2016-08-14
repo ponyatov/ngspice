@@ -316,9 +316,9 @@ void
 ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *xlabel, char *ylabel, GRIDTYPE gridtype, PLOTTYPE plottype, struct dvec *vecs)
 {
     FILE *file_data;
-    struct dvec *v, *scale = NULL;
-    int i, numVecs, maxlen = 0, preci = 8;
-    bool appendwrite, singlescale = FALSE, prscale = TRUE, vecnames = FALSE;
+    struct dvec *v;
+    int i, numVecs, maxlen, preci;
+    bool appendwrite, singlescale, vecnames;
 
     NG_IGNORE(xlims);
     NG_IGNORE(ylims);
@@ -355,6 +355,7 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
     }
     else {
         /* find maximum scale length from all vectors */
+        maxlen = 0;
         for (v = vecs; v; v = v->v_link2)
             maxlen = max(v->v_scale->v_length, maxlen);
     }
@@ -365,16 +366,17 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
         return;
     }
 
-    /* If option numdgt is set, use it for printout precision.
-       Else 8 digits are printed. */
+    /* If option numdgt is set, use it for printout precision. */
     if (cp_numdgt > 0)
         preci = cp_numdgt;
+    else
+        preci = 8;
 
     /* Print names of vectors to first line */
     if (vecnames) {
-        prscale = TRUE;
+        bool prscale = TRUE;
         for (v = vecs; v; v = v->v_link2) {
-            scale = v->v_scale;
+            struct dvec *scale = v->v_scale;
             /* If wr_singlescale is set, print scale name only in first column */
             if (prscale)
                 fprintf(file_data, " %-*s", preci + 7, scale->v_name);
@@ -389,12 +391,13 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
         }
         fprintf(file_data, "\n");
     }
+
     /* Write out the data as simple arrays */
     for (i = 0; i < maxlen; i++) {
-        prscale = TRUE;
+        bool prscale = TRUE;
         /* print scale from the first vector, then only if wr_singlescale is not set */
         for (v = vecs; v; v = v->v_link2) {
-            scale = v->v_scale;
+            struct dvec *scale = v->v_scale;
             /* if no more scale and value data, just print spaces */
             if (i >= scale->v_length) {
                 if (prscale)
