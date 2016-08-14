@@ -6,6 +6,7 @@
 
 #include "numpaif.h"
 #include "ngspice/hash.h"
+#include "ngspice/inpdefs.h"
 
 /***** numparam internals ********/
 
@@ -27,7 +28,7 @@ typedef struct entry_s {
     int  ivl;                   /* int value or string buffer index */
     char *sbbase;               /* string buffer base address if any */
     struct entry_s *pointer;    /* pointer chain */
-    unsigned short levelinfo[10];
+    unsigned short levelinfo[NESTINGDEPTH];
 } entry_t;
 
 
