@@ -662,7 +662,6 @@ EVTprintvcd(wordlist *wl)
                     out_printf("r%s %c\n", buf, node_ident[i]);
                 else
                     out_printf("%s%c\n", buf, node_ident[i]);
-                // out_printf("%s%c\n", get_vcdval(node_value[i]), node_ident[i]);
                 old_node_value[i] = node_value[i];
                 tfree(buf);
             }
