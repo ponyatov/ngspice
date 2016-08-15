@@ -41,7 +41,7 @@ copy(const char *str)
 }
 
 
-/* copy a substring from a string, from *str to *end
+/* copy a substring, from 'str' to 'end'
  *   including *str, excluding *end
  */
 char *

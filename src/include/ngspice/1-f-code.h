@@ -1,4 +1,3 @@
-
 #include "ngspice/randnumb.h"
 
 void f_alpha(int n_pts, int n_exp, double X[], double Q_d,

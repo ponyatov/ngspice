@@ -72,7 +72,7 @@ This is a simple prototype implementation of the
 eprint command for testing purposes.  It is currently lacking
 in the following areas:
 
-1)  It accepts only up to 93 nodes.
+1)  It accepts only up to 93 nodes. (EPRINT_MAXARGS)
 
 2)  It does not support the selected printing of different
     members of a user-defined data struct.

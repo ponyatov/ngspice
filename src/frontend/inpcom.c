@@ -1446,14 +1446,14 @@ inp_chk_for_multi_in_vcvs(struct line *c, int *line_number)
 }
 
 
-/* If ngspice is started with option -a, a variable 'autorun'
- * is set and the following function scans the deck.
+/* If ngspice is started with option -a, then variable 'autorun'
+ *   will be set and the following function scans the deck.
  * If 'run' is not found, a .control section will be added:
- * .control
- * run
- * op              ; if .op is found
- * write rawfile   ; if rawfile given
- * .endc
+ *   .control
+ *   run
+ *   op              ; if .op is found
+ *   write rawfile   ; if rawfile given
+ *   .endc
  */
 static void
 inp_add_control_section(struct line *deck, int *line_number)
@@ -1521,8 +1521,8 @@ inp_add_control_section(struct line *deck, int *line_number)
 }
 
 
-/* look for shell-style end-of-line continuation '\\'
- *   replace with space when found and return TRUE */
+/* overwrite shell-style end-of-line continuation '\\' with spaces,
+ *   and return TRUE when found */
 static bool
 chk_for_line_continuation(char *line)
 {
@@ -5906,10 +5906,10 @@ inp_poly_err(struct line *card)
 #endif
 
 
-/* Used for debugging, you may add
+/* Used for debugging. You may add
  *   tprint(working);
  * somewhere in function inp_readall() of this file to have
- *  a printout of the actual deck saved to file tprint-out.txt */
+ *   a printout of the actual deck written to file "tprint-out.txt" */
 void
 tprint(struct line *t, int numb)
 {
@@ -6385,8 +6385,8 @@ inp_fix_agauss_in_param(struct line *deck, char *fcn)
 }
 
 
-/* add () to each token 'identifier' in line 'curr_line',
- * if not already there */
+/* append "()" to each 'identifier' in 'curr_line',
+ *   unless already there */
 static char *
 inp_functionalise_identifier(char *curr_line, char *identifier)
 {
