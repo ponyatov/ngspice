@@ -1084,7 +1084,7 @@ inp_dodeck(
     ct->ci_dicos = nupa_add_dicoslist();
     if (reuse)
         tfree(ct->ci_filename);
-    ct->ci_filename = filename ? copy(filename) : NULL;
+    ct->ci_filename = copy(filename);
 
     if (!noparse) {
         /*
