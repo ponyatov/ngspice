@@ -112,7 +112,6 @@ NON-STANDARD FEATURES
 
 
 void cm_d_lut(ARGS)
-
 {
     int         i,      /* generic loop counter index */
                 j,      /* lookup index bit value */
@@ -141,17 +140,18 @@ void cm_d_lut(ARGS)
 
         /* allocate storage for the outputs */
         cm_event_alloc(0, sizeof(Digital_State_t));
-        cm_event_alloc(1, size * sizeof(Digital_State_t));
+        cm_event_alloc(1, (size_t) size * sizeof(Digital_State_t));
 
         /* set loading for inputs */
-        for (i=0; i<size; i++) LOAD(in[i]) = PARAM(input_load);
+        for (i = 0; i < size; i++)
+            LOAD(in[i]) = PARAM(input_load);
 
         /* retrieve storage for the outputs */
-        out = out_old = (Digital_State_t *) cm_event_get_ptr(0,0);
+        out = out_old = (Digital_State_t *) cm_event_get_ptr(0, 0);
 
         /* read parameter string into lookup table */
         table_string = PARAM(table_values);
-        for (idx = 0; idx < strlen(table_string); idx++) {
+        for (idx = 0; idx < (int) strlen(table_string); idx++) {
             if (idx == tablelen)
                 // If string is longer than 2^num_inputs, ignore
                 // the extra values at the end
@@ -163,12 +163,10 @@ void cm_d_lut(ARGS)
             else
                 lookup_table[idx] = UNKNOWN;
         }
-        for (; idx < tablelen; idx++) {
-            // If string is shorter than 2^num_inputs, fill
-            // the remainder of the lookup table with UNKNOWN
-            // values.
+        // If string is shorter than 2^num_inputs, fill
+        // the remainder of the lookup table with UNKNOWN values.
+        for (; idx < tablelen; idx++)
             lookup_table[idx] = UNKNOWN;
-        }
     }
     else {      /* Retrieve previous values */
 
@@ -176,8 +174,8 @@ void cm_d_lut(ARGS)
         lookup_table = STATIC_VAR (locdata);
 
         /* retrieve storage for the outputs */
-        out = (Digital_State_t *) cm_event_get_ptr(0,0);
-        out_old = (Digital_State_t *) cm_event_get_ptr(0,1);
+        out = (Digital_State_t *) cm_event_get_ptr(0, 0);
+        out_old = (Digital_State_t *) cm_event_get_ptr(0, 1);
     }
 
     /*** Calculate new output value based on inputs and table ***/
@@ -195,7 +193,9 @@ void cm_d_lut(ARGS)
                 *out = UNKNOWN;
                 break;
             }
-            else if (input == ONE) idx += j;
+            else if (input == ONE) {
+                idx += j;
+            }
             j <<= 1;
         }
         else {
@@ -205,9 +205,8 @@ void cm_d_lut(ARGS)
         }
     }
 
-    if (*out != UNKNOWN) {
+    if (*out != UNKNOWN)
        *out = lookup_table[idx];
-    }
 
     /*** Determine analysis type and output appropriate values ***/
 
@@ -219,33 +218,32 @@ void cm_d_lut(ARGS)
 
     else {      /** Transient Analysis **/
 
+        if (*out != *out_old) { /* output value is changing */
 
-        if ( *out != *out_old ) { /* output value is changing */
-
-            switch ( *out ) {
+            switch (*out) {
 
             /* fall to zero value */
-            case 0: OUTPUT_STATE(out) = ZERO;
-                    OUTPUT_DELAY(out) = PARAM(fall_delay);
-                    break;
+            case 0:
+                OUTPUT_STATE(out) = ZERO;
+                OUTPUT_DELAY(out) = PARAM(fall_delay);
+                break;
 
             /* rise to one value */
-            case 1: OUTPUT_STATE(out) = ONE;
-                    OUTPUT_DELAY(out) = PARAM(rise_delay);
-                    break;
+            case 1:
+                OUTPUT_STATE(out) = ONE;
+                OUTPUT_DELAY(out) = PARAM(rise_delay);
+                break;
 
             /* unknown output */
             default:
-                    OUTPUT_STATE(out) = *out = UNKNOWN;
+                OUTPUT_STATE(out) = *out = UNKNOWN;
 
-                    /* based on old value, add rise or fall delay */
-                    if (0 == *out_old) {  /* add rising delay */
-                        OUTPUT_DELAY(out) = PARAM(rise_delay);
-                    }
-                    else {                /* add falling delay */
-                        OUTPUT_DELAY(out) = PARAM(fall_delay);
-                    }
-                    break;
+                /* based on old value, add rise or fall delay */
+                if (0 == *out_old)
+                    OUTPUT_DELAY(out) = PARAM(rise_delay);
+                else
+                    OUTPUT_DELAY(out) = PARAM(fall_delay);
+                break;
             }
         }
         else {                    /* output value not changing */
@@ -254,5 +252,4 @@ void cm_d_lut(ARGS)
     }
 
     OUTPUT_STRENGTH(out) = STRONG;
-
 }
