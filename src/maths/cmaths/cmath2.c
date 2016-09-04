@@ -34,14 +34,14 @@ cx_max_local(void *data, short int type, int length)
 	int i;
 
         for (i = 0; i < length; i++)
-            if (cmag(cc[i]) > largest)
+            if (largest < cmag(cc[i]))
                 largest = cmag(cc[i]);
     } else {
 	double *dd = (double *) data;
 	int i;
 
         for (i = 0; i < length; i++)
-            if (fabs(dd[i]) > largest)
+            if (largest < fabs(dd[i]))
                 largest = fabs(dd[i]);
     }
     return largest;
@@ -698,7 +698,8 @@ cx_min(void *data, short int type, int length, int *newlength, short int *newtyp
       *newtype = VF_REAL;
       smallest=dd[0];
       for (i = 1; i < length; i++)
-        if (dd[i]<smallest) smallest=dd[i];
+        if (smallest > dd[i])
+            smallest = dd[i];
       *d=smallest;
       return ((void *) d);
     } else { 
@@ -713,8 +714,10 @@ cx_min(void *data, short int type, int length, int *newlength, short int *newtyp
       smallest_real=realpart(*cc);
       smallest_complex=imagpart(*cc);
       for (i = 1; i < length; i++) {
-        if (realpart(cc[i])<smallest_real) smallest_real=realpart(cc[i]);
-        if (imagpart(cc[i])<smallest_complex) smallest_complex=imagpart(cc[i]);
+        if (smallest_real > realpart(cc[i]))
+            smallest_real = realpart(cc[i]);
+        if (smallest_complex > imagpart(cc[i]))
+            smallest_complex = imagpart(cc[i]);
         }
         realpart(*c) = smallest_real;
         imagpart(*c) = smallest_complex;
