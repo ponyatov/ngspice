@@ -105,53 +105,57 @@ NON-STANDARD FEATURES
 
 /************************************************
 *      The following is the model for the       *
-*   digital n-input LUT gate			*
+*   digital n-input LUT gate                    *
 *                                               *
-*   Created 8/25/16               Tim Edwards	*
+*   Created 8/25/16               Tim Edwards   *
 ************************************************/
 
 
 void cm_d_genlut(ARGS)
 {
-    int		i,	/* generic loop counter index */
-            j,	/* lookup index bit value */
-            k,	/* generic loop counter index */
-            idx,	/* lookup index */
-            ivalid, /* check for valid input */
-            isize,	/* number of input ports */
-            osize,	/* number of output ports */
-            dsize,	/* number of input delay params */
-            rsize,	/* number of output rise delay params */
-            fsize,	/* number of output fall delay params */
-            lsize,  /* number of input load params */
-            entrylen, /* length of table per output (2^isize) */
-            tablelen; /* length of table (osize * (2^isize)) */
+    int i,          /* generic loop counter index */
+        j,          /* lookup index bit value */
+        k,          /* generic loop counter index */
+        idx,        /* lookup index */
+        ivalid,     /* check for valid input */
+        isize,      /* number of input ports */
+        osize,      /* number of output ports */
+        dsize,      /* number of input delay params */
+        rsize,      /* number of output rise delay params */
+        fsize,      /* number of output fall delay params */
+        lsize,      /* number of input load params */
+        entrylen,   /* length of table per output (2^isize) */
+        tablelen;   /* length of table (osize * (2^isize)) */
 
-    char	*table_string;
-    double	maxdelay,  /* maximum input-to-output delay */
-            testdelay;
+    char        *table_string;
+    double      maxdelay,  /* maximum input-to-output delay */
+        testdelay;
 
     Digital_State_t *in,       /* temp storage for input bits  */
-                    *in_old;   /* previous input for buffers  */
+        *in_old;   /* previous input for buffers  */
     Digital_t       *out,      /* temporary output for buffers */
-                    *out_old,  /* previous output for buffers  */
-                    *lookup_table; /* lookup table */
+        *out_old,  /* previous output for buffers  */
+        *lookup_table; /* lookup table */
 
     /** Retrieve size values and compute table length... **/
     isize = PORT_SIZE(in);
     osize = PORT_SIZE(out);
+
     if (PARAM_NULL(input_load))
         lsize = 0;
     else
         lsize = PARAM_SIZE(input_load);
+
     if (PARAM_NULL(input_delay))
         dsize = 0;
     else
         dsize = PARAM_SIZE(input_delay);
+
     if (PARAM_NULL(rise_delay))
         rsize = 0;
     else
         rsize = PARAM_SIZE(rise_delay);
+
     if (PARAM_NULL(fall_delay))
         fsize = 0;
     else
@@ -173,18 +177,17 @@ void cm_d_genlut(ARGS)
         cm_event_alloc(1, isize * sizeof(Digital_State_t));
 
         /* set loading for inputs */
-        for (i=0; i<isize; i++) {
+        for (i = 0; i < isize; i++)
             if (i < lsize)
                 LOAD(in[i]) = PARAM(input_load[i]);
             else if (lsize > 0)
                 LOAD(in[i]) = PARAM(input_load[lsize - 1]);
             else
                 LOAD(in[i]) = 1.0e-12;
-        }
 
         /* retrieve storage for the outputs */
-        out = out_old = (Digital_t *) cm_event_get_ptr(0,0);
-        in =  in_old = (Digital_State_t *) cm_event_get_ptr(1,0);
+        out = out_old = (Digital_t *) cm_event_get_ptr(0, 0);
+        in =  in_old = (Digital_State_t *) cm_event_get_ptr(1, 0);
 
         /* read parameter string into lookup table */
         table_string = PARAM(table_values);
@@ -220,10 +223,10 @@ void cm_d_genlut(ARGS)
         lookup_table = STATIC_VAR (locdata);
 
         /* retrieve storage for the inputs and outputs */
-        out = (Digital_t *) cm_event_get_ptr(0,0);
-        out_old = (Digital_t *) cm_event_get_ptr(0,1);
-        in = (Digital_State_t *) cm_event_get_ptr(1,0);
-        in_old = (Digital_State_t *) cm_event_get_ptr(1,1);
+        out = (Digital_t *) cm_event_get_ptr(0, 0);
+        out_old = (Digital_t *) cm_event_get_ptr(0, 1);
+        in = (Digital_State_t *) cm_event_get_ptr(1, 0);
+        in_old = (Digital_State_t *) cm_event_get_ptr(1, 1);
     }
 
     /*** Calculate new output value based on inputs and table ***/
@@ -244,7 +247,9 @@ void cm_d_genlut(ARGS)
             if ((in[i] = INPUT_STATE(in[i])) == UNKNOWN) {
                 ivalid = 0;
                 break;
-            } else if (in[i] == ONE) idx += j;
+            } else if (in[i] == ONE) {
+                idx += j;
+            }
             j <<= 1;
         } else {
             /* at least one port is floating...output is unknown */
@@ -253,10 +258,9 @@ void cm_d_genlut(ARGS)
         }
     }
 
-    if (ivalid) {
+    if (ivalid)
         for (k = 0; k < osize; k++)
             out[k] = lookup_table[idx + (k * entrylen)];
-    }
 
     /*** Determine analysis type and output appropriate values ***/
 
@@ -267,12 +271,11 @@ void cm_d_genlut(ARGS)
             OUTPUT_STRENGTH(out[i]) = out[i].strength;
         }
     }
-
     else {      /** Transient Analysis **/
 
         /* Determine maximum input-to-output delay */
         maxdelay = 0.0;
-        for (i = 0; i < isize; i++) {
+        for (i = 0; i < isize; i++)
             if (in[i] != in_old[i]) {
                 if (i < dsize)
                     testdelay = PARAM(input_delay[i]);
@@ -280,15 +283,15 @@ void cm_d_genlut(ARGS)
                     testdelay = PARAM(input_delay[dsize - 1]);
                 else
                     testdelay = 0.0;
-                if (testdelay > maxdelay) maxdelay = testdelay;
+                if (maxdelay < testdelay)
+                    maxdelay = testdelay;
             }
-        }
 
         for (i = 0; i < osize; i++) {
-            if ( out[i].state != out_old[i].state ) { /* output value is changing */
+            if (out[i].state != out_old[i].state) { /* output value is changing */
 
                 OUTPUT_DELAY(out[i]) = maxdelay;
-                switch ( out[i].state ) {
+                switch (out[i].state) {
 
                     /* fall to zero value */
                 case ZERO:
@@ -337,19 +340,19 @@ void cm_d_genlut(ARGS)
                     }
                     break;
                 }
-            } else if ( out[i].strength != out_old[i].strength ) {
+            } else if (out[i].strength != out_old[i].strength) {
                 /* output strength is changing */
                 OUTPUT_STRENGTH(out[i]) = out[i].strength;
-                switch ( out[i].strength ) {
+                switch (out[i].strength) {
                 case STRONG:
-                    if (out_old[i].state == 0) {	/* add falling delay */
+                    if (out_old[i].state == 0) {        /* add falling delay */
                         if (i < fsize)
                             OUTPUT_DELAY(out[i]) += PARAM(fall_delay[i]);
                         else if (fsize > 0)
                             OUTPUT_DELAY(out[i]) += PARAM(fall_delay[fsize - 1]);
                         else
                             OUTPUT_DELAY(out[i]) += 1.0e-9;
-                    } else { 			/* add rising delay */
+                    } else {                    /* add rising delay */
                         if (i < rsize)
                             OUTPUT_DELAY(out[i]) += PARAM(rise_delay[i]);
                         else if (rsize > 0)
@@ -359,14 +362,14 @@ void cm_d_genlut(ARGS)
                     }
                     break;
                 default:
-                    if (out_old[i].state == 0) {	/* add rising delay */
+                    if (out_old[i].state == 0) {        /* add rising delay */
                         if (i < rsize)
                             OUTPUT_DELAY(out[i]) += PARAM(rise_delay[i]);
                         else if (rsize > 0)
                             OUTPUT_DELAY(out[i]) += PARAM(rise_delay[rsize - 1]);
                         else
                             OUTPUT_DELAY(out[i]) += 1.0e-9;
-                    } else { 			/* add falling delay */
+                    } else {                    /* add falling delay */
                         if (i < fsize)
                             OUTPUT_DELAY(out[i]) += PARAM(fall_delay[i]);
                         else if (fsize > 0)
@@ -382,8 +385,3 @@ void cm_d_genlut(ARGS)
         }
     }
 }
-
-
-
-
-
