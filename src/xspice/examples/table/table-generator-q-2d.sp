@@ -1,7 +1,7 @@
 ** npn bipolar: table generator with q 2D (Vce, Ib)
 *NMOS
 .csparam vcstart=-0.2
-.csparam vcstop=6
+.csparam vcstop=6.4
 .csparam vcstep=0.05
 .csparam ibstart=-0.1u
 .csparam ibstop=200u
@@ -18,7 +18,8 @@ vee 3 0 0
 
 .control
 ** output file **
-set outfile = "D:/Spice_general/ngspice/src/xspice/examples/table/qinn-clc409-2d-1.table"
+set outfile = "qinn-clc409-2d-1.table"
+*set outfile = "D:/Software/Spice/ngspice/src/xspice/examples/table/qinn-clc409-2d-1.table"
 dc vce -0.1 6 0.05 ib -0.1u 2u 0.1u
 plot i(vee)
 plot v(1) ylimit -0.2 0.8

@@ -16,26 +16,28 @@ vee2 ee 0 0
 *** table model of npn bipolar transistor ***
 * bip qinn from national op-amp CLC409
 abip1 %vd(c e) %id(bint e) %id(c e) biptable1
-.model biptable1 table2d (offset=0.0 gain=1 order=2 file="qinn-clc409-2d-1.table")
+.model biptable1 table2d (offset=0.0 gain=0.955 order=2 file="qinn-clc409-2d-1.table")
 * CJE=1.632E-13
 Cje b e 1.632E-13
 * CJC=1.720E-13
 Cjc b c 1.720E-13
 * input diode
 Dbe b bint DMOD
-.model DMOD D (bv=5 is=1e-18)
+.model DMOD D (bv=5 is=1e-17 n=1.1)
 .ends
 
 .control
 * bipolar model qinn
 dc vce 0 5 0.05 ib 0.2u 1.8u 0.4u
-plot i(vee)
-plot v(1) ylimit 0 1
+*plot i(vee)
+*plot v(1) ylimit 0 1
 
 * bipolar from table
 dc vce2 0 5 0.05 ib2 0.2u 1.8u 0.4u
-plot i(vee2)
-plot v(bb) ylimit 0 1
+
+
+plot dc1.i(vee) i(vee2) title 'table q3, q4 output current (i(vee2)) compared to bjt model (dc1.i(vee))'
+plot dc1.v(1) v(bb) ylimit 0.6 0.8 title 'table q3, q4 input diode (v(bb)) compared to bjt model (dc1.v(1))'
 .endc
 
 .MODEL QINN NPN

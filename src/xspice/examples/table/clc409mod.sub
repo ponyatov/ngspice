@@ -171,14 +171,14 @@ R23 36 0 122
 .subckt tbqnpn c b e
 *** table model of npn bipolar transistor ***
 abip1 %vd(c e) %id(bint e) %id(c e) biptable1
-.model biptable1 table2d (offset=0.0 gain=1 order=2 file="qinn-clc409-2d-1.table")
+.model biptable1 table2d (offset=0.0 gain=0.955 order=2 file="qinn-clc409-2d-1.table")
 * CJE=1.632E-13
 Cje b e 1.632E-13
 * CJC=1.720E-13
 Cjc b c 1.720E-13
-* input diode
+* input diode (parameters extracted manually, see table-model-bip-2d-1.sp)
 Dbe b bint DMOD
-.model DMOD D (bv=5 is=1e-18)
+.model DMOD D (is=1e-17 n=1.1)
 * bip qinn from national op-amp CLC409
 .ends
 

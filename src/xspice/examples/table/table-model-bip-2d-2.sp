@@ -1,4 +1,4 @@
-OpAmp Test
+OpAmp Test with Bipolar Table Model
 
 vddp vp 0 3
 vddn vn 0 -3
