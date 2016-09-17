@@ -30,15 +30,15 @@ cx_max_local(void *data, short int type, int length)
     double largest = 0.0;
 
     if (type == VF_COMPLEX) {
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         for (i = 0; i < length; i++)
             if (largest < cmag(cc[i]))
                 largest = cmag(cc[i]);
     } else {
-	double *dd = (double *) data;
-	int i;
+        double *dd = (double *) data;
+        int i;
 
         for (i = 0; i < length; i++)
             if (largest < fabs(dd[i]))
@@ -56,15 +56,15 @@ cx_norm(void *data, short int type, int length, int *newlength, short int *newty
 
     largest = cx_max_local(data, type, length);
     if (largest == 0.0) {
-	fprintf(cp_err, "Error: can't normalize a 0 vector\n");
-	return (NULL);
+        fprintf(cp_err, "Error: can't normalize a 0 vector\n");
+        return (NULL);
     }
 
     *newlength = length;
     if (type == VF_COMPLEX) {
-	ngcomplex_t *c;
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         c = alloc_c(length);
         *newtype = VF_COMPLEX;
@@ -75,9 +75,9 @@ cx_norm(void *data, short int type, int length, int *newlength, short int *newty
         }
         return ((void *) c);
     } else {
-	double *d;
-	double *dd = (double *) data;
-	int i;
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
         d = alloc_d(length);
         *newtype = VF_REAL;
@@ -93,9 +93,9 @@ cx_uminus(void *data, short int type, int length, int *newlength, short int *new
 {
     *newlength = length;
     if (type == VF_COMPLEX) {
-	ngcomplex_t *c;
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         c = alloc_c(length);
         *newtype = VF_COMPLEX;
@@ -105,9 +105,9 @@ cx_uminus(void *data, short int type, int length, int *newlength, short int *new
         }
         return ((void *) c);
     } else {
-	double *d;
-	double *dd = (double *) data;
-	int i;
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
         d = alloc_d(length);
         *newtype = VF_REAL;
@@ -118,10 +118,10 @@ cx_uminus(void *data, short int type, int length, int *newlength, short int *new
 }
 
 
-/* random integers drawn from a uniform distribution 
-   *data in: integer numbers, their absolut values are used, 
-       maximum is RAND_MAX (32767) 
-   *data out: random integers in interval [0, data[i][ 
+/* random integers drawn from a uniform distribution
+   *data in: integer numbers, their absolut values are used,
+       maximum is RAND_MAX (32767)
+   *data out: random integers in interval [0, data[i][
        standard library function rand() is used
 */
 void *
@@ -160,8 +160,8 @@ cx_rnd(void *data, short int type, int length, int *newlength, short int *newtyp
     }
 }
 
-/* random numbers drawn from a uniform distribution 
-   *data out: random numbers in interval [-1, 1[ 
+/* random numbers drawn from a uniform distribution
+   *data out: random numbers in interval [-1, 1[
 */
 void *
 cx_sunif(void *data, short int type, int length, int *newlength, short int *newtype)
@@ -194,10 +194,10 @@ cx_sunif(void *data, short int type, int length, int *newlength, short int *newt
     }
 }
 
-/* random numbers drawn from a poisson distribution 
+/* random numbers drawn from a poisson distribution
    *data in:  lambda
-   *data out: random integers according to poisson distribution, 
-       with lambda given by each vector element 
+   *data out: random integers according to poisson distribution,
+       with lambda given by each vector element
 */
 void *
 cx_poisson(void *data, short int type, int length, int *newlength, short int *newtype)
@@ -232,10 +232,10 @@ cx_poisson(void *data, short int type, int length, int *newlength, short int *ne
     }
 }
 
-/* random numbers drawn from an exponential distribution 
+/* random numbers drawn from an exponential distribution
    *data in:  Mean values
-   *data out: exponentially distributed random numbers, 
-       with mean given by each vector element 
+   *data out: exponentially distributed random numbers,
+       with mean given by each vector element
 */
 void *
 cx_exponential(void *data, short int type, int length, int *newlength, short int *newtype)
@@ -270,7 +270,7 @@ cx_exponential(void *data, short int type, int length, int *newlength, short int
     }
 }
 
-/* random numbers drawn from a Gaussian distribution 
+/* random numbers drawn from a Gaussian distribution
    mean 0, std dev 1
 */
 void *
@@ -309,8 +309,8 @@ cx_sgauss(void *data, short int type, int length, int *newlength, short int *new
 
 /* Compute the avg of a vector.
    Created by A.M.Roldan 2005-05-21  */
-   
-void 
+
+void
 *cx_avg(void *data, short int type, int length, int *newlength, short int *newtype)
 {
     double sum_real = 0.0, sum_imag = 0.0;
@@ -347,7 +347,7 @@ void
             imagpart(c[i]) = sum_imag / (double)(i+1);
         }
 
-       return ((void *) c);
+        return ((void *) c);
 
     }
 }
@@ -361,9 +361,9 @@ cx_mean(void *data, short int type, int length, int *newlength, short int *newty
     *newlength = 1;
     rcheck(length > 0, "mean");
     if (type == VF_REAL) {
-	double *d;
-	double *dd = (double *) data;
-	int i;
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
         d = alloc_d(1);
         *newtype = VF_REAL;
@@ -372,9 +372,9 @@ cx_mean(void *data, short int type, int length, int *newlength, short int *newty
         *d /= length;
         return ((void *) d);
     } else {
-	ngcomplex_t *c;
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         c = alloc_c(1);
         *newtype = VF_COMPLEX;
@@ -576,9 +576,9 @@ cx_times(void *data1, void *data2, short int datatype1, short int datatype2, int
                 c2 = cc2[i];
             }
             realpart(c[i]) = realpart(c1) * realpart(c2)
-                - imagpart(c1) * imagpart(c2);
+                             - imagpart(c1) * imagpart(c2);
             imagpart(c[i]) = imagpart(c1) * realpart(c2)
-                + realpart(c1) * imagpart(c2);
+                             + realpart(c1) * imagpart(c2);
         }
         return ((void *) c);
     }
@@ -648,32 +648,32 @@ cx_max(void *data, short int type, int length, int *newlength, short int *newtyp
     /* test if length >0 et affiche un message d'erreur */
     rcheck(length > 0, "mean");
     if (type == VF_REAL) {
-      double largest=0.0;
-      double *d;
-      double *dd = (double *) data;
-      int i;
-      
-      d = alloc_d(1);
-      *newtype = VF_REAL;
-      largest=dd[0];
-      for (i = 1; i < length; i++)
-        if (dd[i]>largest) largest=dd[i];
-      *d=largest;
-      return ((void *) d);
-    } else { 
-      double largest_real=0.0;
-      double largest_complex=0.0;
-      ngcomplex_t *c;
-      ngcomplex_t *cc = (ngcomplex_t *) data;
-      int i;
-      
-      c = alloc_c(1);
-      *newtype = VF_COMPLEX;
-      largest_real=realpart(*cc);
-      largest_complex=imagpart(*cc);
-      for (i = 0; i < length; i++) {
-        if (realpart(cc[i])>largest_real) largest_real=realpart(cc[i]);
-        if (imagpart(cc[i])>largest_complex) largest_complex=imagpart(cc[i]);
+        double largest=0.0;
+        double *d;
+        double *dd = (double *) data;
+        int i;
+
+        d = alloc_d(1);
+        *newtype = VF_REAL;
+        largest=dd[0];
+        for (i = 1; i < length; i++)
+            if (dd[i]>largest) largest=dd[i];
+        *d=largest;
+        return ((void *) d);
+    } else {
+        double largest_real=0.0;
+        double largest_complex=0.0;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
+
+        c = alloc_c(1);
+        *newtype = VF_COMPLEX;
+        largest_real=realpart(*cc);
+        largest_complex=imagpart(*cc);
+        for (i = 0; i < length; i++) {
+            if (realpart(cc[i])>largest_real) largest_real=realpart(cc[i]);
+            if (imagpart(cc[i])>largest_complex) largest_complex=imagpart(cc[i]);
         }
         realpart(*c) = largest_real;
         imagpart(*c) = largest_complex;
@@ -689,35 +689,35 @@ cx_min(void *data, short int type, int length, int *newlength, short int *newtyp
     /* test if length >0 et affiche un message d'erreur */
     rcheck(length > 0, "mean");
     if (type == VF_REAL) {
-      double smallest;
-      double *d;
-      double *dd = (double *) data;
-      int i;
-      
-      d = alloc_d(1);
-      *newtype = VF_REAL;
-      smallest=dd[0];
-      for (i = 1; i < length; i++)
-        if (smallest > dd[i])
-            smallest = dd[i];
-      *d=smallest;
-      return ((void *) d);
-    } else { 
-      double smallest_real;
-      double smallest_complex;
-      ngcomplex_t *c;
-      ngcomplex_t *cc = (ngcomplex_t *) data;
-      int i;
-      
-      c = alloc_c(1);
-      *newtype = VF_COMPLEX;
-      smallest_real=realpart(*cc);
-      smallest_complex=imagpart(*cc);
-      for (i = 1; i < length; i++) {
-        if (smallest_real > realpart(cc[i]))
-            smallest_real = realpart(cc[i]);
-        if (smallest_complex > imagpart(cc[i]))
-            smallest_complex = imagpart(cc[i]);
+        double smallest;
+        double *d;
+        double *dd = (double *) data;
+        int i;
+
+        d = alloc_d(1);
+        *newtype = VF_REAL;
+        smallest=dd[0];
+        for (i = 1; i < length; i++)
+            if (smallest > dd[i])
+                smallest = dd[i];
+        *d=smallest;
+        return ((void *) d);
+    } else {
+        double smallest_real;
+        double smallest_complex;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
+
+        c = alloc_c(1);
+        *newtype = VF_COMPLEX;
+        smallest_real=realpart(*cc);
+        smallest_complex=imagpart(*cc);
+        for (i = 1; i < length; i++) {
+            if (smallest_real > realpart(cc[i]))
+                smallest_real = realpart(cc[i]);
+            if (smallest_complex > imagpart(cc[i]))
+                smallest_complex = imagpart(cc[i]);
         }
         realpart(*c) = smallest_real;
         imagpart(*c) = smallest_complex;
@@ -735,35 +735,35 @@ cx_d(void *data, short int type, int length, int *newlength, short int *newtype)
     /* test if length >0 et affiche un message d'erreur */
     rcheck(length > 0, "deriv");
     if (type == VF_REAL) {
-      double *d;
-      double *dd = (double *) data;
-      int i;
-      
-      d = alloc_d(length);
-      *newtype = VF_REAL;
-      d[0]=dd[1]-dd[0];
-      d[length-1]=dd[length-1]-dd[length-2];
-      for (i = 1; i < length-1; i++)
-        d[i]=dd[i+1]-dd[i-1];
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
-      return ((void *) d);
-    } else { 
+        d = alloc_d(length);
+        *newtype = VF_REAL;
+        d[0]=dd[1]-dd[0];
+        d[length-1]=dd[length-1]-dd[length-2];
+        for (i = 1; i < length-1; i++)
+            d[i]=dd[i+1]-dd[i-1];
 
-      ngcomplex_t *c;
-      ngcomplex_t *cc = (ngcomplex_t *) data;
-      int i;
-      
-      c = alloc_c(length);
-      *newtype = VF_COMPLEX;
-      realpart(*c)=realpart(cc[1])-realpart(cc[0]);
-      imagpart(*c)=imagpart(cc[1])-imagpart(cc[0]);
-      realpart(c[length-1])=realpart(cc[length-1])-realpart(cc[length-2]);
-      imagpart(c[length-1])=imagpart(cc[length-1])-imagpart(cc[length-2]);
-      
-      
-      for (i = 1; i < (length-1); i++) {
-        realpart(c[i])=realpart(cc[i+1])-realpart(cc[i-1]);
-        imagpart(c[i])=imagpart(cc[i+1])-imagpart(cc[i-1]);
+        return ((void *) d);
+    } else {
+
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
+
+        c = alloc_c(length);
+        *newtype = VF_COMPLEX;
+        realpart(*c)=realpart(cc[1])-realpart(cc[0]);
+        imagpart(*c)=imagpart(cc[1])-imagpart(cc[0]);
+        realpart(c[length-1])=realpart(cc[length-1])-realpart(cc[length-2]);
+        imagpart(c[length-1])=imagpart(cc[length-1])-imagpart(cc[length-2]);
+
+
+        for (i = 1; i < (length-1); i++) {
+            realpart(c[i])=realpart(cc[i+1])-realpart(cc[i-1]);
+            imagpart(c[i])=imagpart(cc[i+1])-imagpart(cc[i-1]);
 
         }
         return ((void *) c);
@@ -775,9 +775,9 @@ cx_floor(void *data, short int type, int length, int *newlength, short int *newt
 {
     *newlength = length;
     if (type == VF_COMPLEX) {
-	ngcomplex_t *c;
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         c = alloc_c(length);
         *newtype = VF_COMPLEX;
@@ -787,9 +787,9 @@ cx_floor(void *data, short int type, int length, int *newlength, short int *newt
         }
         return ((void *) c);
     } else {
-	double *d;
-	double *dd = (double *) data;
-	int i;
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
         d = alloc_d(length);
         *newtype = VF_REAL;
@@ -804,9 +804,9 @@ cx_ceil(void *data, short int type, int length, int *newlength, short int *newty
 {
     *newlength = length;
     if (type == VF_COMPLEX) {
-	ngcomplex_t *c;
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         c = alloc_c(length);
         *newtype = VF_COMPLEX;
@@ -816,9 +816,9 @@ cx_ceil(void *data, short int type, int length, int *newlength, short int *newty
         }
         return ((void *) c);
     } else {
-	double *d;
-	double *dd = (double *) data;
-	int i;
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
         d = alloc_d(length);
         *newtype = VF_REAL;
@@ -833,9 +833,9 @@ cx_nint(void *data, short int type, int length, int *newlength, short int *newty
 {
     *newlength = length;
     if (type == VF_COMPLEX) {
-	ngcomplex_t *c;
-	ngcomplex_t *cc = (ngcomplex_t *) data;
-	int i;
+        ngcomplex_t *c;
+        ngcomplex_t *cc = (ngcomplex_t *) data;
+        int i;
 
         c = alloc_c(length);
         *newtype = VF_COMPLEX;
@@ -845,9 +845,9 @@ cx_nint(void *data, short int type, int length, int *newlength, short int *newty
         }
         return ((void *) c);
     } else {
-	double *d;
-	double *dd = (double *) data;
-	int i;
+        double *d;
+        double *dd = (double *) data;
+        int i;
 
         d = alloc_d(length);
         *newtype = VF_REAL;
