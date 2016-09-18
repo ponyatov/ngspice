@@ -424,21 +424,22 @@ cx_stddev(void *data, short int type, int length, int *newlength, short int *new
     else {
         ngcomplex_t *cmean = (ngcomplex_t *)cx_mean(data, type, length, newlength, newtype);
         ngcomplex_t *c;
+        double *d;
         ngcomplex_t *cc = (ngcomplex_t *)data;
         int i;
-
+        d = alloc_d(1);
         c = alloc_c(1);
-        *newtype = VF_COMPLEX;
+        *newtype = VF_REAL;
         for (i = 0; i < length; i++) {
-            realpart(*c) += (realpart(cc[i]) - realpart(*cmean)) * (realpart(cc[i]) - realpart(*cmean));
-            imagpart(*c) += (imagpart(cc[i]) - imagpart(*cmean)) * (imagpart(cc[i]) - imagpart(*cmean));
+            realpart(*c) = realpart(cc[i]) - realpart(*cmean);
+            imagpart(*c) = imagpart(cc[i]) - imagpart(*cmean);
+            *d += cmag(*c);
         }
-        realpart(*c) /= (length - 1);
-        realpart(*c) = sqrt(realpart(*c));
-        imagpart(*c) /= (length - 1);
-        imagpart(*c) = sqrt(imagpart(*c));
+        *d /= (length - 1);
+        *d = sqrt(*d);
         tfree(cmean);
-        return ((void *)c);
+        tfree(c);
+        return ((void *)d);
     }
 }
 
