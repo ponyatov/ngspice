@@ -47,6 +47,7 @@ cx_max_local(void *data, short int type, int length)
     return largest;
 }
 
+
 /* Normalize the data so that the magnitude of the greatest value is 1. */
 
 void *
@@ -88,6 +89,7 @@ cx_norm(void *data, short int type, int length, int *newlength, short int *newty
     }
 }
 
+
 void *
 cx_uminus(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -119,11 +121,12 @@ cx_uminus(void *data, short int type, int length, int *newlength, short int *new
 
 
 /* random integers drawn from a uniform distribution
-   *data in: integer numbers, their absolut values are used,
-       maximum is RAND_MAX (32767)
-   *data out: random integers in interval [0, data[i][
-       standard library function rand() is used
-*/
+ *   data in: integer numbers, their absolut values are used,
+ *            maximum is RAND_MAX (32767)
+ *   data out: random integers in interval [0, data[i][
+ *             standard library function rand() is used
+ */
+
 void *
 cx_rnd(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -160,9 +163,11 @@ cx_rnd(void *data, short int type, int length, int *newlength, short int *newtyp
     }
 }
 
+
 /* random numbers drawn from a uniform distribution
-   *data out: random numbers in interval [-1, 1[
-*/
+ *   data out: random numbers in interval [-1, 1[
+ */
+
 void *
 cx_sunif(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -194,11 +199,13 @@ cx_sunif(void *data, short int type, int length, int *newlength, short int *newt
     }
 }
 
+
 /* random numbers drawn from a poisson distribution
-   *data in:  lambda
-   *data out: random integers according to poisson distribution,
-       with lambda given by each vector element
-*/
+ *   data in:  lambda
+ *   data out: random integers according to poisson distribution,
+ *             with lambda given by each vector element
+ */
+
 void *
 cx_poisson(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -232,11 +239,13 @@ cx_poisson(void *data, short int type, int length, int *newlength, short int *ne
     }
 }
 
+
 /* random numbers drawn from an exponential distribution
-   *data in:  Mean values
-   *data out: exponentially distributed random numbers,
-       with mean given by each vector element
-*/
+ *   data in:  Mean values
+ *   data out: exponentially distributed random numbers,
+ *             with mean given by each vector element
+ */
+
 void *
 cx_exponential(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -270,9 +279,11 @@ cx_exponential(void *data, short int type, int length, int *newlength, short int
     }
 }
 
+
 /* random numbers drawn from a Gaussian distribution
    mean 0, std dev 1
 */
+
 void *
 cx_sgauss(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -305,13 +316,12 @@ cx_sgauss(void *data, short int type, int length, int *newlength, short int *new
 }
 
 
-
-
 /* Compute the avg of a vector.
-   Created by A.M.Roldan 2005-05-21  */
+ * Created by A.M.Roldan 2005-05-21
+ */
 
-void
-*cx_avg(void *data, short int type, int length, int *newlength, short int *newtype)
+void *
+cx_avg(void *data, short int type, int length, int *newlength, short int *newtype)
 {
     double sum_real = 0.0, sum_imag = 0.0;
     int i;
@@ -404,10 +414,10 @@ cx_length(void *data, short int type, int length, int *newlength, short int *new
     return ((void *) d);
 }
 
+
 /* Return a vector from 0 to the magnitude of the argument. Length of the
  * argument is irrelevent.
  */
-
 
 void *
 cx_vector(void *data, short int type, int length, int *newlength, short int *newtype)
@@ -433,8 +443,8 @@ cx_vector(void *data, short int type, int length, int *newlength, short int *new
     return ((void *) d);
 }
 
-/* Create a vector of the given length composed of all ones. */
 
+/* Create a vector of the given length composed of all ones. */
 
 void *
 cx_unitvec(void *data, short int type, int length, int *newlength, short int *newtype)
@@ -459,6 +469,7 @@ cx_unitvec(void *data, short int type, int length, int *newlength, short int *ne
         d[i] = 1;
     return ((void *) d);
 }
+
 
 /* Calling methods for these functions are:
  *  cx_something(data1, data2, datatype1, datatype2, length)
@@ -506,6 +517,7 @@ cx_plus(void *data1, void *data2, short int datatype1, short int datatype2, int 
     }
 }
 
+
 void *
 cx_minus(void *data1, void *data2, short int datatype1, short int datatype2, int length)
 {
@@ -543,6 +555,7 @@ cx_minus(void *data1, void *data2, short int datatype1, short int datatype2, int
         return ((void *) c);
     }
 }
+
 
 void *
 cx_times(void *data1, void *data2, short int datatype1, short int datatype2, int length)
@@ -583,6 +596,7 @@ cx_times(void *data1, void *data2, short int datatype1, short int datatype2, int
         return ((void *) c);
     }
 }
+
 
 void *
 cx_mod(void *data1, void *data2, short int datatype1, short int datatype2, int length)
@@ -683,6 +697,8 @@ cx_max(void *data, short int type, int length, int *newlength, short int *newtyp
         return ((void *) c);
     }
 }
+
+
 /* Routoure JM : Compute the min of a vector. */
 
 void *
@@ -773,6 +789,7 @@ cx_d(void *data, short int type, int length, int *newlength, short int *newtype)
     }
 }
 
+
 void *
 cx_floor(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -802,6 +819,7 @@ cx_floor(void *data, short int type, int length, int *newlength, short int *newt
     }
 }
 
+
 void *
 cx_ceil(void *data, short int type, int length, int *newlength, short int *newtype)
 {
@@ -830,6 +848,7 @@ cx_ceil(void *data, short int type, int length, int *newlength, short int *newty
         return ((void *) d);
     }
 }
+
 
 void *
 cx_nint(void *data, short int type, int length, int *newlength, short int *newtype)
