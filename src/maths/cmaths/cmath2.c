@@ -433,7 +433,7 @@ cx_stddev(void *data, short int type, int length, int *newlength, short int *new
         for (i = 0; i < length; i++) {
             realpart(*c) = realpart(cc[i]) - realpart(*cmean);
             imagpart(*c) = imagpart(cc[i]) - imagpart(*cmean);
-            *d += cmag(*c);
+            *d += cmag(*c) * cmag(*c);
         }
         *d /= (length - 1);
         *d = sqrt(*d);
