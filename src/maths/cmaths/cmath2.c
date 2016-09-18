@@ -408,37 +408,33 @@ cx_stddev(void *data, short int type, int length, int *newlength, short int *new
     rcheck(length > 1, "stddev");
     if (type == VF_REAL) {
         double *mean = (double *)cx_mean(data, type, length, newlength, newtype);
-        double *d;
+        double *d, sum = 0.;
         double *dd = (double *)data;
         int i;
 
         d = alloc_d(1);
         *newtype = VF_REAL;
         for (i = 0; i < length; i++)
-            *d += (dd[i] - *mean) * (dd[i] - *mean);
-        *d /= (length - 1);
-        *d = sqrt(*d);
+            sum += (dd[i] - *mean) * (dd[i] - *mean);
+        *d = sqrt(sum / (length - 1));
         tfree(mean);
         return ((void *)d);
     }
     else {
         ngcomplex_t *cmean = (ngcomplex_t *)cx_mean(data, type, length, newlength, newtype);
-        ngcomplex_t *c;
-        double *d;
+        double *d, sum = 0., a, b;
         ngcomplex_t *cc = (ngcomplex_t *)data;
         int i;
+
         d = alloc_d(1);
-        c = alloc_c(1);
         *newtype = VF_REAL;
         for (i = 0; i < length; i++) {
-            realpart(*c) = realpart(cc[i]) - realpart(*cmean);
-            imagpart(*c) = imagpart(cc[i]) - imagpart(*cmean);
-            *d += cmag(*c) * cmag(*c);
+            a = realpart(cc[i]) - realpart(*cmean);
+            b = imagpart(cc[i]) - imagpart(*cmean);
+            sum += a * a + b * b;
         }
-        *d /= (length - 1);
-        *d = sqrt(*d);
+        *d = sqrt(sum / (length - 1));
         tfree(cmean);
-        tfree(c);
         return ((void *)d);
     }
 }
