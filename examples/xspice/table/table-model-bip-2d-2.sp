@@ -8,7 +8,7 @@ Rin in ino 1k
 Rfb ino outo 3k
 
 
-vin in 0 PULSE(-1 1 20NS 20NS 20NS 500NS 1000NS)
+vin in 0 dc 0 PULSE(-1 1 20NS 20NS 20NS 500NS 1000NS)
 
 * circuit with standard bip model
 *.include clc409.sub
