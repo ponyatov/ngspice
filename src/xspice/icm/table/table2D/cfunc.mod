@@ -423,8 +423,8 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         /* read whole file into cFile */
         lFileRead = fread(cFile, sizeof(char), lFileLen, loc->state->fp);
         fclose(loc->state->fp);
-		/* Number of chars read may be less than lFileLen, because /r are skipt by 'fread' */
-		cFile[lFileRead] = '\0';
+        /* Number of chars read may be less than lFileLen, because /r are skipt by 'fread' */
+        cFile[lFileRead] = '\0';
 
         cThisPtr = cFile;
         cThisLinePtr = cThisLine;
@@ -438,7 +438,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
             lStartPos = lTotalChars;
 
             while (*cThisPtr) {
-				if (!isNewline) {         /* Haven't read a LF yet */
+                if (!isNewline) {         /* Haven't read a LF yet */
                     if (*cThisPtr == '\n') /* This char IS or LF */
                         isNewline = 1;    /* Set flag */
                 }
