@@ -18,10 +18,6 @@
 #include "gnuplot.h"
 
 
-#ifndef max
-#define max(a,b) (((a) > (b)) ? (a) : (b))
-#endif
-
 #define GP_MAXVECTORS 64
 
 
@@ -358,7 +354,7 @@ ft_writesimple(double *xlims, double *ylims, char *filename, char *title, char *
         /* find maximum scale length from all vectors */
         maxlen = 0;
         for (v = vecs; v; v = v->v_link2)
-            maxlen = max(v->v_scale->v_length, maxlen);
+            maxlen = MAX(v->v_scale->v_length, maxlen);
     }
 
     /* Open the output data file. */
