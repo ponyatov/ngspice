@@ -435,8 +435,8 @@ cm_table3D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         /* read whole file into cFile */
         lFileRead = fread(cFile, sizeof(char), lFileLen, loc->state->fp);
         fclose(loc->state->fp);
-		/* Number of chars read may be less than lFileLen, because /r are skipt by 'fread' */
-		cFile[lFileRead] = '\0';
+        /* Number of chars read may be less than lFileLen, because /r are skipt by 'fread' */
+        cFile[lFileRead] = '\0';
 
         cThisPtr = cFile;
         cThisLinePtr = cThisLine;

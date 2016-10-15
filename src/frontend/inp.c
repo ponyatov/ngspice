@@ -329,6 +329,7 @@ line_reverse(struct line *head)
     return prev;
 }
 
+
 /* free mc_deck */
 void
 mc_free(void)

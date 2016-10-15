@@ -17,7 +17,7 @@ vee2 ee 0 0
 .subckt tbqnpn c b e
 *** table model of npn bipolar transistor ***
 * bip qinn from national op-amp CLC409
-* table values extracted at nominal temperature of 27°C
+* table values extracted at nominal temperature of 27Â°C
 * simple behavioral temperature model
 .param fact = 0.05
 .param tgain = 1. + (TEMPER / 27. - 1.) * {fact}
