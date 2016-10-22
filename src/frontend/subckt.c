@@ -1541,8 +1541,6 @@ numnodes(char *name, struct subs *subs, wordlist const *modnames)
         /* for all other elements */
         return (n);
     }
-
-    return (0);
 }
 
 
