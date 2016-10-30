@@ -17,8 +17,8 @@ char *Lib_Path;
 char *Inp_Path;
 
 #if defined(__MINGW32__) || defined(_MSC_VER)
-static char*
-get_abs_path()
+static char *
+get_abs_path(void)
 {
     char path[MAX_PATH];
     HMODULE hm = NULL;
@@ -37,8 +37,8 @@ get_abs_path()
 #else
 #define _GNU_SOURCE         /* See feature_test_macros(7) */
 #include <dlfcn.h>
-static char*
-get_abs_path()
+static char *
+get_abs_path(void)
 {
     Dl_info  DlInfo;
     int  nRet;
