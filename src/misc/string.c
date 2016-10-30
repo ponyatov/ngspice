@@ -316,7 +316,7 @@ gettok(char **s)
 * you have parens or commas anywhere in the nodelist.
 *-------------------------------------------------------------------------*/
 char *
-skiptok(char *s)
+skiptok(const char *s)
 {
     int paren = 0;
 
@@ -335,7 +335,7 @@ skiptok(char *s)
     while (isspace_c(*s) || *s == ',')
         s++;
 
-    return s;
+    return (char *) s;
 }
 
 
