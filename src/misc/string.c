@@ -308,15 +308,15 @@ gettok(char **s)
 
 
 /*-------------------------------------------------------------------------*
-* skiptok skips over whitespaces and the next token in s
+* nexttok skips over whitespaces and the next token in s
 *   returns NULL if there is nothing left to skip.
 * It replaces constructs like txfree(gettok(&actstring)) by
-* actstring = skiptok(actstring). This is derived from the original gettok version.
+* actstring = nexttok(actstring). This is derived from the original gettok version.
 * It does not "do the right thing" when
 * you have parens or commas anywhere in the nodelist.
 *-------------------------------------------------------------------------*/
 char *
-skiptok(const char *s)
+nexttok(const char *s)
 {
     int paren = 0;
 
