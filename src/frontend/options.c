@@ -172,7 +172,7 @@ inp_getopts(struct line *deck)
 struct line *
 inp_getoptsc(char *line, struct line *options)
 {
-    gettok_nc(&line);           /* skip option */
+    line = skiptok(line);           /* skip option */
 
     struct line *next = TMALLOC(struct line, 1);
 
