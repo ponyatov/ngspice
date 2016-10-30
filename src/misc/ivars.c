@@ -18,6 +18,7 @@ char *Inp_Path;
 
 #if defined (SHARED_MODULE) && defined (HAS_RELPATH)
 #if defined(__MINGW32__) || defined(_MSC_VER)
+
 static char *
 get_abs_path(void)
 {
@@ -25,9 +26,9 @@ get_abs_path(void)
     HMODULE hm = NULL;
 
     if (!GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
-        GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-        (LPCTSTR)get_abs_path,
-        &hm))
+                            GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                            (LPCTSTR)get_abs_path,
+                            &hm))
     {
         int ret = GetLastError();
         fprintf(stderr, "GetModuleHandle returned %d\n", ret);
@@ -35,20 +36,22 @@ get_abs_path(void)
     GetModuleFileNameA(hm, path, sizeof(path));
     return ngdirname(path);
 }
+
 #else
-#define _GNU_SOURCE         /* See feature_test_macros(7) */
+
 #include <dlfcn.h>
+
 static char *
 get_abs_path(void)
 {
-    Dl_info  DlInfo;
-    int  nRet;
+    Dl_info info;
 
     // Lookup the path of the library given the pointer to a function from within the library
-    if ((nRet = dladdr(get_abs_path, &DlInfo)) != 0)
-        return ngdirname(DlInfo.dli_fname);
+    if (dladdr(get_abs_path, &info))
+        return ngdirname(info.dli_fname);
     return NULL;
 }
+
 #endif
 #endif
 
