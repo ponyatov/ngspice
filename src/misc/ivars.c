@@ -16,6 +16,7 @@ char *Help_Path;
 char *Lib_Path;
 char *Inp_Path;
 
+#if defined (SHARED_MODULE) && defined (HAS_RELPATH)
 #if defined(__MINGW32__) || defined(_MSC_VER)
 static char *
 get_abs_path(void)
@@ -48,6 +49,7 @@ get_abs_path(void)
         return ngdirname(DlInfo.dli_fname);
     return NULL;
 }
+#endif
 #endif
 
 
