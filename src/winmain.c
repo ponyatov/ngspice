@@ -332,7 +332,7 @@ static void AppendString( const char * Line)
 // Text neu darstellen
 static void DisplayText( void)
 {
-	// Darstellen
+    // Darstellen
     Edit_SetText( twText, TBuffer);
     // Scroller updaten, neuen Text darstellen
     AdjustScroller();
@@ -412,7 +412,7 @@ static void Main_OnSize(HWND hwnd, UINT state, int cx, int cy)
 
     /* Expand Status Elements */
     h = cy - LineHeight + StatusFrame -1;
-	int statbegin = 3 * StatusFrame + QuitButtonLength + AnalyseLength + 20;
+    int statbegin = 3 * StatusFrame + QuitButtonLength + AnalyseLength + 20;
     MoveWindow( hwSource, StatusFrame, h, cx - statbegin - BorderSize, StatusElHeight, TRUE);
     MoveWindow( hwAnalyse, cx - statbegin, h, AnalyseLength, StatusElHeight, TRUE);
     MoveWindow( hwQuitButton, cx - StatusFrame - QuitButtonLength - 20, 
@@ -908,10 +908,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     
     if (!hwQuitButton) goto THE_END;
 
-	/* Define a minimum width */
-	int MinWidth = AnalyseLength + SourceLength + QuitButtonLength + 48;
-	if (WinLineWidth < MinWidth)
-		WinLineWidth = MinWidth;
+    /* Define a minimum width */
+    int MinWidth = AnalyseLength + SourceLength + QuitButtonLength + 48;
+    if (WinLineWidth < MinWidth)
+        WinLineWidth = MinWidth;
+
     /* Make main window and subwindows visible.
       Size of windows allows display of 80 character line.
       Limit window to screen size (if only VGA). */
