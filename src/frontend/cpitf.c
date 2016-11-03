@@ -268,8 +268,8 @@ ft_cpinit(void)
 #endif
 #if defined(_MSC_VER) || defined(__MINGW32__) || defined(HAS_WINGUI)
             /* MS Windows allows path names with spaces, e.g. "Program Files".
-            The old code below does not do then.
-            So just copy the whole string s into buf */
+               The old code below does not do then.
+               So just copy the whole string s into buf */
             size_t sl = strlen(s);
             if (sl >= BSIZE_SP) {
                 fprintf(cp_err, "Note: Cannot evaluate spinit, path is too long!\n");

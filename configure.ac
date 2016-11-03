@@ -14,15 +14,15 @@
 # Initialisation of configure
 AC_INIT([ngspice], [26], [http://ngspice.sourceforge.net/bugrep.html])
 
-#libtool versioning for shared libraries current:revision:age
-#current The most recent interface number that this library implements.
-#revision The implementation number of the current interface.
-#age The difference between the newest and oldest interfaces that this library implements.
-#In other words, the library implements all the interface numbers in the
-#range from numbers (current - age) to current.
-#libtool in msys2 generates a single version number (current-age)
-#libtool in LINUX generates the numbers as: (current-age).age.revision
-#LIBRARY_VERSION may be overridden by external LIB_VERSION
+# libtool versioning for shared libraries current:revision:age
+# current The most recent interface number that this library implements.
+# revision The implementation number of the current interface.
+# age The difference between the newest and oldest interfaces that this library implements.
+# In other words, the library implements all the interface numbers in the
+# range from numbers (current - age) to current.
+# libtool in msys2 generates a single version number (current-age)
+# libtool in LINUX generates the numbers as: (current-age).age.revision
+# LIBRARY_VERSION may be overridden by external LIB_VERSION
 LIBRARY_VERSION="0:0:0"
 
 # Unique file in the source directory

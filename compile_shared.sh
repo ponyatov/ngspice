@@ -17,7 +17,7 @@
 # LINUX: remove (or check) entry '--enable-relpath' in ../configure ... (see below).
 
 # Options:
-# --adms and --enable-adms will install extra HICUM, EKV and MEXTRAM models via the 
+# --adms and --enable-adms will install extra HICUM, EKV and MEXTRAM models via the
 # adms interface.
 # Please see http://ngspice.sourceforge.net/admshowto.html for more info on adms.
 # CIDER, XSPICE, and OpenMP may be selected at will.
@@ -28,7 +28,7 @@ if test "$1" = "64"; then
    if [ ! -d "release64-sh" ]; then
       mkdir release64-sh
       if [ $? -ne 0 ]; then  echo "mkdir release64-sh failed"; exit 1 ; fi
-   fi   
+   fi
 else
    if [ ! -d "release-sh" ]; then
       mkdir release-sh
@@ -49,7 +49,7 @@ if [ $? -ne 0 ]; then  echo "./autogen.sh failed"; exit 1 ; fi
 # You may add LIB_VERSION="a:b:c" to the ../configure statement to override LIBRARY_VERSION
 # in configure.ac, where you can find details on the selection of a, b, and c.
 
-# You may add -DOUTDEBUG to CFLAGS= in ../configure to enable printing of 
+# You may add -DOUTDEBUG to CFLAGS= in ../configure to enable printing of
 # all printed output from ngspice into file ng-outputs.txt.
 # You may need administrator rights to do so, depending on the location of shared ngspice.
 
@@ -88,7 +88,7 @@ if [ $exitcode -ne 0 ]; then  echo "make failed"; exit 1 ; fi
 # 32 bit: Install to C:\Spice
 # 64 bit: Install to C:\Spice64
 echo "installing (see make_install.log)"
-make install 2>&1 | tee make_install.log 
+make install 2>&1 | tee make_install.log
 exitcode=${PIPESTATUS[0]}
 if [ $exitcode -ne 0 ]; then  echo "make install failed"; exit 1 ; fi
 
