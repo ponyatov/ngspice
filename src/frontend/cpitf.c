@@ -243,18 +243,18 @@ ft_cpinit(void)
         }
 
 #ifdef _MSC_VER
-		/* set variables to read program configuration into spinit for VS */
+        /* set variables to read program configuration into spinit for VS */
 #ifdef CONFIG64
 #ifdef NGDEBUG
-		cp_vset("pg_config", CP_STRING, "d64");
+        cp_vset("pg_config", CP_STRING, "d64");
 #else
-		cp_vset("pg_config", CP_STRING, "r64");
+        cp_vset("pg_config", CP_STRING, "r64");
 #endif
 #else
 #ifdef NGDEBUG
-		cp_vset("pg_config", CP_STRING, "d32");
+        cp_vset("pg_config", CP_STRING, "d32");
 #else
-		cp_vset("pg_config", CP_STRING, "r32");
+        cp_vset("pg_config", CP_STRING, "r32");
 #endif
 #endif
 #endif
