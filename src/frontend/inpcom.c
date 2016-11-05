@@ -2757,7 +2757,8 @@ inp_fix_subckt_multiplier(struct names *subckt_w_params, struct line *subckt_car
  */
 
 static struct line *
-bogus_find_subckt(struct line *d, const char *subckt_name) {
+bogus_find_subckt(struct line *d, const char *subckt_name)
+{
     const size_t len = strlen(subckt_name);
     for (; d; d = d->li_next)
         if (ciprefix(".subckt", d->li_line)) {
