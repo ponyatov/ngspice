@@ -1859,7 +1859,7 @@ rem_tlist(void)
         dmtmp = modtlist->next;
         tfree(modtlist->expression);
         wl_free(modtlist->wl);
-        INPfreeTree((IFparseTree *) devtlist->pt);
+        INPfreeTree((IFparseTree *) modtlist->pt);
         tfree(modtlist);
         modtlist = dmtmp;
     }
