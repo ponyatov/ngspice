@@ -49,7 +49,13 @@ void INP2K(CKTcircuit *ckt, INPtables * tab, card * current)
 
     PARSECALL((&line, ckt, type, fast, &leadval, &waslead, tab));
     if (waslead) {
-	ptemp.rValue = leadval;
-	GCA(INPpName, ("coefficient", &ptemp, ckt, type, fast));
+        /* Check if K value is in the range -1 and +1 */
+        if ((leadval >= -1) && (leadval <= 1)) {
+	    ptemp.rValue = leadval;
+	    GCA(INPpName, ("coefficient", &ptemp, ckt, type, fast));
+        } else {
+            LITERR("The value of the coefficient 'K' is not in the range [-1,1]\n");
+            return;
+        }
     }
 }
