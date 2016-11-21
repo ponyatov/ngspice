@@ -23,7 +23,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    int ktype;
+    int i, ktype;
 
     NG_IGNORE(states);
 
@@ -31,6 +31,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
     for( ; model != NULL; model = model->MUTnextModel ) {
 
         /* loop through all the instances of the model */
+        i = 0 ;
         for (here = model->MUTinstances; here != NULL ;
                 here=here->MUTnextInstance) {
             
@@ -56,6 +57,15 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                     here->MUTname, here->MUTindName2);
             }
 
+            /* Assign index for L matrix */
+            if (here->MUTind1->INDindex == -1) {
+                here->MUTind1->INDindex = i ;
+                i++ ;
+            }
+            if (here->MUTind2->INDindex == -1) {
+                here->MUTind2->INDindex = i ;
+                i++ ;
+            }
 
 /* macro to make elements with built in test for out of memory */
 #define TSTALLOC(ptr,first,second) \
@@ -66,6 +76,10 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
             TSTALLOC(MUTbr1br2,MUTind1->INDbrEq,MUTind2->INDbrEq);
             TSTALLOC(MUTbr2br1,MUTind2->INDbrEq,MUTind1->INDbrEq);
         }
+
+        /* Allocate the correct space for the L matrix */
+        model->MUTcount = i ;
+        model->MUTl = TMALLOC (double, model->MUTcount * model->MUTcount) ;
     }
     return(OK);
 }

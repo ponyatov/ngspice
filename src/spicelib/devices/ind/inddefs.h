@@ -63,6 +63,8 @@ typedef struct sINDinstance {
     int  INDsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
+    int INDindex ;
+
 } INDinstance ;
 
 #define INDflux INDstate    /* flux in the inductor */
@@ -131,7 +133,6 @@ unsigned MUTindGiven : 1;   /* flag to indicate inductance was specified */
 int  MUTsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
-
 } MUTinstance ;
 
 
@@ -146,6 +147,9 @@ MUTinstance * MUTinstances; /* pointer to list of instances that have this
 IFuid MUTmodName;       /* pointer to character string naming this model */
 
 /* --- end of generic struct GENmodel --- */
+
+    int MUTcount ;
+    double *MUTl ;
 
 } MUTmodel;
 
