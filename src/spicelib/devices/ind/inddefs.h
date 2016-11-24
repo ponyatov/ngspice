@@ -63,7 +63,8 @@ typedef struct sINDinstance {
     int  INDsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
-    int INDindex ;
+    int INDmatrixIndex ;
+    int INDsetIndex ;
 
 } INDinstance ;
 
@@ -136,6 +137,13 @@ int  MUTsenParmNo;   /* parameter # for sensitivity use;
 } MUTinstance ;
 
 
+typedef struct sMUTset {
+    double *MUTmatrixL ;
+    int MUTmatrixLsize ;
+    int MUTsetIndex ;
+    struct sMUTset *next ;
+} MUTset ;
+
 /* per model data */
 
 typedef struct sMUTmodel {       /* model structure for a mutual inductor */
@@ -149,7 +157,7 @@ IFuid MUTmodName;       /* pointer to character string naming this model */
 /* --- end of generic struct GENmodel --- */
 
     int MUTcount ;
-    double *MUTl ;
+    MUTset *setNode ;
 
 } MUTmodel;
 

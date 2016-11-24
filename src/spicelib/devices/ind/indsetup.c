@@ -87,8 +87,11 @@ INDsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 here->INDbrEq = tmp->number;
             }
 
-            /* Initialize the 'index' attribute */
-            here->INDindex = -1 ;
+            /* Initialize the 'matrixIndex' attribute */
+            here->INDmatrixIndex = -1 ;
+
+            /* Initialize the 'setIndex' attribute */
+            here->INDsetIndex = -1 ;
 
 /* macro to make elements with built in test for out of memory */
 #define TSTALLOC(ptr,first,second) \

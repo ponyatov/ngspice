@@ -23,6 +23,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
+    MUTset *temp ;
     int i, ktype;
 
     NG_IGNORE(states);
@@ -57,14 +58,45 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                     here->MUTname, here->MUTindName2);
             }
 
-            /* Assign index for L matrix */
-            if (here->MUTind1->INDindex == -1) {
-                here->MUTind1->INDindex = i ;
+            /* Assign 'setIndex' and 'matrixIndex' for L matrix */
+            if ((here->MUTind1->INDsetIndex == -1) && (here->MUTind2->INDsetIndex == -1)) {
+                /* Create the set */
+                here->MUTind1->INDsetIndex = i ;
+                here->MUTind2->INDsetIndex = i ;
+                here->MUTind1->INDmatrixIndex = 0 ;
+                here->MUTind2->INDmatrixIndex = 1 ;
+
+                temp = TMALLOC (MUTset, 1) ;
+                temp->MUTmatrixLsize = 2 ;
+                temp->MUTsetIndex = i ;
+                temp->next = model->setNode ;
+                model->setNode = temp ;
+
                 i++ ;
-            }
-            if (here->MUTind2->INDindex == -1) {
-                here->MUTind2->INDindex = i ;
-                i++ ;
+            } else if ((here->MUTind1->INDsetIndex > -1) && (here->MUTind2->INDsetIndex == -1)) {
+                /* Add the new MUTind2 into the set */
+                here->MUTind2->INDsetIndex = here->MUTind1->INDsetIndex ;
+                temp = model->setNode ;
+                while (temp != NULL) {
+                    if (temp->MUTsetIndex == here->MUTind1->INDsetIndex) {
+                        here->MUTind2->INDmatrixIndex = temp->MUTmatrixLsize ;
+                        temp->MUTmatrixLsize++ ;
+                        break ;
+                    }
+                    temp = temp->next ;
+                }
+            } else if ((here->MUTind1->INDsetIndex == -1) && (here->MUTind2->INDsetIndex > -1)) {
+                /* Add the new MUTind1 into the set */
+                here->MUTind1->INDsetIndex = here->MUTind2->INDsetIndex ;
+                temp = model->setNode ;
+                while (temp != NULL) {
+                    if (temp->MUTsetIndex == here->MUTind2->INDsetIndex) {
+                        here->MUTind1->INDmatrixIndex = temp->MUTmatrixLsize ;
+                        temp->MUTmatrixLsize++ ;
+                        break ;
+                    }
+                    temp = temp->next ;
+                }
             }
 
 /* macro to make elements with built in test for out of memory */
@@ -77,9 +109,12 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
             TSTALLOC(MUTbr2br1,MUTind2->INDbrEq,MUTind1->INDbrEq);
         }
 
-        /* Allocate the correct space for the L matrix */
-        model->MUTcount = i ;
-        model->MUTl = TMALLOC (double, model->MUTcount * model->MUTcount) ;
+        /* Allocate the correct space for the L matrix of each set */
+        temp = model->setNode ;
+        while (temp != NULL) {
+           temp->MUTmatrixL = TMALLOC (double, temp->MUTmatrixLsize * temp->MUTmatrixLsize) ;
+           temp = temp->next ;
+        }
     }
     return(OK);
 }

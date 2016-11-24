@@ -70,8 +70,9 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    double ind1, ind2;
-    int i ;
+    MUTset *temp ;
+    double *ev, ind1, ind2 ;
+    int found, i, ret ;
 //    int j ;
 
     NG_IGNORE(ckt);
@@ -93,44 +94,51 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 	 */
             here->MUTfactor = here->MUTcoupling * sqrt(ind1 * ind2); 
 
-            /* Fill in the L matrix */
-//            printf ("Index 1: %d\n", here->MUTind1->INDindex) ;
-//            printf ("Index 2: %d\n", here->MUTind2->INDindex) ;
-            model->MUTl [here->MUTind1->INDindex * model->MUTcount + here->MUTind1->INDindex] = ind1 ;
-            model->MUTl [here->MUTind2->INDindex * model->MUTcount + here->MUTind2->INDindex] = ind2 ;
-            model->MUTl [here->MUTind1->INDindex * model->MUTcount + here->MUTind2->INDindex] = here->MUTfactor ;
-            model->MUTl [here->MUTind2->INDindex * model->MUTcount + here->MUTind1->INDindex] = here->MUTfactor ;
-	}
-/*
-        printf ("L matrix:\n") ;
-        j = 1 ;
-        for (i = 0 ; i < model->MUTcount * model->MUTcount ; i++) {
-            printf ("%-.9g ", model->MUTl [i]) ;
-            if (i == j * model->MUTcount - 1) {
-                printf ("\n") ;
-                j++ ;
-            }
-        }
-*/
-        /* Extract Eigenvalues by using Jacobi's Algorithm */
-        double *ev = TMALLOC (double, model->MUTcount) ;
-
-        int ret = jacobi (model->MUTl, (unsigned int)model->MUTcount, ev) ;
-        if (ret > -1) {
-//            printf ("Eigenvalues:\n") ;
-            int found = 0 ;
-            for (i = 0 ; i < model->MUTcount ; i++) {
-                if (ev [i] < 0) {
-                    found = 1 ;
-                    printf ("The eigenvalue '%-.9g' is less than zero!\n", ev [i]) ;
+            /* Fill in the L matrix for each set */
+            temp = model->setNode ;
+            while (temp != NULL) {
+                if ((temp->MUTsetIndex == here->MUTind1->INDsetIndex) && (temp->MUTsetIndex == here->MUTind2->INDsetIndex)) {
+//                    printf ("Set Index 1: %d\n", here->MUTind1->INDsetIndex) ;
+//                    printf ("Set Index 2: %d\n", here->MUTind2->INDsetIndex) ;
+//                    printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
+//                    printf ("Maitrx Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
+                    temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = ind1 ;
+                    temp->MUTmatrixL [here->MUTind2->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = ind2 ;
+                    temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
+                    temp->MUTmatrixL [here->MUTind2->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = here->MUTfactor ;
+                    break ;
                 }
-//                printf ("%-.9g\n", ev [i]) ;
+                temp = temp->next ;
             }
-            if (found) {
-                printf ("At least one eigenvalue is less than zero, so the conductances matrix L is NOT positive definite\n") ;
-            } else {
-                printf ("The conductances matrix L is positive definite!!!\n") ;
+	}
+
+        /* Extract Eigenvalues by using Jacobi's Algorithm */
+        temp = model->setNode ;
+        while (temp != NULL) {
+            ev = TMALLOC (double, temp->MUTmatrixLsize) ;
+
+            ret = jacobi (temp->MUTmatrixL, (unsigned int)temp->MUTmatrixLsize, ev) ;
+            if (ret > -1) {
+                found = 0 ;
+                for (i = 0 ; i < temp->MUTmatrixLsize ; i++) {
+                    if (ev [i] < 0) {
+                        found = 1 ;
+                        break ;
+                    }
+                }
+                if (found) {
+                    fprintf (stderr, "The set of inductances with index '%d', composed by the following elements, is NOT positive definite!!!\n", temp->MUTsetIndex) ;
+                    fprintf (stderr, "    %-.9g", temp->MUTmatrixL [0]) ;
+                    for (i = 1 ; i < temp->MUTmatrixLsize ; i++) {
+                        fprintf (stderr, "  |  %-.9g", temp->MUTmatrixL [i * temp->MUTmatrixLsize + i]) ;
+                    }
+                    fprintf (stderr, "\n\n\n") ;
+                } else {
+                    fprintf (stderr, "The set of inductances with index '%d' is positive definite\n", temp->MUTsetIndex) ;
+                }
             }
+            FREE (ev) ;
+            temp = temp->next ;
         }
     }
     return(OK);
