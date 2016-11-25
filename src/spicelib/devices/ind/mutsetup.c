@@ -70,6 +70,9 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 temp->MUTmatrixLsize = 2 ;
                 temp->MUTsetIndex = i ;
                 temp->next = model->setNode ;
+                temp->Xindhead = here->MUTind1;
+                here->MUTind1->Xnext = here->MUTind2;
+                temp->Xmuthead = here;
                 model->setNode = temp ;
 
                 i++ ;
@@ -81,6 +84,10 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                     if (temp->MUTsetIndex == here->MUTind1->INDsetIndex) {
                         here->MUTind2->INDmatrixIndex = temp->MUTmatrixLsize ;
                         temp->MUTmatrixLsize++ ;
+                        here->MUTind2->Xnext = temp->Xindhead;
+                        temp->Xindhead = here->MUTind2;
+                        here->Xnext = temp->Xmuthead;
+                        temp->Xmuthead = here;
                         break ;
                     }
                     temp = temp->next ;
@@ -93,6 +100,10 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                     if (temp->MUTsetIndex == here->MUTind2->INDsetIndex) {
                         here->MUTind1->INDmatrixIndex = temp->MUTmatrixLsize ;
                         temp->MUTmatrixLsize++ ;
+                        here->MUTind1->Xnext = temp->Xindhead;
+                        temp->Xindhead = here->MUTind1;
+                        here->Xnext = temp->Xmuthead;
+                        temp->Xmuthead = here;
                         break ;
                     }
                     temp = temp->next ;

@@ -98,10 +98,15 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             temp = model->setNode ;
             while (temp != NULL) {
                 if ((temp->MUTsetIndex == here->MUTind1->INDsetIndex) && (temp->MUTsetIndex == here->MUTind2->INDsetIndex)) {
-//                    printf ("Set Index 1: %d\n", here->MUTind1->INDsetIndex) ;
-//                    printf ("Set Index 2: %d\n", here->MUTind2->INDsetIndex) ;
-//                    printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
-//                    printf ("Maitrx Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
+                    if (0) {
+                    printf ("Set Index 1: %d, %s\n", here->MUTind1->INDsetIndex,
+                        here->MUTind1->INDname) ;
+                    printf ("Set Index 2: %d, %s\n", here->MUTind2->INDsetIndex,
+                            here->MUTind2->INDname) ;
+                    printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
+                    printf ("Maitrx Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
+                    printf ("%s\n", here->MUTname);
+                    }
                     temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = ind1 ;
                     temp->MUTmatrixL [here->MUTind2->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = ind2 ;
                     temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
@@ -126,15 +131,25 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                         break ;
                     }
                 }
+
+                MUTinstance *hm;
+                INDinstance *hi;
+                fprintf(stderr, "The set of inductances composed of\n");
+                for (hi = temp->Xindhead;  hi; hi = hi->Xnext)
+                    fprintf(stderr, " %s", hi->INDname);
+                for (hm = temp->Xmuthead;  hm; hm = hm->Xnext)
+                    fprintf(stderr, " %s", hm->MUTname);
+                fprintf(stderr, "\n");
+
                 if (found) {
-                    fprintf (stderr, "The set of inductances with index '%d', composed by the following elements, is NOT positive definite!!!\n", temp->MUTsetIndex) ;
+                    fprintf (stderr, "is NOT positive definite!!!\n") ;
                     fprintf (stderr, "    %-.9g", temp->MUTmatrixL [0]) ;
                     for (i = 1 ; i < temp->MUTmatrixLsize ; i++) {
                         fprintf (stderr, "  |  %-.9g", temp->MUTmatrixL [i * temp->MUTmatrixLsize + i]) ;
                     }
                     fprintf (stderr, "\n\n\n") ;
                 } else {
-                    fprintf (stderr, "The set of inductances with index '%d' is positive definite\n", temp->MUTsetIndex) ;
+                    fprintf (stderr, "is positive definite\n") ;
                 }
             }
             FREE (ev) ;

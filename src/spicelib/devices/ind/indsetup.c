@@ -92,6 +92,7 @@ INDsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 
             /* Initialize the 'setIndex' attribute */
             here->INDsetIndex = -1 ;
+            here->Xnext = NULL;
 
 /* macro to make elements with built in test for out of memory */
 #define TSTALLOC(ptr,first,second) \

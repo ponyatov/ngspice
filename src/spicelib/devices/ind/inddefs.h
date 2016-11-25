@@ -65,6 +65,7 @@ typedef struct sINDinstance {
 
     int INDmatrixIndex ;
     int INDsetIndex ;
+    struct sINDinstance *Xnext;
 
 } INDinstance ;
 
@@ -134,6 +135,7 @@ unsigned MUTindGiven : 1;   /* flag to indicate inductance was specified */
 int  MUTsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
+    struct sMUTinstance *Xnext;
 } MUTinstance ;
 
 
@@ -142,6 +144,8 @@ typedef struct sMUTset {
     int MUTmatrixLsize ;
     int MUTsetIndex ;
     struct sMUTset *next ;
+    INDinstance *Xindhead;
+    MUTinstance *Xmuthead;
 } MUTset ;
 
 /* per model data */
