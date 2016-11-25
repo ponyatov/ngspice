@@ -23,10 +23,10 @@ Author: 2003 Paolo Nenzi
 
 static int jacobi(double *a, unsigned int n, double w[]) {
     unsigned int i, j, iq, ip;
-    double tresh, theta, tau, t, sm, s, h, g, c, *b, *z;
+    double tresh, theta, tau, t, sm, s, h, g, c;
     int nrot = 0;
-    b = (double *)malloc(n * sizeof(double)); b--;
-    z = (double *)malloc(n * sizeof(double)); z--;
+    double * const b = (double *)malloc(n * sizeof(double)) - 1;
+    double * const z = (double *)malloc(n * sizeof(double)) - 1;
 #define A(r,c) a[n*(r-1)+c-1]
 #define W(c) w[c-1]
 #define ROTATE(i,j,k,l) g=A(i,j);h=A(k,l);A(i,j)=g-s*(h+g*tau);A(k,l)=h+s*(g-h*tau)
@@ -61,7 +61,7 @@ static int jacobi(double *a, unsigned int n, double w[]) {
         }
         for (ip = 1; ip <= n; ip++) { b[ip] += z[ip]; W(ip) = b[ip]; z[ip] = 0; }
     }
-    free(z++); free(b++); return -1;
+    free(z + 1); free(b + 1); return -1;
 }
 
 /*ARGSUSED*/
