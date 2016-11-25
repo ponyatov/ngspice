@@ -92,7 +92,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 	    /*           _______
 	 * M = k * \/l1 * l2 
 	 */
-            here->MUTfactor = here->MUTcoupling * sqrt(ind1 * ind2); 
+            here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2)); 
 
             /* Fill in the L matrix for each set */
             temp = model->setNode ;
