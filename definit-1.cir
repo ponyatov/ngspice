@@ -19,7 +19,6 @@ Xbad2  a 0 b 0 ind2 L11=1u L22=4u L12=2.01u
 Xgood3 a 0 b 0 ind2 L11=1u L22=4u L12=-1.98u
 Xbad4  a 0 b 0 ind2 L11=1u L22=4u L12=-2.01u
 
-* test doesnt cover this
 Xbad5 a 0 b 0 ind2 L11=1u L22=-4u L12=1n
 Xbad6 a 0 b 0 ind2 L11=-1u L22=4u L12=1n
 
