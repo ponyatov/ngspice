@@ -110,6 +110,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
         /* Extract Eigenvalues by using Jacobi's Algorithm */
         temp = ckt->inductanceMatrixSets ;
         while (temp != NULL) {
+            if (!temp->INDmatrixSize)
+                continue;
             ev = TMALLOC (double, temp->INDmatrixSize) ;
 
             ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
