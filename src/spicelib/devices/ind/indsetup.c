@@ -87,11 +87,12 @@ INDsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 here->INDbrEq = tmp->number;
             }
 
-            /* Initialize the 'matrixIndex' attribute */
+            /* Initialize the 'INDmatrixIndex' attribute */
             here->INDmatrixIndex = -1 ;
 
-            /* Initialize the 'setIndex' attribute */
-            here->INDsetIndex = -1 ;
+            /* Initialize the 'INDhasSetAssigned' attribute */
+            here->INDhasSetAssigned = 0 ;
+
             here->Xnext = NULL;
 
 /* macro to make elements with built in test for out of memory */

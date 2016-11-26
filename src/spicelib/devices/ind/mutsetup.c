@@ -24,7 +24,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
     MUTset *temp ;
-    int i, ktype;
+    int ktype;
 
     NG_IGNORE(states);
 
@@ -32,7 +32,6 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
     for( ; model != NULL; model = model->MUTnextModel ) {
 
         /* loop through all the instances of the model */
-        i = 0 ;
         for (here = model->MUTinstances; here != NULL ;
                 here=here->MUTnextInstance) {
             
@@ -59,66 +58,52 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             }
 
             /* Assign 'setIndex' and 'matrixIndex' for L matrix */
-            if ((here->MUTind1->INDsetIndex == -1) && (here->MUTind2->INDsetIndex == -1)) {
+            if ((!here->MUTind1->INDhasSetAssigned) && (!here->MUTind2->INDhasSetAssigned)) {
                 /* Create the set */
-                here->MUTind1->INDsetIndex = i ;
-                here->MUTind2->INDsetIndex = i ;
+                here->MUTind1->INDhasSetAssigned = 1 ;
+                here->MUTind2->INDhasSetAssigned = 1 ;
                 here->MUTind1->INDmatrixIndex = 0 ;
                 here->MUTind2->INDmatrixIndex = 1 ;
 
                 temp = TMALLOC (MUTset, 1) ;
                 temp->MUTmatrixLsize = 2 ;
-                temp->MUTsetIndex = i ;
                 temp->next = model->setNode ;
                 temp->Xindhead = here->MUTind1;
                 here->MUTind1->Xnext = here->MUTind2;
                 temp->Xmuthead = here;
                 model->setNode = temp ;
 
-                i++ ;
-            } else if ((here->MUTind1->INDsetIndex > -1) && (here->MUTind2->INDsetIndex == -1)) {
+                here->MUTind1->setPtr = temp ;
+                here->MUTind2->setPtr = temp ;
+            } else if ((here->MUTind1->INDhasSetAssigned) && (!here->MUTind2->INDhasSetAssigned)) {
                 /* Add the new MUTind2 into the set */
-                here->MUTind2->INDsetIndex = here->MUTind1->INDsetIndex ;
-                temp = model->setNode ;
-                while (temp != NULL) {
-                    if (temp->MUTsetIndex == here->MUTind1->INDsetIndex) {
-                        here->MUTind2->INDmatrixIndex = temp->MUTmatrixLsize ;
-                        temp->MUTmatrixLsize++ ;
-                        here->MUTind2->Xnext = temp->Xindhead;
-                        temp->Xindhead = here->MUTind2;
-                        here->Xnext = temp->Xmuthead;
-                        temp->Xmuthead = here;
-                        break ;
-                    }
-                    temp = temp->next ;
-                }
-            } else if ((here->MUTind1->INDsetIndex == -1) && (here->MUTind2->INDsetIndex > -1)) {
+                here->MUTind2->INDhasSetAssigned = 1 ;
+                temp = here->MUTind1->setPtr ;
+                here->MUTind2->INDmatrixIndex = temp->MUTmatrixLsize ;
+                temp->MUTmatrixLsize++ ;
+                here->MUTind2->Xnext = temp->Xindhead;
+                temp->Xindhead = here->MUTind2;
+                here->Xnext = temp->Xmuthead;
+                temp->Xmuthead = here;
+
+                here->MUTind2->setPtr = temp ;
+            } else if ((!here->MUTind1->INDhasSetAssigned) && (here->MUTind2->INDhasSetAssigned)) {
                 /* Add the new MUTind1 into the set */
-                here->MUTind1->INDsetIndex = here->MUTind2->INDsetIndex ;
-                temp = model->setNode ;
-                while (temp != NULL) {
-                    if (temp->MUTsetIndex == here->MUTind2->INDsetIndex) {
-                        here->MUTind1->INDmatrixIndex = temp->MUTmatrixLsize ;
-                        temp->MUTmatrixLsize++ ;
-                        here->MUTind1->Xnext = temp->Xindhead;
-                        temp->Xindhead = here->MUTind1;
-                        here->Xnext = temp->Xmuthead;
-                        temp->Xmuthead = here;
-                        break ;
-                    }
-                    temp = temp->next ;
-                }
+                here->MUTind1->INDhasSetAssigned = 1 ;
+                temp = here->MUTind2->setPtr ;
+                here->MUTind1->INDmatrixIndex = temp->MUTmatrixLsize ;
+                temp->MUTmatrixLsize++ ;
+                here->MUTind1->Xnext = temp->Xindhead;
+                temp->Xindhead = here->MUTind1;
+                here->Xnext = temp->Xmuthead;
+                temp->Xmuthead = here;
+
+                here->MUTind1->setPtr = temp ;
             } else {
                 /* Add only the K coefficient into the set */
-                temp = model->setNode ;
-                while (temp != NULL) {
-                    if (temp->MUTsetIndex == here->MUTind2->INDsetIndex) {
-                        here->Xnext = temp->Xmuthead;
-                        temp->Xmuthead = here;
-                        break ;
-                    }
-                    temp = temp->next ;
-                }
+                temp = here->MUTind2->setPtr ;
+                here->Xnext = temp->Xmuthead;
+                temp->Xmuthead = here;
             }
 
 /* macro to make elements with built in test for out of memory */

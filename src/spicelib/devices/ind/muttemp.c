@@ -73,7 +73,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
     MUTset *temp ;
     double *ev, ind1, ind2 ;
     int found, i, ret ;
-//    int j ;
 
     NG_IGNORE(ckt);
 
@@ -89,30 +88,23 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 	    ind1 = here->MUTind1->INDinduct;
 	    ind2 = here->MUTind2->INDinduct;
 	    
-	    /*           _______
+        /*           _______
 	 * M = k * \/l1 * l2 
 	 */
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2)); 
 
             /* Fill in the L matrix for each set */
-            temp = model->setNode ;
-            while (temp != NULL) {
-                if ((temp->MUTsetIndex == here->MUTind1->INDsetIndex) && (temp->MUTsetIndex == here->MUTind2->INDsetIndex)) {
-                    if (0) {
-                        printf ("Set Index 1: %d, %s\n", here->MUTind1->INDsetIndex, here->MUTind1->INDname) ;
-                        printf ("Set Index 2: %d, %s\n", here->MUTind2->INDsetIndex, here->MUTind2->INDname) ;
-                        printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
-                        printf ("Matrix Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
-                        printf ("%s\n", here->MUTname);
-                    }
-                    temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = ind1 ;
-                    temp->MUTmatrixL [here->MUTind2->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = ind2 ;
-                    temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
-                    temp->MUTmatrixL [here->MUTind2->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = here->MUTfactor ;
-                    break ;
-                }
-                temp = temp->next ;
+            if (0) {
+                printf ("HasSetAssigned 1: %d, %s\n", here->MUTind1->INDhasSetAssigned, here->MUTind1->INDname) ;
+                printf ("HasSetAssigned 2: %d, %s\n", here->MUTind2->INDhasSetAssigned, here->MUTind2->INDname) ;
+                printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
+                printf ("Matrix Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
+                printf ("%s\n", here->MUTname);
             }
+            here->MUTind1->setPtr->MUTmatrixL [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = ind1 ;
+            here->MUTind1->setPtr->MUTmatrixL [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = ind2 ;
+            here->MUTind1->setPtr->MUTmatrixL [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
+            here->MUTind1->setPtr->MUTmatrixL [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = here->MUTfactor ;
 	}
 
         /* Extract Eigenvalues by using Jacobi's Algorithm */

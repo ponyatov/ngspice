@@ -15,8 +15,11 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/gendefs.h"
 #include "ngspice/cktdefs.h"
 
-/* structures used to descrive inductors */
+/* Forward declaration of MUTset */
+typedef struct sMUTset MUTset ;
 
+
+/* structures used to descrive inductors */
 
 /* information needed for each instance */
 
@@ -64,7 +67,8 @@ typedef struct sINDinstance {
             set equal to  0 if not a design parameter*/
 
     int INDmatrixIndex ;
-    int INDsetIndex ;
+    unsigned int INDhasSetAssigned : 1 ;
+    MUTset *setPtr ;
     struct sINDinstance *Xnext;
 
 } INDinstance ;
@@ -114,7 +118,6 @@ typedef struct sINDmodel {       /* model structure for an inductor */
 
 /* structures used to describe mutual inductors */
 
-
 /* information needed for each instance */
 
 typedef struct sMUTinstance {
@@ -147,6 +150,7 @@ typedef struct sMUTset {
     INDinstance *Xindhead;
     MUTinstance *Xmuthead;
 } MUTset ;
+
 
 /* per model data */
 
