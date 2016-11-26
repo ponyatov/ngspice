@@ -15,9 +15,6 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/gendefs.h"
 #include "ngspice/cktdefs.h"
 
-/* Forward declaration of MUTset */
-typedef struct sMUTset MUTset ;
-
 
 /* structures used to descrive inductors */
 
@@ -144,7 +141,6 @@ int  MUTsenParmNo;   /* parameter # for sensitivity use;
 typedef struct sMUTset {
     double *MUTmatrixL ;
     int MUTmatrixLsize ;
-    int MUTsetIndex ;
     struct sMUTset *next ;
     INDinstance *Xindhead;
     MUTinstance *Xmuthead;
@@ -162,10 +158,6 @@ MUTinstance * MUTinstances; /* pointer to list of instances that have this
 IFuid MUTmodName;       /* pointer to character string naming this model */
 
 /* --- end of generic struct GENmodel --- */
-
-    int MUTcount ;
-    MUTset *setNode ;
-
 } MUTmodel;
 
 #endif /*MUTUAL*/

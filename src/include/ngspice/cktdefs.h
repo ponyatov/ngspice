@@ -33,6 +33,9 @@
 #include "ngspice/hash.h"
 
 
+/* Forward declaration of MUTset */
+typedef struct sMUTset MUTset ;
+
 
 struct CKTnode {
     IFuid name;
@@ -295,6 +298,8 @@ struct CKTcircuit {
     NGHASHPTR MODnameHash;
 
     GENinstance *noise_input;   /* identify the input vsrc/isrc during noise analysis */
+
+    MUTset *inductanceMatrixSets ;
 };
 
 

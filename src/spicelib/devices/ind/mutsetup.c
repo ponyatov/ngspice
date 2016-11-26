@@ -65,11 +65,11 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 
                 temp = TMALLOC (MUTset, 1) ;
                 temp->MUTmatrixLsize = 2 ;
-                temp->next = model->setNode ;
+                temp->next = ckt->inductanceMatrixSets ;
                 temp->Xindhead = here->MUTind1;
                 here->MUTind1->Xnext = here->MUTind2;
                 temp->Xmuthead = here;
-                model->setNode = temp ;
+                ckt->inductanceMatrixSets = temp ;
 
                 here->MUTind1->setPtr = temp ;
                 here->MUTind2->setPtr = temp ;
@@ -115,7 +115,7 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
         }
 
         /* Allocate the correct space for the L matrix of each set */
-        temp = model->setNode ;
+        temp = ckt->inductanceMatrixSets ;
         while (temp != NULL) {
            temp->MUTmatrixL = TMALLOC (double, temp->MUTmatrixLsize * temp->MUTmatrixLsize) ;
            temp = temp->next ;
