@@ -23,7 +23,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    MUTset *temp ;
+    INDmatrixSet *temp ;
     int ktype;
 
     NG_IGNORE(states);
@@ -63,8 +63,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 here->MUTind1->INDmatrixIndex = 0 ;
                 here->MUTind2->INDmatrixIndex = 1 ;
 
-                temp = TMALLOC (MUTset, 1) ;
-                temp->MUTmatrixLsize = 2 ;
+                temp = TMALLOC (INDmatrixSet, 1) ;
+                temp->INDmatrixSize = 2 ;
                 temp->next = ckt->inductanceMatrixSets ;
                 temp->Xindhead = here->MUTind1;
                 here->MUTind1->Xnext = here->MUTind2;
@@ -76,8 +76,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             } else if (here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Add the new MUTind2 into the set */
                 temp = here->MUTind1->setPtr ;
-                here->MUTind2->INDmatrixIndex = temp->MUTmatrixLsize ;
-                temp->MUTmatrixLsize++ ;
+                here->MUTind2->INDmatrixIndex = temp->INDmatrixSize ;
+                temp->INDmatrixSize++ ;
                 here->MUTind2->Xnext = temp->Xindhead;
                 temp->Xindhead = here->MUTind2;
                 here->Xnext = temp->Xmuthead;
@@ -87,8 +87,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             } else if (!here->MUTind1->setPtr && here->MUTind2->setPtr) {
                 /* Add the new MUTind1 into the set */
                 temp = here->MUTind2->setPtr ;
-                here->MUTind1->INDmatrixIndex = temp->MUTmatrixLsize ;
-                temp->MUTmatrixLsize++ ;
+                here->MUTind1->INDmatrixIndex = temp->INDmatrixSize ;
+                temp->INDmatrixSize++ ;
                 here->MUTind1->Xnext = temp->Xindhead;
                 temp->Xindhead = here->MUTind1;
                 here->Xnext = temp->Xmuthead;
@@ -117,7 +117,7 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
         /* Allocate the correct space for the L matrix of each set */
         temp = ckt->inductanceMatrixSets ;
         while (temp != NULL) {
-           temp->MUTmatrixL = TMALLOC (double, temp->MUTmatrixLsize * temp->MUTmatrixLsize) ;
+           temp->INDmatrix = TMALLOC (double, temp->INDmatrixSize * temp->INDmatrixSize) ;
            temp = temp->next ;
         }
     }

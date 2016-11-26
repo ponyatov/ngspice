@@ -70,7 +70,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    MUTset *temp, *temp1 ;
+    INDmatrixSet *temp, *temp1 ;
     double *ev, ind1, ind2 ;
     int found, i, ret ;
 
@@ -101,21 +101,21 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                 printf ("Matrix Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
                 printf ("%s\n", here->MUTname);
             }
-            here->MUTind1->setPtr->MUTmatrixL [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = ind1 ;
-            here->MUTind1->setPtr->MUTmatrixL [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = ind2 ;
-            here->MUTind1->setPtr->MUTmatrixL [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
-            here->MUTind1->setPtr->MUTmatrixL [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = here->MUTfactor ;
+            here->MUTind1->setPtr->INDmatrix [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind1->INDmatrixIndex] = ind1 ;
+            here->MUTind1->setPtr->INDmatrix [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind2->INDmatrixIndex] = ind2 ;
+            here->MUTind1->setPtr->INDmatrix [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
+            here->MUTind1->setPtr->INDmatrix [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind1->INDmatrixIndex] = here->MUTfactor ;
 	}
 
         /* Extract Eigenvalues by using Jacobi's Algorithm */
         temp = ckt->inductanceMatrixSets ;
         while (temp != NULL) {
-            ev = TMALLOC (double, temp->MUTmatrixLsize) ;
+            ev = TMALLOC (double, temp->INDmatrixSize) ;
 
-            ret = jacobi (temp->MUTmatrixL, (unsigned int)temp->MUTmatrixLsize, ev) ;
+            ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
             if (ret > -1) {
                 found = 0 ;
-                for (i = 0 ; i < temp->MUTmatrixLsize ; i++) {
+                for (i = 0 ; i < temp->INDmatrixSize ; i++) {
                     if (ev [i] < 0) {
                         found = 1 ;
                         break ;
@@ -143,9 +143,9 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
                 if (found) {
                     fprintf (stderr, "is NOT positive definite!!!\n") ;
-                    fprintf (stderr, "    %-.9g", temp->MUTmatrixL [0]) ;
-                    for (i = 1 ; i < temp->MUTmatrixLsize ; i++) {
-                        fprintf (stderr, "  |  %-.9g", temp->MUTmatrixL [i * temp->MUTmatrixLsize + i]) ;
+                    fprintf (stderr, "    %-.9g", temp->INDmatrix [0]) ;
+                    for (i = 1 ; i < temp->INDmatrixSize ; i++) {
+                        fprintf (stderr, "  |  %-.9g", temp->INDmatrix [i * temp->INDmatrixSize + i]) ;
                     }
                     fprintf (stderr, "\n\n\n") ;
                 } else {
@@ -159,7 +159,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
         /* Free memory related to the inductance matrix sets */
         temp = ckt->inductanceMatrixSets ;
         while (temp != NULL) {
-            FREE (temp->MUTmatrixL) ;
+            FREE (temp->INDmatrix) ;
             temp1 = temp ;
             temp = temp->next ;
             FREE (temp1) ;
