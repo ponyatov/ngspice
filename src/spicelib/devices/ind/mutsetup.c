@@ -101,7 +101,30 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 here->Xnext = temp->Xmuthead;
                 temp->Xmuthead = here;
             } else {
-                fprintf(stderr, "Ouch, FIXME, this case is not yet coded\n");
+                INDmatrixSet *s1 = here->MUTind1->setPtr;
+                INDmatrixSet *s2 = here->MUTind2->setPtr;
+                MUTinstance *hm;
+                INDinstance *hi;
+                fprintf(stderr, "Attention, this case might be coded now\n");
+
+                // append set2 to set1, leave a consumed set2 behind
+                s1->INDmatrixSize += s2->INDmatrixSize;
+                s2->INDmatrixSize = 0;
+                for (hi = s2->Xindhead; hi; hi = hi->Xnext) {
+                    hi->setPtr = s1;
+                    if (!hi->Xnext)
+                        break;
+                }
+                hi->Xnext = s1->Xindhead;
+                s1->Xindhead = s2->Xindhead;
+                s2->Xindhead = NULL;
+                for (hm = s2->Xmuthead; hm; hm = hm->Xnext) {
+                    if (!hm->Xnext)
+                        break;
+                }
+                hm->Xnext = s1->Xmuthead;
+                s1->Xmuthead = s2->Xmuthead;
+                s2->Xmuthead = NULL;
             }
 
 /* macro to make elements with built in test for out of memory */
