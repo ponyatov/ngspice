@@ -95,11 +95,13 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 temp->Xmuthead = here;
 
                 here->MUTind1->setPtr = temp ;
-            } else {
+            } else if (here->MUTind1->setPtr == here->MUTind2->setPtr) {
                 /* Add only the K coefficient into the set */
                 temp = here->MUTind2->setPtr ;
                 here->Xnext = temp->Xmuthead;
                 temp->Xmuthead = here;
+            } else {
+                fprintf(stderr, "Ouch, FIXME, this case is not yet coded\n");
             }
 
 /* macro to make elements with built in test for out of memory */
