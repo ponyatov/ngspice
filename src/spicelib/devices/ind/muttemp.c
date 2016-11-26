@@ -123,6 +123,16 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                 }
 
                 MUTinstance *hm;
+                if (found) {
+                    found = 0 ;
+                    for (hm = temp->Xmuthead; hm; hm = hm->Xnext) {
+                        if (fabs (hm->MUTcoupling) < 1) {
+                            found = 1 ;
+                            break ;
+                        }
+                    }
+                }
+
                 INDinstance *hi;
                 fprintf(stderr, "The set of inductances composed by\n");
                 for (hi = temp->Xindhead;  hi; hi = hi->Xnext)
