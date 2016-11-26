@@ -70,7 +70,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    MUTset *temp ;
+    MUTset *temp, *temp1 ;
     double *ev, ind1, ind2 ;
     int found, i, ret ;
 
@@ -144,6 +144,15 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             }
             FREE (ev) ;
             temp = temp->next ;
+        }
+
+        /* Free memory related to the inductance matrix sets */
+        temp = ckt->inductanceMatrixSets ;
+        while (temp != NULL) {
+            FREE (temp->MUTmatrixL) ;
+            temp1 = temp ;
+            temp = temp->next ;
+            FREE (temp1) ;
         }
     }
     return(OK);
