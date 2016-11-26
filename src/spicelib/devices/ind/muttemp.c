@@ -126,7 +126,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                 if (found) {
                     found = 0 ;
                     for (hm = temp->Xmuthead; hm; hm = hm->Xnext) {
-                        if (fabs (hm->MUTcoupling) < 1) {
+                        if (fabs (hm->MUTcoupling) != 1.0) {
                             found = 1 ;
                             break ;
                         }
