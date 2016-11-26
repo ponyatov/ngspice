@@ -99,13 +99,11 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             while (temp != NULL) {
                 if ((temp->MUTsetIndex == here->MUTind1->INDsetIndex) && (temp->MUTsetIndex == here->MUTind2->INDsetIndex)) {
                     if (0) {
-                    printf ("Set Index 1: %d, %s\n", here->MUTind1->INDsetIndex,
-                        here->MUTind1->INDname) ;
-                    printf ("Set Index 2: %d, %s\n", here->MUTind2->INDsetIndex,
-                            here->MUTind2->INDname) ;
-                    printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
-                    printf ("Maitrx Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
-                    printf ("%s\n", here->MUTname);
+                        printf ("Set Index 1: %d, %s\n", here->MUTind1->INDsetIndex, here->MUTind1->INDname) ;
+                        printf ("Set Index 2: %d, %s\n", here->MUTind2->INDsetIndex, here->MUTind2->INDname) ;
+                        printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
+                        printf ("Matrix Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
+                        printf ("%s\n", here->MUTname);
                     }
                     temp->MUTmatrixL [here->MUTind1->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind1->INDmatrixIndex] = ind1 ;
                     temp->MUTmatrixL [here->MUTind2->INDmatrixIndex * temp->MUTmatrixLsize + here->MUTind2->INDmatrixIndex] = ind2 ;
@@ -134,7 +132,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
                 MUTinstance *hm;
                 INDinstance *hi;
-                fprintf(stderr, "The set of inductances composed of\n");
+                fprintf(stderr, "The set of inductances composed by\n");
                 for (hi = temp->Xindhead;  hi; hi = hi->Xnext)
                     fprintf(stderr, " %s", hi->INDname);
                 for (hm = temp->Xmuthead;  hm; hm = hm->Xnext)

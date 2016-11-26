@@ -108,6 +108,17 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                     }
                     temp = temp->next ;
                 }
+            } else {
+                /* Add only the K coefficient into the set */
+                temp = model->setNode ;
+                while (temp != NULL) {
+                    if (temp->MUTsetIndex == here->MUTind2->INDsetIndex) {
+                        here->Xnext = temp->Xmuthead;
+                        temp->Xmuthead = here;
+                        break ;
+                    }
+                    temp = temp->next ;
+                }
             }
 
 /* macro to make elements with built in test for out of memory */
