@@ -95,8 +95,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
             /* Fill in the L matrix for each set */
             if (0) {
-                printf ("HasSetAssigned 1: %d, %s\n", here->MUTind1->INDhasSetAssigned, here->MUTind1->INDname) ;
-                printf ("HasSetAssigned 2: %d, %s\n", here->MUTind2->INDhasSetAssigned, here->MUTind2->INDname) ;
+                printf ("HasSetAssigned 1: %d, %s\n", here->MUTind1->setPtr != NULL, here->MUTind1->INDname) ;
+                printf ("HasSetAssigned 2: %d, %s\n", here->MUTind2->setPtr != NULL, here->MUTind2->INDname) ;
                 printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
                 printf ("Matrix Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
                 printf ("%s\n", here->MUTname);

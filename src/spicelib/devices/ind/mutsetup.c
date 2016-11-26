@@ -58,10 +58,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             }
 
             /* Assign 'setIndex' and 'matrixIndex' for L matrix */
-            if ((!here->MUTind1->INDhasSetAssigned) && (!here->MUTind2->INDhasSetAssigned)) {
+            if (!here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Create the set */
-                here->MUTind1->INDhasSetAssigned = 1 ;
-                here->MUTind2->INDhasSetAssigned = 1 ;
                 here->MUTind1->INDmatrixIndex = 0 ;
                 here->MUTind2->INDmatrixIndex = 1 ;
 
@@ -75,9 +73,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 
                 here->MUTind1->setPtr = temp ;
                 here->MUTind2->setPtr = temp ;
-            } else if ((here->MUTind1->INDhasSetAssigned) && (!here->MUTind2->INDhasSetAssigned)) {
+            } else if (here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Add the new MUTind2 into the set */
-                here->MUTind2->INDhasSetAssigned = 1 ;
                 temp = here->MUTind1->setPtr ;
                 here->MUTind2->INDmatrixIndex = temp->MUTmatrixLsize ;
                 temp->MUTmatrixLsize++ ;
@@ -87,9 +84,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 temp->Xmuthead = here;
 
                 here->MUTind2->setPtr = temp ;
-            } else if ((!here->MUTind1->INDhasSetAssigned) && (here->MUTind2->INDhasSetAssigned)) {
+            } else if (!here->MUTind1->setPtr && here->MUTind2->setPtr) {
                 /* Add the new MUTind1 into the set */
-                here->MUTind1->INDhasSetAssigned = 1 ;
                 temp = here->MUTind2->setPtr ;
                 here->MUTind1->INDmatrixIndex = temp->MUTmatrixLsize ;
                 temp->MUTmatrixLsize++ ;

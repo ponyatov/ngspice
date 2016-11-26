@@ -67,7 +67,6 @@ typedef struct sINDinstance {
             set equal to  0 if not a design parameter*/
 
     int INDmatrixIndex ;
-    unsigned int INDhasSetAssigned : 1 ;
     MUTset *setPtr ;
     struct sINDinstance *Xnext;
 

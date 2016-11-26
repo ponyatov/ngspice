@@ -91,7 +91,7 @@ INDsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             here->INDmatrixIndex = -1 ;
 
             /* Initialize the 'INDhasSetAssigned' attribute */
-            here->INDhasSetAssigned = 0 ;
+            here->setPtr = NULL;
 
             here->Xnext = NULL;
 
