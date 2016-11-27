@@ -62,6 +62,40 @@ static int jacobi(double *a, unsigned int n, double w[]) {
         for (ip = 1; ip <= n; ip++) { b[ip] += z[ip]; W(ip) = b[ip]; z[ip] = 0; }
     }
     free(z + 1); free(b + 1); return -1;
+#undef A
+}
+
+static int
+cholesky(double *a, int n)
+{
+#define A(r,c) a[n*r + c]
+    int i, j, k;
+    if (0)
+        for (i = 0; i < n; i++) {
+            for (j = 0; j <= i; j++)
+                printf(" %10g", A(i,j));
+            printf("\n");
+        }
+    for (i = 0; i < n; i++)
+        for (j = 0; j <= i; j++) {
+            double Summe = A(i, j);
+            for (k = 0 ; k < j; k++)
+                Summe -= A(i, k) * A(j, k);
+            if (i > j)
+                A(i, j) = Summe / A(j, j);
+            else if (Summe > 0)
+                A(i, i) = sqrt(Summe);
+            else
+                return 0;
+        }
+    if (0)
+        for (i = 0; i < n; i++) {
+            for (j = 0; j <= i; j++)
+                printf(" %10g", A(i,j));
+            printf("\n");
+        }
+    return 1;
+#undef A
 }
 
 /*ARGSUSED*/
@@ -105,6 +139,10 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
         for (; temp; temp = temp->next) {
             if (!temp->INDmatrixSize)
                 continue;
+            static int use_cholesky = 1;
+            if (use_cholesky)
+                found = !cholesky(temp->INDmatrix, temp->INDmatrixSize) ;
+            else
             {
                 double *ev = TMALLOC (double, temp->INDmatrixSize) ;
 
