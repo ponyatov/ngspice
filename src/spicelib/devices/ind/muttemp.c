@@ -135,7 +135,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                 }
 
                 if (found) {
-                    fprintf(stderr, "The inductive System composed of following components, is not positive definit !\n");
+                    fprintf(stderr, "The inductive System composed of following components, is not positive definite\n");
                     for (hi = temp->Xindhead;  hi; hi = hi->Xnext)
                         fprintf(stderr, " %s", hi->INDname);
                     fprintf(stderr, "\n");
