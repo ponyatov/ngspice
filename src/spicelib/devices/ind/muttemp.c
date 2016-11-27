@@ -71,8 +71,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
     INDmatrixSet *temp, *temp1 ;
-    double *ev, ind1, ind2 ;
-    int found, i, ret ;
+    double ind1, ind2 ;
+    int found, i;
 
     NG_IGNORE(ckt);
 
@@ -105,25 +105,28 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
         for (; temp; temp = temp->next) {
             if (!temp->INDmatrixSize)
                 continue;
-            ev = TMALLOC (double, temp->INDmatrixSize) ;
+            {
+                double *ev = TMALLOC (double, temp->INDmatrixSize) ;
 
-            ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
-            if (ret < 0) {
-                fprintf(stderr, "jacobi() did not properly terminate, skipping the check\n");
+                int ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
+                if (ret < 0) {
+                    fprintf(stderr, "jacobi() did not properly terminate, skipping the check\n");
+                    FREE (ev) ;
+                    continue;
+                }
+
+                found = 0 ;
+                for (i = 0 ; i < temp->INDmatrixSize ; i++)
+                    if (ev [i] < 0) {
+                        found = 1 ;
+                        break ;
+                    }
                 FREE (ev) ;
-                continue;
             }
 
             {
                 MUTinstance *hm;
                 INDinstance *hi;
-                found = 0 ;
-                for (i = 0 ; i < temp->INDmatrixSize ; i++) {
-                    if (ev [i] < 0) {
-                        found = 1 ;
-                        break ;
-                    }
-                }
 
                 if (found) {
                     found = 0 ;
@@ -157,7 +160,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     fprintf(stderr, "\n");
                 }
             }
-            FREE (ev) ;
         }
 
         /* Free memory related to the inductance matrix sets */
