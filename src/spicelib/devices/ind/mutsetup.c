@@ -107,10 +107,10 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 INDinstance *hi;
 
                 // append set2 to set1, leave a consumed set2 behind
-                s1->INDmatrixSize += s2->INDmatrixSize;
                 s2->INDmatrixSize = 0;
                 for (hi = s2->Xindhead; hi; hi = hi->Xnext) {
                     hi->setPtr = s1;
+                    hi->INDmatrixIndex = s1->INDmatrixSize++;
                     if (!hi->Xnext)
                         break;
                 }
