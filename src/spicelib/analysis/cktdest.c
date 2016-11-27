@@ -27,6 +27,7 @@ CKTdestroy(CKTcircuit *ckt)
     CKTnode *node;
     CKTnode *nnode;
 
+    MUTfree_inductanceSets(ckt);
 
 #ifdef WANT_SENSE2
     if(ckt->CKTsenInfo){

@@ -35,6 +35,7 @@
 
 /* Forward declaration of INDmatrixSet */
 typedef struct sINDmatrixSet INDmatrixSet ;
+void MUTfree_inductanceSets(CKTcircuit *ckt);
 
 
 struct CKTnode {

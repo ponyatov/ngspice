@@ -28,6 +28,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 
     NG_IGNORE(states);
 
+    MUTfree_inductanceSets(ckt);
+
     /*  loop through all the inductor models */
     for( ; model != NULL; model = model->MUTnextModel ) {
 
@@ -145,4 +147,19 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
     }
     return(OK);
 }
+
+
+void
+MUTfree_inductanceSets(CKTcircuit *ckt)
+{
+    INDmatrixSet *temp = ckt->inductanceMatrixSets;
+    while (temp) {
+        INDmatrixSet *next_temp = temp->next;
+        FREE (temp->INDmatrix) ;
+        FREE (temp) ;
+        temp = next_temp ;
+    }
+    ckt->inductanceMatrixSets = NULL;
+}
+
 #endif /* MUTUAL */
