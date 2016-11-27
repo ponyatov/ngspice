@@ -105,7 +105,6 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 INDmatrixSet *s2 = here->MUTind2->setPtr;
                 MUTinstance *hm;
                 INDinstance *hi;
-                fprintf(stderr, "Attention, this case might be coded now\n");
 
                 // append set2 to set1, leave a consumed set2 behind
                 s1->INDmatrixSize += s2->INDmatrixSize;

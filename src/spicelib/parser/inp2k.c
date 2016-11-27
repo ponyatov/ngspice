@@ -49,11 +49,7 @@ void INP2K(CKTcircuit *ckt, INPtables * tab, card * current)
 
     PARSECALL((&line, ckt, type, fast, &leadval, &waslead, tab));
     if (waslead) {
-        /* Check if K value is in the range -1 and +1 */
-        if ((leadval < -1) || (leadval > 1)) {
-            fprintf (stderr, "Warning: The mutual inductor '%s' has a K coefficient value equal to '%-.9g' not in the range [-1,1]\n", name, leadval);
-        }
-        ptemp.rValue = leadval;
-        GCA(INPpName, ("coefficient", &ptemp, ckt, type, fast));
+	ptemp.rValue = leadval;
+	GCA(INPpName, ("coefficient", &ptemp, ckt, type, fast));
     }
 }

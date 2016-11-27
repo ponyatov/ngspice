@@ -94,13 +94,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2)); 
 
             /* Fill in the L matrix for each set */
-            if (0) {
-                printf ("HasSetAssigned 1: %d, %s\n", here->MUTind1->setPtr != NULL, here->MUTind1->INDname) ;
-                printf ("HasSetAssigned 2: %d, %s\n", here->MUTind2->setPtr != NULL, here->MUTind2->INDname) ;
-                printf ("Matrix Index 1: %d\n", here->MUTind1->INDmatrixIndex) ;
-                printf ("Matrix Index 2: %d\n", here->MUTind2->INDmatrixIndex) ;
-                printf ("%s\n", here->MUTname);
-            }
             here->MUTind1->setPtr->INDmatrix [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind1->INDmatrixIndex] = ind1 ;
             here->MUTind1->setPtr->INDmatrix [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind2->INDmatrixIndex] = ind2 ;
             here->MUTind1->setPtr->INDmatrix [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
@@ -116,6 +109,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
             ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
             if (ret > -1) {
+                MUTinstance *hm;
+                INDinstance *hi;
                 found = 0 ;
                 for (i = 0 ; i < temp->INDmatrixSize ; i++) {
                     if (ev [i] < 0) {
@@ -124,34 +119,36 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     }
                 }
 
-                MUTinstance *hm;
                 if (found) {
                     found = 0 ;
-                    for (hm = temp->Xmuthead; hm; hm = hm->Xnext) {
+                    /* ignore jacobi if all K's are exactly 1 and all L's >= 0*/
+                    for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
                         if (fabs (hm->MUTcoupling) != 1.0) {
                             found = 1 ;
                             break ;
                         }
-                    }
+                    for (hi = temp->Xindhead; hi; hi = hi->Xnext)
+                        if (hi->INDinduct < 0) {
+                            found = 1 ;
+                            break ;
+                        }
                 }
 
-                INDinstance *hi;
-                fprintf(stderr, "The set of inductances composed by\n");
-                for (hi = temp->Xindhead;  hi; hi = hi->Xnext)
-                    fprintf(stderr, " %s", hi->INDname);
-                for (hm = temp->Xmuthead;  hm; hm = hm->Xnext)
-                    fprintf(stderr, " %s", hm->MUTname);
-                fprintf(stderr, "\n");
-
                 if (found) {
-                    fprintf (stderr, "is NOT positive definite!!!\n") ;
-                    fprintf (stderr, "    %-.9g", temp->INDmatrix [0]) ;
-                    for (i = 1 ; i < temp->INDmatrixSize ; i++) {
-                        fprintf (stderr, "  |  %-.9g", temp->INDmatrix [i * temp->INDmatrixSize + i]) ;
-                    }
-                    fprintf (stderr, "\n\n\n") ;
-                } else {
-                    fprintf (stderr, "is positive definite\n") ;
+                    fprintf(stderr, "The inductive System composed of following components, is not positive definit !\n");
+                    for (hi = temp->Xindhead;  hi; hi = hi->Xnext)
+                        fprintf(stderr, " %s", hi->INDname);
+                    fprintf(stderr, "\n");
+                    for (hm = temp->Xmuthead;  hm; hm = hm->Xnext)
+                        fprintf(stderr, " %s", hm->MUTname);
+                    fprintf(stderr, "\n");
+                    for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
+                        if (fabs (hm->MUTcoupling) > 1.0)
+                            fprintf(stderr, " |%s| > 1\n", hm->MUTname);
+                    for (hi = temp->Xindhead; hi; hi = hi->Xnext)
+                        if (hi->INDinduct < 0)
+                            fprintf(stderr, " %s < 0\n", hi->INDname);
+                    fprintf(stderr, "\n");
                 }
             }
             FREE (ev) ;
