@@ -140,6 +140,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             if (!temp->INDmatrixSize)
                 continue;
             static int use_cholesky = 1;
+            static double jactime;
+            double tjactime = SPfrontEnd->IFseconds();
             if (use_cholesky)
                 found = !cholesky(temp->INDmatrix, temp->INDmatrixSize) ;
             else
@@ -161,6 +163,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     }
                 FREE (ev) ;
             }
+            jactime += SPfrontEnd->IFseconds() - tjactime;
+            fprintf(stderr, "Time used by Jacobi/Cholesky positive definite test:  %6.3g seconds.\n", jactime);
 
             {
                 MUTinstance *hm;
