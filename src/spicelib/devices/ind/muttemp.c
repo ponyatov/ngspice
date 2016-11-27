@@ -108,7 +108,13 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             ev = TMALLOC (double, temp->INDmatrixSize) ;
 
             ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
-            if (ret > -1) {
+            if (ret < 0) {
+                fprintf(stderr, "jacobi() did not properly terminate, skipping the check\n");
+                FREE (ev) ;
+                continue;
+            }
+
+            {
                 MUTinstance *hm;
                 INDinstance *hi;
                 found = 0 ;
