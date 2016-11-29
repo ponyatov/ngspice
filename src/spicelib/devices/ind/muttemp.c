@@ -222,7 +222,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     for (hm = temp->Xmuthead;  hm; hm = hm->Xnext)
                         fprintf(stderr, " %s", hm->MUTname);
                     fprintf(stderr, "\n");
-                    fprintf(stderr, "is not positive definite\n");
+                    if (found)
+                        fprintf(stderr, "is not positive definite\n");
                     for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
                         if (fabs (hm->MUTcoupling) > 1.0)
                             fprintf(stderr, " |%s| > 1\n", hm->MUTname);
