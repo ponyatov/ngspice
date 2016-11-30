@@ -62,9 +62,6 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             /* Assign 'setIndex' and 'matrixIndex' for L matrix */
             if (!here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Create the set */
-                here->MUTind1->INDmatrixIndex = 0 ;
-                here->MUTind2->INDmatrixIndex = 1 ;
-
                 temp = TMALLOC (INDmatrixSet, 1) ;
                 temp->INDmatrixSize = 2 ;
                 temp->next = ckt->inductanceMatrixSets ;
@@ -78,7 +75,6 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             } else if (here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Add the new MUTind2 into the set */
                 temp = here->MUTind1->setPtr ;
-                here->MUTind2->INDmatrixIndex = temp->INDmatrixSize ;
                 temp->INDmatrixSize++ ;
                 here->MUTind2->Xnext = temp->Xindhead;
                 temp->Xindhead = here->MUTind2;
@@ -89,7 +85,6 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             } else if (!here->MUTind1->setPtr && here->MUTind2->setPtr) {
                 /* Add the new MUTind1 into the set */
                 temp = here->MUTind2->setPtr ;
-                here->MUTind1->INDmatrixIndex = temp->INDmatrixSize ;
                 temp->INDmatrixSize++ ;
                 here->MUTind1->Xnext = temp->Xindhead;
                 temp->Xindhead = here->MUTind1;
@@ -109,10 +104,10 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 INDinstance *hi;
 
                 // append set2 to set1, leave a consumed set2 behind
+                s1->INDmatrixSize += s2->INDmatrixSize;
                 s2->INDmatrixSize = 0;
                 for (hi = s2->Xindhead; hi; hi = hi->Xnext) {
                     hi->setPtr = s1;
-                    hi->INDmatrixIndex = s1->INDmatrixSize++;
                     if (!hi->Xnext)
                         break;
                 }

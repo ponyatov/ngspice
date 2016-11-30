@@ -146,6 +146,11 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             sz = temp->INDmatrixSize;
             memset(pop, 0, (size_t)(sz*sz));
             memset(INDmatrix, 0, (size_t)(sz*sz) * sizeof(double));
+            INDinstance *hi = temp->Xindhead;
+            for (i = 0; hi; hi = hi->Xnext) {
+                INDmatrix [i * sz + i] = hi->INDinduct;
+                hi->INDmatrixIndex = i++;
+            }
             MUTinstance *hm = temp->Xmuthead;
             int expect = (sz*sz - sz) / 2;
             int repetitions = 0;
@@ -161,11 +166,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     expect --;
                 }
                 INDmatrix [j * sz + k] = INDmatrix [k * sz + j] = hm->MUTfactor ;
-            }
-            INDinstance *hi = temp->Xindhead;
-            for (; hi; hi = hi->Xnext) {
-                int j = hi->INDmatrixIndex;
-                INDmatrix [j * sz + j] = hi->INDinduct;
             }
 
             static int use_cholesky = 1;
