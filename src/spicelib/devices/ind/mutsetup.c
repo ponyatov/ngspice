@@ -124,7 +124,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                         break;
                 }
                 hm->Xnext = s1->Xmuthead;
-                s1->Xmuthead = s2->Xmuthead;
+                here->Xnext = s2->Xmuthead;
+                s1->Xmuthead = here;
                 s2->Xmuthead = NULL;
             }
 
