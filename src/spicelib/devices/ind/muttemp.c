@@ -127,22 +127,15 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 	 */
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2)); 
 
-            /* Fill in the L matrix for each set */
-            here->MUTind1->setPtr->INDmatrix [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind1->INDmatrixIndex] = ind1 ;
-            here->MUTind1->setPtr->INDmatrix [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind2->INDmatrixIndex] = ind2 ;
-            here->MUTind1->setPtr->INDmatrix [here->MUTind1->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind2->INDmatrixIndex] = here->MUTfactor ;
-            here->MUTind1->setPtr->INDmatrix [here->MUTind2->INDmatrixIndex * here->MUTind1->setPtr->INDmatrixSize + here->MUTind1->INDmatrixIndex] = here->MUTfactor ;
 	}
 
         int sz = 0;
-        for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next) {
-            if (!temp->INDmatrixSize)
-                continue;
+        for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next)
             if (sz < temp->INDmatrixSize)
                 sz = temp->INDmatrixSize;
-        }
 
         char *pop = TMALLOC(char, sz * sz);
+        double *INDmatrix = TMALLOC (double, sz * sz);
 
         /* Extract Eigenvalues by using Jacobi's Algorithm */
         temp = ckt->inductanceMatrixSets ;
@@ -152,6 +145,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
             sz = temp->INDmatrixSize;
             memset(pop, 0, (size_t)(sz*sz));
+            memset(INDmatrix, 0, (size_t)(sz*sz) * sizeof(double));
             MUTinstance *hm = temp->Xmuthead;
             int expect = (sz*sz - sz) / 2;
             int repetitions = 0;
@@ -166,18 +160,24 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     pop[j*sz + k] = 1;
                     expect --;
                 }
+                INDmatrix [j * sz + k] = INDmatrix [k * sz + j] = hm->MUTfactor ;
+            }
+            INDinstance *hi = temp->Xindhead;
+            for (; hi; hi = hi->Xnext) {
+                int j = hi->INDmatrixIndex;
+                INDmatrix [j * sz + j] = hi->INDinduct;
             }
 
             static int use_cholesky = 1;
             static double jactime;
             double tjactime = SPfrontEnd->IFseconds();
             if (use_cholesky)
-                found = !cholesky(temp->INDmatrix, temp->INDmatrixSize) ;
+                found = !cholesky(INDmatrix, sz) ;
             else
             {
-                double *ev = TMALLOC (double, temp->INDmatrixSize) ;
+                double *ev = TMALLOC (double, sz) ;
 
-                int ret = jacobi (temp->INDmatrix, (unsigned int)temp->INDmatrixSize, ev) ;
+                int ret = jacobi (INDmatrix, (unsigned int)sz, ev) ;
                 if (ret < 0) {
                     fprintf(stderr, "jacobi() did not properly terminate, skipping the check\n");
                     FREE (ev) ;
@@ -185,7 +185,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                 }
 
                 found = 0 ;
-                for (i = 0 ; i < temp->INDmatrixSize ; i++)
+                for (i = 0 ; i < sz ; i++)
                     if (ev [i] < 0) {
                         found = 1 ;
                         break ;
@@ -240,10 +240,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
         }
 
         tfree(pop);
-
-        /* Free memory related to the inductance matrix sets */
-        for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next)
-            FREE (temp->INDmatrix) ;
+        tfree(INDmatrix);
     }
     return(OK);
 }

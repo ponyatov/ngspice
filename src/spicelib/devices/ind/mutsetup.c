@@ -139,12 +139,6 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
             TSTALLOC(MUTbr2br1,MUTind2->INDbrEq,MUTind1->INDbrEq);
         }
 
-        /* Allocate the correct space for the L matrix of each set */
-        temp = ckt->inductanceMatrixSets ;
-        while (temp != NULL) {
-           temp->INDmatrix = TMALLOC (double, temp->INDmatrixSize * temp->INDmatrixSize) ;
-           temp = temp->next ;
-        }
     }
     return(OK);
 }
@@ -156,7 +150,6 @@ MUTfree_inductanceSets(CKTcircuit *ckt)
     INDmatrixSet *temp = ckt->inductanceMatrixSets;
     while (temp) {
         INDmatrixSet *next_temp = temp->next;
-        FREE (temp->INDmatrix) ;
         FREE (temp) ;
         temp = next_temp ;
     }

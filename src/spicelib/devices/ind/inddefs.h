@@ -153,7 +153,6 @@ IFuid MUTmodName;       /* pointer to character string naming this model */
 
 
 typedef struct sINDmatrixSet {
-    double *INDmatrix ;
     int INDmatrixSize ;
     struct sINDmatrixSet *next ;
     INDinstance *Xindhead;
