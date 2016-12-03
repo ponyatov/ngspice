@@ -15,8 +15,8 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/gendefs.h"
 #include "ngspice/cktdefs.h"
 
-
 /* structures used to descrive inductors */
+
 
 /* information needed for each instance */
 
@@ -63,8 +63,8 @@ typedef struct sINDinstance {
     int  INDsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
-    int INDmatrixIndex ;
-    INDmatrixSet *setPtr ;
+    int INDmatrixIndex;
+    INDmatrixSet *setPtr;
     struct sINDinstance *Xnext;
 
 } INDinstance ;
@@ -114,6 +114,7 @@ typedef struct sINDmodel {       /* model structure for an inductor */
 
 /* structures used to describe mutual inductors */
 
+
 /* information needed for each instance */
 
 typedef struct sMUTinstance {
@@ -135,6 +136,7 @@ int  MUTsenParmNo;   /* parameter # for sensitivity use;
             set equal to  0 if not a design parameter*/
 
     struct sMUTinstance *Xnext;
+
 } MUTinstance ;
 
 
@@ -149,15 +151,16 @@ MUTinstance * MUTinstances; /* pointer to list of instances that have this
 IFuid MUTmodName;       /* pointer to character string naming this model */
 
 /* --- end of generic struct GENmodel --- */
+
 } MUTmodel;
 
 
 typedef struct sINDmatrixSet {
-    int INDmatrixSize ;
-    struct sINDmatrixSet *next ;
+    int INDmatrixSize;
+    struct sINDmatrixSet *next;
     INDinstance *Xindhead;
     MUTinstance *Xmuthead;
-} INDmatrixSet ;
+} INDmatrixSet;
 
 #endif /*MUTUAL*/
 

@@ -23,7 +23,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    INDmatrixSet *temp ;
+    INDmatrixSet *temp;
     int ktype;
 
     NG_IGNORE(states);
@@ -62,39 +62,36 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             /* Assign 'setIndex' and 'matrixIndex' for L matrix */
             if (!here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Create the set */
-                temp = TMALLOC (INDmatrixSet, 1) ;
-                temp->INDmatrixSize = 2 ;
-                temp->next = ckt->inductanceMatrixSets ;
+                temp = TMALLOC (INDmatrixSet, 1);
+                temp->INDmatrixSize = 2;
+                temp->next = ckt->inductanceMatrixSets;
                 temp->Xindhead = here->MUTind1;
                 here->MUTind1->Xnext = here->MUTind2;
                 temp->Xmuthead = here;
-                ckt->inductanceMatrixSets = temp ;
-
-                here->MUTind1->setPtr = temp ;
-                here->MUTind2->setPtr = temp ;
+                ckt->inductanceMatrixSets = temp;
+                here->MUTind1->setPtr = temp;
+                here->MUTind2->setPtr = temp;
             } else if (here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Add the new MUTind2 into the set */
-                temp = here->MUTind1->setPtr ;
-                temp->INDmatrixSize++ ;
+                temp = here->MUTind1->setPtr;
+                temp->INDmatrixSize++;
                 here->MUTind2->Xnext = temp->Xindhead;
                 temp->Xindhead = here->MUTind2;
                 here->Xnext = temp->Xmuthead;
                 temp->Xmuthead = here;
-
-                here->MUTind2->setPtr = temp ;
+                here->MUTind2->setPtr = temp;
             } else if (!here->MUTind1->setPtr && here->MUTind2->setPtr) {
                 /* Add the new MUTind1 into the set */
-                temp = here->MUTind2->setPtr ;
-                temp->INDmatrixSize++ ;
+                temp = here->MUTind2->setPtr;
+                temp->INDmatrixSize++;
                 here->MUTind1->Xnext = temp->Xindhead;
                 temp->Xindhead = here->MUTind1;
                 here->Xnext = temp->Xmuthead;
                 temp->Xmuthead = here;
-
-                here->MUTind1->setPtr = temp ;
+                here->MUTind1->setPtr = temp;
             } else if (here->MUTind1->setPtr == here->MUTind2->setPtr) {
                 /* Add only the K coefficient into the set */
-                temp = here->MUTind2->setPtr ;
+                temp = here->MUTind2->setPtr;
                 here->Xnext = temp->Xmuthead;
                 temp->Xmuthead = here;
             } else {
@@ -102,7 +99,6 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 INDmatrixSet *s2 = here->MUTind2->setPtr;
                 MUTinstance *hm;
                 INDinstance *hi;
-
                 // append set2 to set1, leave a consumed set2 behind
                 s1->INDmatrixSize += s2->INDmatrixSize;
                 s2->INDmatrixSize = 0;
@@ -133,7 +129,6 @@ do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
             TSTALLOC(MUTbr1br2,MUTind1->INDbrEq,MUTind2->INDbrEq);
             TSTALLOC(MUTbr2br1,MUTind2->INDbrEq,MUTind1->INDbrEq);
         }
-
     }
     return(OK);
 }
@@ -145,8 +140,8 @@ MUTfree_inductanceSets(CKTcircuit *ckt)
     INDmatrixSet *temp = ckt->inductanceMatrixSets;
     while (temp) {
         INDmatrixSet *next_temp = temp->next;
-        FREE (temp) ;
-        temp = next_temp ;
+        FREE(temp);
+        temp = next_temp;
     }
     ckt->inductanceMatrixSets = NULL;
 }
