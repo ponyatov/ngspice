@@ -128,6 +128,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2)); 
 
 	}
+    }
 
         int sz = 0;
         for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next)
@@ -241,6 +242,5 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
         tfree(pop);
         tfree(INDmatrix);
-    }
     return(OK);
 }
