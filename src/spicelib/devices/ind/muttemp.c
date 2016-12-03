@@ -118,7 +118,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
         }
 
     int sz = 0;
-    INDmatrixSet *temp;
+    struct INDmatrixSet *temp;
     for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next)
         if (sz < temp->INDmatrixSize)
             sz = temp->INDmatrixSize;

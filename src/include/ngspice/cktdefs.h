@@ -33,10 +33,6 @@
 #include "ngspice/hash.h"
 
 
-/* Forward declaration of INDmatrixSet */
-typedef struct sINDmatrixSet INDmatrixSet ;
-void MUTfree_inductanceSets(CKTcircuit *ckt);
-
 
 struct CKTnode {
     IFuid name;
@@ -300,7 +296,7 @@ struct CKTcircuit {
 
     GENinstance *noise_input;   /* identify the input vsrc/isrc during noise analysis */
 
-    INDmatrixSet *inductanceMatrixSets; /* Inductance Matrix Sets */
+    struct INDmatrixSet *inductanceMatrixSets; /* Inductance Matrix Sets */
 };
 
 
@@ -450,6 +446,8 @@ extern void NInzIter(CKTcircuit *, int, int);
 #ifdef PREDICTOR
 extern int NIpred(CKTcircuit *ckt);
 #endif
+
+extern void MUTfree_inductanceSets(CKTcircuit *ckt);
 
 extern IFfrontEnd *SPfrontEnd;
 extern bool expr_w_temper;

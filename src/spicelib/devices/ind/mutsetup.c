@@ -39,7 +39,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
     for (; model; model = model->MUTnextModel)
         for (here = model->MUTinstances; here; here = here->MUTnextInstance) {
 
-            INDmatrixSet *temp;
+            struct INDmatrixSet *temp;
             int ktype = CKTtypelook("Inductor");
 
             if (ktype <= 0) {
@@ -66,7 +66,7 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
             /* Assign 'setIndex' and 'matrixIndex' for L matrix */
             if (!here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Create the set */
-                temp = TMALLOC (INDmatrixSet, 1);
+                temp = TMALLOC (struct INDmatrixSet, 1);
                 temp->INDmatrixSize = 2;
                 temp->next = ckt->inductanceMatrixSets;
                 temp->Xindhead = here->MUTind1;
@@ -99,8 +99,8 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 here->Xnext = temp->Xmuthead;
                 temp->Xmuthead = here;
             } else {
-                INDmatrixSet *s1 = here->MUTind1->setPtr;
-                INDmatrixSet *s2 = here->MUTind2->setPtr;
+                struct INDmatrixSet *s1 = here->MUTind1->setPtr;
+                struct INDmatrixSet *s2 = here->MUTind2->setPtr;
                 MUTinstance *hm;
                 INDinstance *hi;
                 // append set2 to set1, leave a consumed set2 behind
@@ -134,9 +134,9 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 void
 MUTfree_inductanceSets(CKTcircuit *ckt)
 {
-    INDmatrixSet *temp = ckt->inductanceMatrixSets;
+    struct INDmatrixSet *temp = ckt->inductanceMatrixSets;
     while (temp) {
-        INDmatrixSet *next_temp = temp->next;
+        struct INDmatrixSet *next_temp = temp->next;
         tfree(temp);
         temp = next_temp;
     }

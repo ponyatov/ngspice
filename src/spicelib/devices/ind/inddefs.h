@@ -64,7 +64,7 @@ typedef struct sINDinstance {
             set equal to  0 if not a design parameter*/
 
     int INDmatrixIndex;
-    INDmatrixSet *setPtr;
+    struct INDmatrixSet *setPtr;
     struct sINDinstance *Xnext;
 
 } INDinstance ;
@@ -155,12 +155,12 @@ IFuid MUTmodName;       /* pointer to character string naming this model */
 } MUTmodel;
 
 
-typedef struct sINDmatrixSet {
+struct INDmatrixSet {
     int INDmatrixSize;
-    struct sINDmatrixSet *next;
+    struct INDmatrixSet *next;
     INDinstance *Xindhead;
     MUTinstance *Xmuthead;
-} INDmatrixSet;
+};
 
 #endif /*MUTUAL*/
 
