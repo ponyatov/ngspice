@@ -16,6 +16,14 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/suffix.h"
 
 
+#define TSTALLOC(ptr, first, second)                                    \
+    do {                                                                \
+        if ((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL) { \
+            return(E_NOMEM);                                            \
+        }                                                               \
+    } while(0)
+
+
 #ifdef MUTUAL
 /*ARGSUSED*/
 int
@@ -23,21 +31,16 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
 {
     MUTmodel *model = (MUTmodel*)inModel;
     MUTinstance *here;
-    INDmatrixSet *temp;
-    int ktype;
 
     NG_IGNORE(states);
 
     MUTfree_inductanceSets(ckt);
 
-    /*  loop through all the inductor models */
-    for( ; model != NULL; model = model->MUTnextModel ) {
-
-        /* loop through all the instances of the model */
-        for (here = model->MUTinstances; here != NULL ;
-                here=here->MUTnextInstance) {
+    for (; model; model = model->MUTnextModel)
+        for (here = model->MUTinstances; here; here = here->MUTnextInstance) {
             
-            ktype = CKTtypelook("Inductor");
+            INDmatrixSet *temp;
+            int ktype = CKTtypelook("Inductor");
             if(ktype <= 0) {
                 SPfrontEnd->IFerrorf (ERR_PANIC,
                         "mutual inductor, but inductors not available!");
@@ -119,16 +122,9 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 s2->Xmuthead = NULL;
             }
 
-/* macro to make elements with built in test for out of memory */
-#define TSTALLOC(ptr,first,second) \
-do { if((here->ptr = SMPmakeElt(matrix, here->first, here->second)) == NULL){\
-    return(E_NOMEM);\
-} } while(0)
-
             TSTALLOC(MUTbr1br2,MUTind1->INDbrEq,MUTind2->INDbrEq);
             TSTALLOC(MUTbr2br1,MUTind2->INDbrEq,MUTind1->INDbrEq);
         }
-    }
     return(OK);
 }
 
