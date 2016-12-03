@@ -196,9 +196,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             jactime += SPfrontEnd->IFseconds() - tjactime;
             fprintf(stderr, "Time used by Jacobi/Cholesky positive definite test:  %6.3g seconds.\n", jactime);
 
-            {
-                MUTinstance *hm;
-                INDinstance *hi;
 
                 if (found) {
                     found = 0 ;
@@ -237,7 +234,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                         fprintf(stderr, "has an incomplete set of K couplings, (missing ones are implicitly 0)\n");
                     fprintf(stderr, "\n");
                 }
-            }
         }
 
         tfree(pop);
