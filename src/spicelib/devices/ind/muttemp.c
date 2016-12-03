@@ -101,9 +101,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 {
     MUTmodel *model = (MUTmodel*) inModel;
     MUTinstance *here;
-    INDmatrixSet *temp;
     double ind1, ind2;
-    int found, i;
 
     NG_IGNORE(ckt);
 
@@ -127,6 +125,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
     }
 
     int sz = 0;
+    INDmatrixSet *temp;
     for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next)
         if (sz < temp->INDmatrixSize)
             sz = temp->INDmatrixSize;
@@ -134,11 +133,11 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
     char *pop = TMALLOC(char, sz * sz);
     double *INDmatrix = TMALLOC(double, sz * sz);
 
-    /* Extract Eigenvalues by using Jacobi's Algorithm */
-    temp = ckt->inductanceMatrixSets;
-    for (; temp; temp = temp->next) {
+    for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next) {
         if (!temp->INDmatrixSize)
             continue;
+
+        int found, i;
 
         sz = temp->INDmatrixSize;
 
@@ -197,7 +196,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
         if (found) {
             found = 0;
-            /* ignore jacobi if all K's are exactly 1 and all L's >= 0*/
+            /* ignore check if all |K| == 1 and all L >= 0 */
             for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
                 if (fabs(hm->MUTcoupling) != 1.0) {
                     found = 1;

@@ -110,10 +110,9 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 hi->Xnext = s1->Xindhead;
                 s1->Xindhead = s2->Xindhead;
                 s2->Xindhead = NULL;
-                for (hm = s2->Xmuthead; hm; hm = hm->Xnext) {
+                for (hm = s2->Xmuthead; hm; hm = hm->Xnext)
                     if (!hm->Xnext)
                         break;
-                }
                 hm->Xnext = s1->Xmuthead;
                 here->Xnext = s2->Xmuthead;
                 s1->Xmuthead = here;
@@ -140,7 +139,7 @@ MUTfree_inductanceSets(CKTcircuit *ckt)
     INDmatrixSet *temp = ckt->inductanceMatrixSets;
     while (temp) {
         INDmatrixSet *next_temp = temp->next;
-        FREE(temp);
+        tfree(temp);
         temp = next_temp;
     }
     ckt->inductanceMatrixSets = NULL;
