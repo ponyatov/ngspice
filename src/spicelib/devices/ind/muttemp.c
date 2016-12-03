@@ -95,34 +95,27 @@ cholesky(double *a, int n)
 #undef A
 }
 
-/*ARGSUSED*/
 int
 MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 {
     MUTmodel *model = (MUTmodel*) inModel;
     MUTinstance *here;
-    double ind1, ind2;
 
     NG_IGNORE(ckt);
 
-    /*  loop through all the inductor models */
-    for( ; model != NULL; model = model->MUTnextModel ) {
-
-        /* loop through all the instances of the model */
-        for (here = model->MUTinstances; here != NULL ;
-             here=here->MUTnextInstance) {
+    for (; model; model = model->MUTnextModel)
+        for (here = model->MUTinstances; here; here = here->MUTnextInstance) {
 
             /* Value Processing for mutual inductors */
 
-            ind1 = here->MUTind1->INDinduct;
-            ind2 = here->MUTind2->INDinduct;
+            double ind1 = here->MUTind1->INDinduct;
+            double ind2 = here->MUTind2->INDinduct;
 
             /*           _______
-             * M = k * \/l1 * l2
+             * M = k * \/L1 * L2
              */
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2));
         }
-    }
 
     int sz = 0;
     INDmatrixSet *temp;
