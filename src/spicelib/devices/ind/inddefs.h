@@ -71,7 +71,7 @@ struct sINDinstance {
 
     int INDmatrixIndex;
     struct INDmatrixSet *setPtr;
-    struct sINDinstance *Xnext;
+    INDinstance *Xnext;
 };
 
 #define INDflux INDstate     /* flux in the inductor */
@@ -140,7 +140,7 @@ struct sMUTinstance {
     int  MUTsenParmNo;          /* parameter # for sensitivity use;
                                  * set equal to  0 if not a design parameter */
 
-    struct sMUTinstance *Xnext;
+    MUTinstance *Xnext;
 };
 
 

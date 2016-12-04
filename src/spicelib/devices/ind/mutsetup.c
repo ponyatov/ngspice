@@ -69,13 +69,13 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 temp = TMALLOC (struct INDmatrixSet, 1);
                 temp->INDmatrixSize = 2;
                 temp->next = ckt->inductanceMatrixSets;
+                ckt->inductanceMatrixSets = temp;
                 temp->Xindhead = here->MUTind1;
                 here->MUTind1->Xnext = here->MUTind2;
-                temp->Xmuthead = here;
-                ckt->inductanceMatrixSets = temp;
                 here->MUTind2->Xnext = NULL;
                 here->MUTind1->setPtr = temp;
                 here->MUTind2->setPtr = temp;
+                temp->Xmuthead = here;
                 here->Xnext = NULL;
             } else if (here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Add the new MUTind2 into the set */
