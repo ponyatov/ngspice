@@ -23,6 +23,8 @@ Xgood1 a b c d ind4 L11=1u L22=4u L33=3u L44=5u L12=1n L13=1n L14=1n L23=1n L24=
 
 .control
 op
+remcirc
+quit 0
 .endc
 
 .end

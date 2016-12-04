@@ -23,6 +23,8 @@ Xbad6  a b c ind3 K12=1.01 K23=1 K13=1
 
 .control
 op
+remcirc
+quit 0
 .endc
 
 .end
