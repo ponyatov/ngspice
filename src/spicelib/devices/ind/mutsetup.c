@@ -73,8 +73,10 @@ MUTsetup(SMPmatrix *matrix, GENmodel *inModel, CKTcircuit *ckt, int *states)
                 here->MUTind1->Xnext = here->MUTind2;
                 temp->Xmuthead = here;
                 ckt->inductanceMatrixSets = temp;
+                here->MUTind2->Xnext = NULL;
                 here->MUTind1->setPtr = temp;
                 here->MUTind2->setPtr = temp;
+                here->Xnext = NULL;
             } else if (here->MUTind1->setPtr && !here->MUTind2->setPtr) {
                 /* Add the new MUTind2 into the set */
                 temp = here->MUTind1->setPtr;
