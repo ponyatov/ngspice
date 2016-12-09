@@ -270,7 +270,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             }
 
             if (found || repetitions || expect) {
-                fprintf(stderr, "The inductive System composed of following components\n");
+                fprintf(stderr, "The Inductive System composed by the following components\n");
                 for (hi = temp->Xindhead; hi; hi = hi->Xnext)
                     fprintf(stderr, " %s", hi->INDname);
                 fprintf(stderr, "\n");
