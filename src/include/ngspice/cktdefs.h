@@ -297,6 +297,7 @@ struct CKTcircuit {
     GENinstance *noise_input;   /* identify the input vsrc/isrc during noise analysis */
 
     struct INDmatrixSet *inductanceMatrixSets; /* Inductance Matrix Sets */
+    unsigned int inductanceMatrixSetsInstalled : 1 ; /* Inductance Matrix Sets Installed Flag */
 };
 
 

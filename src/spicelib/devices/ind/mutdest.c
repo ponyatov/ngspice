@@ -30,4 +30,16 @@ MUTdestroy(GENmodel **inModel)
     *inModel = NULL;
 }
 
+void
+MUTfree_inductanceSets(CKTcircuit *ckt)
+{
+    struct INDmatrixSet *temp = ckt->inductanceMatrixSets;
+    while (temp) {
+        struct INDmatrixSet *next_temp = temp->next;
+        tfree(temp);
+        temp = next_temp;
+    }
+    ckt->inductanceMatrixSets = NULL;
+}
+
 #endif
