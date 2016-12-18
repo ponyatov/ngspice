@@ -204,7 +204,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             if (!temp->INDmatrixSize)
                 continue;
 
-            int found, i;
+            int positive, i;
 
             sz = temp->INDmatrixSize;
 
@@ -238,7 +238,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             static double jactime;
             double tjactime = SPfrontEnd->IFseconds();
             if (use_cholesky)
-                found = !cholesky(INDmatrix, sz);
+                positive = cholesky(INDmatrix, sz);
             else
             {
                 double *ev = TMALLOC(double, sz);
@@ -250,10 +250,10 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     continue;
                 }
 
-                found = 0;
+                positive = 1;
                 for (i = 0; i < sz; i++)
                     if (ev [i] < 0) {
-                        found = 1;
+                        positive = 0;
                         break;
                     }
                 FREE(ev);
@@ -261,22 +261,22 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             jactime += SPfrontEnd->IFseconds() - tjactime;
             fprintf(stderr, "Time used by Jacobi/Cholesky positive definite test:  %6.3g seconds.\n", jactime);
 
-            if (found) {
-                found = 0;
+            if (!positive) {
+                positive = 1;
                 /* ignore check if all |K| == 1 and all L >= 0 */
                 for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
                     if (fabs(hm->MUTcoupling) != 1.0) {
-                        found = 1;
+                        positive = 0;
                         break;
                     }
                 for (hi = temp->Xindhead; hi; hi = hi->Xnext)
                     if (hi->INDinduct < 0) {
-                        found = 1;
+                        positive = 0;
                         break;
                     }
             }
 
-            if (found || repetitions || (expect && ckt->CKTindverbosity > 1)) {
+            if (!positive || repetitions || (expect && ckt->CKTindverbosity > 1)) {
                 fprintf(stderr, "The Inductive System consisting of\n");
                 for (hi = temp->Xindhead; hi; hi = hi->Xnext)
                     fprintf(stderr, " %s", hi->INDname);
@@ -284,7 +284,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                 for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
                     fprintf(stderr, " %s", hm->MUTname);
                 fprintf(stderr, "\n");
-                if (found)
+                if (!positive)
                     fprintf(stderr, "is not positive definite\n");
                 for (hm = temp->Xmuthead; hm; hm = hm->Xnext)
                     if (fabs(hm->MUTcoupling) > 1.0)
