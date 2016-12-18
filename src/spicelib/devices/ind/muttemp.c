@@ -57,6 +57,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
              */
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2));
 
+            if (ckt->CKTindverbosity > 0)
             {
                 struct INDmatrixSet *temp;
 
@@ -185,7 +186,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     }
             }
 
-            if (!positive || repetitions || expect) {
+            if (!positive || repetitions || (expect && ckt->CKTindverbosity > 1)) {
                 fprintf(stderr, "The Inductive System consisting of\n");
                 for (hi = temp->Xindhead; hi; hi = hi->Xnext)
                     fprintf(stderr, " %s", hi->INDname);
@@ -203,7 +204,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                         fprintf(stderr, " %s < 0\n", hi->INDname);
                 if (repetitions)
                     fprintf(stderr, "has dupplicate K instances\n");
-                if (expect)
+                if (expect && ckt->CKTindverbosity > 1)
                     fprintf(stderr, "has an incomplete set of K couplings, (missing ones are implicitly 0)\n");
                 fprintf(stderr, "\n");
             }
