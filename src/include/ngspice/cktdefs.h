@@ -295,9 +295,6 @@ struct CKTcircuit {
     NGHASHPTR MODnameHash;
 
     GENinstance *noise_input;   /* identify the input vsrc/isrc during noise analysis */
-
-    struct INDmatrixSet *inductanceMatrixSets; /* Inductance Matrix Sets */
-    unsigned int inductanceMatrixSetsInstalled : 1 ; /* Inductance Matrix Sets Installed Flag */
 };
 
 
@@ -447,8 +444,6 @@ extern void NInzIter(CKTcircuit *, int, int);
 #ifdef PREDICTOR
 extern int NIpred(CKTcircuit *ckt);
 #endif
-
-extern void MUTfree_inductanceSets(CKTcircuit *ckt);
 
 extern IFfrontEnd *SPfrontEnd;
 extern bool expr_w_temper;

@@ -9,6 +9,10 @@ Author: 2003 Paolo Nenzi
 #include "ngspice/sperror.h"
 #include "ngspice/suffix.h"
 
+
+static void MUTfree_inductanceSets(struct INDmatrixSet *temp);
+
+
 /* From EISPACK */
 
 /* S: real, symmetric matrix
@@ -101,6 +105,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
     MUTmodel *model = (MUTmodel*) inModel;
     MUTinstance *here;
 
+    struct INDmatrixSet *inductanceMatrixSets = NULL;
+
     NG_IGNORE(ckt);
 
     for (; model; model = model->MUTnextModel)
@@ -116,7 +122,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
              */
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2));
 
-            if (!ckt->inductanceMatrixSetsInstalled) {
+            {
                 struct INDmatrixSet *temp;
 
                 /* Assign 'setIndex' and 'matrixIndex' for L matrix */
@@ -124,8 +130,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     /* Create the set */
                     temp = TMALLOC (struct INDmatrixSet, 1);
                     temp->INDmatrixSize = 2;
-                    temp->next = ckt->inductanceMatrixSets;
-                    ckt->inductanceMatrixSets = temp;
+                    temp->next = inductanceMatrixSets;
+                    inductanceMatrixSets = temp;
                     temp->Xindhead = here->MUTind1;
                     here->MUTind1->Xnext = here->MUTind2;
                     here->MUTind2->Xnext = NULL;
@@ -183,17 +189,17 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             }
         }
 
-    if (!ckt->inductanceMatrixSetsInstalled) {
+    {
         int sz = 0;
         struct INDmatrixSet *temp;
-        for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next)
+        for (temp = inductanceMatrixSets; temp; temp = temp->next)
             if (sz < temp->INDmatrixSize)
                 sz = temp->INDmatrixSize;
 
         char *pop = TMALLOC(char, sz * sz);
         double *INDmatrix = TMALLOC(double, sz * sz);
 
-        for (temp = ckt->inductanceMatrixSets; temp; temp = temp->next) {
+        for (temp = inductanceMatrixSets; temp; temp = temp->next) {
             if (!temp->INDmatrixSize)
                 continue;
 
@@ -295,9 +301,20 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
         tfree(pop);
         tfree(INDmatrix);
-
-        ckt->inductanceMatrixSetsInstalled = 1 ;
     }
 
+    MUTfree_inductanceSets(inductanceMatrixSets);
+
     return(OK);
+}
+
+
+static void
+MUTfree_inductanceSets(struct INDmatrixSet *temp)
+{
+    while (temp) {
+        struct INDmatrixSet *next = temp->next;
+        tfree(temp);
+        temp = next;
+    }
 }

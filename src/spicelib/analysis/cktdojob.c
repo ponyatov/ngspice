@@ -108,8 +108,6 @@ CKTdoJob(CKTcircuit *ckt, int reset, TSKtask *task)
     ckt->CKTlteReltol = task->TSKlteReltol;
     ckt->CKTlteAbstol = task->TSKlteAbstol;
 #endif /* NEWTRUNC */
-    ckt->inductanceMatrixSets = NULL;        /* Inductance Matrix Sets Pointer */
-    ckt->inductanceMatrixSetsInstalled = 0 ; /* Inductance Matrix Sets Installed Flag */
 
     fprintf(stdout, "Doing analysis at TEMP = %f and TNOM = %f\n\n", 
     ckt->CKTtemp - CONSTCtoK, ckt->CKTnomTemp - CONSTCtoK);
