@@ -191,6 +191,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             }
         }
 
+    if (inductanceMatrixSets)
     {
         int sz = 0;
         struct INDmatrixSet *temp;
@@ -303,9 +304,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
         tfree(pop);
         tfree(INDmatrix);
+        MUTfree_inductanceSets(inductanceMatrixSets);
     }
-
-    MUTfree_inductanceSets(inductanceMatrixSets);
 
     return(OK);
 }
