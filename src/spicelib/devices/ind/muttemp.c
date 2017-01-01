@@ -10,9 +10,6 @@ Author: 2003 Paolo Nenzi
 #include "ngspice/suffix.h"
 
 
-static void MUTfree_inductanceSets(struct INDmatrixSet *temp);
-
-
 /* From EISPACK */
 
 /* S: real, symmetric matrix
@@ -304,19 +301,13 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
         tfree(pop);
         tfree(INDmatrix);
-        MUTfree_inductanceSets(inductanceMatrixSets);
+
+        for (temp = inductanceMatrixSets; temp;) {
+            struct INDmatrixSet *next = temp->next;
+            tfree(temp);
+            temp = next;
+        }
     }
 
     return(OK);
-}
-
-
-static void
-MUTfree_inductanceSets(struct INDmatrixSet *temp)
-{
-    while (temp) {
-        struct INDmatrixSet *next = temp->next;
-        tfree(temp);
-        temp = next;
-    }
 }
