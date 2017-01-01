@@ -120,8 +120,8 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
              */
             here->MUTfactor = here->MUTcoupling * sqrt(fabs(ind1 * ind2));
 
-            if (ckt->CKTindverbosity > 0)
-            {
+            if (ckt->CKTindverbosity > 0) {
+
                 struct INDmatrixSet *temp;
 
                 /* Assign 'setIndex' and 'matrixIndex' for L matrix */
@@ -188,10 +188,10 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
             }
         }
 
-    if (inductanceMatrixSets)
-    {
-        int sz = 0;
+    if (inductanceMatrixSets) {
         struct INDmatrixSet *temp;
+        int sz = 0;
+
         for (temp = inductanceMatrixSets; temp; temp = temp->next)
             if (sz < temp->INDmatrixSize)
                 sz = temp->INDmatrixSize;
