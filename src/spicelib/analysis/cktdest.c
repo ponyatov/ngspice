@@ -27,6 +27,7 @@ CKTdestroy(CKTcircuit *ckt)
     CKTnode *node;
     CKTnode *nnode;
 
+
 #ifdef WANT_SENSE2
     if(ckt->CKTsenInfo){
          if(ckt->CKTrhsOp) FREE(ckt->CKTrhsOp);
