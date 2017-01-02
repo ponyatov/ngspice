@@ -1,6 +1,7 @@
-* marcels 3x3 test cases
-* (compile (concat "../w32/src/ngspice " buffer-file-name) t)
-* (compile (concat "valgrind --track-origins=yes --leak-check=full --show-reachable=yes ../w32/src/ngspice " buffer-file-name) t)
+* indentify non-viable inductive systems (3xx case)
+
+* (compile (concat "../../../w32/src/ngspice " buffer-file-name) t)
+* (compile (concat "valgrind --track-origins=yes --leak-check=full --show-reachable=yes ../../../w32/src/ngspice " buffer-file-name) t)
 
 .subckt ind3 a b c L11=10u L22=11u L33=10u K12=0 K13=0 K23=0
 R1 a n1 1k

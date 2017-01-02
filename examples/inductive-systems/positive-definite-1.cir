@@ -1,6 +1,7 @@
-*
-* (compile (concat "../w32/src/ngspice " buffer-file-name) t)
-* (compile (concat "valgrind --track-origins=yes --leak-check=full --show-reachable=yes ../w32/src/ngspice " buffer-file-name) t)
+* indentify non-viable inductive systems (2x2 case)
+
+* (compile (concat "../../../w32/src/ngspice " buffer-file-name) t)
+* (compile (concat "valgrind --track-origins=yes --leak-check=full --show-reachable=yes ../../../w32/src/ngspice " buffer-file-name) t)
 
 .subckt ind2 a1 a2 b1 b2 L11=0 L22=0 L12=0
 R1 a1 n1 1k
