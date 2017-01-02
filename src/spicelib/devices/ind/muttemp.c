@@ -97,6 +97,7 @@ cholesky(double *a, int n)
 #undef A
 }
 
+
 int
 MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 {
@@ -124,9 +125,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
 
                 struct INDsystem *system;
 
-                /* Assign 'setIndex' and 'matrixIndex' for L matrix */
                 if (!here->MUTind1->system && !here->MUTind2->system) {
-                    /* Create the set */
                     system = TMALLOC (struct INDsystem, 1);
                     system->size = 2;
                     system->next_system = first_system;
@@ -139,7 +138,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     system->first_mut = here;
                     here->system_next_mut = NULL;
                 } else if (here->MUTind1->system && !here->MUTind2->system) {
-                    /* Add the new MUTind2 into the set */
                     system = here->MUTind1->system;
                     system->size++;
                     here->MUTind2->system_next_ind = system->first_ind;
@@ -148,7 +146,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     system->first_mut = here;
                     here->MUTind2->system = system;
                 } else if (!here->MUTind1->system && here->MUTind2->system) {
-                    /* Add the new MUTind1 into the set */
                     system = here->MUTind2->system;
                     system->size++;
                     here->MUTind1->system_next_ind = system->first_ind;
@@ -157,7 +154,6 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     system->first_mut = here;
                     here->MUTind1->system = system;
                 } else if (here->MUTind1->system == here->MUTind2->system) {
-                    /* Add only the K coefficient into the set */
                     system = here->MUTind2->system;
                     here->system_next_mut = system->first_mut;
                     system->first_mut = here;
@@ -166,7 +162,7 @@ MUTtemp(GENmodel *inModel, CKTcircuit *ckt)
                     struct INDsystem *s2 = here->MUTind2->system;
                     MUTinstance *mut;
                     INDinstance *ind;
-                    // append set2 to set1, leave a consumed set2 behind
+                    /* append s2 to s1, leave a consumed s2 behind */
                     s1->size += s2->size;
                     s2->size = 0;
                     for (ind = s2->first_ind; ind; ind = ind->system_next_ind) {

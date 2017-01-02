@@ -69,9 +69,9 @@ struct sINDinstance {
     int  INDsenParmNo;       /* parameter # for sensitivity use;
                               * set equal to  0 if not a design parameter */
 
-    int system_idx;
     struct INDsystem *system;
     INDinstance *system_next_ind;
+    int system_idx;
 };
 
 #define INDflux INDstate     /* flux in the inductor */
@@ -160,9 +160,9 @@ struct sMUTmodel {             /* model structure for a mutual inductor */
 
 struct INDsystem {
     int size;
-    struct INDsystem *next_system;
     INDinstance *first_ind;
     MUTinstance *first_mut;
+    struct INDsystem *next_system;
 };
 
 #endif /*MUTUAL*/
