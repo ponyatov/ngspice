@@ -119,9 +119,7 @@ typedef struct {
 
 /* misc constants */
 
-#define N_MXVLNTH  64   /* maximum length for noise output variables we will generate */
-                               /* (see MAXVLENGTH in FTE/writedata.c) */
-
+#define N_MXVLNTH  256   /* maximum length for noise output variables we will generate */
 
 void NevalSrc (double *noise, double *lnNoise, CKTcircuit *ckt, int type, int node1, int node2, double param);
 void NevalSrc2 (double *, double *, CKTcircuit *, int, int, int, double, int, int, double, double);
