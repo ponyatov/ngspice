@@ -1050,7 +1050,7 @@ win_x_fgetc(FILE *stream)
         int c;
         do
             c = w_getch();
-        while(c == CR);
+        while (c == CR);
         return c;
     } else
         return fgetc(stream);
@@ -1549,7 +1549,7 @@ system(const char *command)
         if (!GetExitCodeProcess(pi.hProcess, &ExitStatus))
             return -1;
         // solange er existiert
-    } while(ExitStatus == STILL_ACTIVE);
+    } while (ExitStatus == STILL_ACTIVE);
 
     // Handles freigeben
     if (pi.hThread)
