@@ -1406,7 +1406,7 @@ win_x_vscanf(const char *format, void *arglist)
 }
 #endif
 
-
+#if 0
 int
 win_x_read(int fd, char *buf, int n)
 {
@@ -1431,7 +1431,7 @@ win_x_read(int fd, char *buf, int n)
         return _read(fd, buf, n);
     }
 }
-
+#endif
 
 int
 win_x_getc(FILE *fp)
