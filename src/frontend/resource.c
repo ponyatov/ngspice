@@ -41,9 +41,6 @@ Author: 1985 Wayne A. Christopher, U. C. Berkeley CAD Group
 
 #define WIN32_LEAN_AND_MEAN
 
-#ifdef __MINGW32__  /* access to GlobalMemoryStatusEx in winbase.h:1558 */
-#define WINVER 0x0500
-#endif
 /*
  * The ngspice.h file included above defines BOOLEAN (via bool.h) and this
  * clashes with the definition obtained from windows.h (via winnt.h).
