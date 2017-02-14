@@ -875,12 +875,6 @@ AX_PROG_BISON_VERSION([2.7], [],
      AC_MSG_WARN([Bison is older than 2.7])])
 AC_PROG_LEX
 
-case $host_os in
-    *mingw* | *msys* )
-        CFLAGS="-D WINVER=0x0500 $CFLAGS"
-        ;;
-esac
-
 #################  XSPICE ##################################################
 # Add new code models to the build by pointing to them here.
 
