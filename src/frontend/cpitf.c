@@ -223,6 +223,23 @@ ft_cpinit(void)
     /* Reset this for the front end. */
     cp_hash = '*';
 
+#ifdef _MSC_VER
+    /* set variables to read program configuration into special spinit for VS */
+#ifdef CONFIG64
+#ifdef NGDEBUG
+    cp_vset("pg_config", CP_STRING, "d64");
+#else
+    cp_vset("pg_config", CP_STRING, "r64");
+#endif
+#else
+#ifdef NGDEBUG
+    cp_vset("pg_config", CP_STRING, "d32");
+#else
+    cp_vset("pg_config", CP_STRING, "r32");
+#endif
+#endif
+#endif
+
     /* NGSPICEDATADIR has been set to path "$dprefix/share/ngspice" in configure.ac,
        Spice_Lib_Dir has been set to NGSPICEDATADIR in conf.c,
        may be overridden by environmental variable SPICE_LIB_DIR in ivars().
@@ -241,23 +258,6 @@ ft_cpinit(void)
             com_set(wl);
             wl_free(wl);
         }
-
-#ifdef _MSC_VER
-        /* set variables to read program configuration into spinit for VS */
-#ifdef CONFIG64
-#ifdef NGDEBUG
-        cp_vset("pg_config", CP_STRING, "d64");
-#else
-        cp_vset("pg_config", CP_STRING, "r64");
-#endif
-#else
-#ifdef NGDEBUG
-        cp_vset("pg_config", CP_STRING, "d32");
-#else
-        cp_vset("pg_config", CP_STRING, "r32");
-#endif
-#endif
-#endif
 
         /* Now source the standard startup file spinit or tclspinit. */
         for (copys = s = cp_tildexpand(Lib_Path); copys && *copys; ) {
