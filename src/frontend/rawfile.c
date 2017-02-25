@@ -18,9 +18,11 @@ Author: 1986 Wayne A. Christopher, U. C. Berkeley CAD Group
 #include "rawfile.h"
 #include "variable.h"
 #include "../misc/misc_time.h"
+#include <sys/stat.h>
 
 
 static void fixdims(struct dvec *v, char *s);
+char *set_output_path(char* filename);
 
 
 int raw_prec = -1;        /* How many sigfigs to use, default 15 (max).  */
@@ -58,6 +60,9 @@ raw_write(char *name, struct plot *pl, bool app, bool binary)
         return;
     }
 
+    /* add user defined path (nnmae has to be freed after usage) */
+    char *nname = set_output_path(name);
+
     if (raw_prec != -1)
         prec = raw_prec;
     else
@@ -67,14 +72,16 @@ raw_write(char *name, struct plot *pl, bool app, bool binary)
 
     /* - Binary file binary write -  hvogt 15.03.2000 ---------------------*/
     if (binary) {
-        if ((fp = fopen(name, app ? "ab" : "wb")) == NULL) {
-            perror(name);
+        if ((fp = fopen(nname, app ? "ab" : "wb")) == NULL) {
+            perror(nname);
+            tfree(nname);
             return;
         }
         fprintf(cp_out, "binary raw file\n");
     } else {
-        if ((fp = fopen(name, app ? "a" : "w")) == NULL) {
-            perror(name);
+        if ((fp = fopen(nname, app ? "a" : "w")) == NULL) {
+            perror(nname);
+            tfree(nname);
             return;
         }
         fprintf(cp_out, "ASCII raw file\n");
@@ -83,13 +90,15 @@ raw_write(char *name, struct plot *pl, bool app, bool binary)
 
 #else
 
-    if (!(fp = fopen(name, app ? "a" : "w"))) {
-        perror(name);
+    if (!(fp = fopen(nname, app ? "a" : "w"))) {
+        perror(nname);
+        tfree(nname);
         return;
     }
 
 #endif
 
+    tfree(nname);
     numdims = nvars = length = 0;
     for (v = pl->pl_dvecs; v; v = v->v_next) {
         if (iscomplex(v))
@@ -748,10 +757,15 @@ spar_write(char *name, struct plot *pl, double Rbaseval)
          }*/
     }
 
-    if ((fp = fopen(name, "w")) == NULL) {
-        perror(name);
+    /* add user defined path (nnmae has to be freed after usage) */
+    char *nname = set_output_path(name);
+
+    if ((fp = fopen(nname, "w")) == NULL) {
+        perror(nname);
+        tfree(nname);
         return;
     }
+    tfree(nname);
 
     fprintf(fp, "!2-port S-parameter file\n");
     fprintf(fp, "!Title: %s\n", pl->pl_title);
@@ -792,4 +806,57 @@ spar_write(char *name, struct plot *pl, double Rbaseval)
     }
 
     (void) fclose(fp);
+}
+
+/* Add a user selectable path to the filename for output. Directory given must already exist. 
+ * absolute mingw path + filename: transform to Windows path, copy and return
+ * absolute path + filename: copy and return
+ * variable outputpath contains an output path: add filename to path, copy and return
+ * environment variable NGSPICE_OUTPUT_DIR has output path: add filename to path, copy and return 
+ * neither outputpath nor NGSPICE_OUTPUT_DIR is set: copy and return filename */
+char *
+set_output_path(char* filename)
+{
+    char varpath[BSIZE_SP], buf[BSIZE_SP];
+    char *ret;
+    struct stat st;
+    char *fpath, *dirloc = NULL;
+
+#if defined(__MINGW32__) || defined(_MSC_VER)
+    /* If variable 'mingwpath' is set: convert mingw /d/... to d:/... */
+    if (cp_getvar("mingwpath", CP_BOOL, NULL) && filename[0] == DIR_TERM_LINUX && isalpha_c(filename[1]) && filename[2] == DIR_TERM_LINUX) {
+        strcpy(buf, filename);
+        buf[0] = buf[1];
+        buf[1] = ':';
+        return set_output_path(buf);
+    }
+#endif
+
+    if (is_absolute_pathname(filename))
+        ret = copy(filename);
+    else if (cp_getvar("outputpath", CP_STRING, &varpath))
+        ret = tprintf("%s%c%s", varpath, DIR_TERM, filename);
+    else if (Outp_Path)
+        ret = tprintf("%s%c%s", Outp_Path, DIR_TERM, filename);
+    else
+        ret = copy(filename);
+    /* get path string */
+    dirloc = strrchr(ret, DIR_TERM);
+    if(!dirloc)
+        dirloc = strrchr(ret, DIR_TERM_LINUX);
+    if (dirloc)
+        fpath = copy_substring(ret, dirloc);
+    else
+        fpath = copy(ret);
+    /* test if path exists */
+    if (stat(fpath, &st) == 0) {
+        tfree(fpath);
+        return ret;
+    }
+    else {
+        fprintf(cp_err, "Error: Output path %s does not exist\n", fpath);
+        tfree(ret);
+        tfree(fpath);
+        controlled_exit(1);
+    }
 }
