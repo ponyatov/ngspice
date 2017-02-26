@@ -77,14 +77,14 @@ raw_write(char *name, struct plot *pl, bool app, bool binary)
             tfree(nname);
             return;
         }
-        fprintf(cp_out, "binary raw file\n");
+        fprintf(cp_out, "binary raw file %s\n", nname);
     } else {
         if ((fp = fopen(nname, app ? "a" : "w")) == NULL) {
             perror(nname);
             tfree(nname);
             return;
         }
-        fprintf(cp_out, "ASCII raw file\n");
+        fprintf(cp_out, "ASCII raw file %s\n", nname);
     }
     /* --------------------------------------------------------------------*/
 
@@ -845,19 +845,20 @@ set_output_path(char* filename)
     dirloc = strrchr(ret, DIR_TERM);
     if(!dirloc)
         dirloc = strrchr(ret, DIR_TERM_LINUX);
-    if (dirloc)
+    if (dirloc) {
         fpath = copy_substring(ret, dirloc);
+        /* test if path exists */
+        if (stat(fpath, &st) == 0) {
+            tfree(fpath);
+            return ret;
+        }
+        else {
+            fprintf(cp_err, "Error: Output path %s does not exist\n", fpath);
+            tfree(fpath);
+            return ret; /* fopen will catch this error */
+        }
+    }
+    /* no path, just use the file name */
     else
-        fpath = copy(ret);
-    /* test if path exists */
-    if (stat(fpath, &st) == 0) {
-        tfree(fpath);
         return ret;
-    }
-    else {
-        fprintf(cp_err, "Error: Output path %s does not exist\n", fpath);
-        tfree(ret);
-        tfree(fpath);
-        controlled_exit(1);
-    }
 }
