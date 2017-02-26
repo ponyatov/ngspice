@@ -273,7 +273,7 @@ dosim(
                     tfree(nname);
                     return 1;
                 }
-                fprintf(cp_out, "ASCII raw file\n");
+                fprintf(cp_out, "ASCII raw file %s\n", nname);
             }
             else {
                 if ((rawfileFp = fopen(nname, "wb")) == NULL) {
@@ -282,7 +282,7 @@ dosim(
                     tfree(nname);
                     return 1;
                 }
-                fprintf(cp_out, "binary raw file\n");
+                fprintf(cp_out, "binary raw file %s\n", nname);
             }
 /*---------------------------------------------------------------------------*/
 #else
