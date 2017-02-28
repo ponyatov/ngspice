@@ -129,6 +129,8 @@ com_resume(wordlist *wl)
             }
             /*---------------------------------------------------------------------------*/
 #else
+        else {
+            char *nname = set_output_path(last_used_rawfile);
             if (!(rawfileFp = fopen(nname, "a"))) {
                 setvbuf(rawfileFp, rawfileBuf, _IOFBF, RAWBUF_SIZE);
                 perror(last_used_rawfile);

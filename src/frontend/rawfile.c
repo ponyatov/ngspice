@@ -22,8 +22,6 @@ Author: 1986 Wayne A. Christopher, U. C. Berkeley CAD Group
 
 
 static void fixdims(struct dvec *v, char *s);
-char *set_output_path(char* filename);
-
 
 int raw_prec = -1;        /* How many sigfigs to use, default 15 (max).  */
 
@@ -842,8 +840,10 @@ set_output_path(char* filename)
         ret = copy(filename);
     /* get path string */
     dirloc = strrchr(ret, DIR_TERM);
+#if defined(__MINGW32__) || defined(_MSC_VER)
     if(!dirloc)
         dirloc = strrchr(ret, DIR_TERM_LINUX);
+#endif
     if (dirloc) {
         fpath = copy_substring(ret, dirloc);
         /* test if path exists */
