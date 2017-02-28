@@ -815,7 +815,7 @@ spar_write(char *name, struct plot *pl, double Rbaseval)
 char *
 set_output_path(char* filename)
 {
-    char varpath[BSIZE_SP], buf[BSIZE_SP];
+    char varpath[BSIZE_SP];
     char *ret;
     struct stat st;
     char *fpath, *dirloc = NULL;
@@ -823,6 +823,7 @@ set_output_path(char* filename)
 #if defined(__MINGW32__) || defined(_MSC_VER)
     /* If variable 'mingwpath' is set: convert mingw /d/... to d:/... */
     if (cp_getvar("mingwpath", CP_BOOL, NULL) && filename[0] == DIR_TERM_LINUX && isalpha_c(filename[1]) && filename[2] == DIR_TERM_LINUX) {
+        char buf[BSIZE_SP];
         strcpy(buf, filename);
         buf[0] = buf[1];
         buf[1] = ':';
