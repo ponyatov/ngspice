@@ -177,12 +177,7 @@ $(module)unsetup(GENmodel *inModel, CKTcircuit *ckt)
   {
     for ( here = model->$(module)instances ;here != NULL ; here = here->$(module)nextInstance )
     {
-<admst:for-each select="node[location='internal']">
-<admst:variable name="info" select="no info"/>
-<admst:for-each select="attribute[name='info']">
-  <admst:value-of select="value"/>
-  <admst:variable name="info" select="%s"/>
-</admst:for-each>
+<admst:for-each select="reverse(node[location='internal'])">
 <admst:value-of select="name"/>
 <admst:value-of select="name"/>
 <admst:value-of select="name"/>
