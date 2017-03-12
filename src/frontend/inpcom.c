@@ -2732,9 +2732,6 @@ found_mult_param(int num_params, char *param_names[])
 /* If a subcircuit invocation (X-line) is found, which contains the
    multiplier parameter 'm', m is added to all lines inside
    the corresponding subcircuit except of some excluded in the code below
-   (FIXME: It may be necessary to exclude more of them, at least
-   for all devices that are not supporting the 'm' parameter).
-
    Function is called from inp_fix_inst_calls_for_numparam() */
 
 static int
@@ -2761,9 +2758,12 @@ inp_fix_subckt_multiplier(struct names *subckt_w_params, struct line *subckt_car
     for (card = subckt_card->li_next;
          card && !ciprefix(".ends", card->li_line);
          card = card->li_next) {
-        /* no 'm' for B, V, E, H or comment line */
+        /* no 'm' for B, V, E, H, comment line and some others */
         if ((*(card->li_line) == '*') || (*(card->li_line) == 'b') || (*(card->li_line) == 'v') ||
-            (*(card->li_line) == 'e') || (*(card->li_line) == 'h'))
+            (*(card->li_line) == 'e') || (*(card->li_line) == 'h') || (*(card->li_line) == 'a') ||
+            (*(card->li_line) == 'k') || (*(card->li_line) == 'n') || (*(card->li_line) == 'o') ||
+            (*(card->li_line) == 'p') || (*(card->li_line) == 's') || (*(card->li_line) == 't') ||
+            (*(card->li_line) == 'u') || (*(card->li_line) == 'w') || (*(card->li_line) == 'y'))
             continue;
         /* no 'm' for model cards */
         if (ciprefix(".model", card->li_line))
