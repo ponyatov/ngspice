@@ -2767,6 +2767,9 @@ inp_fix_subckt_multiplier(struct names *subckt_w_params, struct line *subckt_car
         /* no 'm' for model cards */
         if (ciprefix(".model", card->li_line))
             continue;
+        /* Issue a warning if an already existing multiplier will be overridden */
+        if (strstr(card->li_line, " m="))
+            fprintf(cp_err, "Warning: line no. %d \"%s\": multiplier m will be overridden!\n", card->li_linenum_orig, card->li_line);
         new_str = tprintf("%s m={m}", card->li_line);
 
         tfree(card->li_line);
