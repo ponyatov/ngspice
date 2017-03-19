@@ -13,7 +13,9 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/ngspice.h"
 #include "ngspice/cktdefs.h"
 #include "ngspice/smpdefs.h"
+
 extern bool ft_ngdebug;
+
 
 int
 NIconvTest(CKTcircuit *ckt)
@@ -39,9 +41,8 @@ NIconvTest(CKTcircuit *ckt)
         new =  ckt->CKTrhs [i] ;
         old =  ckt->CKTrhsOld [i] ;
         if (isnan(new)) {
-            if (ft_ngdebug) {
+            if (ft_ngdebug)
                 fprintf(stderr, "Warning: non-convergence, node %s is nan\n", CKTnodName(ckt, i));
-            }
             return 1;
         }
         if(node->type == SP_VOLTAGE) {
