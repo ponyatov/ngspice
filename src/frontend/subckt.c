@@ -1285,7 +1285,7 @@ finishLine(struct bxx_buffer *t, char *src, char *scname)
         }
         which = *src;
         s = skip_ws(src + 1);
-        if (!*s || (*s != '(')) {
+        if (*s != '(') {
             lastwasalpha = isalpha_c(*src);
             bxx_putc(t, *src++);
             continue;
@@ -1302,7 +1302,6 @@ finishLine(struct bxx_buffer *t, char *src, char *scname)
             translate_node_name(t, scname, buf, buf_end);
 
             /* translate the reference node, as in the "2" in "v(4,2)" */
-
             while (*src && (isspace_c(*src) || *src == ',')) {
                 src++;
             }
@@ -1314,7 +1313,7 @@ finishLine(struct bxx_buffer *t, char *src, char *scname)
             }
         } else {
             /*
-             * i(instance_name)
+             * i(instance_name) --> i(instance_name[0].subckt.instance_name)
              */
             translate_inst_name(t, scname, buf, buf_end);
         }
