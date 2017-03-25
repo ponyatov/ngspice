@@ -1452,8 +1452,8 @@ numnodes(const char *line, struct subs *subs, wordlist const *modnames)
         gotit = 0;
         s = nexttok(buf);       /* Skip the instance name */
         while ((i <= n) && (*s) && !gotit) {
-            const wordlist *wl;
             char *t = gettok_node(&s);       /* get nodenames . . .  */
+            const wordlist *wl;
             for (wl = modnames; wl; wl = wl->wl_next)
                 if (model_name_match(t, wl->wl_word)) {
                     gotit = 1;
