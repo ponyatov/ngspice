@@ -937,6 +937,7 @@ translate_node_name(struct bxx_buffer *buffer, const char *scname, const char *n
     }
 }
 
+
 static void
 translate_inst_name(struct bxx_buffer *buffer, const char *scname, const char *name, const char *name_e)
 {
@@ -1879,7 +1880,6 @@ devmodtranslate(struct line *s, char *subname, wordlist * const orig_modnames)
                     bxx_printf(&buffer, "%s ", name);
                     tfree(name);
                     name = gettok(&t);
-                    wlsub = wl_find(name, orig_modnames);
                 }
 #endif
 
