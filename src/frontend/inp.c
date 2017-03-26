@@ -1852,15 +1852,11 @@ inp_parse_temper_trees(struct circ *circ)
 {
     struct pt_temper *d;
 
-    for(d = circ->devtlist; d; d = d->next) {
-        char *expression = d->expression;
-        INPgetTree(&expression, &d->pt, circ->ci_ckt, NULL);
-    }
+    for(d = circ->devtlist; d; d = d->next)
+        INPgetTree(&d->expression, &d->pt, circ->ci_ckt, NULL);
 
-    for(d = circ->modtlist; d; d = d->next) {
-        char *expression = d->expression;
-        INPgetTree(&expression, &d->pt, circ->ci_ckt, NULL);
-    }
+    for(d = circ->modtlist; d; d = d->next)
+        INPgetTree(&d->expression, &d->pt, circ->ci_ckt, NULL);
 }
 
 
