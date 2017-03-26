@@ -100,9 +100,6 @@ int dynMaxckt = 0; /* subckt.c 307 */
 /* number of parameter substitutions */
 long dynsubst; /* spicenum.c 221 */
 
-/* Expression handling with 'temper' parameter required */
-bool expr_w_temper = FALSE;
-
 
 static char *readline(FILE *fd);
 static int  get_number_terminals(char *c);
@@ -476,7 +473,7 @@ find_assignment(char *str)
   *-------------------------------------------------------------------------*/
 
 struct line *
-inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
+inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile, bool *expr_w_temper_p)
 {
     struct line *cc;
     struct inp_read_t rv;
@@ -544,9 +541,9 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile)
             /* B source numparam compatibility transformation */
             inp_bsource_compat(working);
             inp_dot_if(working);
-            expr_w_temper = inp_temper_compat(working);
+            *expr_w_temper_p = inp_temper_compat(working);
         } else {
-            expr_w_temper = FALSE;
+            *expr_w_temper_p = FALSE;
         }
 
         inp_add_series_resistor(working);
