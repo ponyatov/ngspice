@@ -145,7 +145,7 @@ gr_redrawgrid(GRAPH *graph)
                 DevDrawText(graph->grid.ylabel,
                         graph->fontwidth,
                         /*vertical text, midpoint in y is aligned midpoint of text string */
-                        (graph->absolute.height -strlen(graph->grid.ylabel) * graph->fontwidth) / 2, 90);
+                        (graph->absolute.height - (int) strlen(graph->grid.ylabel) * graph->fontwidth) / 2, 90);
             else /* FIXME: for now excluding X11 and others */
                 DevDrawText(graph->grid.ylabel,
                         graph->fontwidth,
