@@ -632,6 +632,11 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
             cp_getvar("pretemp", CP_REAL, &testemp);
             printf("test temperature %f\n", testemp);
         }
+
+        /* reset lists */
+        modtlist = NULL;
+        devtlist = NULL;
+
         /* We are done handling the control stuff.  Now process remainder of deck.
            Go on if there is something left after the controls.*/
         if (deck->li_next) {
