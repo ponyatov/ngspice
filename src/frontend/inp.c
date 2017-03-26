@@ -399,6 +399,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
     wordlist *controls = NULL, *pre_controls = NULL;
     FILE *lastin, *lastout, *lasterr;
     double temperature_value;
+    bool expr_w_temper = FALSE;
 
     double startTime, endTime;
 
@@ -414,7 +415,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
     /* inp_source() called with fp: load from file
        or fp == NULL, intfile == TRUE: load circarray */
     if (fp || intfile) {
-        deck = inp_readall(fp, dir_name, comfile, intfile);
+        deck = inp_readall(fp, dir_name, comfile, intfile, &expr_w_temper);
 
         /* here we check for .option seed=[val|random] and set the random number generator */
         eval_seed_opt(deck);
