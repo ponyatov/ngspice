@@ -557,7 +557,6 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile, bool *expr_w_t
 #ifndef XSPICE
         inp_poly_err(working);
 #endif
-        bool expr_w_temper = FALSE;
         if (inp_compat_mode != COMPATMODE_SPICE3) {
             /* Do all the compatibility stuff here */
             working = cc->li_next;
@@ -568,11 +567,10 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile, bool *expr_w_t
             /* B source numparam compatibility transformation */
             inp_bsource_compat(working);
             inp_dot_if(working);
-            expr_w_temper = inp_temper_compat(working);
+            *expr_w_temper_p = inp_temper_compat(working);
+        } else {
+            *expr_w_temper_p = FALSE;
         }
-
-        if (expr_w_temper_p)
-            *expr_w_temper_p = expr_w_temper;
 
         inp_add_series_resistor(working);
 
