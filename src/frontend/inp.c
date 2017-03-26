@@ -55,7 +55,9 @@ static struct line *com_options = NULL;
 static struct line *mc_deck = NULL;
 static void cktislinear(CKTcircuit *ckt, struct line *deck);
 static void dotifeval(struct line *deck);
-static int inp_parse_temper(struct line *deck);
+static int inp_parse_temper(struct line *deck,
+                            struct pt_temper **motdlist_p,
+                            struct pt_temper **devtlist_p);
 static void inp_parse_temper_trees(struct circ *ckt);
 
 static wordlist *inp_savecurrents(struct line *deck, struct line *options, wordlist *wl, wordlist *controls);
@@ -66,12 +68,6 @@ void line_free_x(struct line *deck, bool recurse);
 void create_circbyline(char *line);
 
 extern bool ft_batchmode;
-
-/* List of all expressions found in .model lines */
-static struct pt_temper *modtlist = NULL;
-
-/* List of all expressions found in device instance lines */
-static struct pt_temper *devtlist = NULL;
 
 
 /*
@@ -633,9 +629,12 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
             printf("test temperature %f\n", testemp);
         }
 
-        /* reset lists */
-        modtlist = NULL;
-        devtlist = NULL;
+        /* List of all expressions found in .model lines */
+        struct pt_temper *modtlist = NULL;
+
+        /* List of all expressions found in device instance lines */
+        struct pt_temper *devtlist = NULL;
+
 
         /* We are done handling the control stuff.  Now process remainder of deck.
            Go on if there is something left after the controls.*/
@@ -727,7 +726,7 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
 
             /* prepare parse trees from 'temper' expressions */
             if (expr_w_temper)
-                inp_parse_temper(deck);
+                inp_parse_temper(deck, &modtlist, &devtlist);
 
             /* replace agauss(x,y,z) in each b-line by suitable value */
             /* FIXME: This is for the local param setting (not yet implemented in
@@ -1699,13 +1698,13 @@ dotifeval(struct line *deck)
 */
 
 static int
-inp_parse_temper(struct line *card)
+inp_parse_temper(struct line *card, struct pt_temper **modtlist_p, struct pt_temper **devtlist_p)
 {
     int error = 0;
     char *end_tstr, *beg_tstr, *beg_pstr, *str_ptr, *devmodname, *paramname;
-    /* reset lists */
-    modtlist = NULL;
-    devtlist = NULL;
+
+    struct pt_temper *modtlist = NULL;
+    struct pt_temper *devtlist = NULL;
 
     /* skip title line */
     card = card->li_next;
@@ -1828,6 +1827,9 @@ inp_parse_temper(struct line *card)
             tfree(devmodname);
         }
     }
+
+    *modtlist_p = modtlist;
+    *devtlist_p = devtlist;
 
     return error;
 }
