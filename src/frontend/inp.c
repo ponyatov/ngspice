@@ -55,10 +55,6 @@ static struct line *com_options = NULL;
 static struct line *mc_deck = NULL;
 static void cktislinear(CKTcircuit *ckt, struct line *deck);
 static void dotifeval(struct line *deck);
-static int inp_parse_temper(struct line *deck,
-                            struct pt_temper **motdlist_p,
-                            struct pt_temper **devtlist_p);
-static void inp_parse_temper_trees(struct circ *ckt);
 
 static wordlist *inp_savecurrents(struct line *deck, struct line *options, wordlist *wl, wordlist *controls);
 
@@ -68,6 +64,23 @@ void line_free_x(struct line *deck, bool recurse);
 void create_circbyline(char *line);
 
 extern bool ft_batchmode;
+
+/* structure used to save expression parse trees for .model and
+ * device instance lines
+ */
+
+struct pt_temper {
+    char *expression;
+    wordlist *wl;
+    wordlist *wlend;
+    INPparseTree *pt;
+    struct pt_temper *next;
+};
+
+static int inp_parse_temper(struct line *deck,
+                            struct pt_temper **motdlist_p,
+                            struct pt_temper **devtlist_p);
+static void inp_parse_temper_trees(struct circ *ckt);
 
 
 /*

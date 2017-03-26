@@ -27,19 +27,6 @@ struct save_info {
 };
 
 
-/* structure used to save expression parse trees for .model and
- * device instance lines
- */
-
-struct pt_temper {
-    char *expression;
-    wordlist *wl;
-    wordlist *wlend;
-    INPparseTree *pt;
-    struct pt_temper *next;
-};
-
-
 /* The circuits that are currently available to the user. */
 
 struct circ {
