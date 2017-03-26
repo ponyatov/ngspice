@@ -1721,7 +1721,6 @@ inp_parse_temper(struct line *card, struct pt_temper **modtlist_p, struct pt_tem
 
     /* skip title line */
     card = card->li_next;
-
     for (; card; card = card->li_next) {
 
         char *curr_line = card->li_line;
@@ -1878,6 +1877,7 @@ rem_tlist(struct pt_temper *p)
         p = next_p;
     }
 }
+
 
 void
 inp_evaluate_temper(struct circ *circ)

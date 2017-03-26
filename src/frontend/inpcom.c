@@ -5472,8 +5472,8 @@ inp_temper_compat(struct line *card)
 {
     int skip_control = 0;
     char *beg_str, *end_str, *beg_tstr, *end_tstr, *exp_str;
-    bool with_temper = FALSE;
 
+    bool with_temper = FALSE;
     for (; card; card = card->li_next) {
 
         char *new_str = NULL;
@@ -5509,6 +5509,7 @@ inp_temper_compat(struct line *card)
         beg_str = beg_tstr = curr_line;
         while ((beg_tstr = search_identifier(beg_tstr, "temper", curr_line)) != NULL) {
             char *modified_exp;
+            /* set the global variable */
             with_temper = TRUE;
             /* find the expression: first go back to the opening '{',
                then find the closing '}' */
@@ -5532,7 +5533,6 @@ inp_temper_compat(struct line *card)
         tfree(card->li_line);
         card->li_line = inp_remove_ws(new_str);
     }
-
     return with_temper;
 }
 
