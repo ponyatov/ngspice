@@ -420,10 +420,10 @@ inp_stitch_continuation_lines(struct line *working)
  *   take care of `!=' `<=' `==' and `>='
  */
 
-static char *
-find_assignment(char *str)
+char *
+find_assignment(const char *str)
 {
-    char *p = str;
+    const char *p = str;
 
     while ((p = strchr(p, '=')) != NULL) {
 
@@ -440,7 +440,7 @@ find_assignment(char *str)
                 continue;
             }
 
-        return p;
+        return (char *) p;
     }
 
     return NULL;
