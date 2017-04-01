@@ -2760,29 +2760,26 @@ inp_fix_subckt_multiplier(struct names *subckt_w_params, struct line *subckt_car
     for (card = subckt_card->li_next;
          card && !ciprefix(".ends", card->li_line);
          card = card->li_next) {
-        /* no 'm' for B, V, E, H, comment line and some others */
-        if ((*(card->li_line) == '*') || (*(card->li_line) == 'b') || (*(card->li_line) == 'v') ||
-            (*(card->li_line) == 'e') || (*(card->li_line) == 'h') || (*(card->li_line) == 'a') ||
-            (*(card->li_line) == 'k') || (*(card->li_line) == 'n') || (*(card->li_line) == 'o') ||
-            (*(card->li_line) == 'p') || (*(card->li_line) == 's') || (*(card->li_line) == 't') ||
-            (*(card->li_line) == 'u') || (*(card->li_line) == 'w') || (*(card->li_line) == 'y'))
+        char *curr_line = card->li_line;
+        /* no 'm' for comment line, B, V, E, H and some others that are not using 'm' in their model description */
+        if (strchr("*bvehaknopstuwy", curr_line[0]))
             continue;
         /* no 'm' for model cards */
-        if (ciprefix(".model", card->li_line))
+        if (ciprefix(".model", curr_line))
             continue;
 
         /* Get old and new 'm' parameters and multiply them */
-        char *mpar = strstr(card->li_line, " m=");
+        char *mpar = strstr(curr_line, " m=");
         if (mpar) {
             mpar += 3;
             char *oldmult = gettok(&mpar);
             inp_strip_braces(oldmult);
             /* add the new 'm=valold*valnew' string at the end, thus override the previous m parameter */
-            new_str = tprintf("%s m={(%s)*m}", card->li_line, oldmult);
+            new_str = tprintf("%s m={(%s)*m}", curr_line, oldmult);
             tfree(oldmult);
         }
         else
-            new_str = tprintf("%s m={m}", card->li_line);
+            new_str = tprintf("%s m={m}", curr_line);
 
         tfree(card->li_line);
         card->li_line = new_str;
