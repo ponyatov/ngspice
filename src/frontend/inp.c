@@ -774,10 +774,10 @@ inp_spsource(FILE *fp, bool comfile, char *filename, bool intfile)
         for (dd = deck; dd; dd = dd->li_next) {
             /* all parameter lines should be sequentially ordered and placed at
                beginning of deck */
-            if (ciprefix(".param", dd->li_line)) {
+            if (ciprefix(".para", dd->li_line)) {
                 ft_curckt->ci_param = dd;
                 /* find end of .param statements */
-                while (ciprefix(".param", dd->li_line)) {
+                while (ciprefix(".para", dd->li_line)) {
                     prev_param = dd;
                     dd = dd->li_next;
                     if (dd == NULL)
@@ -1398,7 +1398,7 @@ com_alterparam(wordlist *wl)
         } /* subcktname */
         /* alterparam pname=vpval */
         else {
-            if (ciprefix(".param", curr_line)) {
+            if (ciprefix(".para", curr_line)) {
                 curr_line = nexttok(curr_line); /* skip .param */
                 char *name = gettok_char(&curr_line, '=', FALSE, FALSE);
                 if (eq(name, pname)) {
@@ -2038,7 +2038,7 @@ eval_agauss(struct line *deck, char *fcn)
             continue;
         }
 
-        if ((*curr_line != 'b') && !ciprefix(".param", curr_line))
+        if ((*curr_line != 'b') && !ciprefix(".para", curr_line))
             continue;
 
         while ((ap = search_identifier(curr_line, fcn, curr_line)) != NULL) {
