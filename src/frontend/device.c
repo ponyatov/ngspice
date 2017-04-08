@@ -1594,7 +1594,9 @@ check_ifparm(IFdevice *device, int instance_flag)
         }
     }
 
+#ifdef HAVE_TDESTROY
     tdestroy (root, check_ifparm_freenode);
+#endif
 }
 
 
