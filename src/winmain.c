@@ -512,7 +512,7 @@ MainWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         /* Immediately call com_quit(NULL) */
         cp_doquit();
         /* return here if user declined the 'quit' command */
-        return (LRESULT)NULL;
+        return 0;
 
     case WM_SIZE:
         HANDLE_WM_SIZE(hwnd, wParam, lParam, Main_OnSize);
