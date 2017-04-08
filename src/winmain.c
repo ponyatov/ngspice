@@ -97,6 +97,8 @@ extern bool ft_ngdebug; /* some additional debug info printed */
 extern bool ft_batchmode;
 extern FILE *flogp;     /* definition see xmain.c, stdout redirected to file */
 
+extern void cp_doquit(void);
+
 #include "winmain.h"
 
 /* --------------------------<history management>------------------------------ */
@@ -507,12 +509,10 @@ MainWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         goto DEFAULT_AFTER;
 
     case WM_CLOSE:
-        /* Put Spice commmand "Quit" to end the program into the text buffer */
-        PostSpiceCommand("quit");
-
-        /* If simulation is running, set a breakpoint */
-        raise (SIGINT);
-        return 0;
+        /* Immediately call com_quit(NULL) */
+        cp_doquit();
+        /* return here if user declined the 'quit' command */
+        return (LRESULT)NULL;
 
     case WM_SIZE:
         HANDLE_WM_SIZE(hwnd, wParam, lParam, Main_OnSize);
