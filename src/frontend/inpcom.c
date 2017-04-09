@@ -2771,7 +2771,7 @@ inp_fix_subckt_multiplier(struct names *subckt_w_params, struct line *subckt_car
         /* Get old and new 'm' parameters and multiply them */
         char *mpar = strstr(curr_line, " m=");
         if (mpar) {
-            mpar = mpar + 3;
+            mpar += 3;
             char *oldmult = gettok(&mpar);
             inp_strip_braces(oldmult);
             /* add the new 'm=valold*valnew' string at the end, thus override the previous m parameter */
@@ -2780,6 +2780,7 @@ inp_fix_subckt_multiplier(struct names *subckt_w_params, struct line *subckt_car
         }
         else
             new_str = tprintf("%s m={m}", curr_line);
+
         tfree(card->li_line);
         card->li_line = new_str;
     }
