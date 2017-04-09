@@ -1565,16 +1565,15 @@ check_ifparm(IFdevice *device, int instance_flag)
 
         int type_err = (psearch->dataType ^ plist[i].dataType) & ~IF_REDUNDANT;
         if (type_err)
-            fprintf(stderr," ERROR, dataType mismatch \"%s\" \"%s\" %08x\n",
-                    psearch->keyword,
-                    plist[i].keyword,
-                    type_err);
+            fprintf(stderr,
+                    " ERROR, dataType mismatch \"%s\" \"%s\" %08x\n",
+                    psearch->keyword, plist[i].keyword, type_err);
 
         if ((plist[i].dataType & IF_REDUNDANT) &&
-            (i==0 || plist[i-1].id != plist[i].id)) {
-            fprintf(stderr, "ERROR, alias \"%s\" has non matching predecessor \"%s\"\n",
-                    plist[i].keyword,
-                    plist[i-1].keyword);
+            (i == 0 || plist[i-1].id != plist[i].id)) {
+            fprintf(stderr,
+                    "ERROR, alias \"%s\" has non matching predecessor \"%s\"\n",
+                    plist[i].keyword, plist[i-1].keyword);
         }
 
         if (i == 0)
@@ -1584,13 +1583,11 @@ check_ifparm(IFdevice *device, int instance_flag)
             if (psearch != plist + i)
                 fprintf(stderr,
                         "ERROR: non neighbored duplicate id: \"%s\" \"%s\"\n",
-                        psearch->keyword,
-                        plist[i].keyword);
+                        psearch->keyword, plist[i].keyword);
         } else if (!(plist[i].dataType & IF_REDUNDANT)) {
             fprintf(stderr,
                     "ERROR: non R duplicate id: \"%s\" \"%s\"\n",
-                    plist[i-1].keyword,
-                    plist[i].keyword);
+                    plist[i-1].keyword, plist[i].keyword);
         }
     }
 

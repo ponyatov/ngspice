@@ -16,7 +16,7 @@ IFparm VSRCpTable[] = { /* parameters */
  /* Modified to allow print @vin[sin] A.Roldan */
  IOP ("pulse",   VSRC_PULSE,     IF_REALVEC,"Pulse description"),
  IOP ("sin",     VSRC_SINE,      IF_REALVEC,"Sinusoidal source description"),
- IOPR ("sine",    VSRC_SINE,      IF_REALVEC,"Sinusoidal source description"),
+ IOPR("sine",    VSRC_SINE,      IF_REALVEC,"Sinusoidal source description"),
  IOP ("exp",     VSRC_EXP,       IF_REALVEC,"Exponential source description"),
  IOP ("pwl",     VSRC_PWL,       IF_REALVEC,"Piecewise linear description"),
  IOP ("sffm",    VSRC_SFFM,      IF_REALVEC,"Single freq. FM description"),

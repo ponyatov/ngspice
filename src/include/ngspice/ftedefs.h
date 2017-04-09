@@ -61,7 +61,7 @@ struct circ {
     struct pt_temper *modtlist; /* all expressions with 'temper'
                                    in .model lines */
     struct pt_temper *devtlist; /* all expressions with 'temper'
-                                   in device instance lines */
+                                   in device instantiation lines */
 
     FTESTATistics *FTEstats;  /* Statistics for the front end */
 } ;

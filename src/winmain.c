@@ -509,9 +509,8 @@ MainWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         goto DEFAULT_AFTER;
 
     case WM_CLOSE:
-        /* Immediately call com_quit(NULL) */
         cp_doquit();
-        /* return here if user declined the 'quit' command */
+        /* continue if the user declined the 'quit' command */
         return 0;
 
     case WM_SIZE:

@@ -1818,7 +1818,6 @@ inp_parse_temper_trees(struct circ *circ)
 }
 
 
-/* remove the actual modtlist and devtlist */
 void
 rem_tlist(struct pt_temper *p)
 {

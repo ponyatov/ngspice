@@ -45,7 +45,7 @@ IFparm DIOmPTable[] = { /* model parameters */
  IOP( "jsw", DIO_MOD_JSW,  IF_REAL, "Sidewall Saturation current"),
 
  IOPU( "tnom",DIO_MOD_TNOM,IF_REAL, "Parameter measurement temperature"),
- IOPUR( "tref",DIO_MOD_TNOM,IF_REAL, "Parameter measurement temperature"),
+ IOPUR("tref",DIO_MOD_TNOM,IF_REAL, "Parameter measurement temperature"),
  IOP( "rs",  DIO_MOD_RS,  IF_REAL, "Ohmic resistance"),
  IOP( "trs", DIO_MOD_TRS, IF_REAL, "Ohmic resistance 1st order temp. coeff."),
  IOPR( "trs1", DIO_MOD_TRS, IF_REAL, "Ohmic resistance 1st order temp. coeff."),
@@ -56,7 +56,7 @@ IFparm DIOmPTable[] = { /* model parameters */
  IOPA( "ttt1", DIO_MOD_TTT1, IF_REAL, "Transit Time 1st order temp. coeff."),
  IOPA( "ttt2", DIO_MOD_TTT2, IF_REAL, "Transit Time 2nd order temp. coeff."),
  IOPA( "cjo", DIO_MOD_CJO, IF_REAL, "Junction capacitance"),
- IOPAR( "cj0", DIO_MOD_CJO, IF_REAL, "Junction capacitance"),
+ IOPAR( "cj0",DIO_MOD_CJO, IF_REAL, "Junction capacitance"),
  IOPAR( "cj", DIO_MOD_CJO, IF_REAL, "Junction capacitance"),
  IOP( "vj",  DIO_MOD_VJ,  IF_REAL, "Junction potential"),
  IOPR( "pb",  DIO_MOD_VJ,  IF_REAL, "Junction potential"),

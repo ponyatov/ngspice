@@ -189,7 +189,7 @@ IOP( "dvt2w", B4SOI_MOD_DVT2W, IF_REAL, "Narrow Width effect coeff. 2"),
 IOP( "drout", B4SOI_MOD_DROUT, IF_REAL, "DIBL coefficient of output resistance"),
 IOP( "dsub", B4SOI_MOD_DSUB, IF_REAL, "DIBL coefficient in the subthreshold region"),
 IOP( "vth0", B4SOI_MOD_VTH0, IF_REAL,"Threshold voltage"),
-IOPR( "vtho", B4SOI_MOD_VTH0, IF_REAL,"Threshold voltage"),
+IOPR("vtho", B4SOI_MOD_VTH0, IF_REAL,"Threshold voltage"),
 IOP( "vfb", B4SOI_MOD_VFB, IF_REAL, "Flat Band Voltage"),  /* v4.1 */
 IOP( "ua", B4SOI_MOD_UA, IF_REAL, "Linear gate dependence of mobility"),
 IOP( "ua1", B4SOI_MOD_UA1, IF_REAL, "Temperature coefficient of ua"),
@@ -480,7 +480,7 @@ IOP( "dlbg", B4SOI_MOD_DLBG, IF_REAL, "Length offset fitting parameter for backg
 
 /* v2.2 release */
 IOP( "igmod",  B4SOI_MOD_IGBMOD, IF_INTEGER, "gate-body tunneling current model selector"), /* v3.1.1 */
-IOPR( "igbmod", B4SOI_MOD_IGBMOD, IF_INTEGER, "gate-body tunneling current model selector"), /* v3.0 */
+IOPR("igbmod", B4SOI_MOD_IGBMOD, IF_INTEGER, "gate-body tunneling current model selector"), /* v3.0 */
 IOP( "igcmod", B4SOI_MOD_IGCMOD, IF_INTEGER, "gate-channel tunneling current model selector"), /* v3.0 */
 IOP( "toxqm", B4SOI_MOD_TOXQM, IF_REAL, "effective oxide thickness considering quantum effect"),
 IOP( "wth0", B4SOI_MOD_WTH0, IF_REAL, "Minimum width for thermal resistance calculation"),
