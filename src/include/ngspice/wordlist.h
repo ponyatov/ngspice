@@ -34,6 +34,7 @@ wordlist *wl_chop_rest(wordlist *wlist);
 wordlist *wl_find(const char *string, const wordlist *wlist);
 void wl_delete_slice(wordlist *from, wordlist *to);
 
+
 #ifdef QUOTE_CHAR
 /* For quoting individual characters. '' strings are all quoted, but
  * `` and "" strings are maintained as single words with the quotes
