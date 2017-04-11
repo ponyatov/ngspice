@@ -1166,20 +1166,12 @@ com_alter_common(wordlist *wl, int do_model)
                 wl2 = wlin;
                 wl = NULL;
             } else if (strlen(argument) > 1) {
-                char *tmp1 = copy_substring(argument, eqptr);
-                char *tmp2 = copy(eqptr + 1);
-                if eq(tmp1, "")
-                    wl2 = wl_cons(copy("="),
-                        wl_cons(copy(tmp2),
-                            NULL));
-                else if eq(tmp2, "")
-                    wl2 = wl_cons(tmp1,
-                              wl_cons(copy("="), NULL));
-                else
-                    wl2 = wl_cons(tmp1,
-                              wl_cons(copy("="),
-                                      wl_cons(tmp2,
-                                              NULL)));
+                wl2 = NULL;
+                if (eqptr[1])
+                    wl2 = wl_cons(copy(eqptr + 1), wl2);
+                wl2 = wl_cons(copy("="), wl2);
+                if (eqptr > argument)
+                    wl2 = wl_cons(copy_substring(argument, eqptr), wl2);
                 /* combine wordlists into wl2, free wl */
                 wl_splice(wl, wl2);
                 wl = NULL;
