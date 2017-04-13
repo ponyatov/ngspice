@@ -449,10 +449,9 @@ MIFunsetup(GENmodel *inModel,CKTcircuit *ckt)
     MIFmodel *model;
     MIFinstance *here;
     Mif_Smp_Ptr_t  *smp_data_out;
-    int num_conn,num_port,i,j;
-    Mif_Port_Type_t  type;
-    Mif_Boolean_t   is_input;
-    Mif_Boolean_t   is_output;
+    Mif_Port_Type_t type;
+    Mif_Boolean_t   is_input, is_output;
+    int             num_conn, num_port, i, j;
 
 
     for (model = (MIFmodel *)inModel; model != NULL;

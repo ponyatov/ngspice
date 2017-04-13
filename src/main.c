@@ -1147,7 +1147,7 @@ main(int argc, char **argv)
             if (FALSE == read_initialisation_file("", INITSTR) &&
                 FALSE == read_initialisation_file("", ALT_INITSTR)) {
                 /* if that failed try in the user's home directory
-                if their HOME environment variable is set */
+                   if their HOME environment variable is set */
                 char *homedir = getenv("HOME");
                 if (homedir) {
                     if (FALSE == read_initialisation_file(homedir, INITSTR) &&

@@ -207,11 +207,13 @@ void cm_filesource(ARGS)   /* structure holding parms, inputs, outputs, etc.    
     amploffssize = PARAM_NULL(amploffset) ? 0 : PARAM_SIZE(amploffset);
     loc = STATIC_VAR (locdata);
 
-    /* The file pointer is at the same position it was for the last simulator TIME ... */
-    /* When TIME was *less* than the last read time, originally the code would read nothing at all. */
+    /* The file pointer is at the same position it was for the last simulator TIME ...
+     * If TIME steps backward, for example due to a second invocation of a 'tran' analysis
+     *   then we need to rewind the file to start from the beginning.
+     */
 
     if (TIME < loc->timeinterval[0]) {
-        rewind(loc->state->fp); /* mhx: e.g. ALTER statement */
+        rewind(loc->state->fp);
         loc->timeinterval[0] = loc->timeinterval[1] = PARAM_NULL(timeoffset) ? 0.0 : PARAM(timeoffset);
     }
 
@@ -268,7 +270,7 @@ void cm_filesource(ARGS)   /* structure holding parms, inputs, outputs, etc.    
         }
         free(cpdel);
     }
-    if (!loc->state->atend && TIME <= loc->timeinterval[1] && TIME >= loc->timeinterval[0]) {
+    if (!loc->state->atend && loc->timeinterval[0] <= TIME && TIME <= loc->timeinterval[1]) {
         if (!PARAM_NULL(amplstep) && PARAM(amplstep) == MIF_TRUE) {
             int i;
             for (i = 0; i < size; ++i)

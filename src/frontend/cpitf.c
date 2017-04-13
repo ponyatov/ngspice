@@ -223,8 +223,8 @@ ft_cpinit(void)
     /* Reset this for the front end. */
     cp_hash = '*';
 
-#ifdef _MSC_VER
     /* set variables to read program configuration into special spinit for VS */
+#ifdef _MSC_VER
 #ifdef CONFIG64
 #ifdef NGDEBUG
     cp_vset("pg_config", CP_STRING, "d64");
@@ -241,7 +241,7 @@ ft_cpinit(void)
 #endif
 
 /* set a variable to announce windows console (to be used in unselecting plotting) */
-#if ((defined(_MSC_VER) || defined(__MINGW32__)) && !defined(HAS_WINGUI))
+#if (defined(_MSC_VER) || defined(__MINGW32__)) && !defined(HAS_WINGUI)
     cp_vset("win_console", CP_BOOL, &t);
 #endif
 
