@@ -23,6 +23,7 @@ Author: 1986 Wayne A. Christopher, U. C. Berkeley CAD Group
 
 static void fixdims(struct dvec *v, char *s);
 
+
 int raw_prec = -1;        /* How many sigfigs to use, default 15 (max).  */
 
 #define DEFPREC 15
@@ -806,14 +807,15 @@ spar_write(char *name, struct plot *pl, double Rbaseval)
     (void) fclose(fp);
 }
 
-/* Add a user selectable path to the filename for output. Directory given must already exist. 
+
+/* Add a user selectable path to the filename for output. Directory given must already exist.
  * absolute mingw path + filename: transform to Windows path, copy and return
  * absolute path + filename: copy and return
  * variable outputpath contains an output path: add filename to path, copy and return
- * environment variable NGSPICE_OUTPUT_DIR has output path: add filename to path, copy and return 
+ * environment variable NGSPICE_OUTPUT_DIR has output path: add filename to path, copy and return
  * neither outputpath nor NGSPICE_OUTPUT_DIR is set: copy and return filename */
 char *
-set_output_path(char* filename)
+set_output_path(char *filename)
 {
     char varpath[BSIZE_SP];
     char *ret;

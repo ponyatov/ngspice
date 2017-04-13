@@ -59,7 +59,8 @@ int Printer_Width = PRINTER_WIDTH;
 #ifdef HAS_WINGUI
 #include "ngspice/wstdio.h"
 #endif
-extern char * set_output_path(char* filename);
+
+extern char *set_output_path(char *filename);
 
 
 #if DOCUMENTATION

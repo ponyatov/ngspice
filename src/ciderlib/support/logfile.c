@@ -8,7 +8,7 @@ Author:	1992 David A. Gates, U. C. Berkeley CAD Group
 
 static char *LogFileName = "cider.log";
 static int LogError = 0;
-extern char * set_output_path(char* filename);
+extern char *set_output_path(char *filename);
 
 void
 LOGmakeEntry(char *name, char *description)
