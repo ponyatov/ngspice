@@ -120,6 +120,16 @@ typedef struct {
 /* misc constants */
 
 #define N_MXVLNTH  256   /* maximum length for noise output variables we will generate */
+#define NOISE_ADD_OUTVAR(ckt, data, fmt, aname, bname)                  \
+    do {                                                                \
+        sprintf(name, fmt, aname, bname);                               \
+        data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1); \
+        if (!data->namelist)                                            \
+            return(E_NOMEM);                                            \
+        SPfrontEnd->IFnewUid (ckt, &(data->namelist[data->numPlots++]), \
+                              NULL, name, UID_OTHER, NULL);             \
+    } while(0)
+
 
 void NevalSrc (double *noise, double *lnNoise, CKTcircuit *ckt, int type, int node1, int node2, double param);
 void NevalSrc2 (double *, double *, CKTcircuit *, int, int, int, double, int, int, double, double);
