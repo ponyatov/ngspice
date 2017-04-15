@@ -123,12 +123,12 @@ typedef struct {
     do {                                                                \
         data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1); \
         if (!data->namelist)                                            \
-            return(E_NOMEM);                                            \
+            return E_NOMEM;                                             \
         char *name = tprintf(fmt, aname, bname);                        \
         if (!name)                                                      \
-            return(E_NOMEM);                                            \
-        SPfrontEnd->IFnewUid (ckt, &(data->namelist[data->numPlots++]), \
-                              NULL, name, UID_OTHER, NULL);             \
+            return E_NOMEM;                                             \
+        SPfrontEnd->IFnewUid(ckt, &(data->namelist[data->numPlots++]),  \
+                             NULL, name, UID_OTHER, NULL);              \
         tfree(name);                                                    \
     } while(0)
 

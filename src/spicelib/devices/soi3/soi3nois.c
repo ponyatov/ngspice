@@ -96,7 +96,7 @@ SOI3noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
 
 			    NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->SOI3name, SOI3nNames[i]);
 
-             NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->SOI3name, SOI3nNames[i]);
+                            NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->SOI3name, SOI3nNames[i]);
 
 
 
