@@ -62,15 +62,7 @@ MOS3noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
 
 		    case N_DENS:
 			for (i=0; i < MOS3NSRCS; i++) {
-			    (void)sprintf(name,"onoise_%s%s",inst->MOS3name,MOS3nNames[i]);
-
-
-data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-if (!data->namelist) return(E_NOMEM);
-		SPfrontEnd->IFnewUid (ckt,
-			&(data->namelist[data->numPlots++]),
-			NULL, name, UID_OTHER, NULL);
-				/* we've added one more plot */
+			    NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->MOS3name, MOS3nNames[i]);
 
 
 			}
@@ -78,26 +70,10 @@ if (!data->namelist) return(E_NOMEM);
 
 		    case INT_NOIZ:
 			for (i=0; i < MOS3NSRCS; i++) {
-			    (void)sprintf(name,"onoise_total_%s%s",inst->MOS3name,MOS3nNames[i]);
+			    NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->MOS3name, MOS3nNames[i]);
 
 
-data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-if (!data->namelist) return(E_NOMEM);
-		SPfrontEnd->IFnewUid (ckt,
-			&(data->namelist[data->numPlots++]),
-			NULL, name, UID_OTHER, NULL);
-				/* we've added one more plot */
-
-
-			    (void)sprintf(name,"inoise_total_%s%s",inst->MOS3name,MOS3nNames[i]);
-
-
-data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-if (!data->namelist) return(E_NOMEM);
-		SPfrontEnd->IFnewUid (ckt,
-			&(data->namelist[data->numPlots++]),
-			NULL, name, UID_OTHER, NULL);
-				/* we've added one more plot */
+			    NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->MOS3name, MOS3nNames[i]);
 
 
 

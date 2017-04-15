@@ -146,44 +146,14 @@ int i;
 		      {   switch (mode)
 			  {  case N_DENS:
 			          for (i = 0; i < B3SOIPDNSRCS; i++)
-				  {    (void) sprintf(name, "onoise.%s%s",
-					              here->B3SOIPDname,
-						      B3SOIPDnNames[i]);
-                                       data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-                                       if (!data->namelist)
-					   return(E_NOMEM);
-		                       SPfrontEnd->IFnewUid (ckt,
-			                  &(data->namelist[data->numPlots++]),
-			                  NULL, name, UID_OTHER,
-					  NULL);
-				       /* we've added one more plot */
+				  {    NOISE_ADD_OUTVAR(ckt, data, "onoise.%s%s", here->B3SOIPDname, B3SOIPDnNames[i]);
 			          }
 			          break;
 		             case INT_NOIZ:
 			          for (i = 0; i < B3SOIPDNSRCS; i++)
-				  {    (void) sprintf(name, "onoise_total.%s%s",
-						      here->B3SOIPDname,
-						      B3SOIPDnNames[i]);
-                                       data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-                                       if (!data->namelist)
-					   return(E_NOMEM);
-		                       SPfrontEnd->IFnewUid (ckt,
-			                  &(data->namelist[data->numPlots++]),
-			                  NULL, name, UID_OTHER,
-					  NULL);
-				       /* we've added one more plot */
+				  {    NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->B3SOIPDname, B3SOIPDnNames[i]);
 
-			               (void) sprintf(name, "inoise_total.%s%s",
-						      here->B3SOIPDname,
-						      B3SOIPDnNames[i]);
-                                       data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-                                       if (!data->namelist)
-					   return(E_NOMEM);
-		                       SPfrontEnd->IFnewUid (ckt,
-			                  &(data->namelist[data->numPlots++]),
-			                  NULL, name, UID_OTHER,
-					  NULL);
-				       /* we've added one more plot */
+			               NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->B3SOIPDname, B3SOIPDnNames[i]);
 			          }
 			          break;
 		          }

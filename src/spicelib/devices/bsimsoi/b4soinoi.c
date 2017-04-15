@@ -164,44 +164,14 @@ double m;
                       {   switch (mode)
                           {  case N_DENS:
                                   for (i = 0; i < B4SOINSRCS; i++)
-                                  {    (void) sprintf(name, "onoise.%s%s",
-                                                      here->B4SOIname,
-                                                      B4SOInNames[i]);
-                                       data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-                                       if (!data->namelist)
-                                           return(E_NOMEM);
-                                       SPfrontEnd->IFnewUid (ckt,
-                                          &(data->namelist[data->numPlots++]),
-                                          NULL, name, UID_OTHER,
-                                           NULL);
-                                       /* we've added one more plot */
+                                  {    NOISE_ADD_OUTVAR(ckt, data, "onoise.%s%s", here->B4SOIname, B4SOInNames[i]);
                                   }
                                   break;
                              case INT_NOIZ:
                                   for (i = 0; i < B4SOINSRCS; i++)
-                                  {    (void) sprintf(name, "onoise_total.%s%s",
-                                                      here->B4SOIname,
-                                                      B4SOInNames[i]);
-                                       data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-                                       if (!data->namelist)
-                                           return(E_NOMEM);
-                                       SPfrontEnd->IFnewUid (ckt,
-                                          &(data->namelist[data->numPlots++]),
-                                          NULL, name, UID_OTHER,
-                                           NULL);
-                                       /* we've added one more plot */
+                                  {    NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->B4SOIname, B4SOInNames[i]);
 
-                                       (void) sprintf(name, "inoise_total.%s%s",
-                                                      here->B4SOIname,
-                                                      B4SOInNames[i]);
-                                       data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-                                       if (!data->namelist)
-                                           return(E_NOMEM);
-                                       SPfrontEnd->IFnewUid (ckt,
-                                          &(data->namelist[data->numPlots++]),
-                                          NULL, name, UID_OTHER,
-                                          NULL);
-                                       /* we've added one more plot */
+                                       NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->B4SOIname, B4SOInNames[i]);
                                   }
                                   break;
                           }

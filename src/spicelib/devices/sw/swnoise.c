@@ -51,40 +51,16 @@ SWnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *da
 		    switch (mode) {
 
 		    case N_DENS:
-			(void)sprintf(name,"onoise_%s%s",inst->SWname,"");
-
-
-data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-if (!data->namelist) return(E_NOMEM);
-		SPfrontEnd->IFnewUid (ckt,
-			&(data->namelist[data->numPlots++]),
-			NULL, name, UID_OTHER, NULL);
-				/* we've added one more plot */
+			NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->SWname, "");
 
 
 			break;
 
 		    case INT_NOIZ:
-			(void)sprintf(name,"onoise_total_%s%s",inst->SWname,"");
+			NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->SWname, "");
 
 
-data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-if (!data->namelist) return(E_NOMEM);
-		SPfrontEnd->IFnewUid (ckt,
-			&(data->namelist[data->numPlots++]),
-			NULL, name, UID_OTHER, NULL);
-				/* we've added one more plot */
-
-
-			(void)sprintf(name,"inoise_total_%s%s",inst->SWname,"");
-
-
-data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
-if (!data->namelist) return(E_NOMEM);
-		SPfrontEnd->IFnewUid (ckt,
-			&(data->namelist[data->numPlots++]),
-			NULL, name, UID_OTHER, NULL);
-				/* we've added one more plot */
+			NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->SWname, "");
 
 
 			break;
