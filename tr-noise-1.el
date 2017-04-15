@@ -12,6 +12,11 @@
         (ws+ . ,(rx (+ (any " " "\t" "\n"))))
         (int . ,(rx (+ digit)))))
 
+(defmacro rx-extra (&rest body-forms)
+  (let ((rx-constituents (append *my-rx-constituents* rx-constituents)))
+    (macroexpand `(rx ,@body-forms))))
+
+
 (defun foo-bar()
   (let ((case-fold-search nil))
     (goto-char (point-min))
