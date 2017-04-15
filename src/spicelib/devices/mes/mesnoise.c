@@ -29,7 +29,6 @@ MESnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *d
     MESmodel *firstModel = (MESmodel *) genmodel;
     MESmodel *model;
     MESinstance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[MESNSRCS];

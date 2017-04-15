@@ -30,7 +30,6 @@ MOS1noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     MOS1model *firstModel = (MOS1model *) genmodel;
     MOS1model *model;
     MOS1instance *inst;
-    char name[N_MXVLNTH];
     double coxSquared;
     double tempOnoise;
     double tempInoise;

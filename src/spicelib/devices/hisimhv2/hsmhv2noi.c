@@ -85,7 +85,6 @@ int HSMHV2noise (
 {
   HSMHV2model *model = (HSMHV2model *)inModel;
   HSMHV2instance *here;
-  char name[N_MXVLNTH];
   double tempOnoise=0.0 ;
   double tempInoise=0.0 ;
   double noizDens[HSMHV2NSRCS] ;

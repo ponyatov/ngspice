@@ -106,7 +106,6 @@ double *OnDens)
 register B4SOImodel *model = (B4SOImodel *)inModel;
 register B4SOIinstance *here;
 struct b4soiSizeDependParam *pParam;
-char name[N_MXVLNTH];
 double tempOnoise;
 double tempInoise;
 double noizDens[B4SOINSRCS];

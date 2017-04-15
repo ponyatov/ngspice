@@ -30,7 +30,6 @@ BJTnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     BJTmodel *firstModel = (BJTmodel *) genmodel;
     BJTmodel *model;
     BJTinstance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[BJTNSRCS];

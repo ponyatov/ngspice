@@ -30,7 +30,6 @@ MOS3noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     MOS3model *firstModel = (MOS3model *) genmodel;
     MOS3model *model;
     MOS3instance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[MOS3NSRCS];

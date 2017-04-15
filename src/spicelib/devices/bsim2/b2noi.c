@@ -29,7 +29,6 @@ B2noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     B2model *firstModel = (B2model *) genmodel;
     B2model *model;
     B2instance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[B2NSRCS];

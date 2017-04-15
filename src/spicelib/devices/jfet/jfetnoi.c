@@ -29,7 +29,6 @@ JFETnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *
     JFETmodel *firstModel = (JFETmodel *) genmodel;
     JFETmodel *model;
     JFETinstance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[JFETNSRCS];

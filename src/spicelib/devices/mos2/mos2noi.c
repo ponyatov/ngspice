@@ -30,7 +30,6 @@ MOS2noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     MOS2model *firstModel = (MOS2model *) genmodel;
     MOS2model *model;
     MOS2instance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[MOS2NSRCS];

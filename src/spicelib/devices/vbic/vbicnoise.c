@@ -31,7 +31,6 @@ VBICnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *
     VBICmodel *firstModel = (VBICmodel *) genmodel;
     VBICmodel *model;
     VBICinstance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[VBICNSRCS];

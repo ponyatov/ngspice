@@ -77,7 +77,6 @@ NOISEAN *job = (NOISEAN *) ckt->CKTcurJob;
 BSIM3v0model *model = (BSIM3v0model *)inModel;
 BSIM3v0instance *here;
 struct bsim3v0SizeDependParam *pParam;
-char name[N_MXVLNTH];
 double tempOnoise;
 double tempInoise;
 double noizDens[BSIM3v0NSRCS];

@@ -49,7 +49,6 @@ SOI3noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     SOI3model *firstModel = (SOI3model *) genmodel;
     SOI3model *model;
     SOI3instance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[SOI3NSRCS];

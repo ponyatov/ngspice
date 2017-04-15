@@ -29,7 +29,6 @@ SWnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *da
     SWmodel *firstModel = (SWmodel *) genmodel;
     SWmodel *model;
     SWinstance *inst;
-    char name[N_MXVLNTH];
     double tempOutNoise;
     double tempInNoise;
     double noizDens;

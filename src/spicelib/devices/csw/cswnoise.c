@@ -29,7 +29,6 @@ CSWnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *d
     CSWmodel *firstModel = (CSWmodel *) genmodel;
     CSWmodel *model;
     CSWinstance *inst;
-    char name[N_MXVLNTH];
     double tempOutNoise;
     double tempInNoise;
     double noizDens;

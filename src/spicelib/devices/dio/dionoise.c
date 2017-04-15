@@ -31,7 +31,6 @@ DIOnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     DIOmodel *firstModel = (DIOmodel *) genmodel;
     DIOmodel *model;
     DIOinstance *inst;
-    char name[N_MXVLNTH];
     double tempOnoise;
     double tempInoise;
     double noizDens[DIONSRCS];

@@ -35,7 +35,6 @@ RESnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
     RESmodel *firstModel = (RESmodel *) genmodel;
     RESmodel *model;
     RESinstance *inst;
-    char name[N_MXVLNTH];
     double tempOutNoise;
     double tempInNoise;
     double noizDens[RESNSRCS];

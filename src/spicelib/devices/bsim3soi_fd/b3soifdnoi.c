@@ -103,7 +103,6 @@ NOISEAN *job = (NOISEAN *) ckt->CKTcurJob;
 B3SOIFDmodel *model = (B3SOIFDmodel *)inModel;
 B3SOIFDinstance *here;
 struct b3soifdSizeDependParam *pParam;
-char name[N_MXVLNTH];
 double tempOnoise;
 double tempInoise;
 double noizDens[B3SOIFDNSRCS];
