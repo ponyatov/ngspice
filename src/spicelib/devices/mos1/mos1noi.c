@@ -73,19 +73,13 @@ MOS1noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
 		    case N_DENS:
 			for (i=0; i < MOS1NSRCS; i++) {
 			    NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->MOS1name, MOS1nNames[i]);
-
-
 			}
 			break;
 
 		    case INT_NOIZ:
 			for (i=0; i < MOS1NSRCS; i++) {
 			    NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->MOS1name, MOS1nNames[i]);
-
-
 			    NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->MOS1name, MOS1nNames[i]);
-
-
 			}
 			break;
 		    }

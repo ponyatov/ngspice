@@ -82,7 +82,6 @@ int HSMHVnoise (
 	  case INT_NOIZ:
 	    for ( i = 0; i < HSMHVNSRCS; i++ ) {
 	      NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->HSMHVname, HSMHVnNames[i]);
-	      
 	      NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->HSMHVname, HSMHVnNames[i]);
 	    }
 	    break;

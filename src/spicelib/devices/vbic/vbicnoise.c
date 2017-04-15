@@ -81,7 +81,6 @@ VBICnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *
                     case INT_NOIZ:
                         for (i=0; i < VBICNSRCS; i++) {
                             NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->VBICname, VBICnNames[i]);
-
                             NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->VBICname, VBICnNames[i]);
                         }
                         break;

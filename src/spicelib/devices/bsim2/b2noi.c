@@ -61,20 +61,13 @@ B2noise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
 		    case N_DENS:
 			for (i=0; i < B2NSRCS; i++) {
 			    NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->B2name, B2nNames[i]);
-
-
 			}
 			break;
 
 		    case INT_NOIZ:
 			for (i=0; i < B2NSRCS; i++) {
 			    NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->B2name, B2nNames[i]);
-
-
 			    NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->B2name, B2nNames[i]);
-
-
-
 			}
 			break;
 		    }

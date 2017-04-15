@@ -51,17 +51,11 @@ SWnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *da
 
 		    case N_DENS:
 			NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->SWname, "");
-
-
 			break;
 
 		    case INT_NOIZ:
 			NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->SWname, "");
-
-
 			NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->SWname, "");
-
-
 			break;
 		    }
 		}

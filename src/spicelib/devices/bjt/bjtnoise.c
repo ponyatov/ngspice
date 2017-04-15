@@ -73,7 +73,6 @@ for (model=firstModel; model != NULL; model=model->BJTnextModel) {
 		    case INT_NOIZ:
 			for (i=0; i < BJTNSRCS; i++) {
 			    NOISE_ADD_OUTVAR(ckt, data, "onoise_total_%s%s", inst->BJTname, BJTnNames[i]);
-
 			    NOISE_ADD_OUTVAR(ckt, data, "inoise_total_%s%s", inst->BJTname, BJTnNames[i]);
 			}
 			break;

@@ -153,7 +153,6 @@ double m;
                              case INT_NOIZ:
                                   for (i = 0; i < BSIM4v7NSRCS; i++)
                                   {    NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->BSIM4v7name, BSIM4v7nNames[i]);
-
                                        NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->BSIM4v7name, BSIM4v7nNames[i]);
                                   }
                                   break;

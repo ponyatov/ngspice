@@ -124,7 +124,6 @@ int HSMHV2noise (
 	  case INT_NOIZ:
 	    for ( i = 0; i < HSMHV2NSRCS; i++ ) {
 	      NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->HSMHV2name, HSMHV2nNames[i]);
-	      
 	      NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->HSMHV2name, HSMHV2nNames[i]);
 	    }
 	    break;

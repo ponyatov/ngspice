@@ -169,7 +169,6 @@ double m;
                              case INT_NOIZ:
                                   for (i = 0; i < B4SOINSRCS; i++)
                                   {    NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->B4SOIname, B4SOInNames[i]);
-
                                        NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->B4SOIname, B4SOInNames[i]);
                                   }
                                   break;
