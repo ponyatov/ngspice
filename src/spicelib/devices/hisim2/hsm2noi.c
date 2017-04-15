@@ -121,14 +121,14 @@ int HSM2noise (
 	  switch (mode) {
 	  case N_DENS:
 	    for ( i = 0; i < HSM2NSRCS; i++ ) { 
-	      NOISE_ADD_OUTVAR(ckt, data, "onoise.%s%s", (char *)here->HSM2name, HSM2nNames[i]);
+	      NOISE_ADD_OUTVAR(ckt, data, "onoise.%s%s", here->HSM2name, HSM2nNames[i]);
 	    }
 	    break;
 	  case INT_NOIZ:
 	    for ( i = 0; i < HSM2NSRCS; i++ ) {
-	      NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", (char *)here->HSM2name, HSM2nNames[i]);
+	      NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->HSM2name, HSM2nNames[i]);
 	      
-	      NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", (char *)here->HSM2name, HSM2nNames[i]);
+	      NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->HSM2name, HSM2nNames[i]);
 	    }
 	    break;
 	  }
