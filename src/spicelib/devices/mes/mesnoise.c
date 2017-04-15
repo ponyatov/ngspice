@@ -90,11 +90,6 @@ if (!data->namelist) return(E_NOMEM);
 
 			    (void)sprintf(name,"inoise_total_%s%s",inst->MESname,MESnNames[i]);
 
-			    /*
-			    OUTname(name,SV_INPUT_NOISE_V_SQ);
-			    data->numPlots += 2; 
-			    */
-
 data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
 if (!data->namelist) return(E_NOMEM);
 		SPfrontEnd->IFnewUid (ckt,
