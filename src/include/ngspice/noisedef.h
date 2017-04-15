@@ -122,6 +122,7 @@ typedef struct {
 #define N_MXVLNTH  256   /* maximum length for noise output variables we will generate */
 #define NOISE_ADD_OUTVAR(ckt, data, fmt, aname, bname)                  \
     do {                                                                \
+        char name[N_MXVLNTH];                                           \
         sprintf(name, fmt, aname, bname);                               \
         data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1); \
         if (!data->namelist)                                            \
