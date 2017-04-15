@@ -51,7 +51,7 @@ CSWnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt, Ndata *d
 		    switch (mode) {
 
 		    case N_DENS:
-			(void)sprintf(name,"onoise_%s",inst->CSWname);
+			(void)sprintf(name,"onoise_%s%s",inst->CSWname,"");
 
 
 data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
@@ -63,7 +63,7 @@ if (!data->namelist) return(E_NOMEM);
 			break;
 
 		    case INT_NOIZ:
-			(void)sprintf(name,"onoise_total_%s",inst->CSWname);
+			(void)sprintf(name,"onoise_total_%s%s",inst->CSWname,"");
 
 
 data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
@@ -73,7 +73,7 @@ if (!data->namelist) return(E_NOMEM);
 			NULL, name, UID_OTHER, NULL);
 				/* we've added one more plot */
 
-			(void)sprintf(name,"inoise_total_%s",inst->CSWname);
+			(void)sprintf(name,"inoise_total_%s%s",inst->CSWname,"");
 
 
 data->namelist = TREALLOC(IFuid, data->namelist, data->numPlots + 1);
