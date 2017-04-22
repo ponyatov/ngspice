@@ -189,11 +189,20 @@ xx_new_line(struct line *next, char *line, int linenum, int linenum_orig, struct
 static struct line *
 insert_new_line(struct line *card, char *line, int linenum, int linenum_orig)
 {
-    if (!card)
-        return  xx_new_line(NULL, line, linenum, linenum_orig, NULL);
+    struct line *x = TMALLOC(struct line, 1);
 
-    card = card->li_next = xx_new_line(card->li_next, line, linenum, linenum_orig, card->level);
-    return card;
+    x->li_next = card ? card->li_next : NULL;
+    x->li_error = NULL;
+    x->li_actual = NULL;
+    x->li_line = line;
+    x->li_linenum = linenum;
+    x->li_linenum_orig = linenum_orig;
+    x->level = card ? card->level : NULL;
+
+    if (card)
+        card->li_next = x;
+
+    return x;
 }
 
 
