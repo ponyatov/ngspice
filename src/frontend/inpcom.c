@@ -2534,10 +2534,9 @@ expand_section_ref(struct line *c, char *dir_name)
 
         /* insert the library section definition into `c' */
         {
-            struct line *rest = c->li_next;
             struct line *t = section_def;
             for (; t; t=t->li_next) {
-                c = c->li_next = xx_new_line(NULL, copy(t->li_line), t->li_linenum, t->li_linenum_orig, c->level);
+                c = c->li_next = xx_new_line(c->li_next, copy(t->li_line), t->li_linenum, t->li_linenum_orig, c->level);
                 if (t == section_def) {
                     c->li_line[0] = '*';
                     c->li_line[1] = '<';
@@ -2551,7 +2550,6 @@ expand_section_ref(struct line *c, char *dir_name)
             }
             c->li_line[0] = '*';
             c->li_line[1] = '>';
-            c->li_next = rest;
 
             c = c;
         }
