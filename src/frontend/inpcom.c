@@ -5628,8 +5628,8 @@ inp_add_series_resistor(struct line *deck)
             // insert new new L and R lines immediately after current line
             *(card->li_line) = '*';
             d = xx_new_line(NULL, newR, 0, 0, card->level);
+            card = card->li_next = xx_new_line(card->li_next, newL, 0, 0, card->level);
             d->li_next = card->li_next;
-            card = card->li_next = xx_new_line(NULL, newL, 0, 0, card->level);
             card->li_next = d;
             card = d;
 
