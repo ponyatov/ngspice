@@ -863,10 +863,10 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
 
                 if (end)
                     end->li_next = x;
-                else
-                    cc = x;
-
                 end = x;
+
+                if (!cc)
+                    cc = end;
 
                 line_number++;
             }
@@ -1013,10 +1013,10 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
 
             if (end)
                 end->li_next = x;
-            else
-                cc = x;
-
             end = x;
+
+            if (!cc)
+                cc = end;
         }
 
         tfree(buffer);
