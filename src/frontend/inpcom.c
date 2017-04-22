@@ -3983,16 +3983,17 @@ inp_reorder_params_subckt(struct names *subckt_w_params, struct line *subckt_car
 
         // ugly and complex, but ok
         if (ciprefix(".para", curr_line)) {
+            prev_card->li_next = c->li_next;
+
             if (first_param_card)
                 last_param_card->li_next = c;
             else
                 first_param_card = c;
 
             last_param_card    = c;
-            prev_card->li_next = c->li_next;
-            c                  = c->li_next;
 
             last_param_card->li_next = NULL;
+            c = prev_card->li_next;
             continue;
         }
 
@@ -4039,16 +4040,17 @@ inp_reorder_params(struct names *subckt_w_params, struct line *list_head)
 
         // ugly and complex, but ok
         if (ciprefix(".para", curr_line)) {
+            prev_card->li_next = c->li_next;
+
             if (first_param_card)
                 last_param_card->li_next = c;
             else
                 first_param_card = c;
 
             last_param_card    = c;
-            prev_card->li_next = c->li_next;
-            c                  = c->li_next;
 
             last_param_card->li_next = NULL;
+            c = prev_card->li_next;
             continue;
         }
 
