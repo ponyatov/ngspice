@@ -372,12 +372,12 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
         double tmp;
         char *cFile, *cThisPtr, *cThisLine, *cThisLinePtr;
         int   isNewline;     /* Boolean indicating we've read a CR or LF */
-        size_t lFileLen;      /* Length of file */
-        size_t lFileRead;     /* Length of file read in */
+        size_t lFileLen;     /* Length of file */
+        size_t lFileRead;    /* Length of file read in */
         long  lIndex;        /* Index into cThisLine array */
         int   lLineCount;    /* Current line number */
-        size_t lStartPos;     /* Offset of start of current line */
-        size_t lTotalChars;   /* Total characters read */
+        size_t lStartPos;    /* Offset of start of current line */
+        size_t lTotalChars;  /* Total characters read */
         int   interporder;   /* order of interpolation for eno */
 
         /* allocate static storage for *loc */
