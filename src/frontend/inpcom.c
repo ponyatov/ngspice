@@ -406,7 +406,7 @@ inp_stitch_continuation_lines(struct line *working)
                 tfree(s);
             } else {
                 prev->li_actual = insert_new_line(NULL, s, prev->li_linenum, 0);
-#warning "scope, really ?, thats inside inp_read, there is no scope yet, simply drop this assignment !"
+//#warning "scope, really ?, thats inside inp_read, there is no scope yet, simply drop this assignment !"
                 prev->li_actual->level = prev->level;
                 prev->li_actual->li_next = working;
             }
@@ -544,7 +544,7 @@ inp_readall(FILE *fp, char *dir_name, bool comfile, bool intfile, bool *expr_w_t
         delete_libs();
 
         struct nscope *root = inp_add_levels(working);
-#warning "should set the scope of the very first deck too, (for the insertion, scope copying mechanism)"
+//#warning "should set the scope of the very first deck too, (for the insertion, scope copying mechanism)"
         inp_fix_for_numparam(subckt_w_params, working);
 
 
@@ -866,7 +866,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
 
             /* append `buffer' to the (cc, end) chain of decks */
             {
-#warning "I have copied scope, (non NULL), this is inp_read, thus before inp_add_levels, thus NULL anyway"
+//#warning "I have copied scope, (non NULL), this is inp_read, thus before inp_add_levels, thus NULL anyway"
                 end = insert_new_line(end, copy(buffer), line_number, line_number);
 
                 if (!cc)
@@ -877,7 +877,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
 
             if (newcard) {
                 int line_number_inc = 1;
-#warning "this is inp_read, thus before inp_add_levels, thus scope==NULL anyway"
+//#warning "this is inp_read, thus before inp_add_levels, thus scope==NULL anyway"
                 end->li_next = newcard;
                 /* Renumber the lines */
                 for (end = newcard; end && end->li_next; end = end->li_next) {
@@ -1014,7 +1014,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
         shell_eol_continuation = chk_for_line_continuation(buffer);
 
         {
-#warning "I have copied scope, (non NULL), this is inp_read, thus before inp_add_levels, thus NULL anyway"
+//#warning "I have copied scope, (non NULL), this is inp_read, thus before inp_add_levels, thus NULL anyway"
             end = insert_new_line(end, copy(buffer), line_number++, line_number_orig++);
 
             if (!cc)
@@ -1036,7 +1036,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
         comfile = TRUE;
 
     if (call_depth == 0 && !comfile) {
-#warning fixme first line, does have a scope to be copied ?, this is inp_read, thus before inp_add_levels, thus NULL anyway"
+//#warning "fixme first line, does have a scope to be copied ?, this is inp_read, thus before inp_add_levels, thus NULL anyway"
         insert_new_line(cc, copy(".global gnd"), 1, 0);
 
         if (inp_compat_mode == COMPATMODE_ALL ||
@@ -1054,7 +1054,7 @@ inp_read(FILE *fp, int call_depth, char *dir_name, bool comfile, bool intfile)
 
     if (call_depth == 0 && !comfile)
         if (found_end == TRUE)
-#warning fixme, here I have copied "scope, this is inp_read, thus before inp_add_levels, thus NULL anyway"
+//#warning "fixme, here I have copied "scope, this is inp_read, thus before inp_add_levels, thus NULL anyway"
             end = insert_new_line(end, copy(".end"), line_number++, line_number_orig++);
 
     /* Replace first line with the new title, if available */
@@ -1507,14 +1507,14 @@ inp_add_control_section(struct line *deck, int *line_number)
             found_control = FALSE;
 
             if (!found_run) {
-#warning "I'have copied scope, (was NULL), this is in .control, should be ok"
+//#warning "I'have copied scope, (was NULL), this is in .control, should be ok"
                 prev_card = insert_new_line(prev_card, copy("run"), (*line_number)++, 0);
                 found_run = TRUE;
             }
 
             if (cp_getvar("rawfile", CP_STRING, rawfile)) {
                 line = tprintf("write %s", rawfile);
-#warning "I'have copied scope, (was NULL), this is in .control, should be ok"
+//#warning "I'have copied scope, (was NULL), this is in .control, should be ok"
                 prev_card = insert_new_line(prev_card, line, (*line_number)++, 0);
             }
         }
@@ -1525,7 +1525,7 @@ inp_add_control_section(struct line *deck, int *line_number)
     // check if need to add control section
     if (!found_run && found_end) {
 
-#warning "next five, I'have copied scope, (was NULL), this is in .control, should be ok"
+//#warning "next five, I'have copied scope, (was NULL), this is in .control, should be ok"
         insert_new_line(deck, copy(".endc"), (*line_number)++, 0);
 
         if (cp_getvar("rawfile", CP_STRING, rawfile)) {
@@ -2314,13 +2314,13 @@ inp_fix_subckt(struct names *subckt_w_params, char *s)
 
             beg = ptr2;
 
-#warning "I have copied scope, (non NULL), started from NULL, thus all NULL"
+//#warning "I have copied scope, (non NULL), started from NULL, thus all NULL"
             c = insert_new_line(c, copy_substring(ptr1, ptr2), 0, 0);
 
             if (!first_param_card)
                 first_param_card = c;
         }
-#warning "fixme, those parameters have NULL scope"
+//#warning "fixme, those parameters have NULL scope"
         /* now sort parameters in order of dependencies */
         inp_sort_params(first_param_card, head, NULL, NULL);
 
@@ -3869,7 +3869,7 @@ inp_sort_params(struct line *param_cards, struct line *card_bf_start, struct lin
     for (i = 0; i <= max_level; i++)
         for (j = 0; j < num_params; j++)
             if (!deps[j].skip && deps[j].level == i) {
-#warning "should copy scope .., gives rise to function insert_card, but carefull, first deck has possibly wrong/parent scope"
+//#warning "should copy scope .., gives rise to function insert_card, but carefull, first deck has possibly wrong/parent scope"
                 c = c->li_next = deps[j].card;
                 ind++;
             }
