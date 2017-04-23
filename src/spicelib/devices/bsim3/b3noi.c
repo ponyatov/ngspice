@@ -158,7 +158,6 @@ int i;
 		             case INT_NOIZ:
 			          for (i = 0; i < BSIM3NSRCS; i++)
 				  {    NOISE_ADD_OUTVAR(ckt, data, "onoise_total.%s%s", here->BSIM3name, BSIM3nNames[i]);
-
 			               NOISE_ADD_OUTVAR(ckt, data, "inoise_total.%s%s", here->BSIM3name, BSIM3nNames[i]);
 			          }
 			          break;

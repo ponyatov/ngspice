@@ -327,7 +327,8 @@ static IFparm OPTtbl[] = {
         "Maximum relative iter-iter node voltage change" },
  { "noopac", OPT_NOOPAC, IF_SET|IF_FLAG,
         "No op calculation in ac if circuit is linear" },
- { "epsmin", OPT_EPSMIN,IF_SET | IF_REAL,"Minimum value for log" }
+ { "epsmin", OPT_EPSMIN, IF_SET|IF_REAL,
+        "Minimum value for log" }
 };
 
 int OPTcount = NUMELEMS(OPTtbl);

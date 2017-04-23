@@ -72,7 +72,7 @@ RESnoise (int mode, int operation, GENmodel *genmodel, CKTcircuit *ckt,
 
                     case N_DENS:
                         for (i=0; i < RESNSRCS; i++) {
-                        NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->RESname, RESnNames[i]);
+                            NOISE_ADD_OUTVAR(ckt, data, "onoise_%s%s", inst->RESname, RESnNames[i]);
                         }
                         break;
 
