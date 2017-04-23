@@ -5668,6 +5668,7 @@ subckt_params_to_param(struct line *card)
             /* card->li_line ends with subcircuit name */
             cut_line[-1] = '\0';
             /* insert new_line after card->li_line */
+            // fixme position of scope !
             insert_new_line(card, new_line, card->li_linenum + 1, 0);
         }
     }
