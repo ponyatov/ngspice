@@ -194,8 +194,8 @@ static struct line *
 insert_deck(struct line *card, struct line *new_card)
 {
     if (card) {
-        card->li_next = new_card;
         new_card->li_next = card->li_next;
+        card->li_next = new_card;
     } else {
         new_card->li_next = NULL;
     }
