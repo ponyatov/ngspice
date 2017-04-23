@@ -1540,19 +1540,19 @@ inp_add_control_section(struct line *deck, int *line_number)
     if (!found_run && found_end) {
 
 //#warning "next five, I'have copied scope, (was NULL), this is in .control, should be ok"
-        insert_new_line(deck, copy(".endc"), (*line_number)++, 0);
+        deck = insert_new_line(deck, copy(".control"), (*line_number)++, 0);
+
+        deck = insert_new_line(deck, copy("run"), (*line_number)++, 0);
+
+        if (op_line)
+            deck = insert_new_line(deck, copy(op_line), (*line_number)++, 0);
 
         if (cp_getvar("rawfile", CP_STRING, rawfile)) {
             line = tprintf("write %s", rawfile);
-            insert_new_line(deck, line, (*line_number)++, 0);
+            deck = insert_new_line(deck, line, (*line_number)++, 0);
         }
 
-        if (op_line)
-            insert_new_line(deck, copy(op_line), (*line_number)++, 0);
-
-        insert_new_line(deck, copy("run"), (*line_number)++, 0);
-
-        insert_new_line(deck, copy(".control"), (*line_number)++, 0);
+        deck = insert_new_line(deck, copy(".endc"), (*line_number)++, 0);
     }
 }
 
