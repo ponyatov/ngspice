@@ -441,7 +441,7 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
             while (*cThisPtr) {
                 if (!isNewline) {         /* Haven't read a LF yet */
-                    if (*cThisPtr == '\n') /* This char IS or LF */
+                    if (*cThisPtr == '\n') /* This char is LF */
                         isNewline = 1;    /* Set flag */
                 }
                 else if (*cThisPtr != '\n') /* Already found LF */
@@ -544,12 +544,12 @@ cm_table2D(ARGS)   /* structure holding parms, inputs, outputs, etc. */
 
             while (*cThisPtr) {           /* Read until reaching null char */
 
-                if (!isNewline) {         /* Haven't read a CR or LF yet */
-                    if (*cThisPtr == '\r' || *cThisPtr == '\n') /* This char IS a CR or LF */
+                if (!isNewline) {         /* Haven't read a LF yet */
+                    if (cThisPtr == '\n') /* This char is a LF */
                         isNewline = 1;    /* Set flag */
                 }
 
-                else if (*cThisPtr != '\r' && *cThisPtr != '\n') /* Already found CR or LF */
+                else if (*cThisPtr != '\n') /* Already found LF */
                     break;                /* Done with line */
 
                 cThisLinePtr[lIndex++] = *cThisPtr++; /* Add char to output and increment */
