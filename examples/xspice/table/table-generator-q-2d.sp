@@ -20,9 +20,10 @@ vee 3 0 0
 ** output file **
 set outfile = "qinn-clc409-2d-1.table"
 dc vce -0.1 6 0.05 ib -0.1u 2u 0.1u
+if not $?batchmode
 plot i(vee)
 plot v(1) ylimit -0.2 0.8
-
+endif
 if (1)
 *goto next
 echo *table for bipolar qinn CLC409 > $outfile
