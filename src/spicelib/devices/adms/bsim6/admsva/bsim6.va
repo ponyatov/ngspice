@@ -1902,6 +1902,10 @@ real q_vth, psip_th;
 	real gth, cth;
 `endif
 
+`ifdef __RGATEMOD__
+real Ggate, Gnoise;
+`endif
+
 // ---- OPERATING POINT VARIABLES ----
 `OPP( QBI      , "C"   , "Intrinsic Body Charge")
 `OPP( QSI      , "C"   , "Intrinsic Source Charge")
@@ -4435,7 +4439,6 @@ end
 	if (RGATEMOD == 0) begin
 		V(g, gm) <+ 0;
 	end else begin : rgate
-		real Ggate, Gnoise;
 		if (RGATEMOD == 2) begin
 			Ggate = Gcrg;
 			Gnoise = Gcrg * Gcrg / Grgeltd;
