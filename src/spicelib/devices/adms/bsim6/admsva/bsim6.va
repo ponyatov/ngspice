@@ -2722,7 +2722,7 @@ DevTemp = $temperature + DTEMP;
     DevTemp = delTemp1 + DevTemp;
 
 	TK = DevTemp;
-	Vt = `P_K/`P_Q * DevTemp;
+	Vt = $vt(DevTemp);
 	inv_Vt 	= 1.0/Vt;
 
 	TRatio = DevTemp / Tnom;
