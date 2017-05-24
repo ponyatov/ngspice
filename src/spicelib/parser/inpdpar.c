@@ -21,7 +21,7 @@ Author: 1985 Thomas L. Quarles
 #include "inpxx.h"
 
 char *INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
-                  double *leading, int *waslead, INPtables * tab)
+                  double *leading, int *waslead, INPtables *tab)
 /* the line to parse */
 /* the circuit this device is a member of */
 /* the device type code to the device being parsed */
@@ -29,17 +29,17 @@ char *INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
 /* the optional leading numeric parameter */
 /* flag - 1 if leading double given, 0 otherwise */
 {
-    int error;			/* int to store evaluate error return codes in */
-    char *parm=NULL;
+    int error;                  /* int to store evaluate error return codes in */
+    char *parm = NULL;
     char *errbuf;
     int i;
     IFvalue *val;
-    char *rtn=NULL;
+    char *rtn = NULL;
 
     /* check for leading value */
     *waslead = 0;
     *leading = INPevaluate(line, &error, 1);
-    if (error == 0) {		/* found a good leading number */
+    if (error == 0) {           /* found a good leading number */
         *waslead = 1;
     } else
         *leading = 0.0;
@@ -59,8 +59,8 @@ char *INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
                 int type;
 
                 val = INPgetValue(ckt, line,
-                                ft_sim->devices[dev]->instanceParms[i].dataType,
-                                tab);
+                                  ft_sim->devices[dev]->instanceParms[i].dataType,
+                                  tab);
                 if (!val) {
                     rtn = INPerror(E_PARMVAL);
                     goto quit;
@@ -91,7 +91,8 @@ char *INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
         }
         FREE(parm);
     }
-quit:
+
+ quit:
     FREE(parm);
     return rtn;
 }
