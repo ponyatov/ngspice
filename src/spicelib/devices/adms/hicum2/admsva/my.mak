@@ -1,5 +1,5 @@
 # -*- makefile -*-
-# (compile "make -i -f my.mak do to")
+# (compile "make -i -f my.mak to")
 
 CFLAGS=-I ../../../../../include -I ../../../../../../../w32/src/include
 
@@ -33,6 +33,8 @@ scripts = \
 	-e ../../admst/ngspiceMODULEguesstopology.c.xml \
 	-e ../../admst/ngspiceMODULE.hxx.xml \
 	-e ../../admst/ngspiceMODULE.c.xml
+
+$(SRCS) : do
 
 do : hicum2.va
 	../../../../../../adms/ADMS/admsXml/admsXml  $(scripts) $<

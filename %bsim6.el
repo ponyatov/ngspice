@@ -7,19 +7,19 @@ Using: /home/larice/s/ngspice.work/work/ngspice/adms/ADMS/testcases/../admsXml/a
 
 (compile "adms/ADMS/admsXml/admsXml")
 
-(compile "cd src/spicelib/devices/adms/bsim6/admsva && make -if my.mak do to")
+(compile "cd src/spicelib/devices/adms/bsim6/admsva && make -if my.mak to")
 (compile "cd src/spicelib/devices/adms/bsim6 && ./build.sh")
 (ffap "src/spicelib/devices/adms/bsim6")
 
-(compile "cd src/spicelib/devices/adms/hicum0/admsva && make -if my.mak do to")
-(compile "cd src/spicelib/devices/adms/hicum2/admsva && make -if my.mak do to")
-(compile "cd src/spicelib/devices/adms/mextram/admsva && make -if my.mak do to")
-(compile "cd src/spicelib/devices/adms/psp102/admsva && make -if my.mak do to")
-(compile "cd src/spicelib/devices/adms/ekv/admsva && make -if my.mak do to")
+(compile "cd src/spicelib/devices/adms/hicum0/admsva && make -if my.mak to")
+(compile "cd src/spicelib/devices/adms/hicum2/admsva && make -if my.mak to")
+(compile "cd src/spicelib/devices/adms/mextram/admsva && make -if my.mak to")
+(compile "cd src/spicelib/devices/adms/psp102/admsva && make -if my.mak to")
+(compile "cd src/spicelib/devices/adms/ekv/admsva && make -if my.mak to")
 
 ;; note only some blessed module names are accepted, see ngspiceVersion.xml
 ;; here I reuse r2_cmc
-(compile "cd src/spicelib/devices/adms/ex-1/admsva && make -if my.mak do to")
+(compile "cd src/spicelib/devices/adms/ex-1/admsva && make -if my.mak to")
 
 (compile "cd src/spicelib/devices/adms/bsim6/admsva && ../../../../../../adms/ADMS/admsXml/admsXml -e /home/larice/s/ngspice.work/work/ngspice/adms/ADMS/scripts/vlatovla.xml bsim6.va")
 (compile "cd src/spicelib/devices/adms/bsim6/admsva && ../../../../../../adms/ADMS/admsXml/admsXml -e /home/larice/s/ngspice.work/work/ngspice/adms/ADMS/scripts/vlatommlMODULE.htm.xml bsim6.va")
