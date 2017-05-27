@@ -250,21 +250,7 @@ int $(module)guesstopology (SMPmatrix *matrix, CKTcircuit *ckt, $(module)model *
 <admst:template match="evaluate.localvariables">
   <admst:choose>
     <admst:when test="[datatypename='assignment']">
-      <!--
-      <admst:if test="[lhs/name='T0']">
-        <admst:message format=">>> %(lhs/name) %(lhs/scope) %(lhs/insource) %(lhs/OPdependent)\n"/>
-      </admst:if>
-      -->
-      <!-- T0 in bsim6.va (probably T1 and T2 too) do have OPdependent=yes
-           and thus are not recogniced as local variable here.
-           It seems this is set in .adms.implicit.xml
-           aka adms.implicit.xml in the adms source code
-           I don't understand how that works, yet just drop this test here
-           (silently accepting some actually unused locals)
-           for the sake of bsim6.va
       <admst:if test="[(lhs/insource='yes') and (lhs/OPdependent='no')]">
-      -->
-      <admst:if test="[(lhs/insource='yes')]">
         <admst:push select="lhs[scope='local']" into="$localvariables" onduplicate="ignore"/>
       </admst:if>
     </admst:when>
@@ -298,11 +284,6 @@ int $(module)guesstopology (SMPmatrix *matrix, CKTcircuit *ckt, $(module)model *
     </admst:if>
   </admst:for-each>
   <admst:for-each select="$localvariables">
-    <!--
-      <admst:if test="[name='T0' or name='epssi']">
-        <admst:message format="!!! here %(name) %(type) %(scope) %(prototype)\n"/>
-        </admst:if>
-    -->
     <admst:if test="[type='integer']">int %(name);\n</admst:if>
     <admst:if test="[type='real']">double %(name)=0.0/0.0;\n</admst:if>
     <admst:if test="[type='string']">char* %(name);\n</admst:if>
