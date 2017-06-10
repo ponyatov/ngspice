@@ -33,12 +33,11 @@ static void if_set_binned_model(CKTcircuit *, char *, char *, struct dvec *);
 
 
 /*
- *      devhelp: lists available devices and information on parameters
- *              devhelp                 : shows all available devices
- *              devhelp devname         : shows all parameters of that model/instance
- *              devhelp devname parname : shows parameter meaning
- *              Options: -csv (comma separated value for generating docs)
- *
+ * devhelp: lists available devices and information on parameters
+ *   devhelp                 : shows all available devices
+ *   devhelp devname         : shows all parameters of that model/instance
+ *   devhelp devname parname : shows parameter meaning
+ *   Options: -csv (comma separated value for generating docs)
  */
 
 void
@@ -187,6 +186,7 @@ devhelp(wordlist *wl)
  * Pretty print parameter descriptions
  * This function prints description of device parameters
  */
+
 void
 printdesc(IFparm p, bool csv)
 {
@@ -222,13 +222,12 @@ printdesc(IFparm p, bool csv)
 
 
 /*
- *      show: list device operating point info
- *              show
- *              show devs : params
- *              show devs : params ; devs : params
- *              show dev dev dev : param param param , dev dev : param param
- *              show t : param param param, t : param param
- *
+ * show: list device operating point info
+ *   show
+ *   show devs : params
+ *   show devs : params ; devs : params
+ *   show dev dev dev : param param param , dev dev : param param
+ *   show t : param param param, t : param param
  */
 
 static int count;
@@ -959,7 +958,8 @@ printvals_old(dgen *dg, IFparm *p, int i)
 }
 
 
-/* (old "show" command)
+/*
+ * (old "show" command)
  * Display various device parameters.  The syntax of this command is
  *   show devicelist : parmlist
  * where devicelist can be "all", the name of a device, a string like r*,
@@ -1037,10 +1037,11 @@ old_show(wordlist *wl)
 }
 
 
-/* Alter a device parameter.  The new syntax here is
- *      alter @device[parameter] = expr
- *      alter device = expr
- *      alter device parameter = expr
+/*
+ * Alter a device parameter.  The new syntax here is
+ *   alter @device[parameter] = expr
+ *   alter device = expr
+ *   alter device parameter = expr
  * expr must be real (complex isn't handled right now, integer is fine though,
  * but no strings ... for booleans, use 0/1).
  */
@@ -1156,12 +1157,12 @@ com_alter_common(wordlist *wl, int do_model)
 
     if (!wl) {
         /* no equal sign found, probably a pre3f4 input format
-           'alter device value'
-           'alter device parameter value'
-           are supported,
-           'alter device parameter value parameter value [ parameter value ]'
-           multiple param value pairs are not supported!
-        */
+         *   'alter device value'
+         *   'alter device parameter value'
+         * are supported,
+         *   'alter device parameter value parameter value [ parameter value ]'
+         * with multiple param value pairs are not supported!
+         */
         wordlist *wlin = parent->wl_next;
         int wlen = wl_length(wlin);
         int maxelem = 3;
@@ -1201,10 +1202,11 @@ com_alter_common(wordlist *wl, int do_model)
         return;
     }
 
-    /* device parameter = expr
-       device = expr
-       @dev[param] = expr
-    */
+    /*
+     * device parameter = expr
+     * device = expr
+     * @dev[param] = expr
+     */
 
     dev = NULL;
     param = NULL;
@@ -1246,8 +1248,8 @@ com_alter_common(wordlist *wl, int do_model)
 
     if (!names) {
         /* Put this to try to resolve the case of
-           alter @vin[pulse] = [ 0 5 10n 10n 10n 50n 100n ]
-        */
+         *   alter @vin[pulse] = [ 0 5 10n 10n 10n 50n 100n ]
+         */
         char *xsbuf, *rem_xsbuf;
 
         double *list;
@@ -1280,7 +1282,7 @@ com_alter_common(wordlist *wl, int do_model)
         if (!dv)
             return;
 
-        /*       Here I was, to change the inclusion in the circuit.
+        /* Here I was, to change the inclusion in the circuit.
          * will have to revise that dv is right for its insertion.
          */
         if_setparam(ft_curckt->ci_ckt, &dev, param, dv, do_model);
