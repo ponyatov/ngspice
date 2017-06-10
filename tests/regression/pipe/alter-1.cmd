@@ -10,7 +10,7 @@ end
 
 # space after '[' is mandatory
 # alter @v1[sin] = [0 1 113meg]
-# 
+#
 # if @v1[sin][2] <> 113meg
 #    echo "ERROR: tst113 failed"
 #    let fail_count = fail_count + 1
