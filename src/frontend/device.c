@@ -1121,7 +1121,6 @@ com_alter_common(wordlist *wl, int do_model)
     struct dvec *dv;
     struct pnode *names;
 
-    /* DIE 2009_02_06 */
     int i;
 
     if (!ft_curckt) {
@@ -1130,30 +1129,15 @@ com_alter_common(wordlist *wl, int do_model)
     }
 
     /*
-      wordlist 'wl' will be splitted into a wordlist wl2 with three elements,
-      containing
-      1) '@dev[param]' string (i.e.: the substring before '=' char);
-      2) '=' string;
-      3) 'expression' string.
-
-      Spaces around the '=' sign have to be removed. This is provided
-      by inp_remove_excess_ws(). But take care if command is entered manually!
-
-      If the 'altermod' argument is 'altermod m1 vth0=0.7', 'm1' has to be kept as the
-      element in wl2 before splitting inserts the three new elements.
-      If 'expression' is a vector (e.g. [ 1.0 1.2 1.4 ] ), its elements
-      in wl2 have to follow the splitting. wl_splice() will take care of this.
-    */
+     * when the assignment operator '=' is embedded in a wl_word
+     *  then split the word into several words
+     *
+     * Spaces around the '=' sign have to be removed. This is provided
+     * by inp_remove_excess_ws(). But take care if command is entered manually!
+     */
     for (; wl; wl = wl->wl_next) {
         char *argument = wl->wl_word;
-        /* searching for '=' ... */
         char *eqptr = strchr(argument, '=');
-
-        /* argument may be '=', then do nothing
-           or =token
-           or token=
-           or token1=token2
-           ...and if found split argument into three chars and make a new wordlist */
         if (eqptr) {
             if (strlen(argument) > 1) {
                 wordlist *wn = NULL;
