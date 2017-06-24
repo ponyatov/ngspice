@@ -20,8 +20,9 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/fteext.h"
 #include "inpxx.h"
 
-char *INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
-                  double *leading, int *waslead, INPtables *tab)
+char *
+INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
+            double *leading, int *waslead, INPtables *tab)
 /* the line to parse */
 /* the circuit this device is a member of */
 /* the device type code to the device being parsed */
@@ -39,10 +40,12 @@ char *INPdevParse(char **line, CKTcircuit *ckt, int dev, GENinstance *fast,
     /* check for leading value */
     *waslead = 0;
     *leading = INPevaluate(line, &error, 1);
-    if (error == 0) {           /* found a good leading number */
+
+    if (error == 0)             /* found a good leading number */
         *waslead = 1;
-    } else
+    else
         *leading = 0.0;
+
     while (**line != '\0') {
         error = INPgetTok(line, &parm, 1);
         if (!*parm) {

@@ -10,7 +10,9 @@ Author: 1985 Thomas L. Quarles
 #include "ngspice/inpptree.h"
 #include "inpxx.h"
 
-IFvalue *INPgetValue(CKTcircuit *ckt, char **line, int type, INPtables * tab)
+
+IFvalue *
+INPgetValue(CKTcircuit *ckt, char **line, int type, INPtables *tab)
 {
     double *list;
     int *ilist;
@@ -25,19 +27,18 @@ IFvalue *INPgetValue(CKTcircuit *ckt, char **line, int type, INPtables * tab)
     if (type == IF_INTEGER) {
         tmp = INPevaluate(line, &error, 1);
         temp.iValue = (int) floor(0.5 + tmp);
-        /*printf(" returning integer value %d\n",temp.iValue); */
+        /* printf(" returning integer value %d\n",temp.iValue); */
     } else if (type == IF_REAL) {
         temp.rValue = INPevaluate(line, &error, 1);
-        /*printf(" returning real value %e\n",temp.rValue); */
+        /* printf(" returning real value %e\n",temp.rValue); */
     } else if (type == IF_REALVEC) {
         temp.v.numValue = 0;
         list = TMALLOC(double, 1);
         tmp = INPevaluate(line, &error, 1);
         while (error == 0) {
-            /*printf(" returning vector value %g\n",tmp); */
+            /* printf(" returning vector value %g\n",tmp); */
             temp.v.numValue++;
-            list =
-                TREALLOC(double, list, temp.v.numValue);
+            list = TREALLOC(double, list, temp.v.numValue);
             list[temp.v.numValue - 1] = tmp;
             tmp = INPevaluate(line, &error, 1);
         }
@@ -47,10 +48,9 @@ IFvalue *INPgetValue(CKTcircuit *ckt, char **line, int type, INPtables * tab)
         ilist = TMALLOC(int, 1);
         tmp = INPevaluate(line, &error, 1);
         while (error == 0) {
-            /*printf(" returning vector value %g\n",tmp); */
+            /* printf(" returning vector value %g\n",tmp); */
             temp.v.numValue++;
-            ilist =
-                TREALLOC(int, ilist, temp.v.numValue);
+            ilist = TREALLOC(int, ilist, temp.v.numValue);
             ilist[temp.v.numValue - 1] = (int) floor(0.5 + tmp);
             tmp = INPevaluate(line, &error, 1);
         }
@@ -70,11 +70,13 @@ IFvalue *INPgetValue(CKTcircuit *ckt, char **line, int type, INPtables * tab)
     } else if (type == IF_PARSETREE) {
         INPgetTree(line, &pt, ckt, tab);
         if (!pt)
-            return (NULL);
+            return NULL;
         temp.tValue = (IFparseTree *) pt;
-        /*INPptPrint("Parse tree is: ", temp.tValue); */
-    } else {			/* don't know what type of parameter caller is talking about! */
-        return (NULL);
+        /* INPptPrint("Parse tree is: ", temp.tValue); */
+    } else {
+        /* don't know what type of parameter caller is talking about! */
+        return NULL;
     }
-    return (&temp);
+
+    return &temp;
 }
