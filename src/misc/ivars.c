@@ -83,20 +83,28 @@ mkvar(char **p, char *path_prefix, char *var_dir, char *env_var)
         *p = tprintf("%s%s%s", path_prefix, DIR_PATHSEP, var_dir);
 }
 
+    /* $dprefix has been set to /usr/local or C:/Spice (Windows) in configure.ac,
+    or to <path> given by prefix="<path>" as parameter to ./configure command.
+    NGSPICEBINDIR has been set to $dprefix/bin in config.h.
+    NGSPICEDATADIR has been set to $dprefix/share/ngspice in config.h.
+    If --enable-relpath is selected as paramter to the ./configure command, then
+    NGSPICEBINDIR is set to ../bin in config.h.
+    NGSPICEDATADIR is set to ../share/ngspice in config.h.
+    Spice_Exec_Dir has been set to NGSPICEBINDIR in conf.c,
+    may be overridden here by environmental variable SPICE_EXEC_DIR.
+    Spice_Lib_Dir has been set to NGSPICEDATADIR in conf.c,
+    may be overridden here by environmental variable SPICE_LIB_DIR.
+    The search path for codemodels in spinit contains $dprefix, or, if --enable-relpath
+    is given, to ../lib, set by src/makefile.am. With Visual C, it is set manually by
+    an entry to ngspice\visualc\src\include\ngspice\config.h.*/
 void
 ivars(char *argv0)
 {
     char *temp=NULL;
-    /* $dprefix has been set to /usr/local or C:/Spice (Windows) in configure.ac,
-    NGSPICEBINDIR has been set to $dprefix/bin in config.h,
-    NGSPICEDATADIR has been set to $dprefix/share/ngspice in config.h,
-    Spice_Exec_Dir has been set to NGSPICEBINDIR in conf.c,
-    may be overridden here by environmental variable SPICE_EXEC_DIR
-    Spice_Lib_Dir has been set to NGSPICEDATADIR in conf.c;
-    may be overridden here by absolute path to library location if shared library
-    may be overridden here by environmental variable SPICE_LIB_DIR */
 
-#if defined (SHARED_MODULE) && defined (HAS_RELPATH)
+/* local search for the path to *.dll is abandoned because it is probably not safe
+   under all conditions. */
+#if defined (NO_SHARED_MODULE) && defined (SHARED_MODULE) && defined (HAS_RELPATH)
     if (!env_overr(&Spice_Lib_Dir, "SPICE_LIB_DIR")) {
         /* get the absolute path of the ngspice library as reference to other paths */
         char *Shared_Dir = get_abs_path();
@@ -107,6 +115,8 @@ ivars(char *argv0)
 #endif
         tfree(Shared_Dir);
     }
+#elif defined (HAS_RELPATH)
+    Spice_Lib_Dir = temp = copy("../share/ngspice");
 #else
     env_overr(&Spice_Lib_Dir, "SPICE_LIB_DIR");
 #endif
