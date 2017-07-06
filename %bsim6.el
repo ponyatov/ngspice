@@ -38,3 +38,7 @@ and all the code in bsim..h
 ((GEOMOD)==(0))
 
 kommt in /* case */ als GEOMOD statt here->GEOMOD
+
+(compile "wget http://bsim.berkeley.edu/BSIMCMG/BSIMCMG110.0.0_20160101.tar.gz")
+(compile "mkdir -p src/spicelib/devices/adms/bsimcmg/admsva")
+(compile "tar --dir src/spicelib/devices/adms/bsimcmg/admsva -zxvf BSIMCMG110.0.0_20160101.tar.gz code")
