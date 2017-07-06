@@ -40,8 +40,8 @@
 //     ___Professor in Graduate School _______
 // ********************************************************
 // Source-Drain Resistance Model
-case(RDSMOD)
-    1: begin 
+if (RDSMOD == 1)
+    begin 
         Rdsi     =  0.0; 
         Dr       =  1.0; 
 
@@ -62,8 +62,9 @@ case(RDSMOD)
         T0       =  0.5 * (T1 + sqrt(T1 * T1 + 0.01));
         T5       =  RDW_i * (1.0 + RDDR_a * lexp(0.5 * PRDDR * lln(V(di,d) * V(di,d) + 1.0E-6)));
         Rdrain   =  rdstemp * (RDrainGeo + (RDWMIN_i + T5 * T0) * WeffWRFactor); 
-    end
-    0: begin
+    end // if (RDSMOD == 1)
+else if (RDSMOD == 0)
+    begin
         Rsource  =  RSourceGeo;
         Rdrain   =  RDrainGeo;
         T4       =  1.0 + PRWGS_i * qia; 
@@ -72,7 +73,8 @@ case(RDSMOD)
         Rdsi     =  rdstemp * (RDSWMIN_i + RDSW_i * T0) * WeffWRFactor; 
         Dr       =  1.0 + (NFINtotal) * beta * ids0_ov_dqi / (Dmob * Dvsat) * Rdsi; 
     end
-    2: begin
+else if (RDSMOD == 2)
+    begin
         T4       =  1.0 + PRWGS_i * qia; 
         T1       =  1.0 / T4; 
         T0       =  0.5 * (T1 + sqrt(T1 * T1 + 0.01)); 
@@ -81,4 +83,3 @@ case(RDSMOD)
         Rsource  =  0.0;
         Rdrain   =  0.0;
     end
-endcase 

@@ -1331,8 +1331,8 @@ analog begin
       end
 
       // Model Parameters for Unified FinFET Compact Model by Juan Duarte 10/2013
-      case (GEOMOD)
-           0: begin // Double Gate
+      if (GEOMOD == 0)
+              begin // Double Gate
                  if (!$param_given(TFIN_TOP) || !$param_given(TFIN_BASE)) begin
                     Weff_UFCM  =  2.0 * HFIN;
                     Cins  =  Weff_UFCM * EPSROX * `EPS0 / EOT;
@@ -1346,8 +1346,9 @@ analog begin
                     rc    =  (2.0 * Cins / (Weff_UFCM * Weff_UFCM * epssub / Ach));
                     Qdep_ov_Cins  =  -`q * NBODY_i * Ach / Cins;
                 end
-              end
-            1: begin // Triple Gate
+              end // if (GEOMOD == 0)
+      else if (GEOMOD == 1)
+               begin // Triple Gate
                 if (!$param_given(TFIN_TOP) || !$param_given(TFIN_BASE)) begin
                     Weff_UFCM  =  2.0 * HFIN + TFIN;
                     Cins  =  Weff_UFCM * EPSROX * `EPS0 / EOT;
@@ -1361,8 +1362,9 @@ analog begin
                     rc    =  (2.0 * Cins /(Weff_UFCM * Weff_UFCM * epssub / Ach));
                     Qdep_ov_Cins  =  -`q * NBODY_i * Ach / Cins;
                 end            
-            end
-            2: begin // Quadruple Gate
+               end // if (GEOMOD == 1)
+      else if (GEOMOD == 2)
+               begin // Quadruple Gate
                 if (!$param_given(TFIN_TOP) || !$param_given(TFIN_BASE)) begin
                     Weff_UFCM  =  2.0 * HFIN + 2.0 * TFIN;
                     Cins  =  Weff_UFCM * EPSROX * `EPS0 / EOT;
@@ -1376,22 +1378,23 @@ analog begin
                     rc    =  (2.0 * Cins / (Weff_UFCM * Weff_UFCM * epssub / Ach));
                     Qdep_ov_Cins  =  -`q * NBODY_i * Ach / Cins;
                 end            
-            end        
-            3:  begin // Cylindrical Gate
+            end
+      else if (GEOMOD == 3)        
+              begin // Cylindrical Gate
                 Weff_UFCM  =  `M_PI * D;
                 Cins  =  2.0 * `M_PI * EPSROX * `EPS0 / ln(1.0 + 2.0 * EOT / D);
                 Ach   =  `M_PI * D * D / 4.0;
                 rc    =  (2.0 * Cins / (Weff_UFCM * Weff_UFCM * epssub / Ach));
                 Qdep_ov_Cins  =  -`q * NBODY_i * Ach / Cins;
-            end
-            4:  begin // Unified Model
+              end
+      else if (GEOMOD == 4)
+              begin // Unified Model
                 Weff_UFCM  =  W_UFCM;
                 Cins  =  CINS_UFCM;
                 Ach   =  ACH_UFCM;
                 rc    =  (2.0 * Cins / (Weff_UFCM * Weff_UFCM * epssub / Ach));
                 Qdep_ov_Cins  =  -`q * NBODY_i * Ach / Cins;
             end
-      endcase
 
       // Cox Definition
       cox  =  Cins / Weff_UFCM;
@@ -3638,14 +3641,15 @@ analog begin
       end
 
       // Thermal Noise
-      case (TNOIMOD)
-         0 : begin   // Charge-based model (BSIM4 - TNOIMOD=0)
+      if (TNOIMOD == 0)
+          begin   // Charge-based model (BSIM4 - TNOIMOD=0)
             T0     =  ueff * qinv;
             T1     =  T0 * Rdsi + Leff * Leff;
             Gtnoi  =  (T0 / T1) * NTNOI_i;
             sid    =  4.0 * Vtm * `q * Gtnoi;
-         end
-         1: begin   // Correlated Thermal Noise by Navid, November 2013, Reference BSIMSOI4.5.0
+          end
+   else if (TNOIMOD == 1)
+          begin   // Correlated Thermal Noise by Navid, November 2013, Reference BSIMSOI4.5.0
          `ifdef __TNOIMOD1__
             Abulk    =  1.0;
             Vgst2Vtm =  KSATIV_a * (qis + 2.0 * Vtm); 
@@ -3695,7 +3699,6 @@ analog begin
             $strobe("[Warning!] Although the model selector TNOIMOD is set to 1, the new correlated thermal noise model is not activated. Please uncomment \"`define __TNOIMOD1__\" in the bsimcmg.va.");
          `endif
          end 
-      endcase
 
    // Source and Drain Conductance for Thermal Noise Contribution
    if (RDSMOD != 2) begin
