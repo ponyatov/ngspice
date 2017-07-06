@@ -1,10 +1,12 @@
 # -*- makefile -*-
 # (compile "make -i -f my.mak to")
+# (compile "make -i -f my.mak do 2>&1 > log")
+# (compile "make -i -f my.mak to 2>&1 > log")
 
 CFLAGS=-I ../../../../../include -I ../../../../../../../w32/src/include
 
 SRCS = \
-bsim6acld.c bsim6.analogfunction.c bsim6ask.c bsim6.c bsim6del.c bsim6dest.c bsim6guesstopology.c bsim6init.c bsim6load.c bsim6mask.c bsim6mdel.c bsim6mpar.c bsim6noise.c bsim6par.c bsim6pzld.c bsim6setup.c bsim6temp.c bsim6trunc.c
+bsimcmgacld.c bsimcmg.analogfunction.c bsimcmgask.c bsimcmg.c bsimcmgdel.c bsimcmgdest.c bsimcmgguesstopology.c bsimcmginit.c bsimcmgload.c bsimcmgmask.c bsimcmgmdel.c bsimcmgmpar.c bsimcmgnoise.c bsimcmgpar.c bsimcmgpzld.c bsimcmgsetup.c bsimcmgtemp.c bsimcmgtrunc.c
 
 to : $(SRCS:%.c=%.o)
 
@@ -36,5 +38,5 @@ scripts = \
 
 $(SRCS) : do
 
-do : bsim6.va
+do : bsimcmg.va
 	../../../../../../adms/ADMS/admsXml/admsXml  $(scripts) $<
