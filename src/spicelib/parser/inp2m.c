@@ -31,7 +31,8 @@ model_numnodes(int type)
         return 6;
     }
 
-    if (type == INPtypelook("BSIM6"))       /* bsim6.va with __THERMAL_NODE__ */
+    if (type == INPtypelook("BSIM6") ||     /* bsim6.va with __THERMAL_NODE__ */
+        type == INPtypelook("BSIMCMG"))     /* bsimcmg.va */
     {
         return 5;
     }
