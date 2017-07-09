@@ -16,6 +16,7 @@ Using: /home/larice/s/ngspice.work/work/ngspice/adms/ADMS/testcases/../admsXml/a
 (compile "cd src/spicelib/devices/adms/mextram/admsva && make -if my.mak to")
 (compile "cd src/spicelib/devices/adms/psp102/admsva && make -if my.mak to")
 (compile "cd src/spicelib/devices/adms/ekv/admsva && make -if my.mak to")
+(compile "cd src/spicelib/devices/adms/bsimcmg/admsva && make -if my.mak to")
 
 ;; note only some blessed module names are accepted, see ngspiceVersion.xml
 ;; here I reuse r2_cmc
