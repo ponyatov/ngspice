@@ -37,10 +37,10 @@ IFparm $(module)pTable[] = {
 <admst:for-each select="variable[parametertype='instance' and input='yes']">
   <admst:choose>
     <admst:when test="[type='real']">
-  IOP("%(name)",$(module)_instance_%(name),IF_REAL,"%(lower-case(name))"),
+  IOP("%(lower-case(name))",$(module)_instance_%(name),IF_REAL,"%(name)"),
     </admst:when>
     <admst:when test="[type='integer']">
-  IOP("%(name)",$(module)_instance_%(name),IF_INTEGER,"%(lower-case(name))"),
+  IOP("%(lower-case(name))",$(module)_instance_%(name),IF_INTEGER,"%(name)"),
     </admst:when>
     <admst:otherwise>
       <admst:fatal format="parameter of type 'string' not supported\n"/>
