@@ -11,6 +11,7 @@
 
 #include <setjmp.h>
 #include <signal.h>
+#include <fenv.h>
 
 /* Added GNU Readline Support 11/3/97 -- Andrew Veliath <veliaa@rpi.edu> */
 /* from spice3f4 patch to ng-spice. jmr */
@@ -1017,6 +1018,17 @@ main(int argc, char **argv)
         }
     }  /* --- End of command line option processing (While(1)-loop) --- */
 
+    switch (fegetround()) {
+    case FE_TONEAREST:  fprintf(stderr, "fine, fegetround => FE_TONEAREST\n"); break;
+    case FE_UPWARD:     fprintf(stderr, "!!!, fegetround => FE_UPWARD\n"); break;
+    case FE_DOWNWARD:   fprintf(stderr, "!!!, fegetround => FE_DOWNWARD\n"); break;
+    case FE_TOWARDZERO: fprintf(stderr, "!!!, fegetround => FE_TOWARDZERO\n"); break;
+    default:            fprintf(stderr, "!!!, fegetround => unknown\n"); break;
+    }
+
+    if (fesetround(FE_TONEAREST))
+//  if (fesetround(FE_DOWNWARD))
+        fprintf(stderr, "fesetround failed\n");
 
     if (oflag) {   /* -o option has been set */
 
