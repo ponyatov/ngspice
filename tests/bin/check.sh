@@ -26,8 +26,12 @@ HOST_TYPE=`uname -srvm`
 
 case $HOST_TYPE in
     Linux*|Darwin*|CYGWIN*|MINGW*|MSYS*)
-      $SPICE --batch $testdir/$testname.cir >$testname.test &&\
-      egrep -v "$FILTER" $testname.test > $testname.test_tmp &&\
+      $SPICE --batch $testdir/$testname.cir >$testname.test || exit 1
+      # contrary to the c standard windows may print floating point values
+      #   with three instead of two exponential digits
+      sed -e 's/\\([.0-9][eE][+-]\\?\\)0\\([0-9]\\{2\\}\\)/\\1\\2/g' \
+          <$testname.test | \
+      egrep -v "$FILTER" > $testname.test_tmp &&\
       egrep -v "$FILTER" $testdir/$testname.out > $testname.out_tmp
       if diff -B -w -u $testname.out_tmp $testname.test_tmp; then
           rm $testname.test $testname.test_tmp $testname.out_tmp
