@@ -31,7 +31,7 @@ case $HOST_TYPE in
       #   with three instead of two exponential digits
       sed -e 's/\([.0-9][eE][+-]\?\)0\([0-9]\{2\}\)/\1\2/g' \
           <$testname.test | \
-      egrep -v "$FILTER" > $testname.test_tmp &&\
+      egrep -v "$FILTER" > $testname.test_tmp
       egrep -v "$FILTER" $testdir/$testname.out > $testname.out_tmp
       if diff -B -w -u $testname.out_tmp $testname.test_tmp; then
           rm $testname.test $testname.test_tmp $testname.out_tmp
