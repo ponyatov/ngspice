@@ -10,14 +10,15 @@
 #
 # Said that, the script is quite linear and simple.
 
-# Build
 ./autogen.sh
+
 ./configure \
   --enable-xspice \
   --enable-cider \
   --enable-pss \
   --disable-debug \
   --prefix=/Applications/ngspice
+
 make
 make DESTDIR=$(pwd)/bin install
 
