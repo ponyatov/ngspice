@@ -10,6 +10,9 @@
 #
 # Said that, the script is quite linear and simple.
 
+
+# Build
+
 ./autogen.sh
 
 ./configure \
@@ -20,11 +23,11 @@
   --prefix=/Applications/ngspice
 
 make
-make DESTDIR=$(pwd)/bin install
+make DESTDIR="$(pwd)/root-tree" install
 
 # Package
 pkgbuild \
-  --root $(pwd)/bin \
+  --root "$(pwd)/root-tree" \
   --identifier ngspice.pkg \
   --install-location / \
   ngspice.pkg
