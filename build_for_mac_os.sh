@@ -18,12 +18,12 @@
   --enable-pss \
   --disable-debug \
   --prefix=/Applications/ngspice
-make -j9
+make
 make DESTDIR=$(pwd)/bin install
 
 # Package
 pkgbuild \
   --root $(pwd)/bin \
   --identifier ngspice.pkg \
-  --install-location /Applications/ngspice \
+  --install-location / \
   ngspice.pkg
