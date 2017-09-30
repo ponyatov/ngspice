@@ -1,0 +1,46 @@
+regression test for "alter" resistance and tc
+
+* (exec-spice "ngspice %s" t)
+
+* check wheter we can "stop" a transient simulation
+*   alter a resistance temperature coefficient
+*   and successfully "resume" from there
+
+v1 1 0 dc 5
+
+r1 1 2 1k tc1=0.03125
+r2 2 0 1k
+
+.temp 91
+
+.control
+
+stop when time = 1ms
+tran 200u 2ms
+alter @r1[tc1] = 0.0625
+resume
+
+let D_temp = 91 - 27
+let tc_fst = 0.03125
+let tc_snd = 0.0625
+
+let v1 = 5.0 * 1/(1 + (1k * (1 + D_temp * tc_fst))/1k)
+let v2 = 5.0 * 1/(1 + (1k * (1 + D_temp * tc_snd))/1k)
+
+let region = ceil(time / 1ms)
+let gold = (region le 1) * v1 + (region gt 1) * v2
+
+* plot v(2) gold
+
+let maxerr = vecmax(abs(v(2) - gold))
+
+if maxerr > 1e-6
+  echo "ERROR: test failed, excessive error, maxerr = $&maxerr"
+  quit 1
+else
+  echo "Note: maxerr = $&maxerr"
+  echo "INFO: success"
+  quit 0
+end
+
+.endc
