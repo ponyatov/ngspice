@@ -1,0 +1,41 @@
+regression test for "alter" resistance and tc
+
+* (exec-spice "ngspice %s" t)
+
+
+v1 1 0 dc 5
+
+r1 1 2 1k tc1=1m
+r2 2 0 1k
+
+.temp 127
+
+.control
+stop when time = 1ms
+status
+tran 200u 2ms
+alter @r1[tc1] = 2m
+resume
+
+let v1 = 5.0 * 1/(1 + (1k * (1 + 100.0 * 1m))/1k)
+let v2 = 5.0 * 1/(1 + (1k * (1 + 100.0 * 2m))/1k)
+
+let region = ceil(time / 1ms)
+let gold = (region le 1) * v1 + (region gt 1) * v2
+
+plot v(2) gold
+
+let maxerr = vecmax(abs(v(2) - gold))
+plot v(2) - gold
+
+print maxerr
+
+*if maxerr > 2e-4
+*  echo "ERROR: test failed, excessive error, maxerr = $&maxerr"
+*  quit 1
+*else
+*  echo "INFO: success"
+*  quit 0
+*end
+*plot maxerr
+.endc
