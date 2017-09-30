@@ -97,13 +97,13 @@ RESupdate_conduct(RESinstance *here)
     else
         factor = (((tc2 * difference) + tc1) * difference) + 1.0;
 
-    here->RESconduct = (1.0/(here->RESresist * factor * here->RESscale));
+    here->RESconduct = here->RESm / (here->RESresist * factor * here->RESscale);
 
     /* Paolo Nenzi:  AC value */
     if (here->RESacresGiven) {
         here->RESacConduct = here->RESm / (here->RESacResist * factor * here->RESscale);
     } else {
-        here->RESacConduct = here->RESm * here->RESconduct;
+        here->RESacConduct = here->RESconduct;
         here->RESacResist = here->RESresist;
     }
 }
