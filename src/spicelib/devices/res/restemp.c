@@ -101,9 +101,9 @@ RESupdate_conduct(RESinstance *here)
 
     /* Paolo Nenzi:  AC value */
     if (here->RESacresGiven) {
-        here->RESacConduct = (1.0/(here->RESacResist * factor * here->RESscale));
+        here->RESacConduct = here->RESm / (here->RESacResist * factor * here->RESscale);
     } else {
-        here->RESacConduct = here->RESconduct;
+        here->RESacConduct = here->RESm * here->RESconduct;
         here->RESacResist = here->RESresist;
     }
 }
