@@ -1,0 +1,42 @@
+* Res Noise     -*- mode: spice -*-
+* (exec-spice "ngspice %s" t)
+
+v1  1 0  dc=10 ac=1
+R1  1 2  Res1 50  noise=1 w=10u l=1u
+R2  2 0  Res1 100 noise=1 w=10u l=1u m=2
+
+.temp 25
+
+.model Res1 R
++ kf=100e-18 af=1.1 lf=1 wf=1 ef=1
++ dlr=0.01u dw=0.01u
+
+.control
+
+* output noise in v/sqrt(Hz)
+compose wanted_onoise values 872.5842u 693.1182u 550.5634u 437.3280u 347.3820u 275.9353u 219.1832u 174.1034u 138.2953u 109.8518u 87.2584u 
+
+* equivalent input noise in v/sqrt(Hz)
+*   extern_onoise / H
+compose wanted_inoise values 1.7452m 1.3862m 1.1011m 874.6561u 694.7640u 551.8707u 438.3665u 348.2069u 276.5905u 219.7037u 174.5168u 
+
+op
+
+noise v(1,2) v1 dec 5 1k 100k
+
+setplot noise2
+print all
+
+setplot noise1
+print onoise_spectrum wanted_onoise
+print inoise_spectrum wanted_inoise
+
+let inoise_err = vecmax(abs(inoise_spectrum / wanted_inoise - 1))
+let onoise_err = vecmax(abs(onoise_spectrum / wanted_onoise - 1))
+
+echo "INFO: relative inoise_err = $&inoise_err"
+echo "INFO: relative onoise_err = $&onoise_err"
+
+.endc
+
+.end
