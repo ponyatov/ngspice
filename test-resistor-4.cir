@@ -1,0 +1,34 @@
+rsh drl and dw, lf wf ef
+*
+* (exec-spice "ngspice %s" t)
+
+.temp 25
+
+i1 0 1 dc=10ma ac=1
+r1 1 0 rmodel l=1u w=10u
+
+.model rmodel r kf=100e-18 af=1.1
++ dlr=0.01u dw=0.01u rsh=0.13
++ lf=1.15 wf=1.1.21 ef=1.13
+
+.control
+
+let gold_r = (1u - 2*10n)/(10u - 2*10n) * 0.13
+let gold_v1 = gold_r * 10mA
+
+op
+
+let err_v1 = v(1) / gold_v1 - 1
+echo "INFO: err_v1 = $&err_v1"
+
+if (abs(err_v1) > 1e-6)
+   echo "ERROR: mismatch"
+end
+
+noise v(1) i1 dec 5 1k 100k
+print all
+setplot noise1
+print all
+
+.endc
+.end
