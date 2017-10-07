@@ -9,7 +9,7 @@ r1 1 0 rmodel l=1u w=10u
 
 .model rmodel r kf=100e-18 af=1.1
 + dlr=0.01u dw=0.01u rsh=0.13
-+ lf=1.15 wf=1.1.21 ef=1.13
++ lf=1.15 wf=1.21 ef=1.13
 
 .control
 
