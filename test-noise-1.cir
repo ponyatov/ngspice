@@ -36,6 +36,7 @@ let onoise_err = vecmax(abs(onoise_spectrum / wanted_onoise - 1))
 
 echo "INFO: relative inoise_err = $&inoise_err"
 echo "INFO: relative onoise_err = $&onoise_err"
+echo "INFO: FIXME, this testcase is useless, because the golden reference values are broken"
 
 .endc
 
