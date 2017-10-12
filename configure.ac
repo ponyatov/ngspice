@@ -462,6 +462,8 @@ EOF
     fi
     rm -f conftest.tcl
     
+    AC_CHECK_LIB([BLT], [Blt_GetVector])
+
     AC_CHECK_LIB([pthread], [pthread_create])
     
     if test -n "$libdir" ; then
