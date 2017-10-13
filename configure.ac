@@ -462,7 +462,7 @@ EOF
     fi
     rm -f conftest.tcl
     
-    AC_CHECK_LIB([BLT], [Blt_GetVector])
+    AC_CHECK_LIB(BLT24, [Blt_GetVector], [LIBS="$LIBS -lBLT24"], [AC_MSG_ERROR([Couldn't find BLT24 library.])])
 
     AC_CHECK_LIB([pthread], [pthread_create])
     
