@@ -38,6 +38,7 @@ struct bsim3v32SizeDependParam *pSizeDependParamKnot, *pLastKnot, *pParam=NULL;
 double tmp, tmp1, tmp2, tmp3, Eg, Eg0, ni, T0, T1, T2, T3, T4, T5, Ldrn, Wdrn;
 double delTemp, Temp, TRatio, Inv_L, Inv_W, Inv_LW, Vtm0, Tnom;
 double Nvtm, SourceSatCurrent, DrainSatCurrent;
+double DrainResistance, SourceResistance;
 int Size_Not_Found, error;
 
     /*  loop through all the BSIM3v32 device models */
@@ -870,9 +871,9 @@ int Size_Not_Found, error;
               /* ACM model */
               if (model->BSIM3v32acmMod == 0)
               {
-                  here->BSIM3v32drainConductance = model->BSIM3v32sheetResistance
+                  DrainResistance = model->BSIM3v32sheetResistance
                                                   * here->BSIM3v32drainSquares;
-                  here->BSIM3v32sourceConductance = model->BSIM3v32sheetResistance
+                  SourceResistance = model->BSIM3v32sheetResistance
                                                    * here->BSIM3v32sourceSquares;
               }
               else /* ACM > 0 */
@@ -894,21 +895,19 @@ int Size_Not_Found, error;
                   model->BSIM3v32rs,
                   model->BSIM3v32rsc,
                   here->BSIM3v32sourceSquares,
-                  &(here->BSIM3v32drainConductance),
-                  &(here->BSIM3v32sourceConductance)
+                  &DrainResistance,
+                  &SourceResistance
                   );
                   if (error)
                       return(error);
               }
-              if (here->BSIM3v32drainConductance > 0.0)
-                  here->BSIM3v32drainConductance = 1.0
-                                                / here->BSIM3v32drainConductance;
+              if (DrainResistance > 0.0)
+                  here->BSIM3v32drainConductance = 1.0 / DrainResistance;
               else
                   here->BSIM3v32drainConductance = 1e30;
 
-              if (here->BSIM3v32sourceConductance > 0.0)
-                  here->BSIM3v32sourceConductance = 1.0
-                                               / here->BSIM3v32sourceConductance;
+              if (SourceResistance > 0.0)
+                  here->BSIM3v32sourceConductance = 1.0 / SourceResistance;
               else
                   here->BSIM3v32sourceConductance = 1e30;
 
