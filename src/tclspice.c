@@ -829,7 +829,7 @@ _tcl_dispatch TCL_CMDPROCARGS(clientData, interp, argc, argv)
     NG_IGNORE(clientData);
     save_interp();
     /* Looks backwards through the first command and strips the :: part */
-    for (i = strlen(argv[0])-1; i > 0; i--)
+    for (i = (int)strlen(argv[0])-1; i > 0; i--)
         if (argv[0][i] == *":")
             argv[0] += i + 1;
     return _run(argc, (char **)argv);
@@ -1744,7 +1744,7 @@ dvecToBlt(Blt_Vector *Data, struct dvec *x)
 static void
 escape_brackets(char *string)
 {
-    int printed = strlen(string), i;
+    int printed = (int) strlen(string), i;
 
     for (i = 0; i < printed; i++) {
         if (string[i] == ']' || string[i] == '[') {
@@ -1847,7 +1847,7 @@ unsigned int triggerPollTime = 1;
 
 char *stepCallback;
 unsigned int stepPollTime = 1;
-unsigned int stepCount = 1;
+int stepCount = 1;
 int stepCallbackPending;
 
 
@@ -2112,7 +2112,7 @@ registerTriggerCallback TCL_CMDPROCARGS(clientData, interp, argc, argv)
     Tcl_CreateEventSource(triggerEventSetup, triggerEventCheck, NULL);
 
     if (argc == 3) {
-        triggerPollTime = atoi(argv[2]);
+        triggerPollTime = (unsigned int) atoi(argv[2]);
         if (triggerPollTime == 0)
             triggerPollTime = 500;
     }
@@ -2156,7 +2156,7 @@ registerStepCallback TCL_CMDPROCARGS(clientData, interp, argc, argv)
     }
 
     if (argc == 4) {
-        stepPollTime = atoi(argv[3]);
+        stepPollTime = (unsigned) atoi(argv[3]);
         if (stepPollTime == 0)
             stepPollTime = 50;
     }
@@ -2362,7 +2362,7 @@ popTriggerEvent TCL_CMDPROCARGS(clientData, interp, argc, argv)
 
         list = Tcl_NewListObj(0, NULL);
 
-        Tcl_ListObjAppendElement(interp, list, Tcl_NewStringObj(vectors[popedEvent->vector].name, strlen(vectors[popedEvent->vector].name)));
+        Tcl_ListObjAppendElement(interp, list, Tcl_NewStringObj(vectors[popedEvent->vector].name, (int) strlen(vectors[popedEvent->vector].name)));
 
         Tcl_ListObjAppendElement(interp, list, Tcl_NewDoubleObj(popedEvent->time));
 
@@ -2372,7 +2372,7 @@ popTriggerEvent TCL_CMDPROCARGS(clientData, interp, argc, argv)
 
         Tcl_ListObjAppendElement(interp, list, Tcl_NewDoubleObj(popedEvent->voltage));
 
-        Tcl_ListObjAppendElement(interp, list, Tcl_NewStringObj(popedEvent->ident, strlen(popedEvent->ident)));
+        Tcl_ListObjAppendElement(interp, list, Tcl_NewStringObj(popedEvent->ident, (int) strlen(popedEvent->ident)));
 
         Tcl_SetObjResult(interp, list);
 
@@ -2407,7 +2407,7 @@ listTriggers TCL_CMDPROCARGS(clientData, interp, argc, argv)
 #endif
 
     for (tmp = watches; tmp; tmp = tmp->next)
-        Tcl_ListObjAppendElement(interp, list, Tcl_NewStringObj(vectors[tmp->vector].name, strlen(vectors[tmp->vector].name)));
+        Tcl_ListObjAppendElement(interp, list, Tcl_NewStringObj(vectors[tmp->vector].name, (int) strlen(vectors[tmp->vector].name)));
 
 #ifdef THREADS
     mutex_unlock(&triggerMutex);
@@ -2639,8 +2639,8 @@ tcl_vfprintf(FILE *f, const char *fmt, va_list args)
 
     const char * const epilog = "\"";
 
-    const int prolog_len = strlen(prolog);
-    const int epilog_len = strlen(epilog);
+    const int prolog_len = (int) strlen(prolog);
+    const int epilog_len = (int) strlen(epilog);
 
     if ((fileno(f) != STDOUT_FILENO && fileno(f) != STDERR_FILENO &&
          f != stderr && f != stdout)
@@ -2653,14 +2653,14 @@ tcl_vfprintf(FILE *f, const char *fmt, va_list args)
     p = buf;
 
     // size: how much ist left for chars and terminating '\0'
-    size = sizeof(buf) - prolog_len - epilog_len;
+    size = (int) sizeof(buf) - prolog_len - epilog_len;
     // assert(size > 0);
 
     for (;;) {
         va_list ap;
 
         va_copy(ap, args);
-        nchars = vsnprintf(p + prolog_len, size, fmt, ap);
+        nchars = vsnprintf(p + prolog_len, (size_t) size, fmt, ap);
         va_end(ap);
 
         if(nchars == -1) {           /* compatibility to old implementations */
@@ -2672,12 +2672,12 @@ tcl_vfprintf(FILE *f, const char *fmt, va_list args)
         }
 
         if(p == buf)
-            p = Tcl_Alloc(prolog_len + size + epilog_len);
+            p = Tcl_Alloc((unsigned)(prolog_len + size + epilog_len));
         else
-            p = Tcl_Realloc(p, prolog_len + size + epilog_len);
+            p = Tcl_Realloc(p, (unsigned)(prolog_len + size + epilog_len));
     }
 
-    strncpy(p, prolog, prolog_len);
+    strncpy(p, prolog, (unsigned)prolog_len);
 
     s = p + prolog_len;
     for (escapes = 0; ; escapes++) {
@@ -2693,9 +2693,9 @@ tcl_vfprintf(FILE *f, const char *fmt, va_list args)
         char *src, *dst;
 
         if (p != buf) {
-            p = Tcl_Realloc(p, new_size);
-        } else if (new_size > sizeof(buf)) {
-            p = Tcl_Alloc(new_size);
+            p = Tcl_Realloc(p, (unsigned)new_size);
+        } else if (new_size > (int) sizeof(buf)) {
+            p = Tcl_Alloc((unsigned)new_size);
             strcpy(p, buf);
         }
 
