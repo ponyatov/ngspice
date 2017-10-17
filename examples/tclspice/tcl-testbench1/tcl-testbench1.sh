@@ -2,6 +2,8 @@
 # -*- mode: tcl -*- \
         exec wish -f "$0" ${1+"$@"}
 
+# (compile "valgrind --track-origins=yes --leak-check=full --show-reachable=yes wish -f tcl-testbench1.sh" t)
+# (compile "./tcl-testbench1.sh")
 # old name:  analyse-20070504-0.tcl
 package require BLT
 load ../../../src/.libs/libspice.so
@@ -60,3 +62,4 @@ pack .checkvd
 .checkvd element create line1 -xdata Vcmd -ydata check
 
 
+exit 0

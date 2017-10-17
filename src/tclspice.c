@@ -772,6 +772,7 @@ _run(int argc, char **argv)
         strcat(buf, argv[i]);
         strcat(buf, " ");
     }
+    fprintf(stderr, "sunshine: |%s|\n", buf);
 
 #ifdef THREADS
     /* run in the background */
@@ -828,10 +829,13 @@ _tcl_dispatch TCL_CMDPROCARGS(clientData, interp, argc, argv)
     int i;
     NG_IGNORE(clientData);
     save_interp();
+    fprintf(stderr, "maa>\n");
     /* Looks backwards through the first command and strips the :: part */
     for (i = (int)strlen(argv[0])-1; i > 0; i--)
-        if (argv[0][i] == *":")
+        if (argv[0][i] == *":") /* !! */
             argv[0] += i + 1;
+    for(i=0;i<argc;i++)
+        fprintf(stderr, "maa[%d]: \"%s\"\n", i, argv[i]);
     return _run(argc, (char **)argv);
 }
 
@@ -844,6 +848,9 @@ _spice_dispatch TCL_CMDPROCARGS(clientData, interp, argc, argv)
     save_interp();
     if (argc == 1)
         return TCL_OK;
+    int i;
+    for(i=0;i<argc;i++)
+        fprintf(stderr, "foo: \"%s\"\n", argv[i]);
     return _run(argc-1, (char **)&argv[1]);
 }
 
@@ -2561,6 +2568,7 @@ Spice_Init(Tcl_Interp *interp)
                 Tcl_CreateCommand(interp, buf, _tcl_dispatch, NULL, NULL);
         }
 
+/**/
         Tcl_CreateCommand(interp, TCLSPICE_prefix "spice_header", spice_header, NULL, NULL);
         Tcl_CreateCommand(interp, TCLSPICE_prefix "spice_data", spice_data, NULL, NULL);
         Tcl_CreateCommand(interp, TCLSPICE_prefix "spicetoblt", spicetoblt, NULL, NULL);
