@@ -904,12 +904,12 @@ int Size_Not_Found, error;
               if (DrainResistance > 0.0)
                   here->BSIM3v32drainConductance = 1.0 / DrainResistance;
               else
-                  here->BSIM3v32drainConductance = 1e30;
+                  here->BSIM3v32drainConductance = 0;
 
               if (SourceResistance > 0.0)
                   here->BSIM3v32sourceConductance = 1.0 / SourceResistance;
               else
-                  here->BSIM3v32sourceConductance = 1e30;
+                  here->BSIM3v32sourceConductance = 0;
 
               here->BSIM3v32cgso = pParam->BSIM3v32cgso;
               here->BSIM3v32cgdo = pParam->BSIM3v32cgdo;
