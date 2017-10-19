@@ -796,16 +796,17 @@ int Size_Not_Found, error;
               here->BSIM3tconst = here->BSIM3u0temp * pParam->BSIM3elm / (model->BSIM3cox
                                     * pParam->BSIM3weffCV * pParam->BSIM3leffCV * T0);
 
-              double drainResistance, sourceResistance;
-
               /* process source/drain series resistance */
               /* ACM model */
+
+              double drainResistance, sourceResistance;
+
               if (model->BSIM3acmMod == 0)
               {
                   drainResistance = model->BSIM3sheetResistance
-                      * here->BSIM3drainSquares;
+                                                  * here->BSIM3drainSquares;
                   sourceResistance = model->BSIM3sheetResistance
-                      * here->BSIM3sourceSquares;
+                                               * here->BSIM3sourceSquares;
               }
               else /* ACM > 0 */
               {

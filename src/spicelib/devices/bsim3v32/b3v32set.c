@@ -993,10 +993,11 @@ BSIM3v32instance **InstArray;
             if (!here->BSIM3v32mGiven)
                 here->BSIM3v32m = 1;
 
-            double DrainResistance, SourceResistance;
-
             /* process source/drain series resistance */
             /* ACM model */
+
+            double DrainResistance, SourceResistance;
+
             if (model->BSIM3v32acmMod == 0)
             {
                 DrainResistance = model->BSIM3v32sheetResistance

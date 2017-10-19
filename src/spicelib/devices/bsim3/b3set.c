@@ -985,10 +985,11 @@ BSIM3instance **InstArray;
             if (!here->BSIM3mGiven)
                 here->BSIM3m = 1;
 
-            double drainResistance, sourceResistance;
-
             /* process source/drain series resistance */
             /* ACM model */
+
+            double drainResistance, sourceResistance;
+
             if (model->BSIM3acmMod == 0)
             {
                 drainResistance = model->BSIM3sheetResistance

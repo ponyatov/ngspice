@@ -38,7 +38,6 @@ struct bsim3v32SizeDependParam *pSizeDependParamKnot, *pLastKnot, *pParam=NULL;
 double tmp, tmp1, tmp2, tmp3, Eg, Eg0, ni, T0, T1, T2, T3, T4, T5, Ldrn, Wdrn;
 double delTemp, Temp, TRatio, Inv_L, Inv_W, Inv_LW, Vtm0, Tnom;
 double Nvtm, SourceSatCurrent, DrainSatCurrent;
-double DrainResistance, SourceResistance;
 int Size_Not_Found, error;
 
     /*  loop through all the BSIM3v32 device models */
@@ -869,6 +868,9 @@ int Size_Not_Found, error;
 
               /* process source/drain series resistance */
               /* ACM model */
+
+              double DrainResistance, SourceResistance;
+
               if (model->BSIM3v32acmMod == 0)
               {
                   DrainResistance = model->BSIM3v32sheetResistance
@@ -904,12 +906,12 @@ int Size_Not_Found, error;
               if (DrainResistance > 0.0)
                   here->BSIM3v32drainConductance = 1.0 / DrainResistance;
               else
-                  here->BSIM3v32drainConductance = 0;
+                  here->BSIM3v32drainConductance = 0.0;
 
               if (SourceResistance > 0.0)
                   here->BSIM3v32sourceConductance = 1.0 / SourceResistance;
               else
-                  here->BSIM3v32sourceConductance = 0;
+                  here->BSIM3v32sourceConductance = 0.0;
 
               here->BSIM3v32cgso = pParam->BSIM3v32cgso;
               here->BSIM3v32cgdo = pParam->BSIM3v32cgdo;
