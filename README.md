@@ -8,6 +8,7 @@ this is [ngspice-27](https://github.com/imr/ngspice/releases/tag/ngspice-27) for
 
 * original [ngspice](https://github.com/imr/ngspice)
 * Richard Crozier's [xfemm](https://sourceforge.net/projects/xfemm/)
+* ngSPICE [manuals](http://ngspice.sourceforge.net/devdocs.html)
 
 ### File tree
 
